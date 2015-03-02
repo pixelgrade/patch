@@ -28,52 +28,33 @@ $gutter: 30px;
 	border-color: rgba(yellow, 0.25); 
 }
 
-.entry-header {
-	background: black;
-	color: white;
-	margin-left: -$gutter;
-	padding: $gutter/2;
-	padding-left: $gutter;
-	text-transform: uppercase;
-
-	.entry-image + & {
-		background: none;
-		color: black;
-		padding-left: 0;
-	}
-
-	a {
-		color: currentColor;
-		text-decoration: none;
-	}
-}
-
-.entry-title {
-	@extend .hyphening; 
-}
+// %image--landscape
 
 .entry-image {
 	display: block;
-	float: left;
-	margin-left: -$gutter;
-	margin-right: $gutter;
-	max-width: 50%;
 
 	img {
 		width: 100%;
 	}
 
-	.col:nth-child(2n) {
-		float: right;
-		margin-left: 0;
-		margin-right: -$gutter;
-		margin-left: $gutter;
+	&--landscape,
+	&--tall,
+	&--portrait	{
+		margin-left: -$gutter;
+		margin-right: $gutter;
 	}
 
-	&--square,
-	&--wide {
-		float: none;
-		max-width: 100%;
+	&--tall,
+	&--portrait {
+		float: left;
+		max-width: 50%;
+
+		.col:nth-child(2n) & {
+			float: right;
+			margin-left: 0;
+			margin-right: -$gutter;
+			margin-left: $gutter;
+		}
 	}
 
 	&--square,
@@ -82,6 +63,44 @@ $gutter: 30px;
 	}
 
 	&--wide {
-		margin: 0 -$gutter;
+		margin: 0 #{-$gutter};
 	}
+}
+
+.entry-header {
+	background: black;
+	color: white;
+	margin-left: -$gutter;
+	margin-right: $gutter;
+	padding: $gutter/2;
+	padding-left: $gutter;
+	text-transform: uppercase;
+
+	.entry-image + & {
+		background: none;
+		color: black;
+		padding: 0;
+		margin-left: 0;
+	}
+
+	.entry-image--square + & {
+		margin: 0 $gutter;
+	}
+
+	a {
+		color: currentColor;
+		text-decoration: none;
+	}
+}
+
+.entry-content {
+	margin-right: $gutter;
+}
+
+.entry-title {
+	@extend .hyphening; 
+}
+
+.entry-footer {
+	display: none;
 }
