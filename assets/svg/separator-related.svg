@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="137px" height="9px" viewBox="0 0 137 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Rectangle-11-path-+-Line-+-Line-2" stroke="#B8B6B7">
+            <path d="M63.7573593,4.49999999 L68.2573591,0 L72.757359,4.49999999 L68.2573591,9 L63.7573593,4.49999999 L63.7573593,4.49999999 Z" id="Rectangle-11-path"></path>
+            <path d="M0,4.5 L64.2600021,4.5" id="Line"></path>
+            <path d="M72,4.5 L136.260002,4.5" id="Line-2"></path>
+        </g>
+    </g>
+</svg>

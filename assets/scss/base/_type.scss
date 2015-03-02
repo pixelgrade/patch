@@ -1,0 +1,336 @@
+// #TYPOGRAPHY
+
+// Headings
+%alpha {
+    font-family: "Playfair Display", serif;
+    font-weight: normal;
+    -webkit-font-smoothing: auto;
+}
+
+// Body Text
+// Meta Data
+%beta, %gamma {
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+}
+
+// Menu
+// Footer
+%delta {
+	font-family: "Open Sans", sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+
+
+
+
+html {
+	font-size: percentage($base-font-size / 16px);
+    line-height: $base-line-height / $base-font-size;
+}
+
+body {
+    @extend %beta;
+//	-ms-text-size-adjust: 100%;
+//	-webkit-text-size-adjust: 100%;
+//	-webkit-font-smoothing: antialiased;
+//	text-rendering: optimizeLegibility;
+	color: $dark;
+}
+
+
+
+
+/* Headings */
+
+h1, %h1 { 
+    @extend %alpha;
+    color: $accent;
+    @extend .italic;
+    font-size: rem(45px);
+    line-height:1.25;
+    margin-top: rhythm(2);
+    margin-bottom: rhythm(1);
+}
+
+h2, %h2 {
+    @extend %alpha;
+	color: $accent;
+	@extend .italic;
+    font-size: rem(30px);
+    line-height: 1.25;
+    margin-top: rhythm(2);
+    margin-bottom: rhythm(1);
+}
+
+h3, %h3 {
+    @extend %alpha;
+    font-size: rem(20px);
+    margin-top: rhythm(2);
+    margin-bottom: rhythm(1);
+}
+
+h4, %h4 {
+    @extend %gamma;
+    color: $accent;
+    @extend .caps;
+    font-style: normal;
+    font-size: rem(11px);
+    margin-top: rhythm(2);
+    margin-bottom: rhythm(1);
+}
+
+
+
+
+
+/* Paragraphs */
+
+p {
+	margin-top: 0;
+	// font-size: 1rem;
+
+    @if $editor-style {
+    	margin-bottom: rhythm(1.5);
+    } @else {
+    	margin-bottom: rhythm(1);
+    }
+}
+
+
+
+
+
+/* Links */
+
+// Smarter Links Underlines
+
+%smarter-links-underlines {
+	// http://www.acusti.ca/blog/2014/11/28/towards-a-more-perfect-link-underline/
+	
+	text-decoration: none;
+	
+    // Underline via gradient background
+    background-image: linear-gradient(rgba($black, 0.25) 0%, $black 100%);
+    background-repeat: repeat-x; 
+    background-size: 1px 1px;
+    background-position: 0 95%;
+
+    // Tweak position + thickness for high res (1.75x and up) displays
+    @media (-webkit-min-device-pixel-ratio: 1.75), (min-resolution: 168dpi) {
+      background-image: linear-gradient(rgba($black, 0.25) 0%, $black 100%);
+      background-position: 0 93%;
+    }
+
+    // Clear descendors from underline
+    text-shadow: 3px 0 white, 2px 0 white, 1px 0 white, -1px 0 white, -2px 0 white, -3px 0 white;
+    
+    &:hover {
+      background-image: linear-gradient(to bottom, $accent 0%, $accent 100%);
+    }
+}
+
+a {
+	text-decoration: none;
+	color: $black;
+	font-weight: 400;
+	
+	transition: all 0.15s;
+
+	h1 &, .site-title &, h2 &, h3 & {
+		color: $accent; 
+	}
+
+
+	&:hover {
+		color: $accent;
+	}
+
+	 @if $editor-style { 
+	 	.mce-content-body & {
+			@extend %smarter-links-underlines;
+		}	
+	 }
+    	@else { 
+			.single .entry-content &, .page .entry-content & {
+				@extend %smarter-links-underlines;
+
+				&[href~="jpg"], &[href~="jpeg"], &[href~="gif"], &[href~="png"] {
+					background: none;
+					text-shadow: none;
+				}
+			}
+    	}
+
+	.edit-link & {
+		margin: 0 $u/4;
+	}
+}
+
+
+
+
+
+/* Lists */
+
+acronym {
+	border-bottom: 1px dotted $gray;
+}
+
+
+
+
+
+/* Blockquotes */
+
+blockquote {
+	@extend %alpha;
+
+	position: relative;
+	
+	max-width: rem(650px);
+	margin: rem(30px) auto;
+	padding: rem(40px) rem(35px);
+	font-size: rem(20px);
+	line-height: 1.6;
+	font-style: italic;
+	-webkit-font-smoothing: antialiased;
+	text-align: center;
+
+	@include query-above($lap) {
+		margin: rem(45px) auto;
+		padding: rem(40px) rem(70px);
+	}
+
+	cite {
+		@extend %beta;
+
+		position: absolute;
+		bottom: -6px;
+		left: 0;
+		z-index: 1;
+
+		width: 100%;
+
+		font-size: rem(12px);
+		font-style: normal;
+		font-weight: 200;
+
+		background-color: white;
+	}
+
+	&:before {
+		content: '';
+		color: white;
+
+		position: absolute;
+		left: 50%;
+		top: 0;
+
+		width: 200px;
+		max-width: 200px;
+		height: 12px;
+		display: block;
+
+		background-image: url('assets/svg/separator-simple-inversed.svg');
+		background-color: $secondary;
+
+		transform: translateX(-50%);
+	}
+
+	&:after {
+		content: "";
+
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+
+		width: 200px;
+		max-width: 200px;
+		height: 2px;
+		display: block;
+
+		background-color: $borders;
+
+		transform: translateX(-50%);
+	}
+}
+
+
+
+
+
+/* Tables */
+
+table {
+	position: relative;
+	z-index: 1;
+	@include rhythm(margin-bottom, 2);
+	width: 100%;
+	border-top: 0;
+
+	table-layout: fixed;
+
+	th {
+		text-align: left;
+	}
+
+	tr {
+		// @todo why not use table--rows?
+		border-bottom: 1px solid $light;
+	}
+
+	th, td {
+		padding: $u/2;
+		vertical-align: middle;
+
+		font: {
+			family: inherit;
+			size: inherit;
+		}
+	}
+}
+
+
+
+
+
+/* Code */
+
+pre {
+	position: relative;
+
+	@include rhythm(padding-left, 3);
+	@include rhythm(padding-right, 3);
+	@include rhythm(padding-top, 2);
+	@include rhythm(padding-bottom, 2);
+	@include rhythm(margin-bottom, 2); 
+
+	border: 1px solid $light;
+
+	@if $editor-style {
+		font-size: inherit;
+		line-height: inherit;
+	}
+
+	@if $editor-style == false{
+		&:before {
+			content: "\f121";
+
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			display: block;
+			padding: 3px;
+
+			font-family: FontAwesome;
+			font-size: 14px;
+
+			color: white;
+			background: $light;
+		}
+	}
+}

@@ -1,0 +1,19 @@
+// -- Main Bar Mega Menu
+// -- Top Bar Mega Menu (on scroll)
+.thumb {
+
+	.entry-meta {
+		@extend .entry-meta--card;
+		font-size: rem(9px);
+	}
+
+	.flag__img img {
+		width: rem(90px);
+		max-width: none;
+	}
+
+	.entry-title {
+		margin-top: 0;
+		font-size: rem(16px);
+	}
+}

@@ -1,0 +1,140 @@
+.site-header {
+    @extend .align-center;
+    margin-bottom: rem(30px);
+}
+
+.site-branding {
+	max-width: 100%;
+    line-height: 1;
+    display: inline-block;
+    margin: rem(90px) auto 0;
+
+    @include query-above($lap) {
+        margin: rem(80px) auto;
+        max-width: 80%;
+    }
+
+    @include query-above($desk) {
+        max-width: 70%;
+    }
+
+    &.logo-image-only:after { 
+        display: none; 
+    }
+}
+
+.site-title {
+    font-size: rem(120px);
+    font-style: normal;
+    margin: 0;
+    // text-transform: uppercase;
+    letter-spacing: 0.05em;
+    max-width: 100%;
+    margin: 0 auto;
+
+    .site-header & {
+        line-height: 0.85;
+    }
+
+    .no-svg & {
+        @include query-below($desk) {
+            font-size: rem(80px);
+        }
+
+        @include query-below($small) {
+            font-size: rem(60px);
+        }
+    }
+
+    @extend %h1;
+
+    .site-logo-link + & {
+        margin-top: rhythm(1);
+    }
+
+    .site-logo-link + & > a:empty {
+        display: block;
+        margin-top: rhythm(-1);
+    }
+
+    span {
+        font-weight: 700;
+    }
+
+    svg {
+        max-width: 100%;
+        display: none;
+
+        @include query-below($lap) {
+            max-height: rem(60px);
+        }
+    }
+}
+
+html.svg .site-title {
+
+    > a {
+        display: block;
+    }
+
+    span {
+        display: none;
+    }
+
+    svg {
+        display: block;
+        margin: 0 auto;
+    }
+
+    text {
+        fill: $accent;
+        font-weight: 700;
+    }
+}
+
+
+.site-header .site-logo,
+.site-title {
+    margin-bottom: rem(10px);
+}
+
+.site-header .site-logo-link[style*="display: none"] + .site-title {
+    margin-top: 0;
+}
+
+.site-description {
+    @extend %gamma;
+    @extend .relative;
+    margin: 0;
+    display: block;
+    word-wrap: break-word;
+    overflow: hidden;
+    font-size: rem(13px);
+    letter-spacing: 0.03em;
+}
+
+.site-description-after {
+    @extend .absolute;
+    content: "";
+    width: 100%;
+    margin: 0 auto;
+    height: 1px;
+    background: $secondary;
+    bottom: 50%;
+    left: 0;
+    right: 0;
+}
+
+.site-description-text {
+    @extend .relative;
+    z-index: 10;
+    max-width: 100%;
+    display: inline-block;
+    margin: 0;
+    padding: 2px 1.47em 2px 1.5em;
+    background: white;
+
+    &:empty {
+        display: none;
+    }
+}

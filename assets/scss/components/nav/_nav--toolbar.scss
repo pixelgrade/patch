@@ -1,0 +1,209 @@
+// ---------- #TOP MENUS
+
+.top-bar {
+	@extend .clearfix;
+	background: black;
+	color: $gray;
+
+	&.fixed {
+		top: 0;
+		left: 0;
+		z-index: 1000;
+		color: $gray; 
+
+		transform: translate(0, -100%);
+		transition: transform .3s ease-in;
+
+		@include admin-bar();
+
+		.site-title {
+			display: inline-block;
+
+			margin: 0;
+			font-size: rem(33px);
+			// -webkit-font-smoothing: antialiased;
+			text-transform: uppercase;
+			white-space: nowrap;
+
+			i {
+				margin-right: rhythm(1);
+			}
+		}
+
+		.h3 {
+			
+		}
+
+		&.visible {
+			transform: none;
+			transition: transform .3s ease-out;
+		}
+
+		.nav-trigger {
+			margin-right: rhythm(2/3);
+			cursor: pointer;
+
+			&:hover {
+				color: white;
+			}
+		}
+		
+		// Hamburger Menu
+		svg {
+			margin-top: 0.55em;
+			color: white;
+		}
+
+		path {
+			fill: currentColor;
+		}
+	}
+
+	//Floating bar
+	.floating-nav & {
+		.site-title, .nav--toolbar > .menu-item > a {
+			color: white;
+		}
+
+		.nav--toolbar > .menu-item > a {
+			font-size: rem(12px);
+			letter-spacing: 0.2em;
+			padding: rem(15px) rem(18px);
+		}
+	}
+	
+	// First Level Hover Color
+	svg,
+	.floating-nav & .nav--toolbar > .menu-item > a, 
+	.floating-nav & .site-title {
+
+		transition: color 0.2s;
+
+		&:hover { 
+			color: $secondary; 
+		}
+	}
+
+	@include query-below($lap) {
+		display: none;
+	}
+}
+
+.svg .top-bar .flag__img {
+	width: 30%;
+
+	svg {
+		margin-top: 0.08em;
+		width: auto !important;
+		margin-left: 0;
+	}
+
+	text {
+		fill: white;
+		stroke-width: 0;
+	}
+}
+
+.nav-trigger {
+	@extend %menu-item;
+}
+
+.nav__item--search {
+	> a:before {
+		content: $fa-var-search;
+	}
+}
+
+.nav--toolbar {
+	@extend %nav--social;
+	display: inline-block;
+
+	@include query-above($lap) {
+		margin-left: rem(-15px);
+		margin-right: rem(-15px);
+	}
+
+	> .menu-item {
+		@extend %menu-item;
+		font-size: rem(11px);
+
+		&:hover > a {
+			color: white;
+		}
+		
+		> a {
+			color: $gray;
+			@extend %delta;
+			padding: rem(15px);
+		}
+	}
+
+	> .menu-item-has-children,
+	> .menu-item--mega {
+		margin-right: rem(3px);
+
+		> a {
+
+			&:after {
+				top: rem(22px);
+				right: 5px;
+			}
+		}
+	}
+
+	& + & {
+		margin-left: rem(15px);
+	}
+
+	// ul {
+	// 	@extend %sub-menu;
+	// 	background: black;
+	// }
+}
+
+.nav--dropdown {
+	@extend %delta;
+	margin-left: rhythm(-4/9);
+
+	.menu-item {
+		@extend %menu-item;
+		font-size: rem(11px);
+
+		> a {
+			color: $gray;
+		}
+
+		&:hover {
+			> a {
+				color: white;
+			}
+		}
+	}
+
+
+	&, .sub-menu {
+		@extend %sub-menu;
+		background: black;
+	}
+
+	.menu-item-has-children {
+
+		> a {
+			@extend %dropdown-arrow;
+
+			&:after {
+				border-width: rem(3px) rem(4px); 
+				border-top-color: transparent;
+				border-left-color: currentColor;
+				top: rem(17px);
+				right: rhythm(4/9);
+			}
+		}
+	}
+}
+
+// this is needed to overwrite .top-bar a
+// maybe find a better solution
+.separator--text.separator--text {
+	color: $secondary;
+}

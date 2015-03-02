@@ -1,0 +1,349 @@
+/*
+ * jQuery FlexSlider v2.2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+
+
+/* Browser Resets
+*********************************/
+//.flex-container a:active,
+//.flexslider a:active,
+//.flex-container a:focus,
+//.flexslider a:focus {
+//	outline: none;
+//}
+
+.slides,
+.flex-control-nav,
+.flex-direction-nav {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+/* Icon Fonts
+*********************************/
+/* Font-face Icons */
+@font-face {
+	font-family: "flexslider-icon";
+	font-style: normal;
+	font-weight: normal;
+	src: url("fonts/flexslider-icon.eot");
+	src: url("fonts/flexslider-icon.eot?#iefix") format("embedded-opentype"),
+	url("fonts/flexslider-icon.woff") format("woff"),
+	url("fonts/flexslider-icon.ttf") format("truetype"),
+	url("fonts/flexslider-icon.svg#flexslider-icon") format("svg");
+}
+
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider {
+	margin: 0;
+	padding: 0;
+}
+
+.flexslider .slides > li {
+	display: none;
+
+	-webkit-backface-visibility: hidden;
+}
+ /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {
+	display: block;
+//	width: 100%;
+}
+
+.flex-pauseplay span {
+	text-transform: capitalize;
+}
+
+
+/* Clearfix for the .slides element */
+.slides:after {
+	clear: both;
+	content: "\0020";
+	display: block;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+
+html[xmlns] .slides {
+	display: block;
+}
+
+* html .slides {
+	height: 1%;
+}
+
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {
+	display: block;
+}
+
+
+/* FlexSlider Default Theme
+*********************************/
+.flexslider {
+	// background: #ffffff;
+	// border: 4px solid #ffffff;
+	// -webkit-border-radius: 4px;
+	// -moz-border-radius: 4px;
+	// border-radius: 4px;
+	// -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+	// -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+	// box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+	// margin: 0 0 60px;
+	position: relative;
+	zoom: 1;
+
+	// -o-border-radius: 4px;
+	// -o-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.flex-viewport {
+	max-height: 2000px;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+.loading .flex-viewport {
+	max-height: 300px;
+}
+
+.flexslider .slides {
+	zoom: 1;
+}
+
+.carousel li {
+	margin-right: 5px;
+}
+
+
+
+/* Direction Nav */
+// .flex-direction-nav {
+// 	*height: 0;
+// }
+
+// .flex-direction-nav a {
+// 	color: rgba(0,0,0,0.8);
+// 	cursor: pointer;
+// 	display: block;
+// 	height: 40px;
+// 	margin: -20px 0 0;
+// 	opacity: 0;
+// 	overflow: hidden;
+// 	position: absolute;
+// 	text-decoration: none;
+// 	text-shadow: 1px 1px 0 rgba(255,255,255,0.3);
+// 	top: 50%;
+// 	-webkit-transition: all 0.3s ease;
+// 	-moz-transition: all 0.3s ease;
+// 	transition: all 0.3s ease; 
+// 	width: 40px;
+// 	z-index: 10;
+// }
+
+// .flex-direction-nav .flex-prev {
+// 	left: -50px;
+// }
+
+// .flex-direction-nav .flex-next {
+// 	right: -50px;
+// 	text-align: right;
+// }
+
+// .flexslider:hover .flex-prev {
+// 	left: 10px; 
+// 	opacity: 0.7;
+// }
+
+// .flexslider:hover .flex-next {
+// 	opacity: 0.7;
+// 	right: 10px;
+// }
+
+// .flexslider:hover .flex-next:hover,
+// .flexslider:hover .flex-prev:hover {
+// 	opacity: 1;
+// }
+
+// .flex-direction-nav .flex-disabled {
+// 	cursor: default; 
+// 	filter: alpha(opacity=0);
+// 	opacity: 0!important;
+// }
+
+// .flex-direction-nav a:before {
+// 	content: "\f001"; 
+// 	display: inline-block;
+// 	font-family: "flexslider-icon";
+// 	font-size: 40px;
+// }
+
+// .flex-direction-nav a.flex-next:before {
+// 	content: "\f002";
+// }
+
+.flex-direction-nav a { 
+	position: absolute;
+	top: 50%;
+
+	span {
+		display: none;
+	}
+
+	.slider-arrow {
+		fill: $secondary;
+	}
+}
+
+.flex-prev {
+	right: 100%;
+	margin-right: rhythm(2);
+
+	.slider-arrow {
+		transform: rotate(180deg);
+	}
+}
+
+.flex-next {
+	left: 100%;
+	margin-left: rhythm(2);
+}
+
+
+/* Pause/Play */
+.flex-pauseplay a {
+	bottom: 5px;
+	color: #000000; 
+	cursor: pointer;
+	display: block;
+	height: 20px;
+	left: 10px;
+	opacity: 0.8;
+	overflow: hidden;
+	position: absolute;
+	width: 20px;
+	z-index: 10;
+}
+
+.flex-pauseplay a:before {
+	content: "\f004"; 
+	display: inline-block;
+	font-family: "flexslider-icon";
+	font-size: 20px;
+}
+
+.flex-pauseplay a:hover {
+	opacity: 1;
+}
+
+.flex-pauseplay a.flex-play:before {
+	content: "\f003";
+}
+
+
+/* Control Nav */
+.flex-control-nav {
+	bottom: -40px;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+}
+
+.flex-control-nav li {
+	display: inline-block;
+	margin: 0 6px;
+	zoom: 1;
+
+	*display: inline;
+}
+
+.flex-control-paging li a {
+	background: #666666;
+	background: rgba(0,0,0,0.5);
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+	-moz-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+	box-shadow: inset 0 0 3px rgba(0,0,0,0.3); 
+	cursor: pointer;
+	display: block;
+	height: 11px;
+	text-indent: -9999px;
+	width: 11px;
+
+	-o-border-radius: 20px;
+	-o-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+}
+
+.flex-control-paging li a:hover {
+	background: #333333;
+	background: rgba(0,0,0,0.7);
+}
+
+.flex-control-paging li a.flex-active {
+	background: #000000;
+	background: rgba(0,0,0,0.9);
+	cursor: default;
+}
+
+
+.flex-control-thumbs {
+	margin: 5px 0 0;
+	overflow: hidden;
+	position: static;
+}
+
+.flex-control-thumbs li {
+	float: left;
+	margin: 0;
+	width: 25%;
+}
+
+.flex-control-thumbs img {
+	cursor: pointer;
+	display: block;
+	opacity: 0.7;
+	width: 100%;
+}
+
+.flex-control-thumbs img:hover {
+	opacity: 1;
+}
+
+.flex-control-thumbs .flex-active {
+	cursor: default;
+	opacity: 1;
+}
+
+
+@media screen and (max-width: 860px) {
+
+	.flex-direction-nav .flex-prev {
+		left: 10px;
+		opacity: 1;
+	}
+
+	.flex-direction-nav .flex-next {
+		opacity: 1;
+		right: 10px;
+	}
+
+}

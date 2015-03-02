@@ -1,0 +1,71 @@
+// 1. Fluid images for responsive purposes.
+// 2. Offset `alt` text from surrounding copy.
+ 
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/* Figures and Captions */
+.wp-caption {
+	width: auto;
+	margin-left: 0;
+	margin-right: 0;
+
+	img {
+		display: block;
+	}
+}
+@if $editor-style { 
+.wp-caption-dd {
+	font-size: 12px;
+	padding: 14px 0;
+
+	border-bottom: 2px solid #f2f2f2;
+
+}} @else { 
+.wp-caption-text {
+	@include fs(12px);
+	padding: em(16px) 0;
+
+	border-bottom: 2px solid #f2f2f2;
+
+	.archive__grid & {
+		border-bottom: 0;
+	}
+}}
+
+/* Galleries */
+.gallery {
+	@include rhythm(margin-left, -1);
+	@include rhythm(margin-top, -1);
+
+	.gallery-item {
+		margin: 0;
+		display: inline-block;
+		vertical-align: top;
+
+		text-align: center;
+		border: 0 solid transparent;
+		@include rhythm(border-top-width, 1);
+		@include rhythm(border-left-width, 1);
+	}
+
+	.gallery-caption {
+		border: 0;
+	}
+}
+
+.gallery-item img {
+	margin: 0 auto;
+}
+
+// Generate gallery columns only in frontend
+// They are already present in backend for editor
+@if $editor-style == false {
+	@for $i from 1 to 10 {
+		.gallery-columns-#{$i} .gallery-item {
+			width: percentage(1/$i);
+		}
+	}
+}

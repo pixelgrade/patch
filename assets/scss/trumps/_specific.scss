@@ -1,0 +1,51 @@
+.intro {
+    margin-bottom: 2.25em;
+    font-size: (21/16) + em;
+    line-height: 1.75;
+
+    @include query-below($lap) {
+        font-size: 1.2em;
+        color: #000000;
+    }
+}
+
+@include query-above(1000px){
+    .twocolumn {
+        column-count: 2;
+        column-gap: 50px;
+    }
+}
+
+.dropcap {
+    @extend %alpha;
+
+    float: left;
+    @include font-size(76px);
+    line-height: 1;
+    margin-top: -0.1em;
+    @include rhythm(margin-bottom, -1, 76px);
+    @include rhythm(margin-right, 1, 76px);
+
+    color: $accent;
+    text-shadow: 2px 2px 0px white, 4px 4px 0px $secondary;
+}
+
+// span.dropcap{ font-weight: bold; }
+
+.highlight{
+    position: relative;
+    padding: 0 8px;
+    margin: 0 4px;
+
+    &:before{
+        content: "";
+
+        position: absolute;
+        z-index: -1;
+
+        top: -4px; left: 0;
+        bottom: -4px; right: 0;
+
+        background: rgba($secondary, 0.4);
+    }
+}

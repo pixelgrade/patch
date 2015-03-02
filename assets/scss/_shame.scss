@@ -1,0 +1,129 @@
+// @todo no more shame
+
+body {
+	background-color: white;
+}
+
+#page {
+	overflow: hidden;
+} 
+
+.content {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: em(1358px);
+
+	padding: 0 rem($gutter);
+	@include query-above($small) 		{ padding: 0 rem($gutter-desk); }
+
+	.archive-layout--column & {
+		max-width: em(1160px);
+	}
+}
+
+.site-header {
+	@extend .content;
+}
+
+.site-content {
+	@extend .clearfix;
+	@extend .content;
+
+	@include rhythm(margin-bottom, 3);
+
+	@include query-above($lap) {
+		@include rhythm(margin-bottom, 10);
+	}
+}
+
+hr {
+	margin: $base-spacing-unit 0;
+}
+
+.site-main {
+	transition: padding-bottom .3s .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+	@include query-below($desk) {
+		margin-bottom: rem(60px);
+	}
+}
+
+// @todo animations
+
+.top-bar,
+.site-title, 
+.nav--main > li,
+.flexslider .entry-meta,
+.flexslider img,
+.flexslider .entry-content,
+.flexslider .entry-title,
+.archive__grid > .grid__item,
+.sidebar--main,
+.site-main--single .entry-meta,
+.site-main--single .intro--paragraph,
+.site-main--single .entry-title,
+.site-main--single .entry-content,
+.site-main--single .entry-footer,
+.post-navigation,
+.comments-area,
+.site-footer {
+	opacity: 0;
+}
+
+.top-bar {
+	transform: translateZ(0);
+}
+
+.flexslider .entry-thumbnail {
+	display: block;
+	position: relative;
+}
+
+.flexslider .entry-thumbnail img {
+	display: block;
+}
+
+.flexslider .entry-thumbnail-border {
+	position: absolute;
+	top: 0; left: 0;
+	border: 20px solid white;
+	width: 100%;
+	height: 100%;
+}
+
+.flexslider img {
+	// box-shadow: white 0 0 0 20px inset;
+}
+
+.site-description {
+	color: white;
+}
+
+.site-description-after {
+	width: 0;
+}
+
+.nav--main {
+	border-top-color: transparent;
+}
+
+.flexslider .divider {
+	opacity: 0;
+	text-align: center;
+
+	svg {
+		display: inline-block;
+	}
+}
+
+// override default link hover
+.single .entry-content .tiled-gallery a:hover {
+	background: none;
+}
+
+//some space for the post-navigation in attachment pages
+.post-navigation {
+	.meta-nav {
+		margin-right: em(5px);
+	}
+}
