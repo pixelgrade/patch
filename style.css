@@ -157,6 +157,9 @@ img { max-width: 100%; height: auto; }
 
 /** 3.3 - Forms */
 /** 4.0 - Helpers */
+/* Clearfix */
+.clearfix:after, .grid:after { content: ""; display: table; clear: both; }
+
 /** 4.1 - Theme specific classes
 */
 /** 4.2 - Alignments
@@ -165,7 +168,7 @@ img { max-width: 100%; height: auto; }
 /** 14.0 - Overwrites */
 .grid { border-right: 30px solid transparent; }
 
-.grid__item { width: 25%; border-left: 30px solid transparent; }
+.grid__item { width: 25%; float: left; border-left: 30px solid transparent; }
 
 .grid, .grid__item { border-color: rgba(255, 255, 0, 0.25); }
 

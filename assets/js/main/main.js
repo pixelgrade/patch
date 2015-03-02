@@ -1,58 +1,58 @@
-/* ====== ON DOCUMENT READY ====== */
+// /* ====== ON DOCUMENT READY ====== */
 
-$(document).ready(function() {
-  init();
-});
+// $(document).ready(function() {
+//   init();
+// });
 
-function init() {
-  browserSize();
-  platformDetect();
-}
+// function init() {
+//   browserSize();
+//   platformDetect(); 
+// }
 
-/* ====== ON WINDOW LOAD ====== */
+// /* ====== ON WINDOW LOAD ====== */
 
-$window.load(function() {
-  browserSize();
-  navigation.init();
-  fixedSidebars.update();
-  svgLogo.init();
-  animator.animate();
-  scrollToTop();
-  infinityHandler();
+// $window.load(function() {
+//   browserSize();
+//   navigation.init();
+//   fixedSidebars.update();
+//   svgLogo.init();
+//   animator.animate();
+//   scrollToTop();
+//   infinityHandler();
 
-  if (latestKnownScrollY) $window.trigger('scroll');
-});
+//   if (latestKnownScrollY) $window.trigger('scroll');
+// });
 
-/* ====== ON RESIZE ====== */
+// /* ====== ON RESIZE ====== */
 
-function onResize() {
-  browserSize();
-  masonry.refresh();
-  fixedSidebars.refresh();
-  fixedSidebars.update();
-}
+// function onResize() {
+//   browserSize();
+//   masonry.refresh();
+//   fixedSidebars.refresh();
+//   fixedSidebars.update();
+// }
 
-$window.on('debouncedresize', onResize);
+// $window.on('debouncedresize', onResize);
 
-/* ====== ON SCROLL ====== */
+// /* ====== ON SCROLL ====== */
 
-function onScroll() {
-  latestKnownScrollY = window.scrollY;
-  requestTick();
-}
+// function onScroll() {
+//   latestKnownScrollY = window.scrollY;
+//   requestTick();
+// }
 
-$window.on('scroll', onScroll);
+// $window.on('scroll', onScroll);
 
-function requestTick() {
-  if (!ticking) {
-    requestAnimationFrame(update);
-  }
-  ticking = true;
-}
+// function requestTick() {
+//   if (!ticking) {
+//     requestAnimationFrame(update);
+//   }
+//   ticking = true;
+// }
 
-function update() {
-  fixedSidebars.update();
-  navigation.toggleTopBar();
-  svgLogo.update();
-  ticking = false;
-}
+// function update() {
+//   fixedSidebars.update();
+//   navigation.toggleTopBar();
+//   svgLogo.update();
+//   ticking = false;
+// }

@@ -1,15 +1,54 @@
 $gutter: 30px;
 
 .grid {
+	@extend .clearfix;
 	border-right: $gutter solid transparent;
 }
 
 .grid__item {
 	width: 25%;
+	float: left;
 	border-left: $gutter solid transparent;
 }
 
 .grid,
 .grid__item {
-	border-color: rgba(yellow, 0.25);
+	border-color: rgba(yellow, 0.25); 
+}
+
+.entry-image {
+	float: left;
+	margin-left: -$gutter;
+
+	.col:nth-child(2n) {
+		float: right;
+		margin-left: 0;
+		margin-right: -$gutter;
+	}
+
+	&--square,
+	&--wide {
+		float: none;
+	}
+
+	&--square,
+	&--square ~ * {
+		margin: 0 $gutter;
+	}
+
+	&--wide {
+		margin: 0 -$gutter;
+	}
+}
+
+.entry-title {
+	background: black;
+	color: white;
+	margin-left: -$gutter;
+	padding-left: $gutter;
+
+	.entry-image + & {
+		background: none;
+		color: black;
+	}
 }
