@@ -14,7 +14,6 @@ function init() {
 $window.load(function() {
   browserSize();
   navigation.init();
-  slider.init();
   fixedSidebars.update();
   svgLogo.init();
   animator.animate();

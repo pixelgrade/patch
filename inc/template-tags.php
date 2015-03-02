@@ -20,15 +20,15 @@ function the_posts_navigation() {
 	}
 	?>
 	<nav class="navigation posts-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php _e( 'Posts navigation', 'fifteen' ); ?></h2>
+		<h2 class="screen-reader-text"><?php _e( 'Posts navigation', 'fifteen_txtd' ); ?></h2>
 		<div class="nav-links">
 
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( 'Older posts', 'fifteen' ) ); ?></div>
+			<div class="nav-previous"><?php next_posts_link( __( 'Older posts', 'fifteen_txtd' ) ); ?></div>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts', 'fifteen' ) ); ?></div>
+			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts', 'fifteen_txtd' ) ); ?></div>
 			<?php endif; ?>
 
 		</div><!-- .nav-links -->
@@ -53,7 +53,7 @@ function the_post_navigation() {
 	}
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php _e( 'Post navigation', 'fifteen' ); ?></h2>
+		<h2 class="screen-reader-text"><?php _e( 'Post navigation', 'fifteen_txtd' ); ?></h2>
 		<div class="nav-links">
 			<?php
 				previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
@@ -83,12 +83,12 @@ function fifteen_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		_x( 'Posted on %s', 'post date', 'fifteen' ),
+		_x( 'Posted on %s', 'post date', 'fifteen_txtd' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
-		_x( 'by %s', 'post author', 'fifteen' ),
+		_x( 'by %s', 'post author', 'fifteen_txtd' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -105,25 +105,25 @@ function fifteen_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' == get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( __( ', ', 'fifteen' ) );
+		$categories_list = get_the_category_list( __( ', ', 'fifteen_txtd' ) );
 		if ( $categories_list && fifteen_categorized_blog() ) {
-			printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'fifteen' ) . '</span>', $categories_list );
+			printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'fifteen_txtd' ) . '</span>', $categories_list );
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', __( ', ', 'fifteen' ) );
+		$tags_list = get_the_tag_list( '', __( ', ', 'fifteen_txtd' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'fifteen' ) . '</span>', $tags_list );
+			printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'fifteen_txtd' ) . '</span>', $tags_list );
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
-		comments_popup_link( __( 'Leave a comment', 'fifteen' ), __( '1 Comment', 'fifteen' ), __( '% Comments', 'fifteen' ) );
+		comments_popup_link( __( 'Leave a comment', 'fifteen_txtd' ), __( '1 Comment', 'fifteen_txtd' ), __( '% Comments', 'fifteen_txtd' ) );
 		echo '</span>';
 	}
 
-	edit_post_link( __( 'Edit', 'fifteen' ), '<span class="edit-link">', '</span>' );
+	edit_post_link( __( 'Edit', 'fifteen_txtd' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 
@@ -140,45 +140,45 @@ if ( ! function_exists( 'the_archive_title' ) ) :
  */
 function the_archive_title( $before = '', $after = '' ) {
 	if ( is_category() ) {
-		$title = sprintf( __( 'Category: %s', 'fifteen' ), single_cat_title( '', false ) );
+		$title = sprintf( __( 'Category: %s', 'fifteen_txtd' ), single_cat_title( '', false ) );
 	} elseif ( is_tag() ) {
-		$title = sprintf( __( 'Tag: %s', 'fifteen' ), single_tag_title( '', false ) );
+		$title = sprintf( __( 'Tag: %s', 'fifteen_txtd' ), single_tag_title( '', false ) );
 	} elseif ( is_author() ) {
-		$title = sprintf( __( 'Author: %s', 'fifteen' ), '<span class="vcard">' . get_the_author() . '</span>' );
+		$title = sprintf( __( 'Author: %s', 'fifteen_txtd' ), '<span class="vcard">' . get_the_author() . '</span>' );
 	} elseif ( is_year() ) {
-		$title = sprintf( __( 'Year: %s', 'fifteen' ), get_the_date( _x( 'Y', 'yearly archives date format', 'fifteen' ) ) );
+		$title = sprintf( __( 'Year: %s', 'fifteen_txtd' ), get_the_date( _x( 'Y', 'yearly archives date format', 'fifteen_txtd' ) ) );
 	} elseif ( is_month() ) {
-		$title = sprintf( __( 'Month: %s', 'fifteen' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'fifteen' ) ) );
+		$title = sprintf( __( 'Month: %s', 'fifteen_txtd' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'fifteen_txtd' ) ) );
 	} elseif ( is_day() ) {
-		$title = sprintf( __( 'Day: %s', 'fifteen' ), get_the_date( _x( 'F j, Y', 'daily archives date format', 'fifteen' ) ) );
+		$title = sprintf( __( 'Day: %s', 'fifteen_txtd' ), get_the_date( _x( 'F j, Y', 'daily archives date format', 'fifteen_txtd' ) ) );
 	} elseif ( is_tax( 'post_format' ) ) {
 		if ( is_tax( 'post_format', 'post-format-aside' ) ) {
-			$title = _x( 'Asides', 'post format archive title', 'fifteen' );
+			$title = _x( 'Asides', 'post format archive title', 'fifteen_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-			$title = _x( 'Galleries', 'post format archive title', 'fifteen' );
+			$title = _x( 'Galleries', 'post format archive title', 'fifteen_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-			$title = _x( 'Images', 'post format archive title', 'fifteen' );
+			$title = _x( 'Images', 'post format archive title', 'fifteen_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-			$title = _x( 'Videos', 'post format archive title', 'fifteen' );
+			$title = _x( 'Videos', 'post format archive title', 'fifteen_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-			$title = _x( 'Quotes', 'post format archive title', 'fifteen' );
+			$title = _x( 'Quotes', 'post format archive title', 'fifteen_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-			$title = _x( 'Links', 'post format archive title', 'fifteen' );
+			$title = _x( 'Links', 'post format archive title', 'fifteen_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-			$title = _x( 'Statuses', 'post format archive title', 'fifteen' );
+			$title = _x( 'Statuses', 'post format archive title', 'fifteen_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-			$title = _x( 'Audio', 'post format archive title', 'fifteen' );
+			$title = _x( 'Audio', 'post format archive title', 'fifteen_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-			$title = _x( 'Chats', 'post format archive title', 'fifteen' );
+			$title = _x( 'Chats', 'post format archive title', 'fifteen_txtd' );
 		}
 	} elseif ( is_post_type_archive() ) {
-		$title = sprintf( __( 'Archives: %s', 'fifteen' ), post_type_archive_title( '', false ) );
+		$title = sprintf( __( 'Archives: %s', 'fifteen_txtd' ), post_type_archive_title( '', false ) );
 	} elseif ( is_tax() ) {
 		$tax = get_taxonomy( get_queried_object()->taxonomy );
 		/* translators: 1: Taxonomy singular name, 2: Current taxonomy term */
-		$title = sprintf( __( '%1$s: %2$s', 'fifteen' ), $tax->labels->singular_name, single_term_title( '', false ) );
+		$title = sprintf( __( '%1$s: %2$s', 'fifteen_txtd' ), $tax->labels->singular_name, single_term_title( '', false ) );
 	} else {
-		$title = __( 'Archives', 'fifteen' );
+		$title = __( 'Archives', 'fifteen_txtd' );
 	}
 
 	/**

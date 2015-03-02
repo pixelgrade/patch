@@ -135,7 +135,7 @@ gulp.task('build', ['copy-folder'], function () {
 });
 
 /**
- * Create a zip arcsilk out of the cleaned folder and delete the folder
+ * Create a zip archive out of the cleaned folder and delete the folder
  */
 gulp.task('zip', ['build'], function(){
 

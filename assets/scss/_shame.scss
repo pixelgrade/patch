@@ -53,10 +53,6 @@ hr {
 .top-bar,
 .site-title, 
 .nav--main > li,
-.flexslider .entry-meta,
-.flexslider img,
-.flexslider .entry-content,
-.flexslider .entry-title,
 .archive__grid > .grid__item,
 .sidebar--main,
 .site-main--single .entry-meta,
@@ -74,27 +70,6 @@ hr {
 	transform: translateZ(0);
 }
 
-.flexslider .entry-thumbnail {
-	display: block;
-	position: relative;
-}
-
-.flexslider .entry-thumbnail img {
-	display: block;
-}
-
-.flexslider .entry-thumbnail-border {
-	position: absolute;
-	top: 0; left: 0;
-	border: 20px solid white;
-	width: 100%;
-	height: 100%;
-}
-
-.flexslider img {
-	// box-shadow: white 0 0 0 20px inset;
-}
-
 .site-description {
 	color: white;
 }
@@ -105,15 +80,6 @@ hr {
 
 .nav--main {
 	border-top-color: transparent;
-}
-
-.flexslider .divider {
-	opacity: 0;
-	text-align: center;
-
-	svg {
-		display: inline-block;
-	}
 }
 
 // override default link hover

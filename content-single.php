@@ -17,7 +17,7 @@
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'fifteen' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'fifteen_txtd' ),
 				'after'  => '</div>',
 			) );
 		?>

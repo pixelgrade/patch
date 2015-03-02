@@ -12,6 +12,22 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
+if ( ! function_exists( 'fifteen_content_width' ) ) :
+	/**
+	 * Adjusts content_width value depending on situation.
+	 */
+	function fifteen_content_width() {
+		global $content_width;
+
+		if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+			$content_width = 1062; /* pixels */
+		}
+
+		//for attachments the $content_width is set in image.php
+	}
+endif; //fifteen_content_width
+add_action( 'template_redirect', 'fifteen_content_width' );
+
 if ( ! function_exists( 'fifteen_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -26,9 +42,9 @@ function fifteen_setup() {
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on Fifteen, use a find and replace
-	 * to change 'fifteen' to the name of your theme in all the template files
+	 * to change 'fifteen_txtd' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'fifteen', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'fifteen_txtd', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -46,19 +62,31 @@ function fifteen_setup() {
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
-	//add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails' );
+
+	//used as featured image for posts on archive pages
+	//also for the background image of About Me widget
+	add_image_size( 'fifteen-masonry-image', 450, 9999, false );
+
+	//used for the post thumbnail of posts on archives when displayed in a single column (no masonry)
+	//and for the single post featured image
+	add_image_size( 'fifteen-single-image', 1024, 9999, false );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'fifteen' ),
+		'primary' => __( 'Primary Menu', 'fifteen_txtd' ),
 	) );
 
 	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
+		 * Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+		 */
 	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
 	) );
 
 	/*
@@ -66,8 +94,20 @@ function fifteen_setup() {
 	 * See http://codex.wordpress.org/Post_Formats
 	 */
 	add_theme_support( 'post-formats', array(
-		'aside', 'image', 'video', 'quote', 'link',
+		'aside',
+		'gallery',
+		'image',
+		'audio',
+		'video',
+		'quote',
+		'link',
 	) );
+
+	/*
+	 * Add editor custom style to make it look more like the frontend
+	 * Also enqueue the custom Google Fonts also
+	 */
+	add_editor_style( array( 'editor-style.css', fifteen_fonts_url() ) );
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'fifteen_custom_background_args', array(
@@ -85,7 +125,7 @@ add_action( 'after_setup_theme', 'fifteen_setup' );
  */
 function fifteen_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'fifteen' ),
+		'name'          => __( 'Sidebar', 'fifteen_txtd' ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -100,22 +140,44 @@ add_action( 'widgets_init', 'fifteen_widgets_init' );
  * Enqueue scripts and styles.
  */
 function fifteen_scripts() {
-	wp_enqueue_style( 'fifteen-style', get_stylesheet_uri() );
+	//FontAwesome Stylesheet
+	wp_enqueue_style( 'fifteen-font-awesome-style', get_stylesheet_directory_uri() . '/assets/css/font-awesome.css', array(), '4.3.0' );
 
-	wp_enqueue_script( 'fifteen-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	//Main Stylesheet
+	wp_enqueue_style( 'fifteen-style', get_stylesheet_uri(), array( 'fifteen-font-awesome-style' ) );
 
-	wp_enqueue_script( 'fifteen-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	//Default Fonts
+	wp_enqueue_style( 'fifteen-fonts', fifteen_fonts_url(), array(), null );
+
+	//Enqueue jQuery
+	wp_enqueue_script( 'jquery' );
+
+	//Enqueue Masonry
+	wp_enqueue_script( 'masonry' );
+
+	//Enqueue ImagesLoaded plugin
+	wp_enqueue_script( 'fifteen-imagesloaded', get_stylesheet_directory_uri() . '/assets/js/imagesloaded.js', array(), '3.1.8', true );
+
+	//Enqueue HoverIntent plugin
+	wp_enqueue_script( 'fifteen-hoverintent', get_stylesheet_directory_uri() . '/assets/js/jquery.hoverIntent.js', array( 'jquery' ), '1.8.0', true );
+
+	//Enqueue Velocity.js plugin
+	wp_enqueue_script( 'fifteen-velocity', get_stylesheet_directory_uri() . '/assets/js/velocity.js', array(), '1.1.0', true );
+
+	//Enqueue Fifteen Custom Scripts
+	wp_enqueue_script( 'fifteen-scripts', get_stylesheet_directory_uri() . '/assets/js/main.js', array(
+		'jquery',
+		'masonry',
+		'fifteen-imagesloaded',
+		'fifteen-hoverintent',
+		'fifteen-velocity',
+	), '1.0.0', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'fifteen_scripts' );
-
-/**
- * Implement the Custom Header feature.
- */
-//require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -135,4 +197,4 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * Load Jetpack compatibility file.
  */
-require get_template_directory() . '/inc/jetpack.php';
+require get_template_directory() . '/inc/jetpack.php'; ?>

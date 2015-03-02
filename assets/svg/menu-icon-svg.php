@@ -2,7 +2,7 @@
 /**
  * The Menu icon
  *
- * @package Silk
+ * @package Fifteen
  */ ?><svg width="31px" height="23px" viewBox="0 0 31 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

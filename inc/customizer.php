@@ -13,7 +13,9 @@
 function fifteen_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+
+	// Rename the label to "Display Site Title & Tagline" in order to make this option clearer.
+	$wp_customize->get_control( 'display_header_text' )->label = __( 'Display Site Title &amp; Tagline', 'fifteen_txtd' );
 }
 add_action( 'customize_register', 'fifteen_customize_register' );
 

@@ -49,7 +49,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 
 		// Add a page number if necessary:
 		if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-			$title .= " $sep " . sprintf( __( 'Page %s', 'fifteen' ), max( $paged, $page ) );
+			$title .= " $sep " . sprintf( __( 'Page %s', 'fifteen_txtd' ), max( $paged, $page ) );
 		}
 
 		return $title;
@@ -69,3 +69,237 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	}
 	add_action( 'wp_head', 'fifteen_render_title' );
 endif;
+
+/**
+ * Extend the default WordPress post classes.
+ *
+ * @since Fifteen 1.0
+ *
+ * @param array $classes A list of existing post class values.
+ *
+ * @return array The filtered post class list.
+ */
+function fifteen_post_classes( $classes ) {
+	$post_format = get_post_format();
+
+	if ( is_archive() || is_home() || is_search() ) {
+		$classes[] = 'grid__item';
+	}
+
+	return $classes;
+}
+
+add_filter( 'post_class', 'fifteen_post_classes' );
+
+if ( ! function_exists( 'fifteen_fonts_url' ) ) :
+	/**
+	 * Register Google fonts for Fifteen.
+	 * @since Fifteen 1.0
+	 *
+	 * @return string Google fonts URL for the theme.
+	 */
+	function fifteen_fonts_url() {
+		$fonts_url = '';
+		$fonts     = array();
+		$subsets   = 'latin,latin-ext';
+
+		/* Translators: If there are characters in your language that are not
+		* supported by Libre Baskerville, translate this to 'off'. Do not translate
+		* into your own language.
+		*/
+		if ( 'off' !== _x( 'on', 'Libre Baskerville font: on or off', 'fifteen_txtd' ) ) {
+			$fonts[] = 'Libre Baskerville:400,700,400italic';
+		}
+
+		/* Translators: If there are characters in your language that are not
+		* supported by Playfair Display, translate this to 'off'. Do not translate
+		* into your own language.
+		*/
+		if ( 'off' !== _x( 'on', 'Playfair Display font: on or off', 'fifteen_txtd' ) ) {
+			$fonts[] = 'Playfair Display:400,700,900,400italic,700italic,900italic';
+		}
+
+		/* Translators: If there are characters in your language that are not
+		* supported by Merriweather, translate this to 'off'. Do not translate
+		* into your own language.
+		*/
+		if ( 'off' !== _x( 'on', 'Merriweather font: on or off', 'fifteen_txtd' ) ) {
+			$fonts[] = 'Merriweather:400italic,400,300,700';
+		}
+
+		/* translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language. */
+		$subset = _x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', 'fifteen_txtd' );
+
+		if ( 'cyrillic' == $subset ) {
+			$subsets .= ',cyrillic,cyrillic-ext';
+		} elseif ( 'greek' == $subset ) {
+			$subsets .= ',greek,greek-ext';
+		} elseif ( 'devanagari' == $subset ) {
+			$subsets .= ',devanagari';
+		} elseif ( 'vietnamese' == $subset ) {
+			$subsets .= ',vietnamese';
+		}
+
+		if ( $fonts ) {
+			$fonts_url = add_query_arg( array(
+				'family' => urlencode( implode( '|', $fonts ) ),
+				'subset' => urlencode( $subsets ),
+			), '//fonts.googleapis.com/css' );
+		}
+
+		return $fonts_url;
+	}
+endif;
+
+/**
+ * Sets the authordata global when viewing an author archive.
+ * This provides backwards compatibility with
+ * http://core.trac.wordpress.org/changeset/25574
+ * It removes the need to call the_post() and rewind_posts() in an author
+ * template to print information about the author.
+ * @global WP_Query $wp_query WordPress Query object.
+ * @return void
+ */
+function fifteen_setup_author() {
+	global $wp_query;
+
+	if ( $wp_query->is_author() && isset( $wp_query->post ) ) {
+		$GLOBALS['authordata'] = get_userdata( $wp_query->post->post_author );
+	}
+}
+
+add_action( 'wp', 'fifteen_setup_author' );
+
+if ( ! function_exists( 'fifteen_comment' ) ) :
+	/*
+	 * Individual comment layout
+	 */
+	function fifteen_comment( $comment, $args, $depth ) {
+		static $comment_number;
+
+		if ( ! isset( $comment_number ) ) {
+			$comment_number = $args['per_page'] * ( $args['page'] - 1 ) + 1;
+		} else {
+			$comment_number ++;
+		}
+
+		$GLOBALS['comment'] = $comment; ?>
+	<li <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
+		<article id="comment-<?php comment_ID() ?>" class="comment-article  media">
+			<span class="comment-number"><?php echo $comment_number ?></span>
+			<?php
+			//grab the avatar - by default the Mystery Man
+			$avatar = get_avatar( $comment ); ?>
+
+			<aside class="comment__avatar  media__img"><?php echo $avatar; ?></aside>
+
+			<div class="media__body">
+				<header class="comment__meta comment-author">
+					<?php printf( '<span class="comment__author-name">%s</span>', get_comment_author_link() ) ?>
+					<time class="comment__time" datetime="<?php comment_time( 'c' ); ?>">
+						<a href="<?php echo esc_url( get_comment_link( get_comment_ID() ) ) ?>" class="comment__timestamp"><?php printf( __( 'on %s at %s', 'fifteen_txtd' ), get_comment_date(), get_comment_time() ); ?> </a>
+					</time>
+					<div class="comment__links">
+						<?php
+						//we need some space before Edit
+						edit_comment_link( __( 'Edit', 'fifteen_txtd' ), '  ' );
+
+						comment_reply_link( array_merge( $args, array(
+							'depth'     => $depth,
+							'max_depth' => $args['max_depth'],
+						) ) );
+						?>
+					</div>
+				</header>
+				<!-- .comment-meta -->
+				<?php if ( '0' == $comment->comment_approved ) : ?>
+					<div class="alert info">
+						<p><?php _e( 'Your comment is awaiting moderation.', 'fifteen_txtd' ) ?></p>
+					</div>
+				<?php endif; ?>
+				<section class="comment__content comment">
+					<?php comment_text() ?>
+				</section>
+			</div>
+		</article>
+		<!-- </li> is added by WordPress automatically -->
+	<?php
+	} // don't remove this bracket!
+endif; //fifteen_comment
+
+/**
+ * Filter comment_form_defaults to remove the notes after the comment form textarea.
+ *
+ * @param array $defaults
+ *
+ * @return array
+ */
+function fifteen_comment_form_remove_notes_after( $defaults ) {
+	$defaults['comment_notes_after'] = '';
+
+	return $defaults;
+}
+
+add_filter( 'comment_form_defaults', 'fifteen_comment_form_remove_notes_after' );
+
+/**
+ * Filter wp_link_pages to wrap current page in span.
+ *
+ * @param string $link
+ *
+ * @return string
+ */
+function fifteen_link_pages( $link ) {
+	if ( is_numeric( $link ) ) {
+		return '<span class="current">' . $link . '</span>';
+	}
+
+	return $link;
+}
+
+add_filter( 'wp_link_pages_link', 'fifteen_link_pages' );
+
+/**
+ * Wrap more link
+ */
+function fifteen_read_more_link( $link ) {
+	return '<div class="more-link-wrapper">' . $link . '</div>';
+}
+
+add_filter( 'the_content_more_link', 'fifteen_read_more_link' );
+
+/**
+ * Constrain the excerpt length
+ */
+function fifteen_excerpt_length( $length ) {
+	return 18;
+}
+
+add_filter( 'excerpt_length', 'fifteen_excerpt_length', 999 );
+
+/**
+ * Add "Styles" drop-down
+ */
+add_filter( 'mce_buttons_2', 'fifteen_mce_editor_buttons' );
+function fifteen_mce_editor_buttons( $buttons ) {
+	array_unshift( $buttons, 'styleselect' );
+	return $buttons;
+}
+
+/**
+ * Add styles/classes to the "Styles" drop-down
+ */
+add_filter( 'tiny_mce_before_init', 'fifteen_mce_before_init' );
+function fifteen_mce_before_init( $settings ) {
+
+	$style_formats = array(
+		array( 'title' => __( 'Intro Text', 'fifteen_txtd' ), 'selector' => 'p', 'classes' => 'intro' ),
+		array( 'title' => __( 'Dropcap', 'fifteen_txtd' ), 'inline' => 'span', 'classes' => 'dropcap' ),
+		array( 'title' => __( 'Highlight', 'fifteen_txtd' ), 'inline' => 'span', 'classes' => 'highlight' ),
+		array( 'title' => __( 'Two Columns', 'fifteen_txtd' ), 'selector' => 'p', 'classes' => 'twocolumn', 'wrapper' => true ),
+	);
+
+	$settings['style_formats'] = json_encode( $style_formats );
+
+	return $settings;
+} ?>

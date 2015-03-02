@@ -481,7 +481,6 @@ if (!Date.now) Date.now = function () {
         animate = function () {
 
         var isSingle = $('.site-main--single').length,
-            hasSlider = $('.flexslider').length,
             hasSidebar = $('.sidebar--main').length,
             delay;
 
@@ -489,14 +488,8 @@ if (!Date.now) Date.now = function () {
         setTimeout(animateLogo, 100);
         setTimeout(animateMenu, 200);
 
-        if (hasSlider) {
-          setTimeout(animateSlider, 300);
-          setTimeout(animateMain, 600);
-          delay = 600;
-        } else {
-          setTimeout(animateMain, 300);
-          delay = 600;
-        }
+				setTimeout(animateMain, 300);
+				delay = 600;
 
         if (hasSidebar) {
           setTimeout(animateSidebar, delay + 200);
@@ -576,66 +569,6 @@ if (!Date.now) Date.now = function () {
           duration: 300,
           delay: 100,
           easing: 'easeOutCubic'
-        });
-        },
-        
-        
-        animateSlider = function () {
-
-        var $slider = $('.flexslider'),
-            $container = $slider.find('.flag__body'),
-            $thumbnail = $slider.find('.flag__img img'),
-            $border = $slider.find('.entry-thumbnail-border'),
-            $meta = $container.find('.entry-meta'),
-            $title = $container.find('.entry-title'),
-            $content = $container.find('.entry-content'),
-            $divider = $container.find('.divider.narrow'),
-            $dividerBig = $container.find('.divider.wide');
-
-        $thumbnail.add($meta).velocity({
-          opacity: 1
-        }, {
-          duration: 300,
-          easing: 'easeOutQuad'
-        });
-
-        $border.velocity({
-          borderWidth: 0,
-        }, {
-          duration: 300,
-          easing: 'easeOutQuad'
-        });
-
-        $title.velocity({
-          opacity: 1
-        }, {
-          duration: 400,
-          delay: 100,
-          easing: 'easeOutCubic'
-        });
-
-        $content.velocity({
-          opacity: 1
-        }, {
-          duration: 400,
-          delay: 200,
-          easing: 'easeOutCubic'
-        });
-
-        setTimeout(function () {
-          animateLargeDivider($dividerBig);
-        }, 300);
-
-        setTimeout(function () {
-          animateSmallDivider($divider);
-        }, 600);
-
-        $slider.velocity({
-          borderBottomColor: '#e6e6e6'
-        }, {
-          duration: 300,
-          easing: 'easeOutCubic',
-          delay: 200
         });
         },
         
@@ -1681,54 +1614,6 @@ if (!Date.now) Date.now = function () {
       refresh: refresh
     }
 
-  })(); /* ====== Slider Logic ====== */
-
-  var slider = (function () {
-
-    var $sliders = $('.flexslider'),
-        
-        
-        init = function () {
-
-        if (!useSlider()) {
-          initFallback();
-          return;
-        }
-
-        if ($.flexslider !== undefined && $sliders.length) {
-
-          $sliders.flexslider({
-            animation: "fade",
-            slideshow: false,
-            //no autostart slideshow for accessibility purposes
-            controlNav: false,
-            prevText: '<span class="screen-reader-text">' + silkFeaturedSlider.prevText + '</span>',
-            nextText: '<span class="screen-reader-text">' + silkFeaturedSlider.nextText + '</span>',
-            start: function () {
-              var $arrow = $('.svg-templates .slider-arrow');
-              $arrow.clone().appendTo('.flex-direction-nav .flex-prev');
-              $arrow.clone().appendTo('.flex-direction-nav .flex-next');
-            }
-          });
-        }
-        },
-        
-        
-        initFallback = function () {
-        $sliders.closest('.featured-content').insertAfter('#masthead').addClass('featured-content--scroll');
-        },
-        
-        
-        useSlider = function () {
-        // return !(touch && windowWidth < 800);
-        // return !(windowWidth < 800);
-        return !$.support.touch;
-        };
-
-    return {
-      init: init
-    }
-
   })();
   window.svgLogo = (function () {
 
@@ -1892,7 +1777,6 @@ if (!Date.now) Date.now = function () {
   $window.load(function () {
     browserSize();
     navigation.init();
-    slider.init();
     fixedSidebars.update();
     svgLogo.init();
     animator.animate();
