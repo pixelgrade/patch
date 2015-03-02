@@ -1,18 +1,19 @@
 // /* ====== ON DOCUMENT READY ====== */
 
-// $(document).ready(function() {
-//   init();
-// });
+$(document).ready(function() {
+  init();
+});
 
-// function init() {
-//   browserSize();
-//   platformDetect(); 
-// }
+function init() {
+  browserSize();
+  platformDetect(); 
+}
 
 // /* ====== ON WINDOW LOAD ====== */
 
-// $window.load(function() {
-//   browserSize();
+$window.load(function() {
+  browserSize();
+  masonry.init();
 //   navigation.init();
 //   fixedSidebars.update();
 //   svgLogo.init();
@@ -21,7 +22,7 @@
 //   infinityHandler();
 
 //   if (latestKnownScrollY) $window.trigger('scroll');
-// });
+});
 
 // /* ====== ON RESIZE ====== */
 

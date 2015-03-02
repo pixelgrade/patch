@@ -380,9 +380,9 @@ if ( ! function_exists( 'fifteen_get_post_title_class' ) ) :
 		if ( empty( $post ) )
 			return $classes;
 
-		$classes[] = 'entry-title';
+		$classes[] = 'entry-header';
 
-		// .entry-title--[short|medium|long] depending on the title length
+		// .entry-header--[short|medium|long] depending on the title length
 		// 0-29 chars = short
 		// 30-59 = medium
 		// 60+ = long
@@ -390,11 +390,11 @@ if ( ! function_exists( 'fifteen_get_post_title_class' ) ) :
 		$title_length = mb_strlen( get_the_title( $post ) );
 
 		if ( $title_length < 30 ) {
-			$classes[] = 'entry-title--short';
+			$classes[] = 'entry-header--short';
 		} elseif ( $title_length < 60 ) {
-			$classes[] = 'entry-title--medium';
+			$classes[] = 'entry-header--medium';
 		} else {
-			$classes[] = 'entry-title--long';
+			$classes[] = 'entry-header--long';
 		}
 
 		if ( !empty($class) ) {
@@ -447,7 +447,7 @@ if ( ! function_exists( 'fifteen_get_post_excerpt_class' ) ) :
 		if ( empty( $post ) )
 			return $classes;
 
-		$classes[] = 'entry-excerpt';
+		$classes[] = 'entry-content';
 
 		// .entry-title--[short|medium|long] depending on the title length
 		// 0-99 chars = short
@@ -457,11 +457,11 @@ if ( ! function_exists( 'fifteen_get_post_excerpt_class' ) ) :
 		$excerpt_length = mb_strlen( fifteen_get_post_excerpt( $post ) );
 
 		if ( $excerpt_length < 99 ) {
-			$classes[] = 'entry-excerpt--short';
+			$classes[] = 'entry-content--short';
 		} elseif ( $excerpt_length < 199 ) {
-			$classes[] = 'entry-excerpt--medium';
+			$classes[] = 'entry-content--medium';
 		} else {
-			$classes[] = 'entry-excerpt--long';
+			$classes[] = 'entry-content--long';
 		}
 
 		if ( !empty($class) ) {

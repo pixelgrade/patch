@@ -12,8 +12,8 @@
 		</a>
 	<?php endif; ?>
 
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h1 class="%s"><a href="%s" rel="bookmark">', join( ' ', fifteen_get_post_title_class() ), esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+	<header <?php fifteen_post_title_class(); ?>>
+		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 	</header><!-- .entry-header -->
 
 	<div <?php fifteen_post_excerpt_class(); ?>>

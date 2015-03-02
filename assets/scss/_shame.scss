@@ -1,14 +1,26 @@
 $gutter: 30px;
 
+.hyphening {
+	-ms-word-break: break-all;
+		word-break: break-all;
+		word-break: break-word;
+
+	-webkit-hyphens: auto;
+	   -moz-hyphens: auto;
+	        hyphens: auto;
+}
+
 .grid {
 	@extend .clearfix;
 	border-right: $gutter solid transparent;
+	margin: 0 96px;
 }
 
 .grid__item {
 	width: 25%;
 	float: left;
 	border-left: $gutter solid transparent;
+	margin-bottom: $gutter;
 }
 
 .grid,
@@ -16,19 +28,52 @@ $gutter: 30px;
 	border-color: rgba(yellow, 0.25); 
 }
 
+.entry-header {
+	background: black;
+	color: white;
+	margin-left: -$gutter;
+	padding: $gutter/2;
+	padding-left: $gutter;
+	text-transform: uppercase;
+
+	.entry-image + & {
+		background: none;
+		color: black;
+		padding-left: 0;
+	}
+
+	a {
+		color: currentColor;
+		text-decoration: none;
+	}
+}
+
+.entry-title {
+	@extend .hyphening; 
+}
+
 .entry-image {
+	display: block;
 	float: left;
 	margin-left: -$gutter;
+	margin-right: $gutter;
+	max-width: 50%;
+
+	img {
+		width: 100%;
+	}
 
 	.col:nth-child(2n) {
 		float: right;
 		margin-left: 0;
 		margin-right: -$gutter;
+		margin-left: $gutter;
 	}
 
 	&--square,
 	&--wide {
 		float: none;
+		max-width: 100%;
 	}
 
 	&--square,
@@ -38,17 +83,5 @@ $gutter: 30px;
 
 	&--wide {
 		margin: 0 -$gutter;
-	}
-}
-
-.entry-title {
-	background: black;
-	color: white;
-	margin-left: -$gutter;
-	padding-left: $gutter;
-
-	.entry-image + & {
-		background: none;
-		color: black;
 	}
 }

@@ -2,13 +2,13 @@
 
 var masonry = (function() {
 
-	var $container 		= $('.archive__grid'),
-		$sidebar		= $('.sidebar--main'),
+	var $container 		= $('.grid'),
+		// $sidebar		= $('.sidebar--main'),
 		$blocks			= $container.children().addClass('post--animated  post--loaded'),
 		initialized		= false,
 		containerTop,
 		containerBottom,
-		sidebarTop,
+		// sidebarTop,
 
 	init = function() {
 
@@ -17,21 +17,10 @@ var masonry = (function() {
 			containerBottom = containerTop + $container.outerHeight();
 		}
 
-		if ($sidebar.length) {
-			sidebarTop = $sidebar.offset().top;
-		}
-
 		$container.masonry({
 			itemSelector: '.grid__item',
 			transitionDuration: 0
 		});
-
-		if (sidebarMasonry()) {
-			$sidebar.masonry({
-				itemSelector: '.grid__item',
-				transitionDuration: 0
-			});
-		}
 
 		bindEvents();
 		showBlocks($blocks);
@@ -39,21 +28,8 @@ var masonry = (function() {
 		refresh();
 	},
 
-	sidebarMasonry = function() {
-		return false;
-		// return $sidebar.length && sidebarTop >= containerBottom;
-	},
-
 	bindEvents = function() {
 		$body.on('post-load', onLoad);
-
-		$container.masonry('on', 'layoutComplete', function() {
-			setTimeout(function() {
-				browserSize();
-				fixedSidebars.refresh();
-				fixedSidebars.update();
-			}, 350);
-		});
 	},
 
 	refresh = function() {
@@ -63,27 +39,24 @@ var masonry = (function() {
 		}
 		
 		$container.masonry('layout');
-		if (sidebarMasonry()) {
-			$sidebar.masonry('layout');
-		}
 	},
 
 	showBlocks = function($blocks) {
-		$blocks.each(function(i, obj) {
-			var $post = $(obj);
-			animator.animatePost($post, i * 100);
-		});
-		if ( ! $.support.touch ) {
-			$blocks.addHoverAnimation();
-		}
+		// $blocks.each(function(i, obj) {
+		// 	var $post = $(obj);
+		// 	animator.animatePost($post, i * 100);
+		// });
+		// if ( ! $.support.touch ) {
+		// 	$blocks.addHoverAnimation();
+		// }
 	},
 
 	onLoad = function() {
-		var $newBlocks = $container.children().not('.post--loaded').addClass('post--loaded');
-		$newBlocks.imagesLoaded(function() {
-			$container.masonry('appended', $newBlocks, true).masonry('layout');
-			showBlocks($newBlocks);
-		});
+		// var $newBlocks = $container.children().not('.post--loaded').addClass('post--loaded');
+		// $newBlocks.imagesLoaded(function() {
+		// 	$container.masonry('appended', $newBlocks, true).masonry('layout');
+		// 	showBlocks($newBlocks);
+		// });
 	};
 
 	return {
