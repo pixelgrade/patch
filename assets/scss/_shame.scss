@@ -70,7 +70,7 @@ $gutter: 30px;
 .entry-header {
 	background: black;
 	color: white;
-	margin-left: -$gutter;
+	margin-left: $gutter;
 	margin-right: $gutter;
 	padding: $gutter/2;
 	padding-left: $gutter;
@@ -80,7 +80,6 @@ $gutter: 30px;
 		background: none;
 		color: black;
 		padding: 0;
-		margin-left: 0;
 	}
 
 	.entry-image--square + & {
@@ -94,7 +93,7 @@ $gutter: 30px;
 }
 
 .entry-content {
-	margin-right: $gutter;
+	margin: 0 $gutter;
 }
 
 .entry-title {

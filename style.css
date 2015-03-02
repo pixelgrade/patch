@@ -182,12 +182,12 @@ img { max-width: 100%; height: auto; }
 .entry-image--square, .entry-image--square ~ * { margin: 0 30px; }
 .entry-image--wide { margin: 0 -30px; }
 
-.entry-header { background: black; color: white; margin-left: -30px; margin-right: 30px; padding: 15px; padding-left: 30px; text-transform: uppercase; }
-.entry-image + .entry-header { background: none; color: black; padding: 0; margin-left: 0; }
+.entry-header { background: black; color: white; margin-left: 30px; margin-right: 30px; padding: 15px; padding-left: 30px; text-transform: uppercase; }
+.entry-image + .entry-header { background: none; color: black; padding: 0; }
 .entry-image--square + .entry-header { margin: 0 30px; }
 .entry-header a { color: currentColor; text-decoration: none; }
 
-.entry-content { margin-right: 30px; }
+.entry-content { margin: 0 30px; }
 
 .entry-footer { display: none; }
 
