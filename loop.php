@@ -5,7 +5,7 @@
  * @package Fifteen
  */
 
-$classes = 'archive__grid  grid'; ?>
+$classes = 'grid'; ?>
 
 <div id="posts" class="<?php echo esc_attr( $classes ); ?>">
 

@@ -488,8 +488,8 @@ if (!Date.now) Date.now = function () {
         setTimeout(animateLogo, 100);
         setTimeout(animateMenu, 200);
 
-				setTimeout(animateMain, 300);
-				delay = 600;
+        setTimeout(animateMain, 300);
+        delay = 600;
 
         if (hasSidebar) {
           setTimeout(animateSidebar, delay + 200);

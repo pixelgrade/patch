@@ -85,7 +85,7 @@
  * 3.0 - Base Styles
  *   3.1 - Typography
  */
-@import "base/type";
+// @import "base/type";
 /**
  *   3.2 - Images
  */
@@ -93,7 +93,7 @@
 /**
  *   3.3 - Forms
  */
-@import "base/forms";
+// @import "base/forms";
 
 
 
@@ -104,18 +104,18 @@
 /**
  * 4.0 - Helpers
  */
-@import "trumps/clearfix";
-@import "trumps/bass";
-@import "trumps/misc";
-@import "trumps/widths";
+// @import "trumps/clearfix";
+// @import "trumps/bass";
+// @import "trumps/misc";
+// @import "trumps/widths";
 /**
  *   4.1 - Theme specific classes
 */
-@import "trumps/specific";
+// @import "trumps/specific";
 /**
  *   4.2 - Alignments
 */
-@import "trumps/wp-align";
+// @import "trumps/wp-align";
 
 
 
@@ -126,52 +126,34 @@
 /**
  * 5.0 - Patterns
  */
-@import "objects/grid";
-@import "objects/nav";
-@import "objects/tables";
-@import "objects/flag";
-@import "objects/media";
-//@import "objects/buttons";
-@import "objects/button";
-@import "objects/search-form";
-@import "objects/separators";
-
-
-
-
-
-// #VENDOR
-// this is higher than normal because components/toolbar depends on it - desperately
-@import "vendor/font-awesome/variables";
+// @import "objects/grid";
+// @import "objects/nav";
+// @import "objects/tables";
+// @import "objects/flag";
+// @import "objects/media";
+// @import "objects/buttons";
+// @import "objects/button";
+// @import "objects/search-form";
+// @import "objects/separators";
 
 
 
 
 
 // #LAYOUT
-@import "layout/page";
-@import "layout/sidebar";
 
 
 
 
 
 // #COMPONENTS
-@import "components/card";
-@import "components/comments";
-@import "components/footer";
-@import "components/header";
-@import "components/navigation";
-@import "components/overlay-search";
-@import "components/thumb";
-@import "components/widgets";
 
 
 
 
 // #PAGES
-@import "pages/archive";
-@import "pages/single";
+// @import "pages/archive";
+// @import "pages/single";
 
 
 
