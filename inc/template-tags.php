@@ -321,7 +321,7 @@ if ( ! function_exists( 'fifteen_get_post_thumbnail_class' ) ) :
 			} elseif ( $image_aspect_ratio > 1.78 ) {
 				//now WIDE ones; higher than 16:9
 				$classes[] = 'entry-image--wide';
-			} elseif ( $image_aspect_ratio < 1.34 ) {
+			} elseif ( $image_aspect_ratio > 1.34 ) {
 				//now LANDSCAPE ones; higher than 4:3
 				$classes[] = 'entry-image--landscape';
 			} else {
