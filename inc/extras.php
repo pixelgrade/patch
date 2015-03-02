@@ -23,6 +23,27 @@ function fifteen_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'fifteen_body_classes' );
 
+/**
+ * Extend the default WordPress post classes.
+ *
+ * @since Fifteen 1.0
+ *
+ * @param array $classes A list of existing post class values.
+ *
+ * @return array The filtered post class list.
+ */
+function fifteen_post_classes( $classes ) {
+	$post_format = get_post_format();
+
+	if ( is_archive() || is_home() || is_search() ) {
+		$classes[] = 'grid__item';
+	}
+
+	return $classes;
+}
+
+add_filter( 'post_class', 'fifteen_post_classes' );
+
 if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	/**
 	 * Filters wp_title to print a neat <title> tag based on what is being viewed.
@@ -69,27 +90,6 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	}
 	add_action( 'wp_head', 'fifteen_render_title' );
 endif;
-
-/**
- * Extend the default WordPress post classes.
- *
- * @since Fifteen 1.0
- *
- * @param array $classes A list of existing post class values.
- *
- * @return array The filtered post class list.
- */
-function fifteen_post_classes( $classes ) {
-	$post_format = get_post_format();
-
-	if ( is_archive() || is_home() || is_search() ) {
-		$classes[] = 'grid__item';
-	}
-
-	return $classes;
-}
-
-add_filter( 'post_class', 'fifteen_post_classes' );
 
 if ( ! function_exists( 'fifteen_fonts_url' ) ) :
 	/**
@@ -302,4 +302,28 @@ function fifteen_mce_before_init( $settings ) {
 	$settings['style_formats'] = json_encode( $style_formats );
 
 	return $settings;
+}
+
+function fifteen_get_post_excerpt( $post_id = null ) {
+	$post = get_post( $post_id );
+
+	$excerpt = '';
+
+	if ( empty( $post ) )
+		return $excerpt;
+
+	// Check the content for the more text
+	$has_more = strpos( $post->post_content, '<!--more' );
+
+	if ( $has_more ) {
+		/* translators: %s: Name of current post */
+		$excerpt = get_the_content( sprintf(
+			__( 'Continue reading %s', 'fifteen_txtd' ),
+			the_title( '<span class="screen-reader-text">', '</span>', false )
+		) );
+	} else {
+		$excerpt = get_the_excerpt();
+	}
+
+	return $excerpt;
 } ?>
