@@ -1,5 +1,28 @@
 $gutter: 30px;
 
+.alpha {
+	font-family: Open Sans, sans-serif;
+}
+
+.beta {
+	font-family: Oswald, sans-serif;
+}
+
+body {
+	@extend .alpha;
+	border: $gutter/2 solid black;
+}
+
+.site-header,
+.site-footer,
+.sidebar,
+.screen-reader-text,
+.widget-area,
+.posts-navigation,
+.entry-footer {
+	display: none;
+}
+
 .hyphening {
 	-ms-word-break: break-all;
 		word-break: break-all;
@@ -13,7 +36,7 @@ $gutter: 30px;
 .grid {
 	@extend .clearfix;
 	border-right: $gutter solid transparent;
-	margin: 0 96px;
+	margin: 96px;
 }
 
 .grid__item {
@@ -23,37 +46,40 @@ $gutter: 30px;
 	margin-bottom: $gutter;
 }
 
-.grid,
-.grid__item {
-	border-color: rgba(yellow, 0.25); 
-}
 
-// %image--landscape
 
 .entry-image {
 	display: block;
 
-	img {
-		width: 100%;
+	+ .entry-header {
+		padding: 0;
+		background: none;
+		color: black;
+		margin-left: $gutter;
 	}
 
-	&--landscape,
-	&--tall,
-	&--portrait	{
+	&--landscape {
 		margin-left: -$gutter;
 		margin-right: $gutter;
 	}
 
 	&--tall,
 	&--portrait {
+		margin-left: -$gutter;
+		margin-right: $gutter/2;
 		float: left;
 		max-width: 50%;
 
-		.col:nth-child(2n) & {
-			float: right;
-			margin-left: 0;
+		& ~ .entry-block {
 			margin-right: -$gutter;
-			margin-left: $gutter;
+			padding-right: $gutter;
+
+			.entry--even & {
+				margin-right: 0;
+				padding-right: 0;				
+				margin-left: -$gutter;
+				padding-left: $gutter;				
+			}
 		}
 	}
 
@@ -65,27 +91,26 @@ $gutter: 30px;
 	&--wide {
 		margin: 0 #{-$gutter};
 	}
+
+	img {
+		display: block;
+		width: 100%;
+	}
+}
+
+.entry-block {
+	margin: 0 $gutter;
 }
 
 .entry-header {
-	background: black;
-	color: white;
+	@extend .entry-block;
 	margin-left: -$gutter;
 	margin-right: $gutter;
 	padding: $gutter/2;
-	padding-left: $gutter;
+	padding-left: 2*$gutter;
+	background: black;
+	color: white;
 	text-transform: uppercase;
-
-	.entry-image + & {
-		background: none;
-		color: black;
-		padding: 0;
-		margin-left: 0;
-	}
-
-	.entry-image--square + & {
-		margin: 0 $gutter;
-	}
 
 	a {
 		color: currentColor;
@@ -94,13 +119,30 @@ $gutter: 30px;
 }
 
 .entry-content {
-	margin-right: $gutter;
+	@extend .entry-block;
 }
 
 .entry-title {
-	@extend .hyphening; 
+	@extend .beta;
+	font-weight: bold;
 }
 
-.entry-footer {
-	display: none;
+.entry--even {
+	position: relative;
+	z-index: 20;
+
+	.entry-image {
+		float: right;
+		margin-left: $gutter/2;
+		margin-right: -$gutter;
+
+		& ~ .entry-block {
+			margin-left: -$gutter;
+			margin-right: $gutter;
+		}
+	}
+
+	.entry-block {
+		text-align: right;
+	}
 }

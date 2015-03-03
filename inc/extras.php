@@ -104,27 +104,19 @@ if ( ! function_exists( 'fifteen_fonts_url' ) ) :
 		$subsets   = 'latin,latin-ext';
 
 		/* Translators: If there are characters in your language that are not
-		* supported by Libre Baskerville, translate this to 'off'. Do not translate
+		* supported by Open Sans, translate this to 'off'. Do not translate
 		* into your own language.
 		*/
-		if ( 'off' !== _x( 'on', 'Libre Baskerville font: on or off', 'fifteen_txtd' ) ) {
-			$fonts[] = 'Libre Baskerville:400,700,400italic';
+		if ( 'off' !== _x( 'on', 'Open Sans font: on or off', 'fifteen_txtd' ) ) {
+			$fonts[] = 'Open+Sans:400,700';
 		}
 
 		/* Translators: If there are characters in your language that are not
-		* supported by Playfair Display, translate this to 'off'. Do not translate
+		* supported by Oswald, translate this to 'off'. Do not translate
 		* into your own language.
 		*/
-		if ( 'off' !== _x( 'on', 'Playfair Display font: on or off', 'fifteen_txtd' ) ) {
-			$fonts[] = 'Playfair Display:400,700,900,400italic,700italic,900italic';
-		}
-
-		/* Translators: If there are characters in your language that are not
-		* supported by Merriweather, translate this to 'off'. Do not translate
-		* into your own language.
-		*/
-		if ( 'off' !== _x( 'on', 'Merriweather font: on or off', 'fifteen_txtd' ) ) {
-			$fonts[] = 'Merriweather:400italic,400,300,700';
+		if ( 'off' !== _x( 'on', 'Oswald font: on or off', 'fifteen_txtd' ) ) {
+			$fonts[] = 'Oswald:400,700';
 		}
 
 		/* translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language. */
