@@ -817,6 +817,7 @@ if (!Date.now) Date.now = function () {
         
         bindEvents = function () {
         $body.on('post-load', onLoad);
+        $container.masonry('on', 'layoutComplete', onLayout);
         },
         
         
@@ -838,6 +839,43 @@ if (!Date.now) Date.now = function () {
         // if ( ! $.support.touch ) {
         // 	$blocks.addHoverAnimation();
         // }
+        },
+        
+        
+        onLayout = function () {
+
+        var values = new Array(),
+            newValues = new Array();
+
+        // get left value for each item in the grid
+        $container.find('.grid__item').each(function (i, obj) {
+          var $obj = $(obj),
+              left = $obj.offset().left;
+          // cache the value for further use and not trigger any more layouts
+          $obj.data('left', left);
+          values.push(left);
+        });
+
+        // get unique values representing columns' left offset
+        values = values.getUnique(values);
+
+        // keep only the even ones so we can identify what columns need new css classes
+        for (var k in values) {
+          if (values.hasOwnProperty(k) && k % 2 == 1) {
+            newValues.push(values[k]);
+          }
+        }
+
+        $container.find('.grid__item').each(function (i, obj) {
+          var $obj = $(obj),
+              left = parseInt($obj.data('left'), 10);
+          if (newValues.indexOf(left) != -1 && $obj.find('.entry-image--portrait, .entry-image--tall').length) {
+            $obj.addClass('entry--even');
+          } else {
+            $obj.removeClass('entry--even');
+          }
+        });
+
         },
         
         
@@ -946,6 +984,19 @@ if (!Date.now) Date.now = function () {
 
     });
 
+  }
+
+  Array.prototype.getUnique = function () {
+    var u = {},
+        a = [];
+    for (var i = 0, l = this.length; i < l; ++i) {
+      if (u.hasOwnProperty(this[i])) {
+        continue;
+      }
+      a.push(this[i]);
+      u[this[i]] = 1;
+    }
+    return a;
   } /* ====== Navigation Logic ====== */
 
   var navigation = (function () {
