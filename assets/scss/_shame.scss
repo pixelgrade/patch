@@ -48,16 +48,10 @@ $gutter: 30px;
 .entry-image {
 	display: block;
 	position: relative;
+	margin-bottom: $gutter/2;
 
 	img {
 		width: 100%;
-	}
-
-	&--landscape,
-	&--tall,
-	&--portrait	{
-		margin-left: -$gutter;
-		margin-right: $gutter;
 	}
 
 	&--tall,
@@ -73,47 +67,65 @@ $gutter: 30px;
 		}
 	}
 
-	&--square,
-	&--square ~ * {
-		margin: 0 $gutter;
+	&--tall,
+	&--portrait	{
+		margin-right: $gutter/2;
 	}
 
-	&--wide {
-		margin: 0 #{-$gutter};
-//
-//		img{
-//			position: relative;
-//			z-index: 2;
-//		}
-//
-//		&:after {
-//			content: "";
-//
-//			position: absolute;
-//			z-index: 1;
-//			top: -5px; bottom: -5px;
-//			left: -5px; right: -5px;
-//
-//			background-color: red;
-//			background-blending: overlay;
-//		}
+	@include query-above($lap) {
+		&--landscape,
+		&--tall,
+		&--portrait	{
+			margin-left: -$gutter;
+			margin-right: $gutter;
+		}
+
+		&--square,
+		&--square ~ * {
+			margin: 0 $gutter;
+		}
+
+		&--wide {
+			margin: 0 #{-$gutter};
+	//
+	//		img{
+	//			position: relative;
+	//			z-index: 2;
+	//		}
+	//
+	//		&:after {
+	//			content: "";
+	//
+	//			position: absolute;
+	//			z-index: 1;
+	//			top: -5px; bottom: -5px;
+	//			left: -5px; right: -5px;
+	//
+	//			background-color: red;
+	//			background-blending: overlay;
+	//		}
+		}
 	}
 }
 
 .entry-header {
 	background: black;
 	color: white;
-	margin-left: -$gutter;
-	margin-right: $gutter;
 	padding: $gutter/2;
-	padding-left: $gutter;
 	text-transform: uppercase;
+	margin-bottom: $gutter/2;
+
+	@include query-above($lap) {
+		margin-left: -$gutter;
+		margin-right: $gutter;
+		padding-left: $gutter;
+	}
 
 	.entry-image + & {
 		background: none;
 		color: black;
 		padding: 0;
-		margin-left: $gutter;
+		margin: 0 $gutter;
 	}
 
 	.entry-image--square + & {
