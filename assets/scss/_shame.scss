@@ -125,7 +125,14 @@ $gutter: 30px;
 		background: none;
 		color: black;
 		padding: 0;
-		margin: 0 $gutter;
+		margin-left: $gutter;
+	}
+
+	@include query-below($lap){
+		.entry-image--landscape + &,
+		.entry-image--wide + & {
+			margin-right: $gutter;
+		}
 	}
 
 	.entry-image--square + & {
