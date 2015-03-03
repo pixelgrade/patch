@@ -57,7 +57,11 @@ $gutter: 30px;
 	&--tall,
 	&--portrait {
 		float: left;
-		max-width: 50%;
+		max-width: 35%;
+
+		@include query-above($small) {
+			max-width: 50%;
+		}
 
 		.col:nth-child(2n) & {
 			float: right;
@@ -72,53 +76,44 @@ $gutter: 30px;
 		margin-right: $gutter/2;
 	}
 
-	@include query-above($lap) {
-		&--landscape,
-		&--tall,
-		&--portrait	{
-			margin-left: -$gutter;
-			margin-right: $gutter;
-		}
+	&--wide {
+		margin: 0 #{-$gutter};
+	}
+
+	&--landscape,
+	&--tall,
+	&--portrait	{
+		margin-left: -$gutter;
+	}
+
+	&--landscape {
+		margin-right: -$gutter;
+	}
+
+
+	@include query-above($small) {
+		margin-right: $gutter;
 
 		&--square,
 		&--square ~ * {
 			margin: 0 $gutter;
 		}
-
-		&--wide {
-			margin: 0 #{-$gutter};
-	//
-	//		img{
-	//			position: relative;
-	//			z-index: 2;
-	//		}
-	//
-	//		&:after {
-	//			content: "";
-	//
-	//			position: absolute;
-	//			z-index: 1;
-	//			top: -5px; bottom: -5px;
-	//			left: -5px; right: -5px;
-	//
-	//			background-color: red;
-	//			background-blending: overlay;
-	//		}
-		}
 	}
 }
 
 .entry-header {
+	padding: $gutter/2;
+	margin-bottom: $gutter/2;
+	margin-left: -$gutter;
+	padding-left: $gutter;
+	margin-right: -$gutter;
+
 	background: black;
 	color: white;
-	padding: $gutter/2;
 	text-transform: uppercase;
-	margin-bottom: $gutter/2;
 
-	@include query-above($lap) {
-		margin-left: -$gutter;
+	@include query-above($small) {
 		margin-right: $gutter;
-		padding-left: $gutter;
 	}
 
 	.entry-image + & {
