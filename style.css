@@ -168,13 +168,17 @@ img { max-width: 100%; height: auto; }
 /** 14.0 - Overwrites */
 .hyphening, .entry-title { -ms-word-break: break-all; word-break: break-all; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; }
 
-.grid { border-right: 30px solid transparent; margin: 0 96px; }
+.grid { border-right: 30px solid transparent; }
+@media only screen and (min-width: 900px) { .grid { margin: 0 96px; } }
 
-.grid__item { width: 25%; float: left; border-left: 30px solid transparent; margin-bottom: 30px; }
+.grid__item { float: left; width: 100%; border-left: 30px solid transparent; margin-bottom: 30px; }
+@media only screen and (min-width: 740px) { .grid__item { width: 50%; } }
+@media only screen and (min-width: 900px) { .grid__item { width: 33.333333%; } }
+@media only screen and (min-width: 1200px) { .grid__item { width: 25%; } }
 
 .grid, .grid__item { border-color: rgba(255, 255, 0, 0.25); }
 
-.entry-image { display: block; }
+.entry-image { display: block; position: relative; }
 .entry-image img { width: 100%; }
 .entry-image--landscape, .entry-image--tall, .entry-image--portrait { margin-left: -30px; margin-right: 30px; }
 .entry-image--tall, .entry-image--portrait { float: left; max-width: 50%; }

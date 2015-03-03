@@ -13,14 +13,29 @@ $gutter: 30px;
 .grid {
 	@extend .clearfix;
 	border-right: $gutter solid transparent;
-	margin: 0 96px;
+
+	@include query-above($lap) {
+		margin: 0 96px;
+	}
 }
 
 .grid__item {
-	width: 25%;
 	float: left;
+	width: 100%;
 	border-left: $gutter solid transparent;
 	margin-bottom: $gutter;
+
+	@include query-above($small) {
+		width: 50%;
+	}
+
+	@include query-above($lap) {
+		width: 33.333333%;
+	}
+
+	@include query-above($desk) {
+		width: 25%;
+	}
 }
 
 .grid,
@@ -32,6 +47,7 @@ $gutter: 30px;
 
 .entry-image {
 	display: block;
+	position: relative;
 
 	img {
 		width: 100%;
@@ -64,6 +80,23 @@ $gutter: 30px;
 
 	&--wide {
 		margin: 0 #{-$gutter};
+//
+//		img{
+//			position: relative;
+//			z-index: 2;
+//		}
+//
+//		&:after {
+//			content: "";
+//
+//			position: absolute;
+//			z-index: 1;
+//			top: -5px; bottom: -5px;
+//			left: -5px; right: -5px;
+//
+//			background-color: red;
+//			background-blending: overlay;
+//		}
 	}
 }
 
