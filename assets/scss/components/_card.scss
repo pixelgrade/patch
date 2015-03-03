@@ -111,7 +111,9 @@
 	.entry-image + & {
 		background: white;
 		color: black;
-		padding: 0;
+		padding-left: 0;
+		padding-top: 0;
+		padding-bottom: 0;
 		margin-left: $gutter;
 	}
 

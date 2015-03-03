@@ -197,7 +197,7 @@ img { max-width: 100%; height: auto; }
 
 .entry-header { margin-left: -24px; margin-right: 24px; padding: 12px; padding-left: 48px; background: black; color: white; text-transform: uppercase; }
 @media only screen and (min-width: 740px) { .entry-header { margin-right: 24px; } }
-.entry-image + .entry-header { background: white; color: black; padding: 0; margin-left: 24px; }
+.entry-image + .entry-header { background: white; color: black; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-left: 24px; }
 @media not screen and (min-width: 900px) { .entry-image--landscape + .entry-header, .entry-image--wide + .entry-header { margin-right: 24px; } }
 .entry-image--square + .entry-header { margin: 0 24px; }
 .entry-header a { color: currentColor; text-decoration: none; }
