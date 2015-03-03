@@ -176,19 +176,25 @@ body { border: 15px solid black; }
 
 .hyphening { -ms-word-break: break-all; word-break: break-all; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; }
 
-.grid { border-right: 30px solid transparent; margin: 96px; }
+.grid { border-right: 30px solid transparent; }
+@media only screen and (min-width: 900px) { .grid { margin: 96px; } }
 
-.grid__item { width: 25%; float: left; border-left: 30px solid transparent; margin-bottom: 30px; }
+.grid__item { float: left; width: 100%; border-left: 30px solid transparent; margin-bottom: 30px; }
+@media only screen and (min-width: 740px) { .grid__item { width: 50%; } }
+@media only screen and (min-width: 900px) { .grid__item { width: 33.333333%; } }
+@media only screen and (min-width: 1200px) { .grid__item { width: 25%; } }
 
-.entry-image { display: block; }
+.entry-image { display: block; position: relative; margin-bottom: 15px; }
 .entry-image + .entry-header { padding: 0; background: none; color: black; margin-left: 30px; }
 .entry-image--landscape { margin-left: -30px; margin-right: 30px; }
 .entry-image--tall, .entry-image--portrait { margin-left: -30px; margin-right: 15px; float: left; max-width: 50%; }
 .entry-image--tall ~ .entry-block, .entry-image--tall ~ .entry-header, .entry-image--tall ~ .entry-content, .entry-image--portrait ~ .entry-block, .entry-image--portrait ~ .entry-header, .entry-image--portrait ~ .entry-content { margin-right: -30px; padding-right: 30px; }
 .entry--even .entry-image--tall ~ .entry-block, .entry--even .entry-image--tall ~ .entry-header, .entry--even .entry-image--tall ~ .entry-content, .entry--even .entry-image--portrait ~ .entry-block, .entry--even .entry-image--portrait ~ .entry-header, .entry--even .entry-image--portrait ~ .entry-content { margin-right: 0; padding-right: 0; margin-left: -30px; padding-left: 30px; }
-.entry-image--square, .entry-image--square ~ * { margin: 0 30px; }
-.entry-image--wide { margin: 0 -30px; }
-.entry-image img { display: block; width: 100%; }
+.entry-image--tall, .entry-image--portrait { margin-right: 15px; }
+@media only screen and (min-width: 900px) { .entry-image--landscape, .entry-image--tall, .entry-image--portrait { margin-left: -30px; margin-right: 30px; }
+  .entry-image--square, .entry-image--square ~ * { margin: 0 30px; }
+  .entry-image--wide { margin: 0 -30px; } }
+.entry-image img { -webkit-filter: saturate(0) contrast(1.2); display: block; width: 100%; }
 
 .entry-block, .entry-header, .entry-content { margin: 0 30px; }
 
