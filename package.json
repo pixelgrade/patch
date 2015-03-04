@@ -1,5 +1,5 @@
 {
-    "name": "fifteen",
+    "name": "patch",
     "devDependencies": {
         "gulp": "*",
         "gulp-sass": "*",

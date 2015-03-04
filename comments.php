@@ -5,7 +5,7 @@
  * The area of the page that contains both current comments
  * and the comment form.
  *
- * @package Fifteen
+ * @package Patch
  */
 
 /*
@@ -25,18 +25,18 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
-				printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'fifteen_txtd' ),
+				printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'patch_txtd' ),
 					number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
 			?>
 		</h2>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'fifteen_txtd' ); ?></h2>
+			<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'patch_txtd' ); ?></h2>
 			<div class="nav-links">
 
-				<div class="nav-previous"><?php previous_comments_link( __( 'Older Comments', 'fifteen_txtd' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments', 'fifteen_txtd' ) ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( __( 'Older Comments', 'patch_txtd' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments', 'patch_txtd' ) ); ?></div>
 
 			</div><!-- .nav-links -->
 		</nav><!-- #comment-nav-above -->
@@ -53,11 +53,11 @@ if ( post_password_required() ) {
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'fifteen_txtd' ); ?></h2>
+			<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'patch_txtd' ); ?></h2>
 			<div class="nav-links">
 
-				<div class="nav-previous"><?php previous_comments_link( __( 'Older Comments', 'fifteen_txtd' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments', 'fifteen_txtd' ) ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( __( 'Older Comments', 'patch_txtd' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments', 'patch_txtd' ) ); ?></div>
 
 			</div><!-- .nav-links -->
 		</nav><!-- #comment-nav-below -->
@@ -69,7 +69,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<p class="no-comments"><?php _e( 'Comments are closed.', 'fifteen_txtd' ); ?></p>
+		<p class="no-comments"><?php _e( 'Comments are closed.', 'patch_txtd' ); ?></p>
 	<?php endif; ?>
 
 	<?php comment_form(); ?>

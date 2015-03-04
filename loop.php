@@ -2,7 +2,7 @@
 /**
  * The template for displaying the archives loop content.
  *
- * @package Fifteen
+ * @package Patch
  */
 
 $classes = 'grid'; ?>

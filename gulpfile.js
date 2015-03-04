@@ -93,7 +93,7 @@ gulp.task('server', ['styles', 'scripts'], function () {
 gulp.task('copy-folder', ['styles', 'scripts'], function () {
 
 	return gulp.src('./')
-		.pipe(exec('rm -Rf ./../build; mkdir -p ./../build/fifteen; rsync -av --exclude="node_modules" ./* ./../build/fifteen/', options));
+		.pipe(exec('rm -Rf ./../build; mkdir -p ./../build/patch; rsync -av --exclude="node_modules" ./* ./../build/patch/', options));
 });
 
 /**
@@ -127,7 +127,7 @@ gulp.task('build', ['copy-folder'], function () {
 	];
 
 	files_to_remove.forEach(function (e, k) {
-		files_to_remove[k] = '../build/fifteen/' + e;
+		files_to_remove[k] = '../build/patch/' + e;
 	});
 
 	return gulp.src(files_to_remove, {read: false})
@@ -140,7 +140,7 @@ gulp.task('build', ['copy-folder'], function () {
 gulp.task('zip', ['build'], function(){
 
 	return gulp.src('./')
-		.pipe(exec('cd ./../; rm -rf fifteen.zip; cd ./build/; zip -r -X ./../fifteen.zip ./fifteen; cd ./../; rm -rf build'));
+		.pipe(exec('cd ./../; rm -rf patch.zip; cd ./build/; zip -r -X ./../patch.zip ./patch; cd ./../; rm -rf build'));
 
 });
 

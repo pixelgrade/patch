@@ -4,7 +4,7 @@
  *
  * Contains the closing of the #content div and all content after
  *
- * @package Fifteen
+ * @package Patch
  */
 ?>
 		</div><!-- .container -->
@@ -12,9 +12,9 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'fifteen_txtd' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'fifteen_txtd' ), 'WordPress' ); ?></a>
+			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'patch_txtd' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'patch_txtd' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( __( '<span class="theme-name">Theme: %1$s</span> by %2$s.', 'fifteen_txtd' ), 'Fifteen', '<a href="http://pixelgrade.com" rel="designer">PixelGrade</a>' ); ?>
+			<?php printf( __( '<span class="theme-name">Theme: %1$s</span> by %2$s.', 'patch_txtd' ), 'Patch', '<a href="http://pixelgrade.com" rel="designer">PixelGrade</a>' ); ?>
 		</div><!-- .site-info
 		--><div class="back-to-top-wrapper">
 			<a href="#top" class="back-to-top-button"><?php get_template_part( 'assets/svg/back-to-top' ); ?></a>

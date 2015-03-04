@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features
  *
- * @package Fifteen
+ * @package Patch
  */
 
 /**
@@ -13,7 +13,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function fifteen_body_classes( $classes ) {
+function patch_body_classes( $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -25,18 +25,18 @@ function fifteen_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'fifteen_body_classes' );
+add_filter( 'body_class', 'patch_body_classes' );
 
 /**
  * Extend the default WordPress post classes.
  *
- * @since Fifteen 1.0
+ * @since Patch 1.0
  *
  * @param array $classes A list of existing post class values.
  *
  * @return array The filtered post class list.
  */
-function fifteen_post_classes( $classes ) {
+function patch_post_classes( $classes ) {
 	$post_format = get_post_format();
 
 	if ( is_archive() || is_home() || is_search() ) {
@@ -46,7 +46,7 @@ function fifteen_post_classes( $classes ) {
 	return $classes;
 }
 
-add_filter( 'post_class', 'fifteen_post_classes' );
+add_filter( 'post_class', 'patch_post_classes' );
 
 if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	/**
@@ -56,7 +56,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	 * @param string $sep Optional separator.
 	 * @return string The filtered title.
 	 */
-	function fifteen_wp_title( $title, $sep ) {
+	function patch_wp_title( $title, $sep ) {
 		if ( is_feed() ) {
 			return $title;
 		}
@@ -74,12 +74,12 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 
 		// Add a page number if necessary:
 		if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-			$title .= " $sep " . sprintf( __( 'Page %s', 'fifteen_txtd' ), max( $paged, $page ) );
+			$title .= " $sep " . sprintf( __( 'Page %s', 'patch_txtd' ), max( $paged, $page ) );
 		}
 
 		return $title;
 	}
-	add_filter( 'wp_title', 'fifteen_wp_title', 10, 2 );
+	add_filter( 'wp_title', 'patch_wp_title', 10, 2 );
 
 	/**
 	 * Title shim for sites older than WordPress 4.1.
@@ -87,22 +87,22 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	 * @link https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
 	 * @todo Remove this function when WordPress 4.3 is released.
 	 */
-	function fifteen_render_title() {
+	function patch_render_title() {
 		?>
 		<title><?php wp_title( '|', true, 'right' ); ?></title>
 		<?php
 	}
-	add_action( 'wp_head', 'fifteen_render_title' );
+	add_action( 'wp_head', 'patch_render_title' );
 endif;
 
-if ( ! function_exists( 'fifteen_fonts_url' ) ) :
+if ( ! function_exists( 'patch_fonts_url' ) ) :
 	/**
-	 * Register Google fonts for Fifteen.
-	 * @since Fifteen 1.0
+	 * Register Google fonts for Patch.
+	 * @since Patch 1.0
 	 *
 	 * @return string Google fonts URL for the theme.
 	 */
-	function fifteen_fonts_url() {
+	function patch_fonts_url() {
 		$fonts_url = '';
 		$fonts     = array();
 		$subsets   = 'latin,latin-ext';
@@ -111,7 +111,7 @@ if ( ! function_exists( 'fifteen_fonts_url' ) ) :
 		* supported by Open Sans, translate this to 'off'. Do not translate
 		* into your own language.
 		*/
-		if ( 'off' !== _x( 'on', 'Open Sans font: on or off', 'fifteen_txtd' ) ) {
+		if ( 'off' !== _x( 'on', 'Open Sans font: on or off', 'patch_txtd' ) ) {
 			$fonts[] = 'Open+Sans:400,700';
 		}
 
@@ -119,12 +119,12 @@ if ( ! function_exists( 'fifteen_fonts_url' ) ) :
 		* supported by Oswald, translate this to 'off'. Do not translate
 		* into your own language.
 		*/
-		if ( 'off' !== _x( 'on', 'Oswald font: on or off', 'fifteen_txtd' ) ) {
+		if ( 'off' !== _x( 'on', 'Oswald font: on or off', 'patch_txtd' ) ) {
 			$fonts[] = 'Oswald:300,400,700';
 		}
 
 		/* translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language. */
-		$subset = _x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', 'fifteen_txtd' );
+		$subset = _x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', 'patch_txtd' );
 
 		if ( 'cyrillic' == $subset ) {
 			$subsets .= ',cyrillic,cyrillic-ext';
@@ -156,7 +156,7 @@ endif;
  * @global WP_Query $wp_query WordPress Query object.
  * @return void
  */
-function fifteen_setup_author() {
+function patch_setup_author() {
 	global $wp_query;
 
 	if ( $wp_query->is_author() && isset( $wp_query->post ) ) {
@@ -164,13 +164,13 @@ function fifteen_setup_author() {
 	}
 }
 
-add_action( 'wp', 'fifteen_setup_author' );
+add_action( 'wp', 'patch_setup_author' );
 
-if ( ! function_exists( 'fifteen_comment' ) ) :
+if ( ! function_exists( 'patch_comment' ) ) :
 	/*
 	 * Individual comment layout
 	 */
-	function fifteen_comment( $comment, $args, $depth ) {
+	function patch_comment( $comment, $args, $depth ) {
 		static $comment_number;
 
 		if ( ! isset( $comment_number ) ) {
@@ -193,12 +193,12 @@ if ( ! function_exists( 'fifteen_comment' ) ) :
 				<header class="comment__meta comment-author">
 					<?php printf( '<span class="comment__author-name">%s</span>', get_comment_author_link() ) ?>
 					<time class="comment__time" datetime="<?php comment_time( 'c' ); ?>">
-						<a href="<?php echo esc_url( get_comment_link( get_comment_ID() ) ) ?>" class="comment__timestamp"><?php printf( __( 'on %s at %s', 'fifteen_txtd' ), get_comment_date(), get_comment_time() ); ?> </a>
+						<a href="<?php echo esc_url( get_comment_link( get_comment_ID() ) ) ?>" class="comment__timestamp"><?php printf( __( 'on %s at %s', 'patch_txtd' ), get_comment_date(), get_comment_time() ); ?> </a>
 					</time>
 					<div class="comment__links">
 						<?php
 						//we need some space before Edit
-						edit_comment_link( __( 'Edit', 'fifteen_txtd' ), '  ' );
+						edit_comment_link( __( 'Edit', 'patch_txtd' ), '  ' );
 
 						comment_reply_link( array_merge( $args, array(
 							'depth'     => $depth,
@@ -210,7 +210,7 @@ if ( ! function_exists( 'fifteen_comment' ) ) :
 				<!-- .comment-meta -->
 				<?php if ( '0' == $comment->comment_approved ) : ?>
 					<div class="alert info">
-						<p><?php _e( 'Your comment is awaiting moderation.', 'fifteen_txtd' ) ?></p>
+						<p><?php _e( 'Your comment is awaiting moderation.', 'patch_txtd' ) ?></p>
 					</div>
 				<?php endif; ?>
 				<section class="comment__content comment">
@@ -221,7 +221,7 @@ if ( ! function_exists( 'fifteen_comment' ) ) :
 		<!-- </li> is added by WordPress automatically -->
 	<?php
 	} // don't remove this bracket!
-endif; //fifteen_comment
+endif; //patch_comment
 
 /**
  * Filter comment_form_defaults to remove the notes after the comment form textarea.
@@ -230,13 +230,13 @@ endif; //fifteen_comment
  *
  * @return array
  */
-function fifteen_comment_form_remove_notes_after( $defaults ) {
+function patch_comment_form_remove_notes_after( $defaults ) {
 	$defaults['comment_notes_after'] = '';
 
 	return $defaults;
 }
 
-add_filter( 'comment_form_defaults', 'fifteen_comment_form_remove_notes_after' );
+add_filter( 'comment_form_defaults', 'patch_comment_form_remove_notes_after' );
 
 /**
  * Filter wp_link_pages to wrap current page in span.
@@ -245,7 +245,7 @@ add_filter( 'comment_form_defaults', 'fifteen_comment_form_remove_notes_after' )
  *
  * @return string
  */
-function fifteen_link_pages( $link ) {
+function patch_link_pages( $link ) {
 	if ( is_numeric( $link ) ) {
 		return '<span class="current">' . $link . '</span>';
 	}
@@ -253,31 +253,31 @@ function fifteen_link_pages( $link ) {
 	return $link;
 }
 
-add_filter( 'wp_link_pages_link', 'fifteen_link_pages' );
+add_filter( 'wp_link_pages_link', 'patch_link_pages' );
 
 /**
  * Wrap more link
  */
-function fifteen_read_more_link( $link ) {
+function patch_read_more_link( $link ) {
 	return '<div class="more-link-wrapper">' . $link . '</div>';
 }
 
-add_filter( 'the_content_more_link', 'fifteen_read_more_link' );
+add_filter( 'the_content_more_link', 'patch_read_more_link' );
 
 /**
  * Constrain the excerpt length
  */
-function fifteen_excerpt_length( $length ) {
+function patch_excerpt_length( $length ) {
 	return 18;
 }
 
-add_filter( 'excerpt_length', 'fifteen_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'patch_excerpt_length', 999 );
 
 /**
  * Add "Styles" drop-down
  */
-add_filter( 'mce_buttons_2', 'fifteen_mce_editor_buttons' );
-function fifteen_mce_editor_buttons( $buttons ) {
+add_filter( 'mce_buttons_2', 'patch_mce_editor_buttons' );
+function patch_mce_editor_buttons( $buttons ) {
 	array_unshift( $buttons, 'styleselect' );
 	return $buttons;
 }
@@ -285,14 +285,14 @@ function fifteen_mce_editor_buttons( $buttons ) {
 /**
  * Add styles/classes to the "Styles" drop-down
  */
-add_filter( 'tiny_mce_before_init', 'fifteen_mce_before_init' );
-function fifteen_mce_before_init( $settings ) {
+add_filter( 'tiny_mce_before_init', 'patch_mce_before_init' );
+function patch_mce_before_init( $settings ) {
 
 	$style_formats = array(
-		array( 'title' => __( 'Intro Text', 'fifteen_txtd' ), 'selector' => 'p', 'classes' => 'intro' ),
-		array( 'title' => __( 'Dropcap', 'fifteen_txtd' ), 'inline' => 'span', 'classes' => 'dropcap' ),
-		array( 'title' => __( 'Highlight', 'fifteen_txtd' ), 'inline' => 'span', 'classes' => 'highlight' ),
-		array( 'title' => __( 'Two Columns', 'fifteen_txtd' ), 'selector' => 'p', 'classes' => 'twocolumn', 'wrapper' => true ),
+		array( 'title' => __( 'Intro Text', 'patch_txtd' ), 'selector' => 'p', 'classes' => 'intro' ),
+		array( 'title' => __( 'Dropcap', 'patch_txtd' ), 'inline' => 'span', 'classes' => 'dropcap' ),
+		array( 'title' => __( 'Highlight', 'patch_txtd' ), 'inline' => 'span', 'classes' => 'highlight' ),
+		array( 'title' => __( 'Two Columns', 'patch_txtd' ), 'selector' => 'p', 'classes' => 'twocolumn', 'wrapper' => true ),
 	);
 
 	$settings['style_formats'] = json_encode( $style_formats );
@@ -300,7 +300,7 @@ function fifteen_mce_before_init( $settings ) {
 	return $settings;
 }
 
-function fifteen_get_post_excerpt( $post_id = null ) {
+function patch_get_post_excerpt( $post_id = null ) {
 	$post = get_post( $post_id );
 
 	$excerpt = '';
@@ -314,7 +314,7 @@ function fifteen_get_post_excerpt( $post_id = null ) {
 	if ( $has_more ) {
 		/* translators: %s: Name of current post */
 		$excerpt = get_the_content( sprintf(
-			__( 'Continue reading %s', 'fifteen_txtd' ),
+			__( 'Continue reading %s', 'patch_txtd' ),
 			the_title( '<span class="screen-reader-text">', '</span>', false )
 		) );
 	} else {

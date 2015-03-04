@@ -1,6 +1,6 @@
 <?php
 /**
- * @package Fifteen
+ * @package Patch
  */
 ?>
 
@@ -15,7 +15,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 		<div class="entry-meta">
-			<?php fifteen_posted_on(); ?>
+			<?php patch_posted_on(); ?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
@@ -23,13 +23,13 @@
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'fifteen_txtd' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'patch_txtd' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php fifteen_entry_footer(); ?>
+		<?php patch_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

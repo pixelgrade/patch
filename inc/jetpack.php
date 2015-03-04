@@ -3,14 +3,14 @@
  * Jetpack Compatibility File
  * See: http://jetpack.me/
  *
- * @package Fifteen
+ * @package Patch
  */
 
 /**
  * Add theme support for Infinite Scroll.
  * See: http://jetpack.me/support/infinite-scroll/
  */
-function fifteen_jetpack_setup() {
+function patch_jetpack_setup() {
 	/**
 	 * Add theme support for Infinite Scroll
 	 * See: http://jetpack.me/support/infinite-scroll/
@@ -30,18 +30,18 @@ function fifteen_jetpack_setup() {
 	 * Second, the 2 classes we want to use for the "Display Header Text" Customizer logic
 	 */
 	add_theme_support( 'site-logo', array(
-		'size'        => 'fifteen-site-logo',
+		'size'        => 'patch-site-logo',
 		'header-text' => array(
 			'site-title',
 			'site-description-text',
 		)
 	) );
 
-	add_image_size( 'fifteen-site-logo', 1000, 500, false );
+	add_image_size( 'patch-site-logo', 1000, 500, false );
 
 	/**
 	 * Add theme support for Jetpack responsive videos
 	 */
 	add_theme_support( 'jetpack-responsive-videos' );
 }
-add_action( 'after_setup_theme', 'fifteen_jetpack_setup' );
+add_action( 'after_setup_theme', 'patch_jetpack_setup' );
