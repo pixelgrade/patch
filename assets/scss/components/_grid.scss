@@ -1,9 +1,10 @@
 .grid {
 	@extend .clearfix;
 	border-right: $gutter solid transparent;
+	max-width: 1830px;
 
 	@include query-above($lap) {
-		margin: 96px;
+		margin: 96px auto;
 	}
 }
 
@@ -11,7 +12,7 @@
 	float: left;
 	width: 100%;
 	border-left: $gutter solid transparent;
-	margin-bottom: $gutter;
+	margin-bottom: 40px;
 
 	@include query-above($small) {
 		width: 50%;
@@ -24,8 +25,13 @@
 	@include query-above($desk) {
 		width: 25%;
 	}
+
+	&:nth-child(2),
+	&:nth-child(4) {
+		margin-top: 50px;
+	}
 }
 
 .grid, .grid__item{
-	border-color: yellow;
+	// border-color: rgba(yellow, 0.25);
 }

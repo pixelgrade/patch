@@ -1,6 +1,5 @@
 .entry-image {
 	display: block;
-	margin-bottom: $gutter/2;
 
 	&--landscape {
 		margin-left: -$gutter;
@@ -84,25 +83,27 @@
 	}
 
 	img {
-		-webkit-filter: saturate(0) contrast(1.2);
 		display: block;
 		width: 100%;
 	}
 }
 
 .entry-block {
-	margin: 0 $gutter;
+	margin-left: $gutter;
+	margin-right: $gutter;
 }
 
 .entry-header {
 	@extend .entry-block;
 	margin-left: -$gutter;
 	margin-right: $gutter;
-	padding: $gutter/2;
+	padding: 20px;
 	padding-left: 2*$gutter;
 	background: black;
 	color: white;
 	text-transform: uppercase;
+
+	border-bottom: $gutter/2 solid white;
 
 	@include query-above($small) {
 		margin-right: $gutter;
@@ -115,9 +116,12 @@
 		padding-top: 0;
 		padding-bottom: 0;
 		margin-left: $gutter;
+
+		margin-top: 20px;
+		border-bottom: 5px solid white;
 	}
 
-	@include query-below($lap){
+	@include query-below($lap) {
 		.entry-image--landscape + &,
 		.entry-image--wide + & {
 			margin-right: $gutter;
@@ -125,7 +129,8 @@
 	}
 
 	.entry-image--square + & {
-		margin: 0 $gutter;
+		margin-left: $gutter;
+		margin-right: $gutter;
 	}
 
 	a {
@@ -141,7 +146,7 @@
 
 .entry-title {
 	@extend .beta;
-	font-weight: bold;
+	font-weight: normal;
 }
 
 .entry--even {

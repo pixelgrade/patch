@@ -21,14 +21,14 @@ $namespace:                 null;
 $base-font-size:            14px;
 $base-line-height:          24px;
 
-$gutter-small:				10px;
-$gutter: 					24px;
-$gutter-lap:				36px;
-$gutter-desk:				54px;
+// $gutter-small:				10px;
+$gutter: 					30px;
+// $gutter-lap:				36px;
+// $gutter-desk:				54px;
 
-$base-spacing-unit:         $base-line-height;
-$base-spacing-unit--small:  $gutter-small;
-$base-spacing-unit--large:  $gutter-lap;
+$base-spacing-unit:         $gutter;
+$base-spacing-unit--small:  $gutter;
+$base-spacing-unit--large:  $gutter;
 
 $gallery-columns: 			true;
 $editor-style:				false;

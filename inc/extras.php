@@ -116,7 +116,7 @@ if ( ! function_exists( 'fifteen_fonts_url' ) ) :
 		* into your own language.
 		*/
 		if ( 'off' !== _x( 'on', 'Oswald font: on or off', 'fifteen_txtd' ) ) {
-			$fonts[] = 'Oswald:400,700';
+			$fonts[] = 'Oswald:300,400,700';
 		}
 
 		/* translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language. */
