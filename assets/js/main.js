@@ -803,6 +803,11 @@ if (!Date.now) Date.now = function () {
           containerBottom = containerTop + $container.outerHeight();
         }
 
+        // var $items = $('.grid__item');
+        // $items.each(function (i, item) {
+        // 	var $item = $(item);
+        // 	$item.outerWidth($item.outerWidth);
+        // });
         $container.masonry({
           itemSelector: '.grid__item',
           transitionDuration: 0

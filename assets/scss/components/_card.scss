@@ -1,51 +1,128 @@
-.entry-image {
-	display: block;
+@mixin spacings($gutter) {
 
-	&--landscape {
-		margin-left: -$gutter;
+	.entry-image {
+
+		&--landscape {
+			margin-left: -$gutter;
+			margin-right: $gutter;
+		}
+
+		&--tall,
+		&--portrait {
+			margin-left: -$gutter;
+
+			& ~ .entry-block {
+				margin-right: -$gutter;
+				padding-right: $gutter;
+
+				.entry--even & {			
+					margin-left: -$gutter;
+					padding-left: $gutter;				
+				}
+			}
+
+			// hard work man
+			~ .entry-header.entry-header {
+				padding-top: $gutter;
+				margin-top: -$gutter;
+			}
+
+			~ .entry-content {
+				padding-bottom: $gutter;
+				// margin-bottom: -$gutter;
+			}
+		}
+
+		&--wide {
+			margin: 0 #{-$gutter};
+		}
+
+
+		&--landscape,
+		&--tall, 
+		&--portrait	{
+			margin-left: -$gutter;
+		}
+
+		&--landscape {
+			margin-right: -$gutter;
+		}
+
+		&--square,
+		&--square ~ * {
+			margin-left: $gutter;
+			margin-right: 2*$gutter;
+		}
+		
+	}
+
+	.entry-block {
+		margin-left: $gutter;
 		margin-right: $gutter;
 	}
 
+	.entry-header {
+		margin-left: -$gutter;
+		margin-right: $gutter;
+		padding-left: 2*$gutter;
+
+		.entry-image--square + & {
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
+
+		.entry-image + & {
+			margin-left: $gutter;
+		}
+	}
+
+	.entry--even .entry-image {
+		margin-left: $gutter/2;
+		margin-right: -$gutter;
+
+		& ~ .entry-block {
+			margin-left: -$gutter;
+			margin-right: $gutter;
+		}
+	}
+}
+
+.entry-card {
+	@extend .clearfix;
+}
+
+// @todo fucking investigate this
+.post {
+	// prevents images overlaping margin
+	&:before { content: ""; display: block; float: left; }
+}
+
+.entry-image {
+	display: block;
+
 	&--tall,
 	&--portrait {
-		margin-left: -$gutter;
-		margin-right: $gutter/2;
 		float: left;
 		max-width: 35%;
 
-		@include query-above($small) {
-			max-width: 50%;
+		& ~ .entry-block {
+
+			.entry--even & { 
+				margin-right: 0;
+				padding-right: 0;		
+			}
 		}
 
-		& ~ .entry-block {
-			margin-right: -$gutter;
-			padding-right: $gutter;
-
-			.entry--even & {
-				margin-right: 0;
-				padding-right: 0;				
-				margin-left: -$gutter;
-				padding-left: $gutter;				
-			}
+		@include query-above($small) {
+			max-width: 50%;
 		}
 	}
 
 	&--tall,
 	&--portrait	{
-		margin-right: $gutter/2;
 		position: relative;
 		z-index: 40;
-
-		// hard work man
-		~ .entry-header.entry-header {
-			padding-top: $gutter;
-			margin-top: -$gutter;
-		}
-
-		~ .entry-content {
-			padding-bottom: $gutter;
-			margin-bottom: -$gutter;
-		}
+		margin-bottom: $gutter/3;
 
 		~ .entry-block {
 			position: relative;
@@ -53,29 +130,9 @@
 		}
 	}
 
-	&--wide {
-		margin: 0 #{-$gutter};
-	}
-
-	&--landscape,
-	&--tall, 
-	&--portrait	{
-		margin-left: -$gutter;
-	}
-
-	&--landscape {
-		margin-right: -$gutter;
-	}
-
 
 	@include query-above($small) {
 		margin-right: $gutter;
-
-		&--square,
-		&--square ~ * {
-			margin-left: $gutter;
-			margin-right: 2*$gutter;
-		}
 
 		&--wide {
 			margin: 0 #{-$gutter};
@@ -88,17 +145,9 @@
 	}
 }
 
-.entry-block {
-	margin-left: $gutter;
-	margin-right: $gutter;
-}
-
 .entry-header {
 	@extend .entry-block;
-	margin-left: -$gutter;
-	margin-right: $gutter;
 	padding: 20px;
-	padding-left: 2*$gutter;
 	background: black;
 	color: white;
 	text-transform: uppercase;
@@ -115,22 +164,9 @@
 		padding-left: 0;
 		padding-top: 0;
 		padding-bottom: 0;
-		margin-left: $gutter;
 
 		margin-top: 20px;
 		border-bottom: 5px solid white;
-	}
-
-	@include query-below($lap) {
-		.entry-image--landscape + &,
-		.entry-image--wide + & {
-			margin-right: $gutter;
-		}
-	}
-
-	.entry-image--square + & {
-		margin-left: $gutter;
-		margin-right: $gutter;
 	}
 
 	a {
@@ -155,16 +191,51 @@
 
 	.entry-image {
 		float: right;
-		margin-left: $gutter/2;
-		margin-right: -$gutter;
-
-		& ~ .entry-block {
-			margin-left: -$gutter;
-			margin-right: $gutter;
-		}
 	}
 
 	.entry-block {
 		text-align: right;
 	}
 } 
+
+@include spacings($gutter/2);
+
+@include query-above($lap) {
+	@include spacings($gutter);	
+}
+
+.entry-image {
+	&--tall,
+	&--portrait {
+		margin-right: $gutter/2;
+
+		.entry--even & {
+			margin-left: $gutter/2;
+		}
+	}
+}
+
+@include query-below(400px) {
+
+	.entry-header {
+		padding-left: $gutter;
+		margin-right: $gutter/2;
+	}
+
+	.entry-image + .entry-header {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.entry-content {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.entry-image--square {
+		margin-left: 0;
+		margin-right: $gutter/2;
+	}
+
+	
+}
