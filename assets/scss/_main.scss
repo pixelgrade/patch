@@ -127,7 +127,7 @@
  * 5.0 - Patterns
  */
 // @import "objects/grid";
-// @import "objects/nav";
+@import "objects/nav";
 // @import "objects/tables";
 // @import "objects/flag";
 // @import "objects/media";
@@ -149,6 +149,7 @@
 // #COMPONENTS
 @import "components/grid";
 @import "components/card";
+@import "components/footer";
 
 
 

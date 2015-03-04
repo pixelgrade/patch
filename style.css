@@ -158,13 +158,23 @@ img { max-width: 100%; height: auto; }
 /** 3.3 - Forms */
 /** 4.0 - Helpers */
 /* Clearfix */
-.clearfix:after, .grid:after, .has_sidebar .site-content .container:after { content: ""; display: table; clear: both; }
+.clearfix:after, .grid:after, .nav:after, .nav--footer:after, .has_sidebar .site-content .container:after { content: ""; display: table; clear: both; }
 
 /** 4.1 - Theme specific classes
 */
 /** 4.2 - Alignments
 */
 /** 5.0 - Patterns */
+.nav, .nav--footer { list-style: none; margin-left: 0; }
+.nav > li, .nav--footer > li, .nav > li > a, .nav--footer > li > a { display: inline-block; *display: inline; zoom: 1; }
+
+.nav--stacked > li { display: list-item; }
+.nav--stacked > li > a { display: block; }
+
+.nav--block { line-height: 1; /** Remove whitespace caused by `inline-block`. */ letter-spacing: -0.31em; word-spacing: -0.43em; white-space: nowrap; }
+.nav--block > li { letter-spacing: normal; word-spacing: normal; }
+.nav--block > li > a { padding: 0.85714em; }
+
 .grid { border-right: 24px solid transparent; }
 @media only screen and (min-width: 900px) { .grid { margin: 96px; } }
 
@@ -206,6 +216,13 @@ img { max-width: 100%; height: auto; }
 .blog .entry--even .entry-image ~ .entry-block, .blog .entry--even .entry-image ~ .entry-header, .blog .entry--even .entry-image ~ .entry-content { margin-left: -24px; margin-right: 24px; }
 .blog .entry--even .entry-block, .blog .entry--even .entry-header, .blog .entry--even .entry-content { text-align: right; }
 
+.site-footer { color: white; background: black; padding-top: 1.07143rem; }
+.site-footer > * { display: block; text-align: center; }
+@media only screen and (min-width: 900px) { .site-footer > * { display: inline-block; vertical-align: middle; width: 33.33333%; } }
+
+@media only screen and (min-width: 900px) { .site-info { text-align: left; }
+  .back-to-top-wrapper { text-align: center; }
+  .footer-menu { text-align: right; } }
 .single .container, .page .container { max-width: 1400px; padding: 0 48px; margin: 0 auto; }
 
 .has_sidebar .site-content .container { position: relative; }
@@ -231,7 +248,7 @@ img { max-width: 100%; height: auto; }
 
 body { border: 15px solid black; }
 
-.site-header, .site-footer, .screen-reader-text, .posts-navigation, .entry-footer { display: none; }
+.site-header, .screen-reader-text, .posts-navigation, .entry-footer { display: none; }
 
 .hyphening { -ms-word-break: break-all; word-break: break-all; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; }
 

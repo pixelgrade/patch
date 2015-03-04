@@ -8,6 +8,12 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
+		<?php if ( has_post_thumbnail() ) { ?>
+			<div class="entry-featured  entry-thumbnail">
+				<?php the_post_thumbnail( 'hive-single-image' ); ?>
+			</div>
+		<?php } ?>
+
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 

@@ -15,7 +15,20 @@
 			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'fifteen_txtd' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'fifteen_txtd' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
 			<?php printf( __( 'Theme: %1$s by %2$s.', 'fifteen_txtd' ), 'Fifteen', '<a href="http://pixelgrade.com" rel="designer">PixelGrade</a>' ); ?>
-		</div><!-- .site-info -->
+		</div><!-- .site-info
+		--><div class="back-to-top-wrapper">
+			<a href="#top" class="back-to-top-button"><?php get_template_part( 'assets/svg/back-to-top' ); ?></a>
+		</div><!--
+		--><?php
+		wp_nav_menu(
+			array(
+				'theme_location' => 'footer',
+				'container'      => '',
+				'menu_class'     => 'nav  nav--footer',
+				'items_wrap'         => '<nav class="footer-menu"><h5 class="screen-reader-text">'.__( 'Footer navigation', 'hive_txtd' ).'</h5><ul id="%1$s" class="%2$s">%3$s</ul></nav>',
+				'depth'          => 1,
+			)
+		); ?>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

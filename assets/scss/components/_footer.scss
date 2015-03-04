@@ -1,0 +1,34 @@
+.site-footer {
+	color: white;
+	background: black;
+	padding-top: rem(15px);
+
+	> * {
+		display: block;
+		text-align: center;
+
+		@include query-above($lap) {
+			display: inline-block;
+			vertical-align: middle;
+			width: 33.33333%;
+		}
+	}
+}
+
+@include query-above($lap) {
+	.site-info {
+		text-align: left;
+	}
+
+	.back-to-top-wrapper {
+		text-align: center;
+	}
+
+	.footer-menu {
+		text-align: right;
+	}
+}
+
+.nav--footer {
+	@extend .nav;
+}
