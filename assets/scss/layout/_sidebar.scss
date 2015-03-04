@@ -29,12 +29,12 @@
 	@include query-above($lap) {
 
 		.content-area {
-			float: left;
-			margin-right: -30%;
+			float: right;
+			margin-left: -30%;
 		}
 
 		.site-main {
-			margin-right: 30%;
+			margin-left: 30%;
 			@include rhythm(padding-right, 2.5);
 
 			&:before {
@@ -43,37 +43,37 @@
 				position: absolute;
 				top: 0;
 				bottom: 0;
-				right: 30%;
+				left: 30%;
 				border-right: 1px solid $borders;
 			}
 		}
 
 		.sidebar {
 			z-index: 5;
-			float: right;
+			float: left;
 			width: 30%;
-			@include rhythm(padding-left, 2.5);
+			@include rhythm(padding-right, 2.5);
 		}
 	}
 
 	@include query-above($desk) {
 
 		.content-area {
-			@include rhythm(margin-right, -30);
+			@include rhythm(margin-left, -30);
 		}
 
 		.site-main {
-			@include rhythm(margin-right, 30);
-			@include rhythm(padding-right, 5);
+			@include rhythm(margin-left, 30);
+			@include rhythm(padding-left, 5);
 
 			&:before {
-				@include rhythm(right, 30);
+				@include rhythm(left, 30);
 			}
 		}
 
 		.sidebar {
 			@include rhythm(width, 30);
-			@include rhythm(padding-left, 5);
+			@include rhythm(padding-right, 5);
 		}
 	}
 }

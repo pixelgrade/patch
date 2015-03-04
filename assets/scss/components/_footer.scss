@@ -1,7 +1,10 @@
 .site-footer {
 	color: white;
 	background: black;
-	padding-top: rem(15px);
+
+	@include query-above($lap) {
+		padding: rem(15px) rem(65px) 0 rem(65px);
+	}
 
 	> * {
 		display: block;
@@ -12,6 +15,12 @@
 			vertical-align: middle;
 			width: 33.33333%;
 		}
+	}
+
+	a {
+		// @todo maybe the color is in a $var, maybe it's not
+		color: #CCCCCC;
+		text-decoration: none;
 	}
 }
 
@@ -31,4 +40,17 @@
 
 .nav--footer {
 	@extend .nav;
+
+	li {
+		&:after {
+			// @todo maybe the color is in a $var, maybe it's not
+			color: #CCCCCC;
+			content: "/";
+			margin-left: 5px;
+		}
+
+		&:last-child:after {
+			content: none;
+		}
+	}
 }

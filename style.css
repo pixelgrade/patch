@@ -216,13 +216,18 @@ img { max-width: 100%; height: auto; }
 .blog .entry--even .entry-image ~ .entry-block, .blog .entry--even .entry-image ~ .entry-header, .blog .entry--even .entry-image ~ .entry-content { margin-left: -24px; margin-right: 24px; }
 .blog .entry--even .entry-block, .blog .entry--even .entry-header, .blog .entry--even .entry-content { text-align: right; }
 
-.site-footer { color: white; background: black; padding-top: 1.07143rem; }
+.site-footer { color: white; background: black; }
+@media only screen and (min-width: 900px) { .site-footer { padding: 1.07143rem 4.64286rem 0 4.64286rem; } }
 .site-footer > * { display: block; text-align: center; }
 @media only screen and (min-width: 900px) { .site-footer > * { display: inline-block; vertical-align: middle; width: 33.33333%; } }
+.site-footer a { color: #CCCCCC; text-decoration: none; }
 
 @media only screen and (min-width: 900px) { .site-info { text-align: left; }
   .back-to-top-wrapper { text-align: center; }
   .footer-menu { text-align: right; } }
+.nav--footer li:after { color: #CCCCCC; content: "/"; margin-left: 5px; }
+.nav--footer li:last-child:after { content: none; }
+
 .single .container, .page .container { max-width: 1400px; padding: 0 48px; margin: 0 auto; }
 
 .has_sidebar .site-content .container { position: relative; }
@@ -231,14 +236,14 @@ img { max-width: 100%; height: auto; }
 .has_sidebar .sidebar { position: relative; padding-top: 1.71429em; }
 @media not screen and (min-width: 900px) { .has_sidebar .sidebar { border-top: 1px solid #b8b6b7; padding-top: 3.42857em; } }
 @media only screen and (min-width: 900px) { .has_sidebar .sidebar { padding-bottom: 3.42857em; } }
-@media only screen and (min-width: 900px) { .has_sidebar .content-area { float: left; margin-right: -30%; }
-  .has_sidebar .site-main { margin-right: 30%; padding-right: 2.14286em; }
-  .has_sidebar .site-main:before { content: ""; position: absolute; top: 0; bottom: 0; right: 30%; border-right: 1px solid #e6e6e6; }
-  .has_sidebar .sidebar { z-index: 5; float: right; width: 30%; padding-left: 2.14286em; } }
-@media only screen and (min-width: 1200px) { .has_sidebar .content-area { margin-right: -25.71429em; }
-  .has_sidebar .site-main { margin-right: 25.71429em; padding-right: 4.28571em; }
-  .has_sidebar .site-main:before { right: 25.71429em; }
-  .has_sidebar .sidebar { width: 25.71429em; padding-left: 4.28571em; } }
+@media only screen and (min-width: 900px) { .has_sidebar .content-area { float: right; margin-left: -30%; }
+  .has_sidebar .site-main { margin-left: 30%; padding-right: 2.14286em; }
+  .has_sidebar .site-main:before { content: ""; position: absolute; top: 0; bottom: 0; left: 30%; border-right: 1px solid #e6e6e6; }
+  .has_sidebar .sidebar { z-index: 5; float: left; width: 30%; padding-right: 2.14286em; } }
+@media only screen and (min-width: 1200px) { .has_sidebar .content-area { margin-left: -25.71429em; }
+  .has_sidebar .site-main { margin-left: 25.71429em; padding-left: 4.28571em; }
+  .has_sidebar .site-main:before { left: 25.71429em; }
+  .has_sidebar .sidebar { width: 25.71429em; padding-right: 4.28571em; } }
 
 @media only screen and (min-width: 1200px) { .single .site-main, .page .site-main { padding-right: 8.57143em; padding-left: 8.57143em; } }
 /** 14.0 - Overwrites */

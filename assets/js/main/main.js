@@ -18,7 +18,7 @@ $window.load(function() {
 //   fixedSidebars.update();
 //   svgLogo.init();
 //   animator.animate();
-//   scrollToTop();
+   scrollToTop();
 //   infinityHandler();
 
 //   if (latestKnownScrollY) $window.trigger('scroll');
