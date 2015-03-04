@@ -1,5 +1,3 @@
-$gutter: 30px;
-
 .alpha {
 	font-family: Open Sans, sans-serif;
 }
@@ -10,8 +8,57 @@ $gutter: 30px;
 
 body {
 	@extend .alpha;
-	border: $gutter/2 solid black;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #3d3f40;
+
+	@include query-above($lap) {
+		border: $gutter/2 solid black;
+	}
 }
+
+.entry-content--short {
+	font-size: 16px;
+}
+
+.entry-image--square 	+ .entry-header .entry-title,
+.entry-image--landscape + .entry-header .entry-title,
+.entry-image--wide 		+ .entry-header .entry-title,
+.entry-image--portrait  + .entry-header--long .entry-title,
+.entry-image--tall  	+ .entry-header--long .entry-title {
+	font-size: 24px;
+	line-height: 40px;
+}
+
+.entry-image--square 	+ .entry-header--long .entry-title,
+.entry-image--landscape + .entry-header--long .entry-title,
+.entry-image--wide 		+ .entry-header--long .entry-title {
+	font-weight: 300;
+}
+
+.entry-image--portrait  + .entry-header .entry-title,
+.entry-image--tall  	+ .entry-header .entry-title {
+	font-weight: 700;
+}
+
+.entry-image--portrait  + .entry-header--medium .entry-title,
+.entry-image--tall  	+ .entry-header--medium .entry-title {
+	font-size: 30px;
+	line-height: 1.33;
+}
+
+.entry-medium--long .entry-title,
+.entry-medium--medium .entry-title,
+.entry-medium--short .entry-title {
+	font-size: 36px;
+	line-height: 1.25;
+}
+
+.entry-title--short {
+	font-size: 42px;
+}
+
+
 
 .site-header,
 //.site-footer,

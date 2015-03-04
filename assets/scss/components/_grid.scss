@@ -1,31 +1,66 @@
+.site-main {
+	@include query-above(800px) {
+		padding: $gutter;
+	}
+
+	@include query-above(1200px) {
+		padding: 2*$gutter;
+	}
+}
+
 .grid {
 	@extend .clearfix;
-	border-right: $gutter solid transparent;
+	max-width: 450px;
+	margin: 0 auto;
+	border-right: $gutter/2 solid transparent;
+
+	@include query-above(800px) {
+		max-width: 1000px;
+	}
+
+	@include query-above(1200px) {
+		max-width: 1400px;
+	}
+
+	@include query-above(1600px) {
+		max-width: 1800px;
+	}
 
 	@include query-above($lap) {
-		margin: 96px;
+		border-right: $gutter solid transparent;
 	}
 }
 
 .grid__item {
-	float: left;
-	width: 100%;
-	border-left: $gutter solid transparent;
+	border-left: $gutter/2 solid transparent;
 	margin-bottom: $gutter;
 
-	@include query-above($small) {
-		width: 50%;
-	}
+    @include query-above(400px) {
+    }
 
-	@include query-above($lap) {
-		width: 33.333333%;
-	}
+    @include query-above(800px) {
+		float: left;
+    	width: 50%;
+    }
 
-	@include query-above($desk) {
-		width: 25%;
+    @include query-above(1200px) {
+    	width: 33.33%;
+    }
+
+    @include query-above(1600px) {
+    	width: 25%;
+    }
+
+    @include query-above($lap) {
+    	border-left-width: $gutter;
+    }
+
+	&:nth-child(2),
+	&:nth-child(4) {
+		// margin-top: 50px;
 	}
 }
 
-.grid, .grid__item{
-	border-color: yellow;
+.grid, .grid__item {
+	// border-color: rgba(yellow, 0.25);
 }
