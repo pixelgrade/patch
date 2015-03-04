@@ -7,7 +7,7 @@
  * @package Fifteen
  */
 ?>
-
+		</div><!-- .container -->
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">

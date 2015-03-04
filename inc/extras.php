@@ -19,6 +19,10 @@ function fifteen_body_classes( $classes ) {
 		$classes[] = 'group-blog';
 	}
 
+	if ( ( is_single() || is_page() ) && is_active_sidebar( 'sidebar-1' ) ) {
+		$classes[ ] = 'has_sidebar';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'fifteen_body_classes' );

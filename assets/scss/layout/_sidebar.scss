@@ -1,85 +1,86 @@
-.sidebar--main {
-	@extend .grid;
+.has_sidebar {
+	.site-content .container {
+		@extend %clearfix;
+		position: relative;
+	}
 
-	> .grid__item {
+	.single-post & .site-main, .page & .site-main {
+		max-width: none;
+	}
+
+	.content-area {
 		width: 100%;
 	}
-}
 
-.widget {
-	width: 100%;
-	max-width: rem(420px);
-	margin: 0 auto;
-}
+	.sidebar {
+		position: relative;
+		@include rhythm(padding-top, 2);
 
-.has_sidebar {
-
-	@include query-above($small) {
-
-		.site-content {
-			text-align: center;
+		@include query-below($lap){
+			border-top: 1px solid $gray;
+			@include rhythm(padding-top, 4);
 		}
 
-		.content-area,
-		.sidebar--main,
-		.featured-content {
-			display: inline-block;
-			text-align: left;
+		@include query-above($lap){
+			@include rhythm(padding-bottom, 4);
 		}
+	}
+
+	@include query-above($lap) {
 
 		.content-area {
-			width: rem(860px);
-			max-width: 100%;
+			float: left;
+			margin-right: -30%;
 		}
 
-		.sidebar--main {
-			width: rem(860px);
-			max-width: 100%;
-			vertical-align: top;
-//			margin-left: rem(-1 * $gutter-lap);
+		.site-main {
+			margin-right: 30%;
+			@include rhythm(padding-right, 2.5);
 
-			> .grid__item {
-				float: left;
-				width: 50%;
-				padding-left: rem($gutter-lap);
+			&:before {
+				content: "";
+
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				right: 30%;
+				border-right: 1px solid $borders;
 			}
+		}
+
+		.sidebar {
+			z-index: 5;
+			float: right;
+			width: 30%;
+			@include rhythm(padding-left, 2.5);
 		}
 	}
 
 	@include query-above($desk) {
 
-		.site-content,
-		.content-area,
-		.sidebar--main,
-		.featured-content {
-			display: block;
-			text-align: initial;
-		}
-
 		.content-area {
-			width: 100%;
-			float: left;
-			margin-right: em(-340px);
+			@include rhythm(margin-right, -30);
 		}
 
 		.site-main {
-			padding-right: em(400px);
-		}
+			@include rhythm(margin-right, 30);
+			@include rhythm(padding-right, 5);
 
-		.sidebar--main {
-			float: right;
-			width: em(340px);
-			margin-left: 0;
-
-			> .grid__item {
-				float: none;
-				width: 100%;
-				padding-left: 0;
+			&:before {
+				@include rhythm(right, 30);
 			}
 		}
- 	}
+
+		.sidebar {
+			@include rhythm(width, 30);
+			@include rhythm(padding-left, 5);
+		}
+	}
 }
 
-.sidebar--footer {
-	margin: 0 auto;
+@include query-above($desk) {
+	.single .site-main, .page .site-main {
+		@include rhythm(padding-right, 10);
+		@include rhythm(padding-left, 10);
+	}
 }
