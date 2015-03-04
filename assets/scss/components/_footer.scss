@@ -38,6 +38,10 @@
 	}
 }
 
+.theme-name {
+	text-decoration: underline;
+}
+
 .nav--footer {
 	@extend .nav;
 
@@ -53,4 +57,8 @@
 			content: none;
 		}
 	}
+}
+
+.back-to-top-button {
+	padding: rem(6px);
 }

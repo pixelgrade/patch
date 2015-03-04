@@ -14,7 +14,7 @@
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'fifteen_txtd' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'fifteen_txtd' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'fifteen_txtd' ), 'Fifteen', '<a href="http://pixelgrade.com" rel="designer">PixelGrade</a>' ); ?>
+			<?php printf( __( '<span class="theme-name">Theme: %1$s</span> by %2$s.', 'fifteen_txtd' ), 'Fifteen', '<a href="http://pixelgrade.com" rel="designer">PixelGrade</a>' ); ?>
 		</div><!-- .site-info
 		--><div class="back-to-top-wrapper">
 			<a href="#top" class="back-to-top-button"><?php get_template_part( 'assets/svg/back-to-top' ); ?></a>

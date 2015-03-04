@@ -225,8 +225,12 @@ img { max-width: 100%; height: auto; }
 @media only screen and (min-width: 900px) { .site-info { text-align: left; }
   .back-to-top-wrapper { text-align: center; }
   .footer-menu { text-align: right; } }
+.theme-name { text-decoration: underline; }
+
 .nav--footer li:after { color: #CCCCCC; content: "/"; margin-left: 5px; }
 .nav--footer li:last-child:after { content: none; }
+
+.back-to-top-button { padding: 0.42857rem; }
 
 .single .container, .page .container { max-width: 1400px; padding: 0 48px; margin: 0 auto; }
 
