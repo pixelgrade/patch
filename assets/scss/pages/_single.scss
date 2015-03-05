@@ -1,11 +1,65 @@
 .single, .page {
 	.container {
 		// @todo revisit
-		max-width: 1400px;
+		max-width: 1340px;
 		margin: 0 auto;
 	}
 
 	.site-main {
 		padding: 0 6*$gutter;
+	}
+
+	.entry-image--landscape,
+	.entry-image--wide {
+
+		.entry-header {
+			margin-left: -3*$gutter;
+			margin-right: -3*$gutter;
+		}
+
+
+		.entry-featured {
+			margin-left: -6*$gutter;
+			margin-right: -6*$gutter;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.entry-image--wide {
+		margin: 0;
+	}
+
+	.entry-image--portrait,
+	.entry-image--tall {
+		max-width: none;
+		float: none;
+		margin-right: 0;
+
+		.entry-header {
+			float: right;
+			margin-left: -100%;
+			margin-right: -3*$gutter;
+			max-width: 34%;
+			max-width: calc(30% + 240px);
+		}
+
+		.entry-featured {
+			float: left;
+
+			margin-left: -6*$gutter;
+			margin-right: $gutter;
+			max-width: 70%
+		}
+
+		img {
+			width: 100%;
+		}
+
+		.entry-content {
+			clear: right;
+		}
 	}
 }
