@@ -1,21 +1,21 @@
 /*
 /*
-Theme Name: Fifteen
-Theme URI: http://pixelgrade.com/demos/fifteen/
+Theme Name: Patch
+Theme URI: http://pixelgrade.com/demos/patch/
 Author: PixelGrade
 Author URI: http://pixelgrade.com
 Description: An enchanting magazine style theme for fashion bloggers, prized for its smart layout and smooth animations. Whether you're looking to share your own thoughts, write about your latest findings or just have a scrapbook of photos, SILK is designed to fulfill these and a lot more.
 Version: 1.0-wpcom
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: fifteen_txtd
+Text Domain: patch_txtd
 Domain Path: /languages/
 Tags: accessibility-ready, light, white, one-column, two-columns, three-columns, right-sidebar, responsive-layout, custom-menu, featured-images, editor-style, infinite-scroll, microformats, post-formats, rtl-language-support, site-logo, sticky-post, theme-options, threaded-comments, translation-ready, blog, fashion, journal, lifestream, magazine, news, scrapbooking, video, bright, clean, elegant, geometric, glamorous, minimal, modern, sophisticated
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
-Fifteen is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Patch is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
 
 Resetting and rebuilding styles have been helped along thanks to the fine work of
 Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
@@ -160,6 +160,74 @@ img { max-width: 100%; height: auto; }
 /* Clearfix */
 .clearfix:after, .grid:after, .entry-card:after, .nav:after, .nav--footer:after, .has_sidebar .site-content .container:after { content: ""; display: table; clear: both; }
 
+.hide, .hidden, .assistive-text, .screen-reader-text, [hidden] { display: none; }
+
+.inline { display: inline; }
+
+.block { display: block; }
+
+.inline-block { display: inline-block; }
+
+.table { display: table; }
+
+.table-cell { display: table-cell; }
+
+.table-row { display: table-row; }
+
+.table-row-group { display: table-row-group; }
+
+.table-column { display: table-column; }
+
+.table-column-group { display: table-column-group; }
+
+.overflow-hidden { overflow: hidden; }
+
+.overflow-scroll { overflow: scroll; }
+
+.left { float: left; }
+
+.right { float: right; }
+
+.fit { max-width: 100%; }
+
+.relative { position: relative; }
+
+.absolute { position: absolute; }
+
+.fixed { position: fixed; }
+
+.static { position: static; }
+
+.light, .entry-image--square + .entry-header--long .entry-title, .entry-image--landscape + .entry-header--long .entry-title, .entry-image--wide + .entry-header--long .entry-title { font-weight: 300; }
+
+.bold, .entry-image--portrait + .entry-header .entry-title, .entry-image--tall + .entry-header .entry-title { font-weight: bold; }
+
+.regular { font-weight: normal; }
+
+.italic { font-style: italic; }
+
+.caps { text-transform: uppercase; }
+
+.align-left { text-align: left; }
+
+.align-center { text-align: center; }
+
+.align-right { text-align: right; }
+
+.align-justify { text-align: justify; }
+
+.align-top { vertical-align: top; }
+
+.align-middle { vertical-align: middle; }
+
+.align-bottom { vertical-align: bottom; }
+
+.nowrap { white-space: nowrap; }
+
+.pointer-auto { pointer-events: auto; }
+
+.pointer-none { pointer-events: none; }
+
 /** 4.1 - Theme specific classes
 */
 /** 4.2 - Alignments
@@ -298,22 +366,26 @@ img { max-width: 100%; height: auto; }
 
 .beta, .entry-title { font-family: Oswald, sans-serif; }
 
-body { font-size: 14px; line-height: 1.5; color: #3d3f40; }
-@media only screen and (min-width: 900px) { body { border: 15px solid black; } }
+.entry-image--square + .entry-header .entry-title, .entry-image--landscape + .entry-header .entry-title, .entry-image--wide + .entry-header .entry-title, .entry-image--portrait + .entry-header--long .entry-title, .entry-image--tall + .entry-header--long .entry-title { line-height: 1.66; }
+
+.entry-content--short { line-height: 1.5; }
+
+.entry-image--portrait + .entry-header--medium .entry-title, .entry-image--tall + .entry-header--medium .entry-title { line-height: 1.33; }
+
+.entry-medium--long .entry-title, .entry-medium--medium .entry-title, .entry-medium--short .entry-title, .entry-title--short { line-height: 1.25; }
 
 .entry-content--short { font-size: 16px; }
 
-.entry-image--square + .entry-header .entry-title, .entry-image--landscape + .entry-header .entry-title, .entry-image--wide + .entry-header .entry-title, .entry-image--portrait + .entry-header--long .entry-title, .entry-image--tall + .entry-header--long .entry-title { font-size: 24px; line-height: 40px; }
+.entry-image--square + .entry-header .entry-title, .entry-image--landscape + .entry-header .entry-title, .entry-image--wide + .entry-header .entry-title, .entry-image--portrait + .entry-header--long .entry-title, .entry-image--tall + .entry-header--long .entry-title { font-size: 24px; }
 
-.entry-image--square + .entry-header--long .entry-title, .entry-image--landscape + .entry-header--long .entry-title, .entry-image--wide + .entry-header--long .entry-title { font-weight: 300; }
+.entry-image--portrait + .entry-header--medium .entry-title, .entry-image--tall + .entry-header--medium .entry-title { font-size: 30px; }
 
-.entry-image--portrait + .entry-header .entry-title, .entry-image--tall + .entry-header .entry-title { font-weight: 700; }
-
-.entry-image--portrait + .entry-header--medium .entry-title, .entry-image--tall + .entry-header--medium .entry-title { font-size: 30px; line-height: 1.33; }
-
-.entry-medium--long .entry-title, .entry-medium--medium .entry-title, .entry-medium--short .entry-title { font-size: 36px; line-height: 1.25; }
+.entry-medium--long .entry-title, .entry-medium--medium .entry-title, .entry-medium--short .entry-title { font-size: 36px; }
 
 .entry-title--short { font-size: 42px; }
+
+body { font-size: 14px; line-height: 1.5; color: #3d3f40; }
+@media only screen and (min-width: 900px) { body { border: 15px solid black; } }
 
 .site-header, .screen-reader-text, .posts-navigation, .entry-footer { display: none; }
 

@@ -6,6 +6,75 @@
 	font-family: Oswald, sans-serif;
 }
 
+%lh-1-66 	{ line-height: 1.66; }
+%lh-1-5 	{ line-height: 1.5; }
+%lh-1-33 	{ line-height: 1.33; }
+%lh-1-25 	{ line-height: 1.25; }
+%lh-1 		{ line-height: 1; }
+
+%fs-16 {
+	@extend %lh-1-5;
+	font-size: 16px;
+}
+
+%fs-24 {
+	@extend %lh-1-66;
+	font-size: 24px;
+}
+
+%fs-30 {
+	@extend %lh-1-33;
+	font-size: 30px;
+}
+
+%fs-36 {
+	@extend %lh-1-25;
+	font-size: 36px;
+}
+
+%fs-42 {
+	@extend %lh-1-25;
+	font-size: 42px;
+}
+
+.entry-content--short {
+	@extend %fs-16;
+}
+
+.entry-image--square 	+ .entry-header .entry-title,
+.entry-image--landscape + .entry-header .entry-title,
+.entry-image--wide 		+ .entry-header .entry-title,
+.entry-image--portrait  + .entry-header--long .entry-title,
+.entry-image--tall  	+ .entry-header--long .entry-title {
+	@extend %fs-24;
+}
+
+.entry-image--square 	+ .entry-header--long .entry-title,
+.entry-image--landscape + .entry-header--long .entry-title,
+.entry-image--wide 		+ .entry-header--long .entry-title {
+	@extend .light;
+}
+
+.entry-image--portrait  + .entry-header .entry-title,
+.entry-image--tall  	+ .entry-header .entry-title {
+	@extend .bold;
+}
+
+.entry-image--portrait  + .entry-header--medium .entry-title,
+.entry-image--tall  	+ .entry-header--medium .entry-title {
+	@extend %fs-30;
+}
+
+.entry-medium--long .entry-title,
+.entry-medium--medium .entry-title,
+.entry-medium--short .entry-title {
+	@extend %fs-36;
+}
+
+.entry-title--short {
+	@extend %fs-42;
+}
+
 body {
 	@extend .alpha;
 	font-size: 14px;
@@ -17,54 +86,8 @@ body {
 	}
 }
 
-.entry-content--short {
-	font-size: 16px;
-}
-
-.entry-image--square 	+ .entry-header .entry-title,
-.entry-image--landscape + .entry-header .entry-title,
-.entry-image--wide 		+ .entry-header .entry-title,
-.entry-image--portrait  + .entry-header--long .entry-title,
-.entry-image--tall  	+ .entry-header--long .entry-title {
-	font-size: 24px;
-	line-height: 40px;
-}
-
-.entry-image--square 	+ .entry-header--long .entry-title,
-.entry-image--landscape + .entry-header--long .entry-title,
-.entry-image--wide 		+ .entry-header--long .entry-title {
-	font-weight: 300;
-}
-
-.entry-image--portrait  + .entry-header .entry-title,
-.entry-image--tall  	+ .entry-header .entry-title {
-	font-weight: 700;
-}
-
-.entry-image--portrait  + .entry-header--medium .entry-title,
-.entry-image--tall  	+ .entry-header--medium .entry-title {
-	font-size: 30px;
-	line-height: 1.33;
-}
-
-.entry-medium--long .entry-title,
-.entry-medium--medium .entry-title,
-.entry-medium--short .entry-title {
-	font-size: 36px;
-	line-height: 1.25;
-}
-
-.entry-title--short {
-	font-size: 42px;
-}
-
-
-
 .site-header,
-//.site-footer,
-//.sidebar,
 .screen-reader-text,
-//.widget-area,
 .posts-navigation,
 .entry-footer {
 	display: none;

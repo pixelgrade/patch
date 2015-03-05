@@ -799,6 +799,10 @@ if (!Date.now) Date.now = function () {
         
         init = function () {
 
+        if (windowWidth < 800) {
+          return;
+        }
+
         if ($container.length) {
           containerTop = $container.offset().top;
           containerBottom = containerTop + $container.outerHeight();
@@ -812,7 +816,6 @@ if (!Date.now) Date.now = function () {
         bindEvents();
         showBlocks($blocks);
         initialized = true;
-        refresh();
         },
         
         
@@ -825,6 +828,13 @@ if (!Date.now) Date.now = function () {
         refresh = function () {
 
         if (!initialized) {
+          init();
+          return;
+        }
+
+        if (windowWidth < 800) {
+          $container.masonry('destroy');
+          initialized = false;
           return;
         }
 
@@ -859,9 +869,6 @@ if (!Date.now) Date.now = function () {
 
         // get unique values representing columns' left offset
         values = values.getUnique(values);
-        columns = values.length;
-
-        console.log(columns);
 
         // keep only the even ones so we can identify what columns need new css classes
         for (var k in values) {
@@ -1806,7 +1813,7 @@ if (!Date.now) Date.now = function () {
   // /* ====== ON WINDOW LOAD ====== */
   $window.load(function () {
     browserSize();
-    masonry.init();
+    masonry.refresh();
     //   navigation.init();
     //   fixedSidebars.update();
     //   svgLogo.init();
@@ -1817,13 +1824,16 @@ if (!Date.now) Date.now = function () {
   });
 
   // /* ====== ON RESIZE ====== */
-  // function onResize() {
-  //   browserSize();
-  //   masonry.refresh();
-  //   fixedSidebars.refresh();
-  //   fixedSidebars.update();
-  // }
-  // $window.on('debouncedresize', onResize);
+
+  function onResize() {
+    browserSize();
+    masonry.refresh();
+    //   fixedSidebars.refresh();
+    //   fixedSidebars.update();
+  }
+
+  $window.on('debouncedresize', onResize);
+
   // /* ====== ON SCROLL ====== */
   // function onScroll() {
   //   latestKnownScrollY = window.scrollY;

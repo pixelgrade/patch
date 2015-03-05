@@ -13,6 +13,10 @@ var masonry = (function() {
 
 	init = function() {
 
+		if (windowWidth < 800) {
+			return;
+		}
+
 		if ($container.length) {
 			containerTop = $container.offset().top;
 			containerBottom = containerTop + $container.outerHeight();
@@ -26,7 +30,6 @@ var masonry = (function() {
 		bindEvents();
 		showBlocks($blocks);
 		initialized = true;
-		refresh();
 	},
 
 	bindEvents = function() {
@@ -37,6 +40,13 @@ var masonry = (function() {
 	refresh = function() {
 
 		if (!initialized) {
+			init();
+			return;
+		}
+
+		if (windowWidth < 800) {
+			$container.masonry('destroy');
+			initialized = false;
 			return;
 		}
 		
@@ -69,9 +79,6 @@ var masonry = (function() {
 
 		// get unique values representing columns' left offset
 		values = values.getUnique(values);
-		columns = values.length;
-
-		console.log(columns);
 
 		// keep only the even ones so we can identify what columns need new css classes
 		for (var k in values){
