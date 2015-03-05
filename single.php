@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts.
  *
- * @package Fifteen
+ * @package Patch
  */
 
 get_header(); ?>

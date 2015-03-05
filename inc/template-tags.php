@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Fifteen
+ * @package Patch
  */
 
 if ( ! function_exists( 'the_posts_navigation' ) ) :
@@ -20,15 +20,15 @@ function the_posts_navigation() {
 	}
 	?>
 	<nav class="navigation posts-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php _e( 'Posts navigation', 'fifteen_txtd' ); ?></h2>
+		<h2 class="screen-reader-text"><?php _e( 'Posts navigation', 'patch_txtd' ); ?></h2>
 		<div class="nav-links">
 
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( 'Older posts', 'fifteen_txtd' ) ); ?></div>
+			<div class="nav-previous"><?php next_posts_link( __( 'Older posts', 'patch_txtd' ) ); ?></div>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts', 'fifteen_txtd' ) ); ?></div>
+			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts', 'patch_txtd' ) ); ?></div>
 			<?php endif; ?>
 
 		</div><!-- .nav-links -->
@@ -53,7 +53,7 @@ function the_post_navigation() {
 	}
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php _e( 'Post navigation', 'fifteen_txtd' ); ?></h2>
+		<h2 class="screen-reader-text"><?php _e( 'Post navigation', 'patch_txtd' ); ?></h2>
 		<div class="nav-links">
 			<?php
 				previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
@@ -65,11 +65,11 @@ function the_post_navigation() {
 }
 endif;
 
-if ( ! function_exists( 'fifteen_posted_on' ) ) :
+if ( ! function_exists( 'patch_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function fifteen_posted_on() {
+function patch_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -83,12 +83,12 @@ function fifteen_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		_x( 'Posted on %s', 'post date', 'fifteen_txtd' ),
+		_x( 'Posted on %s', 'post date', 'patch_txtd' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
-		_x( 'by %s', 'post author', 'fifteen_txtd' ),
+		_x( 'by %s', 'post author', 'patch_txtd' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -97,33 +97,33 @@ function fifteen_posted_on() {
 }
 endif;
 
-if ( ! function_exists( 'fifteen_entry_footer' ) ) :
+if ( ! function_exists( 'patch_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function fifteen_entry_footer() {
+function patch_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' == get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( __( ', ', 'fifteen_txtd' ) );
-		if ( $categories_list && fifteen_categorized_blog() ) {
-			printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'fifteen_txtd' ) . '</span>', $categories_list );
+		$categories_list = get_the_category_list( __( ', ', 'patch_txtd' ) );
+		if ( $categories_list && patch_categorized_blog() ) {
+			printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'patch_txtd' ) . '</span>', $categories_list );
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', __( ', ', 'fifteen_txtd' ) );
+		$tags_list = get_the_tag_list( '', __( ', ', 'patch_txtd' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'fifteen_txtd' ) . '</span>', $tags_list );
+			printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'patch_txtd' ) . '</span>', $tags_list );
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
-		comments_popup_link( __( 'Leave a comment', 'fifteen_txtd' ), __( '1 Comment', 'fifteen_txtd' ), __( '% Comments', 'fifteen_txtd' ) );
+		comments_popup_link( __( 'Leave a comment', 'patch_txtd' ), __( '1 Comment', 'patch_txtd' ), __( '% Comments', 'patch_txtd' ) );
 		echo '</span>';
 	}
 
-	edit_post_link( __( 'Edit', 'fifteen_txtd' ), '<span class="edit-link">', '</span>' );
+	edit_post_link( __( 'Edit', 'patch_txtd' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 
@@ -140,45 +140,45 @@ if ( ! function_exists( 'the_archive_title' ) ) :
  */
 function the_archive_title( $before = '', $after = '' ) {
 	if ( is_category() ) {
-		$title = sprintf( __( 'Category: %s', 'fifteen_txtd' ), single_cat_title( '', false ) );
+		$title = sprintf( __( 'Category: %s', 'patch_txtd' ), single_cat_title( '', false ) );
 	} elseif ( is_tag() ) {
-		$title = sprintf( __( 'Tag: %s', 'fifteen_txtd' ), single_tag_title( '', false ) );
+		$title = sprintf( __( 'Tag: %s', 'patch_txtd' ), single_tag_title( '', false ) );
 	} elseif ( is_author() ) {
-		$title = sprintf( __( 'Author: %s', 'fifteen_txtd' ), '<span class="vcard">' . get_the_author() . '</span>' );
+		$title = sprintf( __( 'Author: %s', 'patch_txtd' ), '<span class="vcard">' . get_the_author() . '</span>' );
 	} elseif ( is_year() ) {
-		$title = sprintf( __( 'Year: %s', 'fifteen_txtd' ), get_the_date( _x( 'Y', 'yearly archives date format', 'fifteen_txtd' ) ) );
+		$title = sprintf( __( 'Year: %s', 'patch_txtd' ), get_the_date( _x( 'Y', 'yearly archives date format', 'patch_txtd' ) ) );
 	} elseif ( is_month() ) {
-		$title = sprintf( __( 'Month: %s', 'fifteen_txtd' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'fifteen_txtd' ) ) );
+		$title = sprintf( __( 'Month: %s', 'patch_txtd' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'patch_txtd' ) ) );
 	} elseif ( is_day() ) {
-		$title = sprintf( __( 'Day: %s', 'fifteen_txtd' ), get_the_date( _x( 'F j, Y', 'daily archives date format', 'fifteen_txtd' ) ) );
+		$title = sprintf( __( 'Day: %s', 'patch_txtd' ), get_the_date( _x( 'F j, Y', 'daily archives date format', 'patch_txtd' ) ) );
 	} elseif ( is_tax( 'post_format' ) ) {
 		if ( is_tax( 'post_format', 'post-format-aside' ) ) {
-			$title = _x( 'Asides', 'post format archive title', 'fifteen_txtd' );
+			$title = _x( 'Asides', 'post format archive title', 'patch_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-			$title = _x( 'Galleries', 'post format archive title', 'fifteen_txtd' );
+			$title = _x( 'Galleries', 'post format archive title', 'patch_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-			$title = _x( 'Images', 'post format archive title', 'fifteen_txtd' );
+			$title = _x( 'Images', 'post format archive title', 'patch_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-			$title = _x( 'Videos', 'post format archive title', 'fifteen_txtd' );
+			$title = _x( 'Videos', 'post format archive title', 'patch_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-			$title = _x( 'Quotes', 'post format archive title', 'fifteen_txtd' );
+			$title = _x( 'Quotes', 'post format archive title', 'patch_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-			$title = _x( 'Links', 'post format archive title', 'fifteen_txtd' );
+			$title = _x( 'Links', 'post format archive title', 'patch_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-			$title = _x( 'Statuses', 'post format archive title', 'fifteen_txtd' );
+			$title = _x( 'Statuses', 'post format archive title', 'patch_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-			$title = _x( 'Audio', 'post format archive title', 'fifteen_txtd' );
+			$title = _x( 'Audio', 'post format archive title', 'patch_txtd' );
 		} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-			$title = _x( 'Chats', 'post format archive title', 'fifteen_txtd' );
+			$title = _x( 'Chats', 'post format archive title', 'patch_txtd' );
 		}
 	} elseif ( is_post_type_archive() ) {
-		$title = sprintf( __( 'Archives: %s', 'fifteen_txtd' ), post_type_archive_title( '', false ) );
+		$title = sprintf( __( 'Archives: %s', 'patch_txtd' ), post_type_archive_title( '', false ) );
 	} elseif ( is_tax() ) {
 		$tax = get_taxonomy( get_queried_object()->taxonomy );
 		/* translators: 1: Taxonomy singular name, 2: Current taxonomy term */
-		$title = sprintf( __( '%1$s: %2$s', 'fifteen_txtd' ), $tax->labels->singular_name, single_term_title( '', false ) );
+		$title = sprintf( __( '%1$s: %2$s', 'patch_txtd' ), $tax->labels->singular_name, single_term_title( '', false ) );
 	} else {
-		$title = __( 'Archives', 'fifteen_txtd' );
+		$title = __( 'Archives', 'patch_txtd' );
 	}
 
 	/**
@@ -226,8 +226,8 @@ endif;
  *
  * @return bool
  */
-function fifteen_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'fifteen_categories' ) ) ) {
+function patch_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'patch_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -240,30 +240,30 @@ function fifteen_categorized_blog() {
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'fifteen_categories', $all_the_cool_cats );
+		set_transient( 'patch_categories', $all_the_cool_cats );
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so fifteen_categorized_blog should return true.
+		// This blog has more than 1 category so patch_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so fifteen_categorized_blog should return false.
+		// This blog has only 1 category so patch_categorized_blog should return false.
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in fifteen_categorized_blog.
+ * Flush out the transients used in patch_categorized_blog.
  */
-function fifteen_category_transient_flusher() {
+function patch_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
 	// Like, beat it. Dig?
-	delete_transient( 'fifteen_categories' );
+	delete_transient( 'patch_categories' );
 }
-add_action( 'edit_category', 'fifteen_category_transient_flusher' );
-add_action( 'save_post',     'fifteen_category_transient_flusher' );
+add_action( 'edit_category', 'patch_category_transient_flusher' );
+add_action( 'save_post',     'patch_category_transient_flusher' );
 
 /**
  * Display the classes for the post thumbail div.
@@ -271,12 +271,12 @@ add_action( 'save_post',     'fifteen_category_transient_flusher' );
  * @param string|array $class One or more classes to add to the class list.
  * @param int|WP_Post $post_id Optional. Post ID or post object.
  */
-function fifteen_post_thumbnail_class( $class = '', $post_id = null ) {
+function patch_post_thumbnail_class( $class = '', $post_id = null ) {
 	// Separates classes with a single space, collates classes for post thumbnail DIV
-	echo 'class="' . join( ' ', fifteen_get_post_thumbnail_class( $class, $post_id ) ) . '"';
+	echo 'class="' . join( ' ', patch_get_post_thumbnail_class( $class, $post_id ) ) . '"';
 }
 
-if ( ! function_exists( 'fifteen_get_post_thumbnail_class' ) ) :
+if ( ! function_exists( 'patch_get_post_thumbnail_class' ) ) :
 	/**
 	 * Retrieve the classes for the post_thumbnail,
 	 * depending on the aspect ratio of the featured image
@@ -284,7 +284,7 @@ if ( ! function_exists( 'fifteen_get_post_thumbnail_class' ) ) :
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array Array of classes.
 	 */
-	function fifteen_get_post_thumbnail_class( $class = '', $post_id = null ) {
+	function patch_get_post_thumbnail_class( $class = '', $post_id = null ) {
 
 		$post = get_post( $post_id );
 
@@ -345,7 +345,7 @@ if ( ! function_exists( 'fifteen_get_post_thumbnail_class' ) ) :
 		 * @param string $class   A comma-separated list of additional classes added to the post.
 		 * @param int    $post_id The post ID.
 		 */
-		$classes = apply_filters( 'fifteen_post_thumbnail_class', $classes, $class, $post->ID );
+		$classes = apply_filters( 'patch_post_thumbnail_class', $classes, $class, $post->ID );
 
 		return array_unique( $classes );
 
@@ -358,12 +358,12 @@ endif;
  * @param string|array $class One or more classes to add to the class list.
  * @param int|WP_Post $post_id Optional. Post ID or post object.
  */
-function fifteen_post_title_class( $class = '', $post_id = null ) {
+function patch_post_title_class( $class = '', $post_id = null ) {
 	// Separates classes with a single space, collates classes for post title
-	echo 'class="' . join( ' ', fifteen_get_post_title_class( $class, $post_id ) ) . '"';
+	echo 'class="' . join( ' ', patch_get_post_title_class( $class, $post_id ) ) . '"';
 }
 
-if ( ! function_exists( 'fifteen_get_post_title_class' ) ) :
+if ( ! function_exists( 'patch_get_post_title_class' ) ) :
 	/**
 	 * Retrieve the classes for the post title,
 	 * depending on the length of the title
@@ -371,7 +371,7 @@ if ( ! function_exists( 'fifteen_get_post_title_class' ) ) :
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array Array of classes.
 	 */
-	function fifteen_get_post_title_class( $class = '', $post_id = null ) {
+	function patch_get_post_title_class( $class = '', $post_id = null ) {
 
 		$post = get_post( $post_id );
 
@@ -412,7 +412,7 @@ if ( ! function_exists( 'fifteen_get_post_title_class' ) ) :
 		 * @param string $class   A comma-separated list of additional classes added to the post.
 		 * @param int    $post_id The post ID.
 		 */
-		$classes = apply_filters( 'fifteen_post_title_class', $classes, $class, $post->ID );
+		$classes = apply_filters( 'patch_post_title_class', $classes, $class, $post->ID );
 
 		return array_unique( $classes );
 
@@ -425,12 +425,12 @@ endif;
  * @param string|array $class One or more classes to add to the class list.
  * @param int|WP_Post $post_id Optional. Post ID or post object.
  */
-function fifteen_post_excerpt_class( $class = '', $post_id = null ) {
+function patch_post_excerpt_class( $class = '', $post_id = null ) {
 	// Separates classes with a single space, collates classes for the post excerpt div
-	echo 'class="' . join( ' ', fifteen_get_post_excerpt_class( $class, $post_id ) ) . '"';
+	echo 'class="' . join( ' ', patch_get_post_excerpt_class( $class, $post_id ) ) . '"';
 }
 
-if ( ! function_exists( 'fifteen_get_post_excerpt_class' ) ) :
+if ( ! function_exists( 'patch_get_post_excerpt_class' ) ) :
 	/**
 	 * Retrieve the classes for the post excerpt,
 	 * depending on the length of the excerpt
@@ -438,7 +438,7 @@ if ( ! function_exists( 'fifteen_get_post_excerpt_class' ) ) :
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array Array of classes.
 	 */
-	function fifteen_get_post_excerpt_class( $class = '', $post_id = null ) {
+	function patch_get_post_excerpt_class( $class = '', $post_id = null ) {
 
 		$post = get_post( $post_id );
 
@@ -454,7 +454,7 @@ if ( ! function_exists( 'fifteen_get_post_excerpt_class' ) ) :
 		// 100-199 = medium
 		// 200+ = long
 		// @ todo Put in the needed logic for when mb functions are not present
-		$excerpt_length = mb_strlen( fifteen_get_post_excerpt( $post ) );
+		$excerpt_length = mb_strlen( patch_get_post_excerpt( $post ) );
 
 		if ( $excerpt_length < 99 ) {
 			$classes[] = 'entry-content--short';
@@ -479,16 +479,16 @@ if ( ! function_exists( 'fifteen_get_post_excerpt_class' ) ) :
 		 * @param string $class   A comma-separated list of additional classes added to the post.
 		 * @param int    $post_id The post ID.
 		 */
-		$classes = apply_filters( 'fifteen_post_excerpt_class', $classes, $class, $post->ID );
+		$classes = apply_filters( 'patch_post_excerpt_class', $classes, $class, $post->ID );
 
 		return array_unique( $classes );
 
 	}
 endif;
 
-if ( ! function_exists( 'fifteen_post_excerpt' ) ) :
+if ( ! function_exists( 'patch_post_excerpt' ) ) :
 
-	function fifteen_post_excerpt( $post_id = null ) {
+	function patch_post_excerpt( $post_id = null ) {
 		$post = get_post( $post_id );
 
 		if ( empty( $post ) )
@@ -500,7 +500,7 @@ if ( ! function_exists( 'fifteen_post_excerpt' ) ) :
 		if ( $has_more ) {
 			/* translators: %s: Name of current post */
 			the_content( sprintf(
-				__( 'Continue reading %s', 'fifteen_txtd' ),
+				__( 'Continue reading %s', 'patch_txtd' ),
 				the_title( '<span class="screen-reader-text">', '</span>', false )
 			) );
 		} else {

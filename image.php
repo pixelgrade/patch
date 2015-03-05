@@ -2,7 +2,7 @@
 /**
  * The template for displaying image attachments
  *
- * @package Fifteen
+ * @package Patch
  */
 global $content_width;
 
@@ -24,7 +24,7 @@ get_header(); ?>
 
 			<?php get_template_part( 'content', 'attachment' ); ?>
 
-			<?php fifteen_the_image_navigation(); ?>
+			<?php patch_the_image_navigation(); ?>
 
 			<?php
 			// If comments are open or we have at least one comment, load up the comment template
@@ -34,7 +34,7 @@ get_header(); ?>
 
 			// The parent post link.
 			the_post_navigation( array(
-				'prev_text' => '<span class="meta-nav">' . __( 'Published in', 'fifteen_txtd' ) . '</span><span class="post-title">%title</span>',
+				'prev_text' => '<span class="meta-nav">' . __( 'Published in', 'patch_txtd' ) . '</span><span class="post-title">%title</span>',
 				)
 			); ?>
 
