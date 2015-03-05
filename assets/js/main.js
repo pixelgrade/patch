@@ -1819,6 +1819,7 @@ if (!Date.now) Date.now = function () {
     //   svgLogo.init();
     //   animator.animate();
     scrollToTop();
+    moveFeaturedImage();
     //   infinityHandler();
     //   if (latestKnownScrollY) $window.trigger('scroll');
   });
@@ -1899,6 +1900,12 @@ if (!Date.now) Date.now = function () {
 
       $('html').velocity("scroll", 1000);
     });
+  }
+
+  function moveFeaturedImage() {
+    if ($('article[class*="post"]').hasClass('entry-image--portrait') || $('article[class*="post"]').hasClass('entry-image--tall')) {
+      $('.entry-featured').prependTo('article[class*="post"]');
+    }
   }
 
   /**
