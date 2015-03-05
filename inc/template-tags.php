@@ -337,8 +337,6 @@ if ( ! function_exists( 'patch_get_post_thumbnail_class' ) ) :
 		if ( empty( $post ) )
 			return $classes;
 
-		$classes[] = 'entry-image';
-
 		// .entry-image--[tall|portrait|square|landscape|wide] class depending on the aspect ratio
 		// 16:9 = 1.78
 		// 3:2 = 1.500

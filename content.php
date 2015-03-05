@@ -8,7 +8,7 @@
 	
 	<div class="entry-card">
 		<?php if ( has_post_thumbnail() ) : ?>
-			<a href="<?php the_permalink(); ?>" <?php patch_post_thumbnail_class(); ?>>
+			<a href="<?php the_permalink(); ?>" <?php patch_post_thumbnail_class( 'entry-image' ); ?>>
 				<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
 			</a>
 		<?php endif; ?>
