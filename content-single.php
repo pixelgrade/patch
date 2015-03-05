@@ -5,18 +5,18 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php if ( has_post_thumbnail() ) { ?>
-			<div class="entry-featured  entry-thumbnail">
-				<?php the_post_thumbnail( 'hive-single-image' ); ?>
-			</div>
-		<?php } ?>
-
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
+	<header <?php patch_post_thumbnail_class( 'entry-header' ); ?>>
 		<div class="entry-meta">
 			<?php patch_posted_on(); ?>
 		</div><!-- .entry-meta -->
+
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+
+		<?php if ( has_post_thumbnail() ) { ?>
+			<div class="entry-featured  entry-thumbnail">
+				<?php the_post_thumbnail( 'patch-single-image' ); ?>
+			</div>
+		<?php } ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
@@ -30,6 +30,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php patch_entry_footer(); ?>
+		<?php patch_single_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

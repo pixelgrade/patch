@@ -13,7 +13,7 @@ function init() {
 
 $window.load(function() {
   browserSize();
-  masonry.init();
+  masonry.refresh();
 //   navigation.init();
 //   fixedSidebars.update();
 //   svgLogo.init();
@@ -26,14 +26,14 @@ $window.load(function() {
 
 // /* ====== ON RESIZE ====== */
 
-// function onResize() {
-//   browserSize();
-//   masonry.refresh();
+function onResize() {
+  browserSize();
+  masonry.refresh();
 //   fixedSidebars.refresh();
 //   fixedSidebars.update();
-// }
+}
 
-// $window.on('debouncedresize', onResize);
+$window.on('debouncedresize', onResize);
 
 // /* ====== ON SCROLL ====== */
 

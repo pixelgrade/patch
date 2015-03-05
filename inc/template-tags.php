@@ -127,6 +127,50 @@ function patch_entry_footer() {
 }
 endif;
 
+
+if ( ! function_exists( 'patch_single_entry_footer' ) ) :
+	/**
+	 * Prints HTML with meta information for the categories, tags, Jetpack likes, shares, related, and comments.
+	 */
+	function patch_single_entry_footer() {
+		// Hide category and tag text for pages.
+		if ( 'post' == get_post_type() ) {
+			/* translators: used between list items, there is a space after the comma */
+			$categories_list = get_the_category_list( __( ', ', 'patch_txtd' ) );
+			if ( $categories_list && patch_categorized_blog() ) {
+				printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'patch_txtd' ) . '</span>', $categories_list );
+			}
+
+			/* translators: used between list items, there is a space after the comma */
+			$tags_list = get_the_tag_list( '', __( ', ', 'patch_txtd' ) );
+			if ( $tags_list ) {
+				printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'patch_txtd' ) . '</span>', $tags_list );
+			}
+
+			//now for the Jetpack likes, sharing and related posts
+			if ( function_exists( 'sharing_display' ) ) {
+				sharing_display( '', true );
+			}
+
+			if ( class_exists( 'Jetpack_Likes' ) ) {
+				$custom_likes = new Jetpack_Likes;
+				echo $custom_likes->post_likes( '' );
+			}
+			if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+				echo do_shortcode( '[jetpack-related-posts]' );
+			}
+		}
+
+		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			echo '<span class="comments-link">';
+			comments_popup_link( __( 'Leave a comment', 'patch_txtd' ), __( '1 Comment', 'patch_txtd' ), __( '% Comments', 'patch_txtd' ) );
+			echo '</span>';
+		}
+
+		edit_post_link( __( 'Edit', 'patch_txtd' ), '<span class="edit-link">', '</span>' );
+	}
+endif;
+
 if ( ! function_exists( 'the_archive_title' ) ) :
 /**
  * Shim for `the_archive_title()`.
@@ -292,8 +336,6 @@ if ( ! function_exists( 'patch_get_post_thumbnail_class' ) ) :
 
 		if ( empty( $post ) )
 			return $classes;
-
-		$classes[] = 'entry-image';
 
 		// .entry-image--[tall|portrait|square|landscape|wide] class depending on the aspect ratio
 		// 16:9 = 1.78
@@ -507,4 +549,4 @@ if ( ! function_exists( 'patch_post_excerpt' ) ) :
 			the_excerpt();
 		}
 	}
-endif;
+endif; ?>
