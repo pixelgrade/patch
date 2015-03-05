@@ -102,3 +102,9 @@ body {
 	   -moz-hyphens: auto;
 	        hyphens: auto;
 }
+
+// @todo fucking investigate this
+.post {
+	// prevents images overlaping margin
+	&:before { content: ""; display: block; float: left; }
+}

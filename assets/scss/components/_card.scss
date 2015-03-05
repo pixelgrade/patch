@@ -1,59 +1,67 @@
 @mixin spacings($gutter) {
 
-	.entry-image {
+	.entry-image--landscape {
+		margin-left: -$gutter;
+		margin-right: $gutter;
+	}
 
-		&--landscape {
-			margin-left: -$gutter;
-			margin-right: $gutter;
+	.entry-image--tall,
+	.entry-image--portrait {
+		margin-left: -$gutter;
+
+		// hard work man
+		~ .entry-header.entry-header {
+			padding-top: $gutter;
+			margin-top: -$gutter;
 		}
 
-		&--tall,
-		&--portrait {
-			margin-left: -$gutter;
+		~ .entry-content {
+			padding-bottom: $gutter;
+			// margin-bottom: -$gutter;
+		}
+	}
+
+	.entry-image--wide {
+		margin: 0 #{-$gutter};
+	}
+
+
+	.entry-image--landscape,
+	.entry-image--tall, 
+	.entry-image--portrait	{
+		margin-left: -$gutter;
+	}
+
+	.entry-image--landscape {
+		margin-right: -$gutter;
+	}
+
+	.entry-image--square,
+	.entry-image--square ~ * {
+		margin-left: $gutter;
+		margin-right: 2*$gutter;
+	}
+
+	.entry--even {
+
+		.entry-image--tall,
+		.entry-image--portrait {
 
 			& ~ .entry-block {
-				margin-right: -$gutter;
-				padding-right: $gutter;
-
-				.entry--even & {			
-					margin-left: -$gutter;
-					padding-left: $gutter;				
-				}
-			}
-
-			// hard work man
-			~ .entry-header.entry-header {
-				padding-top: $gutter;
-				margin-top: -$gutter;
-			}
-
-			~ .entry-content {
-				padding-bottom: $gutter;
-				// margin-bottom: -$gutter;
+				margin-left: -$gutter;
+				padding-left: $gutter;				
 			}
 		}
 
-		&--wide {
-			margin: 0 #{-$gutter};
-		}
-
-
-		&--landscape,
-		&--tall, 
-		&--portrait	{
-			margin-left: -$gutter;
-		}
-
-		&--landscape {
+		.entry-image {
+			margin-left: $gutter/2;
 			margin-right: -$gutter;
 		}
 
-		&--square,
-		&--square ~ * {
-			margin-left: $gutter;
-			margin-right: 2*$gutter;
+		.entry-image ~ .entry-block {
+			margin-left: -$gutter;
+			margin-right: $gutter;
 		}
-		
 	}
 
 	.entry-block {
@@ -65,25 +73,15 @@
 		margin-left: -$gutter;
 		margin-right: $gutter;
 		padding-left: 2*$gutter;
-
-		.entry-image--square + & {
-			margin-left: $gutter;
-			margin-right: $gutter;
-		}
-
-		.entry-image + & {
-			margin-left: $gutter;
-		}
 	}
 
-	.entry--even .entry-image {
-		margin-left: $gutter/2;
-		margin-right: -$gutter;
+	.entry-image--square + .entry-header {
+		margin-left: $gutter;
+		margin-right: $gutter;
+	}
 
-		& ~ .entry-block {
-			margin-left: -$gutter;
-			margin-right: $gutter;
-		}
+	.entry-image + .entry-header {
+		margin-left: $gutter;
 	}
 }
 
@@ -94,7 +92,6 @@
 		border-bottom: $gutter/2 solid white;
 		background: black;
 		color: white;
-
 
 		@include query-above($small) {
 			margin-right: $gutter;
@@ -120,45 +117,8 @@
 	@extend .clearfix;
 }
 
-// @todo fucking investigate this
-.post {
-	// prevents images overlaping margin
-	&:before { content: ""; display: block; float: left; }
-}
-
 .entry-image {
 	display: block;
-
-	&--tall,
-	&--portrait {
-		float: left;
-		max-width: 35%;
-
-		& ~ .entry-block {
-
-			.entry--even & { 
-				margin-right: 0;
-				padding-right: 0;		
-			}
-		}
-
-		@include query-above($small) {
-			max-width: 50%;
-		}
-	}
-
-	&--tall,
-	&--portrait	{
-		position: relative;
-		z-index: 40;
-		margin-bottom: $gutter/3;
-
-		~ .entry-block {
-			position: relative;
-			z-index: 30;
-		}
-	}
-
 
 	@include query-above($small) {
 		margin-right: $gutter;
@@ -171,6 +131,25 @@
 	img {
 		display: block;
 		width: 100%;
+	}
+}
+
+.entry-image--tall,
+.entry-image--portrait {
+	float: left;
+	max-width: 35%;
+	margin-right: $gutter/2;
+	position: relative;
+	z-index: 40;
+	margin-bottom: $gutter/3;
+
+	~ .entry-block {
+		position: relative;
+		z-index: 30;
+	}
+
+	@include query-above($small) {
+		max-width: 50%;
 	}
 }
 
@@ -195,15 +174,14 @@
 	}
 }
 
+.entry-title {
+	@extend .beta;
+	font-weight: normal;
+}
+
 .entry-content {
 	@extend .entry-block;
 	background: white;
-}
-
-.entry-title {
-	@extend .beta;
-	color: black;
-	font-weight: normal;
 }
 
 .entry--even {
@@ -212,23 +190,19 @@
 
 	.entry-image {
 		float: right;
+		margin-left: $gutter/2;
 	}
+
+	.entry-image--tall,
+	.entry-image--portrait {
+		margin-right: 0;
+		padding-right: 0;		
+	} 
 
 	.entry-block {
 		text-align: right;
 	}
 } 
-
-.entry-image {
-	&--tall,
-	&--portrait {
-		margin-right: $gutter/2;
-
-		.entry--even & {
-			margin-left: $gutter/2;
-		}
-	}
-}
 
 @include query-below(400px) {
 

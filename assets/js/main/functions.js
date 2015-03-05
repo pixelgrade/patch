@@ -49,6 +49,12 @@ function scrollToTop() {
   });
 }
 
+function moveFeaturedImage() {
+  if ($('article[class*="post"]').hasClass('entry-image--portrait') || $('article[class*="post"]').hasClass('entry-image--tall') ) {
+    $('.entry-featured').prependTo('article[class*="post"]');
+  }
+}
+
 /**
  * Infinite scroll behaviour
  */
