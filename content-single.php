@@ -7,6 +7,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header <?php patch_post_thumbnail_class( 'entry-header' ); ?>>
 		<div class="entry-meta">
+			<?php patch_cats_list(); ?>
 			<?php patch_posted_on(); ?>
 		</div><!-- .entry-meta -->
 

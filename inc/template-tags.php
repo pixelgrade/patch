@@ -70,31 +70,67 @@ if ( ! function_exists( 'patch_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function patch_posted_on() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time><time class="updated" datetime="%4$s">%5$s</time>';
 	}
 
 	$time_string = sprintf( $time_string,
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( get_the_date() ),
+		esc_html( get_the_time() ),
 		esc_attr( get_the_modified_date( 'c' ) ),
 		esc_html( get_the_modified_date() )
 	);
 
-	$posted_on = sprintf(
-		_x( 'Posted on %s', 'post date', 'patch_txtd' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
+	$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
 	$byline = sprintf(
 		_x( 'by %s', 'post author', 'patch_txtd' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>';
+	echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>';
 
 }
+endif;
+
+if ( ! function_exists( 'patch_get_cats_list' ) ) :
+
+	/**
+	 * Returns HTML with comma separated category links
+	 */
+	function patch_get_cats_list( $post_ID = null) {
+
+		//use the current post ID is none given
+		if ( empty( $post_ID ) ) {
+			$post_ID = get_the_ID();
+		}
+
+		$cats = '';
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_category_list( __( ', ', 'patch_txtd' ), '', $post_ID );
+		if ( $categories_list && patch_categorized_blog() ) {
+			$cats = '<span class="cat-links">' . $categories_list . '</span>';
+		}
+
+		return $cats;
+
+	}
+
+endif;
+
+if ( ! function_exists( 'patch_cats_list' ) ) :
+
+	/**
+	 * Prints HTML with comma separated category links
+	 */
+	function patch_cats_list( $post_ID = null) {
+
+		echo patch_get_cats_list( $post_ID );
+
+	} #function
+
 endif;
 
 if ( ! function_exists( 'patch_entry_footer' ) ) :
