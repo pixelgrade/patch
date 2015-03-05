@@ -19,6 +19,7 @@ $window.load(function() {
 //   svgLogo.init();
 //   animator.animate();
    scrollToTop();
+  moveFeaturedImage();
 //   infinityHandler();
 
 //   if (latestKnownScrollY) $window.trigger('scroll');

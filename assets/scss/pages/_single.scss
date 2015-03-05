@@ -1,4 +1,6 @@
 .single, .page {
+	padding-top: 60px;
+
 	.container {
 		// @todo revisit
 		max-width: 1340px;
@@ -37,14 +39,6 @@
 		max-width: none;
 		float: none;
 		margin-right: 0;
-
-		.entry-header {
-			float: right;
-			margin-left: -100%;
-			margin-right: -3*$gutter;
-			max-width: 34%;
-			max-width: calc(30% + 240px);
-		}
 
 		.entry-featured {
 			float: left;

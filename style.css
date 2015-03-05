@@ -343,6 +343,7 @@ img { max-width: 100%; height: auto; }
 
 .back-to-top-button { padding: 0.42857rem; }
 
+.single, .page { padding-top: 60px; }
 .single .container, .page .container { max-width: 1340px; margin: 0 auto; }
 .single .site-main, .page .site-main { padding: 0 180px; }
 .single .entry-image--landscape .entry-header, .single .entry-image--wide .entry-header, .page .entry-image--landscape .entry-header, .page .entry-image--wide .entry-header { margin-left: -90px; margin-right: -90px; }
@@ -350,7 +351,6 @@ img { max-width: 100%; height: auto; }
 .single .entry-image--landscape img, .single .entry-image--wide img, .page .entry-image--landscape img, .page .entry-image--wide img { width: 100%; }
 .single .entry-image--wide, .page .entry-image--wide { margin: 0; }
 .single .entry-image--portrait, .single .entry-image--tall, .page .entry-image--portrait, .page .entry-image--tall { max-width: none; float: none; margin-right: 0; }
-.single .entry-image--portrait .entry-header, .single .entry-image--tall .entry-header, .page .entry-image--portrait .entry-header, .page .entry-image--tall .entry-header { float: right; margin-left: -100%; margin-right: -90px; max-width: 34%; max-width: calc(30% + 240px); }
 .single .entry-image--portrait .entry-featured, .single .entry-image--tall .entry-featured, .page .entry-image--portrait .entry-featured, .page .entry-image--tall .entry-featured { float: left; margin-left: -180px; margin-right: 30px; max-width: 70%; }
 .single .entry-image--portrait img, .single .entry-image--tall img, .page .entry-image--portrait img, .page .entry-image--tall img { width: 100%; }
 .single .entry-image--portrait .entry-content, .single .entry-image--tall .entry-content, .page .entry-image--portrait .entry-content, .page .entry-image--tall .entry-content { clear: right; }
