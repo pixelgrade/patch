@@ -6,23 +6,21 @@ var masonry = (function() {
 		// $sidebar		= $('.sidebar--main'),
 		$blocks			= $container.children().addClass('post--animated  post--loaded'),
 		initialized		= false,
+		columns 		= 1,
 		containerTop,
 		containerBottom,
 		// sidebarTop,
 
 	init = function() {
 
+		if (windowWidth < 800) {
+			return;
+		}
+
 		if ($container.length) {
 			containerTop = $container.offset().top;
 			containerBottom = containerTop + $container.outerHeight();
 		}
-
-		// var $items = $('.grid__item');
-
-		// $items.each(function (i, item) {
-		// 	var $item = $(item);
-		// 	$item.outerWidth($item.outerWidth);
-		// });
 
 		$container.masonry({
 			itemSelector: '.grid__item',
@@ -32,7 +30,6 @@ var masonry = (function() {
 		bindEvents();
 		showBlocks($blocks);
 		initialized = true;
-		refresh();
 	},
 
 	bindEvents = function() {
@@ -43,6 +40,13 @@ var masonry = (function() {
 	refresh = function() {
 
 		if (!initialized) {
+			init();
+			return;
+		}
+
+		if (windowWidth < 800) {
+			$container.masonry('destroy');
+			initialized = false;
 			return;
 		}
 		

@@ -108,11 +108,11 @@ if ( ! function_exists( 'patch_fonts_url' ) ) :
 		$subsets   = 'latin,latin-ext';
 
 		/* Translators: If there are characters in your language that are not
-		* supported by Open Sans, translate this to 'off'. Do not translate
+		* supported by Roboto, translate this to 'off'. Do not translate
 		* into your own language.
 		*/
-		if ( 'off' !== _x( 'on', 'Open Sans font: on or off', 'patch_txtd' ) ) {
-			$fonts[] = 'Open+Sans:400,700';
+		if ( 'off' !== _x( 'on', 'Roboto font: on or off', 'fifteen_txtd' ) ) {
+			$fonts[] = 'Roboto:400,700';
 		}
 
 		/* Translators: If there are characters in your language that are not
