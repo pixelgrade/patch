@@ -189,6 +189,7 @@ img { max-width: 100%; height: auto; }
 @media only screen and (min-width: 1200px) { .grid__item { width: 33.33%; } }
 @media only screen and (min-width: 1600px) { .grid__item { width: 25%; } }
 @media only screen and (min-width: 900px) { .grid__item { border-left-width: 30px; } }
+.grid__item:nth-child(2), .grid__item:nth-child(4) { margin-top: 50px; }
 
 .post:before { content: ""; display: block; float: left; }
 
@@ -293,7 +294,7 @@ img { max-width: 100%; height: auto; }
 
 @media only screen and (min-width: 1200px) { .single .site-main, .page .site-main { padding-right: 8.57143em; padding-left: 8.57143em; } }
 /** 14.0 - Overwrites */
-.alpha, body { font-family: Open Sans, sans-serif; }
+.alpha, body { font-family: Roboto, sans-serif; }
 
 .beta, .entry-title { font-family: Oswald, sans-serif; }
 

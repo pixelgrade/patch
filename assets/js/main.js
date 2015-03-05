@@ -792,6 +792,7 @@ if (!Date.now) Date.now = function () {
         // $sidebar		= $('.sidebar--main'),
         $blocks = $container.children().addClass('post--animated  post--loaded'),
         initialized = false,
+        columns = 1,
         containerTop, containerBottom,
         
         // sidebarTop,
@@ -803,11 +804,6 @@ if (!Date.now) Date.now = function () {
           containerBottom = containerTop + $container.outerHeight();
         }
 
-        // var $items = $('.grid__item');
-        // $items.each(function (i, item) {
-        // 	var $item = $(item);
-        // 	$item.outerWidth($item.outerWidth);
-        // });
         $container.masonry({
           itemSelector: '.grid__item',
           transitionDuration: 0
@@ -863,6 +859,9 @@ if (!Date.now) Date.now = function () {
 
         // get unique values representing columns' left offset
         values = values.getUnique(values);
+        columns = values.length;
+
+        console.log(columns);
 
         // keep only the even ones so we can identify what columns need new css classes
         for (var k in values) {
