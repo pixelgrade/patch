@@ -324,5 +324,4 @@ function patch_get_post_excerpt( $post_id = null ) {
 	return $excerpt;
 }
 
-add_filter( 'post_class', 'patch_get_post_thumbnail_class');
 ?>

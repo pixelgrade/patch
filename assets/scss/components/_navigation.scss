@@ -1,0 +1,36 @@
+.site-header {
+	text-transform: uppercase;
+	
+	a {
+		color: black;
+		text-decoration: none;
+	}
+}
+
+.site-title,
+.nav--main {
+	margin: 0 2*$gutter $gutter $gutter;
+}
+
+.site-title {
+	@extend %fs-42;
+}
+
+.site-description {
+	display: none;
+}
+
+.nav--main {
+	@extend .clearfix;
+	@extend .beta;
+
+	> li {
+		display: block;
+		width: 50%;
+		float: left;
+
+		a {
+			@extend %fs-24;
+		}
+	}
+}
