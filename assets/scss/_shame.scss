@@ -1,42 +1,3 @@
-.alpha {
-	font-family: Roboto, sans-serif;
-}
-
-.beta {
-	font-family: Oswald, sans-serif;
-}
-
-%lh-1-66 	{ line-height: 1.66; }
-%lh-1-5 	{ line-height: 1.5; }
-%lh-1-33 	{ line-height: 1.33; }
-%lh-1-25 	{ line-height: 1.25; }
-%lh-1 		{ line-height: 1; }
-
-%fs-16 {
-	@extend %lh-1-5;
-	font-size: 16px;
-}
-
-%fs-24 {
-	@extend %lh-1-66;
-	font-size: 24px;
-}
-
-%fs-30 {
-	@extend %lh-1-33;
-	font-size: 30px;
-}
-
-%fs-36 {
-	@extend %lh-1-25;
-	font-size: 36px;
-}
-
-%fs-42 {
-	@extend %lh-1-25;
-	font-size: 42px;
-}
-
 .entry-content--short {
 	@extend %fs-16;
 }
@@ -73,33 +34,6 @@
 
 .entry-title--short {
 	@extend %fs-42;
-}
-
-body {
-	@extend .alpha;
-	font-size: 14px;
-	line-height: 1.5;
-	color: #3d3f40;
-
-	@include query-above($lap) {
-		border: $gutter/2 solid black;
-	}
-}
-
-.screen-reader-text,
-.posts-navigation,
-.entry-footer {
-	display: none;
-}
-
-.hyphening {
-	-ms-word-break: break-all;
-		word-break: break-all;
-		word-break: break-word;
-
-	-webkit-hyphens: auto;
-	   -moz-hyphens: auto;
-	        hyphens: auto;
 }
 
 // @todo fucking investigate this
