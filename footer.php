@@ -5,6 +5,7 @@
  * Contains the closing of the #content div and all content after
  *
  * @package Patch
+ * @since Patch 1.0
  */
 ?>
 		</div><!-- .container -->
@@ -20,15 +21,13 @@
 			<a href="#top" class="back-to-top-button"><?php get_template_part( 'assets/svg/back-to-top' ); ?></a>
 		</div><!--
 		--><?php
-		wp_nav_menu(
-			array(
-				'theme_location' => 'footer',
-				'container'      => '',
-				'menu_class'     => 'nav  nav--footer',
-				'items_wrap'         => '<nav class="footer-menu"><h5 class="screen-reader-text">'.__( 'Footer navigation', 'hive_txtd' ).'</h5><ul id="%1$s" class="%2$s">%3$s</ul></nav>',
-				'depth'          => 1,
-			)
-		); ?>
+		wp_nav_menu( array(
+			'theme_location' => 'footer',
+			'container'      => '',
+			'menu_class'     => 'nav  nav--footer',
+			'items_wrap'         => '<nav class="footer-menu"><h5 class="screen-reader-text">'.__( 'Footer navigation', 'patch_txtd' ).'</h5><ul id="%1$s" class="%2$s">%3$s</ul></nav>',
+			'depth'          => 1,
+		) ); ?>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

@@ -8,6 +8,7 @@
  * different template.
  *
  * @package Patch
+ * @since Patch 1.0
  */
 
 get_header(); ?>

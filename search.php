@@ -3,6 +3,7 @@
  * The template for displaying search results pages.
  *
  * @package Patch
+ * @since Patch 1.0
  */
 
 get_header();

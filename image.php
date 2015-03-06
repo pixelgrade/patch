@@ -3,6 +3,7 @@
  * The template for displaying image attachments
  *
  * @package Patch
+ * @since Patch 1.0
  */
 global $content_width;
 
