@@ -672,7 +672,7 @@ if ( ! function_exists( 'patch_secondary_page_title' ) ) :
 	/**
 	 * Display the markup for the archive or search pages title.
 	 */
-	function patch_secondary_page_title() {
+	function patch_the_secondary_page_title() {
 
 		if ( is_archive() ) : ?>
 
@@ -692,4 +692,107 @@ if ( ! function_exists( 'patch_secondary_page_title' ) ) :
 
 		<?php endif;
 	}
+endif;
+
+if ( ! function_exists( 'patch_the_image_navigation' ) ) :
+
+	/**
+	 * Display navigation to next/previous image attachment
+	 */
+	function patch_the_image_navigation() {
+		// Don't print empty markup if there's nowhere to navigate.
+		$prev_image = patch_get_adjacent_image();
+		$next_image = patch_get_adjacent_image( false );
+
+		if ( ! $next_image && ! $prev_image ) {
+			return;
+		} ?>
+
+		<nav class="navigation post-navigation" role="navigation">
+			<h5 class="screen-reader-text"><?php _e( 'Image navigation', 'patch_txtd' ); ?></h5>
+			<div class="article-navigation">
+				<?php
+				if ( $prev_image ) {
+					$prev_thumbnail = wp_get_attachment_image( $prev_image->ID, 'patch-tiny-image' ); ?>
+
+					<span class="navigation-item  navigation-item--previous">
+						<a href="<?php echo get_attachment_link( $prev_image->ID ); ?>" rel="prev">
+							<span class="arrow"></span>
+		                    <span class="navigation-item__content">
+		                        <span class="navigation-item__wrapper  flexbox">
+		                            <span class="flexbox__item">
+		                                <span class="post-thumb"><?php echo $prev_thumbnail; ?></span>
+		                            </span>
+		                            <span class="flexbox__item">
+		                                <span class="navigation-item__name"><?php _e( 'Previous image', 'patch_txtd' ); ?></span>
+		                                <h3 class="post-title"><?php echo get_the_title( $prev_image->ID ); ?></h3>
+		                            </span>
+		                        </span>
+		                    </span>
+						</a>
+					</span>
+
+				<?php }
+
+				if ( $next_image ) {
+					$next_thumbnail = wp_get_attachment_image( $next_image->ID, 'patch-tiny-image' ); ?>
+
+					<span class="navigation-item  navigation-item--next">
+						<a href="<?php echo get_attachment_link( $next_image->ID ); ?>" rel="prev">
+							<span class="arrow"></span>
+		                    <span class="navigation-item__content">
+		                        <span class="navigation-item__wrapper  flexbox">
+		                            <span class="flexbox__item">
+		                                <span class="post-thumb"><?php echo $next_thumbnail; ?></span>
+		                            </span>
+		                            <span class="flexbox__item">
+		                                <span class="navigation-item__name"><?php _e( 'Next image', 'patch_txtd' ); ?></span>
+		                                <h3 class="post-title"><?php echo get_the_title( $next_image->ID ); ?></h3>
+		                            </span>
+		                        </span>
+		                    </span>
+						</a>
+					</span>
+
+				<?php } ?>
+
+		</nav><!-- .navigation -->
+
+	<?php
+	} #function
+
+endif;
+
+if ( ! function_exists( 'patch_get_adjacent_image' ) ) :
+
+	/**
+	 * Inspired by the core function adjacent_image_link() from wp-includes/media.php
+	 *
+	 * @param bool $prev Optional. Default is true to display previous link, false for next.
+	 * @return mixed  Attachment object if successful. Null if global $post is not set. false if no corresponding attachment exists.
+	 */
+	function patch_get_adjacent_image( $prev = true ) {
+		if ( ! $post = get_post() ) {
+			return null;
+		}
+
+		$attachments = get_attached_media( 'image', $post->post_parent );
+
+		foreach ( $attachments as $k => $attachment ) {
+			if ( $attachment->ID == $post->ID ) {
+				break;
+			}
+		}
+
+		if ( $attachments ) {
+			$k = $prev ? $k - 1 : $k + 1;
+
+			if ( isset( $attachments[ $k ] ) ) {
+				return $attachments[ $k ];
+			}
+		}
+
+		return false;
+	} #function
+
 endif; ?>
