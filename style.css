@@ -165,7 +165,7 @@ h4 { margin-top: 3rem; margin-bottom: 1.5rem; color: #171617; font-size: 0.875re
 h5 { margin-top: 3rem; margin-bottom: 1.5rem; font-size: 0.6875rem; letter-spacing: 0.02em; }
 
 /* Paragraphs */
-p { margin-top: 0; margin-bottom: 1.5rem; }
+p { margin-top: 0; margin-bottom: 2.25rem; }
 
 /* Links */
 .single .entry-content a, .page .entry-content a { text-decoration: none; box-shadow: inset 0 -8px 0 #ffeb00; }
@@ -180,7 +180,7 @@ h1 a, .site-title a, h2 a, h3 a { color: #ffeb00; }
 acronym { border-bottom: 1px dotted #3e3f40; }
 
 /* Blockquotes */
-blockquote { font-size: 1.375rem; font-weight: 500; text-transform: uppercase; color: #171617; }
+blockquote { margin-bottom: 2.25rem; font-size: 1.375rem; line-height: 1.55; font-weight: 500; text-transform: uppercase; color: #171617; }
 
 /* Tables */
 table { position: relative; z-index: 1; margin-bottom: 1.5em; width: 100%; border-top: 0; table-layout: fixed; }
@@ -192,6 +192,10 @@ table th, table td { padding: 15px; vertical-align: middle; font-family: inherit
 pre { position: relative; padding-left: 2.25em; padding-right: 2.25em; padding-top: 1.5em; padding-bottom: 1.5em; margin-bottom: 1.5em; border: 1px solid #b5b5b5; }
 pre:before { content: "\f121"; position: absolute; top: 0; left: 0; display: block; padding: 3px; font-family: FontAwesome; font-size: 14px; color: white; background: #b5b5b5; }
 
+.entry-content ol { padding-left: 22px; }
+.entry-content ul { padding-left: 17px; }
+.entry-content ol li, .entry-content ul li { padding-bottom: 0.375em; }
+
 /** 3.2 - Images */
 img { max-width: 100%; height: auto; }
 
@@ -199,8 +203,7 @@ img { max-width: 100%; height: auto; }
 .wp-caption { width: auto; margin-left: 0; margin-right: 0; }
 .wp-caption img { display: block; }
 
-.wp-caption-text { padding: 1em 0; border-bottom: 2px solid #f2f2f2; }
-.fs-12px, .wp-caption-text { font-size: 0.75em; line-height: 2; }
+.wp-caption-text { font-size: 0.8125rem; padding: 1em 0; }
 .archive__grid .wp-caption-text { border-bottom: 0; }
 
 /* Galleries */
@@ -306,14 +309,43 @@ img { max-width: 100%; height: auto; }
 .intro { font-size: 1.125rem; font-weight: 500; line-height: 1.75; }
 @media not screen and (min-width: 900px) { .intro { font-size: 1.2em; color: #000000; } }
 
-@media only screen and (min-width: 1000px) { .twocolumn { column-count: 2; column-gap: 50px; } }
+@media only screen and (min-width: 1000px) { .twocolumn { -webkit-column-count: 2; -moz-column-count: 2; column-count: 2; -webkit-column-gap: 50px; -moz-column-gap: 60px; column-gap: 60px; } }
 .dropcap { float: left; margin-bottom: 0.03243em; margin-right: 0.16216em; font-size: 4.625em; line-height: 1.13514; font-weight: 200; line-height: 1; color: #171617; text-shadow: 2px 2px 0px white, 4px 4px 0px #ffeb00; }
 
 .highlight { position: relative; padding: 0 8px; margin: 0 4px; }
 .highlight:before { content: ""; position: absolute; z-index: -1; top: -4px; left: 0; bottom: -4px; right: 0; background: rgba(255, 235, 0, 0.4); }
 
+.pull-left { margin-left: -180px; width: calc(6 * 30px + 50%); padding-right: 30px; float: left; text-align: right; }
+
+.pull-right { margin-right: -180px; width: calc(6 * 30px + 50%); padding-left: 30px; float: right; text-align: left; }
+
 /** 4.2 - Alignments
 */
+/** Fluid images for responsive purposes. Offset `alt` text from surrounding copy. */
+img { max-width: 100%; height: auto; font-style: italic; }
+
+.aligncenter, .alignnone, .alignleft, .alignright { display: block; width: auto !important; margin: 0; margin-bottom: 1.5rem; }
+@media not screen and (min-width: 740px) { .aligncenter, .alignnone, .alignleft, .alignright { margin-bottom: 1.05rem; } }
+.archive__grid .aligncenter, .archive__grid .alignnone, .archive__grid .alignleft, .archive__grid .alignright { margin-bottom: 0; }
+
+.aligncenter, .alignnone { margin-left: -90px; margin-right: -90px; text-align: center; max-width: none; }
+.aligncenter img, .alignnone img { margin: 0 auto; }
+
+.alignleft, .alignright { margin-top: 1.5rem; max-width: 50%; }
+p + .alignleft, p + .alignright { margin-top: 0; }
+p > .alignleft:first-child, p > :first-child > .alignleft:first-child, p > .alignright:first-child, p > :first-child > .alignright:first-child { margin-top: 0; }
+
+.alignleft { float: left; margin-right: 2.25rem; margin-left: -90px; }
+.alignleft .wp-caption-text { margin-left: 90px; text-align: left; }
+
+.alignright { float: right; margin-left: 2.25rem; margin-right: -90px; }
+.alignright .wp-caption-text { margin-right: 90px; text-align: right; }
+
+@media not screen and (min-width: 740px) { .alignleft { margin-right: 1.05rem; }
+  .alignright { margin-left: 1.05rem; } }
+figure { max-width: 100%; }
+figure img { display: block; }
+
 /** 5.0 - Patterns */
 .nav, .nav--footer { list-style: none; margin-left: 0; }
 .nav > li, .nav--footer > li, .nav > li > a, .nav--footer > li > a { display: inline-block; *display: inline; zoom: 1; }
