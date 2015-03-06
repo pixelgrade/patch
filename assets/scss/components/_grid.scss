@@ -11,18 +11,19 @@
 .grid {
 	@extend .clearfix;
 	max-width: 450px;
-	margin: 0 auto;
+	margin: $gutter auto 0;
 	border-right: $gutter/2 solid transparent;
 
 	@include query-above(800px) {
-		max-width: 1000px; 
+		max-width: 1000px;
+		margin-top: 0;
 	}
 
-	@include query-above(1200px) {
+	@include query-above(1300px) {
 		max-width: 1400px;
 	}
 
-	@include query-above(1600px) {
+	@include query-above(1700px) {
 		max-width: 1800px;
 	}
 
@@ -35,9 +36,6 @@
 	border-left: $gutter/2 solid transparent;
 	margin-bottom: $gutter;
 
-    @include query-above(400px) {
-    }
-
     @include query-above(800px) {
 		float: left;
     	width: 50%;
@@ -47,11 +45,11 @@
     	}
     }
 
-    @include query-above(1200px) {
+    @include query-above(1300px) {
     	width: 33.33%;
     }
 
-    @include query-above(1600px) {
+    @include query-above(1700px) {
     	width: 25%;
 
 		&:nth-child(4) {

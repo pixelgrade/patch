@@ -328,17 +328,17 @@ img { max-width: 100%; height: auto; }
 @media only screen and (min-width: 800px) { .site-main { padding: 30px; } }
 @media only screen and (min-width: 1200px) { .site-main { padding: 60px; } }
 
-.grid { max-width: 450px; margin: 0 auto; border-right: 15px solid transparent; }
-@media only screen and (min-width: 800px) { .grid { max-width: 1000px; } }
-@media only screen and (min-width: 1200px) { .grid { max-width: 1400px; } }
-@media only screen and (min-width: 1600px) { .grid { max-width: 1800px; } }
+.grid { max-width: 450px; margin: 30px auto 0; border-right: 15px solid transparent; }
+@media only screen and (min-width: 800px) { .grid { max-width: 1000px; margin-top: 0; } }
+@media only screen and (min-width: 1300px) { .grid { max-width: 1400px; } }
+@media only screen and (min-width: 1700px) { .grid { max-width: 1800px; } }
 @media only screen and (min-width: 900px) { .grid { border-right: 30px solid transparent; } }
 
 .grid__item { border-left: 15px solid transparent; margin-bottom: 30px; }
 @media only screen and (min-width: 800px) { .grid__item { float: left; width: 50%; }
   .grid__item:nth-child(2) { margin-top: 50px; } }
-@media only screen and (min-width: 1200px) { .grid__item { width: 33.33%; } }
-@media only screen and (min-width: 1600px) { .grid__item { width: 25%; }
+@media only screen and (min-width: 1300px) { .grid__item { width: 33.33%; } }
+@media only screen and (min-width: 1700px) { .grid__item { width: 25%; }
   .grid__item:nth-child(4) { margin-top: 50px; } }
 @media only screen and (min-width: 900px) { .grid__item { border-left-width: 30px; } }
 
@@ -469,7 +469,8 @@ img { max-width: 100%; height: auto; }
 
 .site-description { display: none; }
 
-.nav--main > li { display: block; width: 50%; float: left; }
+.nav--main > li { display: block; }
+@media only screen and (min-width: 400px) { .nav--main > li { float: left; width: 50%; } }
 .nav--main > li a { position: relative; display: inline-block; }
 .nav--main > li:first-child a:before { content: ""; position: absolute; right: -4px; bottom: 5px; left: -4px; height: 10px; background: #ffeb00; z-index: -1; }
 .nav--main .menu-item-has-children:after { content: " +"; }
