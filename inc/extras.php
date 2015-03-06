@@ -43,6 +43,10 @@ function patch_post_classes( $classes ) {
 		$classes[] = 'grid__item';
 	}
 
+	if ( is_single() && has_post_thumbnail() ) {
+		$classes[] = patch_get_post_thumbnail_aspect_ratio_class();
+	}
+
 	return $classes;
 }
 
