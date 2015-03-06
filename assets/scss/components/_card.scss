@@ -103,14 +103,6 @@
 	@include query-above($lap) {
 		@include spacings($gutter);	
 	}
-
-}
-
-.single {
-	.entry-title {
-		@extend %fs-42;
-		margin-bottom: $gutter;
-	}
 }
 
 .entry-card {
@@ -177,6 +169,7 @@
 .entry-title {
 	@extend %beta;
 	font-weight: normal;
+	margin: 0;
 }
 
 .entry-content {

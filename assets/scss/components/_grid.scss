@@ -41,6 +41,10 @@
     @include query-above(800px) {
 		float: left;
     	width: 50%;
+
+    	&:nth-child(2) {
+    		margin-top: 50px;
+    	}
     }
 
     @include query-above(1200px) {
@@ -49,18 +53,17 @@
 
     @include query-above(1600px) {
     	width: 25%;
+
+		&:nth-child(4) {
+			margin-top: 50px;
+		}
     }
 
     @include query-above($lap) {
     	border-left-width: $gutter;
     }
-
-	&:nth-child(2),
-	&:nth-child(4) {
-		margin-top: 50px;
-	}
 }
 
-.grid, .grid__item {
+.grid, .grid__item { 
 	border-color: rgba(yellow, 0.25);
 }
