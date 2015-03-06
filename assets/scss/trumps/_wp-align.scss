@@ -32,9 +32,10 @@ img {
 }
 
 .aligncenter, .alignnone {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: -3 * $gutter;
+    margin-right: -3 * $gutter;
     text-align: center;
+    max-width: none;
 
     img {
         margin: 0 auto;
@@ -57,12 +58,24 @@ img {
 
 .alignleft {
     float: left;
-    margin-right: rhythm(2);
+    margin-right: rhythm(1.5);
+    margin-left: -3 * $gutter;
+
+    .wp-caption-text {
+        margin-left: 3*$gutter;
+        text-align: left;
+    }
 }
 
 .alignright {
     float: right;
-    margin-left: rhythm(2);
+    margin-left: rhythm(1.5);
+    margin-right: -3 * $gutter;
+
+    .wp-caption-text {
+        margin-right: 3*$gutter;
+        text-align: right;
+    }
 }
 
 @include query-below($small) {
@@ -81,8 +94,4 @@ figure {
     img {
         display: block;
     }
-}
-
-figcaption {
-
 }

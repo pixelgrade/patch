@@ -11,8 +11,12 @@
 
 @include query-above(1000px){
     .twocolumn {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
         column-count: 2;
-        column-gap: 50px;
+        -webkit-column-gap: 50px;
+        -moz-column-gap: 2*$gutter;
+        column-gap: 2*$gutter;
     }
 }
 
@@ -25,7 +29,7 @@
     @include rhythm(margin-right, 1, 74px);
 
     @include font-size(74px);
-    font-weight: 400;
+    font-weight: 200;
     line-height: 1;
 
     color: $dark;
@@ -50,4 +54,23 @@
 
         background: rgba($accent, 0.4);
     }
+}
+
+.pull-left {
+    margin-left: -6 * $gutter;
+    width: calc(6 * #{$gutter} + 50%);
+    padding-right: $gutter;
+    float: left;
+
+    text-align: right;
+
+}
+
+.pull-right {
+    margin-right: -6 * $gutter;
+    width: calc(6 * #{$gutter} + 50%);
+    padding-left: $gutter;
+    float: right;
+
+    text-align: left;
 }
