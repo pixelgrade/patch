@@ -91,3 +91,34 @@
 		}
 	}
 }
+
+.single {
+
+	.site-header {
+		border-left: 0;
+		margin-bottom: 0;
+
+		// sync somehow with sidebar
+		@include query-above($lap) {
+			float: left;
+			width: 30%;
+		}
+
+		@include query-above($desk) {
+			@include rhythm(width, 30);
+			@include rhythm(padding-right, 5);
+		}
+	}
+
+	.nav--main,
+	.nav--social,
+	.site-title {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.nav--main > li {
+		float: none;
+		width: 100%;
+	}
+}
