@@ -5,6 +5,7 @@
  * Contains the closing of the #content div and all content after
  *
  * @package Patch
+ * @since Patch 1.0
  */
 ?>
 		</div><!-- .container -->

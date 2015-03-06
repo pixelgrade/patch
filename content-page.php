@@ -3,6 +3,7 @@
  * The template used for displaying page content in page.php
  *
  * @package Patch
+ * @since Patch 1.0
  */
 ?>
 

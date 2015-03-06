@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying Author bios
+ * The template for displaying author bio and links
  *
  * @package Patch
  * @since Patch 1.0

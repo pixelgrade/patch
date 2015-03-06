@@ -1,6 +1,9 @@
 <?php
 /**
+ * The template for displaying the post content on single post view
+ *
  * @package Patch
+ * @since Patch 1.0
  */
 
 //get the post thumbnail aspect ratio specific class
@@ -43,11 +46,10 @@ if ( has_post_thumbnail() ) {
 		<?php the_content(); ?>
 
 		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'patch_txtd' ),
-				'after'  => '</div>',
-			) );
-		?>
+		wp_link_pages( array(
+			'before' => '<div class="page-links">' . __( 'Pages:', 'patch_txtd' ),
+			'after'  => '</div>',
+		) ); ?>
 
 	</div><!-- .entry-content -->
 

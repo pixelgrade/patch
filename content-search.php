@@ -5,6 +5,7 @@
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package Patch
+ * @since Patch 1.0
  */
 ?>
 

@@ -1,6 +1,9 @@
 <?php
 /**
+ * The template for displaying the header area (logo, site title, tagline, primary menu and social menu
+ *
  * @package Patch
+ * @since Patch 1.0
  */
 ?>
 <header id="masthead" class="site-header<?php echo is_single() ? '' : ' grid__item'; ?>" role="banner">

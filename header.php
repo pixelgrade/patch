@@ -5,6 +5,7 @@
  * Displays all of the <head> section and everything up till <div id="content">
  *
  * @package Patch
+ * @since Patch 1.0
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>

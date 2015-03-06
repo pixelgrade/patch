@@ -3,6 +3,7 @@
  * Patch functions and definitions
  *
  * @package Patch
+ * @since Patch 1.0
  */
 
 /**

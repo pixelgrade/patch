@@ -1,6 +1,9 @@
 <?php
 /**
+ * The default template for displaying individual posts on archives
+ *
  * @package Patch
+ * @since Patch 1.0
  */
 ?>
 

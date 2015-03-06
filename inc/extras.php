@@ -5,6 +5,7 @@
  * Eventually, some of the functionality here could be replaced by core features
  *
  * @package Patch
+ * @since Patch 1.0
  */
 
 /**
@@ -325,6 +326,4 @@ function patch_get_post_excerpt( $post_id = null ) {
 	}
 
 	return $excerpt;
-}
-
-?>
+} ?>
