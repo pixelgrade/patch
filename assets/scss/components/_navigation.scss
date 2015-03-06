@@ -1,3 +1,5 @@
+@import "nav--social";
+
 .site-header {
 	text-transform: uppercase;
 	
@@ -8,7 +10,8 @@
 }
 
 .site-title,
-.nav--main {
+.nav--main,
+.nav--social {
 	margin: 0 2*$gutter $gutter $gutter;
 }
 
@@ -23,14 +26,99 @@
 .nav--main {
 	@extend .clearfix;
 	@extend %beta;
+	@extend %fs-24;
 
 	> li {
 		display: block;
-		width: 50%;
-		float: left;
+
+	    @include query-above(400px) {
+			float: left;
+			width: 50%;
+	    }
 
 		a {
-			@extend %fs-24;
+			@extend .light;
+			position: relative;
+			display: inline-block;
 		}
+
+		// current menu item
+		&:first-child {
+			a {
+
+				&:before {
+					content: "";
+					position: absolute;
+					right: -4px;
+					bottom: 5px;
+					left: -4px;
+					height: 10px;
+					background: $accent;
+					z-index: -1;
+				}
+			}
+		}
+	}
+
+	.menu-item-has-children {
+		&:after {
+			content: " +"
+		}
+	}
+
+	ul {
+		@extend .nav;
+		display: none;
+	}
+}
+
+.nav--social {
+	@extend %nav--social;
+	font-size: 18px;
+
+	a {
+		width: 2em;
+		visibility: hidden;
+		white-space: nowrap;
+		overflow: hidden;
+
+		&:before {
+			display: inline-block;
+			text-align: center;
+			width: 1em;
+			margin-right: 1em;
+			visibility: visible;
+		}
+	}
+}
+
+.single {
+
+	.site-header {
+		border-left: 0;
+		margin-bottom: 0;
+
+		// sync somehow with sidebar
+		@include query-above($lap) {
+			float: left;
+			width: 30%;
+		}
+
+		@include query-above($desk) {
+			@include rhythm(width, 30);
+			@include rhythm(padding-right, 5);
+		}
+	}
+
+	.nav--main,
+	.nav--social,
+	.site-title {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.nav--main > li {
+		float: none;
+		width: 100%;
 	}
 }

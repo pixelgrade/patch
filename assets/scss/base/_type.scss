@@ -78,7 +78,7 @@ body {
 /* Headings */
 
 h1, %h1, h2, %h2, h3, %h3, h4, %h4, h5, %h5 {
-	color: $dark;
+	// color: $dark;
 	font-weight: normal;
 }
 
@@ -151,12 +151,7 @@ h5, %h5 {
 
 p {
 	margin-top: 0;
-
-    @if $editor-style {
-    	margin-bottom: rhythm(1.5);
-    } @else {
-    	margin-bottom: rhythm(1);
-    }
+	margin-bottom: rhythm(1.5);
 }
 
 
@@ -228,7 +223,10 @@ acronym {
 blockquote {
 	@extend %beta;
 
+	margin-bottom: rhythm(1.5);
+
 	font-size: rem(22px);
+	line-height: 1.55;
 	font-weight: 500;
 	text-transform: uppercase;
 	color: $dark;
@@ -305,6 +303,22 @@ pre {
 
 			color: white;
 			background: $light;
+		}
+	}
+}
+
+.entry-content {
+	ol {
+		padding-left: 22px;
+	}
+
+	ul {
+		padding-left: 17px;
+	}
+
+	ol, ul {
+		li {
+			@include rhythm(padding-bottom, 0.5);
 		}
 	}
 }

@@ -74,8 +74,9 @@ function patch_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'patch_txtd' ),
-		'footer'    => __( 'Footer Menu', 'hive_txtd' ),
+		'primary' 	=> __( 'Primary Menu', 'patch_txtd' ),
+		'social' 	=> __( 'Social Menu', 'patch_txtd' ),
+		'footer'    => __( 'Footer Menu', 'patch_txtd' ),
 	) );
 
 	/*
