@@ -22,7 +22,7 @@
 
 .nav--main {
 	@extend .clearfix;
-	@extend .beta;
+	@extend %beta;
 
 	> li {
 		display: block;
