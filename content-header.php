@@ -3,7 +3,7 @@
  * @package Patch
  */
 ?>
-<header id="masthead" class="site-header grid__item" role="banner">
+<header id="masthead" class="site-header<?php echo is_single() ? '' : ' grid__item'; ?>" role="banner">
 
 	<?php if ( function_exists( 'jetpack_the_site_logo' ) ) { // display the Site Logo if present
 		jetpack_the_site_logo();
@@ -31,28 +31,23 @@
 
 	<nav id="site-navigation" class="main-navigation" role="navigation">
 		<?php
-		$menu_args = array(
+		//the primary menu
+		wp_nav_menu( array(
 			'theme_location' => 'primary',
 			'container'      => '',
 			'menu_class'     => 'nav  nav--main',
 			'fallback_cb' => false,
-			'echo' => false,
-		);
-		$menu = wp_nav_menu( $menu_args ); 
-		echo $menu;
-		?>
+		) ); ?>
 
 		<?php
-			$menu_args = array(
-				'theme_location' => 'social',
-				'container'      => '',
-				'menu_class'     => 'nav  nav--social',
-				'fallback_cb' => false,
-				'echo' => false,
-			);
-			$menu = wp_nav_menu( $menu_args ); 
-			echo $menu;
-		?>
+		//the social menu
+		wp_nav_menu( array(
+			'theme_location' => 'social',
+			'container'      => '',
+			'menu_class'     => 'nav  nav--social',
+			'fallback_cb' => false,
+		) ); ?>
+
 	</nav><!-- #site-navigation -->
 
 </header><!-- #masthead -->
