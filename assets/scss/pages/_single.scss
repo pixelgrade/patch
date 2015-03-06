@@ -67,12 +67,16 @@
 		}
 	}
 
+	.entry-header {
+		@include rhythm(margin-bottom, 2);
+	}
+
 	.entry-meta {
 		@extend %beta;
 
 		font-size: rem(13px);
 		letter-spacing: 0.1em;
-		@include rhythm(margin-bottom, 2);
+		@include rhythm(margin-bottom, 1);
 
 		*{
 			display: inline-block;

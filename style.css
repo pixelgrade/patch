@@ -432,7 +432,7 @@ figure img { display: block; }
   .entry-image + .entry-header { margin-left: 0; margin-right: 0; }
   .entry-content { margin-left: 0; margin-right: 0; }
   .entry-image--square { margin-left: 0; margin-right: 15px; } }
-.site-footer { color: white; background: black; }
+.site-footer { color: white; background: black; font-size: 0.8125rem; }
 @media only screen and (min-width: 900px) { .site-footer { padding: 0.9375rem 4.0625rem 0 4.0625rem; } }
 .site-footer > * { display: block; text-align: center; }
 @media only screen and (min-width: 900px) { .site-footer > * { display: inline-block; vertical-align: middle; width: 33.33333%; } }
@@ -529,7 +529,8 @@ figure img { display: block; }
 .single .entry-image--portrait img, .single .entry-image--tall img, .page .entry-image--portrait img, .page .entry-image--tall img { width: 100%; }
 .single .entry-image--portrait .entry-content, .single .entry-image--tall .entry-content, .page .entry-image--portrait .entry-content, .page .entry-image--tall .entry-content { clear: right; }
 .single .entry-image--portrait .entry-header, .single .entry-image--tall .entry-header, .page .entry-image--portrait .entry-header, .page .entry-image--tall .entry-header { margin-right: -90px; margin-bottom: 1.875em; }
-.single .entry-meta, .page .entry-meta { font-size: 0.8125rem; letter-spacing: 0.1em; margin-bottom: 1.5em; }
+.single .entry-header, .page .entry-header { margin-bottom: 1.5em; }
+.single .entry-meta, .page .entry-meta { font-size: 0.8125rem; letter-spacing: 0.1em; margin-bottom: 0.75em; }
 .single .entry-meta *, .page .entry-meta * { display: inline-block; }
 .single .cat-links, .page .cat-links { margin-right: 0.625rem; padding: 0.375rem 0.75rem; background-color: #ffeb00; }
 .single .byline, .page .byline { text-transform: capitalize; }
