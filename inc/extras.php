@@ -37,10 +37,13 @@ add_filter( 'body_class', 'patch_body_classes' );
  * @return array The filtered post class list.
  */
 function patch_post_classes( $classes ) {
-	$post_format = get_post_format();
 
 	if ( is_archive() || is_home() || is_search() ) {
 		$classes[] = 'grid__item';
+	}
+
+	if ( is_single() && has_post_thumbnail() ) {
+		$classes[] = patch_get_post_thumbnail_aspect_ratio_class();
 	}
 
 	return $classes;
@@ -112,7 +115,7 @@ if ( ! function_exists( 'patch_fonts_url' ) ) :
 		* into your own language.
 		*/
 		if ( 'off' !== _x( 'on', 'Roboto font: on or off', 'fifteen_txtd' ) ) {
-			$fonts[] = 'Roboto:400,700';
+			$fonts[] = 'Roboto:300,400,700';
 		}
 
 		/* Translators: If there are characters in your language that are not
@@ -265,10 +268,10 @@ function patch_read_more_link( $link ) {
 add_filter( 'the_content_more_link', 'patch_read_more_link' );
 
 /**
- * Constrain the excerpt length
+ * Constrain the excerpt length to 35 words - about a medium sized excerpt
  */
 function patch_excerpt_length( $length ) {
-	return 18;
+	return 35;
 }
 
 add_filter( 'excerpt_length', 'patch_excerpt_length', 999 );

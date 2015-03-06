@@ -1,6 +1,6 @@
 .intro {
-    margin-bottom: 2.25em;
-    font-size: (21/16) + em;
+    font-size: rem(18px);
+    font-weight: 500;
     line-height: 1.75;
 
     @include query-below($lap) {
@@ -17,17 +17,19 @@
 }
 
 .dropcap {
-    @extend %alpha;
+    @extend %beta;
+
 
     float: left;
-    @include font-size(76px);
-    line-height: 1;
-    margin-top: -0.1em;
-    @include rhythm(margin-bottom, -1, 76px);
-    @include rhythm(margin-right, 1, 76px);
+    @include rhythm(margin-bottom, 0.2, 74px);
+    @include rhythm(margin-right, 1, 74px);
 
-    color: $accent;
-    text-shadow: 2px 2px 0px white, 4px 4px 0px $secondary;
+    @include font-size(74px);
+    font-weight: 400;
+    line-height: 1;
+
+    color: $dark;
+    text-shadow: 2px 2px 0px white, 4px 4px 0px $accent;
 }
 
 // span.dropcap{ font-weight: bold; }
@@ -46,6 +48,6 @@
         top: -4px; left: 0;
         bottom: -4px; right: 0;
 
-        background: rgba($secondary, 0.4);
+        background: rgba($accent, 0.4);
     }
 }

@@ -2,9 +2,21 @@
 /**
  * @package Patch
  */
-?>
+
+//get the post thumbnail aspect ratio specific class
+if ( has_post_thumbnail() ) {
+	$ar_class = patch_get_post_thumbnail_aspect_ratio_class();
+} ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php if ( has_post_thumbnail() && ( 'entry-image--tall' == $ar_class || 'entry-image--portrait' == $ar_class ) ) { ?>
+
+		<div class="entry-featured  entry-thumbnail">
+			<?php the_post_thumbnail( 'patch-single-image' ); ?>
+		</div>
+
+	<?php } ?>
+
 	<header class="entry-header">
 		<div class="entry-meta">
 
@@ -17,7 +29,8 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 	</header><!-- .entry-header -->
-	<?php if ( has_post_thumbnail() ) { ?>
+
+	<?php if ( has_post_thumbnail() && ! ( 'entry-image--tall' == $ar_class || 'entry-image--portrait' == $ar_class ) ) { ?>
 
 		<div class="entry-featured  entry-thumbnail">
 			<?php the_post_thumbnail( 'patch-single-image' ); ?>
