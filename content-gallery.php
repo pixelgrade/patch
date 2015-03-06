@@ -1,6 +1,6 @@
 <?php
 /**
- * The default template for displaying individual posts on archives
+ * The template for displaying the gallery post format on archives.
  *
  * @package Patch
  * @since Patch 1.0
@@ -9,10 +9,13 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if ( has_post_thumbnail() ) : ?>
-		<a href="<?php the_permalink(); ?>" <?php patch_post_thumbnail_class( 'entry-image' ); ?>>
-			<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
-		</a>
+	<?php
+	//output the first gallery in the content - if it exists
+	$gallery = get_post_gallery();
+	if ( $gallery ) : ?>
+		<aside class="entry-gallery">
+			<?php echo $gallery; ?>
+		</aside><!-- .entry-gallery -->
 	<?php endif; ?>
 
 	<header <?php patch_post_title_class(); ?>>
@@ -21,7 +24,7 @@
 
 	<div <?php patch_post_excerpt_class(); ?>>
 
-		<?php patch_post_excerpt(); ?>
+		<?php the_excerpt(); ?>
 
 		<?php
 		wp_link_pages( array(
