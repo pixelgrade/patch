@@ -116,7 +116,7 @@ if ( ! function_exists( 'patch_fonts_url' ) ) :
 		* into your own language.
 		*/
 		if ( 'off' !== _x( 'on', 'Roboto font: on or off', 'fifteen_txtd' ) ) {
-			$fonts[] = 'Roboto:400,700';
+			$fonts[] = 'Roboto:300,400,700';
 		}
 
 		/* Translators: If there are characters in your language that are not
