@@ -362,6 +362,7 @@ if ( ! function_exists( 'patch_get_post_thumbnail_class' ) ) :
 	 * depending on the aspect ratio of the featured image
 	 *
 	 * @param string|array $class One or more classes to add to the class list.
+	 * @param int|WP_Post $post_id Optional. Post ID or post object.
 	 * @return array Array of classes.
 	 */
 	function patch_get_post_thumbnail_class( $class = '', $post_id = null ) {
@@ -370,43 +371,12 @@ if ( ! function_exists( 'patch_get_post_thumbnail_class' ) ) :
 
 		$classes = array();
 
-		if ( empty( $post ) )
+		if ( empty( $post ) ) {
 			return $classes;
-
-		// .entry-image--[tall|portrait|square|landscape|wide] class depending on the aspect ratio
-		// 16:9 = 1.78
-		// 3:2 = 1.500
-		// 4:3 = 1.34
-		// 1:1 = 1.000
-		// 3:4 = 0.750
-		// 2:3 = 0.67
-		// 9:16 = 0.5625
-
-		//$image_data[1] is width
-		//$image_data[2] is height
-		$image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), "full" );
-
-		if ( ! empty( $image_data[1] ) && ! empty( $image_data[2] ) ) {
-			$image_aspect_ratio = $image_data[1] / $image_data[2];
-
-			//now let's begin to see what kind of featured image we have
-			//first TALL ones; lower than 9:16
-			if ( $image_aspect_ratio < 0.5625 ) {
-				$classes[] = 'entry-image--tall';
-			} elseif ( $image_aspect_ratio < 0.75 ) {
-				//now PORTRAIT ones; lower than 3:4
-				$classes[] = 'entry-image--portrait';
-			} elseif ( $image_aspect_ratio > 1.78 ) {
-				//now WIDE ones; higher than 16:9
-				$classes[] = 'entry-image--wide';
-			} elseif ( $image_aspect_ratio > 1.34 ) {
-				//now LANDSCAPE ones; higher than 4:3
-				$classes[] = 'entry-image--landscape';
-			} else {
-				//it's definitely a SQUARE-ish one; between 3:4 and 4:3
-				$classes[] = 'entry-image--square';
-			}
 		}
+
+		//get the aspect ratio specific class
+		$classes[] = patch_get_post_thumbnail_aspect_ratio_class( $post );
 
 		if ( ! empty( $class ) ) {
 			if ( ! is_array( $class ) )
@@ -426,6 +396,63 @@ if ( ! function_exists( 'patch_get_post_thumbnail_class' ) ) :
 		$classes = apply_filters( 'patch_post_thumbnail_class', $classes, $class, $post->ID );
 
 		return array_unique( $classes );
+
+	}
+endif;
+
+if ( ! function_exists( 'patch_get_post_thumbnail_aspect_ratio_class' ) ) :
+	/**
+	 * Get the aspect ratio of the featured image
+	 *
+	 * @param int|WP_Post $post_id Optional. Post ID or post object.
+	 * @return string Aspect ratio specific class.
+	 */
+	function patch_get_post_thumbnail_aspect_ratio_class( $post_id = null ) {
+
+		$post = get_post( $post_id );
+
+		$class = '';
+
+		if ( empty( $post ) ) {
+			return $class;
+		}
+
+		// .entry-image--[tall|portrait|square|landscape|wide] class depending on the aspect ratio
+		// 16:9 = 1.78
+		// 3:2 = 1.500
+		// 4:3 = 1.34
+		// 1:1 = 1.000
+		// 3:4 = 0.750
+		// 2:3 = 0.67
+		// 9:16 = 0.5625
+
+		//$image_data[1] is width
+		//$image_data[2] is height
+		$image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full" );
+
+		if ( ! empty( $image_data[1] ) && ! empty( $image_data[2] ) ) {
+			$image_aspect_ratio = $image_data[1] / $image_data[2];
+
+			//now let's begin to see what kind of featured image we have
+			//first TALL ones; lower than 9:16
+			if ( $image_aspect_ratio < 0.5625 ) {
+				$class = 'entry-image--tall';
+			} elseif ( $image_aspect_ratio < 0.75 ) {
+				//now PORTRAIT ones; lower than 3:4
+				$class = 'entry-image--portrait';
+			} elseif ( $image_aspect_ratio > 1.78 ) {
+				//now WIDE ones; higher than 16:9
+				$class = 'entry-image--wide';
+			} elseif ( $image_aspect_ratio > 1.34 ) {
+				//now LANDSCAPE ones; higher than 4:3
+				$class = 'entry-image--landscape';
+			} else {
+				//it's definitely a SQUARE-ish one; between 3:4 and 4:3
+				$class = 'entry-image--square';
+			}
+		}
+
+		return $class;
 
 	}
 endif;
@@ -455,8 +482,9 @@ if ( ! function_exists( 'patch_get_post_title_class' ) ) :
 
 		$classes = array();
 
-		if ( empty( $post ) )
+		if ( empty( $post ) ) {
 			return $classes;
+		}
 
 		$classes[] = 'entry-header';
 
@@ -522,8 +550,9 @@ if ( ! function_exists( 'patch_get_post_excerpt_class' ) ) :
 
 		$classes = array();
 
-		if ( empty( $post ) )
+		if ( empty( $post ) ) {
 			return $classes;
+		}
 
 		$classes[] = 'entry-content';
 
@@ -569,8 +598,9 @@ if ( ! function_exists( 'patch_post_excerpt' ) ) :
 	function patch_post_excerpt( $post_id = null ) {
 		$post = get_post( $post_id );
 
-		if ( empty( $post ) )
+		if ( empty( $post ) ) {
 			return '';
+		}
 
 		// Check the content for the more text
 		$has_more = strpos( $post->post_content, '<!--more' );
