@@ -12,6 +12,8 @@ $classes = 'grid'; ?>
 
 <?php get_template_part( 'content', 'header' ); ?>
 
+<?php patch_secondary_page_title(); ?>
+
 <?php
 /* Start the Loop */
 while ( have_posts() ) : the_post(); ?>

@@ -671,4 +671,30 @@ if ( ! function_exists( 'patch_get_author_bio_links' ) ) :
 
 		return $markup;
 	}
+endif;
+
+if ( ! function_exists( 'patch_secondary_page_title' ) ) :
+	/**
+	 * Display the markup for the archive or search pages title.
+	 */
+	function patch_secondary_page_title() {
+
+		if ( is_archive() ) : ?>
+
+			<header class="page-header grid__item">
+
+				<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
+
+				<?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
+
+			</header><!-- .page-header -->
+
+		<?php elseif ( is_search() ) : ?>
+
+			<header class="page-header grid__item">
+				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'patch_txtd' ), get_search_query() ); ?></h1>
+			</header><!-- .page-header -->
+
+		<?php endif;
+	}
 endif; ?>
