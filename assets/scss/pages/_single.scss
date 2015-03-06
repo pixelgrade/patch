@@ -46,10 +46,7 @@
 
 		.entry-featured {
 			float: left;
-
-			margin-left: -6*$gutter;
-			margin-right: $gutter;
-			margin-bottom: $gutter;
+			margin: 0 $gutter $gutter -6 * $gutter;
 			max-width: 70%;
 		}
 

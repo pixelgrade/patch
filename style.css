@@ -1744,9 +1744,7 @@ figure img {
 .page .entry-image--portrait .entry-featured,
 .page .entry-image--tall .entry-featured {
 	float: left;
-	margin-bottom: 30px;
-	margin-left: -180px;
-	margin-right: 30px;
+	margin: 0 30px 30px -180px;
 	max-width: 70%;
 }
 .single .entry-image--portrait img,
