@@ -181,6 +181,9 @@ a {
 
 	h1 &, .site-title &, h2 &, h3 & {
 		color: $accent; 
+
+		// @Todo
+		word-break: break-all;
 	}
 
 	 @if $editor-style { 
