@@ -5,6 +5,7 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Patch
+ * @since Patch 1.0
  */
 
 if ( ! function_exists( 'the_posts_navigation' ) ) :
@@ -622,5 +623,78 @@ if ( ! function_exists( 'patch_post_excerpt' ) ) :
 		} else {
 			the_excerpt();
 		}
+	}
+endif;
+
+/**
+ * Display the markup for the author bio links.
+ *
+ * @param int|WP_Post $post_id Optional. Post ID or post object.
+ */
+function patch_author_bio_links( $post_id = null ) {
+	echo patch_get_author_bio_links( $post_id );
+}
+
+if ( ! function_exists( 'patch_get_author_bio_links' ) ) :
+	/**
+	 * Return the markup for the author bio links.
+	 *
+	 * @param int|WP_Post $post_id Optional. Post ID or post object.
+	 * @return string The HTML markup of the author bio links list.
+	 */
+	function patch_get_author_bio_links( $post_id = null ) {
+		$post = get_post( $post_id );
+
+		$markup = '';
+
+		if ( empty( $post ) ) {
+			return $markup;
+		}
+
+		$str = file_get_contents( 'https://www.gravatar.com/' . md5( strtolower( trim( get_the_author_meta( 'user_email' ) ) ) ) . '.php' );
+
+		$profile = unserialize( $str );
+
+		if ( is_array( $profile ) && ! empty( $profile['entry'][0]['urls'] ) ) {
+			$markup .= '<ul class="author__social-links">' . PHP_EOL;
+
+			foreach ( $profile['entry'][0]['urls'] as $link ) {
+				if ( !empty( $link['value'] ) && ! empty( $link['title'] ) ) {
+					$markup .= '<li class="author__social-links__list-item">' . PHP_EOL;
+					$markup .= '<a class="author__social-link" href="' . $link['value'] . '" target="_blank">' . $link['title'] . '</a>' . PHP_EOL;
+					$markup .= '</li>' . PHP_EOL;
+				}
+			}
+
+			$markup .= '</ul>' . PHP_EOL;
+		}
+
+		return $markup;
+	}
+endif;
+
+if ( ! function_exists( 'patch_secondary_page_title' ) ) :
+	/**
+	 * Display the markup for the archive or search pages title.
+	 */
+	function patch_secondary_page_title() {
+
+		if ( is_archive() ) : ?>
+
+			<header class="page-header grid__item">
+
+				<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
+
+				<?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
+
+			</header><!-- .page-header -->
+
+		<?php elseif ( is_search() ) : ?>
+
+			<header class="page-header grid__item">
+				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'patch_txtd' ), get_search_query() ); ?></h1>
+			</header><!-- .page-header -->
+
+		<?php endif;
 	}
 endif; ?>

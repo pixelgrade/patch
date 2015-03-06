@@ -6,6 +6,7 @@
  * and the comment form.
  *
  * @package Patch
+ * @since Patch 1.0
  */
 
 /*

@@ -5,6 +5,7 @@
  * Displays all of the <head> section and everything up till <div id="content">
  *
  * @package Patch
+ * @since Patch 1.0
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -21,9 +22,9 @@
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'patch_txtd' ); ?></a>
 
-	<?php if ( is_single() ) {
-		get_template_part( 'content', 'header' );
-	} ?>
-
 	<div id="content" class="site-content">
 		<div class="container">
+
+		<?php if ( is_single() ) {
+			get_template_part( 'content', 'header' );
+		} ?>
