@@ -183,15 +183,23 @@ if ( ! function_exists( 'patch_single_entry_footer' ) ) :
 				printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'patch_txtd' ) . '</span>', $tags_list );
 			}
 
-			//now for the Jetpack likes, sharing and related posts
+			//Jetpack share buttons.
 			if ( function_exists( 'sharing_display' ) ) {
 				sharing_display( '', true );
 			}
 
+			//Jetpack Likes.
 			if ( class_exists( 'Jetpack_Likes' ) ) {
 				$custom_likes = new Jetpack_Likes;
 				echo $custom_likes->post_likes( '' );
 			}
+
+			// Author bio.
+			if ( ! get_theme_mod( 'patch_hide_author_bio', false ) && get_the_author_meta( 'description' ) ) {
+				get_template_part( 'author-bio' );
+			}
+
+			//Jetpack Related Posts
 			if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
 				echo do_shortcode( '[jetpack-related-posts]' );
 			}

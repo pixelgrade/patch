@@ -1,3 +1,5 @@
+@import "nav--social";
+
 .site-header {
 	text-transform: uppercase;
 	
@@ -8,7 +10,8 @@
 }
 
 .site-title,
-.nav--main {
+.nav--main,
+.nav--social {
 	margin: 0 2*$gutter $gutter $gutter;
 }
 
@@ -23,6 +26,7 @@
 .nav--main {
 	@extend .clearfix;
 	@extend %beta;
+	@extend %fs-24;
 
 	> li {
 		display: block;
@@ -30,7 +34,57 @@
 		float: left;
 
 		a {
-			@extend %fs-24;
+			@extend .light;
+			position: relative;
+			display: inline-block;
+		}
+
+		// current menu item
+		&:first-child {
+			a {
+
+				&:before {
+					content: "";
+					position: absolute;
+					right: -4px;
+					bottom: 5px;
+					left: -4px;
+					height: 10px;
+					background: $accent;
+					z-index: -1;
+				}
+			}
+		}
+	}
+
+	.menu-item-has-children {
+		&:after {
+			content: " +"
+		}
+	}
+
+	ul {
+		@extend .nav;
+		display: none;
+	}
+}
+
+.nav--social {
+	@extend %nav--social;
+	font-size: 18px;
+
+	a {
+		width: 2em;
+		visibility: hidden;
+		white-space: nowrap;
+		overflow: hidden;
+
+		&:before {
+			display: inline-block;
+			text-align: center;
+			width: 1em;
+			margin-right: 1em;
+			visibility: visible;
 		}
 	}
 }

@@ -42,6 +42,17 @@
 		echo $menu;
 		?>
 
+		<?php
+			$menu_args = array(
+				'theme_location' => 'social',
+				'container'      => '',
+				'menu_class'     => 'nav  nav--social',
+				'fallback_cb' => false,
+				'echo' => false,
+			);
+			$menu = wp_nav_menu( $menu_args ); 
+			echo $menu;
+		?>
 	</nav><!-- #site-navigation -->
 
 </header><!-- #masthead -->

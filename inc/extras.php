@@ -37,7 +37,6 @@ add_filter( 'body_class', 'patch_body_classes' );
  * @return array The filtered post class list.
  */
 function patch_post_classes( $classes ) {
-	$post_format = get_post_format();
 
 	if ( is_archive() || is_home() || is_search() ) {
 		$classes[] = 'grid__item';
@@ -269,10 +268,10 @@ function patch_read_more_link( $link ) {
 add_filter( 'the_content_more_link', 'patch_read_more_link' );
 
 /**
- * Constrain the excerpt length
+ * Constrain the excerpt length to 35 words - about a medium sized excerpt
  */
 function patch_excerpt_length( $length ) {
-	return 18;
+	return 35;
 }
 
 add_filter( 'excerpt_length', 'patch_excerpt_length', 999 );
