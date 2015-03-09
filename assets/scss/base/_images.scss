@@ -27,7 +27,7 @@ img{
 }} @else { 
 .wp-caption-text {
 	font-size: rem(13px);
-	padding: em(16px) 0;
+	padding: rem(8px) 0;
 
 	.archive__grid & {
 		border-bottom: 0;

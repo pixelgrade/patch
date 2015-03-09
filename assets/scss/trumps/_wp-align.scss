@@ -18,9 +18,9 @@ img {
 .alignleft,
 .alignright {
     display: block;
-    width: auto !important;
     margin: 0;
     margin-bottom: rhythm(1);
+    //    width: auto !important;
 
     @include query-below($small) {
         margin-bottom: rhythm(0.7);
@@ -34,8 +34,9 @@ img {
 .aligncenter, .alignnone {
     margin-left: -3 * $gutter;
     margin-right: -3 * $gutter;
-    text-align: center;
     max-width: none;
+
+    text-align: center;
 
     img {
         margin: 0 auto;
