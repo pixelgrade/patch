@@ -110,12 +110,10 @@
 }
 
 .entry-card {
-	position: relative;
-	top: 0;
-
 	@extend .clearfix;
+	position: relative;
 
-	transition: all 0.3s;
+	transition: transform 0.3s;
 	
 	// Post Meta (categories, author and date)
 	.entry-meta {
