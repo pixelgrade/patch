@@ -159,12 +159,12 @@ if ( ! function_exists( 'patch_single_entry_footer' ) ) :
 				echo '<span class="screen-reader-text">' . __( 'Tagged with: ', 'patch_txtd' ) . '</span><span class="tags-links">' . $tags_list . '</span>';
 			}
 
-			//Jetpack share buttons.
+			// Jetpack share buttons.
 			if ( function_exists( 'sharing_display' ) ) {
 				sharing_display( '', true );
 			}
 
-			//Jetpack Likes.
+			// Jetpack Likes.
 			if ( class_exists( 'Jetpack_Likes' ) ) {
 				$custom_likes = new Jetpack_Likes;
 				echo $custom_likes->post_likes( '' );

@@ -210,7 +210,14 @@ a {
     	}
 
 	.edit-link & {
-		margin: 0 $u/4;
+		@extend %hover;
+		@extend %beta;
+		display: inline-block;
+		position: relative;
+		margin: 20px 0;
+		letter-spacing: 0.05em;
+		font-size: 13px;
+		text-transform: uppercase;
 	}
 }
 
