@@ -1739,6 +1739,8 @@ figure img {
 .single .site-header {
 	border-left: 0;
 	margin-bottom: 0;
+	position: relative;
+	z-index: 1;
 }
 @media only screen and (min-width: 900px) {
 	.single .site-header {
