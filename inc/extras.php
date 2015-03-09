@@ -311,8 +311,9 @@ function patch_get_post_excerpt( $post_id = null ) {
 
 	$excerpt = '';
 
-	if ( empty( $post ) )
+	if ( empty( $post ) ) {
 		return $excerpt;
+	}
 
 	// Check the content for the more text
 	$has_more = strpos( $post->post_content, '<!--more' );
