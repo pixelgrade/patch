@@ -72,9 +72,6 @@ if ( ! function_exists( 'patch_posted_on' ) ) :
  */
 function patch_posted_on() {
 
-
-
-
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time><time class="updated" hidden datetime="%4$s">%5$s</time>';
@@ -627,6 +624,7 @@ endif;
 
 /**
  * Display the markup for the author bio links.
+ * These are the links/websites added by one to it's Gravatar profile
  *
  * @param int|WP_Post $post_id Optional. Post ID or post object.
  */
@@ -637,6 +635,7 @@ function patch_author_bio_links( $post_id = null ) {
 if ( ! function_exists( 'patch_get_author_bio_links' ) ) :
 	/**
 	 * Return the markup for the author bio links.
+	 * These are the links/websites added by one to it's Gravatar profile
 	 *
 	 * @param int|WP_Post $post_id Optional. Post ID or post object.
 	 * @return string The HTML markup of the author bio links list.

@@ -121,7 +121,7 @@ ins { border-bottom: 1px solid; }
 /** 3.0 - Base Styles 3.1 - Typography */
 body, h5, .entry-card .entry-meta { font-family: Roboto, sans-serif; }
 
-h1, h2, h3, h4, blockquote, .dropcap, .entry-title, .nav--main, .entry-meta { font-family: Oswald, sans-serif; }
+h1, .site-title, h2, h3, h4, blockquote, .dropcap, .entry-title, .nav--main, .entry-meta { font-family: Oswald, sans-serif; }
 
 .nav--main, .entry-image--square + .entry-header .entry-title, .entry-image--landscape + .entry-header .entry-title, .entry-image--wide + .entry-header .entry-title, .entry-image--portrait + .entry-header--long .entry-title, .entry-image--tall + .entry-header--long .entry-title { line-height: 1.66; }
 
@@ -151,10 +151,10 @@ body { font-weight: 300; line-height: 1.5; color: #3e3f40; }
 .hyphening { -ms-word-break: break-all; word-break: break-all; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; }
 
 /* Headings */
-h1, h2, h3, h4, h5 { color: #171617; font-weight: normal; }
+h1, .site-title, h2, h3, h4, h5 { color: #171617; font-weight: normal; }
 
-h1 { margin-top: 3rem; margin-bottom: 1.5rem; font-size: 1.875rem; line-height: 1.25; letter-spacing: 0.04em; }
-.single h1.entry-title, .page h1.entry-title { font-size: 3.5rem; margin-bottom: 0; }
+h1, .site-title { margin-top: 3rem; margin-bottom: 1.5rem; font-size: 1.875rem; line-height: 1.25; letter-spacing: 0.04em; }
+.single h1.entry-title, .page h1.entry-title, .single .entry-title.site-title, .page .entry-title.site-title { font-size: 3.5rem; margin-bottom: 0; }
 
 h2 { margin-top: 1.875rem; margin-bottom: 1.5rem; font-size: 1.5rem; letter-spacing: 0.04em; line-height: 1.25; }
 
@@ -168,7 +168,7 @@ h5 { margin-top: 3rem; margin-bottom: 1.5rem; font-size: 0.6875rem; letter-spaci
 p { margin-top: 0; margin-bottom: 2.25rem; }
 
 /* Links */
-.single .entry-content a, .page .entry-content a { text-decoration: none; box-shadow: inset 0 -8px 0 #ffeb00; }
+.single .entry-content a, .page .entry-content a { text-decoration: none; box-shadow: inset 0 -8px 0 #ffeb00; padding-left: 2px; padding-right: 2px; }
 .single .entry-content a:hover, .page .entry-content a:hover { background-color: #ffeb00; }
 
 a { text-decoration: none; color: black; font-weight: 400; transition: all 0.15s; }
@@ -282,7 +282,7 @@ img { max-width: 100%; height: auto; }
 
 .italic { font-style: italic; }
 
-.caps, h1, h2, h4, h5 { text-transform: uppercase; }
+.caps, h1, .site-title, h2, h4, h5 { text-transform: uppercase; }
 
 .align-left { text-align: left; }
 
@@ -522,11 +522,11 @@ figure img { display: block; }
 .nav--social a { width: 2em; visibility: hidden; white-space: nowrap; overflow: hidden; }
 .nav--social a:before { display: inline-block; text-align: center; width: 1em; margin-right: 1em; visibility: visible; }
 
-.single .site-header { border-left: 0; margin-bottom: 0; }
-@media only screen and (min-width: 900px) { .single .site-header { float: left; width: 30%; } }
-@media only screen and (min-width: 1200px) { .single .site-header { width: 22.5em; padding-right: 3.75em; } }
-.single .nav--main, .single .nav--social, .single .site-title { margin-left: 0; margin-right: 0; }
-.single .nav--main > li { float: none; width: 100%; }
+.single .site-header, .page .site-header { position: relative; z-index: 1; border-left: 0; margin-bottom: 0; }
+@media only screen and (min-width: 900px) { .single .site-header, .page .site-header { float: left; width: 30%; } }
+@media only screen and (min-width: 1200px) { .single .site-header, .page .site-header { width: 22.5em; padding-right: 3.75em; } }
+.single .nav--main, .single .nav--social, .single .site-title, .page .nav--main, .page .nav--social, .page .site-title { margin-left: 0; margin-right: 0; }
+.single .nav--main > li, .page .nav--main > li { float: none; width: 100%; }
 
 .single, .page { padding-top: 60px; }
 .single .container, .page .container { max-width: 1340px; margin: 0 auto; }
@@ -543,6 +543,7 @@ figure img { display: block; }
 .single .entry-image--portrait .entry-content, .single .entry-image--tall .entry-content, .page .entry-image--portrait .entry-content, .page .entry-image--tall .entry-content { clear: right; }
 .single .entry-image--portrait .entry-header, .single .entry-image--tall .entry-header, .page .entry-image--portrait .entry-header, .page .entry-image--tall .entry-header { margin-right: -90px; margin-bottom: 1.875em; }
 .single .entry-header, .page .entry-header { margin-bottom: 1.5em; }
+.single .entry-meta *, .page .entry-meta * { display: inline-block; }
 
 .entry-meta { z-index: 31; position: relative; margin-bottom: 0.875rem; font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; }
 
