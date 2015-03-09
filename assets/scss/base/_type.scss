@@ -166,6 +166,8 @@ p {
 	text-decoration: none;
 
 	box-shadow: inset 0 -8px 0 $accent;
+	padding-left: 2px;
+	padding-right: 2px;
 
 	&:hover{
 		background-color: $accent;
