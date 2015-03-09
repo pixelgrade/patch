@@ -3,13 +3,16 @@
  * The template for displaying the archives loop content.
  *
  * @package Patch
+ * @since Patch 1.0
  */
 
 $classes = 'grid'; ?>
 
 <div id="posts" class="<?php echo esc_attr( $classes ); ?>">
 
-<?php get_template_part( 'content-header' ); ?>
+<?php get_template_part( 'content', 'header' ); ?>
+
+<?php patch_the_secondary_page_title(); ?>
 
 <?php
 /* Start the Loop */

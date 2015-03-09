@@ -11,18 +11,22 @@
 		padding: 0 6*$gutter;
 	}
 
+	.entry-featured {
+		margin-top: $gutter;
+		margin-bottom: $gutter;
+	}
+
 	.entry-image--landscape,
 	.entry-image--wide {
+		padding-top: $gutter;
 
 		.entry-header {
 			margin-left: -3*$gutter;
 			margin-right: -3*$gutter;
 		}
 
-
 		.entry-featured {
-			margin-left: -6*$gutter;
-			margin-right: -6*$gutter;
+			margin: $gutter -6*$gutter;
 		}
 
 		img {
@@ -42,10 +46,8 @@
 
 		.entry-featured {
 			float: left;
-
-			margin-left: -6*$gutter;
-			margin-right: $gutter;
-			max-width: 70%
+			margin: 0 $gutter $gutter -6 * $gutter;
+			max-width: 70%;
 		}
 
 		img {
@@ -55,5 +57,15 @@
 		.entry-content {
 			clear: right;
 		}
+
+		.entry-header {
+			margin-right: -3*$gutter;
+			@include rhythm(margin-bottom, 2.5);
+		}
 	}
+
+	.entry-header {
+		@include rhythm(margin-bottom, 2);
+	}
+
 }

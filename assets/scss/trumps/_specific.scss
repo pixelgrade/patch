@@ -14,9 +14,9 @@
         -webkit-column-count: 2;
         -moz-column-count: 2;
         column-count: 2;
-        -webkit-column-gap: 50px;
-        -moz-column-gap: 2*$gutter;
-        column-gap: 2*$gutter;
+        -webkit-column-gap: 40px;
+        -moz-column-gap: 40px;
+        column-gap: 40px;
     }
 }
 
@@ -39,37 +39,25 @@
 // span.dropcap{ font-weight: bold; }
 
 .highlight{
-    position: relative;
-    padding: 0 8px;
-    margin: 0 4px;
-
-    &:before{
-        content: "";
-
-        position: absolute;
-        z-index: -1;
-
-        top: -4px; left: 0;
-        bottom: -4px; right: 0;
-
-        background: rgba($accent, 0.4);
-    }
+    background: $accent;
+    padding: 3px 6px;
 }
 
 .pull-left {
     margin-left: -6 * $gutter;
     width: calc(6 * #{$gutter} + 50%);
-    padding-right: $gutter;
+    padding-right: 20px;
+    padding-left: 1.5*$gutter;
     float: left;
 
     text-align: right;
-
 }
 
 .pull-right {
     margin-right: -6 * $gutter;
     width: calc(6 * #{$gutter} + 50%);
-    padding-left: $gutter;
+    padding-left: 20px;
+    padding-right: 1.5*$gutter;
     float: right;
 
     text-align: left;

@@ -11,8 +11,8 @@
 
 		// hard work man
 		~ .entry-header.entry-header {
-			padding-top: $gutter;
-			margin-top: -$gutter;
+			// padding-top: $gutter;
+			// margin-top: -$gutter;
 		}
 
 		~ .entry-content {
@@ -33,7 +33,7 @@
 	}
 
 	.entry-image--landscape {
-		margin-right: -$gutter;
+		margin-right: $gutter;
 	}
 
 	.entry-image--square,
@@ -106,10 +106,50 @@
 }
 
 .entry-card {
+	position: relative;
+	top: 0;
+
 	@extend .clearfix;
+
+	transition: all 0.3s;
+	
+	// Post Meta (categories, author and date)
+	.entry-meta {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		margin-left: $gutter;
+		margin-right: $gutter;
+
+		@extend %alpha;
+		font-size: 11px;
+		font-weight: 400;
+		letter-spacing: 0;
+
+		opacity: 0;
+		transition: all 0.3s;
+	}
+
+		.entry-time {
+			display: none;
+		}
+
+
+	&:hover {
+		top: $gutter/2;
+
+		.entry-meta {
+			opacity: 1;
+			top: -$gutter;
+		}
+	}
 }
 
+
 .entry-image {
+	position: relative;
+	z-index: 32; //over .entry-meta
 	display: block;
 
 	@include query-above($small) {
@@ -147,7 +187,7 @@
 
 .entry-header {
 	@extend .entry-block;
-	text-transform: uppercase;
+	// text-transform: uppercase;
 
 	.entry-image + & {
 		background: white;
@@ -175,6 +215,8 @@
 .entry-content {
 	@extend .entry-block;
 	background: white;
+
+	font-size: rem(14px);
 }
 
 .entry--even {

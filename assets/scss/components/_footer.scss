@@ -1,6 +1,7 @@
 .site-footer {
 	color: white;
 	background: black;
+	font-size: rem(13px);
 
 	@include query-above($lap) {
 		padding: rem(15px) rem(65px) 0 rem(65px);

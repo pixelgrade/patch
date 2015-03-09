@@ -3,6 +3,7 @@
  * The template for displaying 404 pages (not found).
  *
  * @package Patch
+ * @since Patch 1.0
  */
 
 get_header(); ?>

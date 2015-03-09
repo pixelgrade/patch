@@ -5,6 +5,7 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Patch
+ * @since Patch 1.0
  */
 
 if ( ! function_exists( 'the_posts_navigation' ) ) :
@@ -70,9 +71,13 @@ if ( ! function_exists( 'patch_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function patch_posted_on() {
+
+
+
+
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time><time class="updated" datetime="%4$s">%5$s</time>';
+	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time><time class="updated" hidden datetime="%4$s">%5$s</time>';
 	}
 
 	$time_string = sprintf( $time_string,
@@ -171,16 +176,11 @@ if ( ! function_exists( 'patch_single_entry_footer' ) ) :
 	function patch_single_entry_footer() {
 		// Hide category and tag text for pages.
 		if ( 'post' == get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( __( ', ', 'patch_txtd' ) );
-			if ( $categories_list && patch_categorized_blog() ) {
-				printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'patch_txtd' ) . '</span>', $categories_list );
-			}
 
-			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', __( ', ', 'patch_txtd' ) );
+			/* translators: used between list items, it's a single space */
+			$tags_list = get_the_tag_list( '', __( ' ', 'patch_txtd' ) );
 			if ( $tags_list ) {
-				printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'patch_txtd' ) . '</span>', $tags_list );
+				echo '<span class="screen-reader-text">' . __( 'Tagged with: ', 'patch_txtd' ) . '</span><span class="tags-links">' . $tags_list . '</span>';
 			}
 
 			//Jetpack share buttons.
@@ -623,4 +623,227 @@ if ( ! function_exists( 'patch_post_excerpt' ) ) :
 			the_excerpt();
 		}
 	}
+endif;
+
+/**
+ * Display the markup for the author bio links.
+ *
+ * @param int|WP_Post $post_id Optional. Post ID or post object.
+ */
+function patch_author_bio_links( $post_id = null ) {
+	echo patch_get_author_bio_links( $post_id );
+}
+
+if ( ! function_exists( 'patch_get_author_bio_links' ) ) :
+	/**
+	 * Return the markup for the author bio links.
+	 *
+	 * @param int|WP_Post $post_id Optional. Post ID or post object.
+	 * @return string The HTML markup of the author bio links list.
+	 */
+	function patch_get_author_bio_links( $post_id = null ) {
+		$post = get_post( $post_id );
+
+		$markup = '';
+
+		if ( empty( $post ) ) {
+			return $markup;
+		}
+
+		$str = file_get_contents( 'https://www.gravatar.com/' . md5( strtolower( trim( get_the_author_meta( 'user_email' ) ) ) ) . '.php' );
+
+		$profile = unserialize( $str );
+
+		if ( is_array( $profile ) && ! empty( $profile['entry'][0]['urls'] ) ) {
+			$markup .= '<ul class="author__social-links">' . PHP_EOL;
+
+			foreach ( $profile['entry'][0]['urls'] as $link ) {
+				if ( !empty( $link['value'] ) && ! empty( $link['title'] ) ) {
+					$markup .= '<li class="author__social-links__list-item">' . PHP_EOL;
+					$markup .= '<a class="author__social-link" href="' . $link['value'] . '" target="_blank">' . $link['title'] . '</a>' . PHP_EOL;
+					$markup .= '</li>' . PHP_EOL;
+				}
+			}
+
+			$markup .= '</ul>' . PHP_EOL;
+		}
+
+		return $markup;
+	}
+endif;
+
+if ( ! function_exists( 'patch_secondary_page_title' ) ) :
+	/**
+	 * Display the markup for the archive or search pages title.
+	 */
+	function patch_the_secondary_page_title() {
+
+		if ( is_archive() ) : ?>
+
+			<header class="page-header grid__item">
+
+				<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
+
+				<?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
+
+			</header><!-- .page-header -->
+
+		<?php elseif ( is_search() ) : ?>
+
+			<header class="page-header grid__item">
+				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'patch_txtd' ), get_search_query() ); ?></h1>
+			</header><!-- .page-header -->
+
+		<?php endif;
+	}
+endif;
+
+if ( ! function_exists( 'patch_the_image_navigation' ) ) :
+
+	/**
+	 * Display navigation to next/previous image attachment
+	 */
+	function patch_the_image_navigation() {
+		// Don't print empty markup if there's nowhere to navigate.
+		$prev_image = patch_get_adjacent_image();
+		$next_image = patch_get_adjacent_image( false );
+
+		if ( ! $next_image && ! $prev_image ) {
+			return;
+		} ?>
+
+		<nav class="navigation post-navigation" role="navigation">
+			<h5 class="screen-reader-text"><?php _e( 'Image navigation', 'patch_txtd' ); ?></h5>
+			<div class="article-navigation">
+				<?php
+				if ( $prev_image ) {
+					$prev_thumbnail = wp_get_attachment_image( $prev_image->ID, 'patch-tiny-image' ); ?>
+
+					<span class="navigation-item  navigation-item--previous">
+						<a href="<?php echo get_attachment_link( $prev_image->ID ); ?>" rel="prev">
+							<span class="arrow"></span>
+		                    <span class="navigation-item__content">
+		                        <span class="navigation-item__wrapper  flexbox">
+		                            <span class="flexbox__item">
+		                                <span class="post-thumb"><?php echo $prev_thumbnail; ?></span>
+		                            </span>
+		                            <span class="flexbox__item">
+		                                <span class="navigation-item__name"><?php _e( 'Previous image', 'patch_txtd' ); ?></span>
+		                                <h3 class="post-title"><?php echo get_the_title( $prev_image->ID ); ?></h3>
+		                            </span>
+		                        </span>
+		                    </span>
+						</a>
+					</span>
+
+				<?php }
+
+				if ( $next_image ) {
+					$next_thumbnail = wp_get_attachment_image( $next_image->ID, 'patch-tiny-image' ); ?>
+
+					<span class="navigation-item  navigation-item--next">
+						<a href="<?php echo get_attachment_link( $next_image->ID ); ?>" rel="prev">
+							<span class="arrow"></span>
+		                    <span class="navigation-item__content">
+		                        <span class="navigation-item__wrapper  flexbox">
+		                            <span class="flexbox__item">
+		                                <span class="post-thumb"><?php echo $next_thumbnail; ?></span>
+		                            </span>
+		                            <span class="flexbox__item">
+		                                <span class="navigation-item__name"><?php _e( 'Next image', 'patch_txtd' ); ?></span>
+		                                <h3 class="post-title"><?php echo get_the_title( $next_image->ID ); ?></h3>
+		                            </span>
+		                        </span>
+		                    </span>
+						</a>
+					</span>
+
+				<?php } ?>
+
+		</nav><!-- .navigation -->
+
+	<?php
+	} #function
+
+endif;
+
+if ( ! function_exists( 'patch_get_adjacent_image' ) ) :
+
+	/**
+	 * Inspired by the core function adjacent_image_link() from wp-includes/media.php
+	 *
+	 * @param bool $prev Optional. Default is true to display previous link, false for next.
+	 * @return mixed  Attachment object if successful. Null if global $post is not set. false if no corresponding attachment exists.
+	 */
+	function patch_get_adjacent_image( $prev = true ) {
+		if ( ! $post = get_post() ) {
+			return null;
+		}
+
+		$attachments = get_attached_media( 'image', $post->post_parent );
+
+		foreach ( $attachments as $k => $attachment ) {
+			if ( $attachment->ID == $post->ID ) {
+				break;
+			}
+		}
+
+		if ( $attachments ) {
+			$k = $prev ? $k - 1 : $k + 1;
+
+			if ( isset( $attachments[ $k ] ) ) {
+				return $attachments[ $k ];
+			}
+		}
+
+		return false;
+	} #function
+
+endif;
+
+if ( ! function_exists( 'patch_get_post_format_first_image' ) ) :
+
+	function patch_get_post_format_first_image() {
+		global $post;
+
+		$output = '';
+		$pattern = get_shortcode_regex();
+
+		//first search for an image with a caption shortcode
+		if (   preg_match_all( '/'. $pattern .'/s', $post->post_content, $matches )
+		       && array_key_exists( 2, $matches )
+		       && in_array( 'caption', $matches[2] ) ) {
+			$key = array_search( 'caption', $matches[2] );
+			if ( false !== $key ) {
+				$output = do_shortcode( $matches[0][ $key ] );
+			}
+		} else {
+			//find regular images
+			preg_match( '/<img [^\>]*\ \/>/i', $post->post_content, $matches );
+
+			if ( ! empty( $matches[0] ) ) {
+				$output = $matches[0];
+			}
+		}
+
+		return $output;
+	} #function
+
+endif;
+
+if ( ! function_exists( 'patch_get_post_format_link_url' ) ) :
+
+	/**
+	 * Returns the URL to use for the link post format.
+	 *
+	 * First it tries to get the first URL in the content; if not found it uses the permalink instead
+	 *
+	 * @return string URL
+	 */
+	function patch_get_post_format_link_url() {
+		$has_url = get_url_in_content( get_the_content() );
+
+		return ( $has_url ) ? $has_url : apply_filters( 'the_permalink', get_permalink() );
+	}
+
 endif; ?>
