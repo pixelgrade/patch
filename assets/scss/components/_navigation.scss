@@ -141,9 +141,12 @@
 	}
 }
 
-.single {
+.single, .page {
 
 	.site-header {
+		position: relative;
+		z-index: 1;
+
 		border-left: 0;
 		margin-bottom: 0;
 

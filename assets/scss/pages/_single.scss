@@ -68,4 +68,7 @@
 		@include rhythm(margin-bottom, 2);
 	}
 
+	.entry-meta *{
+		display: inline-block;
+	}
 }
