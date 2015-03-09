@@ -49,7 +49,7 @@ body {
 	@extend %alpha;
 
 	font-weight: 300;
-	line-height: 1.5;
+	line-height: 1.625;
 	color: $gray;
 
 	@include query-above($lap) {
@@ -158,7 +158,11 @@ p {
 	margin-bottom: rhythm(1.5);
 }
 
-
+b,
+strong {
+	color: $black;
+	font-weight: 500;
+}
 
 
 
@@ -181,7 +185,7 @@ p {
 a {
 	text-decoration: none;
 	color: $black;
-	font-weight: 400;
+	font-weight: 500;
 	
 	transition: all 0.15s;
 

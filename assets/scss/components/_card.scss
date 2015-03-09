@@ -139,6 +139,13 @@
 		display: none;
 	}
 
+	.entry-content {
+		@extend .entry-block;
+		background: white;
+
+		font-size: rem(14px);
+	}
+
 
 	&:hover {
 		transform: translateY($gutter/2);
@@ -245,13 +252,6 @@
 	@extend %beta;
 	font-weight: normal;
 	margin: 0;
-}
-
-.entry-content {
-	@extend .entry-block;
-	background: white;
-
-	font-size: rem(14px);
 }
 
 .entry--even {
