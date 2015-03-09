@@ -799,4 +799,51 @@ if ( ! function_exists( 'patch_get_adjacent_image' ) ) :
 		return false;
 	} #function
 
+endif;
+
+if ( ! function_exists( 'patch_get_post_format_first_image' ) ) :
+
+	function patch_get_post_format_first_image() {
+		global $post;
+
+		$output = '';
+		$pattern = get_shortcode_regex();
+
+		//first search for an image with a caption shortcode
+		if (   preg_match_all( '/'. $pattern .'/s', $post->post_content, $matches )
+		       && array_key_exists( 2, $matches )
+		       && in_array( 'caption', $matches[2] ) ) {
+			$key = array_search( 'caption', $matches[2] );
+			if ( false !== $key ) {
+				$output = do_shortcode( $matches[0][ $key ] );
+			}
+		} else {
+			//find regular images
+			preg_match( '/<img [^\>]*\ \/>/i', $post->post_content, $matches );
+
+			if ( ! empty( $matches[0] ) ) {
+				$output = $matches[0];
+			}
+		}
+
+		return $output;
+	} #function
+
+endif;
+
+if ( ! function_exists( 'patch_get_post_format_link_url' ) ) :
+
+	/**
+	 * Returns the URL to use for the link post format.
+	 *
+	 * First it tries to get the first URL in the content; if not found it uses the permalink instead
+	 *
+	 * @return string URL
+	 */
+	function patch_get_post_format_link_url() {
+		$has_url = get_url_in_content( get_the_content() );
+
+		return ( $has_url ) ? $has_url : apply_filters( 'the_permalink', get_permalink() );
+	}
+
 endif; ?>

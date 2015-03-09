@@ -1,25 +1,29 @@
 <?php
 /**
- * The default template for displaying individual posts on archives
+ * The template for displaying the video post format on archives.
  *
  * @package Patch
  * @since Patch 1.0
  */
-?>
+
+//get the media objects from the content and bring up only the first one
+/* translators: %s: Name of current post */
+$content = apply_filters( 'the_content', get_the_content( sprintf(
+	__( 'Continue reading %s', 'patch_txtd' ),
+	the_title( '<span class="screen-reader-text">', '</span>', false )
+) ) );
+$media   = get_media_embedded_in_content( $content );
+if ( ! empty( $media ) ) {
+	$content = str_replace( $media[0], '', $content );
+} ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	
-	<div class="entry-meta">
-		<?php patch_cats_list(); ?>
-		<?php patch_posted_on(); ?>
-	</div><!-- .entry-meta -->
 
-		<?php if ( has_post_thumbnail() ) : ?>
-			<a href="<?php the_permalink(); ?>" <?php patch_post_thumbnail_class( 'entry-image' ); ?>>
-				<span class="hover">Read More</span>
-				<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
-			</a>
-		<?php endif; ?>
+	<?php if ( ! empty( $media ) ) : ?>
+		<div class="entry-media">
+			<?php echo apply_filters( 'embed_oembed_html', $media[0] ); ?>
+		</div><!-- .entry-media -->
+	<?php endif; ?>
 
 	<header <?php patch_post_title_class(); ?>>
 		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
@@ -27,7 +31,7 @@
 
 	<div <?php patch_post_excerpt_class(); ?>>
 
-		<?php patch_post_excerpt(); ?>
+		<?php the_excerpt(); ?>
 
 		<?php
 		wp_link_pages( array(

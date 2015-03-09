@@ -13,8 +13,8 @@ function init() {
 
 $window.load(function() {
   browserSize();
+  navigation.init();
   masonry.refresh();
-//   navigation.init();
 //   fixedSidebars.update();
 //   svgLogo.init();
 //   animator.animate();
