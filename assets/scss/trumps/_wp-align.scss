@@ -19,11 +19,11 @@ img {
 .alignright {
     display: block;
     margin: 0;
-    margin-bottom: rhythm(1);
+    margin-bottom: rhythm(0.8);
     //    width: auto !important;
 
     @include query-below($small) {
-        margin-bottom: rhythm(0.7);
+        margin-bottom: rhythm(0.6);
     }
 
     .archive__grid & {
@@ -34,7 +34,7 @@ img {
 .aligncenter, .alignnone {
     margin-left: -3 * $gutter;
     margin-right: -3 * $gutter;
-    max-width: none;
+    max-width: calc(#{6 * $gutter} + 100%); 
 
     text-align: center;
 
@@ -45,7 +45,7 @@ img {
 
 .alignleft, .alignright {
     margin-top: rhythm(1);
-    max-width: 50%;
+    max-width: calc(50% + #{3 * $gutter} - 20px);
 
     p + & {
         margin-top: 0;
@@ -67,10 +67,6 @@ img {
     float: right;
     margin-left: rhythm(1.5);
     margin-right: -3 * $gutter;
-}
-
-.wp-caption-text {
-    text-align: center;
 }
 
 
