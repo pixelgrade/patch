@@ -33,6 +33,7 @@
 	<?php endif; ?>
 
 	<nav id="site-navigation" class="main-navigation" role="navigation">
+
 		<?php
 		//the primary menu
 		wp_nav_menu( array(

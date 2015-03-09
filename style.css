@@ -1640,7 +1640,7 @@ figure img {
 .nav--main > li {
 	display: block;
 }
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 740px) {
 	.nav--main > li {
 		float: left;
 		width: 50%;
@@ -1667,6 +1667,56 @@ figure img {
 	display: none;
 }
 
+@media not screen and (min-width: 740px) {
+	.main-navigation {
+		background: white;
+		height: 100%;
+		left: -100%;
+		margin: 0;
+		margin-left: 60px;
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
+		padding-top: 30px;
+		position: fixed;
+		right: 100%;
+		top: 0;
+		-webkit-transition: box-shadow 0.3s ease-in-out;
+		transition: box-shadow 0.3s ease-in-out;
+	}
+	.main-navigation.shadow {
+		box-shadow: rgba(0, 0, 0, 0.25) 0 0 30px, rgba(0, 0, 0, 0.5) 0 0 15px;
+	}
+}
+.js-nav-trigger {
+	background: none;
+	border: 0;
+	/* For some Androids */
+	font-size: 24px;
+	left: 0;
+	line-height: 1;
+	outline: 0;
+	padding: 15px;
+	position: fixed;
+	top: 0;
+
+	-webkit-tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: transparent;
+}
+
+@media only screen and (min-width: 740px) {
+	.main-navigation {
+		box-shadow: none !important;
+		-webkit-transform: none !important;
+		-ms-transform: none !important;
+		transform: none !important;
+		-webkit-transition: none !important;
+		transition: none !important;
+	}
+
+	.js-nav-trigger {
+		display: none !important;
+	}
+}
 .nav--social {
 	font-size: 18px;
 }
