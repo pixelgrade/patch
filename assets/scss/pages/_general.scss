@@ -1,3 +1,16 @@
+@include query-above($lap) {
+	body {
+		border: $gutter/2 solid black;
+
+	}
+
+	.site-content {
+		padding-left: rem(60px);
+		padding-right: rem(60px);
+	}
+}
+
+
 // Posts Meta (categories, author and date)
 .entry-meta {
 		@extend %beta;

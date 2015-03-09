@@ -240,6 +240,17 @@ blockquote {
 	font-weight: 500;
 	text-transform: uppercase;
 	color: $dark;
+
+	cite {
+		text-transform: none;
+		font-size: rem(18px);
+		font-style: normal;
+		color: $light;
+	}
+
+	em cite {
+		font-style: italic;
+	}
 }
 
 
@@ -260,7 +271,6 @@ table {
 	}
 
 	tr {
-		// @todo why not use table--rows?
 		border-bottom: 1px solid $light;
 	}
 
