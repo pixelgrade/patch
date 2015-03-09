@@ -99,6 +99,10 @@ h1, %h1 {
 	}
 }
 
+.site-title {
+	@extend %h1;
+}
+
 h2, %h2 {
     @extend %beta;
 	@extend .caps;
