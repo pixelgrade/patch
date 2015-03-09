@@ -143,6 +143,18 @@
 			opacity: 1;
 			top: -$gutter;
 		}
+
+		.entry-image {
+
+			img {
+				// opacity: 0.8;
+				filter: grayscale(1);
+			}
+
+			.hover {
+				opacity: 1;
+			}
+		}
 	}
 }
 
@@ -151,6 +163,8 @@
 	position: relative;
 	z-index: 32; //over .entry-meta
 	display: block;
+
+	background: black;
 
 	@include query-above($small) {
 		margin-right: $gutter;
@@ -163,6 +177,23 @@
 	img {
 		display: block;
 		width: 100%;
+
+		filter: grayscale(0);
+		transition: all 0.3s;
+	}
+
+	.hover {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateY(-50%) translateX(-50%);
+		z-index: 100;
+
+		color: white;
+
+		opacity: 0;
+
+		transition: all 0.3s;
 	}
 }
 
