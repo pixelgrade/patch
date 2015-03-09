@@ -340,6 +340,7 @@ h5,
 }
 
 h1,
+.site-title,
 h2,
 h3,
 h4,
@@ -441,6 +442,7 @@ body {
 
 /* Headings */
 h1,
+.site-title,
 h2,
 h3,
 h4,
@@ -449,7 +451,8 @@ h5 {
 	font-weight: normal;
 }
 
-h1 {
+h1,
+.site-title {
 	font-size: 1.875rem;
 	letter-spacing: 0.04em;
 	line-height: 1.25;
@@ -457,7 +460,9 @@ h1 {
 	margin-top: 3rem;
 }
 .single h1.entry-title,
-.page h1.entry-title {
+.page h1.entry-title,
+.single .entry-title.site-title,
+.page .entry-title.site-title {
 	font-size: 3.5rem;
 	margin-bottom: 0;
 }
@@ -821,6 +826,7 @@ img {
 
 .caps,
 h1,
+.site-title,
 h2,
 h4,
 h5 {
