@@ -196,8 +196,10 @@
 		}
 
 		@include query-above($desk) {
-			@include rhythm(width, 30);
-			@include rhythm(padding-right, 5);
+//			@include rhythm(width, 30);
+//			@include rhythm(padding-right, 5);
+			width: rem(310px);
+			padding-right: rem(90px);
 		}
 	}
 

@@ -51,10 +51,6 @@ body {
 	font-weight: 300;
 	line-height: 1.625;
 	color: $gray;
-
-	@include query-above($lap) {
-		border: $gutter/2 solid black;
-	}
 }
 
 .screen-reader-text, .infinite-scroll .posts-navigation {
