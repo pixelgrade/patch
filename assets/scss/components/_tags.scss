@@ -1,0 +1,16 @@
+.tags-links {
+	display: block;
+	margin-bottom: 20px;
+
+	a {
+		font-size: 11px;
+		color: $light;
+		text-transform: uppercase;
+		margin-right: 10px;
+		letter-spacing: 0.1em;
+
+		&:before {
+			content: "#";
+		}
+	}
+}

@@ -130,7 +130,7 @@
 @import "objects/nav";
 // @import "objects/tables";
 // @import "objects/flag";
-// @import "objects/media";
+@import "objects/media";
 // @import "objects/buttons";
 // @import "objects/button";
 // @import "objects/search-form";
@@ -155,8 +155,11 @@
 // #COMPONENTS
 @import "components/grid";
 @import "components/card";
-@import "components/footer";
 @import "components/navigation";
+@import "components/author";
+@import "components/footer";
+@import "components/comments";
+@import "components/tags";
 
 
 
