@@ -1,0 +1,5 @@
+body {
+	@include query-above($lap) {
+		border: $gutter/2 solid black;
+	}
+}

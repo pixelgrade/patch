@@ -54,13 +54,13 @@ var masonry = (function() {
 	},
 
 	showBlocks = function($blocks) {
-		// $blocks.each(function(i, obj) {
-		// 	var $post = $(obj);
-		// 	animator.animatePost($post, i * 100);
-		// });
-		// if ( ! $.support.touch ) {
-		// 	$blocks.addHoverAnimation();
-		// }
+		$blocks.each(function(i, obj) {
+			var $post = $(obj);
+			animator.animatePost($post, i * 100);
+		});
+		if ( ! $.support.touch ) {
+			$blocks.addHoverAnimation();
+		}
 	},
 
 	onLayout = function() {
@@ -100,11 +100,11 @@ var masonry = (function() {
 	},
 
 	onLoad = function() {
-		// var $newBlocks = $container.children().not('.post--loaded').addClass('post--loaded');
-		// $newBlocks.imagesLoaded(function() {
-		// 	$container.masonry('appended', $newBlocks, true).masonry('layout');
-		// 	showBlocks($newBlocks);
-		// });
+		var $newBlocks = $container.children().not('.post--loaded').addClass('post--loaded');
+		$newBlocks.imagesLoaded(function() {
+			$container.masonry('appended', $newBlocks, true).masonry('layout');
+			showBlocks($newBlocks);
+		});
 	};
 
 	return {

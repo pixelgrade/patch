@@ -20,9 +20,11 @@ if ( ! empty( $media ) ) {
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php if ( ! empty( $media ) ) : ?>
-		<div class="entry-media">
-			<?php echo apply_filters( 'embed_oembed_html', $media[0] ); ?>
-		</div><!-- .entry-media -->
+
+	<div class="entry-media">
+		<?php echo apply_filters( 'embed_oembed_html', $media[0] ); ?>
+	</div><!-- .entry-media -->
+
 	<?php endif; ?>
 
 	<header <?php patch_post_title_class(); ?>>

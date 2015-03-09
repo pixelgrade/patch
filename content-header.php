@@ -16,9 +16,9 @@
 	// on the front page and home page we use H1 for the title
 	echo ( is_front_page() && is_home() ) ? '<h1 class="site-title">' : '<div class="site-title">'; ?>
 
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-			<?php bloginfo( 'name' ); ?>
-		</a>
+	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+		<?php bloginfo( 'name' ); ?>
+	</a>
 
 	<?php echo ( is_front_page() && is_home() ) ? '</h1>' : '</div>'; ?>
 
@@ -26,9 +26,9 @@
 	$description = get_bloginfo( 'description', 'display' );
 	if ( $description || is_customize_preview() ) : ?>
 
-		<div class="site-description">
-			<span class="site-description-text"><?php bloginfo( 'description' ); ?></span>
-		</div>
+	<div class="site-description">
+		<span class="site-description-text"><?php bloginfo( 'description' ); ?></span>
+	</div>
 
 	<?php endif; ?>
 

@@ -5,10 +5,9 @@
  * @package Patch
  * @since Patch 1.0
  */
+?>
 
-$classes = 'grid'; ?>
-
-<div id="posts" class="<?php echo esc_attr( $classes ); ?>">
+<div id="posts" class="grid">
 
 <?php get_template_part( 'content', 'header' ); ?>
 

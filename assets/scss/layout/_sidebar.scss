@@ -36,15 +36,15 @@
 		.site-main {
 			margin-left: 30%;
 
-			&:before {
-				content: "";
-
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				left: 30%;
-				border-right: 1px solid $borders;
-			}
+//			&:before {
+//				content: "";
+//
+//				position: absolute;
+//				top: 0;
+//				bottom: 0;
+//				left: 30%;
+//				border-right: 1px solid $borders;
+//			}
 		}
 
 		.sidebar {
@@ -58,20 +58,25 @@
 	@include query-above($desk) {
 
 		.content-area {
-			@include rhythm(margin-left, -30);
+//			@include rhythm(margin-left, -30);
+			margin-left: rem(-310px);
 		}
 
 		.site-main {
 			@include rhythm(margin-left, 30);
+			margin-left: rem(310px);
 
-			&:before {
-				@include rhythm(left, 30);
-			}
+//			&:before {
+//				@include rhythm(left, 30);
+//				left: rem(250px);
+//			}
 		}
 
 		.sidebar {
-			@include rhythm(width, 30);
-			@include rhythm(padding-right, 5);
+//			@include rhythm(width, 30);
+//			@include rhythm(padding-right, 5);
+			width: rem(310px);
+			padding-right: rem(3*$gutter);
 		}
 	}
 }

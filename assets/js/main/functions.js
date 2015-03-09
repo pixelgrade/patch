@@ -56,19 +56,6 @@ function moveFeaturedImage() {
 }
 
 /**
- * Infinite scroll behaviour
- */
-function infinityHandler() {
-  $("#infinite-handle").on("click", function() {
-    $('body').addClass('loading-posts');
-  });
-
-  $(document.body).on("post-load", function() {
-      $('body').removeClass('loading-posts');
-  });
-}
-
-/**
  * function similar to PHP's empty function
  */
 

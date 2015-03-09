@@ -18,14 +18,14 @@
 	<div class="entry-content">
 
 		<div class="entry-attachment">
-			<?php
-			echo wp_get_attachment_image( get_the_ID(), 'large' );
-			?>
+			<?php echo wp_get_attachment_image( get_the_ID(), 'large' ); ?>
 
 			<?php if ( has_excerpt() ) : ?>
-				<div class="entry-caption">
-					<?php the_excerpt(); ?>
-				</div><!-- .entry-caption -->
+
+			<div class="entry-caption">
+				<?php the_excerpt(); ?>
+			</div><!-- .entry-caption -->
+
 			<?php endif; ?>
 
 		</div><!-- .entry-attachment -->
@@ -45,11 +45,7 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php if ( current_user_can( 'edit_post', get_the_ID() ) ) : ?>
-
-			<?php edit_post_link( __( 'Edit', 'patch_txtd' ), '<span class="edit-link">', '</span>' ); ?>
-
-		<?php endif; ?>
+		<?php edit_post_link( __( 'Edit', 'patch_txtd' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
 
 </article><!-- #post-## -->

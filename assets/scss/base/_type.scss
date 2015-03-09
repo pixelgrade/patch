@@ -51,13 +51,9 @@ body {
 	font-weight: 300;
 	line-height: 1.625;
 	color: $gray;
-
-	@include query-above($lap) {
-		border: $gutter/2 solid black;
-	}
 }
 
-.screen-reader-text {
+.screen-reader-text, .infinite-scroll .posts-navigation {
 	display: none;
 }
 
@@ -203,10 +199,13 @@ a {
 			.single .entry-content &, .page .entry-content & {
 				@extend %smarter-links-underlines;
 
-				&[href~="jpg"], &[href~="jpeg"], &[href~="gif"], &[href~="png"] {
-					background: none;
-					text-shadow: none;
-				}
+				 &[href$=".jpg"], &[href$=".jpeg"], &[href$=".png"], &[href$=".gif"], &[href$=".bmp"], &[href*="attachment"] {
+					 padding-left: 0;
+					 padding-right: 0;
+
+					 box-shadow: none;
+					 background: none;
+				 }
 			}
     	}
 
