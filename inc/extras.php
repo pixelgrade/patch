@@ -296,6 +296,8 @@ function patch_mce_before_init( $settings ) {
 		array( 'title' => __( 'Intro Text', 'patch_txtd' ), 'selector' => 'p', 'classes' => 'intro' ),
 		array( 'title' => __( 'Dropcap', 'patch_txtd' ), 'inline' => 'span', 'classes' => 'dropcap' ),
 		array( 'title' => __( 'Highlight', 'patch_txtd' ), 'inline' => 'span', 'classes' => 'highlight' ),
+		array( 'title' => __( 'Pull Left', 'patch_txtd' ), 'inline' => 'p', 'classes' => 'pull-left' ),
+		array( 'title' => __( 'Pull Right', 'patch_txtd' ), 'inline' => 'p', 'classes' => 'pull-right' ),
 		array( 'title' => __( 'Two Columns', 'patch_txtd' ), 'selector' => 'p', 'classes' => 'twocolumn', 'wrapper' => true ),
 	);
 

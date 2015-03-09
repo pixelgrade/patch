@@ -21,7 +21,6 @@ function patch_jetpack_setup() {
 		'container' => 'posts', //here is where the posts are - help yourself
 		'wrapper'   => false, //we don't need a wrapper because it would mess with the masonry
 		'footer'    => 'page', //match footer width to this id
-//		'click_handle' => false, //tell Jetpack not to output the load more button, we will do that
 	) );
 
 	/**

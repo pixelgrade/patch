@@ -16,7 +16,7 @@
 
 		<?php if ( has_post_thumbnail() ) : ?>
 			<a href="<?php the_permalink(); ?>" <?php patch_post_thumbnail_class( 'entry-image' ); ?>>
-				<span class="hover">Read More</span>
+				<span class="hover" role="presentation"><?php _e( 'Read More', 'patch_txtd' ); ?></span>
 				<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
 			</a>
 		<?php endif; ?>

@@ -1600,7 +1600,7 @@ if (!Date.now) Date.now = function () {
     //   animator.animate();
     scrollToTop();
     moveFeaturedImage();
-    //   infinityHandler();
+
     //   if (latestKnownScrollY) $window.trigger('scroll');
   });
 
@@ -1686,20 +1686,6 @@ if (!Date.now) Date.now = function () {
     if ($('article[class*="post"]').hasClass('entry-image--portrait') || $('article[class*="post"]').hasClass('entry-image--tall')) {
       $('.entry-featured').prependTo('article[class*="post"]');
     }
-  }
-
-  /**
-   * Infinite scroll behaviour
-   */
-
-  function infinityHandler() {
-    //$("#infinite-handle").on("click", function() {
-    //  $('body').addClass('loading-posts');
-    //});
-    //
-    //$(document.body).on("post-load", function() {
-    //    $('body').removeClass('loading-posts');
-    //});
   }
 
   /**

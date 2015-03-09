@@ -1,12 +1,12 @@
-// // Settings     -- Default, settings and variables.
-// // Tools        -- Functions and mixins.
-// // Generic      -- Generic, high-level styling, like resets, etc.
-// // Object       -- Objects and abstractions.
-// // Components   -- Your designed UI elements.
-// // Trumps       -- Overrides and helper classes.
-// // Pages        -- Global styles for specific pages
-// // Vendor
-// // Shame        -- the place for prototyping, quick fixes and overrides
+// Settings     -- Default, settings and variables.
+// Tools        -- Functions and mixins.
+// Generic      -- Generic, high-level styling, like resets, etc.
+// Object       -- Objects and abstractions.
+// Components   -- Your designed UI elements.
+// Trumps       -- Overrides and helper classes.
+// Pages        -- Global styles for specific pages
+// Vendor
+// Shame        -- the place for prototyping, quick fixes and overrides
 
 
 
@@ -16,118 +16,118 @@ Description: Used to style the TinyMCE editor.
 */
 
 
-// /**
-//  *
-//  * Table of Contents
-//  * --------------------------------------------------
-//  *  1.0 - Body
-//  *  2.0 - Base Styles
-//  *    2.1 - Typography
-//  *    2.2 - Images
-//  *  3.0 - Helpers
-//  *    3.1 - Theme specific classes
-//  *    3.2 - Alignments
-//  *  4.0 - Media queries
-//  */
+/**
+ *
+ * Table of Contents
+ * --------------------------------------------------
+ *  1.0 - Body
+ *  2.0 - Base Styles
+ *    2.1 - Typography
+ *    2.2 - Images
+ *  3.0 - Helpers
+ *    3.1 - Theme specific classes
+ *    3.2 - Alignments
+ *  4.0 - Media queries
+ */
 
 
 
 
 
-// // #SETTINGS
+// #SETTINGS
 
-// @import "settings";
+@import "settings";
 
-// //Used for Editor Style mode
-// $editor-style: true;
-
-
-
-
-// // #TOOLS
-
-// @import "tools/functions";
-// @import "tools/mixins";
-// @import "tools/queries";
-// @import "tools/baseline";
-// @import "tools/aliases";
-
-
-
-// // #BODY
-
-// /**
-//  * 1.0 - Body
-//  * --------------------------------------------------
-//  */
-
-// html {
-// 	padding: 24px 36px;
-// }
-
-// body.wp-editor {
-// 	max-width: 660px;
-// 	margin-left: auto;
-// 	margin-right: auto;
-
-// 	font-size: 18px;
-// 	line-height: 1.75;
-// 	-webkit-font-smoothing: auto !important;
-// }
+//Used for Editor Style mode
+$editor-style: true;
 
 
 
 
+// #TOOLS
 
-// /**
-//  * 2.0 - Base Styles
-//  *   2.1 - Typography
-//  *   -------------------------------------------------
-//  */
-// @import "trumps/bass";
-// @import "base/type";
-
+@import "tools/functions";
+@import "tools/mixins";
+@import "tools/queries";
+@import "tools/baseline";
+@import "tools/aliases";
 
 
 
-// /**
-//  *   2.2 - Images
-//  *   -------------------------------------------------
-//  */
-// @import "base/images";
+// #BODY
+
+/**
+ * 1.0 - Body
+ * --------------------------------------------------
+ */
+
+html {
+	padding: 24px 36px;
+}
+
+body.wp-editor {
+	max-width: 620px;
+	margin-left: auto;
+	margin-right: auto;
+
+	font-size: 18px;
+	line-height: 1.75;
+	-webkit-font-smoothing: auto !important;
+}
 
 
 
 
 
-// // #TRUMPS
+/**
+ * 2.0 - Base Styles
+ *   2.1 - Typography
+ *   -------------------------------------------------
+ */
+@import "trumps/bass";
+@import "base/type";
 
-// /**
-//  * 3.0 - Helpers
-//  *   3.1 - Theme specific classes
-//  *   -------------------------------------------------
-// */
-// @import "trumps/specific";
-// /**
-//  *   3.2 - Alignments
-//  *   -------------------------------------------------
-// */
-// @import "trumps/wp-align";
 
-// .wp-caption {
-// 	text-align: left;
 
-// 	&.alignleft		{ @extend .alignleft; }
-// 	&.alignright	{ @extend .alignright; }
-// 	&.aligncenter	{ @extend .aligncenter; }
-// 	&.alignnone		{ @extend .alignnone; }
-// }
 
-// #wp-image-toolbar {
-// 	z-index: 2;
-// }
+/**
+ *   2.2 - Images
+ *   -------------------------------------------------
+ */
+@import "base/images";
 
-// /**
-//  * 4.0 - Media queries
-//  * --------------------------------------------------
-//  */
+
+
+
+
+// #TRUMPS
+
+/**
+ * 3.0 - Helpers
+ *   3.1 - Theme specific classes
+ *   -------------------------------------------------
+*/
+@import "trumps/specific";
+/**
+ *   3.2 - Alignments
+ *   -------------------------------------------------
+*/
+@import "trumps/wp-align";
+
+.wp-caption {
+	text-align: left;
+
+	&.alignleft		{ @extend .alignleft; }
+	&.alignright	{ @extend .alignright; }
+	&.aligncenter	{ @extend .aligncenter; }
+	&.alignnone		{ @extend .alignnone; }
+}
+
+#wp-image-toolbar {
+	z-index: 2;
+}
+
+/**
+ * 4.0 - Media queries
+ * --------------------------------------------------
+ */
