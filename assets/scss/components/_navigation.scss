@@ -23,13 +23,34 @@
 	display: none;
 }
 
+%hover {
+	&:before {
+		content: "";
+		position: absolute;
+		right: -4px;
+		bottom: 5px;
+		left: -4px;
+		height: 10px;
+		background: $accent;
+		z-index: -1;
+	}
+}
+
 .nav--main {
 	@extend .clearfix;
 	@extend %beta;
 	@extend %fs-24;
 
-	> li {
+	li {
 		display: block;
+		position: relative;
+
+		&:hover > a {
+			@extend %hover;
+		}
+	}
+
+	> li {
 
 	    @include query-above($small) {
 			float: left;
@@ -40,35 +61,53 @@
 			@extend .light;
 			position: relative;
 			display: inline-block;
+			//@todo maybe position absolute the "+"
+			white-space: nowrap;
 		}
 
 		// current menu item
-		&:first-child {
+		&[class*="current-menu"] {
 			a {
-
-				&:before {
-					content: "";
-					position: absolute;
-					right: -4px;
-					bottom: 5px;
-					left: -4px;
-					height: 10px;
-					background: $accent;
-					z-index: -1;
-				}
+				@extend %hover;
 			}
 		}
 	}
 
 	.menu-item-has-children {
-		&:after {
+		> a:after {
 			content: " +"
 		}
 	}
 
 	ul {
-		@extend .nav;
-		display: none;
+		@extend .nav; 
+		display: block;
+		width: 100%;
+	}
+
+	@include query-above($small) {		
+
+		ul {
+			position: absolute;
+			top: 100%; left: 0;
+			display: none;
+			background: white;
+			z-index: 100;
+			padding: $gutter/2;
+			border-left: 2px solid black;
+
+			ul {
+				top: -$gutter/2;
+				left: 100%;
+			}
+		}
+
+		li:hover {
+
+			> ul {
+				display: block;
+			}
+		}
 	}
 }
 
