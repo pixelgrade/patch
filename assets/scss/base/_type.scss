@@ -57,9 +57,7 @@ body {
 	}
 }
 
-.screen-reader-text,
-.posts-navigation,
-.entry-footer {
+.screen-reader-text, .infinite-scroll .posts-navigation {
 	display: none;
 }
 

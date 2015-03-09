@@ -20,7 +20,6 @@ $window.load(function() {
 //   animator.animate();
    scrollToTop();
   moveFeaturedImage();
-//   infinityHandler();
 
 //   if (latestKnownScrollY) $window.trigger('scroll');
 });

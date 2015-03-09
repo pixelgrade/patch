@@ -39,10 +39,8 @@
 			'separator'   => '<span class="screen-reader-text">, </span>',
 		) ); ?>
 
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
 		<?php patch_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+
+	</div><!-- .entry-content -->
 	
 </article><!-- #post-## -->
