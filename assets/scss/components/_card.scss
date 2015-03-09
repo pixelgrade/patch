@@ -135,17 +135,17 @@
 		transition: all 0.3s;
 	}
 
-		.entry-time {
-			display: none;
-		}
+	.entry-time {
+		display: none;
+	}
 
 
 	&:hover {
-		top: $gutter/2;
+		transform: translateY($gutter/2);
 
 		.entry-meta {
 			opacity: 1;
-			top: -$gutter;
+			transform: translateY(-$gutter);
 		}
 
 		.entry-image {
@@ -229,7 +229,7 @@
 		color: black;
 		padding-left: 0;
 		padding-top: 0;
-		padding-bottom: 0;
+		padding-bottom: 0; 
 
 		margin-top: 20px;
 		border-bottom: 5px solid white;
