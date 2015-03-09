@@ -153,9 +153,9 @@ if ( ! function_exists( 'patch_single_entry_footer' ) ) :
 		// Hide category and tag text for pages.
 		if ( 'post' == get_post_type() ) {
 
-			/* translators: used between list items, it's a single space */
-			$tags_list = get_the_tag_list( '', __( ' ', 'patch_txtd' ) );
+			$tags_list = get_the_tag_list( '', ' ' );
 			if ( $tags_list ) {
+				/* translators: There is a space at the end */
 				echo '<span class="screen-reader-text">' . __( 'Tagged with: ', 'patch_txtd' ) . '</span><span class="tags-links">' . $tags_list . '</span>';
 			}
 
@@ -363,8 +363,10 @@ if ( ! function_exists( 'patch_get_post_thumbnail_class' ) ) :
 		$classes[] = patch_get_post_thumbnail_aspect_ratio_class( $post );
 
 		if ( ! empty( $class ) ) {
-			if ( ! is_array( $class ) )
+			if ( ! is_array( $class ) ) {
 				$class = preg_split( '#\s+#', $class );
+			}
+
 			$classes = array_merge( $classes, $class );
 		}
 
@@ -488,12 +490,14 @@ if ( ! function_exists( 'patch_get_post_title_class' ) ) :
 		}
 
 		if ( !empty($class) ) {
-			if ( !is_array( $class ) )
-				$class = preg_split('#\s+#', $class);
-			$classes = array_merge($classes, $class);
+			if ( ! is_array( $class ) ) {
+				$class = preg_split( '#\s+#', $class );
+			}
+
+			$classes = array_merge( $classes, $class );
 		}
 
-		$classes = array_map('esc_attr', $classes);
+		$classes = array_map( 'esc_attr', $classes );
 
 		/**
 		 * Filter the list of CSS classes for the current post title.
@@ -556,12 +560,14 @@ if ( ! function_exists( 'patch_get_post_excerpt_class' ) ) :
 		}
 
 		if ( !empty($class) ) {
-			if ( !is_array( $class ) )
-				$class = preg_split('#\s+#', $class);
-			$classes = array_merge($classes, $class);
+			if ( !is_array( $class ) ) {
+				$class = preg_split( '#\s+#', $class );
+			}
+
+			$classes = array_merge( $classes, $class );
 		}
 
-		$classes = array_map('esc_attr', $classes);
+		$classes = array_map( 'esc_attr', $classes );
 
 		/**
 		 * Filter the list of CSS classes for the current post excerpt.
