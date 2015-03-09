@@ -43,20 +43,34 @@
     padding: 3px 6px;
 }
 
+// Pull Content Outside
+
+
+$pull-offset : 6 * $gutter;
+$pull-gutter : 40px;
+
 .pull-left {
-    margin-left: -6 * $gutter;
-    width: calc(6 * #{$gutter} + 50%);
-    padding-right: 20px;
+    margin-left: -$pull-offset;
+    width: calc(#{$pull-offset + $pull-gutter/2} + 50%);
+    padding-right: $pull-gutter;
+
     padding-left: 1.5*$gutter;
     float: left;
 
     text-align: right;
+
+    & + .pull-right {
+        margin-right: -$pull-offset;
+        width: calc(#{$pull-offset - $pull-gutter/2} + 50%);
+        padding-left: 0;
+    }
 }
 
 .pull-right {
-    margin-right: -6 * $gutter;
-    width: calc(6 * #{$gutter} + 50%);
-    padding-left: 20px;
+    margin-right: -$pull-offset;
+    width: calc(#{$pull-offset + $pull-gutter/2} + 50%);
+    padding-left: $pull-gutter;
+
     padding-right: 1.5*$gutter;
     float: right;
 

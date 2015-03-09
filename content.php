@@ -14,11 +14,12 @@
 		<?php patch_posted_on(); ?>
 	</div><!-- .entry-meta -->
 
-	<?php if ( has_post_thumbnail() ) : ?>
-		<a href="<?php the_permalink(); ?>" <?php patch_post_thumbnail_class( 'entry-image' ); ?>>
-			<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
-		</a>
-	<?php endif; ?>
+		<?php if ( has_post_thumbnail() ) : ?>
+			<a href="<?php the_permalink(); ?>" <?php patch_post_thumbnail_class( 'entry-image' ); ?>>
+				<span class="hover">Read More</span>
+				<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
+			</a>
+		<?php endif; ?>
 
 	<header <?php patch_post_title_class(); ?>>
 		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>

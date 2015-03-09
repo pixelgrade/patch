@@ -1,3 +1,7 @@
+
+// #CARDS
+// Masonry Archive Posts
+
 @mixin spacings($gutter) {
 
 	.entry-image--landscape {
@@ -133,6 +137,13 @@
 		display: none;
 	}
 
+	.entry-content {
+		@extend .entry-block;
+		background: white;
+
+		font-size: rem(14px);
+	}
+
 
 	&:hover {
 		transform: translateY($gutter/2);
@@ -140,6 +151,18 @@
 		.entry-meta {
 			opacity: 1;
 			transform: translateY(-$gutter);
+		}
+
+		.entry-image {
+
+			img {
+				// opacity: 0.8;
+				filter: grayscale(1);
+			}
+
+			.hover {
+				opacity: 1;
+			}
 		}
 	}
 }
@@ -149,6 +172,8 @@
 	position: relative;
 	z-index: 32; //over .entry-meta
 	display: block;
+
+	background: black;
 
 	@include query-above($small) {
 		margin-right: $gutter;
@@ -161,6 +186,23 @@
 	img {
 		display: block;
 		width: 100%;
+
+		filter: grayscale(0);
+		transition: all 0.3s;
+	}
+
+	.hover {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateY(-50%) translateX(-50%);
+		z-index: 100;
+
+		color: white;
+
+		opacity: 0;
+
+		transition: all 0.3s;
 	}
 }
 
@@ -208,13 +250,6 @@
 	@extend %beta;
 	font-weight: normal;
 	margin: 0;
-}
-
-.entry-content {
-	@extend .entry-block;
-	background: white;
-
-	font-size: rem(14px);
 }
 
 .entry--even {
