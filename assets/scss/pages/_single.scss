@@ -1,5 +1,8 @@
 .single, .page {
-	padding-top: 60px;
+	.site-content {
+		padding-top: rem(60px);
+		padding-bottom: rem(140px);
+	}
 
 	.container {
 		// @todo revisit
