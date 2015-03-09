@@ -31,7 +31,7 @@
 	> li {
 		display: block;
 
-	    @include query-above(400px) {
+	    @include query-above($small) {
 			float: left;
 			width: 50%;
 	    }
@@ -69,6 +69,55 @@
 	ul {
 		@extend .nav;
 		display: none;
+	}
+}
+
+@include query-below($small) {
+	.main-navigation {
+		background: white;
+		margin: 0;
+		position: fixed;
+		top: 0;
+		left: -100%;
+		right: 100%;
+		margin-left: $gutter * 2;
+		height: 100%;
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
+		padding-top: $gutter;
+		transition: box-shadow .3s ease-in-out;
+
+		&.shadow {
+			box-shadow: rgba(0,0,0,0.25) 0 0 $gutter, rgba(0,0,0,0.5) 0 0 $gutter/2;
+		}
+	}
+}
+
+.js-nav-trigger {
+	outline: 0;
+	background: none;
+	border: 0;
+	padding: $gutter/2;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent; /* For some Androids */
+	font-size: 24px;
+	line-height: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+} 
+
+
+// let's just make sure everything is fine on desktop
+@include query-above($small) {
+	.main-navigation {
+		transform: none !important;
+		box-shadow: none !important;
+		transition: none !important;
+	}
+
+	.js-nav-trigger {
+		display: none !important;
 	}
 }
 
