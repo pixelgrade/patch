@@ -9,19 +9,43 @@
 	}
 }
 
-.site-title,
+
+// Logo
+// Site Title
+// Site Description
+.site-branding {
+	
+}
+
+.site-branding,
 .nav--main,
 .nav--social {
 	margin: 0 2*$gutter $gutter $gutter;
 }
 
 .site-title {
-	@extend %fs-42;
+	margin: 0 0 0 -3px;
+
+	font-size: 60px;
+	line-height: 1.25;
+  	letter-spacing: 0.04em;
+	color: $dark;
+
+	a {
+
+	}
 }
 
 .site-description {
-	display: none;
+	text-transform: none;
+	font-size: rem(13px);
 }
+
+.site-logo-link {
+	display: block;
+}
+
+
 
 .nav--main {
 	@extend .clearfix;
@@ -208,6 +232,7 @@
 		}
 	}
 
+	.site-branding,
 	.nav--main,
 	.nav--social,
 	.site-title {

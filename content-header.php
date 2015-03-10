@@ -7,30 +7,31 @@
  */
 ?>
 <header id="masthead" class="site-header<?php echo is_single() ? '' : ' grid__item'; ?>" role="banner">
+	<div class="site-branding">
 
-	<?php if ( function_exists( 'jetpack_the_site_logo' ) ) { // display the Site Logo if present
-		jetpack_the_site_logo();
-	} ?>
+		<?php if ( function_exists( 'jetpack_the_site_logo' ) ) { // display the Site Logo if present
+			jetpack_the_site_logo();
+		} ?>
 
-	<?php
-	// on the front page and home page we use H1 for the title
-	echo ( is_front_page() && is_home() ) ? '<h1 class="site-title">' : '<div class="site-title">'; ?>
+		<?php
+		// on the front page and home page we use H1 for the title
+		echo ( is_front_page() && is_home() ) ? '<h1 class="site-title">' : '<div class="site-title">'; ?>
 
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-		<?php bloginfo( 'name' ); ?>
-	</a>
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+			<?php bloginfo( 'name' ); ?>
+		</a>
 
-	<?php echo ( is_front_page() && is_home() ) ? '</h1>' : '</div>'; ?>
+		<?php echo ( is_front_page() && is_home() ) ? '</h1>' : '</div>'; ?>
 
-	<?php
-	$description = get_bloginfo( 'description', 'display' );
-	if ( $description || is_customize_preview() ) : ?>
+		<?php
+		$description = get_bloginfo( 'description', 'display' );
+		if ( $description || is_customize_preview() ) : ?>
 
-	<div class="site-description">
-		<span class="site-description-text"><?php bloginfo( 'description' ); ?></span>
-	</div>
+		<div class="site-description"><?php bloginfo( 'description' ); ?></div>
 
-	<?php endif; ?>
+		<?php endif; ?>
+
+	</div><!-- .site-branding -->
 
 	<nav id="site-navigation" class="main-navigation" role="navigation">
 
