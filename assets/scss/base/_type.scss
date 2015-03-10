@@ -223,7 +223,7 @@ a {
     	}
 
 	.edit-link & {
-		@extend %hover;
+		@extend %smarter-links-underlines;
 		@extend %beta;
 		display: inline-block;
 		position: relative;

@@ -233,6 +233,10 @@
 	@extend .entry-block;
 	// text-transform: uppercase;
 
+	.entry-card & .entry-title{
+		color: white;
+	}
+
 	.entry-image + & {
 		background: white;
 		color: black;
@@ -242,6 +246,10 @@
 
 		margin-top: 20px;
 		border-bottom: 5px solid white;
+
+		.entry-title {
+			color: $dark;
+		}
 	}
 
 	a {
