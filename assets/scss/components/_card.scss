@@ -231,10 +231,11 @@
 
 .entry-header {
 	@extend .entry-block;
-	.entry-title{
+	// text-transform: uppercase;
+
+	.entry-card & .entry-title{
 		color: white;
 	}
-	// text-transform: uppercase;
 
 	.entry-image + & {
 		background: white;
