@@ -1,6 +1,6 @@
 .site-main {
 	@include query-above(800px) {
-		padding: $gutter;
+		padding: 2*$gutter $gutter;
 	}
 
 	@include query-above(1200px) {
@@ -12,24 +12,24 @@
 	@extend .clearfix;
 	max-width: 450px;
 	margin: $gutter auto 0;
-	border-right: $gutter/2 solid transparent;
+	// border-right: $gutter/2 solid transparent;
 
-	@include query-above(800px) {
+	@include query-above(750px) {
 		max-width: 1000px;
 		margin-top: 0;
 	}
 
-	@include query-above(1300px) {
+	@include query-above(1250px) {
 		max-width: 1400px;
 	}
 
-	@include query-above(1700px) {
+	@include query-above(1650px) {
 		max-width: 1800px;
 	}
 
-	@include query-above($lap) {
-		border-right: $gutter solid transparent;
-	}
+	// @include query-above($lap) {
+	// 	border-right: $gutter solid transparent;
+	// }
 }
 
 .grid__item {
@@ -45,11 +45,11 @@
     	}
     }
 
-    @include query-above(1300px) {
+    @include query-above(1250px) {
     	width: 33.33%;
     }
 
-    @include query-above(1700px) {
+    @include query-above(1650px) {
     	width: 25%;
 
 		&:nth-child(4) {

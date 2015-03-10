@@ -34,11 +34,12 @@
 		display: block;
 		position: relative;
 
-		&[class*="current-menu"] > a, &:hover > a {
+		&[class*="current-menu"] > a,
+		&:hover > a {
 			@extend %hover;
 
 			&:before {
-				bottom: 0.25em;
+				bottom: 0;
 			}
 		}
 	}
@@ -54,8 +55,9 @@
 			@extend .light;
 			position: relative;
 			display: inline-block;
+			line-height: 1.5;
 			//@todo maybe position absolute the "+"
-			white-space: nowrap;
+			// white-space: nowrap;
 		}
 	}
 
@@ -70,14 +72,7 @@
 	/*.sub-menu*/ul {
 		@extend .nav; 
 		display: block;
-		width: 100%;
-		max-width: 10em;
-
-		li[class*="current-menu"] a, li:hover a {
-			&:before {
-				bottom: 0.45em;
-			}
-		}
+		min-width: 10em;
 	}
 
 	@include query-above($small) {		

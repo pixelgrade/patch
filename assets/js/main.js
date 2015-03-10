@@ -1616,11 +1616,23 @@ if (!Date.now) Date.now = function () {
   $window.on('debouncedresize', onResize);
 
   // /* ====== ON SCROLL ====== */
-  // function onScroll() {
-  //   latestKnownScrollY = window.scrollY;
-  //   requestTick();
+  var scrollingTimer;
+
+  function onScroll() {
+    // disableHoverOnScroll();
+    // latestKnownScrollY = window.scrollY;
+    // requestTick();
+  }
+
+  // function disableHoverOnScroll() {
+  //   clearTimeout(scrollingTimer);
+  //   $body.addClass('disable-hover');
+  //   scrollingTimer = setTimeout(function(){
+  //     $body.removeClass('disable-hover');
+  //   }, 500);
   // }
-  // $window.on('scroll', onScroll);
+  $window.on('scroll', onScroll);
+
   // function requestTick() {
   //   if (!ticking) {
   //     requestAnimationFrame(update);
