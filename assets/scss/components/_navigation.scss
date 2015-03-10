@@ -23,19 +23,6 @@
 	display: none;
 }
 
-%hover {
-	&:before {
-		content: "";
-		position: absolute;
-		right: -0.2em;
-		bottom: 0.1em;
-		left: -0.2em;
-		height: 0.4em;
-		background: $accent;
-		z-index: -1;
-	}
-}
-
 .nav--main {
 	@extend .clearfix;
 	@extend %beta;
