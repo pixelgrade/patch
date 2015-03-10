@@ -231,6 +231,9 @@
 
 .entry-header {
 	@extend .entry-block;
+	.entry-title{
+		color: white;
+	}
 	// text-transform: uppercase;
 
 	.entry-image + & {
@@ -242,6 +245,10 @@
 
 		margin-top: 20px;
 		border-bottom: 5px solid white;
+
+		.entry-title {
+			color: $dark;
+		}
 	}
 
 	a {
