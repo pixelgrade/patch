@@ -11,6 +11,11 @@
 			margin-left: 0;
 			margin-right: 0;
 		}
+
+		.entry-featured {
+			margin-left: rem(-45px);
+			margin-right: rem(-45px);
+		}
 	}
 
 	@include query-above($lap) {
@@ -47,7 +52,8 @@
 		}
 
 		.entry-featured {
-			margin: $gutter 0;
+			margin-top: $gutter;
+			margin-bottm: $gutter;
 
 			@include query-above($lap) {
 				margin: $gutter -6*$gutter;
@@ -59,7 +65,7 @@
 		}
 	}
 
-	.entry-image--wide {
+	.entry-image--wide, .entry-image--square {
 		margin: 0;
 	}
 
