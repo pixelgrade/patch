@@ -1,8 +1,15 @@
 .single, .page:not(.entry-card) {
+
+	.hentry,
+	.comments-area {
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+
 	@include query-below($lap) {
 		.site-content {
-			padding: 0 rem(45px);
-			padding-bottom: rem($gutter);
+			padding: 0 45px;
+			padding-bottom: 30px;
 		}
 
 		.entry-header {
@@ -13,25 +20,21 @@
 		}
 
 		.entry-featured {
-			margin-left: rem(-45px);
-			margin-right: rem(-45px);
+			margin-left: -45px;
+			margin-right: -45px;
 		}
 	}
 
 	@include query-above($lap) {
 		.site-content {
-			padding-top: rem(60px);
-			padding-bottom: rem(140px);
-		}
-
-		.site-main {
-			padding: 0 6*$gutter;
+			padding: 60px;
 		}
 	}
 
-	.container {
-		max-width: 1284px;
-		margin: 0 auto;
+	@include query-above($desk) {
+		.site-main {
+			padding: 0 6*$gutter;
+		}
 	}
 
 	.entry-featured {
@@ -44,7 +47,9 @@
 
 		@include query-above($lap) {
 			padding-top: $gutter;
+		}
 
+		@include query-above($desk) {
 			.entry-header {
 				margin-left: -3*$gutter;
 				margin-right: -3*$gutter;
@@ -55,7 +60,7 @@
 			margin-top: $gutter;
 			margin-bottm: $gutter;
 
-			@include query-above($lap) {
+			@include query-above($desk) {
 				margin: $gutter -6*$gutter;
 			}
 
@@ -71,16 +76,21 @@
 
 	.entry-image--portrait,
 	.entry-image--tall {
-		max-width: none;
+		// max-width: none;
 		float: none;
-		margin-right: 0;
+		// margin-right: 0; 
 
 		.entry-featured {
 			margin-bottom: $gutter;
 
 			@include query-above($lap) {
 				float: left;
-				margin: 0 $gutter $gutter -6 * $gutter;
+				margin: 0 $gutter $gutter 0;
+				max-width: 40%;	
+			}
+
+			@include query-above($desk) {
+				margin-left: -6*$gutter;
 				max-width: 70%;
 			}
 
@@ -94,7 +104,7 @@
 		}
 
 		.entry-header {
-			@include query-above($lap) {
+			@include query-above($desk) {
 				margin-right: -3*$gutter;
 			}
 			@include rhythm(margin-bottom, 2.5);

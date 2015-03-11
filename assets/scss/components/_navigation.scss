@@ -229,13 +229,6 @@
 		border-left: 0;
 		margin-bottom: 0;
 
-		@include query-below($lap) {
-			@include rhythm(margin-bottom, 3);
-			.site-description {
-				display: none;
-			}
-		}
-
 		// sync somehow with sidebar
 		@include query-above($lap) {
 			float: left;
