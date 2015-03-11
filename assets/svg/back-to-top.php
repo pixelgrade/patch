@@ -2,7 +2,7 @@
 /**
  * Back to top footer arrow
  *
- * @package Silk
+ * @package Patch
  */ ?><svg width="10px" height="19px" viewBox="0 0 10 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 	<defs></defs>
 	<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

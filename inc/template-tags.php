@@ -584,7 +584,9 @@ if ( ! function_exists( 'patch_get_post_excerpt_class' ) ) :
 endif;
 
 if ( ! function_exists( 'patch_post_excerpt' ) ) :
-
+	/**
+	 * Display the post excerpt, either with the <!--more--> tag or regular excerpt
+	 */
 	function patch_post_excerpt( $post_id = null ) {
 		$post = get_post( $post_id );
 
@@ -606,6 +608,37 @@ if ( ! function_exists( 'patch_post_excerpt' ) ) :
 		}
 	}
 endif;
+
+/**
+ * Get the post excerpt, either with the <!--more--> tag or regular excerpt
+ *
+ * @param int|WP_Post $post_id Optional. Post ID or post object.
+ * @return string The post excerpt.
+ */
+function patch_get_post_excerpt( $post_id = null ) {
+	$post = get_post( $post_id );
+
+	$excerpt = '';
+
+	if ( empty( $post ) ) {
+		return $excerpt;
+	}
+
+	// Check the content for the more text
+	$has_more = strpos( $post->post_content, '<!--more' );
+
+	if ( $has_more ) {
+		/* translators: %s: Name of current post */
+		$excerpt = get_the_content( sprintf(
+			__( 'Continue reading %s', 'patch_txtd' ),
+			the_title( '<span class="screen-reader-text">', '</span>', false )
+		) );
+	} else {
+		$excerpt = get_the_excerpt();
+	}
+
+	return $excerpt;
+}
 
 /**
  * Display the markup for the author bio links.
