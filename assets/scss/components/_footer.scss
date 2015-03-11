@@ -11,6 +11,10 @@
 		display: block;
 		text-align: center;
 
+		@include query-below($lap) {
+			padding: $gutter/2 0;
+		}
+
 		@include query-above($lap) {
 			display: inline-block;
 			vertical-align: middle;
@@ -19,8 +23,7 @@
 	}
 
 	a {
-		// @todo maybe the color is in a $var, maybe it's not
-		color: #CCCCCC;
+		color: $light;
 		text-decoration: none;
 	}
 }
@@ -48,8 +51,7 @@
 
 	li {
 		&:after {
-			// @todo maybe the color is in a $var, maybe it's not
-			color: #CCCCCC;
+			color: $light;
 			content: "/";
 			margin-left: 5px;
 		}

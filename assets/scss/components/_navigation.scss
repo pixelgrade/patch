@@ -17,10 +17,12 @@
 	
 }
 
-.site-branding,
-.nav--main,
-.nav--social {
-	margin: 0 2*$gutter $gutter $gutter;
+@include query-above($lap) {
+	.site-branding,
+	.nav--main,
+	.nav--social {
+		margin: 0 2*$gutter $gutter $gutter;
+	}
 }
 
 .site-title {
@@ -142,17 +144,20 @@
 
 @include query-below($small) {
 	.main-navigation {
-		background: white;
-		margin: 0;
 		position: fixed;
 		top: 0;
 		left: -100%;
 		right: 100%;
+		z-index: 50;
+
+		margin: 0;
 		margin-left: $gutter * 2;
+		padding: $gutter;
 		height: 100%;
 		overflow-y: scroll;
+
+		background: white;
 		-webkit-overflow-scrolling: touch;
-		padding-top: $gutter;
 		transition: box-shadow .3s ease-in-out;
 
 		&.shadow {
@@ -161,19 +166,23 @@
 	}
 }
 
-.js-nav-trigger {
-	outline: 0;
-	background: none;
-	border: 0;
+.navigation__trigger {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 50;
+
 	padding: $gutter/2;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	-webkit-tap-highlight-color: transparent; /* For some Androids */
+	border: 0;
+
+	outline: 0;
 	font-size: 24px;
 	line-height: 1;
-	position: fixed;
-	top: 0; 
-	left: 0;
-} 
+
+	background: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent; /* For some Androids */
+}
 
 
 // let's just make sure everything is fine on desktop
@@ -184,7 +193,7 @@
 		transition: none !important;
 	}
 
-	.js-nav-trigger {
+	.navigation__trigger {
 		display: none !important;
 	}
 }
@@ -232,12 +241,14 @@
 		}
 	}
 
-	.site-branding,
-	.nav--main,
-	.nav--social,
-	.site-title {
-		margin-left: 0;
-		margin-right: 0;
+	@include query-above($lap) {
+		.site-branding,
+		.nav--main,
+		.nav--social,
+		.site-title {
+			margin-left: 0;
+			margin-right: 0;
+		}
 	}
 
 	.nav--main > li {

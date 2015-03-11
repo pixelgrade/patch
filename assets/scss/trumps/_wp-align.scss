@@ -32,9 +32,11 @@ img {
 }
 
 .aligncenter, .alignnone {
-    margin-left: -3 * $gutter;
-    margin-right: -3 * $gutter;
-    max-width: calc(#{6 * $gutter} + 100%); 
+    @include query-above($lap) {
+        margin-left: -3 * $gutter;
+        margin-right: -3 * $gutter;
+        max-width: calc(#{6 * $gutter} + 100%);
+    }
 
     text-align: center;
 
@@ -45,7 +47,10 @@ img {
 
 .alignleft, .alignright {
     margin-top: rhythm(1);
-    max-width: calc(50% + #{3 * $gutter} - 20px);
+
+    @include query-above($lap) {
+        max-width: calc(50% + #{3 * $gutter} - 20px);
+    }
 
     p + & {
         margin-top: 0;
@@ -60,13 +65,19 @@ img {
 .alignleft {
     float: left;
     margin-right: rhythm(1.5);
-    margin-left: -3 * $gutter;
+
+    @include query-above($lap) {
+        margin-left: -3 * $gutter;
+    }
 }
 
 .alignright {
     float: right;
     margin-left: rhythm(1.5);
-    margin-right: -3 * $gutter;
+
+    @include query-above($lap) {
+        margin-right: -3 * $gutter;
+    }
 }
 
 
