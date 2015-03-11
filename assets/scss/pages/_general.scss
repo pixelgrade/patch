@@ -3,65 +3,60 @@
 		border: $gutter/2 solid black;
 
 	}
-
-	.site-content {
-		padding-left: rem(60px);
-		padding-right: rem(60px);
-	}
 }
 
 
 // Posts Meta (categories, author and date)
 .entry-meta {
-		@extend %beta;
-		z-index: 31;
-		position: relative;
+	@extend %beta;
+	z-index: 31;
+	position: relative;
 
-		margin-bottom: rem(14px);
+	margin-bottom: rem(14px);
 
-		font-size: rem(13px);
-		letter-spacing: 0.1em;
+	font-size: rem(13px);
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+// Categories
+.cat-links {
+	margin-right: rem(10px);
+	padding: rem(6px) rem(14px);
+	background-color: $accent;
+}
+
+// Author
+.byline {
+	color: $dark;
+	text-transform: capitalize;
+
+	.author {
 		text-transform: uppercase;
 	}
+}
 
-	// Categories
-	.cat-links {
-		margin-right: rem(10px);
-		padding: rem(6px) rem(14px);
-		background-color: $accent;
+// Date
+.posted-on {
+	display: inline-block;
+	
+	margin-left: 4px;
+	color: $light;
+
+	a {
+		font-weight: 300;
+		color: currentColor;
 	}
 
-	// Author
-	.byline {
-		color: $dark;
-		text-transform: capitalize;
-
-		.author {
-			text-transform: uppercase;
-		}
+	&:before {
+		content: "/";
+		margin-right: 4px;
 	}
+}
 
-	// Date
-	.posted-on {
-		display: inline-block;
-		
-		margin-left: 4px;
-		color: $light;
-
-		a {
-			font-weight: 300;
-			color: currentColor;
-		}
-
-		&:before {
-			content: "/";
-			margin-right: 4px;
-		}
+.entry-time {
+	&:before {
+		content: "@";
+		margin: 0 5px;
 	}
-
-		.entry-time {
-			&:before {
-				content: "@";
-				margin: 0 5px;
-			}
-		}
+}

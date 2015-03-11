@@ -9,19 +9,43 @@
 	}
 }
 
-.site-title,
+
+// Logo
+// Site Title
+// Site Description
+.site-branding {
+	
+}
+
+.site-branding,
 .nav--main,
 .nav--social {
 	margin: 0 2*$gutter $gutter $gutter;
 }
 
 .site-title {
-	@extend %fs-42;
+	margin: 0 0 0 -3px;
+
+	font-size: 60px;
+	line-height: 1.25;
+  	letter-spacing: 0.04em;
+	color: $dark;
+
+	a {
+
+	}
 }
 
 .site-description {
-	display: none;
+	text-transform: none;
+	font-size: rem(13px);
 }
+
+.site-logo-link {
+	display: block;
+}
+
+
 
 .nav--main {
 	@extend .clearfix;
@@ -34,11 +58,12 @@
 		display: block;
 		position: relative;
 
-		&[class*="current-menu"] > a, &:hover > a {
+		&[class*="current-menu"] > a,
+		&:hover > a {
 			@extend %hover;
 
 			&:before {
-				bottom: 0.25em;
+				bottom: 0;
 			}
 		}
 	}
@@ -54,8 +79,9 @@
 			@extend .light;
 			position: relative;
 			display: inline-block;
+			line-height: 1.5;
 			//@todo maybe position absolute the "+"
-			white-space: nowrap;
+			// white-space: nowrap;
 		}
 	}
 
@@ -70,14 +96,7 @@
 	/*.sub-menu*/ul {
 		@extend .nav; 
 		display: block;
-		width: 100%;
-		max-width: 10em;
-
-		li[class*="current-menu"] a, li:hover a {
-			&:before {
-				bottom: 0.45em;
-			}
-		}
+		min-width: 10em;
 	}
 
 	@include query-above($small) {		
@@ -213,6 +232,7 @@
 		}
 	}
 
+	.site-branding,
 	.nav--main,
 	.nav--social,
 	.site-title {

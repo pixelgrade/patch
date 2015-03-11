@@ -41,3 +41,9 @@
 	// prevents images overlaping margin
 	&:before { content: ""; display: block; float: left; }
 }
+
+.disable-hover {
+	&, * {
+		pointer-events: none !important;
+	}
+}

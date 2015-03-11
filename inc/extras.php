@@ -11,6 +11,8 @@
 /**
  * Adds custom classes to the array of body classes.
  *
+ * @since Patch 1.0
+ *
  * @param array $classes Classes for the body element.
  * @return array
  */
@@ -34,7 +36,6 @@ add_filter( 'body_class', 'patch_body_classes' );
  * @since Patch 1.0
  *
  * @param array $classes A list of existing post class values.
- *
  * @return array The filtered post class list.
  */
 function patch_post_classes( $classes ) {
@@ -55,6 +56,8 @@ add_filter( 'post_class', 'patch_post_classes' );
 if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	/**
 	 * Filters wp_title to print a neat <title> tag based on what is being viewed.
+	 *
+	 * @since Patch 1.0
 	 *
 	 * @param string $title Default title text for current view.
 	 * @param string $sep Optional separator.
@@ -102,6 +105,7 @@ endif;
 if ( ! function_exists( 'patch_fonts_url' ) ) :
 	/**
 	 * Register Google fonts for Patch.
+	 *
 	 * @since Patch 1.0
 	 *
 	 * @return string Google fonts URL for the theme.
@@ -172,7 +176,9 @@ add_action( 'wp', 'patch_setup_author' );
 
 if ( ! function_exists( 'patch_comment' ) ) :
 	/*
-	 * Individual comment layout
+	 * Display individual comment layout
+	 *
+	 * @since Patch 1.0
 	 */
 	function patch_comment( $comment, $args, $depth ) {
 		static $comment_number;
@@ -230,8 +236,9 @@ endif; //patch_comment
 /**
  * Filter comment_form_defaults to remove the notes after the comment form textarea.
  *
- * @param array $defaults
+ * @since Patch 1.0
  *
+ * @param array $defaults
  * @return array
  */
 function patch_comment_form_remove_notes_after( $defaults ) {
@@ -245,8 +252,9 @@ add_filter( 'comment_form_defaults', 'patch_comment_form_remove_notes_after' );
 /**
  * Filter wp_link_pages to wrap current page in span.
  *
- * @param string $link
+ * @since Patch 1.0
  *
+ * @param string $link
  * @return string
  */
 function patch_link_pages( $link ) {
@@ -304,29 +312,4 @@ function patch_mce_before_init( $settings ) {
 	$settings['style_formats'] = json_encode( $style_formats );
 
 	return $settings;
-}
-
-function patch_get_post_excerpt( $post_id = null ) {
-	$post = get_post( $post_id );
-
-	$excerpt = '';
-
-	if ( empty( $post ) ) {
-		return $excerpt;
-	}
-
-	// Check the content for the more text
-	$has_more = strpos( $post->post_content, '<!--more' );
-
-	if ( $has_more ) {
-		/* translators: %s: Name of current post */
-		$excerpt = get_the_content( sprintf(
-			__( 'Continue reading %s', 'patch_txtd' ),
-			the_title( '<span class="screen-reader-text">', '</span>', false )
-		) );
-	} else {
-		$excerpt = get_the_excerpt();
-	}
-
-	return $excerpt;
 } ?>
