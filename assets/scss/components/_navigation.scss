@@ -226,19 +226,6 @@
 
 		border-left: 0;
 		margin-bottom: 0;
-
-		// sync somehow with sidebar
-		@include query-above($lap) {
-			float: left;
-			width: 30%;
-		}
-
-		@include query-above($desk) {
-//			@include rhythm(width, 30);
-//			@include rhythm(padding-right, 5);
-			width: rem(310px);
-			padding-right: rem(90px);
-		}
 	}
 
 	@include query-above($lap) {

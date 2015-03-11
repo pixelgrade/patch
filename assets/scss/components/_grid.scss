@@ -1,7 +1,7 @@
 .site-main {
-	@include query-above(800px) {
-		padding: 2*$gutter $gutter;
-	}
+	// @include query-above(800px) {
+	// 	padding: 2*$gutter $gutter;
+	// }
 
 	@include query-above(1200px) {
 		padding: 2*$gutter;

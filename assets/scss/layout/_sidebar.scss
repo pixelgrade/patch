@@ -16,12 +16,12 @@
 		position: relative;
 		@include rhythm(padding-top, 2);
 
-		@include query-below($lap){
+		@include query-below($lap) {
 			border-top: 1px solid $gray;
 			@include rhythm(padding-top, 4);
 		}
 
-		@include query-above($lap){
+		@include query-above($lap) {
 			@include rhythm(padding-bottom, 4);
 		}
 	}
@@ -30,36 +30,19 @@
 
 		.content-area {
 			float: right;
-			margin-left: -30%;
+			margin-left: -310px;
 		}
 
 		.site-main {
-			margin-left: 30%;
+			margin-left: 310px;
 		}
 
-		.sidebar {
+		.sidebar,
+		.site-header {
 			z-index: 5;
 			float: left;
-			width: 30%;
-
-			padding-right: rem(2*$gutter);
-		}
-	}
-
-	@include query-above($desk) {
-
-		.content-area {
-			margin-left: rem(-310px);
-		}
-
-		.site-main {
-			@include rhythm(margin-left, 30);
-			margin-left: rem(310px);
-		}
-
-		.sidebar {
-			width: rem(310px);
-			padding-right: rem(3*$gutter);
+			width: 310px;
+			padding-right: 90px;
 		}
 	}
 }
