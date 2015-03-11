@@ -1,4 +1,4 @@
-.single, .page {
+.single, .page:not(.entry-card) {
 	.site-content {
 		padding-top: rem(60px);
 		padding-bottom: rem(140px);

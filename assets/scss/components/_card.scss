@@ -89,7 +89,7 @@
 	}
 }
 
-.blog {
+.blog, .archive, .search {
 
 	.entry-header {
 		padding: 20px;
@@ -100,6 +100,14 @@
 		@include query-above($small) {
 			margin-right: $gutter;
 		}
+	}
+
+	.page-header {
+		margin-top: 0;
+	}
+
+	.page-title {
+		margin-top: 0;
 	}
 
 	@include spacings($gutter/2);
