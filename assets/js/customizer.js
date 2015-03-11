@@ -23,10 +23,4 @@
 		} );
 	} );
 
-	wp.customize('patch_site_title_outline', function (value) {
-		value.bind( function (text) {
-			$('.site-title text').attr('stroke-width', text);
-		} );
-	})
-
 })( jQuery );
