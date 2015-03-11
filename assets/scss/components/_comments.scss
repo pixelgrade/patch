@@ -1,14 +1,14 @@
 .comments-area {
 	position: relative;
-	@include rhythm(margin-top, 2);
-	@include rhythm(padding-top, 4);
+	margin-top: $gutter;
+	padding-top: 2*$gutter;
 	border-top: 1px solid $borders;
 
 	&:before {
 		content: "";
 		position: absolute;
-		@include rhythm(left, 2);
-		@include rhythm(top, 4);
+		left: 20px;
+		top: 2*$gutter;
 		bottom: 0;
 		border-left: 1px solid $borders;
 	}
@@ -32,30 +32,23 @@
 }
 
 .comment-number, %comment-number {
-	@include rhythm(width, 4);
-	@include rhythm(height, 4);
-	@include rhythm(line-height, 4);
-
-	border: 1px solid $borders;
+	width: 40px;
+	height: 40px;
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 40px;
+	border: 1px solid $light;
 	text-align: center;
-
-	color: $borders;
+	color: $light;
 	background: white;
 
 }
 
 .comment-number--dark, %comment-number--dark {
 	@extend %comment-number;
-
 	display: inline-block;
-	@include rhythm(width, 4, 28px);
-	@include rhythm(height, 4, 28px);
-	@include rhythm(line-height, 3.8, 28px);
-	@include rhythm(margin-right, 2, 28px);
-	font-size: 28px;
-
+	margin-right: $gutter;
 	border: 0;
-
 	background-color: $dark;
 	color: white;
 }
@@ -74,10 +67,11 @@
 	}
 
 	.comments-title {
+		@extend %beta;
+		font-weight: 300;
 		margin: 0;
-		margin-right: $u/4;
-
-		@include font-size(28px);
+		margin-right: $gutter/2;
+		font-size: 24px;
 
 		@include query-below($lap) {
 			font-size: 21px;
@@ -97,18 +91,19 @@
 	}
 }
 
-.comments-area-title{
-	padding-left: 3 * $u;
+.comments-area-title {
+	padding-left: 40px;
+	margin-bottom: 60px;
 
-	.comment-number{
+	.comment-number {
 		position: relative;
-		left: -3 * $u;
-		margin-right: -2 * $u;
+		left: -40px;
+		margin-right: -20px;
 	}
 }
 
 .commentlist > .comment, .commentlist > .pingback, .commentlist > .trackback {
-	@include rhythm(padding-left, 4);
+	padding-left: 40px;
 }
 
 @include query-below($lap) {
@@ -118,7 +113,13 @@
 }
 
 .comments_add-comment {
+	@extend %beta;
+	@extend %hover;
 	margin-top: 3px;
+	text-transform: uppercase;
+	font-size: 13px;
+	letter-spacing: 0.1em;
+	position: relative;
 }
 
 .commentlist {
@@ -126,15 +127,15 @@
 	margin: 0;
 	border-left: 0;
 	padding-left: 0;
+	padding-bottom: 30px;
 }
 
 li.comment, li.pingback, li.trackback {
 	position: relative;
-
 	display: block;
 	margin-bottom: 0;
-	@include rhythm(margin-top, 4);
-	@include rhythm(margin-bottom, 4);
+	margin-top: $gutter;
+	margin-bottom: $gutter;
 
 	.comment-number {
 		position: absolute;
@@ -156,33 +157,28 @@ li.comment, li.pingback, li.trackback {
 
 		margin-top: $u;
 
-		@include query-below($lap){
+		@include query-below($lap) {
 			margin-left: 0;
 		}
 
 		li {
 			@include query-above($lap) {
-				@include rhythm(padding-left, 4);
+				margin-left: 20px;
+				padding-left: 40px;
 
 				&:before {
 					content: "";
 					position: absolute;
-					top: 24px;
+					top: 20px;
 					border-top: 1px solid $borders;
 				}
-			}
-
-			.comment-number {
-				border: 1px solid $borders;
-				background: $borders;
-				color: white;
 			}
 		}
 	}
 }
 
-$first-padding-unit: 24px;
-$second-padding-unit: 48px;
+$first-padding-unit: 20px;
+$second-padding-unit: 40px;
 
 li.depth-2:before {
 	left: -2 * $first-padding-unit;
@@ -199,9 +195,10 @@ li.depth-2:before {
 }
 
 .comment__author-name {
-	font-size: 14px;
+	font-size: 16px;
+	font-weight: bold;
 
-	a{
+	a {
 		font-size: 16px;
 		color: black;
 	}
@@ -209,7 +206,7 @@ li.depth-2:before {
 
 .comment-article {
 	margin-bottom: 0;
-	@include rhythm(margin-left, 2);
+	margin-left: 20px;
 
 	&:hover {
 		.comment-edit-link, .comment-reply-link {
@@ -231,8 +228,14 @@ li.depth-2:before {
 	}
 }
 
-.comment__timestamp {
-	color: $gray;
+.comment__time {
+	color: $light;
+	font-size: 14px;
+
+	a {
+		color: currentColor;
+		font-weight: normal;
+	}
 }
 
 .comment__avatar {
@@ -241,10 +244,12 @@ li.depth-2:before {
 
 .comment__content {
 	position: relative;
+	margin-bottom: $gutter;
+	font-size: 15px;
 
-	@include rhythm(margin-bottom, 2, 14px);
-	@include font-size(14px);
-	color: $light;
+	> :last-child {
+		margin-bottom: 0;
+	}
 }
 
 .comment__links {
@@ -275,22 +280,24 @@ li.depth-2:before {
 }
 
 .comment-reply-title {
-
+	@extend %beta;
+	font-size: 24px;
+	font-weight: 300;
 	margin-top: 0;
 	margin-bottom: $u;
-
-	@include font-size(28px);
-	transform: none;
-
-	@include query-below($lap) {
-		font-size: 21px;
-	}
-
+	padding-left: 60px;
+	min-height: 40px;
 
 	&:before {
-		content: "+";
 		@extend %comment-number;
 		@extend %comment-number--dark;
+		content: "+";
+		font-size: 60px;
+		line-height: 24px;
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		left: 0;
 
 		@include query-below($lap) {
 			font-size: (28/21) + em;
@@ -298,6 +305,25 @@ li.depth-2:before {
 
 		.comment & {
 			display: none;
+		}
+	}
+
+	.comment & {
+		padding-left: 0;
+		margin-top: 30px;
+		margin-bottom: 10px;
+
+		a {
+			@extend %beta;
+			@extend %hover;
+			margin-top: 3px;
+			text-transform: uppercase;
+			font-size: 13px;
+			letter-spacing: 0.1em;
+			position: relative;
+			color: black;
+			text-decoration: none !important;
+			margin-left: 15px;
 		}
 	}
 
@@ -340,14 +366,6 @@ li.depth-2:before {
 .comment-form {
 	// @extend %grid;
 	@extend %clearfix;
-
-	@include query-above($lap) {
-		@include rhythm(padding-left, 6);
-	}
-
-	.comment & {
-		padding-left: 0;
-	}
 
 	input, textarea {
 		font-weight: 300;
@@ -398,6 +416,11 @@ p.comment-form-email{
 .logged-in-as {
 	// @extend %grid__item;
 	width: 100%;
+	margin-bottom: 0;
+
+	label {
+		display: none;
+	}
 }
 
 .comment-form-comment,
@@ -416,21 +439,29 @@ p.comment-form-email{
 
 
 .form-submit {
+	position: relative;
+	@extend %hover;
 	@include rhythm(margin-top, 1);
 	margin-bottom: 0;
 	text-align: right;
 
-	@include query-above($lap){
-		&.form-submit{
+	@include query-above($lap) {
+		&.form-submit {
 			float: right;
-			width: 30%;
 		}
 	}
 
 	#submit {
+		@extend %beta;
+		padding: 0;
 		border: 0;
+		background: none;
+		font-size: 18px;
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
 
-		@include query-below($lap){
+		@include query-below($lap) {
 			width: 100%;
 		}
 	}
