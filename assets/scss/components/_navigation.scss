@@ -28,13 +28,15 @@
 .site-title {
 	margin: 0 0 0 -3px;
 
-	font-size: 60px;
+	font-size: 30px;
+	text-align: center;
 	line-height: 1.25;
-  	letter-spacing: 0.04em;
+	letter-spacing: 0.04em;
 	color: $dark;
 
-	a {
-
+	@include query-above($lap) {
+		font-size: 60px;
+		text-align: inherit;
 	}
 }
 
@@ -226,6 +228,13 @@
 
 		border-left: 0;
 		margin-bottom: 0;
+
+		@include query-below($lap) {
+			@include rhythm(margin-bottom, 3);
+			.site-description {
+				display: none;
+			}
+		}
 
 		// sync somehow with sidebar
 		@include query-above($lap) {
