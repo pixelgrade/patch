@@ -29,6 +29,10 @@ img {
     .archive__grid & {
         margin-bottom: 0;
     }
+
+    .widget &{
+        margin: 0;
+    }
 }
 
 .aligncenter, .alignnone {

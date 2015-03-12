@@ -1,0 +1,169 @@
+.widget {
+	margin-bottom: rem(40px);
+	font-size: rem(13px);
+	line-height: 1.6;
+
+	ul, ol {
+		line-height: 1.4;
+
+		li {
+			margin-bottom: rem(25px);
+		}
+	}
+
+	ul {
+		list-style-type: none;
+	}
+
+	select {
+		max-width: 100%;
+	}
+}
+
+.widget-title {
+	margin-top: 0;
+	margin-bottom: rem(25px);
+}
+
+.widget_categories,
+.widget_pages,
+.widget_meta,
+.widget_archive {
+
+	> ul {
+		@include rhythm(margin-bottom, -1);
+		font-size: 0;
+
+		> li {
+			display: inline-block;
+			width: 50%;
+			overflow: hidden;
+			padding-right: $gutter/2;
+
+			font-size: rem(13px);
+			white-space: nowrap;
+			text-overflow: ellipsis;
+
+			a {
+				display: inline;
+			}
+		}
+
+		// hide sub-categories
+		ul {
+			display: none;
+		}
+	}
+
+	li {
+		@include rhythm(margin-bottom, 1);
+	}
+}
+
+/* Widget - Calendar */
+
+.widget_calendar {
+
+	table {
+		width: 100%;
+		color: $borders;
+		text-align: center;
+	}
+
+	th {
+		text-align: center;
+		@include rhythm(padding-bottom, 1);
+	}
+
+	td, th {
+		padding: rem(6px) 0;
+	}
+
+	tr{
+		border: 0;
+	}
+
+	tfoot {
+		@include rhythm(padding, 1);
+	}
+
+	caption {
+		color: $gray;
+		@include rhythm(padding-bottom, 1);
+		@include rhythm(padding-top, 1);
+	}
+
+	a {
+		color: $black;
+
+		&:hover {
+			color: $black;
+			text-decoration: underline;
+		}
+	}
+
+	thead {
+		color: $black;
+	}
+
+	tfoot {
+
+		a {
+			color: $gray;
+		}
+
+		td {
+			border-bottom: 0;
+		}
+	}
+}
+
+/* Widget - Recent Comments */
+
+.recentcomments{
+	color: $light;
+
+	a {
+		color: $black;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	.comment-author-link {
+		font-weight: bold;
+	}
+}
+
+/* Widget - RSS */
+
+.widget_rss{
+	li{
+		margin-bottom: $u;
+	}
+
+	cite{
+		display: block;
+		margin-top: $u/4;
+	}
+}
+
+.rsswidget{ //rss entry title
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.rss-date{
+	&:before{
+		content: '-';
+
+		display: inline-block;
+		margin: 0 3px;
+	}
+}
+
+.widget_rss_links a{
+	display: inline-block;
+	vertical-align: middle;
+}
