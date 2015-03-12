@@ -135,6 +135,46 @@ if ( ! function_exists( 'patch_cats_list' ) ) :
 
 endif;
 
+/**
+ * Prints HTML with the category of a certain post, with the most posts in it
+ * The most important category of a post
+ */
+function patch_first_category( $post_ID = null) {
+	global $wp_rewrite;
+
+	//use the current post ID is none given
+	if ( empty( $post_ID ) ) {
+		$post_ID = get_the_ID();
+	}
+
+	//first get all categories ordered by count
+	$all_categories = get_categories( array(
+		'orderby' => 'count',
+		'order' => 'DESC',
+	) );
+
+	//get the post's categories
+	$categories = get_the_category( $post_ID );
+	if ( empty( $categories ) ) {
+		//get the default category instead
+		$categories = get_category_by_ID( get_option( 'default_category' ) );
+	}
+
+	//now intersect them so that we are left with e descending ordered array of the post's categories
+	$categories = array_uintersect( $all_categories, $categories, function ($a1, $a2) {
+		if ( $a1->term_id == $a2->term_id ) { return 0; } //we are only interested by equality but PHP wants the whole thing
+		if ( $a1->term_id > $a2->term_id ) { return 1; }
+		return -1; } );
+
+	if ( ! empty ( $categories ) ) {
+		$category = array_shift($categories);
+		$rel = ( is_object( $wp_rewrite ) && $wp_rewrite->using_permalinks() ) ? 'rel="category tag"' : 'rel="category"';
+
+		echo '<span class="cat-links"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '" ' . $rel . '>' . $category->name . '</a></span>';
+	}
+
+} #function
+
 if ( ! function_exists( 'patch_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for posts on archives.
