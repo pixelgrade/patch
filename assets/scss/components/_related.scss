@@ -34,6 +34,9 @@ body {
 	.sd-social-official .sd-content>ul>li .digg_button >a,
 	.sd-social-official .sd-content>ul>li>a.sd-button,
 	.sd-social-text .sd-content ul li a.sd-button {
+		font-size: 11px;
+		color: $dark;
+		text-transform: uppercase;
 		display: block;
 		box-shadow: none;
 		background: none;
@@ -43,6 +46,12 @@ body {
 		padding-right: 20px;
 		padding-left: 40px;
 		position: relative;
+		border-radius: 0;
+
+		&:hover {
+			background: none;
+			border: 1px solid $lightest;
+		}
 	}
 
 	.sd-content ul li a.sd-button:before {
