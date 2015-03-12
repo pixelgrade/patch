@@ -3,9 +3,9 @@
 	// 	padding: 2*$gutter $gutter;
 	// }
 
-	// @include query-above(1200px) {
-	// 	padding: 2*$gutter;
-	// }
+	@include query-above(1260px) {
+		padding: 2*$gutter;
+	}
 }
 
 .grid {
