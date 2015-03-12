@@ -1,11 +1,50 @@
+%share-title {
+	@extend %beta;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-size: 13px;
+	margin: 0 0 10px;
+}
+
+body div.sharedaddy {
+
+	h3.sd-title {
+		@extend %share-title;
+
+		&:before {
+			display: none;
+		}
+	}
+}
+
+body .sd-content ul li {
+	display: inline-block;
+}
+
+
+body {
+
+	#sharing_email .sharing_send,
+	.sd-content ul li .option a.share-ustom,
+	.sd-content ul li a.sd-button,
+	.sd-content ul li.advanced a.share-more,
+	.sd-content ul li.preview-item div.option.option-smart-off a,
+	.sd-social-icon .sd-content ul li a.sd-button,
+	.sd-social-icon-text .sd-content ul li a.sd-button,
+	.sd-social-official .sd-content>ul>li .digg_button >a,
+	.sd-social-official .sd-content>ul>li>a.sd-button,
+	.sd-social-text .sd-content ul li a.sd-button {
+		box-shadow: none;
+		background: none;
+		border: 1px solid $borders;
+	}
+}
+
 body div#jp-relatedposts {
 
 	h3.jp-relatedposts-headline {
 		@extend %beta;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		font-size: 13px;
-		margin: 0 0 10px;
+		@extend %share-title;
 
 		em:before {
 			display: none;
@@ -26,8 +65,13 @@ body div#jp-relatedposts {
 
 		.jp-relatedposts-post-title {
 			font-size: 15px;
+			font-weight: normal;
+			letter-spacing: normal;
 			margin-bottom: 10px;
-			text-decoration: none !important;
+
+			a {
+				text-decoration: none !important;
+			}
 		}
 
 		.jp-relatedposts-post-date,
