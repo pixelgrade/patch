@@ -53,6 +53,55 @@ function patch_post_classes( $classes ) {
 
 add_filter( 'post_class', 'patch_post_classes' );
 
+if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
+	/**
+	 * Filters wp_title to print a neat <title> tag based on what is being viewed.
+	 *
+	 * @since Patch 1.0
+	 *
+	 * @param string $title Default title text for current view.
+	 * @param string $sep Optional separator.
+	 * @return string The filtered title.
+	 */
+	function patch_wp_title( $title, $sep ) {
+		if ( is_feed() ) {
+			return $title;
+		}
+
+		global $page, $paged;
+
+		// Add the blog name
+		$title .= get_bloginfo( 'name', 'display' );
+
+		// Add the blog description for the home/front page.
+		$site_description = get_bloginfo( 'description', 'display' );
+		if ( $site_description && ( is_home() || is_front_page() ) ) {
+			$title .= " $sep $site_description";
+		}
+
+		// Add a page number if necessary:
+		if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
+			$title .= " $sep " . sprintf( __( 'Page %s', 'patch_txtd' ), max( $paged, $page ) );
+		}
+
+		return $title;
+	}
+	add_filter( 'wp_title', 'patch_wp_title', 10, 2 );
+
+	/**
+	 * Title shim for sites older than WordPress 4.1.
+	 *
+	 * @link https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
+	 * @todo Remove this function when WordPress 4.3 is released.
+	 */
+	function patch_render_title() {
+		?>
+		<title><?php wp_title( '|', true, 'right' ); ?></title>
+	<?php
+	}
+	add_action( 'wp_head', 'patch_render_title' );
+endif;
+
 if ( ! function_exists( 'patch_fonts_url' ) ) :
 	/**
 	 * Register Google fonts for Patch.
@@ -183,6 +232,22 @@ if ( ! function_exists( 'patch_comment' ) ) :
 	<?php
 	} // don't remove this bracket!
 endif; //patch_comment
+
+/**
+ * Filter comment_form_defaults to remove the notes after the comment form textarea.
+ *
+ * @since Patch 1.0
+ *
+ * @param array $defaults
+ * @return array
+ */
+function patch_comment_form_remove_notes_after( $defaults ) {
+	$defaults['comment_notes_after'] = '';
+
+	return $defaults;
+}
+
+add_filter( 'comment_form_defaults', 'patch_comment_form_remove_notes_after' );
 
 /**
  * Filter wp_link_pages to wrap current page in span.
