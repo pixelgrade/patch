@@ -4,7 +4,8 @@
 		position: relative;
 	}
 
-	.single-post & .site-main, .page & .site-main {
+	.single-post .site-main,
+	.page .site-main {
 		max-width: none;
 	}
 
