@@ -36,14 +36,14 @@ body {
 	.sd-social-text .sd-content ul li a.sd-button {
 		font-size: 11px;
 		color: $dark;
+		font-weight: 600;
 		text-transform: uppercase;
 		display: block;
 		box-shadow: none;
 		background: none;
 		border: 1px solid $lightest;
 		margin-right: 15px;
-		padding: 0;
-		padding-right: 20px;
+		padding: 5px 20px;
 		padding-left: 40px;
 		position: relative;
 		border-radius: 0;
@@ -51,6 +51,7 @@ body {
 		&:hover {
 			background: none;
 			border: 1px solid $lightest;
+			padding-top: 8px;
 		}
 	}
 
