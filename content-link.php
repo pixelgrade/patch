@@ -24,7 +24,9 @@
 	<?php endif; ?>
 
 	<footer class="entry-footer">
+
 		<?php patch_entry_footer(); ?>
+
 	</footer><!-- .entry-footer -->
 	
 </article><!-- #post-## -->

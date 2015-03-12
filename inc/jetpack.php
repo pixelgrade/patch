@@ -44,6 +44,7 @@ function patch_jetpack_setup() {
 	 */
 	add_theme_support( 'jetpack-responsive-videos' );
 }
+
 add_action( 'after_setup_theme', 'patch_jetpack_setup' );
 
 /**
@@ -61,6 +62,7 @@ function patch_remove_to_move_share() {
 		remove_filter( 'the_content', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
 	}
 }
+
 add_action( 'loop_start', 'patch_remove_to_move_share' );
 
 /**
@@ -78,4 +80,5 @@ function patch_remove_to_move_relatedposts() {
 		remove_filter( 'the_content', $callback, 40 );
 	}
 }
+
 add_filter( 'wp', 'patch_remove_to_move_relatedposts', 20 ); ?>

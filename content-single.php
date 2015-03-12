@@ -12,13 +12,13 @@ if ( has_post_thumbnail() ) {
 } ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php if ( has_post_thumbnail() && ( 'entry-image--tall' == $ar_class || 'entry-image--portrait' == $ar_class ) ) { ?>
+	<?php if ( has_post_thumbnail() && ( 'entry-image--tall' == $ar_class || 'entry-image--portrait' == $ar_class ) ) : ?>
 
 		<div class="entry-featured  entry-thumbnail">
 			<?php the_post_thumbnail( 'patch-single-image' ); ?>
 		</div>
 
-	<?php } ?>
+	<?php endif; ?>
 
 	<header class="entry-header">
 		<div class="entry-meta">
@@ -33,13 +33,13 @@ if ( has_post_thumbnail() ) {
 
 	</header><!-- .entry-header -->
 
-	<?php if ( has_post_thumbnail() && ! ( 'entry-image--tall' == $ar_class || 'entry-image--portrait' == $ar_class ) ) { ?>
+	<?php if ( has_post_thumbnail() && ! ( 'entry-image--tall' == $ar_class || 'entry-image--portrait' == $ar_class ) ) : ?>
 
 		<div class="entry-featured  entry-thumbnail">
 			<?php the_post_thumbnail( 'patch-single-image' ); ?>
 		</div>
 
-	<?php } ?>
+	<?php endif; ?>
 
 	<div class="entry-content">
 

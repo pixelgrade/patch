@@ -9,34 +9,36 @@
  */
 
 if ( ! function_exists( 'patch_posted_on' ) ) :
-/**
- * Prints HTML with meta information for the current post-date/time and author.
- */
-function patch_posted_on() {
 
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time><time class="updated" hidden datetime="%4$s">%5$s</time>';
-	}
+	/**
+	 * Prints HTML with meta information for the current post-date/time and author.
+	 */
+	function patch_posted_on() {
 
-	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_html( get_the_time() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
-	);
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time>';
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time><time class="updated" hidden datetime="%4$s">%5$s</time>';
+		}
 
-	$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
+		$time_string = sprintf( $time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() ),
+			esc_html( get_the_time() ),
+			esc_attr( get_the_modified_date( 'c' ) ),
+			esc_html( get_the_modified_date() )
+		);
 
-	$byline = sprintf(
-		_x( 'by %s', 'post author', 'patch_txtd' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);
+		$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
-	echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>';
+		$byline = sprintf(
+			_x( 'by %s', 'post author', 'patch_txtd' ),
+			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		);
 
-}
+		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>';
+
+	} #function
+
 endif;
 
 if ( ! function_exists( 'patch_get_cats_list' ) ) :
@@ -60,7 +62,7 @@ if ( ! function_exists( 'patch_get_cats_list' ) ) :
 
 		return $cats;
 
-	}
+	} #function
 
 endif;
 
@@ -118,16 +120,18 @@ function patch_first_category( $post_ID = null) {
 } #function
 
 if ( ! function_exists( 'patch_entry_footer' ) ) :
-/**
- * Prints HTML with meta information for posts on archives.
- */
-function patch_entry_footer() {
-	edit_post_link( __( 'Edit', 'patch_txtd' ), '<span class="edit-link">', '</span>' );
-}
+
+	/**
+	 * Prints HTML with meta information for posts on archives.
+	 */
+	function patch_entry_footer() {
+		edit_post_link( __( 'Edit', 'patch_txtd' ), '<span class="edit-link">', '</span>' );
+	}
+
 endif;
 
-
 if ( ! function_exists( 'patch_single_entry_footer' ) ) :
+
 	/**
 	 * Prints HTML with meta information for the categories, tags, Jetpack likes, shares, related, and comments.
 	 */
@@ -170,101 +174,106 @@ if ( ! function_exists( 'patch_single_entry_footer' ) ) :
 		}
 
 		edit_post_link( __( 'Edit', 'patch_txtd' ), '<span class="edit-link">', '</span>' );
-	}
+	} #function
+
 endif;
 
 if ( ! function_exists( 'the_archive_title' ) ) :
-/**
- * Shim for `the_archive_title()`.
- *
- * Display the archive title based on the queried object.
- *
- * @todo Remove this function when WordPress 4.3 is released.
- *
- * @param string $before Optional. Content to prepend to the title. Default empty.
- * @param string $after  Optional. Content to append to the title. Default empty.
- */
-function the_archive_title( $before = '', $after = '' ) {
-	if ( is_category() ) {
-		$title = sprintf( __( 'Category: %s', 'patch_txtd' ), single_cat_title( '', false ) );
-	} elseif ( is_tag() ) {
-		$title = sprintf( __( 'Tag: %s', 'patch_txtd' ), single_tag_title( '', false ) );
-	} elseif ( is_author() ) {
-		$title = sprintf( __( 'Author: %s', 'patch_txtd' ), '<span class="vcard">' . get_the_author() . '</span>' );
-	} elseif ( is_year() ) {
-		$title = sprintf( __( 'Year: %s', 'patch_txtd' ), get_the_date( _x( 'Y', 'yearly archives date format', 'patch_txtd' ) ) );
-	} elseif ( is_month() ) {
-		$title = sprintf( __( 'Month: %s', 'patch_txtd' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'patch_txtd' ) ) );
-	} elseif ( is_day() ) {
-		$title = sprintf( __( 'Day: %s', 'patch_txtd' ), get_the_date( _x( 'F j, Y', 'daily archives date format', 'patch_txtd' ) ) );
-	} elseif ( is_tax( 'post_format' ) ) {
-		if ( is_tax( 'post_format', 'post-format-aside' ) ) {
-			$title = _x( 'Asides', 'post format archive title', 'patch_txtd' );
-		} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-			$title = _x( 'Galleries', 'post format archive title', 'patch_txtd' );
-		} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-			$title = _x( 'Images', 'post format archive title', 'patch_txtd' );
-		} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-			$title = _x( 'Videos', 'post format archive title', 'patch_txtd' );
-		} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-			$title = _x( 'Quotes', 'post format archive title', 'patch_txtd' );
-		} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-			$title = _x( 'Links', 'post format archive title', 'patch_txtd' );
-		} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-			$title = _x( 'Statuses', 'post format archive title', 'patch_txtd' );
-		} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-			$title = _x( 'Audio', 'post format archive title', 'patch_txtd' );
-		} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-			$title = _x( 'Chats', 'post format archive title', 'patch_txtd' );
-		}
-	} elseif ( is_post_type_archive() ) {
-		$title = sprintf( __( 'Archives: %s', 'patch_txtd' ), post_type_archive_title( '', false ) );
-	} elseif ( is_tax() ) {
-		$tax = get_taxonomy( get_queried_object()->taxonomy );
-		/* translators: 1: Taxonomy singular name, 2: Current taxonomy term */
-		$title = sprintf( __( '%1$s: %2$s', 'patch_txtd' ), $tax->labels->singular_name, single_term_title( '', false ) );
-	} else {
-		$title = __( 'Archives', 'patch_txtd' );
-	}
 
 	/**
-	 * Filter the archive title.
+	 * Shim for `the_archive_title()`.
 	 *
-	 * @param string $title Archive title to be displayed.
+	 * Display the archive title based on the queried object.
+	 *
+	 * @todo Remove this function when WordPress 4.3 is released.
+	 *
+	 * @param string $before Optional. Content to prepend to the title. Default empty.
+	 * @param string $after  Optional. Content to append to the title. Default empty.
 	 */
-	$title = apply_filters( 'get_the_archive_title', $title );
+	function the_archive_title( $before = '', $after = '' ) {
+		if ( is_category() ) {
+			$title = sprintf( __( 'Category: %s', 'patch_txtd' ), single_cat_title( '', false ) );
+		} elseif ( is_tag() ) {
+			$title = sprintf( __( 'Tag: %s', 'patch_txtd' ), single_tag_title( '', false ) );
+		} elseif ( is_author() ) {
+			$title = sprintf( __( 'Author: %s', 'patch_txtd' ), '<span class="vcard">' . get_the_author() . '</span>' );
+		} elseif ( is_year() ) {
+			$title = sprintf( __( 'Year: %s', 'patch_txtd' ), get_the_date( _x( 'Y', 'yearly archives date format', 'patch_txtd' ) ) );
+		} elseif ( is_month() ) {
+			$title = sprintf( __( 'Month: %s', 'patch_txtd' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'patch_txtd' ) ) );
+		} elseif ( is_day() ) {
+			$title = sprintf( __( 'Day: %s', 'patch_txtd' ), get_the_date( _x( 'F j, Y', 'daily archives date format', 'patch_txtd' ) ) );
+		} elseif ( is_tax( 'post_format' ) ) {
+			if ( is_tax( 'post_format', 'post-format-aside' ) ) {
+				$title = _x( 'Asides', 'post format archive title', 'patch_txtd' );
+			} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
+				$title = _x( 'Galleries', 'post format archive title', 'patch_txtd' );
+			} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
+				$title = _x( 'Images', 'post format archive title', 'patch_txtd' );
+			} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
+				$title = _x( 'Videos', 'post format archive title', 'patch_txtd' );
+			} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
+				$title = _x( 'Quotes', 'post format archive title', 'patch_txtd' );
+			} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
+				$title = _x( 'Links', 'post format archive title', 'patch_txtd' );
+			} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
+				$title = _x( 'Statuses', 'post format archive title', 'patch_txtd' );
+			} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
+				$title = _x( 'Audio', 'post format archive title', 'patch_txtd' );
+			} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
+				$title = _x( 'Chats', 'post format archive title', 'patch_txtd' );
+			}
+		} elseif ( is_post_type_archive() ) {
+			$title = sprintf( __( 'Archives: %s', 'patch_txtd' ), post_type_archive_title( '', false ) );
+		} elseif ( is_tax() ) {
+			$tax = get_taxonomy( get_queried_object()->taxonomy );
+			/* translators: 1: Taxonomy singular name, 2: Current taxonomy term */
+			$title = sprintf( __( '%1$s: %2$s', 'patch_txtd' ), $tax->labels->singular_name, single_term_title( '', false ) );
+		} else {
+			$title = __( 'Archives', 'patch_txtd' );
+		}
 
-	if ( ! empty( $title ) ) {
-		echo $before . $title . $after;
-	}
-}
+		/**
+		 * Filter the archive title.
+		 *
+		 * @param string $title Archive title to be displayed.
+		 */
+		$title = apply_filters( 'get_the_archive_title', $title );
+
+		if ( ! empty( $title ) ) {
+			echo $before . $title . $after;
+		}
+	} #function
+
 endif;
 
 if ( ! function_exists( 'the_archive_description' ) ) :
-/**
- * Shim for `the_archive_description()`.
- *
- * Display category, tag, or term description.
- *
- * @todo Remove this function when WordPress 4.3 is released.
- *
- * @param string $before Optional. Content to prepend to the description. Default empty.
- * @param string $after  Optional. Content to append to the description. Default empty.
- */
-function the_archive_description( $before = '', $after = '' ) {
-	$description = apply_filters( 'get_the_archive_description', term_description() );
 
-	if ( ! empty( $description ) ) {
-		/**
-		 * Filter the archive description.
-		 *
-		 * @see term_description()
-		 *
-		 * @param string $description Archive description to be displayed.
-		 */
-		echo $before . $description . $after;
-	}
-}
+	/**
+	 * Shim for `the_archive_description()`.
+	 *
+	 * Display category, tag, or term description.
+	 *
+	 * @todo Remove this function when WordPress 4.3 is released.
+	 *
+	 * @param string $before Optional. Content to prepend to the description. Default empty.
+	 * @param string $after  Optional. Content to append to the description. Default empty.
+	 */
+	function the_archive_description( $before = '', $after = '' ) {
+		$description = apply_filters( 'get_the_archive_description', term_description() );
+
+		if ( ! empty( $description ) ) {
+			/**
+			 * Filter the archive description.
+			 *
+			 * @see term_description()
+			 *
+			 * @param string $description Archive description to be displayed.
+			 */
+			echo $before . $description . $after;
+		}
+	} #function
+
 endif;
 
 /**
@@ -296,7 +305,7 @@ function patch_categorized_blog() {
 		// This blog has only 1 category so patch_categorized_blog should return false.
 		return false;
 	}
-}
+} #function
 
 /**
  * Flush out the transients used in patch_categorized_blog.
@@ -323,6 +332,7 @@ function patch_post_thumbnail_class( $class = '', $post_id = null ) {
 }
 
 if ( ! function_exists( 'patch_get_post_thumbnail_class' ) ) :
+
 	/**
 	 * Retrieve the classes for the post_thumbnail,
 	 * depending on the aspect ratio of the featured image
@@ -364,11 +374,12 @@ if ( ! function_exists( 'patch_get_post_thumbnail_class' ) ) :
 		$classes = apply_filters( 'patch_post_thumbnail_class', $classes, $class, $post->ID );
 
 		return array_unique( $classes );
+	} #function
 
-	}
 endif;
 
 if ( ! function_exists( 'patch_get_post_thumbnail_aspect_ratio_class' ) ) :
+
 	/**
 	 * Get the aspect ratio of the featured image
 	 *
@@ -421,8 +432,8 @@ if ( ! function_exists( 'patch_get_post_thumbnail_aspect_ratio_class' ) ) :
 		}
 
 		return $class;
+	} #function
 
-	}
 endif;
 
 /**
@@ -437,6 +448,7 @@ function patch_post_title_class( $class = '', $post_id = null ) {
 }
 
 if ( ! function_exists( 'patch_get_post_title_class' ) ) :
+
 	/**
 	 * Retrieve the classes for the post title,
 	 * depending on the length of the title
@@ -491,8 +503,8 @@ if ( ! function_exists( 'patch_get_post_title_class' ) ) :
 		$classes = apply_filters( 'patch_post_title_class', $classes, $class, $post->ID );
 
 		return array_unique( $classes );
+	} #function
 
-	}
 endif;
 
 /**
@@ -507,6 +519,7 @@ function patch_post_excerpt_class( $class = '', $post_id = null ) {
 }
 
 if ( ! function_exists( 'patch_get_post_excerpt_class' ) ) :
+
 	/**
 	 * Retrieve the classes for the post excerpt,
 	 * depending on the length of the excerpt
@@ -561,8 +574,8 @@ if ( ! function_exists( 'patch_get_post_excerpt_class' ) ) :
 		$classes = apply_filters( 'patch_post_excerpt_class', $classes, $class, $post->ID );
 
 		return array_unique( $classes );
+	} #function
 
-	}
 endif;
 
 if ( ! function_exists( 'patch_post_excerpt' ) ) :
@@ -588,7 +601,7 @@ if ( ! function_exists( 'patch_post_excerpt' ) ) :
 		} else {
 			the_excerpt();
 		}
-	}
+	} #function
 endif;
 
 /**
@@ -620,7 +633,7 @@ function patch_get_post_excerpt( $post_id = null ) {
 	}
 
 	return $excerpt;
-}
+} #function
 
 /**
  * Display the markup for the author bio links.
@@ -633,6 +646,7 @@ function patch_author_bio_links( $post_id = null ) {
 }
 
 if ( ! function_exists( 'patch_get_author_bio_links' ) ) :
+
 	/**
 	 * Return the markup for the author bio links.
 	 * These are the links/websites added by one to it's Gravatar profile
@@ -668,10 +682,12 @@ if ( ! function_exists( 'patch_get_author_bio_links' ) ) :
 		}
 
 		return $markup;
-	}
+	} #function
+
 endif;
 
 if ( ! function_exists( 'patch_secondary_page_title' ) ) :
+
 	/**
 	 * Display the markup for the archive or search pages title.
 	 */
@@ -694,7 +710,8 @@ if ( ! function_exists( 'patch_secondary_page_title' ) ) :
 			</header><!-- .page-header -->
 
 		<?php endif;
-	}
+	} #function
+
 endif;
 
 if ( ! function_exists( 'patch_the_image_navigation' ) ) :
@@ -812,6 +829,7 @@ if ( ! function_exists( 'patch_get_post_format_first_image' ) ) :
 		if (   preg_match_all( '/'. $pattern .'/s', $post->post_content, $matches )
 		       && array_key_exists( 2, $matches )
 		       && in_array( 'caption', $matches[2] ) ) {
+
 			$key = array_search( 'caption', $matches[2] );
 			if ( false !== $key ) {
 				$output = do_shortcode( $matches[0][ $key ] );
@@ -848,6 +866,7 @@ if ( ! function_exists( 'patch_get_post_format_link_url' ) ) :
 endif;
 
 if ( ! function_exists( 'patch_paging_nav' ) ) :
+
 	/**
 	 * Display navigation to next/previous set of posts when applicable.
 	 */
@@ -905,6 +924,6 @@ if ( ! function_exists( 'patch_paging_nav' ) ) :
 
 		</nav><!-- .navigation -->
 	<?php
-	}
+	} #function
 
 endif; ?>
