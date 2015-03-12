@@ -34,7 +34,7 @@ body {
 	.sd-social-icon-text .sd-content ul li a.sd-button,
 	.sd-social-official .sd-content>ul>li .digg_button >a,
 	.sd-social-official .sd-content>ul>li>a.sd-button,
-	.sd-social-text .sd-content ul li a.sd-buttonl
+	.sd-social-text .sd-content ul li a.sd-buttonl,
 	
 	// and the like button
 	.wpl-button a {
@@ -57,6 +57,11 @@ body {
 			border: 1px solid $lightest;
 		}
 	}
+
+	// colors
+	.share-facebook 	> a:before { color: #3461a1; }
+	.share-twitter 		> a:before { color: #28aae1; }
+	.share-pinterest 	> a:before { color: #cd2026; }
 
 	.sd-content ul li a.sd-button:before {
 		position: absolute;
