@@ -70,6 +70,14 @@ body {
 	}
 }
 
+body {
+	div#jp-relatedposts,
+	div.sharedaddy {
+		padding: 0;
+  		margin: 20px 0;
+	}
+}
+
 body div#jp-relatedposts {
 
 	h3.jp-relatedposts-headline {
