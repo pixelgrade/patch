@@ -1,0 +1,36 @@
+div#jp-relatedposts {
+
+	h3.jp-relatedposts-headline {
+		@extend %beta;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		font-size: 13px;
+		margin: 0;
+
+		em:before {
+			display: none;
+		}
+	}
+
+	div.jp-relatedposts-items {
+
+		.jp-relatedposts-post {
+			margin-bottom: $gutter;
+		}
+
+		.jp-relatedposts-post-title {
+			font-size: 15px;
+		}
+
+		.jp-relatedposts-post-date,
+		.jp-relatedposts-post-context {
+			display: inline-block;
+			font-size: 11px;
+			color: $gray;
+		}
+
+		.jp-relatedposts-post-date {
+			display: none;
+		}
+	}
+}
