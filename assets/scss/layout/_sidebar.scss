@@ -14,6 +14,8 @@
 
 	.sidebar {
 		position: relative;
+		clear: left;
+
 		@include rhythm(padding-top, 2);
 
 		@include query-below($lap) {
