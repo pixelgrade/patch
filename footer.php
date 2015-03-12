@@ -29,6 +29,13 @@
 			'depth'          => 1,
 		) ); ?>
 	</footer><!-- #colophon -->
+	<div class="overlay--search">
+		<div class="overlay__wrapper">
+			<?php get_search_form(); ?>
+			<p><?php _e( 'Begin typing your search above and press return to search. Press Esc to cancel.', 'hive_txtd' ); ?></p>
+		</div>
+		<b class="overlay__close"></b>
+	</div>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
