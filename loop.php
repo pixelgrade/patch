@@ -27,5 +27,3 @@ while ( have_posts() ) : the_post(); ?>
 <?php endwhile; ?>
 
 </div><!-- .archive__grid -->
-
-<?php the_posts_navigation(); ?>
