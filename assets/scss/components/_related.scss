@@ -16,17 +16,25 @@ body div#jp-relatedposts {
 
 		.jp-relatedposts-post {
 			margin-bottom: $gutter;
+			opacity: 1 !important;
+			transition: none !important;
+		}
+
+		.jp-relatedposts-post-img {
+			margin-bottom: 10px;
 		}
 
 		.jp-relatedposts-post-title {
 			font-size: 15px;
 			margin-bottom: 10px;
+			text-decoration: none !important;
 		}
 
 		.jp-relatedposts-post-date,
 		.jp-relatedposts-post-context {
 			display: inline-block;
 			font-size: 11px;
+			line-height: 22px;
 			color: $gray;
 			text-transform: uppercase;
 		}
