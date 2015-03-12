@@ -34,9 +34,25 @@ body {
 	.sd-social-official .sd-content>ul>li .digg_button >a,
 	.sd-social-official .sd-content>ul>li>a.sd-button,
 	.sd-social-text .sd-content ul li a.sd-button {
+		display: block;
 		box-shadow: none;
 		background: none;
-		border: 1px solid $borders;
+		border: 1px solid $lightest;
+		margin-right: 15px;
+		padding: 0;
+		padding-right: 20px;
+		padding-left: 40px;
+		position: relative;
+	}
+
+	.sd-content ul li a.sd-button:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 30px;
+		text-align: center;
+		border-right: 1px solid $lightest;
 	}
 }
 
