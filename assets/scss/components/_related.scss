@@ -24,6 +24,7 @@ body .sd-content ul li {
 
 body {
 
+	// the share buttons
 	#sharing_email .sharing_send,
 	.sd-content ul li .option a.share-ustom,
 	.sd-content ul li a.sd-button,
@@ -33,7 +34,10 @@ body {
 	.sd-social-icon-text .sd-content ul li a.sd-button,
 	.sd-social-official .sd-content>ul>li .digg_button >a,
 	.sd-social-official .sd-content>ul>li>a.sd-button,
-	.sd-social-text .sd-content ul li a.sd-button {
+	.sd-social-text .sd-content ul li a.sd-buttonl
+	
+	// and the like button
+	.wpl-button a {
 		font-size: 11px;
 		color: $dark;
 		font-weight: 600;
@@ -51,7 +55,6 @@ body {
 		&:hover {
 			background: none;
 			border: 1px solid $lightest;
-			padding-top: 8px;
 		}
 	}
 
@@ -63,6 +66,7 @@ body {
 		width: 30px;
 		text-align: center;
 		border-right: 1px solid $lightest;
+		padding-top: 8px;	
 	}
 }
 
