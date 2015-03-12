@@ -15,6 +15,7 @@
 if ( post_password_required() ) {
 	return;
 } ?>
+
 <aside>
 	<div id="comments" class="comments-area  <?php echo ( ! have_comments() ) ? 'no-comments' : ''; ?>">
 		<div class="comments-area-title">

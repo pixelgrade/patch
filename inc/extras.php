@@ -28,6 +28,7 @@ function patch_body_classes( $classes ) {
 
 	return $classes;
 }
+
 add_filter( 'body_class', 'patch_body_classes' );
 
 /**
@@ -103,6 +104,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 endif;
 
 if ( ! function_exists( 'patch_fonts_url' ) ) :
+
 	/**
 	 * Register Google fonts for Patch.
 	 *
@@ -152,7 +154,8 @@ if ( ! function_exists( 'patch_fonts_url' ) ) :
 		}
 
 		return $fonts_url;
-	}
+	} #function
+
 endif;
 
 /**
@@ -175,7 +178,8 @@ function patch_setup_author() {
 add_action( 'wp', 'patch_setup_author' );
 
 if ( ! function_exists( 'patch_comment' ) ) :
-	/*
+
+	/**
 	 * Display individual comment layout
 	 *
 	 * @since Patch 1.0
@@ -230,8 +234,9 @@ if ( ! function_exists( 'patch_comment' ) ) :
 		</article>
 		<!-- </li> is added by WordPress automatically -->
 	<?php
-	} // don't remove this bracket!
-endif; //patch_comment
+	} #function
+
+endif;
 
 /**
  * Filter comment_form_defaults to remove the notes after the comment form textarea.
@@ -288,16 +293,16 @@ add_filter( 'excerpt_length', 'patch_excerpt_length', 999 );
 /**
  * Add "Styles" drop-down
  */
-add_filter( 'mce_buttons_2', 'patch_mce_editor_buttons' );
 function patch_mce_editor_buttons( $buttons ) {
 	array_unshift( $buttons, 'styleselect' );
 	return $buttons;
 }
 
+add_filter( 'mce_buttons_2', 'patch_mce_editor_buttons' );
+
 /**
  * Add styles/classes to the "Styles" drop-down
  */
-add_filter( 'tiny_mce_before_init', 'patch_mce_before_init' );
 function patch_mce_before_init( $settings ) {
 
 	$style_formats = array(
@@ -312,4 +317,6 @@ function patch_mce_before_init( $settings ) {
 	$settings['style_formats'] = json_encode( $style_formats );
 
 	return $settings;
-} ?>
+} #function
+
+add_filter( 'tiny_mce_before_init', 'patch_mce_before_init' ); ?>

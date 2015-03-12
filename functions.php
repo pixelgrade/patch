@@ -14,6 +14,7 @@ if ( ! isset( $content_width ) ) {
 }
 
 if ( ! function_exists( 'patch_content_width' ) ) :
+
 	/**
 	 * Adjusts content_width value depending on situation.
 	 */
@@ -26,10 +27,13 @@ if ( ! function_exists( 'patch_content_width' ) ) :
 
 		//for attachments the $content_width is set in image.php
 	}
-endif; //patch_content_width
+
+endif;
+
 add_action( 'template_redirect', 'patch_content_width' );
 
 if ( ! function_exists( 'patch_setup' ) ) :
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -118,7 +122,9 @@ function patch_setup() {
 		'default-image' => '',
 	) ) );
 }
-endif; // patch_setup
+
+endif;
+
 add_action( 'after_setup_theme', 'patch_setup' );
 
 /**
@@ -137,6 +143,7 @@ function patch_widgets_init() {
 		'after_title'   => '</h4>',
 	) );
 }
+
 add_action( 'widgets_init', 'patch_widgets_init' );
 
 /**
@@ -180,6 +187,7 @@ function patch_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
+
 add_action( 'wp_enqueue_scripts', 'patch_scripts' );
 
 /**

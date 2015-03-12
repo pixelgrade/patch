@@ -9,7 +9,9 @@
 
 <aside class="author-info  media" itemscope itemtype="http://schema.org/Person">
 	<div class="author-info__avatar  media__img">
+
 		<?php echo get_avatar( get_the_author_meta( 'user_email' ), 120 ); ?>
+
 	</div>
 	<div class="author-info__description  media__body">
 		<h3 class="author-info__title"><?php echo get_the_author(); ?></h3>
