@@ -120,7 +120,7 @@
 .entry-card {
 	@extend .clearfix;
 	position: relative;
-
+	transform: translateZ(0);
 	transition: transform 0.3s;
 	
 	// Post Meta (categories, author and date)
