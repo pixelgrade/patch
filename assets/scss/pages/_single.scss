@@ -155,3 +155,16 @@
 		margin-bottom: 5px;
 	}
 }
+
+.page-links {
+	margin: rem(40px) 0;
+	font-weight: 400;
+
+	.current {
+		font-weight: 300;
+	}
+
+	a, span {
+		padding: 12px !important;
+	}
+}
