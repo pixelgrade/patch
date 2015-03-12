@@ -2,7 +2,6 @@
 	position: relative;
 	margin-top: $gutter;
 	padding-top: 2*$gutter;
-	border-top: 1px solid $borders;
 
 	&:before {
 		content: "";
@@ -202,6 +201,14 @@ li.depth-2:before {
 		font-size: 16px;
 		color: black;
 	}
+
+	.bypostauthor &:before {
+		font-family: FontAwesome; 
+		-webkit-font-smoothing: antialiased;
+		content: $fa-var-star;
+		color: $accent;
+		margin-right: 10px;
+	}
 }
 
 .comment-article {
@@ -298,10 +305,6 @@ li.depth-2:before {
 		position: absolute;
 		top: 0;
 		left: 0;
-
-		@include query-below($lap) {
-			font-size: (28/21) + em;
-		}
 
 		.comment & {
 			display: none;
