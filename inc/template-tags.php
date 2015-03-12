@@ -880,7 +880,7 @@ if ( ! function_exists( 'patch_paging_nav' ) ) :
 
 				<?php
 				//output a disabled previous "link" if on the fist page
-				if ( $paged == 1 ) {
+				if ( 1 == $paged ) {
 					echo '<span class="prev page-numbers disabled">' . __( 'Previous', 'patch_txtd' ) . '</span>';
 				}
 
