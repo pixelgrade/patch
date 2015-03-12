@@ -167,3 +167,54 @@
 	display: inline-block;
 	vertical-align: middle;
 }
+
+.widget_blog_subscription{
+
+	&.widget {
+		margin: 30px 0 30px -60px;
+		padding: 30px 30px 30px 60px;
+
+		background-color: black;
+		color: white;
+
+		border-top: 0;
+	}
+
+	p:first-of-type{
+		@include rhythm(margin-top, 3);
+		@include rhythm(margin-bottom, 3);
+	}
+
+	p#subscribe-submit {
+		margin-bottom: 0;
+	}
+
+	.widget-title{
+		color: white;
+		margin-bottom: 20px;
+	}
+
+	input#subscribe-field {
+		@include rhythm(padding, 0.5);
+		width: 100%;
+
+		border: 1px solid $lightest;
+		background: transparent;
+		color: white;
+	}
+
+	input[type='submit']{
+		@extend %beta;
+
+		padding: $u/4 $u/2;
+
+		color: $dark;
+		background-color: $accent;
+		border: 0;
+
+		font-size: 14px;
+		text-transform: uppercase;
+		font-weight: 400;
+		letter-spacing: 0.1em;
+	}
+}
