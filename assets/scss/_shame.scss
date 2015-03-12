@@ -51,29 +51,3 @@
 body {
 	min-height: 100vh;
 }
-
-.posts-navigation {
-	@extend .clearfix;
-
-	.nav-previous {
-		float: left;
-	}
-
-	.nav-next {
-		float: right;
-	}
-}
-
-.posts-navigation,
-#infinite-handle {
-	@extend %beta;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-}
-
-#infinite-handle {
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	transform: translateX(-50%);
-}
