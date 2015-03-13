@@ -12,6 +12,7 @@
 	@extend .clearfix;
 	max-width: 450px;
 	margin: $gutter auto 0;
+	transition: height .3s ease-in-out;
 	// border-right: $gutter/2 solid transparent;
 
 	@include query-above(750px) {
