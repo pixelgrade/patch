@@ -36,6 +36,10 @@
 	@extend %fs-42;
 }
 
+.entry-title a {
+	font-weight: inherit;
+}
+
 // @todo fucking investigate this
 .post {
 	// prevents images overlaping margin

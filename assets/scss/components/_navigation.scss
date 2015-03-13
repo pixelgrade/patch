@@ -27,15 +27,13 @@
 
 .site-title {
 	margin: 0 0 0 -3px;
-
 	font-size: 30px;
 	text-align: center;
 	line-height: 1.25;
-	letter-spacing: 0.04em;
 	color: $dark;
 
-	@include query-above($lap) {
-		font-size: 60px;
+	@include query-above($small) {
+		font-size: 36px;
 		text-align: inherit;
 	}
 }
@@ -206,7 +204,7 @@
 	font-size: 18px;
 
 	a {
-		width: 1.5em;
+		width: 1.75em;
 		visibility: hidden;
 		white-space: nowrap;
 		overflow: hidden;
