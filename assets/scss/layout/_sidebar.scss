@@ -1,10 +1,11 @@
-.has_sidebar {
+.single-post,
+.page {
 	.site-content .container {
 		@extend %clearfix;
 		position: relative;
 	}
 
-	.single-post & .site-main, .page & .site-main {
+	.site-main {
 		max-width: none;
 	}
 

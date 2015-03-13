@@ -15,10 +15,9 @@
 if ( post_password_required() ) {
 	return;
 } ?>
+
 <aside>
-	<div id="comments" class="comments-area  <?php if ( ! have_comments() ) {
-		echo 'no-comments';
-	} ?>">
+	<div id="comments" class="comments-area  <?php echo ( ! have_comments() ) ? 'no-comments' : ''; ?>">
 		<div class="comments-area-title">
 			<h2 class="comments-title"><?php
 				if ( have_comments() ) {
@@ -30,7 +29,7 @@ if ( post_password_required() ) {
 		</div>
 		<?php
 		// You can start editing here -- including this comment!
-		if ( have_comments() ) {
+		if ( have_comments() ) :
 			if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) {
 				// are there comments to navigate through
 				?>
@@ -53,18 +52,19 @@ if ( post_password_required() ) {
 				wp_list_comments( array( 'callback' => 'patch_comment', 'short_ping' => true ) ); ?>
 			</ol><!-- .commentlist -->
 
-			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) { // are there comments to navigate through ?>
-				<nav role="navigation" id="comment-nav-below" class="site-navigation comment-navigation">
-					<span class="comment-number comment-number--dark">&hellip;</span>
+			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 
-					<h3 class="assistive-text"><?php _e( 'Comment navigation', 'patch_txtd' ); ?></h3>
+			<nav role="navigation" id="comment-nav-below" class="site-navigation comment-navigation">
+				<span class="comment-number comment-number--dark">&hellip;</span>
 
-					<div class="nav-previous"><?php previous_comments_link( __( 'Older Comments', 'patch_txtd' ) ); ?></div>
-					<div class="nav-next"><?php next_comments_link( __( 'Newer Comments', 'patch_txtd' ) ); ?></div>
-				</nav><!-- #comment-nav-below .site-navigation .comment-navigation -->
-			<?php
-			} // check for comment navigation
-		} // have_comments() ?>
+				<h3 class="assistive-text"><?php _e( 'Comment navigation', 'patch_txtd' ); ?></h3>
+
+				<div class="nav-previous"><?php previous_comments_link( __( 'Older Comments', 'patch_txtd' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments', 'patch_txtd' ) ); ?></div>
+			</nav><!-- #comment-nav-below .site-navigation .comment-navigation -->
+
+			<?php endif; // check for comment navigation
+		endif; // have_comments() ?>
 
 	</div>
 	<!-- #comments .comments-area -->

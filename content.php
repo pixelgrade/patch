@@ -10,8 +10,11 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="entry-meta">
+
 		<?php patch_first_category(); ?>
+
 		<?php patch_posted_on(); ?>
+
 	</div><!-- .entry-meta -->
 
 		<?php if ( has_post_thumbnail() ) : ?>
