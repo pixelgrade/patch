@@ -4,7 +4,7 @@
 	font-size: rem(13px);
 
 	@include query-above($lap) {
-		padding: rem(15px) rem(65px) 0 rem(65px);
+		padding: 15px 75px;
 	}
 
 	> * {
