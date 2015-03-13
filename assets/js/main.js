@@ -543,12 +543,11 @@ if (!Date.now) Date.now = function () {
             itemSelector: '.grid__item',
             transitionDuration: 0
           });
+          bindEvents();
+          onLayout();
+          showBlocks($blocks);
+          initialized = true;
         });
-
-        bindEvents();
-        onLayout();
-        showBlocks($blocks);
-        initialized = true;
         },
         
         
