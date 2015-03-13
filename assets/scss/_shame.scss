@@ -36,8 +36,26 @@
 	@extend %fs-42;
 }
 
-.entry-title a {
-	font-weight: inherit;
+%hyphens {
+	-ms-word-break: break-all;
+	word-break: break-all;
+
+	/* Non standard for webkit */
+	word-break: break-word;
+
+	-webkit-hyphens: auto;
+	   -moz-hyphens: auto;
+	    -ms-hyphens: auto;
+	        hyphens: auto;
+}
+
+.entry-title {
+	@extend %hyphens;
+	overflow: hidden;
+	
+	a {
+		font-weight: inherit;
+	}
 }
 
 // @todo fucking investigate this
