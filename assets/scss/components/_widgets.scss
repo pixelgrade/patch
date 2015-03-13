@@ -180,12 +180,11 @@
 		border-top: 0;
 	}
 
-	p:first-of-type{
+	#subscribe-text p {
 		@include rhythm(margin-top, 3);
-		@include rhythm(margin-bottom, 3);
 	}
 
-	p#subscribe-submit {
+	#subscribe-email {
 		margin-bottom: 0;
 	}
 
@@ -197,20 +196,28 @@
 	input#subscribe-field {
 		@include rhythm(padding, 0.5);
 		width: 100%;
+		height: 36px;
 
-		border: 1px solid $lightest;
+		border: 2px solid #d7d7d7;
 		background: white;
 		color: $dark;
+	}
+
+	#subscribe-submit {
+		float: right;
+		transform: translateY(calc(-100% - 2px ));
 	}
 
 	input[type='submit']{
 		@extend %beta;
 
-		padding: $u/4 $u/2;
+		height: 32px;
+		margin-right: 2px;
+		padding: 0 10px;
+		border: 1px solid white;
 
 		color: $dark;
 		background-color: $accent;
-		border: 0;
 
 		font-size: 14px;
 		text-transform: uppercase;
