@@ -75,3 +75,32 @@
 		margin-left: 50%;
 	}
 }
+
+.search-no-results, .error404 {
+	.site-header {
+		float: none;
+		display: inline-block;
+		vertical-align: top;
+
+		@include query-below($lap) {
+			width: 100%;
+			padding: 0 $gutter;
+		}
+	}
+
+	.site-header + .not-found {
+		display: inline-block;
+		padding: 0 $gutter;
+	}
+
+	.page-title {
+		margin-top: 0;
+	}
+
+	.site-footer {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+	}
+}
