@@ -126,12 +126,11 @@
 	
 	// Post Meta (categories, author and date)
 	.entry-meta {
+		@extend %clearfix;
 		position: absolute;
-		top: 0;
-		left: 0;
-
 		margin-left: $gutter;
 		margin-right: $gutter;
+		margin-bottom: 0;
 
 		@extend %alpha;
 		font-size: 11px;
@@ -140,6 +139,20 @@
 
 		opacity: 0;
 		transition: all 0.3s;
+		padding-bottom: $gutter/2;
+
+		.byline {
+			margin-bottom: -5px;
+		}
+
+		.byline,
+		.posted-on {
+			margin-top: 5px;
+		}
+
+		> * {
+			float: left;
+		}
 	}
 
 	.entry-time {
@@ -162,7 +175,7 @@
 
 		.entry-meta {
 			opacity: 1;
-			transform: translateY(-$gutter);
+			transform: translateY(-100%);
 		}
 
 		.entry-image {
