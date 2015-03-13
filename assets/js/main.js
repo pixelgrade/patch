@@ -856,6 +856,7 @@ if (!Date.now) Date.now = function () {
         });
 
         bindEvents();
+        onLayout();
         showBlocks($blocks);
         initialized = true;
         },

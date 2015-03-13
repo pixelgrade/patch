@@ -87,6 +87,7 @@
 	    @include query-above($small) {
 			float: left;
 			width: 50%;
+			padding-right: 20px;
 	    }
 
 		a {
