@@ -2,7 +2,12 @@
 
 .site-header {
 	text-transform: uppercase;
-	
+
+	@include query-below($lap) {
+		margin-top: $gutter/2;
+		margin-bottom: $gutter;
+	}
+
 	a {
 		color: black;
 		text-decoration: none;
@@ -28,11 +33,12 @@
 .site-title {
 	margin: 0 0 0 -3px;
 	font-size: 30px;
-	text-align: center;
 	line-height: 1.25;
 	color: $dark;
 
-	@include query-above($small) {
+	text-align: center;
+
+	@include query-above($lap) {
 		font-size: 36px;
 		text-align: inherit;
 	}
@@ -41,6 +47,11 @@
 .site-description {
 	text-transform: none;
 	font-size: rem(13px);
+	text-align: center;
+
+	@include query-above($lap) {
+		text-align: inherit;
+	}
 }
 
 .site-logo-link {
@@ -143,7 +154,7 @@
 	}
 }
 
-@include query-below($small) {
+@include query-below($lap) {
 	.main-navigation {
 		position: fixed;
 		top: 0;
@@ -167,6 +178,17 @@
 	}
 }
 
+@include query-below($lap) {
+	.admin-bar .main-navigation {
+		padding-top: 32px;
+	}
+}
+@media screen and (max-width: 782px) {
+	.admin-bar .main-navigation {
+		padding-top: 46px;
+	}
+}
+
 .navigation__trigger {
 	position: fixed;
 	top: 0;
@@ -183,11 +205,19 @@
 	background: none;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-tap-highlight-color: transparent; /* For some Androids */
+
+	.admin-bar & {
+		top: 32px;
+
+		@media screen and (max-width: 782px) {
+			top: 46px;
+		}
+	}
 }
 
 
 // let's just make sure everything is fine on desktop
-@include query-above($small) {
+@include query-above($lap) {
 	.main-navigation {
 		transform: none !important;
 		box-shadow: none !important;
@@ -226,7 +256,6 @@
 		z-index: 1;
 
 		border-left: 0;
-		margin-bottom: 0;
 
 		// sync somehow with sidebar
 		@include query-above($lap) {
@@ -235,8 +264,6 @@
 		}
 
 		@include query-above($desk) {
-//			@include rhythm(width, 30);
-//			@include rhythm(padding-right, 5);
 			width: rem(310px);
 			padding-right: rem(90px);
 		}
