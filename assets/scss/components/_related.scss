@@ -4,12 +4,18 @@
 	letter-spacing: 0.1em;
 	font-size: 13px;
 	margin: 0 0 10px;
+	
+
+	&, em {
+		font-weight: 500;
+	}
 }
 
 body div.sharedaddy {
 
 	h3.sd-title {
 		@extend %share-title;
+		display: none !important;
 
 		&:before {
 			display: none;
@@ -124,6 +130,10 @@ body div#jp-relatedposts {
 			line-height: 22px;
 			color: $gray;
 			text-transform: uppercase;
+		}
+
+		.jp-relatedposts-post-context {
+			font-weight: normal;
 		}
 
 		.jp-relatedposts-post-date {

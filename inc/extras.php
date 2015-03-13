@@ -148,11 +148,6 @@ if ( ! function_exists( 'patch_comment' ) ) :
 	<li <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
 		<article id="comment-<?php comment_ID() ?>" class="comment-article  media">
 			<span class="comment-number"><?php echo $comment_number ?></span>
-			<?php
-			//grab the avatar - by default the Mystery Man
-			$avatar = get_avatar( $comment ); ?>
-
-			<aside class="comment__avatar  media__img"><?php echo $avatar; ?></aside>
 
 			<div class="media__body">
 				<header class="comment__meta comment-author">

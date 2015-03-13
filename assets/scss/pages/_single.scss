@@ -12,6 +12,10 @@
 		margin: 0 auto;
 	}
 
+	.entry-content {
+		margin-bottom: 42px;
+	}
+
 	@include query-below($lap) {
 		.site-content {
 			padding: 0 45px;
