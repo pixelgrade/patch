@@ -96,14 +96,16 @@
 			position: relative;
 			display: inline-block;
 			line-height: 1.5;
-			//@todo maybe position absolute the "+"
-			// white-space: nowrap;
+			padding-right: 0.65em;
 		}
 	}
 
 	.menu-item-has-children {
 		> a:after {
-			content: " +"
+			content: "+";
+			position: absolute;
+			top: -0.1em;
+			right: 0;
 		}
 	}
 
