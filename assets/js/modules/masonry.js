@@ -28,6 +28,7 @@ var masonry = (function() {
 		});
 
 		bindEvents();
+		onLayout();
 		showBlocks($blocks);
 		initialized = true;
 	},
