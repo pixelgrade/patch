@@ -22,9 +22,11 @@ var masonry = (function() {
 			containerBottom = containerTop + $container.outerHeight();
 		}
 
-		$container.masonry({
-			itemSelector: '.grid__item',
-			transitionDuration: 0
+		$container.imagesLoaded(function() {
+			$container.masonry({
+				itemSelector: '.grid__item',
+				transitionDuration: 0
+			});
 		});
 
 		bindEvents();
