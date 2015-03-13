@@ -232,6 +232,7 @@
 
 .nav--social {
 	@extend %nav--social;
+	margin-bottom: 0;
 	font-size: 18px;
 
 	a {
