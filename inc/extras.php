@@ -226,6 +226,23 @@ function patch_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'patch_excerpt_length', 999 );
 
 /**
+ * Replace the submit input with button because the <input> tag doesn't allow CSS styling with ::before or ::after
+ */
+function patch_search_form( $form ) {
+	$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
+				<label>
+					<span class="screen-reader-text">' . _x( 'Search for:', 'label' ) . '</span>
+					<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' ) . '" value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' ) . '" />
+				</label>
+				<button class="search-submit"><i class="fa fa-search"></i></button>
+			</form>';
+
+	return $form;
+}
+
+add_filter( 'get_search_form', 'patch_search_form' );
+
+/**
  * Add "Styles" drop-down
  */
 function patch_mce_editor_buttons( $buttons ) {
