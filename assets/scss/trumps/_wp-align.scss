@@ -30,7 +30,7 @@ img {
         margin-bottom: 0;
     }
 
-    .widget &{
+    .widget &, .blog &, .archive &, .search &{
         margin: 0;
     }
 }
