@@ -199,8 +199,8 @@
 		width: 100%;
 
 		border: 1px solid $lightest;
-		background: transparent;
-		color: white;
+		background: white;
+		color: $dark;
 	}
 
 	input[type='submit']{
