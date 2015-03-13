@@ -101,7 +101,7 @@ function patch_first_category( $post_ID = null) {
 	$categories = get_the_category( $post_ID );
 	if ( empty( $categories ) ) {
 		//get the default category instead
-		$categories = get_category_by_ID( get_option( 'default_category' ) );
+		$categories = get_the_category_by_ID( get_option( 'default_category' ) );
 	}
 
 	//now intersect them so that we are left with e descending ordered array of the post's categories
