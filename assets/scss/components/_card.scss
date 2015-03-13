@@ -122,6 +122,7 @@
 	position: relative;
 	transform: translateZ(0);
 	transition: transform 0.3s;
+	opacity: 0;
 	
 	// Post Meta (categories, author and date)
 	.entry-meta {

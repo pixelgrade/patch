@@ -57,11 +57,21 @@ var masonry = (function() {
 	showBlocks = function($blocks) {
 		$blocks.each(function(i, obj) {
 			var $post = $(obj);
-			animator.animatePost($post, i * 100);
+			animatePost($post, i * 100);
 		});
 		if ( ! $.support.touch ) {
 			$blocks.addHoverAnimation();
 		}
+	},
+
+	animatePost = function($post, delay) {
+		$post.velocity({
+			opacity: 1
+		}, {
+			duration: 300,
+			delay: delay,
+			easing: 'easeOutCubic'
+		});
 	},
 
 	onLayout = function() {
