@@ -9,8 +9,6 @@ function init() {
   platformDetect(); 
 }
 
-console.log("wtf");
-
 // /* ====== ON WINDOW LOAD ====== */
 
 $window.load(function() {
