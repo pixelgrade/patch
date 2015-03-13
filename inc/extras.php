@@ -28,6 +28,7 @@ function patch_body_classes( $classes ) {
 
 	return $classes;
 }
+
 add_filter( 'body_class', 'patch_body_classes' );
 
 /**
@@ -53,56 +54,8 @@ function patch_post_classes( $classes ) {
 
 add_filter( 'post_class', 'patch_post_classes' );
 
-if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
-	/**
-	 * Filters wp_title to print a neat <title> tag based on what is being viewed.
-	 *
-	 * @since Patch 1.0
-	 *
-	 * @param string $title Default title text for current view.
-	 * @param string $sep Optional separator.
-	 * @return string The filtered title.
-	 */
-	function patch_wp_title( $title, $sep ) {
-		if ( is_feed() ) {
-			return $title;
-		}
-
-		global $page, $paged;
-
-		// Add the blog name
-		$title .= get_bloginfo( 'name', 'display' );
-
-		// Add the blog description for the home/front page.
-		$site_description = get_bloginfo( 'description', 'display' );
-		if ( $site_description && ( is_home() || is_front_page() ) ) {
-			$title .= " $sep $site_description";
-		}
-
-		// Add a page number if necessary:
-		if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-			$title .= " $sep " . sprintf( __( 'Page %s', 'patch_txtd' ), max( $paged, $page ) );
-		}
-
-		return $title;
-	}
-	add_filter( 'wp_title', 'patch_wp_title', 10, 2 );
-
-	/**
-	 * Title shim for sites older than WordPress 4.1.
-	 *
-	 * @link https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
-	 * @todo Remove this function when WordPress 4.3 is released.
-	 */
-	function patch_render_title() {
-		?>
-		<title><?php wp_title( '|', true, 'right' ); ?></title>
-		<?php
-	}
-	add_action( 'wp_head', 'patch_render_title' );
-endif;
-
 if ( ! function_exists( 'patch_fonts_url' ) ) :
+
 	/**
 	 * Register Google fonts for Patch.
 	 *
@@ -152,7 +105,8 @@ if ( ! function_exists( 'patch_fonts_url' ) ) :
 		}
 
 		return $fonts_url;
-	}
+	} #function
+
 endif;
 
 /**
@@ -175,7 +129,8 @@ function patch_setup_author() {
 add_action( 'wp', 'patch_setup_author' );
 
 if ( ! function_exists( 'patch_comment' ) ) :
-	/*
+
+	/**
 	 * Display individual comment layout
 	 *
 	 * @since Patch 1.0
@@ -193,11 +148,6 @@ if ( ! function_exists( 'patch_comment' ) ) :
 	<li <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
 		<article id="comment-<?php comment_ID() ?>" class="comment-article  media">
 			<span class="comment-number"><?php echo $comment_number ?></span>
-			<?php
-			//grab the avatar - by default the Mystery Man
-			$avatar = get_avatar( $comment ); ?>
-
-			<aside class="comment__avatar  media__img"><?php echo $avatar; ?></aside>
 
 			<div class="media__body">
 				<header class="comment__meta comment-author">
@@ -230,24 +180,9 @@ if ( ! function_exists( 'patch_comment' ) ) :
 		</article>
 		<!-- </li> is added by WordPress automatically -->
 	<?php
-	} // don't remove this bracket!
-endif; //patch_comment
+	} #function
 
-/**
- * Filter comment_form_defaults to remove the notes after the comment form textarea.
- *
- * @since Patch 1.0
- *
- * @param array $defaults
- * @return array
- */
-function patch_comment_form_remove_notes_after( $defaults ) {
-	$defaults['comment_notes_after'] = '';
-
-	return $defaults;
-}
-
-add_filter( 'comment_form_defaults', 'patch_comment_form_remove_notes_after' );
+endif;
 
 /**
  * Filter wp_link_pages to wrap current page in span.
@@ -286,18 +221,35 @@ function patch_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'patch_excerpt_length', 999 );
 
 /**
+ * Replace the submit input with button because the <input> tag doesn't allow CSS styling with ::before or ::after
+ */
+function patch_search_form( $form ) {
+	$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
+				<label>
+					<span class="screen-reader-text">' . _x( 'Search for:', 'label' ) . '</span>
+					<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' ) . '" value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' ) . '" />
+				</label>
+				<button class="search-submit"><i class="fa fa-search"></i></button>
+			</form>';
+
+	return $form;
+}
+
+add_filter( 'get_search_form', 'patch_search_form' );
+
+/**
  * Add "Styles" drop-down
  */
-add_filter( 'mce_buttons_2', 'patch_mce_editor_buttons' );
 function patch_mce_editor_buttons( $buttons ) {
 	array_unshift( $buttons, 'styleselect' );
 	return $buttons;
 }
 
+add_filter( 'mce_buttons_2', 'patch_mce_editor_buttons' );
+
 /**
  * Add styles/classes to the "Styles" drop-down
  */
-add_filter( 'tiny_mce_before_init', 'patch_mce_before_init' );
 function patch_mce_before_init( $settings ) {
 
 	$style_formats = array(
@@ -312,4 +264,6 @@ function patch_mce_before_init( $settings ) {
 	$settings['style_formats'] = json_encode( $style_formats );
 
 	return $settings;
-} ?>
+} #function
+
+add_filter( 'tiny_mce_before_init', 'patch_mce_before_init' ); ?>
