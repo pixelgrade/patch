@@ -47,13 +47,15 @@
 }
 
 .nav--footer {
-	@extend .nav;
+	list-style-type: none;
 
 	li {
+		display: inline-block;
+
 		&:after {
 			color: $light;
 			content: "/";
-			margin-left: 5px;
+			margin: 0 5px;
 		}
 
 		&:last-child:after {
