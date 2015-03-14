@@ -20,9 +20,16 @@ if ( ! function_exists( 'patch_posted_on' ) ) :
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time><time class="updated" hidden datetime="%4$s">%5$s</time>';
 		}
 
+		$date_format = ''; //use the format set in Settings > General
+
+		if ( ! is_single() ) {
+			//on home and archives, due to the layout, we need a shorter date format so it won't jump on a second line
+			$date_format = 'M j, Y';
+		}
+
 		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() ),
+			esc_html( get_the_date( $date_format ) ),
 			esc_html( get_the_time() ),
 			esc_attr( get_the_modified_date( 'c' ) ),
 			esc_html( get_the_modified_date() )
@@ -30,14 +37,46 @@ if ( ! function_exists( 'patch_posted_on' ) ) :
 
 		$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
+		$author_name = get_the_author();
+
+		if ( ! is_single() ) {
+			//on home and archive pages we will use only the first name so we avoid having 2 lines in the byline
+			$author_name = patch_get_author_first_name();
+		}
+
 		$byline = sprintf(
 			_x( 'by %s', 'post author', 'patch_txtd' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( $author_name ) . '</a></span>'
 		);
 
 		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>';
 
 	} #function
+
+endif;
+
+if ( ! function_exists( 'patch_get_author_first_name' ) ) :
+
+	/**
+	 * Retrieve the author first name of the current post.
+	 *
+	 * @uses $authordata The current author's DB object.
+	 *
+	 * @return string The author's first name or display name if not defined.
+	 */
+	function patch_get_author_first_name() {
+		global $authordata;
+
+		if ( is_object( $authordata ) ) {
+			if ( ! empty( $authordata->first_name ) ) {
+				return $authordata->first_name;
+			} else {
+				return apply_filters('the_author', $authordata->display_name );
+			}
+		}
+
+		return '';
+	}
 
 endif;
 

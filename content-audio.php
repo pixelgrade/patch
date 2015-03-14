@@ -12,12 +12,20 @@ $content = apply_filters( 'the_content', get_the_content( sprintf(
 	__( 'Continue reading %s', 'patch_txtd' ),
 	the_title( '<span class="screen-reader-text">', '</span>', false )
 ) ) );
-$media   = get_media_embedded_in_content( $content );
+$media   = patch_get_media_embedded_in_content( $content );
 if ( ! empty( $media ) ) {
 	$content = str_replace( $media[0], '', $content );
 } ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+	<div class="entry-meta">
+
+		<?php patch_first_category(); ?>
+
+		<?php patch_posted_on(); ?>
+
+	</div><!-- .entry-meta -->
 	
 	<?php if ( ! empty( $media ) ) : ?>
 

@@ -238,6 +238,41 @@ function patch_search_form( $form ) {
 add_filter( 'get_search_form', 'patch_search_form' );
 
 /**
+ * Check the content blob for an audio, video, object, embed, or iframe tags.
+ * This is a modified version of the current core one, in line with this
+ * https://core.trac.wordpress.org/ticket/26675
+ * This should end up in the core in version 4.2 or 4.3 hopefully
+ *
+ * @param string $content A string which might contain media data.
+ * @param array $types array of media types: 'audio', 'video', 'object', 'embed', or 'iframe'
+ * @return array A list of found HTML media embeds
+ */
+// @todo Remove this when the right get_media_embedded_in_content() ends up in the core, v4.2 hopefully
+function patch_get_media_embedded_in_content( $content, $types = null ) {
+	$html = array();
+
+	$allowed_media_types = apply_filters( 'get_media_embedded_in_content_allowed', array( 'audio', 'video', 'object', 'embed', 'iframe' ) );
+
+	if ( ! empty( $types ) ) {
+		if ( ! is_array( $types ) ) {
+			$types = array( $types );
+		}
+
+		$allowed_media_types = array_intersect( $allowed_media_types, $types );
+	}
+
+	$tags = implode( '|', $allowed_media_types );
+
+	if ( preg_match_all( '#<(?P<tag>' . $tags . ')[^<]*?(?:>[\s\S]*?<\/(?P=tag)>|\s*\/>)#', $content, $matches ) ) {
+		foreach ( $matches[0] as $match ) {
+			$html[] = $match;
+		}
+	}
+
+	return $html;
+}
+
+/**
  * Add "Styles" drop-down
  */
 function patch_mce_editor_buttons( $buttons ) {
