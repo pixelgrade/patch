@@ -14,6 +14,14 @@
 	-webkit-filter: saturate(0) contrast(1.5);
 }
 
+.author-info__avatar,
+.author-info__description {
+	@include query-below($small) {
+		display: block;
+		float: none;
+	}
+}
+
 .author-info__title,
 .author-info__link {
 	display: inline-block;

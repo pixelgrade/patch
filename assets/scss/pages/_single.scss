@@ -57,6 +57,11 @@
 	.entry-featured {
 		margin-top: $gutter;
 		margin-bottom: $gutter;
+
+		img {
+			display: block;
+			margin: 0 auto;
+		}
 	}
 
 	.entry-image--landscape,
@@ -96,10 +101,6 @@
 				width: 100%;
 			}
 		}
-	}
-
-	.entry-image--wide, .entry-image--square {
-		margin: 0 auto;
 	}
 
 	.entry-image--portrait,
