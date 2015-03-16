@@ -203,18 +203,16 @@
 		color: $dark;
 	}
 
-	#subscribe-submit {
-		float: right;
-		transform: translateY(calc(-100% - 2px ));
-	}
-
 	input[type='submit']{
 		@extend %beta;
 
+		float: right;
 		height: 32px;
 		margin-right: 2px;
 		padding: 0 10px;
 		border: 1px solid white;
+		transform: translateY(-107%); // for IE
+		transform: translateY(calc(-100% - 2px ));
 
 		color: $dark;
 		background-color: $accent;

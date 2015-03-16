@@ -140,14 +140,11 @@ function patch_first_category( $post_ID = null) {
 	$categories = get_the_category( $post_ID );
 	if ( empty( $categories ) ) {
 		//get the default category instead
-		$categories = get_the_category_by_ID( get_option( 'default_category' ) );
+		$categories = array ( get_the_category_by_ID( get_option( 'default_category' ) ) );
 	}
 
 	//now intersect them so that we are left with e descending ordered array of the post's categories
-	$categories = array_uintersect( $all_categories, $categories, function ($a1, $a2) {
-		if ( $a1->term_id == $a2->term_id ) { return 0; } //we are only interested by equality but PHP wants the whole thing
-		if ( $a1->term_id > $a2->term_id ) { return 1; }
-		return -1; } );
+	$categories = array_uintersect( $all_categories, $categories, 'patch_compare_categories' );
 
 	if ( ! empty ( $categories ) ) {
 		$category = array_shift($categories);
@@ -157,6 +154,17 @@ function patch_first_category( $post_ID = null) {
 	}
 
 } #function
+
+function patch_compare_categories( $a1, $a2 ) {
+	if ( $a1->term_id == $a2->term_id ) {
+		return 0; //we are only interested by equality but PHP wants the whole thing
+	}
+
+	if ( $a1->term_id > $a2->term_id ) {
+		return 1;
+	}
+	return -1;
+}
 
 if ( ! function_exists( 'patch_entry_footer' ) ) :
 
