@@ -447,12 +447,7 @@ p.comment-form-email{
 	@include rhythm(margin-top, 1);
 	margin-bottom: 0;
 	text-align: right;
-
-	@include query-above($lap) {
-		&.form-submit {
-			float: right;
-		}
-	}
+	float: right;
 
 	#submit {
 		@extend %beta;
@@ -463,10 +458,6 @@ p.comment-form-email{
 		font-weight: bold;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
-
-		@include query-below($lap) {
-			width: 100%;
-		}
 	}
 }
 
