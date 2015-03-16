@@ -201,7 +201,7 @@
 
 	background: black;
 
-	@include query-above($small) {
+	@include query-above($lap) {
 		margin-right: $gutter;
 
 		&--wide {
