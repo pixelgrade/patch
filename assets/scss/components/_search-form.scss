@@ -3,7 +3,7 @@
 	height: 38px;
 	border: 2px solid #d7d7d7;
 
-	display: flex;
+//	display: flex;
 
 	> label, .search-field {
 		display: block;
@@ -11,9 +11,9 @@
 		height: 34px;
 	}
 
-	> label {
-		flex: 1;
-	}
+//	> label {
+//		flex: 1;
+//	}
 
 	.search-field {
 		padding: 8px $u/2;
@@ -26,9 +26,11 @@
 	//@todo make it more flexible (width)
 	.search-submit {
 		@extend %beta;
-		height: 34px;
 
+		height: 34px;
 		padding: 0 10px 3px 10px;
+		float: right;
+		transform: translateY(-100%);
 
 		font-size: 14px;
 		text-align: center;

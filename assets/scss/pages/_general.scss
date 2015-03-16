@@ -81,6 +81,7 @@
 		float: none;
 		display: inline-block;
 		vertical-align: top;
+		opacity: 1;
 
 		@include query-below($lap) {
 			width: 100%;
@@ -91,6 +92,8 @@
 	.site-header + .not-found {
 		display: inline-block;
 		padding: 0 $gutter;
+		float: none;
+		margin-top: 0;
 	}
 
 	.page-title {
