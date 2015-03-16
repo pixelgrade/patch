@@ -51,6 +51,7 @@
 
     .pull-left {
         margin-left: -$pull-offset;
+        margin-bottom: rhythm(1);
         width: calc(#{$pull-offset + $pull-gutter/2} + 50%);
         padding-right: $pull-gutter;
 
@@ -68,6 +69,7 @@
 
     .pull-right {
         margin-right: -$pull-offset;
+        margin-bottom: rhythm(1);
         width: calc(#{$pull-offset + $pull-gutter/2} + 50%);
         padding-left: $pull-gutter;
 
