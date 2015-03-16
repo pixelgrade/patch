@@ -1,4 +1,6 @@
 .site-main {
+	padding-bottom: 2*$gutter;
+
 	@include query-above($lap) {
 		padding: 2*$gutter 0;
 	}
@@ -8,12 +10,10 @@
 	}
 }
 
-.grid {
-	@extend .clearfix;
+.grid,
+.pagination {
+	margin: 0 auto;
 	max-width: 450px;
-	margin: $gutter auto 0;
-	transition: height .3s ease-in-out;
-	// border-right: $gutter/2 solid transparent;
 
 	@include query-above(800px) {
 		max-width: 1000px;
@@ -27,6 +27,13 @@
 	@include query-above(1650px) {
 		max-width: 1800px;
 	}
+}
+
+.grid {
+	@extend .clearfix;
+	margin-top: $gutter;
+	transition: height .3s ease-in-out;
+	// border-right: $gutter/2 solid transparent;
 
 	// @include query-above($lap) {
 	// 	border-right: $gutter solid transparent;

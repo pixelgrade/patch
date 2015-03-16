@@ -87,7 +87,7 @@
 
 	> li {
 
-	    @include query-above($small) {
+	    @include query-above($lap) {
 			float: left;
 			width: 50%;
 			padding-right: 20px;
@@ -119,7 +119,7 @@
 		min-width: 10em;
 	}
 
-	@include query-above($small) {		
+	@include query-above($lap) {		
 
 		/*.sub-menu*/ul {
 			position: absolute;
