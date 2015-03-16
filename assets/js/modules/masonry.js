@@ -14,7 +14,9 @@ var masonry = (function() {
 	init = function() {
 
 		if (windowWidth < 800) {
-			return;
+			$container.imagesLoaded(function() {
+				showBlocks($blocks);
+			});
 		}
 
 		if ($container.length) {
@@ -25,6 +27,7 @@ var masonry = (function() {
 		$container.imagesLoaded(function() {
 			$container.masonry({
 				itemSelector: '.grid__item',
+				columnWidth: ".grid__item:not(.site-header)",
 				transitionDuration: 0
 			});
 			bindEvents();
@@ -49,6 +52,7 @@ var masonry = (function() {
 		if (windowWidth < 800) {
 			$container.masonry('destroy');
 			initialized = false;
+			init();
 			return;
 		}
 		

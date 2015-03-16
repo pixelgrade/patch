@@ -1,7 +1,7 @@
 .site-main {
-	// @include query-above(800px) {
-	// 	padding: 2*$gutter $gutter;
-	// }
+	@include query-above($lap) {
+		padding: 2*$gutter 0;
+	}
 
 	@include query-above(1260px) {
 		padding: 2*$gutter;
@@ -15,7 +15,7 @@
 	transition: height .3s ease-in-out;
 	// border-right: $gutter/2 solid transparent;
 
-	@include query-above(750px) {
+	@include query-above(800px) {
 		max-width: 1000px;
 		margin-top: 0;
 	}

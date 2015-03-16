@@ -530,7 +530,9 @@ if (!Date.now) Date.now = function () {
         init = function () {
 
         if (windowWidth < 800) {
-          return;
+          $container.imagesLoaded(function () {
+            showBlocks($blocks);
+          });
         }
 
         if ($container.length) {
@@ -541,6 +543,7 @@ if (!Date.now) Date.now = function () {
         $container.imagesLoaded(function () {
           $container.masonry({
             itemSelector: '.grid__item',
+            columnWidth: ".grid__item:not(.site-header)",
             transitionDuration: 0
           });
           bindEvents();
@@ -567,6 +570,7 @@ if (!Date.now) Date.now = function () {
         if (windowWidth < 800) {
           $container.masonry('destroy');
           initialized = false;
+          init();
           return;
         }
 
