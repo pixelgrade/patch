@@ -55,24 +55,17 @@
 	}
 
 	.entry--even {
-
 		.entry-image--tall,
 		.entry-image--portrait {
 
-			& ~ .entry-block {
-				margin-left: -$gutter;
-				padding-left: $gutter;				
-			}
-		}
-
-		.entry-image {
 			margin-left: $gutter/2;
 			margin-right: -$gutter;
-		}
 
-		.entry-image ~ .entry-block {
-			margin-left: -$gutter;
-			margin-right: $gutter;
+			& ~ .entry-block {
+				margin-left: -$gutter;
+				padding-left: $gutter;	
+				margin-right: $gutter;			
+			}
 		}
 	}
 
@@ -312,20 +305,19 @@
 	position: relative;
 	z-index: 20;
 
-	.entry-image {
-		float: right;
-		margin-left: $gutter/2;
-	}
-
 	.entry-image--tall,
 	.entry-image--portrait {
 		margin-right: 0;
-		padding-right: 0;		
+		padding-right: 0;	
+
+		margin-left: $gutter/2;	
+		float: right;
+		
+		~ .entry-block {
+			text-align: right;
+		}
 	} 
 
-	.entry-block {
-		text-align: right;
-	}
 } 
 
 @include query-below(400px) {

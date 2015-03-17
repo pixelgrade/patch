@@ -105,7 +105,7 @@ var masonry = (function() {
 		$container.find('.grid__item').each(function (i, obj) {
 			var $obj = $(obj),
 				left = parseInt($obj.data('left'), 10);
-			if (newValues.indexOf(left) != -1 && $obj.find('.entry-image--portrait, .entry-image--tall').length) {
+			if (newValues.indexOf(left) != -1) {
 				$obj.addClass('entry--even');
 			} else {
 				$obj.removeClass('entry--even');
