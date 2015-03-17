@@ -2,6 +2,8 @@
 // #CARDS
 // Masonry Archive Posts
 
+
+// Spacing Mixin
 @mixin spacings($gutter) {
 
 	.grid {
@@ -17,19 +19,23 @@
 		margin-right: $gutter;
 	}
 
+	.entry-card--tall,
+	.entry-card--portrait, {
+		margin-bottom: $gutter + $gutter*2/3;
+	}
+
 	.entry-image--tall,
 	.entry-image--portrait {
 		margin-left: -$gutter;
 
 		// hard work man
 		~ .entry-header.entry-header {
-			// padding-top: $gutter;
-			// margin-top: -$gutter;
+			margin-right: -$gutter;
 		}
 
 		~ .entry-content {
-			padding-bottom: $gutter;
-			margin-bottom: -$gutter/2;
+			margin-right: 0;
+			margin-bottom: $gutter/3;
 		}
 	}
 
@@ -63,7 +69,7 @@
 
 			& ~ .entry-block {
 				margin-left: -$gutter;
-				padding-left: $gutter;	
+				padding-left: $gutter/2;	
 				margin-right: $gutter;			
 			}
 		}
@@ -89,6 +95,9 @@
 		margin-left: $gutter;
 	}
 }
+// End 'Spacing Mixin'
+
+
 
 .blog, .archive, .search {
 
@@ -111,14 +120,34 @@
 		margin-top: 0;
 	}
 
+	@include spacings(36px);
+
 	@media only screen and (min-width: 1260px) {
-		@include spacings($gutter/2);	
+		@include spacings(24px);	
+	}
+
+	@media only screen and (min-width: 1440px) {
+		@include spacings(30px);	
+	}
+
+	@media only screen and (min-width: 1800px) {
+		// @include spacings(24px);	
+	}
+
+
+
+	@media only screen and (min-width: 1260px) {
+		// @include spacings($gutter/2);	
 	}
 
 	@media only screen and (min-width: 1360px), screen and (min-width: 420px) and (max-width: 1259px) {
-		@include spacings($gutter);
+		// @include spacings($gutter);
 	}
 }
+
+
+
+// #CARD
 
 .entry-card {
 	@extend .clearfix;
@@ -166,83 +195,65 @@
 	.entry-content {
 		background: white;
 
-		font-size: rem(14px);
+		font-size: 14px;
 
 		p {
-			margin-bottom: rem(15px);
+			margin-bottom: 15px;
 
 			&:last-of-type {
 				// margin-bottom: 0;
 			}
 		}
 	}
-
-
-	// &:hover {
-	// 	transform: translateY($gutter/2);
-
-	// 	.entry-meta {
-	// 		opacity: 1;
-	// 		transform: translateY(-100%);
-	// 	}
-
-	// 	.entry-image {
-
-	// 		img {
-	// 			// opacity: 0.8;
-	// 			filter: grayscale(1);
-	// 		}
-
-	// 		.hover {
-	// 			opacity: 1;
-	// 		}
-	// 	}
-	// }
 }
 
+	.entry-image {
+		position: relative;
+		z-index: 32; //over .entry-meta
+		display: block;
 
-.entry-image {
-	position: relative;
-	z-index: 32; //over .entry-meta
-	display: block;
+		// background: black;
 
-	background: black;
+		@include query-above($lap) {
+			margin-right: $gutter;
 
-	@include query-above($lap) {
-		margin-right: $gutter;
+			&--wide {
+				margin: 0 #{-$gutter};
+			}
+		}
 
-		&--wide {
-			margin: 0 #{-$gutter};
+		img {
+			display: block;
+			width: 100%;
+
+			filter: grayscale(0);
+			transition: all 0.3s;
+		}
+
+		.hover {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateY(-50%) translateX(-50%);
+			z-index: 100;
+
+			color: white;
+
+			opacity: 0;
+
+			transition: all 0.3s;
 		}
 	}
 
-	img {
-		display: block;
-		width: 100%;
 
-		filter: grayscale(0);
-		transition: all 0.3s;
-	}
 
-	.hover {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translateY(-50%) translateX(-50%);
-		z-index: 100;
-
-		color: white;
-
-		opacity: 0;
-
-		transition: all 0.3s;
-	}
-}
+// #PORTRAIT
+// #TALL
 
 .entry-image--tall,
 .entry-image--portrait {
 	float: left;
-	max-width: 35%;
+	max-width: 50%;
 	margin-right: $gutter/2;
 	position: relative;
 	z-index: 40;
@@ -253,14 +264,40 @@
 		z-index: 30;
 	}
 
-	+ .entry-header {
-		margin-top: 0 !important;
+	~ .entry-content {
+		p:last-of-type {
+			margin-bottom: 0;
+		}
 	}
 
-	@include query-above($small) {
-		max-width: 50%;
+	+ .entry-header {
+		margin-top: 0 !important;
+
+		h1 {
+			letter-spacing: 0.02em;
+		}
 	}
 }
+
+
+
+// #PORTRAIT
+
+.entry-image--portrait {
+	max-width: 55%;
+
+	@include query-above($small) {
+	}
+}
+
+// #TALL
+
+.entry-image--tall {
+
+}
+
+
+
 
 .entry-header {
 	@extend .entry-block;
@@ -277,7 +314,7 @@
 		padding-top: 0;
 		padding-bottom: 0; 
 
-		margin-top: 20px;
+		margin-top: 10px;
 		margin-bottom: 5px;
 
 		.entry-title {

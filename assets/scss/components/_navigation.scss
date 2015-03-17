@@ -31,7 +31,11 @@
 	.site-branding,
 	.nav--main,
 	.nav--social {
-		margin: 0 2.5*$gutter $gutter $gutter;
+		margin: 0 2*$gutter $gutter $gutter;
+	}
+
+	.site-branding {
+		margin-right: 2.5*$gutter;
 	}
 }
 
