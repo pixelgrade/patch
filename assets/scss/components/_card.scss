@@ -154,8 +154,24 @@
 	position: relative;
 	transform: translateZ(0);
 	// transition: transform 0.3s;
-	
 	opacity: 0;
+
+	.entry-image img {
+		transition: filter .3s ease-in-out;
+	}
+
+	&:hover {
+
+		.entry-image img {
+			transform: translateZ(0);
+			-webkit-backface-visiblity: hidden;
+			filter: saturate(0);
+		}
+
+		span {
+			opacity: 1;
+		}
+	}
 	
 	// Post Meta (categories, author and date)
 	.entry-meta {

@@ -17,7 +17,7 @@ if ( ! function_exists( 'patch_posted_on' ) ) :
 
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time><time class="updated" hidden datetime="%4$s">%5$s</time>';
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time><time class="updated" hidden datetime="%4$s">%5$s</time>';
 		}
 
 		$date_format = ''; //use the format set in Settings > General
@@ -71,7 +71,7 @@ if ( ! function_exists( 'patch_get_author_first_name' ) ) :
 			if ( ! empty( $authordata->first_name ) ) {
 				return $authordata->first_name;
 			} else {
-				return apply_filters('the_author', $authordata->display_name );
+				return apply_filters( 'the_author', $authordata->display_name );
 			}
 		}
 
@@ -140,14 +140,14 @@ function patch_first_category( $post_ID = null) {
 	$categories = get_the_category( $post_ID );
 	if ( empty( $categories ) ) {
 		//get the default category instead
-		$categories = array ( get_the_category_by_ID( get_option( 'default_category' ) ) );
+		$categories = array( get_the_category_by_ID( get_option( 'default_category' ) ) );
 	}
 
 	//now intersect them so that we are left with e descending ordered array of the post's categories
 	$categories = array_uintersect( $all_categories, $categories, 'patch_compare_categories' );
 
 	if ( ! empty ( $categories ) ) {
-		$category = array_shift($categories);
+		$category = array_shift( $categories );
 		$rel = ( is_object( $wp_rewrite ) && $wp_rewrite->using_permalinks() ) ? 'rel="category tag"' : 'rel="category"';
 
 		echo '<span class="cat-links"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '" ' . $rel . '>' . $category->name . '</a></span>';
@@ -454,7 +454,7 @@ if ( ! function_exists( 'patch_get_post_thumbnail_aspect_ratio_class' ) ) :
 
 		//$image_data[1] is width
 		//$image_data[2] is height
-		$image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full" );
+		$image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 
 		if ( ! empty( $image_data[1] ) && ! empty( $image_data[2] ) ) {
 			$image_aspect_ratio = $image_data[1] / $image_data[2];
@@ -777,24 +777,17 @@ if ( ! function_exists( 'patch_the_image_navigation' ) ) :
 
 		<nav class="navigation post-navigation" role="navigation">
 			<h5 class="screen-reader-text"><?php _e( 'Image navigation', 'patch_txtd' ); ?></h5>
-			<div class="article-navigation">
+			<div class="attachment-navigation">
 				<?php
 				if ( $prev_image ) {
 					$prev_thumbnail = wp_get_attachment_image( $prev_image->ID, 'patch-tiny-image' ); ?>
 
 					<span class="navigation-item  navigation-item--previous">
 						<a href="<?php echo get_attachment_link( $prev_image->ID ); ?>" rel="prev">
-							<span class="arrow"></span>
 		                    <span class="navigation-item__content">
-		                        <span class="navigation-item__wrapper  flexbox">
-		                            <span class="flexbox__item">
-		                                <span class="post-thumb"><?php echo $prev_thumbnail; ?></span>
-		                            </span>
-		                            <span class="flexbox__item">
-		                                <span class="navigation-item__name"><?php _e( 'Previous image', 'patch_txtd' ); ?></span>
-		                                <h3 class="post-title"><?php echo get_the_title( $prev_image->ID ); ?></h3>
-		                            </span>
-		                        </span>
+                                <span class="post-thumb"><?php echo $prev_thumbnail; ?></span>
+                                <span class="navigation-item__name"><?php _e( 'Previous image', 'patch_txtd' ); ?></span>
+                                <h3 class="post-title"><?php echo get_the_title( $prev_image->ID ); ?></h3>
 		                    </span>
 						</a>
 					</span>
@@ -806,18 +799,11 @@ if ( ! function_exists( 'patch_the_image_navigation' ) ) :
 
 					<span class="navigation-item  navigation-item--next">
 						<a href="<?php echo get_attachment_link( $next_image->ID ); ?>" rel="prev">
-							<span class="arrow"></span>
 		                    <span class="navigation-item__content">
-		                        <span class="navigation-item__wrapper  flexbox">
-		                            <span class="flexbox__item">
-		                                <span class="post-thumb"><?php echo $next_thumbnail; ?></span>
-		                            </span>
-		                            <span class="flexbox__item">
-		                                <span class="navigation-item__name"><?php _e( 'Next image', 'patch_txtd' ); ?></span>
-		                                <h3 class="post-title"><?php echo get_the_title( $next_image->ID ); ?></h3>
-		                            </span>
-		                        </span>
-		                    </span>
+	                                <span class="post-thumb"><?php echo $next_thumbnail; ?></span>
+	                                <span class="navigation-item__name"><?php _e( 'Next image', 'patch_txtd' ); ?></span>
+	                                <h3 class="post-title"><?php echo get_the_title( $next_image->ID ); ?></h3>
+	                        </span>
 						</a>
 					</span>
 
