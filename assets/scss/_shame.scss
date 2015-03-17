@@ -19,6 +19,7 @@
 .entry-image--portrait  + .entry-header .entry-title,
 .entry-image--tall  	+ .entry-header .entry-title {
 	@extend .bold;
+	@extend %ls-0-02;
 }
 
 .entry-image--portrait  + .entry-header--medium .entry-title,
@@ -26,9 +27,9 @@
 	@extend %fs-30;
 }
 
-.entry-medium--long .entry-title,
-.entry-medium--medium .entry-title,
-.entry-medium--short .entry-title {
+.entry-header--long .entry-title,
+.entry-header--medium .entry-title,
+.entry-header--short .entry-title {
 	@extend %fs-36;
 }
 

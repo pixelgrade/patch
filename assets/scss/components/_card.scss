@@ -14,6 +14,17 @@
 		border-left-width: $gutter;
 	}
 
+	.entry-block {
+		margin-left: $gutter;
+		margin-right: $gutter;
+	}
+
+	.entry-header {
+		margin-left: -$gutter;
+		margin-right: $gutter;
+		padding-left: 2*$gutter;
+	}
+
 	.entry-image--landscape {
 		margin-left: -$gutter;
 		margin-right: $gutter;
@@ -73,17 +84,6 @@
 				margin-right: $gutter;			
 			}
 		}
-	}
-
-	.entry-block {
-		margin-left: $gutter;
-		margin-right: $gutter;
-	}
-
-	.entry-header {
-		margin-left: -$gutter;
-		margin-right: $gutter;
-		padding-left: 2*$gutter;
 	}
 
 	.entry-image--square + .entry-header {
@@ -274,7 +274,7 @@
 		margin-top: 0 !important;
 
 		h1 {
-			letter-spacing: 0.02em;
+			// letter-spacing: 0.02em;
 		}
 	}
 }
