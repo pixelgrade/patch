@@ -4,12 +4,22 @@
 	padding: 20px;
 	font-size: 15px;
 	line-height: 22px;
+	margin-top: 60px;
+	margin-bottom: 40px;
 }
 
 .author-info__avatar {
 	margin-right: 20px;
 	filter: saturate(0) contrast(1.5);
 	-webkit-filter: saturate(0) contrast(1.5);
+}
+
+.author-info__avatar,
+.author-info__description {
+	@include query-below($small) {
+		display: block;
+		float: none;
+	}
 }
 
 .author-info__title,

@@ -14,7 +14,9 @@ var masonry = (function() {
 	init = function() {
 
 		if (windowWidth < 800) {
-			return;
+			$container.imagesLoaded(function() {
+				showBlocks($blocks);
+			});
 		}
 
 		if ($container.length) {
@@ -22,14 +24,17 @@ var masonry = (function() {
 			containerBottom = containerTop + $container.outerHeight();
 		}
 
-		$container.masonry({
-			itemSelector: '.grid__item',
-			transitionDuration: 0
+		$container.imagesLoaded(function() {
+			$container.masonry({
+				itemSelector: '.grid__item',
+				columnWidth: ".grid__item:not(.site-header)",
+				transitionDuration: 0
+			});
+			bindEvents();
+			onLayout();
+			showBlocks($blocks);
+			initialized = true;			
 		});
-
-		bindEvents();
-		showBlocks($blocks);
-		initialized = true;
 	},
 
 	bindEvents = function() {
@@ -47,6 +52,7 @@ var masonry = (function() {
 		if (windowWidth < 800) {
 			$container.masonry('destroy');
 			initialized = false;
+			init();
 			return;
 		}
 		
@@ -56,11 +62,18 @@ var masonry = (function() {
 	showBlocks = function($blocks) {
 		$blocks.each(function(i, obj) {
 			var $post = $(obj);
-			animator.animatePost($post, i * 100);
+			animatePost($post, i * 100);
 		});
-		if ( ! $.support.touch ) {
-			$blocks.addHoverAnimation();
-		}
+	},
+
+	animatePost = function($post, delay) {
+		$post.velocity({
+			opacity: 1
+		}, {
+			duration: 300,
+			delay: delay,
+			easing: 'easeOutCubic'
+		});
 	},
 
 	onLayout = function() {
@@ -82,7 +95,7 @@ var masonry = (function() {
 
 		// keep only the even ones so we can identify what columns need new css classes
 		for (var k in values){
-		    if (values.hasOwnProperty(k) && k % 2 == 1) {
+		    if (values.hasOwnProperty(k) && k % 2 == 0) {
 		         newValues.push(values[k]);
 		    }
 		}
@@ -97,6 +110,9 @@ var masonry = (function() {
 			}
 		});
 
+		setTimeout(function() {
+			shadows.init();
+		}, 200);
 	},
 
 	onLoad = function() {
@@ -124,83 +140,56 @@ $.fn.addHoverAnimation = function() {
 
 	return this.each(function(i, obj) {
 
-	    var $obj 		= $(obj),
-	    	$top    	= $obj.find('.entry-header'),
-	    	$img 		= $obj.find('.entry-featured'),
-	    	$border		= $obj.find('.entry-image-border'),
-	    	$content 	= $obj.find('.entry-content'),
-	    	$bottom 	= $content.children().not($img);
+	    var $obj 			= $(obj),
+	    	$otherShadow	= $obj.find('.entry-image-shadow'),
+	    	$hisShadow		= $obj.data('shadow'),
+	    	$meta			= $obj.find('.entry-meta'),
+	    	options 		= {
+	    		duration: 300,
+	    		easing: 'easeOutQuad'
+	    	};
 
-	    // if we don't have have elements that need to be animated return
-	    if ( !$obj.length || !$img.length ) {
-			return;
-	    }
+	    $obj.on('mouseenter', function() {
+	    	$obj.velocity("stop").velocity({
+	    		translateY: 15
+	    	}, options);
 
-	    // bind the tweens we created above to mouse events accordingly, through hoverIntent to avoid flickering
-	    $obj.find('.entry__wrapper').hoverIntent({
-	        over: animateHoverIn,
-	        out: animateHoverOut,
-	        timeout: 0,
-	        interval: 0
+	    	$otherShadow.velocity("stop").velocity({
+	    		translateY: -15
+	    	}, options);
+
+	    	$meta.velocity("stop").velocity({
+	    		translateY: '-100%',
+	    		opacity: 1
+	    	}, options);
+
+		    if (typeof $hisShadow !== "undefined") {
+		    	$hisShadow.velocity("stop").velocity({
+		    		translateY: 15
+		    	}, options);
+		    }
 	    });
 
-	    function animateHoverIn() {
-	    	$top.velocity({
-	    		translateY: 10
-	    	}, {
-	    		duration: 200,
-	    		easing: 'easeOutQuad'
-	    	});
+	    $obj.on('mouseleave', function() {
+	    	$obj.velocity("stop").velocity({
+	    		translateY: ''
+	    	}, options);
 
-	    	$border.velocity({
-	    		'outline-width': 1
-	    	}, {
-	    		duration: 0
-	    	});
+	    	$otherShadow.velocity("stop").velocity({
+	    		translateY: ''
+	    	}, options);
 
-	    	$border.velocity({
-	    		'border-width': 10
-	    	}, {
-	    		duration: 100,
-	    		easing: 'easeOutQuad'
-	    	});
+	    	$meta.velocity("stop").velocity({
+	    		translateY: '',
+	    		opacity: ''
+	    	}, options);
 
-	    	$bottom.velocity({
-	    		translateY: -10
-	    	}, {
-	    		duration: 200,
-	    		easing: 'easeOutQuad'
-	    	});
-	    }
-
-	    function animateHoverOut() {
-	    	$top.velocity({
-	    		translateY: 0
-	    	}, {
-	    		duration: 200,
-	    		easing: 'easeOutQuad'
-	    	});
-
-	    	$border.velocity({
-	    		'border-width': 0
-	    	}, {
-	    		duration: 150,
-	    		easing: 'easeOutQuad'
-	    	});
-
-	    	$border.velocity({
-	    		'outline-width': 0
-	    	}, {
-	    		duration: 0
-	    	});
-
-	    	$bottom.velocity({
-	    		translateY: 0
-	    	}, {
-	    		duration: 200,
-	    		easing: 'easeOutQuad'
-	    	});
-	    }
+		    if (typeof $hisShadow !== "undefined") {
+		    	$hisShadow.velocity("stop").velocity({
+		    		translateY: ''
+		    	}, options);
+		    }
+	    });
 
 	});
 

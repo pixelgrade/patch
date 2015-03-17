@@ -8,8 +8,9 @@
  * @since Patch 1.0
  */
 ?>
+<?php get_template_part( 'content', 'header' ); ?>
 
-<section class="no-results not-found">
+<section class="no-results not-found grid__item">
 	<header class="page-header">
 		<h1 class="page-title"><?php _e( 'Nothing Found', 'patch_txtd' ); ?></h1>
 	</header><!-- .page-header -->

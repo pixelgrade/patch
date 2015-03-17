@@ -2,9 +2,16 @@
 	color: white;
 	background: black;
 	font-size: rem(13px);
+	padding-top: $gutter/2;
 
 	@include query-above($lap) {
-		padding: rem(15px) rem(65px) 0 rem(65px);
+		padding-left: $gutter;
+		padding-right: $gutter;
+	}
+
+	@include query-above(1260px) {
+		padding-left: $gutter*2;
+		padding-right: $gutter*2;
 	}
 
 	> * {
@@ -47,13 +54,15 @@
 }
 
 .nav--footer {
-	@extend .nav;
+	list-style-type: none;
 
 	li {
+		display: inline-block;
+
 		&:after {
 			color: $light;
 			content: "/";
-			margin-left: 5px;
+			margin: 0 5px;
 		}
 
 		&:last-child:after {

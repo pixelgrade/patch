@@ -36,6 +36,28 @@
 	@extend %fs-42;
 }
 
+%hyphens { 
+	-ms-word-break: break-all;
+	word-break: break-all;
+
+	/* Non standard for webkit */
+	word-break: break-word;
+
+	-webkit-hyphens: auto;
+	   -moz-hyphens: auto;
+	    -ms-hyphens: auto;
+	        hyphens: auto;
+}
+
+.entry-title {
+	@extend %hyphens;
+	overflow: hidden;
+	
+	a {
+		font-weight: inherit;
+	}
+}
+
 // @todo fucking investigate this
 .post {
 	// prevents images overlaping margin
@@ -50,4 +72,23 @@
 
 body {
 	min-height: 100vh;
+}
+
+// footer was leaving his bg behind when infinite posts were loaded
+.site-main {
+	overflow: hidden;
+}
+
+.edit-link {
+	display: none;
+}
+
+.entry-image {
+	overflow: hidden;
+}
+
+.entry-image-shadow {
+	background: black;
+	box-shadow: black 0 0 25px;
+	// transform: translateZ(0);
 }

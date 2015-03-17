@@ -2,7 +2,15 @@
 
 .site-header {
 	text-transform: uppercase;
-	
+	opacity: 0;
+
+	@include query-below($lap) {
+		margin-top: $gutter/2;
+		margin-bottom: $gutter*3/2;
+		border-left: 0;
+		width: 100%;
+	}
+
 	a {
 		color: black;
 		text-decoration: none;
@@ -14,7 +22,9 @@
 // Site Title
 // Site Description
 .site-branding {
-	
+	img {
+
+	}
 }
 
 @include query-above($lap) {
@@ -27,15 +37,14 @@
 
 .site-title {
 	margin: 0 0 0 -3px;
-
 	font-size: 30px;
-	text-align: center;
 	line-height: 1.25;
-	letter-spacing: 0.04em;
 	color: $dark;
 
+	text-align: center;
+
 	@include query-above($lap) {
-		font-size: 60px;
+		font-size: 36px;
 		text-align: inherit;
 	}
 }
@@ -43,6 +52,11 @@
 .site-description {
 	text-transform: none;
 	font-size: rem(13px);
+	text-align: center;
+
+	@include query-above($lap) {
+		text-align: inherit;
+	}
 }
 
 .site-logo-link {
@@ -57,6 +71,7 @@
 	// @extend %fs-24;
 	font-size: 24px;
 	line-height: 1.875;
+	margin-bottom: 15px;
 
 	li {
 		display: block;
@@ -74,9 +89,10 @@
 
 	> li {
 
-	    @include query-above($small) {
+	    @include query-above($lap) {
 			float: left;
 			width: 50%;
+			padding-right: 20px;
 	    }
 
 		a {
@@ -84,14 +100,16 @@
 			position: relative;
 			display: inline-block;
 			line-height: 1.5;
-			//@todo maybe position absolute the "+"
-			// white-space: nowrap;
+			padding-right: 0.65em;
 		}
 	}
 
 	.menu-item-has-children {
 		> a:after {
-			content: " +"
+			content: "+";
+			position: absolute;
+			top: -0.1em;
+			right: 0;
 		}
 	}
 
@@ -103,13 +121,13 @@
 		min-width: 10em;
 	}
 
-	@include query-above($small) {		
+	@include query-above($lap) {		
 
 		/*.sub-menu*/ul {
 			position: absolute;
 			top: 0; 
 			margin-left: -8px;
-			margin-top: 16px;
+			margin-top: 4px;
 
 			display: none;
 			opacity: 0;
@@ -144,7 +162,7 @@
 	}
 }
 
-@include query-below($small) {
+@include query-below($lap) {
 	.main-navigation {
 		position: fixed;
 		top: 0;
@@ -168,6 +186,17 @@
 	}
 }
 
+@include query-below($lap) {
+	.admin-bar .main-navigation {
+		padding-top: 32px;
+	}
+}
+@media screen and (max-width: 782px) {
+	.admin-bar .main-navigation {
+		padding-top: 46px;
+	}
+}
+
 .navigation__trigger {
 	position: fixed;
 	top: 0;
@@ -184,11 +213,19 @@
 	background: none;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-tap-highlight-color: transparent; /* For some Androids */
+
+	.admin-bar & {
+		top: 32px;
+
+		@media screen and (max-width: 782px) {
+			top: 46px;
+		}
+	}
 }
 
 
 // let's just make sure everything is fine on desktop
-@include query-above($small) {
+@include query-above($lap) {
 	.main-navigation {
 		transform: none !important;
 		box-shadow: none !important;
@@ -202,10 +239,11 @@
 
 .nav--social {
 	@extend %nav--social;
+	margin-bottom: 0;
 	font-size: 18px;
 
 	a {
-		width: 2em;
+		width: 1.75em;
 		visibility: hidden;
 		white-space: nowrap;
 		overflow: hidden;
@@ -214,7 +252,7 @@
 			display: inline-block;
 			text-align: center;
 			width: 1em;
-			margin-right: 1em;
+			margin-right: .5em;
 			visibility: visible;
 		}
 	}
@@ -222,12 +260,11 @@
 
 .single, .page {
 
-	.site-header {
+	.site-header { 
 		position: relative;
 		z-index: 1;
-
+		opacity: 1;
 		border-left: 0;
-		margin-bottom: 0;
 
 		// sync somehow with sidebar
 		@include query-above($lap) {
@@ -236,14 +273,12 @@
 		}
 
 		@include query-above($desk) {
-//			@include rhythm(width, 30);
-//			@include rhythm(padding-right, 5);
 			width: rem(310px);
 			padding-right: rem(90px);
 		}
 	}
 
-	@include query-above($lap) {
+	@include query-above($lap) { 
 		.site-branding,
 		.nav--main,
 		.nav--social,
@@ -256,5 +291,6 @@
 	.nav--main > li {
 		float: none;
 		width: 100%;
+		margin-bottom: 10px;
 	}
 }

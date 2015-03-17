@@ -512,319 +512,7 @@ if (!Date.now) Date.now = function () {
 
   latestKnownScrollY = window.scrollY, ticking = false;
 
-  ;
-  var animator = (function () {
-
-    var initialize = function () {
-
-    },
-        
-        
-        animate = function () {
-
-        var isSingle = $('.site-main--single').length,
-            hasSidebar = $('.sidebar--main').length,
-            delay;
-
-        animateTopBar();
-        setTimeout(animateLogo, 100);
-        setTimeout(animateMenu, 200);
-
-        setTimeout(animateMain, 300);
-        delay = 600;
-
-        if (hasSidebar) {
-          setTimeout(animateSidebar, delay + 200);
-          setTimeout(animateFooter, delay + 400);
-          delay = delay + 400;
-        } else {
-          setTimeout(animateFooter, delay + 200);
-          delay = delay + 200;
-        }
-        },
-        
-        
-        animateTopBar = function () {
-        $('.top-bar').velocity({
-          opacity: 1
-        }, {
-          duration: 300,
-          easing: "easeOutCubic"
-        });
-        },
-        
-        
-        animateLogo = function () {
-
-        var $title = $('.site-title'),
-            $description = $('.site-description'),
-            $descText = $('.site-description-text'),
-            $after = $('.site-description-after'),
-            descWidth;
-
-        $title.velocity({
-          opacity: 1
-        }, {
-          duration: 300,
-          easing: 'easeOutCubic'
-        });
-
-        if ($description.length) {
-          descWidth = $descText.outerWidth();
-
-          $('.site-description').velocity({
-            color: '#b8b6b7'
-          }, {
-            duration: 300,
-            delay: 100,
-            easing: 'easeOutCubic'
-          });
-
-          $after.css({
-            width: descWidth,
-            opacity: 1
-          });
-
-          $after.velocity({
-            width: '100%'
-          }, {
-            duration: 300,
-            delay: 200,
-            easing: 'easeOutCubic'
-          });
-        }
-        },
-        
-        
-        animateMenu = function () {
-
-        $('.nav--main').velocity({
-          borderTopColor: '#e6e6e6'
-        }, {
-          duration: 300,
-          easing: 'easeOutCubic'
-        });
-
-        $('.nav--main > li').velocity({
-          opacity: 1
-        }, {
-          duration: 300,
-          delay: 100,
-          easing: 'easeOutCubic'
-        });
-        },
-        
-        
-        animateSmallDivider = function ($divider) {
-
-        var $squareLeft = $divider.find('.square-left'),
-            $squareMiddle = $divider.find('.square-middle'),
-            $squareRight = $divider.find('.square-right'),
-            $lineLeft = $divider.find('.line-left'),
-            $lineRight = $divider.find('.line-right');
-
-        $lineLeft.velocity({
-          'transform-origin': '0 50%',
-          scaleX: 0
-        }, {
-          duration: 0
-        });
-
-        $lineRight.velocity({
-          'transform-origin': '100% 50%',
-          scaleX: 0
-        }, {
-          duration: 0
-        });
-
-        $squareLeft.add($squareMiddle).add($squareRight).velocity({
-          scale: 0,
-          'transform-origin': '50% 50%'
-        }, {
-          duration: 0
-        })
-
-        $divider.css({
-          opacity: 1
-        });
-
-        $lineLeft.add($lineRight).velocity({
-          scaleX: 1
-        }, {
-          duration: 300,
-          easing: 'easeOutCubic'
-        });
-
-        $squareLeft.add($squareRight).velocity({
-          scale: 1
-        }, {
-          duration: 300,
-          delay: 240,
-          easing: 'easeOutCubic'
-        });
-
-        $squareMiddle.velocity({
-          scale: 1
-        }, {
-          duration: 300,
-          delay: 340,
-          easing: 'easeOutCubic'
-        });
-        },
-        
-        
-        animateLargeDivider = function ($divider) {
-        var $square = $divider.find('.square'),
-            $line = $divider.find('.line');
-
-        $square.velocity({
-          'transform-origin': '50% 50%',
-          scale: 0
-        }, {
-          duration: 0
-        });
-
-        $line.velocity({
-          'transform-origin': '50% 50%',
-          scaleX: 0
-        }, {
-          duration: 0
-        });
-
-        $divider.css('opacity', 1);
-
-        $line.velocity({
-          scaleX: 1
-        }, {
-          duration: 200
-        });
-
-        $square.velocity({
-          scale: 1
-        }, {
-          duration: 300,
-          delay: 100
-        });
-        },
-        
-        
-        animateMain = function () {
-
-        var $posts = $('.archive__grid').children();
-
-        if ($posts.length) {
-
-          masonry.init();
-
-          $('.posts-navigation').velocity({
-            opacity: 1
-          }, {
-            duration: 300,
-            delay: 100,
-            easing: 'easeOutCubic'
-          });
-
-          $('.page-header').velocity({
-            opacity: 1
-          }, {
-            duration: 300,
-            delay: 100,
-            easing: 'easeOutCubic'
-          });
-
-        } else {
-          animateMainSingle();
-        }
-        },
-        
-        
-        animateMainSingle = function () {
-
-        var $main = $('.site-main'),
-            $header = $main.find('.entry-header');
-        $meta = $header.find('.entry-meta'), $title = $header.find('.entry-title')
-        $excerpt = $title.next('.intro'), $content = $main.find('.entry-featured, .entry-content, .entry-footer, .post-navigation, .comments-area');
-
-        $meta.velocity({
-          opacity: 1
-        }, {
-          duration: 300,
-          easing: 'easeOutCubic'
-        });
-
-        $title.velocity({
-          opacity: 1
-        }, {
-          duration: 300,
-          delay: 100,
-          easing: 'easeOutCubic'
-        });
-
-        $excerpt.velocity({
-          opacity: 1
-        }, {
-          duration: 300,
-          delay: 200,
-          easing: 'easeOutCubic'
-        });
-
-        $content.velocity({
-          opacity: 1
-        }, {
-          duration: 300,
-          delay: 300,
-          easing: 'easeOutCubic'
-        });
-        },
-        
-        
-        animatePost = function ($post, delay) {
-        $post.velocity({
-          opacity: 1
-        }, {
-          duration: 300,
-          delay: delay,
-          easing: 'easeOutCubic'
-        });
-
-        var $divider = $post.find('.divider.narrow'),
-            $dividerBig = $post.find('.divider.wide');
-
-        setTimeout(function () {
-          animateLargeDivider($dividerBig);
-        }, 100);
-
-        setTimeout(function () {
-          animateSmallDivider($divider);
-        }, 400);
-        },
-        
-        
-        animateSidebar = function () {
-        $('.sidebar--main').velocity({
-          opacity: 1
-        }, {
-          duration: 300,
-          easing: 'easeOutCubic'
-        });
-        },
-        
-        
-        animateFooter = function () {
-        $('.site-footer').velocity({
-          opacity: 1
-        }, {
-          duration: 300,
-          easing: 'easeOutCubic'
-        });
-        };
-
-    return {
-      animate: animate,
-      animatePost: animatePost
-    }
-
-  })(); /* ====== Masonry Logic ====== */
+  ; /* ====== Masonry Logic ====== */
 
   var masonry = (function () {
 
@@ -842,7 +530,9 @@ if (!Date.now) Date.now = function () {
         init = function () {
 
         if (windowWidth < 800) {
-          return;
+          $container.imagesLoaded(function () {
+            showBlocks($blocks);
+          });
         }
 
         if ($container.length) {
@@ -850,14 +540,17 @@ if (!Date.now) Date.now = function () {
           containerBottom = containerTop + $container.outerHeight();
         }
 
-        $container.masonry({
-          itemSelector: '.grid__item',
-          transitionDuration: 0
+        $container.imagesLoaded(function () {
+          $container.masonry({
+            itemSelector: '.grid__item',
+            columnWidth: ".grid__item:not(.site-header)",
+            transitionDuration: 0
+          });
+          bindEvents();
+          onLayout();
+          showBlocks($blocks);
+          initialized = true;
         });
-
-        bindEvents();
-        showBlocks($blocks);
-        initialized = true;
         },
         
         
@@ -877,6 +570,7 @@ if (!Date.now) Date.now = function () {
         if (windowWidth < 800) {
           $container.masonry('destroy');
           initialized = false;
+          init();
           return;
         }
 
@@ -887,11 +581,19 @@ if (!Date.now) Date.now = function () {
         showBlocks = function ($blocks) {
         $blocks.each(function (i, obj) {
           var $post = $(obj);
-          animator.animatePost($post, i * 100);
+          animatePost($post, i * 100);
         });
-        if (!$.support.touch) {
-          $blocks.addHoverAnimation();
-        }
+        },
+        
+        
+        animatePost = function ($post, delay) {
+        $post.velocity({
+          opacity: 1
+        }, {
+          duration: 300,
+          delay: delay,
+          easing: 'easeOutCubic'
+        });
         },
         
         
@@ -914,7 +616,7 @@ if (!Date.now) Date.now = function () {
 
         // keep only the even ones so we can identify what columns need new css classes
         for (var k in values) {
-          if (values.hasOwnProperty(k) && k % 2 == 1) {
+          if (values.hasOwnProperty(k) && k % 2 == 0) {
             newValues.push(values[k]);
           }
         }
@@ -929,6 +631,9 @@ if (!Date.now) Date.now = function () {
           }
         });
 
+        setTimeout(function () {
+          shadows.init();
+        }, 200);
         },
         
         
@@ -958,82 +663,55 @@ if (!Date.now) Date.now = function () {
     return this.each(function (i, obj) {
 
       var $obj = $(obj),
-          $top = $obj.find('.entry-header'),
-          $img = $obj.find('.entry-featured'),
-          $border = $obj.find('.entry-image-border'),
-          $content = $obj.find('.entry-content'),
-          $bottom = $content.children().not($img);
+          $otherShadow = $obj.find('.entry-image-shadow'),
+          $hisShadow = $obj.data('shadow'),
+          $meta = $obj.find('.entry-meta'),
+          options = {
+          duration: 300,
+          easing: 'easeOutQuad'
+          };
 
-      // if we don't have have elements that need to be animated return
-      if (!$obj.length || !$img.length) {
-        return;
-      }
+      $obj.on('mouseenter', function () {
+        $obj.velocity("stop").velocity({
+          translateY: 15
+        }, options);
 
-      // bind the tweens we created above to mouse events accordingly, through hoverIntent to avoid flickering
-      $obj.find('.entry__wrapper').hoverIntent({
-        over: animateHoverIn,
-        out: animateHoverOut,
-        timeout: 0,
-        interval: 0
+        $otherShadow.velocity("stop").velocity({
+          translateY: -15
+        }, options);
+
+        $meta.velocity("stop").velocity({
+          translateY: '-100%',
+          opacity: 1
+        }, options);
+
+        if (typeof $hisShadow !== "undefined") {
+          $hisShadow.velocity("stop").velocity({
+            translateY: 15
+          }, options);
+        }
       });
 
-      function animateHoverIn() {
-        $top.velocity({
-          translateY: 10
-        }, {
-          duration: 200,
-          easing: 'easeOutQuad'
-        });
+      $obj.on('mouseleave', function () {
+        $obj.velocity("stop").velocity({
+          translateY: ''
+        }, options);
 
-        $border.velocity({
-          'outline-width': 1
-        }, {
-          duration: 0
-        });
+        $otherShadow.velocity("stop").velocity({
+          translateY: ''
+        }, options);
 
-        $border.velocity({
-          'border-width': 10
-        }, {
-          duration: 100,
-          easing: 'easeOutQuad'
-        });
+        $meta.velocity("stop").velocity({
+          translateY: '',
+          opacity: ''
+        }, options);
 
-        $bottom.velocity({
-          translateY: -10
-        }, {
-          duration: 200,
-          easing: 'easeOutQuad'
-        });
-      }
-
-      function animateHoverOut() {
-        $top.velocity({
-          translateY: 0
-        }, {
-          duration: 200,
-          easing: 'easeOutQuad'
-        });
-
-        $border.velocity({
-          'border-width': 0
-        }, {
-          duration: 150,
-          easing: 'easeOutQuad'
-        });
-
-        $border.velocity({
-          'outline-width': 0
-        }, {
-          duration: 0
-        });
-
-        $bottom.velocity({
-          translateY: 0
-        }, {
-          duration: 200,
-          easing: 'easeOutQuad'
-        });
-      }
+        if (typeof $hisShadow !== "undefined") {
+          $hisShadow.velocity("stop").velocity({
+            translateY: ''
+          }, options);
+        }
+      });
 
     });
 
@@ -1295,332 +973,89 @@ if (!Date.now) Date.now = function () {
 
     });
 
-  })(); /* ====== Fixed Sidebars Logic ====== */
+  })();
+  var shadows = (function () {
 
-  var fixedSidebars = (function () {
+    var images,
 
-    var $smallSidebar = $('#jp-post-flair'),
-        smallSidebarPinned = false,
-        smallSidebarPadding = 100,
-        smallSidebarPinTop = $('.top-bar.fixed').outerHeight() + smallSidebarPadding,
-        smallSidebarOffset, smallSidebarBottom, $sidebar = $('.sidebar--main'),
-        $main = $('.site-main'),
-        mainHeight = $main.outerHeight(),
-        mainOffset, mainTop, mainBottom = mainTop + mainHeight,
-        sidebarPinned = false,
-        sidebarPadding = 60,
-        sidebarBottom, sidebarHeight, sidebarOffset, sidebarTop, sidebarBottom,
-        
-        previousTop = 0,
-        animating = false,
-        
-        
-        initialized = false,
-        
-        
-        
-        /**
-         * initialize sidebar positioning
-         */
-        
-        init = function () {
+    // get all images and info about them and store them
+    // in the images array;
+    init = function () {
 
-        if ($sidebar.length) {
-          sidebarOffset = $sidebar.offset();
-          sidebarTop = sidebarOffset.top;
-          sidebarHeight = $sidebar.outerHeight();
-          sidebarBottom = sidebarTop + sidebarHeight;
-          mainTop = $main.offset().top;
+      images = new Array();
 
-          if (mainTop >= sidebarTop) {
-            styleWidgets();
-          }
-        }
-        wrapJetpackAfterContent();
-        refresh();
-        initialized = true;
-        },
-        
-        
-        
-        /**
-         * Wrap Jetpack's related posts and
-         * Sharedaddy sharing into one div
-         * to make a left sidebar on single posts
-         */
-        
-        wrapJetpackAfterContent = function () {
-        // check if we are on single post and the wrap has not been done already by Jetpack
-        // (it happens when the theme is activated on a wordpress.com installation)
-        if ($('#jp-post-flair').length != 0) $('body').addClass('has--jetpack-sidebar');
+      jQuery('.entry-image-shadow').remove();
+      jQuery('.entry-card').removeData('shadow');
 
-        if ($('body').hasClass('single-post') && $('#jp-post-flair').length == 0) {
+      $('.entry-card .entry-image img').each(function (i, obj) {
+        var image = new Object(),
+            imageOffset, imageWidth, imageHeight;
 
-          var $jpSharing = $('.sharedaddy.sd-sharing-enabled');
-          var $jpLikes = $('.sharedaddy.sd-like');
-          var $jpRelatedPosts = $('#jp-relatedposts');
+        image.$el = $(obj);
 
-          if ($jpSharing.length || $jpLikes.length || $jpRelatedPosts.length) {
+        imageOffset = image.$el.offset();
+        imageWidth = image.$el.outerWidth();
+        imageHeight = image.$el.outerHeight();
+        image.x0 = imageOffset.left;
+        image.x1 = image.x0 + imageWidth;
+        image.y0 = imageOffset.top;
+        image.y1 = image.y0 + imageHeight;
 
-            $('body').addClass('has--jetpack-sidebar');
+        images.push(image);
+      });
 
-            var $jpWrapper = $('<div/>', {
-              id: 'jp-post-flair'
-            });
-            $jpWrapper.appendTo($('.entry-content'));
-
-            if ($jpSharing.length) {
-              $jpSharing.appendTo($jpWrapper);
-            }
-
-            if ($jpLikes.length) {
-              $jpLikes.appendTo($jpWrapper);
-            }
-
-            if ($jpRelatedPosts.length) {
-              $jpRelatedPosts.appendTo($jpWrapper);
-            }
-          }
-        }
-        },
+      refresh();
+    },
         
         
         
         
-        /**
-         * Adding a class and some mark-up to the
-         * archive widget to make it look splendid
-         */
-        
-        styleWidgets = function () {
-
-        if ($.support.touch) {
-          return;
-        }
-
-        var $widgets = $sidebar.find('.widget_categories, .widget_archive, .widget_tag_cloud'),
-            separatorMarkup = '<span class="separator  separator--text" role="presentation"><span>More</span></a>';
-
-        $widgets.each(function () {
-
-          var $widget = $(this),
-              widgetHeight = $widget.outerHeight(),
-              newHeight = 220,
-              heightDiffrence = widgetHeight - newHeight,
-              widgetWidth = $widget.outerWidth();
-
-          if (widgetHeight > widgetWidth) {
-
-            $widget.data('heightDiffrence', heightDiffrence);
-            $widget.css('max-height', newHeight);
-
-            $widget.addClass('shrink');
-            $widget.append(separatorMarkup);
-            refresh();
-            masonry.refresh();
-
-            $widget.find('a').focus(function () {
-              $widget.removeClass('shrink').addClass('focused');
-            });
-
-            $widget.on('mouseenter', function () {
-
-              $main.css({
-                'paddingBottom': $sidebar.offset().top + sidebarHeight + heightDiffrence - mainBottom
-              });
-
-              // $widget.addClass('focused');
-              $widget.css({
-                'max-height': widgetHeight
-              });
-
-              setTimeout(function () {
-                refresh();
-                update();
-              }, 600);
-            });
-
-            $widget.on('mouseleave', function () {
-              $main.css({
-                'paddingBottom': ''
-              })
-              // $widget.removeClass('focused');
-              $widget.css('max-height', newHeight);
-
-              delayUpdate();
-            });
-          }
-
-          delayUpdate();
-
-        });
-
-        },
-        
-        
-        delayUpdate = function () {
-        setTimeout(function () {
-          refresh();
-          update();
-        }, 600);
-        },
-        
-        
-        
-        /**
-         * update position of the two sidebars depending on scroll position
-         */
-        
-        update = function () {
-
-        if (!initialized) {
-          init();
-        }
-
-        var windowBottom = latestKnownScrollY + windowHeight;
-
-        sidebarBottom = sidebarHeight + sidebarOffset.top + sidebarPadding;
-        mainBottom = mainHeight + sidebarOffset.top + sidebarPadding;
-
-        /* adjust right sidebar positioning if needed */
-        if (mainOffset.top == sidebarOffset.top && sidebarHeight < mainHeight) {
-
-          // pin sidebar
-          if (windowBottom > sidebarBottom && !sidebarPinned) {
-            $sidebar.css({
-              position: 'fixed',
-              top: windowHeight - sidebarHeight - sidebarPadding,
-              left: sidebarOffset.left
-            });
-            sidebarPinned = true;
-          }
-
-          // unpin sidebar
-          if (windowBottom <= sidebarBottom && sidebarPinned) {
-            $sidebar.css({
-              position: '',
-              top: '',
-              left: ''
-            });
-            sidebarPinned = false;
-          }
-
-          if (windowBottom <= mainBottom) {
-            $sidebar.css('top', windowHeight - sidebarHeight - sidebarPadding);
-          }
-
-          if (windowBottom > mainBottom && windowBottom < documentHeight) {
-            $sidebar.css('top', mainBottom - sidebarPadding - sidebarHeight - latestKnownScrollY);
-          }
-
-          if (windowBottom >= documentHeight) {
-            $sidebar.css('top', mainBottom - sidebarPadding - sidebarHeight - documentHeight + windowHeight);
-          }
-
-        }
-
-        /* adjust left sidebar positioning if needed */
-        if ($smallSidebar.length) {
-
-          if (smallSidebarOffset.top - smallSidebarPinTop < latestKnownScrollY && !smallSidebarPinned) {
-            $smallSidebar.css({
-              position: 'fixed',
-              top: smallSidebarPinTop,
-              left: smallSidebarOffset.left
-            });
-            smallSidebarPinned = true;
-          }
-
-          if (smallSidebarOffset.top - smallSidebarPinTop >= latestKnownScrollY && smallSidebarPinned) {
-            $smallSidebar.css({
-              position: '',
-              top: '',
-              left: ''
-            });
-            smallSidebarPinned = false;
-          }
-
-          if (windowBottom > mainBottom && windowBottom < documentHeight) {
-            $smallSidebar.css('top', mainBottom - smallSidebarPadding - smallSidebarHeight - latestKnownScrollY);
-          }
-
-        }
-
-        },
-        
-        
+        // test for overlaps and do some work
         refresh = function () {
 
-        if ($main.length) {
-          mainOffset = $main.offset();
-        }
-
-        if ($sidebar.length) {
-
-          var positionValue = $sidebar.css('position'),
-              topValue = $sidebar.css('top'),
-              leftValue = $sidebar.css('left'),
-              pinnedValue = sidebarPinned;
-
-          $sidebar.css({
-            position: '',
-            top: '',
-            left: ''
-          });
-
-          sidebarPinned = false;
-          sidebarOffset = $sidebar.offset();
-          sidebarHeight = $sidebar.outerHeight();
-          sidebarBottom = sidebarOffset.top + sidebarHeight;
-          mainHeight = $main.outerHeight();
-
-          $sidebar.css({
-            position: positionValue,
-            top: topValue,
-            left: leftValue
-          });
-
-          sidebarPinned = pinnedValue;
-        }
-
-        if ($smallSidebar.length) {
-
-          $smallSidebar.find('.sd-sharing-enabled, .sd-like, .jp-relatedposts-post').show().each(function (i, obj) {
-            var $box = $(obj),
-                boxOffset = $box.offset(),
-                boxHeight = $box.outerHeight(),
-                boxBottom = boxOffset.top + boxHeight - latestKnownScrollY;
-
-            if (smallSidebarPinTop + boxBottom > windowHeight + smallSidebarPadding) {
-              $box.hide();
-            } else {
-              $box.show();
+        for (var i = 0; i <= images.length - 1; i++) {
+          for (var j = i + 1; j <= images.length - 1; j++) {
+            // if we're testing the same image back off
+            if (images[i].$el == images[j].$el) {
+              return;
             }
-          });
 
-          var $relatedposts = $('.jp-relatedposts');
-
-          if ($relatedposts.length) {
-            $relatedposts.show();
-            if (!$relatedposts.find('.jp-relatedposts-post:visible').length) {
-              $relatedposts.hide();
+            if (imageOverlap(images[i], images[j])) {
+              createShadow(images[i], images[j]);
             }
           }
-
-          smallSidebarPinned = false;
-          smallSidebarOffset = $smallSidebar.offset();
-          smallSidebarHeight = $smallSidebar.outerHeight();
-          smallSidebarBottom = smallSidebarOffset.top + smallSidebarHeight;
         }
 
+        $('.entry-card').addHoverAnimation();
+        },
+        
+        
+        createShadow = function (image1, image2) {
+        // let's assume image1 is over image2
+        // we need to create a div
+        var $placeholder = $('<div class="entry-image-shadow">');
+
+        $placeholder.css({
+          position: "absolute",
+          top: image1.y0 - image2.y0,
+          left: image1.x0 - image2.x0,
+          width: image1.x1 - image1.x0,
+          height: image1.y1 - image1.y0
+        });
+
+        image1.$el.closest('.entry-card').data('shadow', $placeholder);
+        $placeholder.insertAfter(image2.$el);
+        },
+        
+        
+        imageOverlap = function (image1, image2) {
+        return (image1.x0 < image2.x1 && image1.x1 > image2.x0 && image1.y0 < image2.y1 && image1.y1 > image2.y0);
         };
 
     return {
       init: init,
-      update: update,
       refresh: refresh
     }
-
   })();
   // /* ====== ON DOCUMENT READY ====== */
   $(document).ready(function () {
@@ -1637,7 +1072,7 @@ if (!Date.now) Date.now = function () {
     browserSize();
     navigation.init();
     masonry.refresh();
-    //   fixedSidebars.update();
+    // shadows.init();
     //   svgLogo.init();
     //   animator.animate();
     scrollToTop();

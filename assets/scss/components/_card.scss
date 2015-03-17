@@ -93,7 +93,7 @@
 
 	.entry-header {
 		padding: 20px;
-		border-bottom: $gutter/2 solid white;
+		margin-bottom: 15px;
 		background: black;
 		color: white;
 
@@ -121,16 +121,17 @@
 	@extend .clearfix;
 	position: relative;
 	transform: translateZ(0);
-	transition: transform 0.3s;
+	// transition: transform 0.3s;
+	
+	opacity: 0;
 	
 	// Post Meta (categories, author and date)
 	.entry-meta {
+		@extend %clearfix;
 		position: absolute;
-		top: 0;
-		left: 0;
-
 		margin-left: $gutter;
 		margin-right: $gutter;
+		margin-bottom: 0;
 
 		@extend %alpha;
 		font-size: 11px;
@@ -138,7 +139,21 @@
 		letter-spacing: 0;
 
 		opacity: 0;
-		transition: all 0.3s;
+		padding-bottom: $gutter/2;
+		transform: translateZ(0);
+
+		.byline {
+			margin-bottom: -5px;
+		}
+
+		.byline,
+		.posted-on {
+			margin-top: 5px;
+		}
+
+		> * {
+			float: left;
+		}
 	}
 
 	.entry-time {
@@ -146,7 +161,6 @@
 	}
 
 	.entry-content {
-		@extend .entry-block;
 		background: white;
 
 		font-size: rem(14px);
@@ -157,26 +171,26 @@
 	}
 
 
-	&:hover {
-		transform: translateY($gutter/2);
+	// &:hover {
+	// 	transform: translateY($gutter/2);
 
-		.entry-meta {
-			opacity: 1;
-			transform: translateY(-$gutter);
-		}
+	// 	.entry-meta {
+	// 		opacity: 1;
+	// 		transform: translateY(-100%);
+	// 	}
 
-		.entry-image {
+	// 	.entry-image {
 
-			img {
-				// opacity: 0.8;
-				filter: grayscale(1);
-			}
+	// 		img {
+	// 			// opacity: 0.8;
+	// 			filter: grayscale(1);
+	// 		}
 
-			.hover {
-				opacity: 1;
-			}
-		}
-	}
+	// 		.hover {
+	// 			opacity: 1;
+	// 		}
+	// 	}
+	// }
 }
 
 
@@ -187,7 +201,7 @@
 
 	background: black;
 
-	@include query-above($small) {
+	@include query-above($lap) {
 		margin-right: $gutter;
 
 		&--wide {
@@ -232,6 +246,10 @@
 		z-index: 30;
 	}
 
+	+ .entry-header {
+		margin-top: 0 !important;
+	}
+
 	@include query-above($small) {
 		max-width: 50%;
 	}
@@ -253,7 +271,7 @@
 		padding-bottom: 0; 
 
 		margin-top: 20px;
-		border-bottom: 5px solid white;
+		margin-bottom: 5px;
 
 		.entry-title {
 			color: $dark;
@@ -270,6 +288,10 @@
 	@extend %beta;
 	font-weight: normal;
 	margin: 0;
+}
+
+.entry-content {
+	@extend .entry-block;	
 }
 
 .entry--even {

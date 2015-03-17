@@ -20,9 +20,16 @@ if ( ! function_exists( 'patch_posted_on' ) ) :
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time><time class="updated" hidden datetime="%4$s">%5$s</time>';
 		}
 
+		$date_format = ''; //use the format set in Settings > General
+
+		if ( ! is_single() ) {
+			//on home and archives, due to the layout, we need a shorter date format so it won't jump on a second line
+			$date_format = 'M j, Y';
+		}
+
 		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() ),
+			esc_html( get_the_date( $date_format ) ),
 			esc_html( get_the_time() ),
 			esc_attr( get_the_modified_date( 'c' ) ),
 			esc_html( get_the_modified_date() )
@@ -30,14 +37,46 @@ if ( ! function_exists( 'patch_posted_on' ) ) :
 
 		$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
+		$author_name = get_the_author();
+
+		if ( ! is_single() ) {
+			//on home and archive pages we will use only the first name so we avoid having 2 lines in the byline
+			$author_name = patch_get_author_first_name();
+		}
+
 		$byline = sprintf(
 			_x( 'by %s', 'post author', 'patch_txtd' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( $author_name ) . '</a></span>'
 		);
 
 		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>';
 
 	} #function
+
+endif;
+
+if ( ! function_exists( 'patch_get_author_first_name' ) ) :
+
+	/**
+	 * Retrieve the author first name of the current post.
+	 *
+	 * @uses $authordata The current author's DB object.
+	 *
+	 * @return string The author's first name or display name if not defined.
+	 */
+	function patch_get_author_first_name() {
+		global $authordata;
+
+		if ( is_object( $authordata ) ) {
+			if ( ! empty( $authordata->first_name ) ) {
+				return $authordata->first_name;
+			} else {
+				return apply_filters('the_author', $authordata->display_name );
+			}
+		}
+
+		return '';
+	}
 
 endif;
 
@@ -101,14 +140,11 @@ function patch_first_category( $post_ID = null) {
 	$categories = get_the_category( $post_ID );
 	if ( empty( $categories ) ) {
 		//get the default category instead
-		$categories = get_category_by_ID( get_option( 'default_category' ) );
+		$categories = array ( get_the_category_by_ID( get_option( 'default_category' ) ) );
 	}
 
 	//now intersect them so that we are left with e descending ordered array of the post's categories
-	$categories = array_uintersect( $all_categories, $categories, function ($a1, $a2) {
-		if ( $a1->term_id == $a2->term_id ) { return 0; } //we are only interested by equality but PHP wants the whole thing
-		if ( $a1->term_id > $a2->term_id ) { return 1; }
-		return -1; } );
+	$categories = array_uintersect( $all_categories, $categories, 'patch_compare_categories' );
 
 	if ( ! empty ( $categories ) ) {
 		$category = array_shift($categories);
@@ -118,6 +154,17 @@ function patch_first_category( $post_ID = null) {
 	}
 
 } #function
+
+function patch_compare_categories( $a1, $a2 ) {
+	if ( $a1->term_id == $a2->term_id ) {
+		return 0; //we are only interested by equality but PHP wants the whole thing
+	}
+
+	if ( $a1->term_id > $a2->term_id ) {
+		return 1;
+	}
+	return -1;
+}
 
 if ( ! function_exists( 'patch_entry_footer' ) ) :
 
@@ -695,7 +742,7 @@ if ( ! function_exists( 'patch_secondary_page_title' ) ) :
 
 		if ( is_archive() ) : ?>
 
-			<header class="page-header grid__item">
+			<header class="page-header grid__item entry-card">
 
 				<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
 
@@ -705,7 +752,7 @@ if ( ! function_exists( 'patch_secondary_page_title' ) ) :
 
 		<?php elseif ( is_search() ) : ?>
 
-			<header class="page-header grid__item">
+			<header class="page-header grid__item entry-card">
 				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'patch_txtd' ), get_search_query() ); ?></h1>
 			</header><!-- .page-header -->
 

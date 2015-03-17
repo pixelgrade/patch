@@ -168,9 +168,6 @@ function patch_scripts() {
 	//Enqueue ImagesLoaded plugin
 	wp_enqueue_script( 'patch-imagesloaded', get_stylesheet_directory_uri() . '/assets/js/imagesloaded.js', array(), '3.1.8', true );
 
-	//Enqueue HoverIntent plugin
-	wp_enqueue_script( 'patch-hoverintent', get_stylesheet_directory_uri() . '/assets/js/jquery.hoverIntent.js', array( 'jquery' ), '1.8.0', true );
-
 	//Enqueue Velocity.js plugin
 	wp_enqueue_script( 'patch-velocity', get_stylesheet_directory_uri() . '/assets/js/velocity.js', array(), '1.1.0', true );
 
@@ -179,7 +176,6 @@ function patch_scripts() {
 		'jquery',
 		'masonry',
 		'patch-imagesloaded',
-		'patch-hoverintent',
 		'patch-velocity',
 	), '1.0.0', true );
 

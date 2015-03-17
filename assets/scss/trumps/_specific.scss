@@ -23,7 +23,6 @@
 .dropcap {
     @extend %beta;
 
-
     float: left;
     @include rhythm(margin-bottom, 0.2, 74px);
     @include rhythm(margin-right, 1, 74px);
@@ -46,33 +45,37 @@
 // Pull Content Outside
 
 
-$pull-offset : 6 * $gutter;
-$pull-gutter : 40px;
+@include query-above($lap) {
+    $pull-offset : 6 * $gutter;
+    $pull-gutter : 40px;
 
-.pull-left {
-    margin-left: -$pull-offset;
-    width: calc(#{$pull-offset + $pull-gutter/2} + 50%);
-    padding-right: $pull-gutter;
+    .pull-left {
+        margin-left: -$pull-offset;
+        margin-bottom: rhythm(1);
+        width: calc(#{$pull-offset + $pull-gutter/2} + 50%);
+        padding-right: $pull-gutter;
 
-    padding-left: 1.5*$gutter;
-    float: left;
+        padding-left: 1.5*$gutter;
+        float: left;
 
-    text-align: right;
+        text-align: right;
 
-    & + .pull-right {
-        margin-right: -$pull-offset;
-        width: calc(#{$pull-offset - $pull-gutter/2} + 50%);
-        padding-left: 0;
+        & + .pull-right {
+            margin-right: -$pull-offset;
+            width: calc(#{$pull-offset - $pull-gutter/2} + 50%);
+            padding-left: 0;
+        }
     }
-}
 
-.pull-right {
-    margin-right: -$pull-offset;
-    width: calc(#{$pull-offset + $pull-gutter/2} + 50%);
-    padding-left: $pull-gutter;
+    .pull-right {
+        margin-right: -$pull-offset;
+        margin-bottom: rhythm(1);
+        width: calc(#{$pull-offset + $pull-gutter/2} + 50%);
+        padding-left: $pull-gutter;
 
-    padding-right: 1.5*$gutter;
-    float: right;
+        padding-right: 1.5*$gutter;
+        float: right;
 
-    text-align: left;
+        text-align: left;
+    }
 }

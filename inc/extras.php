@@ -197,11 +197,6 @@ if ( ! function_exists( 'patch_comment' ) ) :
 	<li <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
 		<article id="comment-<?php comment_ID() ?>" class="comment-article  media">
 			<span class="comment-number"><?php echo $comment_number ?></span>
-			<?php
-			//grab the avatar - by default the Mystery Man
-			$avatar = get_avatar( $comment ); ?>
-
-			<aside class="comment__avatar  media__img"><?php echo $avatar; ?></aside>
 
 			<div class="media__body">
 				<header class="comment__meta comment-author">
@@ -289,6 +284,58 @@ function patch_excerpt_length( $length ) {
 }
 
 add_filter( 'excerpt_length', 'patch_excerpt_length', 999 );
+
+/**
+ * Replace the submit input with button because the <input> tag doesn't allow CSS styling with ::before or ::after
+ */
+function patch_search_form( $form ) {
+	$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
+				<label>
+					<span class="screen-reader-text">' . _x( 'Search for:', 'label' ) . '</span>
+					<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' ) . '" value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' ) . '" />
+				</label>
+				<button class="search-submit"><i class="fa fa-search"></i></button>
+			</form>';
+
+	return $form;
+}
+
+add_filter( 'get_search_form', 'patch_search_form' );
+
+/**
+ * Check the content blob for an audio, video, object, embed, or iframe tags.
+ * This is a modified version of the current core one, in line with this
+ * https://core.trac.wordpress.org/ticket/26675
+ * This should end up in the core in version 4.2 or 4.3 hopefully
+ *
+ * @param string $content A string which might contain media data.
+ * @param array $types array of media types: 'audio', 'video', 'object', 'embed', or 'iframe'
+ * @return array A list of found HTML media embeds
+ */
+// @todo Remove this when the right get_media_embedded_in_content() ends up in the core, v4.2 hopefully
+function patch_get_media_embedded_in_content( $content, $types = null ) {
+	$html = array();
+
+	$allowed_media_types = apply_filters( 'get_media_embedded_in_content_allowed', array( 'audio', 'video', 'object', 'embed', 'iframe' ) );
+
+	if ( ! empty( $types ) ) {
+		if ( ! is_array( $types ) ) {
+			$types = array( $types );
+		}
+
+		$allowed_media_types = array_intersect( $allowed_media_types, $types );
+	}
+
+	$tags = implode( '|', $allowed_media_types );
+
+	if ( preg_match_all( '#<(?P<tag>' . $tags . ')[^<]*?(?:>[\s\S]*?<\/(?P=tag)>|\s*\/>)#', $content, $matches ) ) {
+		foreach ( $matches[0] as $match ) {
+			$html[] = $match;
+		}
+	}
+
+	return $html;
+}
 
 /**
  * Add "Styles" drop-down

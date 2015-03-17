@@ -7,9 +7,14 @@
 
 	.hentry,
 	.comments-area,
+	.nocomments,
 	.comment-respond {
 		max-width: 620px;
 		margin: 0 auto;
+	}
+
+	.entry-content {
+		margin-bottom: 42px;
 	}
 
 	@include query-below($lap) {
@@ -52,6 +57,11 @@
 	.entry-featured {
 		margin-top: $gutter;
 		margin-bottom: $gutter;
+
+		img {
+			display: block;
+			margin: 0 auto;
+		}
 	}
 
 	.entry-image--landscape,
@@ -91,10 +101,6 @@
 				width: 100%;
 			}
 		}
-	}
-
-	.entry-image--wide, .entry-image--square {
-		margin: 0;
 	}
 
 	.entry-image--portrait,
