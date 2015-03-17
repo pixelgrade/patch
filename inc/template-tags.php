@@ -777,24 +777,17 @@ if ( ! function_exists( 'patch_the_image_navigation' ) ) :
 
 		<nav class="navigation post-navigation" role="navigation">
 			<h5 class="screen-reader-text"><?php _e( 'Image navigation', 'patch_txtd' ); ?></h5>
-			<div class="article-navigation">
+			<div class="attachment-navigation">
 				<?php
 				if ( $prev_image ) {
 					$prev_thumbnail = wp_get_attachment_image( $prev_image->ID, 'patch-tiny-image' ); ?>
 
 					<span class="navigation-item  navigation-item--previous">
 						<a href="<?php echo get_attachment_link( $prev_image->ID ); ?>" rel="prev">
-							<span class="arrow"></span>
 		                    <span class="navigation-item__content">
-		                        <span class="navigation-item__wrapper  flexbox">
-		                            <span class="flexbox__item">
-		                                <span class="post-thumb"><?php echo $prev_thumbnail; ?></span>
-		                            </span>
-		                            <span class="flexbox__item">
-		                                <span class="navigation-item__name"><?php _e( 'Previous image', 'patch_txtd' ); ?></span>
-		                                <h3 class="post-title"><?php echo get_the_title( $prev_image->ID ); ?></h3>
-		                            </span>
-		                        </span>
+                                <span class="post-thumb"><?php echo $prev_thumbnail; ?></span>
+                                <span class="navigation-item__name"><?php _e( 'Previous image', 'patch_txtd' ); ?></span>
+                                <h3 class="post-title"><?php echo get_the_title( $prev_image->ID ); ?></h3>
 		                    </span>
 						</a>
 					</span>
@@ -806,18 +799,11 @@ if ( ! function_exists( 'patch_the_image_navigation' ) ) :
 
 					<span class="navigation-item  navigation-item--next">
 						<a href="<?php echo get_attachment_link( $next_image->ID ); ?>" rel="prev">
-							<span class="arrow"></span>
 		                    <span class="navigation-item__content">
-		                        <span class="navigation-item__wrapper  flexbox">
-		                            <span class="flexbox__item">
-		                                <span class="post-thumb"><?php echo $next_thumbnail; ?></span>
-		                            </span>
-		                            <span class="flexbox__item">
-		                                <span class="navigation-item__name"><?php _e( 'Next image', 'patch_txtd' ); ?></span>
-		                                <h3 class="post-title"><?php echo get_the_title( $next_image->ID ); ?></h3>
-		                            </span>
-		                        </span>
-		                    </span>
+	                                <span class="post-thumb"><?php echo $next_thumbnail; ?></span>
+	                                <span class="navigation-item__name"><?php _e( 'Next image', 'patch_txtd' ); ?></span>
+	                                <h3 class="post-title"><?php echo get_the_title( $next_image->ID ); ?></h3>
+	                        </span>
 						</a>
 					</span>
 
