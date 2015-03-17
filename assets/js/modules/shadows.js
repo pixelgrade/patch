@@ -44,7 +44,11 @@ var shadows = (function() {
 				}
 
 				if (imageOverlap(images[i], images[j])) {
-					createShadow(images[i], images[j]);
+					if (images[i].$el.closest('.entry-card').hasClass('entry--even')) {
+						createShadow(images[i], images[j]);
+					} else {
+						createShadow(images[j], images[i]);
+					}
 				}
 			}
 		}

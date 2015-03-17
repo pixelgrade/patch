@@ -163,47 +163,49 @@ $.fn.addHoverAnimation = function() {
 	    	$meta			= $obj.find('.entry-meta'),
 	    	options 		= {
 	    		duration: 300,
-	    		easing: 'easeOutQuad'
+	    		easing: 'easeOutQuad',
+	    		queue: false
 	    	};
 
 	    $obj.off('mouseenter').on('mouseenter', function() {
-	    	$obj.velocity("stop").velocity({
+	    	$obj.velocity({
 	    		translateY: 15
 	    	}, options);
 
-	    	$otherShadow.velocity("stop").velocity({
+	    	$otherShadow.velocity({
 	    		translateY: -15
 	    	}, options);
 
-	    	$meta.velocity("stop").velocity({
+	    	$meta.velocity({
 	    		translateY: '-100%',
 	    		opacity: 1
 	    	}, options);
 
 		    if (typeof $hisShadow !== "undefined") {
-		    	$hisShadow.velocity("stop").velocity({
+		    	$hisShadow.velocity({
 		    		translateY: 15
 		    	}, options);
 		    }
 	    });
 
 	    $obj.off('mouseleave').on('mouseleave', function() {
-	    	$obj.velocity("stop").velocity({
-	    		translateY: ''
+
+	    	$obj.velocity({
+	    		translateY: 0
 	    	}, options);
 
-	    	$otherShadow.velocity("stop").velocity({
-	    		translateY: ''
+	    	$otherShadow.velocity({
+	    		translateY: 0
 	    	}, options);
 
-	    	$meta.velocity("stop").velocity({
-	    		translateY: '',
+	    	$meta.velocity({
+	    		translateY: 0,
 	    		opacity: ''
 	    	}, options);
 
 		    if (typeof $hisShadow !== "undefined") {
-		    	$hisShadow.velocity("stop").velocity({
-		    		translateY: ''
+		    	$hisShadow.velocity({
+		    		translateY: 0
 		    	}, options);
 		    }
 	    });

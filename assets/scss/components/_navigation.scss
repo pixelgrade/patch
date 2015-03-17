@@ -7,7 +7,7 @@
 	@include query-below($lap) {
 		margin-top: $gutter/2;
 		margin-bottom: $gutter*3/2;
-		border-left: 0;
+		border-left: 0; 
 		width: 100%;
 	}
 
