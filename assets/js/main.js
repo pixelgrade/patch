@@ -638,11 +638,11 @@ if (!Date.now) Date.now = function () {
           bindEvents();
         }, 10);
 
-        return true;
-
         setTimeout(function () {
           shadows.init();
         }, 200);
+
+        return true;
         },
         
         
