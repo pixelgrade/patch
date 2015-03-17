@@ -554,10 +554,14 @@ if (!Date.now) Date.now = function () {
         },
         
         
-        bindEvents = function () {
+        unbindEvents = function () {
         $body.off('post-load');
+        $container.masonry('off', 'layoutComplete', onLayout);
+        },
+        
+        
+        bindEvents = function () {
         $body.on('post-load', onLoad);
-        $container.masonry('off', 'layoutComplete');
         $container.masonry('on', 'layoutComplete', onLayout);
         },
         
@@ -615,11 +619,7 @@ if (!Date.now) Date.now = function () {
 
         // get left value for each item in the grid
         $container.find('.grid__item').each(function (i, obj) {
-          var $obj = $(obj),
-              left = $obj.offset().left;
-          // cache the value for further use and not trigger any more layouts
-          $obj.data('left', left);
-          values.push(left);
+          values.push($(obj).offset().left);
         });
 
         // get unique values representing columns' left offset
@@ -632,9 +632,12 @@ if (!Date.now) Date.now = function () {
           }
         }
 
+        console.log(newValues);
+
         $container.find('.grid__item').each(function (i, obj) {
           var $obj = $(obj),
-              left = parseInt($obj.data('left'), 10);
+              left = $obj.offset().left;
+
           if (newValues.indexOf(left) != -1) {
             $obj.addClass('entry--even');
           } else {
@@ -642,16 +645,13 @@ if (!Date.now) Date.now = function () {
           }
         });
 
-        setTimeout(function () {
-          $container.masonry('layout');
-          bindEvents();
-        }, 10);
+        unbindEvents();
+        $container.masonry('layout');
+        bindEvents();
 
         setTimeout(function () {
           shadows.init();
         }, 200);
-
-        return true;
         },
         
         
