@@ -4,6 +4,10 @@
 
 @mixin spacings($gutter) {
 
+	.grid__item {
+		border-left-width: $gutter;
+	}
+
 	.entry-image--landscape {
 		margin-left: -$gutter;
 		margin-right: $gutter;
@@ -110,10 +114,12 @@
 		margin-top: 0;
 	}
 
-	@include spacings($gutter/2);
+	@media only screen and (min-width: 1260px) {
+		@include spacings($gutter/2);	
+	}
 
-	@include query-above($lap) {
-		@include spacings($gutter);	
+	@media only screen and (min-width: 1360px), screen and (min-width: 420px) and (max-width: 1259px) {
+		@include spacings($gutter);
 	}
 }
 
