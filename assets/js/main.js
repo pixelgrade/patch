@@ -583,9 +583,6 @@ if (!Date.now) Date.now = function () {
           var $post = $(obj);
           animatePost($post, i * 100);
         });
-        if (!$.support.touch) {
-          $blocks.addHoverAnimation();
-        }
         },
         
         
@@ -634,6 +631,9 @@ if (!Date.now) Date.now = function () {
           }
         });
 
+        setTimeout(function () {
+          shadows.init();
+        }, 200);
         },
         
         
@@ -663,82 +663,55 @@ if (!Date.now) Date.now = function () {
     return this.each(function (i, obj) {
 
       var $obj = $(obj),
-          $top = $obj.find('.entry-header'),
-          $img = $obj.find('.entry-featured'),
-          $border = $obj.find('.entry-image-border'),
-          $content = $obj.find('.entry-content'),
-          $bottom = $content.children().not($img);
+          $otherShadow = $obj.find('.entry-image-shadow'),
+          $hisShadow = $obj.data('shadow'),
+          $meta = $obj.find('.entry-meta'),
+          options = {
+          duration: 300,
+          easing: 'easeOutQuad'
+          };
 
-      // if we don't have have elements that need to be animated return
-      if (!$obj.length || !$img.length) {
-        return;
-      }
+      $obj.on('mouseenter', function () {
+        $obj.velocity("stop").velocity({
+          translateY: 15
+        }, options);
 
-      // bind the tweens we created above to mouse events accordingly, through hoverIntent to avoid flickering
-      $obj.find('.entry__wrapper').hoverIntent({
-        over: animateHoverIn,
-        out: animateHoverOut,
-        timeout: 0,
-        interval: 0
+        $otherShadow.velocity("stop").velocity({
+          translateY: -15
+        }, options);
+
+        $meta.velocity("stop").velocity({
+          translateY: '-100%',
+          opacity: 1
+        }, options);
+
+        if (typeof $hisShadow !== "undefined") {
+          $hisShadow.velocity("stop").velocity({
+            translateY: 15
+          }, options);
+        }
       });
 
-      function animateHoverIn() {
-        $top.velocity({
-          translateY: 10
-        }, {
-          duration: 200,
-          easing: 'easeOutQuad'
-        });
+      $obj.on('mouseleave', function () {
+        $obj.velocity("stop").velocity({
+          translateY: ''
+        }, options);
 
-        $border.velocity({
-          'outline-width': 1
-        }, {
-          duration: 0
-        });
+        $otherShadow.velocity("stop").velocity({
+          translateY: ''
+        }, options);
 
-        $border.velocity({
-          'border-width': 10
-        }, {
-          duration: 100,
-          easing: 'easeOutQuad'
-        });
+        $meta.velocity("stop").velocity({
+          translateY: '',
+          opacity: ''
+        }, options);
 
-        $bottom.velocity({
-          translateY: -10
-        }, {
-          duration: 200,
-          easing: 'easeOutQuad'
-        });
-      }
-
-      function animateHoverOut() {
-        $top.velocity({
-          translateY: 0
-        }, {
-          duration: 200,
-          easing: 'easeOutQuad'
-        });
-
-        $border.velocity({
-          'border-width': 0
-        }, {
-          duration: 150,
-          easing: 'easeOutQuad'
-        });
-
-        $border.velocity({
-          'outline-width': 0
-        }, {
-          duration: 0
-        });
-
-        $bottom.velocity({
-          translateY: 0
-        }, {
-          duration: 200,
-          easing: 'easeOutQuad'
-        });
-      }
+        if (typeof $hisShadow !== "undefined") {
+          $hisShadow.velocity("stop").velocity({
+            translateY: ''
+          }, options);
+        }
+      });
 
     });
 
@@ -1001,6 +974,85 @@ if (!Date.now) Date.now = function () {
     });
 
   })();
+  var shadows = (function () {
+
+    var images,
+
+    // get all images and info about them and store them
+    // in the images array;
+    init = function () {
+
+      images = new Array();
+
+      $('.entry-card .entry-image img').each(function (i, obj) {
+        var image = new Object(),
+            imageOffset, imageWidth, imageHeight;
+
+        image.$el = $(obj);
+        imageOffset = image.$el.offset();
+        imageWidth = image.$el.outerWidth();
+        imageHeight = image.$el.outerHeight();
+        image.x0 = imageOffset.left;
+        image.x1 = image.x0 + imageWidth;
+        image.y0 = imageOffset.top;
+        image.y1 = image.y0 + imageHeight;
+
+        images.push(image);
+      });
+
+      refresh();
+    },
+        
+        
+        
+        
+        // test for overlaps and do some work
+        refresh = function () {
+
+        for (var i = 0; i <= images.length - 1; i++) {
+          for (var j = i + 1; j <= images.length - 1; j++) {
+            // if we're testing the same image back off
+            if (images[i].$el == images[j].$el) {
+              return;
+            }
+
+            if (imageOverlap(images[i], images[j])) {
+              createShadow(images[i], images[j]);
+            }
+          }
+        }
+
+        $('.entry-card').addHoverAnimation();
+        },
+        
+        
+        createShadow = function (image1, image2) {
+        // let's assume image1 is over image2
+        // we need to create a div
+        var $placeholder = $('<div class="entry-image-shadow">');
+
+        $placeholder.css({
+          position: "absolute",
+          top: image1.y0 - image2.y0,
+          left: image1.x0 - image2.x0,
+          width: image1.x1 - image1.x0,
+          height: image1.y1 - image1.y0
+        });
+
+        image1.$el.closest('.entry-card').data('shadow', $placeholder);
+        $placeholder.insertAfter(image2.$el);
+        },
+        
+        
+        imageOverlap = function (image1, image2) {
+        return (image1.x0 < image2.x1 && image1.x1 > image2.x0 && image1.y0 < image2.y1 && image1.y1 > image2.y0);
+        };
+
+    return {
+      init: init,
+      refresh: refresh
+    }
+  })();
   // /* ====== ON DOCUMENT READY ====== */
   $(document).ready(function () {
     init();
@@ -1016,7 +1068,7 @@ if (!Date.now) Date.now = function () {
     browserSize();
     navigation.init();
     masonry.refresh();
-    //   fixedSidebars.update();
+    // shadows.init();
     //   svgLogo.init();
     //   animator.animate();
     scrollToTop();

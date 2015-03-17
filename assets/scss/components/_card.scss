@@ -121,7 +121,7 @@
 	@extend .clearfix;
 	position: relative;
 	transform: translateZ(0);
-	transition: transform 0.3s;
+	// transition: transform 0.3s;
 	
 	opacity: 0;
 	
@@ -139,8 +139,8 @@
 		letter-spacing: 0;
 
 		opacity: 0;
-		transition: all 0.3s;
 		padding-bottom: $gutter/2;
+		transform: translateZ(0);
 
 		.byline {
 			margin-bottom: -5px;
@@ -171,26 +171,26 @@
 	}
 
 
-	&:hover {
-		transform: translateY($gutter/2);
+	// &:hover {
+	// 	transform: translateY($gutter/2);
 
-		.entry-meta {
-			opacity: 1;
-			transform: translateY(-100%);
-		}
+	// 	.entry-meta {
+	// 		opacity: 1;
+	// 		transform: translateY(-100%);
+	// 	}
 
-		.entry-image {
+	// 	.entry-image {
 
-			img {
-				// opacity: 0.8;
-				filter: grayscale(1);
-			}
+	// 		img {
+	// 			// opacity: 0.8;
+	// 			filter: grayscale(1);
+	// 		}
 
-			.hover {
-				opacity: 1;
-			}
-		}
-	}
+	// 		.hover {
+	// 			opacity: 1;
+	// 		}
+	// 	}
+	// }
 }
 
 

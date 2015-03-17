@@ -15,7 +15,7 @@ $window.load(function() {
   browserSize();
   navigation.init();
   masonry.refresh();
-//   fixedSidebars.update();
+  // shadows.init();
 //   svgLogo.init();
 //   animator.animate();
    scrollToTop();
