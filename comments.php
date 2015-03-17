@@ -20,11 +20,11 @@ if ( post_password_required() ) {
 	<div id="comments" class="comments-area  <?php echo ( ! have_comments() ) ? 'no-comments' : ''; ?>">
 		<div class="comments-area-title">
 			<h2 class="comments-title"><?php
-				if ( have_comments() ) {
-					echo '<span class="comment-number  comment-number--dark  total">' . number_format_i18n( get_comments_number() ) . '</span>' . _n( 'Comment', 'Comments', get_comments_number(), 'patch_txtd' );
-				} else {
-					echo '<span class="comment-number  comment-number--dark  no-comments">i</span>' . __( 'There are no comments', 'patch_txtd' );
-				} ?></h2>
+			if ( have_comments() ) {
+				echo '<span class="comment-number  comment-number--dark  total">' . number_format_i18n( get_comments_number() ) . '</span>' . _n( 'Comment', 'Comments', get_comments_number(), 'patch_txtd' );
+			} else {
+				echo '<span class="comment-number  comment-number--dark  no-comments">i</span>' . __( 'There are no comments', 'patch_txtd' );
+			} ?></h2>
 			<?php echo '<a class="comments_add-comment" href="#reply-title">' . __( 'Add yours', 'patch_txtd' ) . '</a>'; ?>
 		</div>
 		<?php
