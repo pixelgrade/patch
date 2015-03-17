@@ -65,6 +65,10 @@ html {
 	padding: 24px 36px;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 body.wp-editor {
 	max-width: 620px;
 	margin-left: auto;
@@ -89,6 +93,11 @@ body.wp-editor {
 @import "trumps/bass";
 @import "base/type";
 
+blockquote {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+}
 
 
 
