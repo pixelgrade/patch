@@ -555,7 +555,9 @@ if (!Date.now) Date.now = function () {
         
         
         bindEvents = function () {
+        $body.off('post-load');
         $body.on('post-load', onLoad);
+        $container.masonry('off', 'layoutComplete');
         $container.masonry('on', 'layoutComplete', onLayout);
         },
         
@@ -630,6 +632,13 @@ if (!Date.now) Date.now = function () {
             $obj.removeClass('entry--even');
           }
         });
+
+        setTimeout(function () {
+          $container.masonry('layout');
+          bindEvents();
+        }, 10);
+
+        return true;
 
         setTimeout(function () {
           shadows.init();
