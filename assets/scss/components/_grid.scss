@@ -2,10 +2,10 @@
 	padding-bottom: 2*$gutter;
 
 	@include query-above($lap) {
-		padding: 2*$gutter 0;
+		padding: $gutter;
 	}
 
-	@include query-above(1260px) {
+	@include query-above(1360px) {
 		padding: 2*$gutter;
 	}
 }
@@ -15,16 +15,16 @@
 	margin: 0 auto;
 	max-width: 450px;
 
-	@include query-above(800px) {
+	@include query-above($lap) {
 		max-width: 1000px;
 		margin-top: 0;
 	}
 
-	@include query-above(1250px) {
+	@include query-above(1260px) {
 		max-width: 1400px;
 	}
 
-	@include query-above(1650px) {
+	@include query-above(1800px) {
 		max-width: 1800px;
 	}
 }
@@ -41,10 +41,10 @@
 }
 
 .grid__item {
-	border-left: $gutter/2 solid transparent;
+	border-left: 0 solid transparent;
 	margin-bottom: $gutter;
 
-    @include query-above(800px) {
+    @include query-above($lap) {
 		float: left;
     	width: 50%;
 
@@ -53,20 +53,16 @@
     	}
     }
 
-    @include query-above(1250px) {
+    @include query-above(1260px) {
     	width: 33.33%;
     }
 
-    @include query-above(1650px) {
+    @include query-above(1800px) {
     	width: 25%;
 
 		&:nth-child(4) {
 			// margin-top: 50px;
 		}
-    }
-
-    @include query-above($lap) {
-    	border-left-width: $gutter;
     }
 }
 
