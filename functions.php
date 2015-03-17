@@ -13,25 +13,6 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-if ( ! function_exists( 'patch_content_width' ) ) :
-
-	/**
-	 * Adjusts content_width value depending on situation.
-	 */
-	function patch_content_width() {
-		global $content_width;
-
-		if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-			$content_width = 1062; /* pixels */
-		}
-
-		//for attachments the $content_width is set in image.php
-	}
-
-endif;
-
-add_action( 'template_redirect', 'patch_content_width' );
-
 if ( ! function_exists( 'patch_setup' ) ) :
 
 	/**
