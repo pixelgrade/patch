@@ -555,7 +555,9 @@ if (!Date.now) Date.now = function () {
         
         
         bindEvents = function () {
+        $body.off('post-load');
         $body.on('post-load', onLoad);
+        $container.masonry('off', 'layoutComplete');
         $container.masonry('on', 'layoutComplete', onLayout);
         },
         
@@ -624,7 +626,7 @@ if (!Date.now) Date.now = function () {
         $container.find('.grid__item').each(function (i, obj) {
           var $obj = $(obj),
               left = parseInt($obj.data('left'), 10);
-          if (newValues.indexOf(left) != -1 && $obj.find('.entry-image--portrait, .entry-image--tall').length) {
+          if (newValues.indexOf(left) != -1) {
             $obj.addClass('entry--even');
           } else {
             $obj.removeClass('entry--even');
@@ -632,8 +634,15 @@ if (!Date.now) Date.now = function () {
         });
 
         setTimeout(function () {
+          $container.masonry('layout');
+          bindEvents();
+        }, 10);
+
+        setTimeout(function () {
           shadows.init();
         }, 200);
+
+        return true;
         },
         
         
@@ -671,7 +680,7 @@ if (!Date.now) Date.now = function () {
           easing: 'easeOutQuad'
           };
 
-      $obj.on('mouseenter', function () {
+      $obj.off('mouseenter').on('mouseenter', function () {
         $obj.velocity("stop").velocity({
           translateY: 15
         }, options);
@@ -692,7 +701,7 @@ if (!Date.now) Date.now = function () {
         }
       });
 
-      $obj.on('mouseleave', function () {
+      $obj.off('mouseleave').on('mouseleave', function () {
         $obj.velocity("stop").velocity({
           translateY: ''
         }, options);

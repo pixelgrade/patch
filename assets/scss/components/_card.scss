@@ -4,6 +4,14 @@
 
 @mixin spacings($gutter) {
 
+	.grid {
+		border-right-width: $gutter;
+	}
+
+	.grid__item {
+		border-left-width: $gutter;
+	}
+
 	.entry-image--landscape {
 		margin-left: -$gutter;
 		margin-right: $gutter;
@@ -21,7 +29,7 @@
 
 		~ .entry-content {
 			padding-bottom: $gutter;
-			// margin-bottom: -$gutter;
+			margin-bottom: -$gutter/2;
 		}
 	}
 
@@ -47,24 +55,17 @@
 	}
 
 	.entry--even {
-
 		.entry-image--tall,
 		.entry-image--portrait {
 
-			& ~ .entry-block {
-				margin-left: -$gutter;
-				padding-left: $gutter;				
-			}
-		}
-
-		.entry-image {
 			margin-left: $gutter/2;
 			margin-right: -$gutter;
-		}
 
-		.entry-image ~ .entry-block {
-			margin-left: -$gutter;
-			margin-right: $gutter;
+			& ~ .entry-block {
+				margin-left: -$gutter;
+				padding-left: $gutter;	
+				margin-right: $gutter;			
+			}
 		}
 	}
 
@@ -110,10 +111,12 @@
 		margin-top: 0;
 	}
 
-	@include spacings($gutter/2);
+	@media only screen and (min-width: 1260px) {
+		@include spacings($gutter/2);	
+	}
 
-	@include query-above($lap) {
-		@include spacings($gutter);	
+	@media only screen and (min-width: 1360px), screen and (min-width: 420px) and (max-width: 1259px) {
+		@include spacings($gutter);
 	}
 }
 
@@ -167,6 +170,10 @@
 
 		p {
 			margin-bottom: rem(15px);
+
+			&:last-of-type {
+				// margin-bottom: 0;
+			}
 		}
 	}
 
@@ -298,20 +305,19 @@
 	position: relative;
 	z-index: 20;
 
-	.entry-image {
-		float: right;
-		margin-left: $gutter/2;
-	}
-
 	.entry-image--tall,
 	.entry-image--portrait {
 		margin-right: 0;
-		padding-right: 0;		
+		padding-right: 0;	
+
+		margin-left: $gutter/2;	
+		float: right;
+		
+		~ .entry-block {
+			text-align: right;
+		}
 	} 
 
-	.entry-block {
-		text-align: right;
-	}
 } 
 
 @include query-below(400px) {
