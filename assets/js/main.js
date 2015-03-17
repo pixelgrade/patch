@@ -616,7 +616,7 @@ if (!Date.now) Date.now = function () {
 
         // keep only the even ones so we can identify what columns need new css classes
         for (var k in values) {
-          if (values.hasOwnProperty(k) && k % 2 == 1) {
+          if (values.hasOwnProperty(k) && k % 2 == 0) {
             newValues.push(values[k]);
           }
         }
@@ -984,11 +984,15 @@ if (!Date.now) Date.now = function () {
 
       images = new Array();
 
+      jQuery('.entry-image-shadow').remove();
+      jQuery('.entry-card').removeData('shadow');
+
       $('.entry-card .entry-image img').each(function (i, obj) {
         var image = new Object(),
             imageOffset, imageWidth, imageHeight;
 
         image.$el = $(obj);
+
         imageOffset = image.$el.offset();
         imageWidth = image.$el.outerWidth();
         imageHeight = image.$el.outerHeight();

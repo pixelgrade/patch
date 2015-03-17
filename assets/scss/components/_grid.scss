@@ -2,7 +2,7 @@
 	padding-bottom: 2*$gutter;
 
 	@include query-above($lap) {
-		padding: 2*$gutter 0;
+		padding: $gutter;
 	}
 
 	@include query-above(1260px) {
@@ -15,7 +15,7 @@
 	margin: 0 auto;
 	max-width: 450px;
 
-	@include query-above(800px) {
+	@include query-above($lap) {
 		max-width: 1000px;
 		margin-top: 0;
 	}
@@ -44,7 +44,7 @@
 	border-left: $gutter/2 solid transparent;
 	margin-bottom: $gutter;
 
-    @include query-above(800px) {
+    @include query-above($lap) {
 		float: left;
     	width: 50%;
 

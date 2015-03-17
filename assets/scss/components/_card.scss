@@ -93,7 +93,7 @@
 
 	.entry-header {
 		padding: 20px;
-		border-bottom: $gutter/2 solid white;
+		margin-bottom: 15px;
 		background: black;
 		color: white;
 
@@ -271,7 +271,7 @@
 		padding-bottom: 0; 
 
 		margin-top: 20px;
-		border-bottom: 5px solid white;
+		margin-bottom: 5px;
 
 		.entry-title {
 			color: $dark;

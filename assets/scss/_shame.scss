@@ -88,5 +88,7 @@ body {
 }
 
 .entry-image-shadow {
-	box-shadow: black 0 0 20px 10px;
+	background: black;
+	box-shadow: black 0 0 25px;
+	// transform: translateZ(0);
 }

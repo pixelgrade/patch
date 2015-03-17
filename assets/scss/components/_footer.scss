@@ -2,9 +2,16 @@
 	color: white;
 	background: black;
 	font-size: rem(13px);
+	padding-top: $gutter/2;
 
 	@include query-above($lap) {
-		padding: 15px 65px 0;
+		padding-left: $gutter;
+		padding-right: $gutter;
+	}
+
+	@include query-above(1260px) {
+		padding-left: $gutter*2;
+		padding-right: $gutter*2;
 	}
 
 	> * {

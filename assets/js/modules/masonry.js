@@ -95,7 +95,7 @@ var masonry = (function() {
 
 		// keep only the even ones so we can identify what columns need new css classes
 		for (var k in values){
-		    if (values.hasOwnProperty(k) && k % 2 == 1) {
+		    if (values.hasOwnProperty(k) && k % 2 == 0) {
 		         newValues.push(values[k]);
 		    }
 		}
