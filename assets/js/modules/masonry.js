@@ -38,7 +38,9 @@ var masonry = (function() {
 	},
 
 	bindEvents = function() {
+		$body.off('post-load');
 		$body.on('post-load', onLoad);
+		$container.masonry('off', 'layoutComplete');
 		$container.masonry('on', 'layoutComplete', onLayout);
 	},
 
@@ -109,6 +111,13 @@ var masonry = (function() {
 				$obj.removeClass('entry--even');
 			}
 		});
+
+		setTimeout(function () {
+			$container.masonry('layout');
+			bindEvents();
+		}, 10);
+
+		return true;
 
 		setTimeout(function() {
 			shadows.init();
