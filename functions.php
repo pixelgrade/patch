@@ -204,4 +204,10 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * Load Jetpack compatibility file.
  */
-require get_template_directory() . '/inc/jetpack.php'; ?>
+require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Load the theme update logic
+ */
+require_once( get_template_directory() . '/inc/wp-updates-theme.php' );
+new WPUpdatesThemeUpdater_1240( 'http://wp-updates.com/api/2/theme', basename( get_template_directory() ) );?>
