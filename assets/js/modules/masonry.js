@@ -117,11 +117,11 @@ var masonry = (function() {
 			bindEvents();
 		}, 10);
 
-		return true;
-
 		setTimeout(function() {
 			shadows.init();
 		}, 200);
+
+		return true;
 	},
 
 	onLoad = function() {
