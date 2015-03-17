@@ -680,7 +680,7 @@ if (!Date.now) Date.now = function () {
           easing: 'easeOutQuad'
           };
 
-      $obj.on('mouseenter', function () {
+      $obj.off('mouseenter').on('mouseenter', function () {
         $obj.velocity("stop").velocity({
           translateY: 15
         }, options);
@@ -701,7 +701,7 @@ if (!Date.now) Date.now = function () {
         }
       });
 
-      $obj.on('mouseleave', function () {
+      $obj.off('mouseleave').on('mouseleave', function () {
         $obj.velocity("stop").velocity({
           translateY: ''
         }, options);
