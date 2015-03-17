@@ -64,6 +64,15 @@ var masonry = (function() {
 	showBlocks = function($blocks) {
 		$blocks.each(function(i, obj) {
 			var $post = $(obj);
+
+			if ($post.find('.entry-image--portrait').length) {
+				$post.addClass('entry-card--portrait');
+			}
+
+			if ($post.find('.entry-image--tall').length) {
+				$post.addClass('entry-card--tall');
+			}
+
 			animatePost($post, i * 100);
 		});
 	},
