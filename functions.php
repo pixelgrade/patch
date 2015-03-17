@@ -207,6 +207,16 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
+ * Load Customify plugin configuration
+ */
+require get_template_directory() . '/inc/customify_config.php';
+
+/**
+ * Load Recommended/Required plugins notification
+ */
+require get_template_directory() . '/inc/required-plugins/required-plugins.php';
+
+/**
  * Load the theme update logic
  */
 require_once( get_template_directory() . '/inc/wp-updates-theme.php' );
