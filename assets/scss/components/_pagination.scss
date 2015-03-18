@@ -73,6 +73,10 @@
 		display: none;
 	}
 
+	.has_infinite-scroll & {
+		display: none;
+	}
+
 	@include query-below($lap) {
 		li:first-child, li:last-child {
 			margin: rem(25px) 0;
@@ -161,4 +165,29 @@
 	top: 100%;
 	left: 50%;
 	transform: translateX(-50%);
+}
+
+#infinite-handle{
+	left: calc(50% + 15px);
+
+	span {
+		@extend %smarter-links-underlines;
+
+		background: transparent;
+		border-radius: 0;
+		color: $dark;
+		cursor: pointer;
+		font-size: 20px;
+
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	button {
+		text-transform: uppercase;
+	}
+}
+
+.has_infinite-scroll .grid {
+	margin-bottom: 60px;
 }
