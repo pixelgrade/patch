@@ -548,7 +548,13 @@ if (!Date.now) Date.now = function () {
           });
           bindEvents();
           onLayout();
+
+          setTimeout(function () {
+            $container.masonry('layout');
+          }, 60);
+
           showBlocks($blocks);
+
           initialized = true;
         });
         },

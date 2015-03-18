@@ -33,7 +33,7 @@ var masonry = (function() {
 			bindEvents();
 			onLayout();
 
-			setTimeoutrefresh(function() {
+			setTimeout(function() {
 				$container.masonry('layout');
 			}, 60);
 
