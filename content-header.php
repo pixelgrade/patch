@@ -6,7 +6,11 @@
  * @since Patch 1.0
  */
 ?>
-<header id="masthead" class="site-header<?php echo is_singular() ? '' : ' grid__item'; ?>" role="banner">
+
+<?php if (!is_singular()) { ?>
+<div class="grid__item">
+<?php } ?>
+<header id="masthead" class="site-header" role="banner">
 	<div class="site-branding">
 
 		<?php if ( function_exists( 'jetpack_the_site_logo' ) ) { // display the Site Logo if present
@@ -56,3 +60,6 @@
 	</nav><!-- #site-navigation -->
 
 </header><!-- #masthead -->
+<?php if (!is_singular()) { ?>
+</div><!-- .grid__item -->
+<?php } ?>

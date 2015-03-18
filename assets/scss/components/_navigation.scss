@@ -109,17 +109,23 @@
 			display: inline-block;
 			line-height: 1.5;
 			letter-spacing: 0.06em;
-			padding-right: 0.65em;
+			
 		}
 	}
 
 	.menu-item-has-children {
-		> a:after {
-			content: "+";
-			position: absolute;
-			top: -0.1em;
-			right: 0;
+
+		> a {
+			padding-right: 0.65em;
+			
+			&:after {
+				content: "+";
+				position: absolute;
+				top: -0.1em;
+				right: 0;
+			}
 		}
+
 	}
 
 	// Sub menus

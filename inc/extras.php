@@ -26,6 +26,10 @@ function patch_body_classes( $classes ) {
 		$classes[ ] = 'has_sidebar';
 	}
 
+	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) {
+		$classes[ ] = 'has_infinite-scroll';
+	}
+
 	return $classes;
 }
 
@@ -42,7 +46,7 @@ add_filter( 'body_class', 'patch_body_classes' );
 function patch_post_classes( $classes ) {
 
 	if ( is_archive() || is_home() || is_search() ) {
-		$classes[] = 'entry-card  grid__item';
+		$classes[] = 'entry-card  js-masonry-item';
 	}
 
 	if ( is_single() && has_post_thumbnail() ) {

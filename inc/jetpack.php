@@ -17,10 +17,10 @@ function patch_jetpack_setup() {
 	 * See: http://jetpack.me/support/infinite-scroll/
 	 */
 	add_theme_support( 'infinite-scroll', array(
-		'type'      => 'scroll', //load new posts on click please - we have widgets in bellow the posts
-		'container' => 'posts', //here is where the posts are - help yourself
-		'wrapper'   => false, //we don't need a wrapper because it would mess with the masonry
-		'footer'    => 'page', //match footer width to this id
+		'type'      => 'scroll',
+		'container' => 'posts',
+		'wrapper'   => false,
+		'footer'    => 'page',
 	) );
 
 	/**
