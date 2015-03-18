@@ -48,6 +48,7 @@
 .grid__item {
 	width: 100%;
 	border-left: 0 solid transparent;
+	margin-bottom: 30px;
 
     @include query-above($lap) {
 		float: left;

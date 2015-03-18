@@ -17,6 +17,8 @@ if ( ! empty( $media ) ) {
 	$content = str_replace( $media[0], '', $content );
 } ?>
 
+<?php if (!is_singular()) { echo '<div class="grid__item">'; } ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="entry-meta">
@@ -70,3 +72,5 @@ if ( ! empty( $media ) ) {
 	</footer><!-- .entry-footer -->
 	
 </article><!-- #post-## -->
+
+<?php if (!is_singular()) { echo '</div>'; } ?>

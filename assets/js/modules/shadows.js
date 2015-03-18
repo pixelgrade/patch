@@ -109,6 +109,7 @@ var shadows = (function() {
 		}
 
 		$card.data('shadow', $shadows);
+		$placeholder.data('source', source.$el[0]);
 		$placeholder.insertAfter(destination.$el);
 	},
 
