@@ -197,6 +197,10 @@ strong {
 	}
 }
 
+.smart-link {
+	@extend %smarter-links-underlines;
+}
+
 a {
 	text-decoration: none;
 	color: $black;
