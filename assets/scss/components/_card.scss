@@ -255,6 +255,16 @@
 	}
 }
 
+.sticky {
+	display: inherit;
+
+	&.entry-card {
+		// @todo
+		// needs design
+
+	}
+}
+
 .entry-image {
 	position: relative;
 	z-index: 32; //over .entry-meta
