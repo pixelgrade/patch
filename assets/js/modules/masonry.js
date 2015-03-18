@@ -35,7 +35,7 @@ var masonry = (function() {
 
 			setTimeout(function() {
 				$container.masonry('layout');
-			}, 60);
+			}, 100);
 
 			showBlocks($blocks);
 			

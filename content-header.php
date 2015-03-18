@@ -7,9 +7,8 @@
  */
 ?>
 
-<?php if (!is_singular()) { ?>
-<div class="grid__item">
-<?php } ?>
+<?php if (!is_singular()) { echo '<div class="grid__item">'; } ?>
+
 <header id="masthead" class="site-header" role="banner">
 	<div class="site-branding">
 
@@ -60,6 +59,5 @@
 	</nav><!-- #site-navigation -->
 
 </header><!-- #masthead -->
-<?php if (!is_singular()) { ?>
-</div><!-- .grid__item -->
-<?php } ?>
+
+<?php if (!is_singular()) { echo '</div>'; } ?>

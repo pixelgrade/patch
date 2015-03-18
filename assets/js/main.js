@@ -551,7 +551,7 @@ if (!Date.now) Date.now = function () {
 
           setTimeout(function () {
             $container.masonry('layout');
-          }, 60);
+          }, 100);
 
           showBlocks($blocks);
 
@@ -1113,6 +1113,7 @@ if (!Date.now) Date.now = function () {
         }
 
         $card.data('shadow', $shadows);
+        $placeholder.data('source', source.$el[0]);
         $placeholder.insertAfter(destination.$el);
         },
         
