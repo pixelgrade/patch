@@ -17,16 +17,6 @@
 	}
 }
 
-
-// Logo
-// Site Title
-// Site Description
-.site-branding {
-	img {
-
-	}
-}
-
 @include query-above($lap) {
 	.site-branding,
 	.nav--main,
