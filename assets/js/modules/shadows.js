@@ -13,15 +13,22 @@ var shadows = (function() {
 
 		$('.entry-card .entry-image img').each(function(i, obj) {
 			var image = new Object(),
+				$obj = $(obj),
 				imageOffset,
 				imageWidth,
 				imageHeight;
 
-			image.$el 	= $(obj);
+			image.$el = $obj;
+			image.$img = $obj;
 
-			imageOffset = image.$el.offset();
-			imageWidth 	= image.$el.outerWidth();
-			imageHeight = image.$el.outerHeight();
+			if ($obj.closest('.entry-image').hasClass('entry-image--tall') || $obj.closest('.entry-image').hasClass('entry-image--portrait')) {
+				$obj = $obj.closest('.entry-card');
+			}
+
+			imageOffset = $obj.offset();
+			imageWidth 	= $obj.outerWidth();
+			imageHeight = $obj.outerHeight();
+			image.$el 	= $obj;
 			image.x0 	= imageOffset.left;
 			image.x1	= image.x0 + imageWidth;
 			image.y0	= imageOffset.top;
@@ -44,7 +51,10 @@ var shadows = (function() {
 				}
 
 				if (imageOverlap(images[i], images[j])) {
-					if (images[i].$el.closest('.entry-card').hasClass('entry--even')) {
+					var $card = images[i].$el,
+						$card2 = images[j].$el;
+
+					if ($card.offset().left < $card2.offset().left) {
 						createShadow(images[i], images[j]);
 					} else {
 						createShadow(images[j], images[i]);
@@ -76,6 +86,20 @@ var shadows = (function() {
 	},
 
 	imageOverlap = function(image1, image2) {
+		if (image1.$el.hasClass('entry-card') && image2.$el.hasClass('entry-card')) {
+
+			var imageOffset, imageWidth, imageHeight;
+
+			$obj 		= image2.$el.find('.entry-image');
+			imageOffset = $obj.offset();
+			imageWidth 	= $obj.outerWidth();
+			imageHeight = $obj.outerHeight();
+			image2.$el 	= $obj;
+			image2.x0 	= imageOffset.left;
+			image2.x1	= image2.x0 + imageWidth;
+			image2.y0	= imageOffset.top;
+			image2.y1	= image2.y0 + imageHeight;
+		}
 		return (image1.x0 < image2.x1 && image1.x1 > image2.x0 && image1.y0 < image2.y1 && image1.y1 > image2.y0);
 	};
 
