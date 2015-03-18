@@ -1048,7 +1048,7 @@ if (!Date.now) Date.now = function () {
           }
         }
 
-        if (!touch) {
+        if (!$.support.touch) {
           $('.entry-card').addHoverAnimation();
         }
         },
