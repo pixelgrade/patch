@@ -632,8 +632,6 @@ if (!Date.now) Date.now = function () {
           }
         }
 
-        console.log(newValues);
-
         $container.find('.grid__item').each(function (i, obj) {
           var $obj = $(obj),
               left = $obj.offset().left;
@@ -1050,7 +1048,9 @@ if (!Date.now) Date.now = function () {
           }
         }
 
-        $('.entry-card').addHoverAnimation();
+        if (!touch) {
+          $('.entry-card').addHoverAnimation();
+        }
         },
         
         
