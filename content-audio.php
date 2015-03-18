@@ -17,7 +17,7 @@ if ( ! empty( $media ) ) {
 	$content = str_replace( $media[0], '', $content );
 } ?>
 
-<?php if (!is_singular()) { echo '<div class="grid__item">'; } ?>
+<?php if ( ! is_singular() ) { echo '<div class="grid__item">'; } ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -69,4 +69,4 @@ if ( ! empty( $media ) ) {
 	
 </article><!-- #post-## -->
 
-<?php if (!is_singular()) { echo '</div>'; } ?>
+<?php if ( ! is_singular() ) { echo '</div>'; } ?>

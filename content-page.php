@@ -7,7 +7,7 @@
  */
 ?>
 
-<?php if (!is_singular()) { echo '<div class="grid__item">'; } ?>
+<?php if ( ! is_singular() ) { echo '<div class="grid__item">'; } ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header <?php patch_post_thumbnail_class( 'entry-header' ); ?>>
@@ -46,4 +46,4 @@
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
-<?php if (!is_singular()) { echo '</div>'; } ?>
+<?php if ( ! is_singular() ) { echo '</div>'; } ?>
