@@ -22,7 +22,7 @@
 		<a href="<?php the_permalink(); ?>" <?php patch_post_thumbnail_class( 'entry-image' ); ?>>
 
 			<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
-				<span class="sticky"></span>
+				<span class="sticky-post"></span>
 			<?php endif; ?>
 
 			<span class="hover" role="presentation"><?php _e( 'Read More', 'patch_txtd' ); ?></span>
@@ -32,9 +32,9 @@
 	<?php endif; ?>
 
 	<header <?php patch_post_title_class(); ?>>
-		
+
 		<?php if ( is_sticky() && ! has_post_thumbnail() && is_home() && ! is_paged() ) : ?>
-			<span class="sticky"></span>
+			<span class="sticky-post"></span>
 		<?php endif; ?>
 
 		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
