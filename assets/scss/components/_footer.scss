@@ -1,7 +1,7 @@
 .site-footer {
-	color: white;
+	color: $light;
 	background: black;
-	font-size: rem(13px);
+	font-size: 13px;
 	padding-top: $gutter/2;
 
 	@include query-above($lap) {
@@ -31,7 +31,12 @@
 
 	a {
 		color: $light;
+		font-weight: 300;
 		text-decoration: none;
+
+		&[rel="designer"] {
+			color: white;
+		}
 	}
 }
 
@@ -50,7 +55,7 @@
 }
 
 .theme-name {
-	text-decoration: underline;
+	// text-decoration: underline;
 }
 
 .nav--footer {
