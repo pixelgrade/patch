@@ -20,7 +20,7 @@
 
 <body <?php body_class(); ?>>
 <button class="navigation__trigger  js-nav-trigger">
-	<i class="fa fa-bars"></i><span class="screen-reader-text"><?php _e( 'Menu', 'hive_txtd' ); ?></span>
+	<i class="fa fa-bars"></i><span class="screen-reader-text"><?php _e( 'Menu', 'patch_txtd' ); ?></span>
 </button>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'patch_txtd' ); ?></a>
