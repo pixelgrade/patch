@@ -72,7 +72,7 @@ var masonry = (function() {
 
 	showBlocks = function($blocks) {
 		$blocks.each(function(i, obj) {
-			var $post = $(obj);
+			var $post = $(obj).find('.entry-card, .site-header');
 
 			if ($post.find('.entry-image--portrait').length) {
 				$post.addClass('entry-card--portrait');
@@ -87,13 +87,17 @@ var masonry = (function() {
 	},
 
 	animatePost = function($post, delay) {
-		$post.velocity({
-			opacity: 1
-		}, {
-			duration: 300,
-			delay: delay,
-			easing: 'easeOutCubic'
-		});
+		// $post.velocity({
+		// 	opacity: 1
+		// }, {
+		// 	duration: 300,
+		// 	delay: delay,
+		// 	easing: 'easeOutCubic'
+		// });
+		
+		setTimeout(function() {
+			$post.addClass('is-visible');
+		}, delay);
 	},
 
 	onLayout = function() {
@@ -110,7 +114,7 @@ var masonry = (function() {
 		values = values.getUnique(values);
 
 		// keep only the even ones so we can identify what columns need new css classes
-		for (var k in values){
+		for (var k in values) {
 		    if (values.hasOwnProperty(k) && k % 2 == 0) {
 		         newValues.push(values[k]);
 		    }
@@ -119,6 +123,8 @@ var masonry = (function() {
 		$container.find('.grid__item').each(function (i, obj) {
 			var $obj = $(obj),
 				left = $obj.offset().left;
+
+			$obj.css('z-index', values.length - values.indexOf(left));
 
 			if (newValues.indexOf(left) != -1) {
 				$obj.addClass('entry--even');
