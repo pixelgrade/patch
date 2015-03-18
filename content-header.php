@@ -6,7 +6,7 @@
  * @since Patch 1.0
  */
 ?>
-<header id="masthead" class="site-header<?php echo is_single() ? '' : ' grid__item'; ?>" role="banner">
+<header id="masthead" class="site-header<?php echo is_singular() ? '' : ' grid__item'; ?>" role="banner">
 	<div class="site-branding">
 
 		<?php if ( function_exists( 'jetpack_the_site_logo' ) ) { // display the Site Logo if present
@@ -27,7 +27,7 @@
 		$description = get_bloginfo( 'description', 'display' );
 		if ( $description || is_customize_preview() ) : ?>
 
-		<div class="site-description"><?php bloginfo( 'description' ); ?></div>
+			<div class="site-description"><?php bloginfo( 'description' ); ?></div>
 
 		<?php endif; ?>
 

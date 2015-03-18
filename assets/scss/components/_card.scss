@@ -132,6 +132,7 @@
 .blog, .archive, .search {
 
 	.entry-header {
+		position: relative;
 		padding: 20px;
 		margin-bottom: 15px;
 		background: black;
@@ -143,7 +144,7 @@
 	}
 
 	.page-header {
-		margin-top: 0;
+		margin-top: 50px;
 	}
 
 	.page-title {
@@ -206,7 +207,7 @@
 		@extend %clearfix;
 		position: absolute;
 		margin-bottom: 0;
-		margin-top: $gutter/4;
+		margin-top: 4px;
 
 		@extend %alpha;
 		font-size: 11px;
@@ -254,6 +255,8 @@
 		}
 	}
 }
+
+
 
 .entry-image {
 	position: relative;
@@ -479,5 +482,46 @@
 		.entry-image--portrait {
 			max-width: 35%;
 		}
+	}
+}
+
+
+// Sticky Post Ribbon
+.sticky .sticky-post {
+	position: absolute;
+	top: 0;
+	right: 20px;
+	z-index: 1;
+	display: block;
+	width: 15px;
+	height: 15px;
+	background: $accent;
+
+	&:before, &:after {
+		content: "";
+		position: absolute;
+		bottom: -8px;
+		left:0;
+		width: 0;
+		height:0;
+		border-top: 8px solid $accent;
+		border-right: 8px solid transparent;
+	}
+
+	&:after {
+		left: auto;
+		right: 0;
+		border-left: 8px solid transparent;
+		border-right: none;
+	}
+
+
+
+	// display: inherit;
+
+	&.entry-card {
+		// @todo
+		// needs design
+
 	}
 }

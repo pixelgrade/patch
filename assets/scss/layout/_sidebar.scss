@@ -17,11 +17,11 @@
 		position: relative;
 		clear: left;
 
-		@include rhythm(padding-top, 2);
+		// @include rhythm(padding-top, 2);
 
 		@include query-below($lap) {
 			border-top: 1px solid $gray;
-			@include rhythm(padding-top, 4);
+			// @include rhythm(padding-top, 4);
 		}
 
 		@include query-above($lap) {
@@ -33,19 +33,19 @@
 
 		.content-area {
 			float: right;
-			margin-left: -310px;
+			margin-left: -$sidebar;
 		}
 
 		.site-main {
-			margin-left: 310px;
+			margin-left: $sidebar + 84px;
 		}
 
 		.sidebar,
 		.site-header {
 			z-index: 5;
 			float: left;
-			width: 310px;
-			padding-right: 90px;
+			width: $sidebar;
+			padding-right: 0;
 		}
 	}
 }

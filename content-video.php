@@ -29,14 +29,22 @@ if ( ! empty( $media ) ) {
 
 	<?php if ( ! empty( $media ) ) : ?>
 
-	<div class="entry-media">
-		<?php echo apply_filters( 'embed_oembed_html', $media[0] ); ?>
-	</div><!-- .entry-media -->
+		<div class="entry-media">
+
+			<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
+				<span class="sticky-post"></span>
+			<?php endif; ?>
+
+			<?php echo apply_filters( 'embed_oembed_html', $media[0] ); ?>
+
+		</div><!-- .entry-media -->
 
 	<?php endif; ?>
 
 	<header <?php patch_post_title_class(); ?>>
+
 		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+
 	</header><!-- .entry-header -->
 
 	<div <?php patch_post_excerpt_class(); ?>>

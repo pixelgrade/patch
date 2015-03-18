@@ -113,7 +113,7 @@
 
 .comments_add-comment {
 	@extend %beta;
-	@extend %hover;
+	@extend %smarter-links-underlines;
 	margin-top: 3px;
 	text-transform: uppercase;
 	font-size: 13px;
@@ -318,7 +318,7 @@ li.depth-2:before {
 
 		a {
 			@extend %beta;
-			@extend %hover;
+			@extend %smarter-links-underlines;
 			margin-top: 3px;
 			text-transform: uppercase;
 			font-size: 13px;
@@ -443,7 +443,7 @@ p.comment-form-email{
 
 .form-submit {
 	position: relative;
-	@extend %hover;
+	@extend %smarter-links-underlines;
 	@include rhythm(margin-top, 1);
 	margin-bottom: 0;
 	text-align: right;
@@ -451,7 +451,8 @@ p.comment-form-email{
 
 	#submit {
 		@extend %beta;
-		padding: 0;
+		padding-top: 0;
+		padding-bottom: 0;
 		border: 0;
 		background: none;
 		font-size: 18px;
