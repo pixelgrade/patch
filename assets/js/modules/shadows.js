@@ -31,6 +31,7 @@ var shadows = (function() {
 			image.x1			= image.x0 + imageWidth;
 			image.y1			= image.y0 + imageHeight;
 			image.isPortrait 	= $obj.closest('.entry-image').hasClass('entry-image--tall') || $obj.closest('.entry-image').hasClass('entry-image--portrait');
+			image.isEven		= $obj.closest('.grid__item').hasClass('.entry--even');
 
 			card.$el 			= $obj.closest('.entry-card');
 			cardOffset  		= card.$el.offset();
@@ -70,7 +71,7 @@ var shadows = (function() {
 					right = images[i];
 				}
 
-				source 		= left.isPortrait ? left.card : left;
+				source 		= !left.isPortrait || left.isEven ? left : left.card;
 				destination = right;
 
 
