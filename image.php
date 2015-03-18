@@ -6,31 +6,35 @@
  * @since Patch 1.0
  */
 global $content_width;
-
-$content_width = 892; /* pixels */
+//set the $content_width here as recommended by the VIP scanner
+$content_width = 620; /* pixels */
 
 get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-		<?php while ( have_posts() ) : the_post();
+		<?php while ( have_posts() ) : the_post(); ?>
 
-				get_template_part( 'content', 'attachment' );
+			<?php get_template_part( 'content', 'attachment' ); ?>
 
-				patch_the_image_navigation();
+			<?php patch_the_image_navigation(); ?>
 
-				// The parent post lin
+			<nav class="nav-links">
+				<a class="smart-link" href="<?php echo get_the_permalink( wp_get_post_parent_id( get_the_ID() ) ); ?>">
 
-				echo '<nav class="nav-links"><a class="smart-link" href="' . get_the_permalink($post->post_parent) . '">Posted in "' . get_the_title($post->post_parent) . '</a></nav>';
+					<?php echo sprintf( _x( 'Posted in %s', 'attachment parent post', 'patch_txtd' ), get_the_title( wp_get_post_parent_id( get_the_ID() ) ) ); ?>
 
-				// If comments are open or we have at least one comment, load up the comment template
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+				</a>
+			</nav>
 
-			endwhile; // End the loop.
-		?>
+			<?php
+			// If comments are open or we have at least one comment, load up the comment template
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif; ?>
+
+		<?php endwhile; // End the loop. ?>
 
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->

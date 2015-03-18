@@ -10,7 +10,7 @@
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
+	$content_width = 620; /* pixels */
 }
 
 if ( ! function_exists( 'patch_setup' ) ) :
@@ -50,12 +50,10 @@ if ( ! function_exists( 'patch_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		//used as featured image for posts on archive pages
-		//also for the background image of About Me widget
-		add_image_size( 'patch-masonry-image', 450, 9999, false );
+		//used as featured image for posts on home page and archive pages
+		add_image_size( 'patch-masonry-image', 500, 9999, false );
 
-		//used for the post thumbnail of posts on archives when displayed in a single column (no masonry)
-		//and for the single post featured image
+		//used for the single post featured image
 		add_image_size( 'patch-single-image', 1024, 9999, false );
 
 		// This theme uses wp_nav_menu() in one location.

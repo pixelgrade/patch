@@ -27,7 +27,7 @@
 		$description = get_bloginfo( 'description', 'display' );
 		if ( $description || is_customize_preview() ) : ?>
 
-		<div class="site-description"><?php bloginfo( 'description' ); ?></div>
+			<div class="site-description"><?php bloginfo( 'description' ); ?></div>
 
 		<?php endif; ?>
 

@@ -12,24 +12,34 @@
 
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-		<?php if ( has_post_thumbnail() ) { ?>
+		<?php if ( has_post_thumbnail() ) : ?>
+
 			<div class="entry-featured  entry-thumbnail">
+
 				<?php the_post_thumbnail( 'patch-single-image' ); ?>
+
 			</div>
-		<?php } ?>
+
+		<?php endif; ?>
+
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+
 		<?php the_content(); ?>
+
 		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'patch_txtd' ),
 				'after'  => '</div>',
 			) );
 		?>
+
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
+
 		<?php edit_post_link( __( 'Edit', 'patch_txtd' ), '<span class="edit-link">', '</span>' ); ?>
+
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

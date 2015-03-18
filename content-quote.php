@@ -31,6 +31,7 @@
 		<div class="content-quote">
 			<div class="flexbox">
 				<div class="flexbox__item">
+
 					<?php
 					/* translators: %s: Name of current post */
 					$content = get_the_content( sprintf(
@@ -45,6 +46,7 @@
 						//we will wrap the whole content in blockquote since this is definitely intended as a quote
 						echo '<blockquote>' . $content . '</blockquote>';
 					} ?>
+
 				</div>
 			</div>
 		</div>
