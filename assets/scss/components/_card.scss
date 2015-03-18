@@ -132,6 +132,7 @@
 .blog, .archive, .search {
 
 	.entry-header {
+		position: relative;
 		padding: 20px;
 		margin-bottom: 15px;
 		background: black;
@@ -486,30 +487,32 @@
 
 
 // Sticky Post Ribbon
-.sticky-post {
+.sticky .sticky-post {
 	position: absolute;
 	top: 0;
 	right: 20px;
+	z-index: 1;
 	display: block;
 	width: 15px;
-	height: 12px;
+	height: 15px;
 	background: $accent;
 
 	&:before, &:after {
 		content: "";
 		position: absolute;
-		bottom: -100%;
+		bottom: -8px;
 		left:0;
 		width: 0;
 		height:0;
-		border-top: 7px solid $accent;
-		border-right: 77px solid transparent;
+		border-top: 8px solid $accent;
+		border-right: 8px solid transparent;
 	}
 
 	&:after {
 		left: auto;
 		right: 0;
-		border-left: 2.5em solid transparent;
+		border-left: 8px solid transparent;
+		border-right: none;
 	}
 
 
