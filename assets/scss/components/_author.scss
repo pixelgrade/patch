@@ -35,8 +35,8 @@
 }
 
 .author-info__link {
-	@extend %hover;
 	@extend %beta;
+	@extend %smarter-links-underlines;
 	position: relative;
 	letter-spacing: 0.05em;
 	font-size: 13px;
@@ -65,4 +65,9 @@
 		margin-right: 6px;
 		font-size: 18px;
 	}
+}
+
+.avatar.grav-clone {
+	margin: 0 !important;
+	border-width: 2px !important;
 }

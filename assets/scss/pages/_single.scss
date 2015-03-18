@@ -3,14 +3,21 @@
 // 												 + 180 = 1260
 // 												 + 360 = 1440
 
+%single-width {
+	max-width: 620px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .single, .page:not(.entry-card) {
 
 	.hentry,
 	.comments-area,
 	.nocomments,
 	.comment-respond {
-		max-width: 620px;
-		margin: 0 auto;
+		@extend %single-width;
+		margin-top: 0;
+		margin-bottom: 0;
 	}
 
 	.entry-content {
@@ -161,9 +168,8 @@
 
 // Post attachment navigation
 .attachment-navigation {
+	@extend %single-width;
 	font-size: 0;
-	max-width: 620px;
-	margin: 0 auto;
 
 	a {
 		display: block;
@@ -205,4 +211,8 @@
 	.post-title {
 		margin-top: 12px;
 	}
+}
+
+.nav-links {
+	@extend %single-width;
 }
