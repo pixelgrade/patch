@@ -34,8 +34,14 @@
 		font-weight: 300;
 		text-decoration: none;
 
+		transition: color 0.2s;
+
 		&[rel="designer"] {
 			color: white;
+		}
+
+		&:hover {
+			color: $accent;
 		}
 	}
 }

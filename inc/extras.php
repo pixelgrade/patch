@@ -26,6 +26,10 @@ function patch_body_classes( $classes ) {
 		$classes[ ] = 'has_sidebar';
 	}
 
+	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) {
+		$classes[ ] = 'has_infinite-scroll';
+	}
+
 	return $classes;
 }
 
