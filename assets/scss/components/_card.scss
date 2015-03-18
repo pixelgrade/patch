@@ -255,15 +255,7 @@
 	}
 }
 
-.sticky {
-	display: inherit;
 
-	&.entry-card {
-		// @todo
-		// needs design
-
-	}
-}
 
 .entry-image {
 	position: relative;
@@ -489,5 +481,44 @@
 		.entry-image--portrait {
 			max-width: 35%;
 		}
+	}
+}
+
+
+// Sticky Post Ribbon
+.sticky {
+	position: absolute;
+	top: 0;
+	right: 20px;
+	display: block;
+	width: 15px;
+	height: 12px;
+	background: $accent;
+
+	&:before, &:after {
+		content: "";
+		position: absolute;
+		bottom: -100%;
+		left:0;
+		width: 0;
+		height:0;
+		border-top: 7px solid $accent;
+		border-right: 77px solid transparent;
+	}
+
+	&:after {
+		left: auto;
+		right: 0;
+		border-left: 2.5em solid transparent;
+	}
+
+
+
+	// display: inherit;
+
+	&.entry-card {
+		// @todo
+		// needs design
+
 	}
 }
