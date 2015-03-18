@@ -90,6 +90,12 @@
 			margin-right: 0;
 			padding-left: $gutter/2;
 			padding-right: 0;
+
+			.entry-header,
+			.entry-content {
+				margin-left: 0;
+				margin-right: $gutter;
+			}
 		}
 
 		.entry-image--tall,
