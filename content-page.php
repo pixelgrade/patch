@@ -44,6 +44,7 @@
 		<?php edit_post_link( __( 'Edit', 'patch_txtd' ), '<span class="edit-link">', '</span>' ); ?>
 
 	</footer><!-- .entry-footer -->
+
 </article><!-- #post-## -->
 
 <?php if ( ! is_singular() ) { echo '</div>'; } ?>

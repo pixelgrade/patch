@@ -45,7 +45,7 @@
 		<?php patch_entry_footer(); ?>
 
 	</footer><!-- .entry-footer -->
-	
+
 </article><!-- #post-## -->
 
 <?php if ( ! is_singular() ) { echo '</div>'; } ?>

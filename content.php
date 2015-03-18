@@ -60,7 +60,7 @@
 		<?php patch_entry_footer(); ?>
 
 	</div><!-- .entry-content -->
-	
+
 </article><!-- #post-## -->
 
 <?php if ( ! is_singular() ) { echo '</div>'; } ?>

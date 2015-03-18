@@ -17,8 +17,11 @@ if ( ! empty( $media ) ) {
 	$content = str_replace( $media[0], '', $content );
 } ?>
 
+<<<<<<< HEAD
 <?php if ( ! is_singular() ) { echo '<div class="grid__item">'; } ?>
 
+=======
+>>>>>>> 153598da496288f2c41860617910219f2d24262c
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="entry-meta">
@@ -66,7 +69,7 @@ if ( ! empty( $media ) ) {
 		<?php patch_entry_footer(); ?>
 
 	</footer><!-- .entry-footer -->
-	
+
 </article><!-- #post-## -->
 
 <?php if ( ! is_singular() ) { echo '</div>'; } ?>
