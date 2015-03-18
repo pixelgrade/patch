@@ -1095,7 +1095,8 @@ if (!Date.now) Date.now = function () {
         // let's assume image1 is over image2
         // we need to create a div
         var $placeholder = $('<div class="entry-image-shadow">'),
-            $shadows = source.$el.data('shadow');
+            $shadows = source.$el.data('shadow'),
+            $card = typeof source.card == "undefined" ? source.$el : source.card.$el;
 
         $placeholder.css({
           position: "absolute",
@@ -1111,7 +1112,7 @@ if (!Date.now) Date.now = function () {
           $shadows = $shadows.add($placeholder);
         }
 
-        source.$el.data('shadow', $shadows);
+        $card.data('shadow', $shadows);
         $placeholder.insertAfter(destination.$el);
         },
         
