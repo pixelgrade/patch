@@ -7,6 +7,8 @@
  */
 ?>
 
+<?php if (!is_singular()) { echo '<div class="grid__item">' } ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="entry-meta">
@@ -60,3 +62,5 @@
 	</div><!-- .entry-content -->
 	
 </article><!-- #post-## -->
+
+<?php if (!is_singular()) { echo '</div>' } ?>
