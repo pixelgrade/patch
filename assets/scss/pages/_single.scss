@@ -44,13 +44,7 @@
 
 	@include query-above(1260px) {
 		.site-main {
-			padding: 0 3*$gutter;
-		}
-	}
-
-	@include query-above(1440px) {
-		.site-main {
-			padding: 0 6*$gutter;
+			padding: 0 2*$col;
 		}
 	}
 
@@ -73,28 +67,17 @@
 
 		@include query-above(1260px) {
 			.entry-header {
-				margin-left: -1.5*$gutter;
-				margin-right: -1.5*$gutter;
-			}
-		}
-
-		@include query-above(1440px) {
-			.entry-header {
-				margin-left: -3*$gutter;
-				margin-right: -3*$gutter;
+				margin-left: -$col;
+				margin-right: -$col;
 			}
 		}
 
 		.entry-featured {
 			margin-top: $gutter;
-			margin-bottm: $gutter;
+			margin-bottom: $gutter;
 
 			@include query-above(1260px) {
-				margin: $gutter -3*$gutter;
-			}
-
-			@include query-above(1440px) {
-				margin: $gutter -6*$gutter;
+				margin: $gutter -2*$col;
 			}
 
 			img {
@@ -119,12 +102,12 @@
 			}
 
 			@include query-above(1260px) {
-				margin-left: -3*$gutter;
+				margin-left: -2*$col;
 				max-width: 50%;
 			}
 
 			@include query-above(1440px) {
-				margin-left: -6*$gutter;
+				// margin-left: -2*$col;
 				max-width: 70%;
 			}
 
@@ -139,11 +122,12 @@
 
 		.entry-header {
 			@include query-above(1260px) {
-				margin-right: -1.5*$gutter;
+				margin-right: -$col;
 			}
 			@include query-above(1440px) {
-				margin-right: -3*$gutter;
+				// margin-right: -3*$gutter;
 			}
+			
 			@include rhythm(margin-bottom, 2.5);
 		}
 	}
