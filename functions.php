@@ -95,11 +95,11 @@ if ( ! function_exists( 'patch_setup' ) ) :
 		 */
 		add_editor_style( array( 'editor-style.css', patch_fonts_url() ) );
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'patch_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
+		/*
+		 * Now some cleanup to remove features that we do not support
+		 */
+		remove_theme_support( 'custom-header' );
+
 	}
 
 endif;
