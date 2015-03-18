@@ -82,8 +82,12 @@
 	}
 }
 
-body {
-	min-height: 100vh;
+.site-content {
+	min-height: calc(100vh - 60px);
+
+	.admin-bar & {
+		min-height: calc(100vh - 60px - 32px);
+	}
 }
 
 // footer was leaving his bg behind when infinite posts were loaded
