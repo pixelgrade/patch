@@ -178,6 +178,13 @@
 	}
 }
 
+.site-header {
+	@include query-below($lap) {
+		transform: none !important;
+		z-index: 100;
+	}
+}
+
 .entry-card {
 	@extend .clearfix;
 	position: relative;
@@ -240,7 +247,8 @@
 		}
 	}
 
-	.entry--even & .entry-meta {
+	.entry--even & {
+
 		&.entry-card--tall,
 		&.entry-card--portrait {
 			.entry-meta {
