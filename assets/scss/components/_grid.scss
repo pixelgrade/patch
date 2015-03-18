@@ -1,4 +1,5 @@
 .site-main {
+	// padding: $gutter/2;
 	padding-bottom: 2*$gutter;
 
 	@include query-above($lap) {
@@ -13,7 +14,11 @@
 .grid,
 .pagination {
 	margin: 0 auto;
-	max-width: 450px;
+	max-width: 400px;
+
+	@include query-above(480px) {
+		max-width: 450px;
+	}
 
 	@include query-above($lap) {
 		max-width: 1000px;
@@ -41,6 +46,7 @@
 }
 
 .grid__item {
+	width: 100%;
 	border-left: 0 solid transparent;
 	margin-bottom: $gutter;
 

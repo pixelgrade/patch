@@ -110,8 +110,6 @@ var masonry = (function() {
 		    }
 		}
 
-		console.log(newValues);
-
 		$container.find('.grid__item').each(function (i, obj) {
 			var $obj = $(obj),
 				left = $obj.offset().left;

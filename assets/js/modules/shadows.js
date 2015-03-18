@@ -53,7 +53,9 @@ var shadows = (function() {
 			}
 		}
 
-		$('.entry-card').addHoverAnimation();
+		if (!touch) {
+			$('.entry-card').addHoverAnimation();
+		}
 	},
 
 	createShadow = function(image1, image2) {
