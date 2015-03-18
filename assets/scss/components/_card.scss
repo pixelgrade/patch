@@ -14,6 +14,17 @@
 		border-left-width: $gutter;
 	}
 
+	.entry-block {
+		margin-left: $gutter;
+		margin-right: $gutter;
+	}
+
+	.entry-header {
+		margin-left: -$gutter;
+		margin-right: $gutter;
+		padding-left: 2*$gutter;
+	}
+
 	.entry-image--landscape {
 		margin-left: -$gutter;
 		margin-right: $gutter;
@@ -30,7 +41,7 @@
 
 		// hard work man
 		~ .entry-header.entry-header {
-			margin-right: -$gutter;
+			margin-right: -2*$gutter;
 		}
 
 		~ .entry-content {
@@ -61,6 +72,20 @@
 	}
 
 	.entry--even {
+
+		&.entry-card--tall,
+		&.entry-card--portrait {
+			.entry-meta {
+				right: 0;
+			}
+
+			.cat-links {
+				float: right;
+				margin-left: 6px;
+				margin-right: 0;
+			}
+		}
+
 		.entry-image--tall,
 		.entry-image--portrait {
 
@@ -75,17 +100,6 @@
 		}
 	}
 
-	.entry-block {
-		margin-left: $gutter;
-		margin-right: $gutter;
-	}
-
-	.entry-header {
-		margin-left: -$gutter;
-		margin-right: $gutter;
-		padding-left: 2*$gutter;
-	}
-
 	.entry-image--square + .entry-header {
 		margin-left: $gutter;
 		margin-right: $gutter;
@@ -93,6 +107,13 @@
 
 	.entry-image + .entry-header {
 		margin-left: $gutter;
+	}
+
+	.entry-card {
+		.entry-meta {
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
 	}
 }
 // End 'Spacing Mixin'
@@ -177,9 +198,8 @@
 	.entry-meta {
 		@extend %clearfix;
 		position: absolute;
-		margin-left: $gutter;
-		margin-right: $gutter;
 		margin-bottom: 0;
+		margin-top: $gutter/4;
 
 		@extend %alpha;
 		font-size: 11px;
@@ -290,7 +310,7 @@
 		margin-top: 0 !important;
 
 		h1 {
-			letter-spacing: 0.02em;
+			// letter-spacing: 0.02em;
 		}
 	}
 }
