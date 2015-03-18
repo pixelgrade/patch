@@ -69,7 +69,7 @@
 	.entry-image--wide {
 
 		@include query-above($lap) {
-			padding-top: $gutter;
+			// padding-top: $gutter;
 		}
 
 		@include query-above(1260px) {
