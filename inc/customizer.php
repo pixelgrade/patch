@@ -60,7 +60,7 @@ function patch_sanitize_checkbox( $input ) {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function patch_customize_preview_js() {
-	wp_enqueue_script( 'patch_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+	wp_enqueue_script( 'patch_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20150318', true );
 }
 
 add_action( 'customize_preview_init', 'patch_customize_preview_js' ); ?>

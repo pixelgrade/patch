@@ -17,11 +17,11 @@ function patch_wpcom_setup() {
 	// Set theme colors for third party services.
 	if ( ! isset( $themecolors ) ) {
 		$themecolors = array(
-			'bg'     => '171617',
+			'bg'     => 'ffffff',
 			'border' => '000000',
-			'text'   => '3d3e40',
-			'link'   => '8c888c',
-			'url'    => '8c888c',
+			'text'   => '3e3f40',
+			'link'   => 'ffde00',
+			'url'    => 'ffde00',
 		);
 	}
 }
