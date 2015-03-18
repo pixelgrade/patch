@@ -28,6 +28,6 @@
 	<div id="content" class="site-content">
 		<div class="container">
 
-		<?php if ( is_single() || is_page() || is_attachment() ) {
+		<?php if ( is_singular() || is_404() ) {
 			get_template_part( 'content', 'header' );
 		} ?>
