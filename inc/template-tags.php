@@ -710,7 +710,7 @@ if ( ! function_exists( 'patch_get_author_bio_links' ) ) :
 			return $markup;
 		}
 
-		$str = file_get_contents( 'https://www.gravatar.com/' . md5( strtolower( trim( get_the_author_meta( 'user_email' ) ) ) ) . '.php' );
+		$str = wp_remote_fopen( 'https://www.gravatar.com/' . md5( strtolower( trim( get_the_author_meta( 'user_email' ) ) ) ) . '.php' );
 
 		$profile = unserialize( $str );
 
