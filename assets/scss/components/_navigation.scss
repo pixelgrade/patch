@@ -77,6 +77,10 @@
 	line-height: 1.875;
 	margin-bottom: $gutter;
 
+	.single &, .page:not(.entry-card) & {
+		margin-bottom: 8px;
+	}
+
 	li {
 		display: block;
 		position: relative;
@@ -96,7 +100,7 @@
 	    @include query-above($lap) {
 			float: left;
 			width: 50%;
-			padding-right: 20px;
+			padding-right: 10px;
 	    }
 
 		a {
@@ -144,7 +148,7 @@
 			border-radius: 3px;
 			box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
 
-			font-size: rem(18px);
+			font-size: 18px;
 			line-height: 2.2;
 
 			li {
@@ -285,13 +289,13 @@
 
 		// sync somehow with sidebar
 		@include query-above($lap) {
-			float: left;
-			width: 30%;
+			// float: left;
+			// width: 30%;
 		}
 
 		@include query-above($desk) {
-			width: rem(310px);
-			padding-right: rem(90px);
+			// width: $col;
+			// padding-right: rem(90px);
 		}
 	}
 

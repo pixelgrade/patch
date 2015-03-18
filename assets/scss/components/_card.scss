@@ -206,7 +206,7 @@
 		@extend %clearfix;
 		position: absolute;
 		margin-bottom: 0;
-		margin-top: $gutter/4;
+		margin-top: 4px;
 
 		@extend %alpha;
 		font-size: 11px;
@@ -252,6 +252,16 @@
 				// margin-bottom: 0;
 			}
 		}
+	}
+}
+
+.sticky {
+	display: inherit;
+
+	&.entry-card {
+		// @todo
+		// needs design
+
 	}
 }
 

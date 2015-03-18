@@ -53,7 +53,7 @@ var shadows = (function() {
 			}
 		}
 
-		if (!touch) {
+		if (!$.support.touch) {
 			$('.entry-card').addHoverAnimation();
 		}
 	},
