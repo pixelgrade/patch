@@ -1,13 +1,13 @@
 .widget {
-	margin-bottom: rem(40px);
-	font-size: rem(13px);
+	margin-bottom: 40px;
+	font-size: 13px;
 	line-height: 1.6;
 
 	ul, ol {
 		line-height: 1.4;
 
 		li {
-			margin-bottom: rem(25px);
+			margin-bottom: 15px;
 		}
 	}
 
@@ -40,7 +40,7 @@
 			overflow: hidden;
 			padding-right: $gutter/2;
 
-			font-size: rem(13px);
+			font-size: 13px;
 			white-space: nowrap;
 			text-overflow: ellipsis;
 
@@ -76,7 +76,7 @@
 	}
 
 	td, th {
-		padding: rem(6px) 0;
+		padding: 6px 0;
 	}
 
 	tr{
@@ -98,7 +98,7 @@
 
 		&:hover {
 			color: $black;
-			text-decoration: underline;
+			// text-decoration: underline;
 		}
 	}
 
