@@ -46,7 +46,7 @@ add_filter( 'body_class', 'patch_body_classes' );
 function patch_post_classes( $classes ) {
 
 	if ( is_archive() || is_home() || is_search() ) {
-		$classes[] = 'entry-card  grid__item';
+		$classes[] = 'entry-card  js-masonry-item';
 	}
 
 	if ( is_single() && has_post_thumbnail() ) {
