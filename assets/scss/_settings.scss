@@ -21,10 +21,9 @@ $namespace:                 null;
 $base-font-size:            16px;
 $base-line-height:          24px;
 
-// $gutter-small:				10px;
-$gutter: 					24px;
-// $gutter-lap:				36px;
-// $gutter-desk:				54px;
+$gutter: 					24px; // archive
+$col: 						90px; // single
+$sidebar:					220px;
 
 $base-spacing-unit:         $gutter;
 $base-spacing-unit--small:  $gutter;

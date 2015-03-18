@@ -22,14 +22,22 @@
 	$gallery = get_post_gallery();
 	if ( $gallery ) : ?>
 
-	<aside class="entry-gallery">
-		<?php echo $gallery; ?>
-	</aside><!-- .entry-gallery -->
+		<aside class="entry-gallery">
+
+			<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
+				<span class="sticky-post"></span>
+			<?php endif; ?>
+
+			<?php echo $gallery; ?>
+
+		</aside><!-- .entry-gallery -->
 
 	<?php endif; ?>
 
 	<header <?php patch_post_title_class(); ?>>
+
 		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+
 	</header><!-- .entry-header -->
 
 	<div <?php patch_post_excerpt_class(); ?>>

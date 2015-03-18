@@ -2,6 +2,7 @@
     font-size: rem(18px);
     font-weight: 500;
     line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
 
     @include query-below($lap) {
         font-size: 1.2em;
@@ -46,7 +47,7 @@
 
 
 @include query-above($lap) {
-    $pull-offset : 6 * $gutter;
+    $pull-offset : 2 * $col;
     $pull-gutter : 40px;
 
     .pull-left {

@@ -10,6 +10,10 @@
 	@extend %fs-24;
 }
 
+.entry-image--portrait  + .entry-header--short .entry-title {
+	@extend %fs-36;
+}
+
 .entry-image--square 	+ .entry-header--long .entry-title,
 .entry-image--landscape + .entry-header--long .entry-title,
 .entry-image--wide 		+ .entry-header--long .entry-title {
@@ -27,10 +31,17 @@
 	@extend %fs-30;
 }
 
-.entry-header--long .entry-title,
-.entry-header--medium .entry-title,
-.entry-header--short .entry-title {
+// No Featured Images Cases
+.entry-header--long .entry-title {
+	@extend %fs-30;
+}
+
+.entry-header--medium .entry-title {
 	@extend %fs-36;
+}
+
+.entry-header--short .entry-title {
+	@extend %fs-42;
 }
 
 .entry-title--short {

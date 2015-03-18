@@ -548,7 +548,13 @@ if (!Date.now) Date.now = function () {
           });
           bindEvents();
           onLayout();
+
+          setTimeout(function () {
+            $container.masonry('layout');
+          }, 60);
+
           showBlocks($blocks);
+
           initialized = true;
         });
         },
@@ -1048,7 +1054,7 @@ if (!Date.now) Date.now = function () {
           }
         }
 
-        if (!touch) {
+        if (!$.support.touch) {
           $('.entry-card').addHoverAnimation();
         }
         },
