@@ -24,6 +24,10 @@
 
 		<aside class="entry-gallery">
 
+			<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
+				<span class="sticky-post"></span>
+			<?php endif; ?>
+
 			<?php echo $gallery; ?>
 
 		</aside><!-- .entry-gallery -->

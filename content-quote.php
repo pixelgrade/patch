@@ -28,6 +28,10 @@
 
 	<div class="entry-content" <?php echo $post_thumbnail_style; ?> >
 
+		<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
+			<span class="sticky-post"></span>
+		<?php endif; ?>
+
 		<div class="content-quote">
 			<div class="flexbox">
 				<div class="flexbox__item">

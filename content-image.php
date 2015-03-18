@@ -19,21 +19,29 @@
 
 	<?php if ( has_post_thumbnail() ) : ?>
 
-		<div class="entry-image entry-image--landscape">
-			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
-			</a>
-		</div>
+		<a class="entry-image entry-image--landscape" href="<?php the_permalink(); ?>">
+
+			<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
+				<span class="sticky-post"></span>
+			<?php endif; ?>
+
+			<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
+
+		</a>
 
 	<?php  else : // we need to search in the content for an image - maybe we find one
 		$first_image = patch_get_post_format_first_image();
 		if ( ! empty( $first_image ) ) : ?>
 
-			<div class="entry-image entry-image--landscape">
-				<a href="<?php the_permalink(); ?>">
-					<?php echo $first_image; ?>
-				</a>
-			</div>
+			<a class="entry-image entry-image--landscape" href="<?php the_permalink(); ?>">
+
+				<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
+					<span class="sticky-post"></span>
+				<?php endif; ?>
+
+				<?php echo $first_image; ?>
+
+			</a>
 
 		<?php endif;
 	endif; ?>

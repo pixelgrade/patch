@@ -31,6 +31,10 @@ if ( ! empty( $media ) ) {
 
 		<div class="entry-media">
 
+			<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
+				<span class="sticky-post"></span>
+			<?php endif; ?>
+
 			<?php echo apply_filters( 'embed_oembed_html', $media[0] ); ?>
 
 		</div><!-- .entry-media -->
