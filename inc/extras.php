@@ -49,8 +49,25 @@ function patch_post_classes( $classes ) {
 		$classes[] = 'entry-card  js-masonry-item';
 	}
 
-	if ( is_single() && has_post_thumbnail() ) {
-		$classes[] = patch_get_post_thumbnail_aspect_ratio_class();
+	if ( has_post_thumbnail() ) {
+		if ( is_singular() ) {
+			$classes[] = 'entry-image--' . patch_get_post_thumbnail_aspect_ratio_class();
+		} else {
+			$classes[] = 'entry-card--' . patch_get_post_thumbnail_aspect_ratio_class();
+		}
+	} else {
+		//handle other post formats
+		if ( ! is_singular() ) {
+			switch ( get_post_format() ) {
+				case 'image': $classes[] = 'entry-card--landscape';
+					break;
+				case 'gallery': $classes[] = 'entry-card--landscape';
+					break;
+				case 'video': ;
+				case 'audio': $classes[] = 'entry-card--landscape';
+					break;
+			}
+		}
 	}
 
 	return $classes;
