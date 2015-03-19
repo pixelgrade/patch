@@ -31,7 +31,7 @@ if ( ! empty( $media ) ) {
 
 		<?php if ( ! empty( $media ) ) : ?>
 
-			<div class="entry-media">
+			<div class="entry-media entry-image entry-image--landscape">
 
 				<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
 					<span class="sticky-post"></span>

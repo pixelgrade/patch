@@ -33,6 +33,12 @@
 
 		<?php endif; ?>
 
+		<?php
+		//just in case there is no title, no need for the <header>
+		$temp_title = get_the_title();
+
+		if ( ! empty( $temp_title ) ) : ?>
+
 		<header <?php patch_post_title_class(); ?>>
 
 			<?php if ( is_sticky() && ! has_post_thumbnail() && is_home() && ! is_paged() ) : ?>
@@ -42,6 +48,8 @@
 			<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
 		</header><!-- .entry-header -->
+
+		<?php endif; ?>
 
 		<div <?php patch_post_excerpt_class(); ?>>
 

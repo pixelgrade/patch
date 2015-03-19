@@ -33,19 +33,38 @@
 
 		<?php  else : // we need to search in the content for an image - maybe we find one
 			$first_image = patch_get_post_format_first_image();
-			if ( ! empty( $first_image ) ) : ?>
 
-				<a class="entry-image entry-image--landscape" href="<?php the_permalink(); ?>">
+			if ( ! empty( $first_image ) ) :
 
-					<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
-						<span class="sticky-post"></span>
-					<?php endif; ?>
+				//we need to determine if this is a linked image
+				$linked = ( false === strpos( $first_image, '</a>') ) ? false : true ;
 
-					<?php echo $first_image; ?>
+				if ( $linked ) : ?>
 
-				</a>
+					<div class="entry-image entry-image--landscape">
+
+						<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
+							<span class="sticky-post"></span>
+						<?php endif; ?>
+
+						<?php echo $first_image; ?>
+
+					</div>
+
+				<?php else : ?>
+
+					<a class="entry-image entry-image--landscape" href="<?php the_permalink(); ?>">
+
+						<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
+							<span class="sticky-post"></span>
+						<?php endif; ?>
+
+						<?php echo $first_image; ?>
+
+					</a>
 
 			<?php endif;
+			endif;
 		endif; ?>
 
 		<header <?php patch_post_title_class(); ?>>

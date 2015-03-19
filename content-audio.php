@@ -31,7 +31,7 @@ if ( ! empty( $media ) ) {
 
 		<?php if ( ! empty( $media ) ) : ?>
 
-			<div class="entry-media">
+			<div class="entry-media entry-image entry-image--landscape">
 
 				<?php echo apply_filters( 'embed_oembed_html', $media[0] ); ?>
 
