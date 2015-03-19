@@ -15,9 +15,9 @@ get_header(); ?>
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 
-					<?php get_template_part( 'loop' ); ?>
+				<?php get_template_part( 'loop' ); ?>
 
-					<?php patch_paging_nav(); ?>
+				<?php patch_paging_nav(); ?>
 
 			</main><!-- #main -->
 		</div><!-- #primary -->

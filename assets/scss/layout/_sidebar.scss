@@ -1,7 +1,8 @@
 .single,
 .page,
 .error404,
-.search-no-results {
+.search-no-results,
+.no-posts {
 	.site-content .container {
 		@extend %clearfix;
 		position: relative;
