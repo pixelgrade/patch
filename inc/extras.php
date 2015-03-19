@@ -26,6 +26,11 @@ function patch_body_classes( $classes ) {
 		$classes[ ] = 'has_sidebar';
 	}
 
+	//add this class where we have the masonry layout
+	if ( ! is_singular() ) {
+		$classes[] = 'layout-grid';
+	}
+
 	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) {
 		$classes[ ] = 'has_infinite-scroll';
 	}
