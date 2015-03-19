@@ -313,7 +313,6 @@ add_filter( 'mce_buttons_2', 'patch_mce_editor_buttons' );
  * Add styles/classes to the "Styles" drop-down
  */
 function patch_mce_before_init( $settings ) {
-
 	$style_formats = array(
 		array( 'title' => __( 'Intro Text', 'patch_txtd' ), 'selector' => 'p', 'classes' => 'intro' ),
 		array( 'title' => __( 'Dropcap', 'patch_txtd' ), 'inline' => 'span', 'classes' => 'dropcap' ),
