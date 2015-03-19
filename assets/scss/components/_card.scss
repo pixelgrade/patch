@@ -1,6 +1,151 @@
 
-// #CARDS
-// Masonry Archive Posts
+///*-----------------------------------------*\
+//    #CARDS
+//    Masonry Archive Posts Spacing
+//\*-----------------------------------------*/
+
+
+///*-----------------------------------------*\
+//
+//	 Cards Columns:
+//
+//   |---|   |   |             |   |   |---|
+//   |---|   |   |             |   |   |---|
+//   |-0-| 1 | 2 |  Grid Item  | 2 | 1 |-0-|
+//   |---|   |   |             |   |   |---|
+//   |---|   |   |             |   |   |---|
+//   
+//\*-----------------------------------------*/
+
+
+$breakpoints: (
+	"small": 480px,
+	"large": 1440px
+);
+
+$cards-gutter: $gutter;
+
+@mixin cards-spacing($col, $breakpoint) {
+
+	$cards-gutter: $col !global;
+
+	@include placeholder("col-left-0", $col) { margin-left: -$col }
+	@include placeholder("col-left-1", $col) { margin-left: $col }
+	@include placeholder("col-left-2", $col) { margin-left: 2*$col }
+
+	@include placeholder("col-left-p0", $col) { padding-left: -$col }
+	@include placeholder("col-left-p1", $col) { padding-left: $col }
+	@include placeholder("col-left-p2", $col) { padding-left: 2*$col }
+
+	@include placeholder("col-right-0", $col) { margin-right: -$col }
+	@include placeholder("col-right-1", $col) { margin-right: $col }
+	@include placeholder("col-right-2", $col) { margin-right: 2*$col }
+	@include placeholder("col-right-3", $col) { margin-right: 3*$col }
+
+	@include placeholder("col-right-p0", $col) { padding-right: -$col }
+	@include placeholder("col-right-p1", $col) { padding-right: $col }
+	@include placeholder("col-right-p2", $col) { padding-right: 2*$col }
+
+
+	@include breakpoint($breakpoint) {
+
+	// GENERAL GRID
+	.grid {
+		border-right-width: $col;
+	}
+
+	.grid__item {
+		border-left-width: $col + 1px;
+	}
+
+
+	// TEXT
+	.entry-card {
+		.entry-meta {
+			@include _("col-left-1");
+			@include _("col-right-2")
+		}
+
+		.entry-header {
+			@include _("col-left-0");
+			@include _("col-left-p2");
+			@include _("col-right-1");
+		}
+
+		.entry-content {
+			@include _("col-left-1");
+			@include _("col-right-1");
+		}
+	}
+
+
+	// LANDSCAPE
+	.entry-card--landscape {
+		.entry-meta {
+			
+		}
+
+		.entry-image {
+			@include _("col-left-0");
+			@include _("col-right-1");
+		}
+
+		.entry-header {
+			@include _("col-left-1");
+		}
+
+		.entry-content {
+
+		}
+	}
+
+
+	// WIDE
+	.entry-card--wide {
+		.entry-image {
+			@include _("col-left-0");
+			@include _("col-right-0");
+		}
+
+		.entry-header {
+			@include _("col-left-2");
+		}
+	}
+
+
+	// SQUARE
+	.entry-card--square {
+		.entry-meta {
+			
+		}
+
+		.entry-image {
+			@include _("col-left-1");
+			@include _("col-right-2");
+		}
+
+		.entry-header {
+			@include _("col-left-2");
+			@include _("col-right-2");
+		}
+
+		.entry-content {
+			@include _("col-right-2");
+		}
+	}
+
+
+	// PORTRAIT
+	// TALL
+	
+	
+	}
+}
+
+
+
+
+
 
 
 // Spacing Mixin
@@ -124,7 +269,10 @@
 
 
 
-.blog, .archive, .search {
+.blog, 
+// .archive, 
+// .search 
+	{
 
 	.entry-header {
 		position: relative;
@@ -146,30 +294,16 @@
 		margin-top: 0;
 	}
 
-	@media only screen and (min-width: 480px) {
-		@include spacings(24px);
-	}
+	// @media only screen and (min-width: 480px) {
+	// }
+
 
 	@media only screen and (min-width: 1440px) {
-		@include spacings(30px);	
-	}
-
-	@media only screen and (min-width: 1800px) {
-		// @include spacings(24px);	
-	}
-
-
-
-	@media only screen and (min-width: 1260px) {
-		// @include spacings($gutter/2);	
-	}
-
-	@media only screen and (min-width: 1360px), screen and (min-width: 420px) and (max-width: 1259px) {
-		// @include spacings($gutter);
 	}
 }
 
-
+@include cards-spacing(24px, small);
+@include cards-spacing(30px, large);
 
 // #CARD
 
@@ -314,10 +448,10 @@
 	// background: black;
 
 	@include query-above($lap) {
-		margin-right: $gutter;
+		// margin-right: $gutter;
 
 		&--wide {
-			margin: 0 #{-$gutter};
+			// margin: 0 #{-$gutter};
 		}
 	}
 
