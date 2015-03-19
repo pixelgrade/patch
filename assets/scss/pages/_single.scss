@@ -142,6 +142,9 @@
 	.entry-header {
 		@include rhythm(margin-bottom, 2);
 	}
+		.entry-title {
+			margin: 0;
+		}
 
 	.entry-meta {
 		position: static;
