@@ -23,7 +23,7 @@ function patch_body_classes( $classes ) {
 	}
 
 	if ( ( is_single() || is_page() ) && is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[ ] = 'has_sidebar';
+		$classes[] = 'has_sidebar';
 	}
 
 	//add this class where we have the masonry layout
@@ -32,7 +32,7 @@ function patch_body_classes( $classes ) {
 	}
 
 	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) {
-		$classes[ ] = 'has_infinite-scroll';
+		$classes[] = 'has_infinite-scroll';
 	}
 
 	return $classes;
@@ -253,8 +253,8 @@ add_filter( 'excerpt_length', 'patch_excerpt_length', 999 );
 function patch_search_form( $form ) {
 	$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
 				<label>
-					<span class="screen-reader-text">' . _x( 'Search for:', 'label' ) . '</span>
-					<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' ) . '" value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' ) . '" />
+					<span class="screen-reader-text">' . _x( 'Search for:', 'label' , 'patch_txtd' ) . '</span>
+					<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' , 'patch_txtd' ) . '" value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' , 'patch_txtd' ) . '" />
 				</label>
 				<button class="search-submit"><i class="fa fa-search"></i></button>
 			</form>';
@@ -313,7 +313,6 @@ add_filter( 'mce_buttons_2', 'patch_mce_editor_buttons' );
  * Add styles/classes to the "Styles" drop-down
  */
 function patch_mce_before_init( $settings ) {
-
 	$style_formats = array(
 		array( 'title' => __( 'Intro Text', 'patch_txtd' ), 'selector' => 'p', 'classes' => 'intro' ),
 		array( 'title' => __( 'Dropcap', 'patch_txtd' ), 'inline' => 'span', 'classes' => 'dropcap' ),
