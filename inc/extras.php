@@ -253,8 +253,8 @@ add_filter( 'excerpt_length', 'patch_excerpt_length', 999 );
 function patch_search_form( $form ) {
 	$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
 				<label>
-					<span class="screen-reader-text">' . _x( 'Search for:', 'label' ) . '</span>
-					<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' ) . '" value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' ) . '" />
+					<span class="screen-reader-text">' . _x( 'Search for:', 'label' , 'patch_txtd' ) . '</span>
+					<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' , 'patch_txtd' ) . '" value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' , 'patch_txtd' ) . '" />
 				</label>
 				<button class="search-submit"><i class="fa fa-search"></i></button>
 			</form>';
