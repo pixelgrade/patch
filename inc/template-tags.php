@@ -748,11 +748,13 @@ if ( ! function_exists( 'patch_secondary_page_title' ) ) :
 	/**
 	 * Display the markup for the archive or search pages title.
 	 */
-	function patch_the_secondary_page_title() {
+	function patch_the_secondary_page_title() { ?>
 
-		if ( is_archive() ) : ?>
+		<div class="grid__item">
 
-			<header class="page-header grid__item entry-card">
+		<?php if ( is_archive() ) : ?>
+
+			<header class="page-header entry-card">
 
 				<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
 
@@ -762,12 +764,15 @@ if ( ! function_exists( 'patch_secondary_page_title' ) ) :
 
 		<?php elseif ( is_search() ) : ?>
 
-			<header class="page-header grid__item entry-card">
+			<header class="page-header entry-card">
 				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'patch_txtd' ), get_search_query() ); ?></h1>
 			</header><!-- .page-header -->
 
-		<?php endif;
-	} #function
+		<?php endif; ?>
+
+		</div><!-- .grid__item -->
+
+	<?php } #function
 
 endif;
 

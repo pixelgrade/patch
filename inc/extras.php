@@ -17,6 +17,8 @@
  * @return array
  */
 function patch_body_classes( $classes ) {
+	global $wp_query;
+
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -29,6 +31,11 @@ function patch_body_classes( $classes ) {
 	//add this class where we have the masonry layout
 	if ( ! is_singular() ) {
 		$classes[] = 'layout-grid';
+
+		//add a.no-posts class when the loop is empty
+		if ( ! $wp_query->posts ) {
+			$classes[] = 'no-posts';
+		}
 	}
 
 	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) {
