@@ -41,6 +41,10 @@ img{
 	@include rhythm(margin-left, -1);
 	@include rhythm(margin-top, -1);
 
+	.grid__item & {
+		margin-left: 0;
+	}
+
 	.gallery-item {
 		margin: 0;
 		display: inline-block;
