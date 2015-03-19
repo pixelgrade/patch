@@ -219,6 +219,14 @@ a {
 	 @if $editor-style { 
 	 	.mce-content-body & {
 			@extend %smarter-links-underlines;
+
+			&[href$=".jpg"], &[href$=".jpeg"], &[href$=".png"], &[href$=".gif"], &[href$=".bmp"], &[href*="attachment"] {
+				padding-left: 0;
+				padding-right: 0;
+
+				box-shadow: none;
+				background: none;
+			}
 		}	
 	 }
     	@else { 

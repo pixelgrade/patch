@@ -1,8 +1,18 @@
 .site-footer {
+
+	@include query-above($lap) {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index: 50;
+	}
+
 	color: $light;
 	background: black;
 	font-size: 13px;
 	padding-top: $gutter/2;
+	padding-bottom: $gutter/2;
 
 	@include query-above($lap) {
 		padding-left: $gutter;

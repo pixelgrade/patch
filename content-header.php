@@ -7,7 +7,7 @@
  */
 ?>
 
-<?php if ( ! is_singular() ) { echo '<div class="grid__item">'; } ?>
+<?php if (!is_singular() && !is_404() && have_posts()) { echo '<div class="grid__item">'; } ?>
 
 <header id="masthead" class="site-header" role="banner">
 	<div class="site-branding">
@@ -60,4 +60,4 @@
 
 </header><!-- #masthead -->
 
-<?php if ( ! is_singular() ) { echo '</div>'; } ?>
+<?php if (!is_singular() && !is_404() && have_posts()) { echo '</div>'; } ?>
