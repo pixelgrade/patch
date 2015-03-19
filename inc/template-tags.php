@@ -540,7 +540,7 @@ if ( ! function_exists( 'patch_get_post_title_class' ) ) :
 			$classes[] = 'entry-header--long';
 		}
 
-		if ( !empty($class) ) {
+		if ( ! empty($class) ) {
 			if ( ! is_array( $class ) ) {
 				$class = preg_split( '#\s+#', $class );
 			}
@@ -611,8 +611,8 @@ if ( ! function_exists( 'patch_get_post_excerpt_class' ) ) :
 			$classes[] = 'entry-content--long';
 		}
 
-		if ( !empty($class) ) {
-			if ( !is_array( $class ) ) {
+		if ( ! empty( $class ) ) {
+			if ( ! is_array( $class ) ) {
 				$class = preg_split( '#\s+#', $class );
 			}
 
@@ -728,7 +728,7 @@ if ( ! function_exists( 'patch_get_author_bio_links' ) ) :
 			$markup .= '<ul class="author__social-links">' . PHP_EOL;
 
 			foreach ( $profile['entry'][0]['urls'] as $link ) {
-				if ( !empty( $link['value'] ) && ! empty( $link['title'] ) ) {
+				if ( ! empty( $link['value'] ) && ! empty( $link['title'] ) ) {
 					$markup .= '<li class="author__social-links__list-item">' . PHP_EOL;
 					$markup .= '<a class="author__social-link" href="' . $link['value'] . '" target="_blank">' . $link['title'] . '</a>' . PHP_EOL;
 					$markup .= '</li>' . PHP_EOL;
@@ -869,7 +869,7 @@ if ( ! function_exists( 'patch_get_post_format_first_image' ) ) :
 		$pattern = get_shortcode_regex();
 
 		//first search for an image with a caption shortcode
-		if (   preg_match_all( '/'. $pattern .'/s', $post->post_content, $matches )
+		if ( preg_match_all( '/'. $pattern .'/s', $post->post_content, $matches )
 		       && array_key_exists( 2, $matches )
 		       && in_array( 'caption', $matches[2] ) ) {
 

@@ -23,7 +23,7 @@ function patch_body_classes( $classes ) {
 	}
 
 	if ( ( is_single() || is_page() ) && is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[ ] = 'has_sidebar';
+		$classes[] = 'has_sidebar';
 	}
 
 	//add this class where we have the masonry layout
@@ -32,7 +32,7 @@ function patch_body_classes( $classes ) {
 	}
 
 	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) {
-		$classes[ ] = 'has_infinite-scroll';
+		$classes[] = 'has_infinite-scroll';
 	}
 
 	return $classes;

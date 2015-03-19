@@ -37,7 +37,7 @@
 			if ( ! empty( $first_image ) ) :
 
 				//we need to determine if this is a linked image
-				$linked = ( false === strpos( $first_image, '</a>') ) ? false : true ;
+				$linked = ( false === strpos( $first_image, '</a>' ) ) ? false : true ;
 
 				if ( $linked ) : ?>
 
