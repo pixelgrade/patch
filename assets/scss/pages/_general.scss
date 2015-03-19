@@ -96,14 +96,30 @@
 		margin-top: 0;
 	}
 
+	.site-branding {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.page-header {
+		margin-top: 0
+	}
 	.page-title {
 		margin-top: 0;
 	}
 
-	.site-footer {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
+	.site-main {
+		padding-top: 0;
+		max-width: 620px;
+	}
+
+	.site-content {
+		padding: 30px;
+	}
+
+	@include query-above($lap) {
+		.site-content {
+			padding: 60px;
+		}
 	}
 }
