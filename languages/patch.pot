@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Patch 1.0-wpcom\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/patch\n"
-"POT-Creation-Date: 2015-03-10 08:55:48+00:00\n"
+"POT-Creation-Date: 2015-03-19 13:59:10+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,43 +17,40 @@ msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
 #: 404.php:20
-msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgid "It looks like nothing was found at this location. Maybe try one of the links in the side menu or a search?"
 msgstr ""
 
-#: 404.php:28
-msgid "Most Used Categories"
-msgstr ""
-
-#. translators: %1$s: smiley
-
-#: 404.php:45
-msgid "Try looking in the monthly archives. %1$s"
-msgstr ""
-
-#: author-bio.php:16
+#: author-bio.php:18
 msgid "View all posts by %s"
 msgstr ""
 
-#: author-bio.php:16
+#: author-bio.php:18
 msgid "All posts"
 msgstr ""
 
-#: comments.php:29
-msgctxt "comments title"
-msgid "One thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+#: comments.php:24
+msgid "Comment"
+msgid_plural "Comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:35 comments.php:58
+#: comments.php:26
+msgid "There are no comments"
+msgstr ""
+
+#: comments.php:28
+msgid "Add yours"
+msgstr ""
+
+#: comments.php:39 comments.php:60
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:38 comments.php:61
+#: comments.php:41 comments.php:62
 msgid "Older Comments"
 msgstr ""
 
-#: comments.php:39 comments.php:62
+#: comments.php:42 comments.php:63
 msgid "Newer Comments"
 msgstr ""
 
@@ -63,44 +60,44 @@ msgstr ""
 
 #. translators: %s: Name of current post
 
-#: content-aside.php:17 content-audio.php:12 content-quote.php:29
-#: content-video.php:12 inc/extras.php:324 inc/template-tags.php:601
+#: content-aside.php:27 content-audio.php:12 content-quote.php:44
+#: content-video.php:12 inc/template-tags.php:655 inc/template-tags.php:685
 msgid "Continue reading %s"
 msgstr ""
 
-#: content-aside.php:23 content-attachment.php:37 content-audio.php:40
-#: content-gallery.php:33 content-page.php:26 content-single.php:50
-#: content-video.php:40 content.php:34
+#: content-aside.php:33 content-attachment.php:42 content-audio.php:54
+#: content-gallery.php:51 content-page.php:33 content-single.php:55
+#: content-video.php:58 content.php:60
 msgid "Pages:"
 msgstr ""
 
-#: content-aside.php:27 content-attachment.php:41 content-audio.php:44
-#: content-gallery.php:37 content-video.php:44 content.php:38
+#: content-aside.php:37 content-attachment.php:46 content-audio.php:58
+#: content-gallery.php:55 content-video.php:62 content.php:64
 msgid "Page"
 msgstr ""
 
-#: content-attachment.php:48 content-page.php:33 inc/extras.php:205
-#: inc/template-tags.php:143 inc/template-tags.php:190
+#: content-attachment.php:54 content-page.php:42 inc/extras.php:188
+#: inc/template-tags.php:185 inc/template-tags.php:233
 msgid "Edit"
 msgstr ""
 
-#: content-none.php:14
+#: content-none.php:18
 msgid "Nothing Found"
 msgstr ""
 
-#: content-none.php:20
+#: content-none.php:25
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: content-none.php:24
+#: content-none.php:29
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: content-none.php:29
+#: content-none.php:34
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: content.php:19
+#: content.php:30
 msgid "Read More"
 msgstr ""
 
@@ -120,19 +117,23 @@ msgstr ""
 msgid "Footer navigation"
 msgstr ""
 
-#: functions.php:78
+#: footer.php:35
+msgid "Begin typing your search above and press return to search. Press Esc to cancel."
+msgstr ""
+
+#: functions.php:61
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:79
+#: functions.php:62
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:80
+#: functions.php:63
 msgid "Footer Menu"
 msgstr ""
 
-#: functions.php:131
+#: functions.php:116
 msgid "Sidebar"
 msgstr ""
 
@@ -144,8 +145,9 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: image.php:38
-msgid "Published in"
+#: image.php:26
+msgctxt "attachment parent post"
+msgid "Posted in %s"
 msgstr ""
 
 #: inc/customizer.php:19
@@ -160,15 +162,11 @@ msgstr ""
 msgid "Hide the author bio on single posts."
 msgstr ""
 
-#: inc/extras.php:81
-msgid "Page %s"
-msgstr ""
-
 #. Translators: If there are characters in your language that are not
 #. 		* supported by Roboto, translate this to 'off'. Do not translate
 #. 		* into your own language.
 
-#: inc/extras.php:118
+#: inc/extras.php:102
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr ""
@@ -177,7 +175,7 @@ msgstr ""
 #. 		* supported by Oswald, translate this to 'off'. Do not translate
 #. 		* into your own language.
 
-#: inc/extras.php:126
+#: inc/extras.php:110
 msgctxt "Oswald font: on or off"
 msgid "on"
 msgstr ""
@@ -186,200 +184,206 @@ msgstr ""
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
 #. 'vietnamese'. Do not translate into your own language.
 
-#: inc/extras.php:131
+#: inc/extras.php:115
 msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr ""
 
-#: inc/extras.php:200
+#: inc/extras.php:183
 msgid "on %s at %s"
 msgstr ""
 
-#: inc/extras.php:217
+#: inc/extras.php:200
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/extras.php:296
+#: inc/extras.php:256 inc/extras.php:257
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: inc/extras.php:257
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr ""
+
+#: inc/extras.php:318
 msgid "Intro Text"
 msgstr ""
 
-#: inc/extras.php:297
+#: inc/extras.php:319
 msgid "Dropcap"
 msgstr ""
 
-#: inc/extras.php:298
+#: inc/extras.php:320
 msgid "Highlight"
 msgstr ""
 
-#: inc/extras.php:299
+#: inc/extras.php:321
 msgid "Pull Left"
 msgstr ""
 
-#: inc/extras.php:300
+#: inc/extras.php:322
 msgid "Pull Right"
 msgstr ""
 
-#: inc/extras.php:301
+#: inc/extras.php:323
 msgid "Two Columns"
 msgstr ""
 
-#: inc/template-tags.php:24
-msgid "Posts navigation"
-msgstr ""
-
-#: inc/template-tags.php:28
-msgid "Older posts"
-msgstr ""
-
-#: inc/template-tags.php:32
-msgid "Newer posts"
-msgstr ""
-
-#: inc/template-tags.php:57
-msgid "Post navigation"
-msgstr ""
-
-#: inc/template-tags.php:91
+#: inc/template-tags.php:48
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
 
-#: inc/template-tags.php:114
+#: inc/template-tags.php:102
 msgid ", "
 msgstr ""
 
 #. translators: There is a space at the end
 
-#: inc/template-tags.php:159
+#: inc/template-tags.php:202
 msgid "Tagged with: "
 msgstr ""
 
-#: inc/template-tags.php:186
+#: inc/template-tags.php:229
 msgid "Leave a comment"
 msgstr ""
 
-#: inc/template-tags.php:186
+#: inc/template-tags.php:229
 msgid "1 Comment"
 msgstr ""
 
-#: inc/template-tags.php:186
+#: inc/template-tags.php:229
 msgid "% Comments"
 msgstr ""
 
-#: inc/template-tags.php:207
+#: inc/template-tags.php:252
 msgid "Category: %s"
 msgstr ""
 
-#: inc/template-tags.php:209
+#: inc/template-tags.php:254
 msgid "Tag: %s"
 msgstr ""
 
-#: inc/template-tags.php:211
+#: inc/template-tags.php:256
 msgid "Author: %s"
 msgstr ""
 
-#: inc/template-tags.php:213
+#: inc/template-tags.php:258
 msgid "Year: %s"
 msgstr ""
 
-#: inc/template-tags.php:213
+#: inc/template-tags.php:258
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: inc/template-tags.php:215
+#: inc/template-tags.php:260
 msgid "Month: %s"
 msgstr ""
 
-#: inc/template-tags.php:215
+#: inc/template-tags.php:260
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr ""
 
-#: inc/template-tags.php:217
+#: inc/template-tags.php:262
 msgid "Day: %s"
 msgstr ""
 
-#: inc/template-tags.php:217
+#: inc/template-tags.php:262
 msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr ""
 
-#: inc/template-tags.php:220
+#: inc/template-tags.php:265
 msgctxt "post format archive title"
 msgid "Asides"
 msgstr ""
 
-#: inc/template-tags.php:222
+#: inc/template-tags.php:267
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr ""
 
-#: inc/template-tags.php:224
+#: inc/template-tags.php:269
 msgctxt "post format archive title"
 msgid "Images"
 msgstr ""
 
-#: inc/template-tags.php:226
+#: inc/template-tags.php:271
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr ""
 
-#: inc/template-tags.php:228
+#: inc/template-tags.php:273
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr ""
 
-#: inc/template-tags.php:230
+#: inc/template-tags.php:275
 msgctxt "post format archive title"
 msgid "Links"
 msgstr ""
 
-#: inc/template-tags.php:232
+#: inc/template-tags.php:277
 msgctxt "post format archive title"
 msgid "Statuses"
 msgstr ""
 
-#: inc/template-tags.php:234
+#: inc/template-tags.php:279
 msgctxt "post format archive title"
 msgid "Audio"
 msgstr ""
 
-#: inc/template-tags.php:236
+#: inc/template-tags.php:281
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr ""
 
-#: inc/template-tags.php:239
+#: inc/template-tags.php:284
 msgid "Archives: %s"
 msgstr ""
 
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 
-#: inc/template-tags.php:243
+#: inc/template-tags.php:288
 msgid "%1$s: %2$s"
 msgstr ""
 
-#: inc/template-tags.php:245
+#: inc/template-tags.php:290
 msgid "Archives"
 msgstr ""
 
-#: inc/template-tags.php:678
+#: inc/template-tags.php:766
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/template-tags.php:700
+#: inc/template-tags.php:789
 msgid "Image navigation"
 msgstr ""
 
-#: inc/template-tags.php:715
+#: inc/template-tags.php:799
 msgid "Previous image"
 msgstr ""
 
-#: inc/template-tags.php:737
+#: inc/template-tags.php:814
 msgid "Next image"
+msgstr ""
+
+#: inc/template-tags.php:939
+msgid "Posts navigation"
+msgstr ""
+
+#: inc/template-tags.php:946 inc/template-tags.php:956
+msgid "Previous"
+msgstr ""
+
+#: inc/template-tags.php:957 inc/template-tags.php:963
+msgid "Next"
 msgstr ""
 #. Theme Name of the plugin/theme
 msgid "Patch"
@@ -390,7 +394,7 @@ msgid "http://pixelgrade.com/demos/patch/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "An enchanting magazine style theme for fashion bloggers, prized for its smart layout and smooth animations. Whether you're looking to share your own thoughts, write about your latest findings or just have a scrapbook of photos, SILK is designed to fulfill these and a lot more."
+msgid "An algorithmic design experiment that cleverly imagines the best layout for your content. Patch brings unity and balance to your beautiful crafted diversity."
 msgstr ""
 
 #. Author of the plugin/theme
