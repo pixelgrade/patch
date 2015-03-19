@@ -10,22 +10,22 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<?php if ( have_posts() ) : ?>
 
-		<?php if ( have_posts() ) : ?>
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main grid" role="main">
 
-			<?php get_template_part( 'loop' ); ?>
+					<?php get_template_part( 'loop' ); ?>
 
-			<?php patch_paging_nav(); ?>
+					<?php patch_paging_nav(); ?>
 
-		<?php else : ?>
+			</main><!-- #main -->
+		</div><!-- #primary -->
 
-			<?php get_template_part( 'content', 'none' ); ?>
+	<?php else : ?>
 
-		<?php endif; ?>
+		<?php get_template_part( 'content', 'none' ); ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	<?php endif; ?>
 
 <?php get_footer(); ?>

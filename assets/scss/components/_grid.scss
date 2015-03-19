@@ -1,4 +1,5 @@
 .site-main {
+	// padding: $gutter/2;
 	padding-bottom: 2*$gutter;
 
 	@include query-above($lap) {
@@ -13,7 +14,11 @@
 .grid,
 .pagination {
 	margin: 0 auto;
-	max-width: 450px;
+	max-width: 400px;
+
+	@include query-above(480px) {
+		max-width: 450px;
+	}
 
 	@include query-above($lap) {
 		max-width: 1000px;
@@ -41,20 +46,25 @@
 }
 
 .grid__item {
+	width: 100%;
 	border-left: 0 solid transparent;
-	margin-bottom: $gutter;
+	margin-bottom: 30px;
 
     @include query-above($lap) {
 		float: left;
     	width: 50%;
 
-    	&:nth-child(1), &:nth-child(3) {
+    	&:nth-child(1) {
     		margin-top: 50px;
     	}
     }
 
     @include query-above(1260px) {
     	width: 33.33%;
+
+    	&:nth-child(3) {
+    		margin-top: 50px;
+    	}
     }
 
     @include query-above(1800px) {
@@ -67,5 +77,5 @@
 }
 
 .grid, .grid__item { 
-	border-color: rgba(yellow, 0.25);
+	// border-color: rgba(yellow, 0.25);
 }

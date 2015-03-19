@@ -7,40 +7,78 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div class="grid__item">
 
-	<div class="entry-meta">
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<?php patch_first_category(); ?>
+		<div class="entry-meta">
 
-		<?php patch_posted_on(); ?>
+			<?php patch_first_category(); ?>
 
-	</div><!-- .entry-meta -->
+			<?php patch_posted_on(); ?>
 
-	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="entry-image entry-image--landscape">
-			<a href="<?php the_permalink(); ?>">
+		</div><!-- .entry-meta -->
+
+		<?php if ( has_post_thumbnail() ) : ?>
+
+			<a class="entry-image entry-image--landscape" href="<?php the_permalink(); ?>">
+
+				<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
+					<span class="sticky-post"></span>
+				<?php endif; ?>
+
 				<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
+
 			</a>
-		</div>
-	<?php  else : // we need to search in the content for an image - maybe we find one
-		$first_image = patch_get_post_format_first_image();
-		if ( ! empty( $first_image ) ) : ?>
-			<div class="entry-image entry-image--landscape">
-				<a href="<?php the_permalink(); ?>">
-					<?php echo $first_image; ?>
-				</a>
-			</div>
-		<?php endif;
-	endif; ?>
-	<header <?php patch_post_title_class(); ?>>
-		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
-	</header><!-- .entry-header -->
 
-	<footer class="entry-footer">
+		<?php  else : // we need to search in the content for an image - maybe we find one
+			$first_image = patch_get_post_format_first_image();
 
-		<?php patch_entry_footer(); ?>
+			if ( ! empty( $first_image ) ) :
 
-	</footer><!-- .entry-footer -->
-	
-</article><!-- #post-## -->
+				//we need to determine if this is a linked image
+				$linked = ( false === strpos( $first_image, '</a>') ) ? false : true ;
+
+				if ( $linked ) : ?>
+
+					<div class="entry-image entry-image--landscape">
+
+						<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
+							<span class="sticky-post"></span>
+						<?php endif; ?>
+
+						<?php echo $first_image; ?>
+
+					</div>
+
+				<?php else : ?>
+
+					<a class="entry-image entry-image--landscape" href="<?php the_permalink(); ?>">
+
+						<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
+							<span class="sticky-post"></span>
+						<?php endif; ?>
+
+						<?php echo $first_image; ?>
+
+					</a>
+
+			<?php endif;
+			endif;
+		endif; ?>
+
+		<header <?php patch_post_title_class(); ?>>
+
+			<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+
+		</header><!-- .entry-header -->
+
+		<footer class="entry-footer">
+
+			<?php patch_entry_footer(); ?>
+
+		</footer><!-- .entry-footer -->
+
+	</article><!-- #post-## -->
+
+</div><!-- .grid__item -->

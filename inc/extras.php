@@ -26,6 +26,15 @@ function patch_body_classes( $classes ) {
 		$classes[ ] = 'has_sidebar';
 	}
 
+	//add this class where we have the masonry layout
+	if ( ! is_singular() ) {
+		$classes[] = 'layout-grid';
+	}
+
+	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) {
+		$classes[ ] = 'has_infinite-scroll';
+	}
+
 	return $classes;
 }
 
@@ -42,11 +51,29 @@ add_filter( 'body_class', 'patch_body_classes' );
 function patch_post_classes( $classes ) {
 
 	if ( is_archive() || is_home() || is_search() ) {
-		$classes[] = 'entry-card  grid__item';
+		$classes[] = 'entry-card  js-masonry-item';
 	}
 
-	if ( is_single() && has_post_thumbnail() ) {
-		$classes[] = patch_get_post_thumbnail_aspect_ratio_class();
+	if ( has_post_thumbnail() ) {
+		if ( is_singular() ) {
+			$classes[] = 'entry-image--' . patch_get_post_thumbnail_aspect_ratio_class();
+		} else {
+			$classes[] = 'entry-card--' . patch_get_post_thumbnail_aspect_ratio_class();
+		}
+	} else {
+		//handle other post formats
+		if ( ! is_singular() ) {
+			switch ( get_post_format() ) {
+				case 'image': $classes[] = 'entry-card--landscape';
+					break;
+				case 'gallery': $classes[] = 'entry-card--landscape';
+					break;
+				case 'video': ;
+				case 'audio': $classes[] = 'entry-card--landscape';
+					break;
+				default: $classes[] = 'entry-card--text';
+			}
+		}
 	}
 
 	return $classes;

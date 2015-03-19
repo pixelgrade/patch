@@ -9,21 +9,21 @@
 
 <div id="posts" class="grid">
 
-<?php get_template_part( 'content', 'header' ); ?>
+	<?php get_template_part( 'content', 'header' ); ?>
 
-<?php patch_the_secondary_page_title(); ?>
-
-<?php
-/* Start the Loop */
-while ( have_posts() ) : the_post(); ?>
+	<?php patch_the_secondary_page_title(); ?>
 
 	<?php
-		/* Include the Post-Format-specific template for the content.
-		 * If you want to override this in a child theme, then include a file
-		 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-		 */
-	get_template_part( 'content', get_post_format() ); ?>
+	/* Start the Loop */
+	while ( have_posts() ) : the_post(); ?>
 
-<?php endwhile; ?>
+		<?php
+			/* Include the Post-Format-specific template for the content.
+			 * If you want to override this in a child theme, then include a file
+			 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+			 */
+		get_template_part( 'content', get_post_format() ); ?>
+
+	<?php endwhile; ?>
 
 </div><!-- .archive__grid -->

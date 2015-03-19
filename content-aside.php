@@ -7,41 +7,45 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div class="grid__item">
 
-	<div class="entry-meta">
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<?php patch_first_category(); ?>
+		<div class="entry-meta">
 
-		<?php patch_posted_on(); ?>
+			<?php patch_first_category(); ?>
 
-	</div><!-- .entry-meta -->
+			<?php patch_posted_on(); ?>
 
-	<div class="entry-content entry-content--long">
+		</div><!-- .entry-meta -->
 
-		<?php
-		/* translators: %s: Name of current post */
-		the_content( sprintf(
-			__( 'Continue reading %s', 'patch_txtd' ),
-			the_title( '<span class="screen-reader-text">', '</span>', false )
-		) ); ?>
+		<div class="entry-content entry-content--long">
 
-		<?php
-		wp_link_pages( array(
-			'before' => '<div class="page-links"><span class="pagination-title">' . __( 'Pages:', 'patch_txtd' ),
-			'after'  => '</span></div>',
-			'link_before' => '<span>',
-			'link_after'  => '</span>',
-			'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'patch_txtd' ) . ' </span>%',
-			'separator'   => '<span class="screen-reader-text">, </span>',
-		) ); ?>
+			<?php
+			/* translators: %s: Name of current post */
+			the_content( sprintf(
+				__( 'Continue reading %s', 'patch_txtd' ),
+				the_title( '<span class="screen-reader-text">', '</span>', false )
+			) ); ?>
 
-	</div><!-- .entry-content -->
+			<?php
+			wp_link_pages( array(
+				'before' => '<div class="page-links"><span class="pagination-title">' . __( 'Pages:', 'patch_txtd' ),
+				'after'  => '</span></div>',
+				'link_before' => '<span>',
+				'link_after'  => '</span>',
+				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'patch_txtd' ) . ' </span>%',
+				'separator'   => '<span class="screen-reader-text">, </span>',
+			) ); ?>
 
-	<footer class="entry-footer">
+		</div><!-- .entry-content -->
 
-		<?php patch_entry_footer(); ?>
+		<footer class="entry-footer">
 
-	</footer><!-- .entry-footer -->
-	
-</article><!-- #post-## -->
+			<?php patch_entry_footer(); ?>
+
+		</footer><!-- .entry-footer -->
+
+	</article><!-- #post-## -->
+
+</div><!-- .grid__item -->

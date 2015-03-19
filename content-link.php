@@ -7,34 +7,42 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div class="grid__item">
 
-	<div class="entry-meta">
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<?php patch_first_category(); ?>
+		<div class="entry-meta">
 
-		<?php patch_posted_on(); ?>
+			<?php patch_first_category(); ?>
 
-	</div><!-- .entry-meta -->
+			<?php patch_posted_on(); ?>
 
-	<?php if ( has_post_thumbnail() ) : ?>
+		</div><!-- .entry-meta -->
 
-		<a href="<?php patch_get_post_format_link_url(); ?>" <?php patch_post_thumbnail_class( 'entry-image' ); ?>>
-			<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
-		</a>
+		<?php if ( has_post_thumbnail() ) : ?>
 
-	<?php else : ?>
+			<a href="<?php patch_get_post_format_link_url(); ?>" <?php patch_post_thumbnail_class( 'entry-image' ); ?>>
 
-		<header <?php patch_post_title_class(); ?>>
-			<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark"><span class="link__text">', esc_url( patch_get_post_format_link_url() ) ), '</span>&nbsp;<i class="link__icon  fa fa-external-link"></i></a></h1>' ); ?>
-		</header><!-- .entry-header -->
+				<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
 
-	<?php endif; ?>
+			</a>
 
-	<footer class="entry-footer">
+		<?php else : ?>
 
-		<?php patch_entry_footer(); ?>
+			<header <?php patch_post_title_class(); ?>>
 
-	</footer><!-- .entry-footer -->
-	
-</article><!-- #post-## -->
+				<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark"><span class="link__text">', esc_url( patch_get_post_format_link_url() ) ), '</span>&nbsp;<i class="link__icon  fa fa-external-link"></i></a></h1>' ); ?>
+
+			</header><!-- .entry-header -->
+
+		<?php endif; ?>
+
+		<footer class="entry-footer">
+
+			<?php patch_entry_footer(); ?>
+
+		</footer><!-- .entry-footer -->
+
+	</article><!-- #post-## -->
+
+</div><!-- .grid__item -->

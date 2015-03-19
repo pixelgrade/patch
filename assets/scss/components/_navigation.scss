@@ -7,7 +7,7 @@
 	@include query-below($lap) {
 		margin-top: $gutter/2;
 		margin-bottom: $gutter*3/2;
-		border-left: 0;
+		border-left: 0; 
 		width: 100%;
 	}
 
@@ -17,21 +17,15 @@
 	}
 }
 
-
-// Logo
-// Site Title
-// Site Description
-.site-branding {
-	img {
-
-	}
-}
-
 @include query-above($lap) {
 	.site-branding,
 	.nav--main,
 	.nav--social {
-		margin: 0 2.5*$gutter $gutter $gutter;
+		margin: 0 2*$gutter $gutter $gutter;
+	}
+
+	.site-branding {
+		margin-right: 3*$gutter;
 	}
 }
 
@@ -71,7 +65,11 @@
 	// @extend %fs-24;
 	font-size: 24px;
 	line-height: 1.875;
-	margin-bottom: 15px;
+	margin-bottom: $gutter;
+
+	.single &, .page:not(.entry-card) & {
+		margin-bottom: 8px;
+	}
 
 	li {
 		display: block;
@@ -85,6 +83,10 @@
 				bottom: 0;
 			}
 		}
+
+		a:before {
+
+		}
 	}
 
 	> li {
@@ -92,7 +94,7 @@
 	    @include query-above($lap) {
 			float: left;
 			width: 50%;
-			padding-right: 20px;
+			padding-right: 10px;
 	    }
 
 		a {
@@ -100,17 +102,24 @@
 			position: relative;
 			display: inline-block;
 			line-height: 1.5;
-			padding-right: 0.65em;
+			letter-spacing: 0.06em;
+			
 		}
 	}
 
 	.menu-item-has-children {
-		> a:after {
-			content: "+";
-			position: absolute;
-			top: -0.1em;
-			right: 0;
+
+		> a {
+			padding-right: 0.65em;
+			
+			&:after {
+				content: "+";
+				position: absolute;
+				top: -0.1em;
+				right: 0;
+			}
 		}
+
 	}
 
 	// Sub menus
@@ -129,9 +138,12 @@
 			margin-left: -8px;
 			margin-top: 4px;
 
-			display: none;
+			display: inline-block;
+			pointer-events: none;
 			opacity: 0;
-			transition: opacity 0.5s;
+			transform-origin: 0 0;
+			transform: scale(0.95);
+			transition: all 0.15s;
 
 			background: white;
 			z-index: 100;
@@ -139,7 +151,7 @@
 			border-radius: 3px;
 			box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
 
-			font-size: rem(18px);
+			font-size: 18px;
 			line-height: 2.2;
 
 			li {
@@ -155,7 +167,9 @@
 		li:hover {
 
 			> ul {
-				display: inline-block;
+				pointer-events: auto;
+				// display: inline-block;
+				transform: scale(1);
 				opacity: 1;
 			}
 		}
@@ -239,7 +253,8 @@
 
 .nav--social {
 	@extend %nav--social;
-	margin-bottom: 0;
+	margin-bottom: $gutter * 2/3;
+	margin-left: $gutter - 6px;
 	font-size: 18px;
 
 	a {
@@ -251,9 +266,20 @@
 		&:before {
 			display: inline-block;
 			text-align: center;
-			width: 1em;
-			margin-right: .5em;
+			// width: 1em;
+			padding-right: .4em;
+			padding-left: .4em;
+			border-radius: 3px;
 			visibility: visible;
+
+			background: transparent;
+			transition: background 0.2s;
+		}
+
+		&:hover {
+			&:before {
+				background: $accent;
+			}
 		}
 	}
 }
@@ -268,13 +294,13 @@
 
 		// sync somehow with sidebar
 		@include query-above($lap) {
-			float: left;
-			width: 30%;
+			// float: left;
+			// width: 30%;
 		}
 
 		@include query-above($desk) {
-			width: rem(310px);
-			padding-right: rem(90px);
+			// width: $col;
+			// padding-right: rem(90px);
 		}
 	}
 

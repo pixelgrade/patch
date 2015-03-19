@@ -12,17 +12,17 @@
 	z-index: 31;
 	position: relative;
 
-	margin-bottom: rem(14px);
+	margin-bottom: 10px;
 
-	font-size: rem(13px);
+	font-size: 13px;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
 
 // Categories
 .cat-links {
-	margin-right: rem(10px);
-	padding: rem(6px) rem(14px);
+	margin-right: 10px;
+	padding: 6px 14px;
 	background-color: $accent;
 }
 
@@ -96,14 +96,30 @@
 		margin-top: 0;
 	}
 
+	.site-branding {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.page-header {
+		margin-top: 0
+	}
 	.page-title {
 		margin-top: 0;
 	}
 
-	.site-footer {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
+	.site-main {
+		padding-top: 0;
+		max-width: 620px;
+	}
+
+	.site-content {
+		padding: 30px;
+	}
+
+	@include query-above($lap) {
+		.site-content {
+			padding: 60px;
+		}
 	}
 }

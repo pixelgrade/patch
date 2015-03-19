@@ -6,48 +6,59 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div class="grid__item">
 
-	<div class="entry-meta">
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<?php patch_first_category(); ?>
+		<div class="entry-meta">
 
-		<?php patch_posted_on(); ?>
+			<?php patch_first_category(); ?>
 
-	</div><!-- .entry-meta -->
+			<?php patch_posted_on(); ?>
 
-	<?php
-	//let's see if we have a featured image
-	$post_thumbnail_style = '';
-	if ( has_post_thumbnail() ) {
-		$post_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'patch-single-image' );
-		if ( isset( $post_thumbnail[0] ) ) {
-			$post_thumbnail_style = 'style="background-image: url(' . esc_url( $post_thumbnail[0] ) . ');"';
-		}
-	} ?>
+		</div><!-- .entry-meta -->
 
-	<div class="entry-content" <?php echo $post_thumbnail_style; ?> >
+		<?php
+		//let's see if we have a featured image
+		$post_thumbnail_style = '';
+		if ( has_post_thumbnail() ) {
+			$post_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'patch-single-image' );
+			if ( isset( $post_thumbnail[0] ) ) {
+				$post_thumbnail_style = 'style="background-image: url(' . esc_url( $post_thumbnail[0] ) . ');"';
+			}
+		} ?>
 
-		<div class="content-quote">
-			<div class="flexbox">
-				<div class="flexbox__item">
-					<?php
-					/* translators: %s: Name of current post */
-					$content = get_the_content( sprintf(
-						__( 'Continue reading %s', 'patch_txtd' ),
-						the_title( '<span class="screen-reader-text">', '</span>', false )
-					) );
+		<div class="entry-content" <?php echo $post_thumbnail_style; ?> >
 
-					//test if there is a </blockquote> tag in here
-					if ( false !== strpos( $content,'</blockquote>' ) ) {
-						echo $content;
-					} else {
-						//we will wrap the whole content in blockquote since this is definitely intended as a quote
-						echo '<blockquote>' . $content . '</blockquote>';
-					} ?>
+			<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
+				<span class="sticky-post"></span>
+			<?php endif; ?>
+
+			<div class="content-quote">
+				<div class="flexbox">
+					<div class="flexbox__item">
+
+						<?php
+						/* translators: %s: Name of current post */
+						$content = get_the_content( sprintf(
+							__( 'Continue reading %s', 'patch_txtd' ),
+							the_title( '<span class="screen-reader-text">', '</span>', false )
+						) );
+
+						//test if there is a </blockquote> tag in here
+						if ( false !== strpos( $content,'</blockquote>' ) ) {
+							echo $content;
+						} else {
+							//we will wrap the whole content in blockquote since this is definitely intended as a quote
+							echo '<blockquote>' . $content . '</blockquote>';
+						} ?>
+
+					</div>
 				</div>
 			</div>
-		</div>
 
-	</div><!-- .entry-content -->
-</article><!-- #post-## -->
+		</div><!-- .entry-content -->
+
+	</article><!-- #post-## -->
+
+</div><!-- .grid__item -->

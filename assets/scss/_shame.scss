@@ -10,6 +10,10 @@
 	@extend %fs-24;
 }
 
+.entry-image--portrait  + .entry-header--short .entry-title {
+	@extend %fs-36;
+}
+
 .entry-image--square 	+ .entry-header--long .entry-title,
 .entry-image--landscape + .entry-header--long .entry-title,
 .entry-image--wide 		+ .entry-header--long .entry-title {
@@ -19,6 +23,7 @@
 .entry-image--portrait  + .entry-header .entry-title,
 .entry-image--tall  	+ .entry-header .entry-title {
 	@extend .bold;
+	@extend %ls-0-02;
 }
 
 .entry-image--portrait  + .entry-header--medium .entry-title,
@@ -26,10 +31,17 @@
 	@extend %fs-30;
 }
 
-.entry-medium--long .entry-title,
-.entry-medium--medium .entry-title,
-.entry-medium--short .entry-title {
+// No Featured Images Cases
+.entry-header--long .entry-title {
+	@extend %fs-30;
+}
+
+.entry-header--medium .entry-title {
 	@extend %fs-36;
+}
+
+.entry-header--short .entry-title {
+	@extend %fs-42;
 }
 
 .entry-title--short {
@@ -70,8 +82,16 @@
 	}
 }
 
-body {
-	min-height: 100vh;
+.site-content {
+	min-height: calc(100vh - 60px);
+
+	@include query-above($lap) {
+		margin-bottom: 30px;
+	}
+
+	.admin-bar & {
+		min-height: calc(100vh - 60px - 32px);
+	}
 }
 
 // footer was leaving his bg behind when infinite posts were loaded

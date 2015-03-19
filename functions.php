@@ -10,118 +10,97 @@
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
+	$content_width = 800; /* pixels */
 }
-
-if ( ! function_exists( 'patch_content_width' ) ) :
-
-	/**
-	 * Adjusts content_width value depending on situation.
-	 */
-	function patch_content_width() {
-		global $content_width;
-
-		if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-			$content_width = 1062; /* pixels */
-		}
-
-		//for attachments the $content_width is set in image.php
-	}
-
-endif;
-
-add_action( 'template_redirect', 'patch_content_width' );
 
 if ( ! function_exists( 'patch_setup' ) ) :
 
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
-function patch_setup() {
-
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Patch, use a find and replace
-	 * to change 'patch_txtd' to the name of your theme in all the template files
-	 */
-	load_theme_textdomain( 'patch_txtd', get_template_directory() . '/languages' );
-
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
-
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
-	add_theme_support( 'title-tag' );
-
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
+	/**
+	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
-	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+	 * Note that this function is hooked into the after_setup_theme hook, which
+	 * runs before the init hook. The init hook is too late for some features, such
+	 * as indicating support for post thumbnails.
 	 */
-	add_theme_support( 'post-thumbnails' );
+	function patch_setup() {
 
-	//used as featured image for posts on archive pages
-	//also for the background image of About Me widget
-	add_image_size( 'patch-masonry-image', 450, 9999, false );
-
-	//used for the post thumbnail of posts on archives when displayed in a single column (no masonry)
-	//and for the single post featured image
-	add_image_size( 'patch-single-image', 1024, 9999, false );
-
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'primary' 	=> __( 'Primary Menu', 'patch_txtd' ),
-		'social' 	=> __( 'Social Menu', 'patch_txtd' ),
-		'footer'    => __( 'Footer Menu', 'patch_txtd' ),
-	) );
-
-	/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
+		/*
+		 * Make theme available for translation.
+		 * Translations can be filed in the /languages/ directory.
+		 * If you're building a theme based on Patch, use a find and replace
+		 * to change 'patch_txtd' to the name of your theme in all the template files
 		 */
-	add_theme_support( 'html5', array(
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	) );
+		load_theme_textdomain( 'patch_txtd', get_template_directory() . '/languages' );
 
-	/*
-	 * Enable support for Post Formats.
-	 * See http://codex.wordpress.org/Post_Formats
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside',
-		'gallery',
-		'image',
-		'audio',
-		'video',
-		'quote',
-		'link',
-	) );
+		// Add default posts and comments RSS feed links to head.
+		add_theme_support( 'automatic-feed-links' );
 
-	/*
-	 * Add editor custom style to make it look more like the frontend
-	 * Also enqueue the custom Google Fonts also
-	 */
-	add_editor_style( array( 'editor-style.css', patch_fonts_url() ) );
+		/*
+		 * Let WordPress manage the document title.
+		 * By adding theme support, we declare that this theme does not use a
+		 * hard-coded <title> tag in the document head, and expect WordPress to
+		 * provide it for us.
+		 */
+		add_theme_support( 'title-tag' );
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'patch_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
-}
+		/*
+		 * Enable support for Post Thumbnails on posts and pages.
+		 *
+		 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+		 */
+		add_theme_support( 'post-thumbnails' );
+
+		//used as featured image for posts on home page and archive pages
+		add_image_size( 'patch-masonry-image', 500, 9999, false );
+
+		//used for the single post featured image
+		add_image_size( 'patch-single-image', 1024, 9999, false );
+
+		// This theme uses wp_nav_menu() in one location.
+		register_nav_menus( array(
+			'primary' 	=> __( 'Primary Menu', 'patch_txtd' ),
+			'social' 	=> __( 'Social Menu', 'patch_txtd' ),
+			'footer'    => __( 'Footer Menu', 'patch_txtd' ),
+		) );
+
+		/*
+			 * Switch default core markup for search form, comment form, and comments
+			 * to output valid HTML5.
+			 */
+		add_theme_support( 'html5', array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		) );
+
+		/*
+		 * Enable support for Post Formats.
+		 * See http://codex.wordpress.org/Post_Formats
+		 */
+		add_theme_support( 'post-formats', array(
+			'aside',
+			'gallery',
+			'image',
+			'audio',
+			'video',
+			'quote',
+			'link',
+		) );
+
+		/*
+		 * Add editor custom style to make it look more like the frontend
+		 * Also enqueue the custom Google Fonts also
+		 */
+		add_editor_style( array( 'editor-style.css', patch_fonts_url() ) );
+
+		/*
+		 * Now some cleanup to remove features that we do not support
+		 */
+		remove_theme_support( 'custom-header' );
+
+	}
 
 endif;
 

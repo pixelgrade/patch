@@ -1,51 +1,68 @@
-.single-post,
-.page {
+.single,
+.page,
+.error404,
+.search-no-results {
 	.site-content .container {
 		@extend %clearfix;
 		position: relative;
-	}
-
-	.site-main {
-		max-width: none;
 	}
 
 	.content-area {
 		width: 100%;
 	}
 
-	.sidebar {
-		position: relative;
-		clear: left;
-
-		@include rhythm(padding-top, 2);
-
-		@include query-below($lap) {
-			border-top: 1px solid $gray;
-			@include rhythm(padding-top, 4);
-		}
-
-		@include query-above($lap) {
-			@include rhythm(padding-bottom, 4);
-		}
-	}
-
 	@include query-above($lap) {
 
 		.content-area {
 			float: right;
-			margin-left: -310px;
+			margin-left: -$sidebar;
 		}
 
 		.site-main {
-			margin-left: 310px;
+			margin-left: $sidebar + 84px;
 		}
 
 		.sidebar,
 		.site-header {
 			z-index: 5;
 			float: left;
-			width: 310px;
-			padding-right: 90px;
+			width: $sidebar;
+			padding-right: 0;
+		}
+	}
+}
+
+.sidebar {
+	position: relative;
+	clear: left;
+
+	// @include rhythm(padding-top, 2);
+
+	@include query-below($lap) {
+		border-top: 1px solid $gray;
+		// @include rhythm(padding-top, 4);
+	}
+
+	@include query-above($lap) {
+		@include rhythm(padding-bottom, 4);
+		z-index: 5;
+		float: left;
+		width: $sidebar;
+		padding-right: 0;
+	}
+}
+
+.sidebar {
+	a {
+	position: relative;
+		font-weight: 300;
+
+		&:before {
+			background: transparent;
+		}
+
+		&:hover { 
+			@extend %hover;
 		}
 	}
 }

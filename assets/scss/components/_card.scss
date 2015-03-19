@@ -2,6 +2,8 @@
 // #CARDS
 // Masonry Archive Posts
 
+
+// Spacing Mixin
 @mixin spacings($gutter) {
 
 	.grid {
@@ -9,7 +11,18 @@
 	}
 
 	.grid__item {
-		border-left-width: $gutter;
+		border-left-width: $gutter + 1px;
+	}
+
+	.entry-block {
+		margin-left: $gutter;
+		margin-right: $gutter;
+	}
+
+	.entry-header {
+		margin-left: -$gutter;
+		margin-right: $gutter;
+		padding-left: 2*$gutter;
 	}
 
 	.entry-image--landscape {
@@ -17,26 +30,41 @@
 		margin-right: $gutter;
 	}
 
+	.entry-image--tall {
+		max-width: calc(45% - $gutter);
+	}
+
+	.entry-card--tall,
+	.entry-card--portrait {
+		margin-right: -$gutter;
+		padding-right: $gutter*1/2;
+	}
+
 	.entry-image--tall,
 	.entry-image--portrait {
-		margin-left: -$gutter;
 
 		// hard work man
 		~ .entry-header.entry-header {
-			// padding-top: $gutter;
-			// margin-top: -$gutter;
+			margin-left: 0;
+			margin-top: -$gutter/2;
+			padding-top: $gutter/2;
+		}
+
+
+		~ .entry-header.entry-header,
+		~ .entry-content.entry-content {
+			margin-right: 0;
+			padding-right: 0;
 		}
 
 		~ .entry-content {
-			padding-bottom: $gutter;
-			margin-bottom: -$gutter/2;
+			margin-right: 0;
 		}
 	}
 
 	.entry-image--wide {
 		margin: 0 #{-$gutter};
 	}
-
 
 	.entry-image--landscape,
 	.entry-image--tall, 
@@ -55,29 +83,25 @@
 	}
 
 	.entry--even {
-		.entry-image--tall,
-		.entry-image--portrait {
 
-			margin-left: $gutter/2;
-			margin-right: -$gutter;
+		.entry-card--tall,
+		.entry-card--portrait {
+			margin-left: -$gutter;
+			margin-right: 0;
+			padding-left: $gutter/2;
+			padding-right: 0;
 
-			& ~ .entry-block {
-				margin-left: -$gutter;
-				padding-left: $gutter;	
-				margin-right: $gutter;			
+			.entry-header,
+			.entry-content {
+				margin-left: 0;
+				margin-right: $gutter;
 			}
 		}
-	}
 
-	.entry-block {
-		margin-left: $gutter;
-		margin-right: $gutter;
-	}
-
-	.entry-header {
-		margin-left: -$gutter;
-		margin-right: $gutter;
-		padding-left: 2*$gutter;
+		.entry-image--tall,
+		.entry-image--portrait {
+			margin-right: -$gutter;
+		}
 	}
 
 	.entry-image--square + .entry-header {
@@ -88,11 +112,22 @@
 	.entry-image + .entry-header {
 		margin-left: $gutter;
 	}
+
+	.entry-card {
+		.entry-meta {
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
+	}
 }
+// End 'Spacing Mixin'
+
+
 
 .blog, .archive, .search {
 
 	.entry-header {
+		position: relative;
 		padding: 20px;
 		margin-bottom: 15px;
 		background: black;
@@ -104,37 +139,91 @@
 	}
 
 	.page-header {
-		margin-top: 0;
+		margin-top: 50px;
 	}
 
 	.page-title {
 		margin-top: 0;
 	}
 
+	@media only screen and (min-width: 480px) {
+		@include spacings(24px);
+	}
+
+	@media only screen and (min-width: 1440px) {
+		@include spacings(30px);	
+	}
+
+	@media only screen and (min-width: 1800px) {
+		// @include spacings(24px);	
+	}
+
+
+
 	@media only screen and (min-width: 1260px) {
-		@include spacings($gutter/2);	
+		// @include spacings($gutter/2);	
 	}
 
 	@media only screen and (min-width: 1360px), screen and (min-width: 420px) and (max-width: 1259px) {
-		@include spacings($gutter);
+		// @include spacings($gutter);
+	}
+}
+
+
+
+// #CARD
+
+.entry-card,
+.site-header {
+	transform: translateZ(0);
+	opacity: 0;
+	transition: opacity .3s ease-in-out;
+
+	&.is-visible {
+		opacity: 1;
+	}
+}
+
+.site-header {
+	@include query-below($lap) {
+		transform: none !important;
+		z-index: 100;
 	}
 }
 
 .entry-card {
 	@extend .clearfix;
 	position: relative;
-	transform: translateZ(0);
-	// transition: transform 0.3s;
-	
-	opacity: 0;
+	background: white;
+	// hack to keep things inside
+	padding-top: 1px;
+
+	.entry-image img {
+		transition: filter .3s ease-in-out;
+		transition: -webkit-filter .3s ease-in-out;
+		transform: translateZ(0);
+	}
+
+	&:hover {
+
+		.entry-image img {
+			-webkit-backface-visiblity: hidden;
+			filter: saturate(0);
+			-webkit-filter: grayscale(1);
+		}
+
+		span {
+			opacity: 1;
+		}
+	}
 	
 	// Post Meta (categories, author and date)
 	.entry-meta {
 		@extend %clearfix;
 		position: absolute;
-		margin-left: $gutter;
-		margin-right: $gutter;
 		margin-bottom: 0;
+		margin-top: 4px;
+		z-index: -1;
 
 		@extend %alpha;
 		font-size: 11px;
@@ -157,6 +246,36 @@
 		> * {
 			float: left;
 		}
+
+		.touch & {
+			position: static;
+			opacity: 1;
+		}
+	}
+
+	.entry--even & {
+
+		&.entry-card--tall,
+		&.entry-card--portrait {
+			.entry-meta {
+				right: 0;
+
+				> * {
+					float: right;
+					margin-left: 10px;
+					margin-right: 0;
+				}
+					
+				.posted-on:before {
+					display: none;
+				}
+
+				.posted-on:after {
+					content: "/";
+					margin-left: 4px;
+				}
+			}
+		}
 	}
 
 	.entry-time {
@@ -164,41 +283,22 @@
 	}
 
 	.entry-content {
-		background: white;
+		font-size: 14px;
 
-		font-size: rem(14px);
+		> :last-child {
+			margin-bottom: 0;
+		}
 
 		p {
-			margin-bottom: rem(15px);
+			margin-bottom: 15px;
 
 			&:last-of-type {
 				// margin-bottom: 0;
 			}
 		}
 	}
-
-
-	// &:hover {
-	// 	transform: translateY($gutter/2);
-
-	// 	.entry-meta {
-	// 		opacity: 1;
-	// 		transform: translateY(-100%);
-	// 	}
-
-	// 	.entry-image {
-
-	// 		img {
-	// 			// opacity: 0.8;
-	// 			filter: grayscale(1);
-	// 		}
-
-	// 		.hover {
-	// 			opacity: 1;
-	// 		}
-	// 	}
-	// }
 }
+
 
 
 .entry-image {
@@ -206,7 +306,12 @@
 	z-index: 32; //over .entry-meta
 	display: block;
 
-	background: black;
+	figure {
+		max-width: 100%;
+		height: auto;
+	}
+
+	// background: black;
 
 	@include query-above($lap) {
 		margin-right: $gutter;
@@ -219,9 +324,6 @@
 	img {
 		display: block;
 		width: 100%;
-
-		filter: grayscale(0);
-		transition: all 0.3s;
 	}
 
 	.hover {
@@ -231,6 +333,12 @@
 		transform: translateY(-50%) translateX(-50%);
 		z-index: 100;
 
+		@extend %beta;
+		@extend %fs-24;
+		text-transform: uppercase;
+		text-align: center;
+		// -webkit-font-smoothing: antialiased;
+
 		color: white;
 
 		opacity: 0;
@@ -239,10 +347,19 @@
 	}
 }
 
+
+
+// #PORTRAIT
+// #TALL
+
+.entry-image--tall {
+	max-width: 45%;	
+	max-width: calc(45% - $gutter);
+}
+
 .entry-image--tall,
 .entry-image--portrait {
 	float: left;
-	max-width: 35%;
 	margin-right: $gutter/2;
 	position: relative;
 	z-index: 40;
@@ -253,14 +370,41 @@
 		z-index: 30;
 	}
 
-	+ .entry-header {
-		margin-top: 0 !important;
+	~ .entry-content {
+
+		p:last-of-type {
+			margin-bottom: 0;
+		}
 	}
 
-	@include query-above($small) {
-		max-width: 50%;
+	+ .entry-header {
+		// margin-top: 0 !important;
+
+		h1 {
+			// letter-spacing: 0.02em;
+		}
 	}
 }
+
+
+
+// #PORTRAIT
+
+.entry-image--portrait {
+	max-width: 55%;
+
+	@include query-above($small) {
+	}
+}
+
+// #TALL
+
+.entry-image--tall {
+
+}
+
+
+
 
 .entry-header {
 	@extend .entry-block;
@@ -271,14 +415,14 @@
 	}
 
 	.entry-image + & {
-		background: white;
+		background: none;
 		color: black;
-		padding-left: 0;
-		padding-top: 0;
-		padding-bottom: 0; 
+		padding: 0;
 
-		margin-top: 20px;
-		margin-bottom: 5px;
+
+		margin-top: 10px;
+		margin-bottom: 0;
+		border-bottom: 5px solid white;
 
 		.entry-title {
 			color: $dark;
@@ -299,6 +443,7 @@
 
 .entry-content {
 	@extend .entry-block;	
+	margin-bottom: $gutter/3;
 }
 
 .entry--even {
@@ -308,7 +453,7 @@
 	.entry-image--tall,
 	.entry-image--portrait {
 		margin-right: 0;
-		padding-right: 0;	
+		padding-right: 0;
 
 		margin-left: $gutter/2;	
 		float: right;
@@ -320,26 +465,115 @@
 
 } 
 
-@include query-below(400px) {
-
-	.entry-header {
-		padding-left: $gutter;
-		margin-right: $gutter/2;
-	}
-
-	.entry-image + .entry-header {
-		margin-left: 0;
-		margin-right: 0;
-	}
-
-	.entry-content {
-		margin-left: 0;
-		margin-right: 0;
-	}
-
-	.entry-image--square {
-		margin-left: 0;
-		margin-right: $gutter/2;
-	}
+.blog, .archive, .search {
 	
+	@include query-below($lap) {
+		.entry-header {
+			margin-left: 0;
+			margin-right: 0;
+			padding-left: $gutter;
+			padding-right: $gutter * 2/3;
+		}
+
+		.entry-image + .entry-header {
+			padding: 0;
+			margin-right: $gutter;
+		}
+
+		.entry-image--landscape {
+			margin-right: 0;
+			margin-left: 0;
+		}
+
+		.entry-image--wide {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		.entry-image--square,
+		.entry-image--square ~ .entry-content {
+			margin-right: $gutter;
+		}
+	}
+
+	@include query-below(480px) {
+
+		.entry-header {
+			padding-left: $gutter;
+			margin-right: 0;
+		}
+
+		.entry-image + .entry-header {
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
+
+		.entry-content {
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
+
+		.entry-image--square {
+			margin-left: $gutter;
+		}
+
+		.entry-image--tall,
+		.entry-image--portrait {
+			max-width: 40%;
+		}
+
+		.entry-meta {
+			margin-left: $gutter;
+			margin-right: $gutter;
+		}
+		
+	}
+
+	@include query-below(320px) {
+		.entry-image--tall,
+		.entry-image--portrait {
+			max-width: 35%;
+		}
+	}
+}
+
+
+// Sticky Post Ribbon
+.sticky .sticky-post {
+	position: absolute;
+	top: 0;
+	right: 20px;
+	z-index: 1;
+	display: block;
+	width: 15px;
+	height: 15px;
+	background: $accent;
+
+	&:before, &:after {
+		content: "";
+		position: absolute;
+		bottom: -8px;
+		left:0;
+		width: 0;
+		height:0;
+		border-top: 8px solid $accent;
+		border-right: 8px solid transparent;
+	}
+
+	&:after {
+		left: auto;
+		right: 0;
+		border-left: 8px solid transparent;
+		border-right: none;
+	}
+
+
+
+	// display: inherit;
+
+	&.entry-card {
+		// @todo
+		// needs design
+
+	}
 }

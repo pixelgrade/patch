@@ -1,8 +1,18 @@
 .site-footer {
-	color: white;
+
+	@include query-above($lap) {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index: 50;
+	}
+
+	color: $light;
 	background: black;
-	font-size: rem(13px);
+	font-size: 13px;
 	padding-top: $gutter/2;
+	padding-bottom: $gutter/2;
 
 	@include query-above($lap) {
 		padding-left: $gutter;
@@ -31,7 +41,18 @@
 
 	a {
 		color: $light;
+		font-weight: 300;
 		text-decoration: none;
+
+		transition: color 0.2s;
+
+		&[rel="designer"] {
+			color: white;
+		}
+
+		&:hover {
+			color: $accent;
+		}
 	}
 }
 
@@ -50,7 +71,7 @@
 }
 
 .theme-name {
-	text-decoration: underline;
+	// text-decoration: underline;
 }
 
 .nav--footer {
@@ -73,4 +94,40 @@
 
 .back-to-top-button {
 	padding: rem(6px);
+}
+
+div#infinite-footer {
+	color: white;
+	height: 50px;
+	background: black;
+	z-index: 50;
+
+	.container {
+		display: table;
+		height: 100%;
+
+		background: transparent;
+	}
+
+	.blog-credits, .blog-info {
+		float: none;
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.blog-credits {
+		color: white;
+
+		a{
+			color: $light;
+		}
+	}
+
+	.blog-info {
+		color: white;
+
+		a{
+			color: $light;
+		}
+	}
 }
