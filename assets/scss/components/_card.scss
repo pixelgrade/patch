@@ -30,243 +30,169 @@ $cards-gutter: $gutter;
 	$cards-gutter: $col !global;
 
 	@include placeholder("col-left-0", $col) { margin-left: -$col }
-	@include placeholder("col-left-1", $col) { margin-left: $col }
-	@include placeholder("col-left-2", $col) { margin-left: 2*$col }
+	@include placeholder("col-left-1", $col) { margin-left: 0 }
+	@include placeholder("col-left-2", $col) { margin-left: $col }
 
 	@include placeholder("col-left-p0", $col) { padding-left: -$col }
-	@include placeholder("col-left-p1", $col) { padding-left: $col }
-	@include placeholder("col-left-p2", $col) { padding-left: 2*$col }
+	@include placeholder("col-left-p1", $col) { padding-left: 0 }
+	@include placeholder("col-left-p2", $col) { padding-left: $col }
+	@include placeholder("col-left-p3", $col) { padding-left: 2*$col }
 
 	@include placeholder("col-right-0", $col) { margin-right: -$col }
-	@include placeholder("col-right-1", $col) { margin-right: $col }
-	@include placeholder("col-right-2", $col) { margin-right: 2*$col }
-	@include placeholder("col-right-3", $col) { margin-right: 3*$col }
+	@include placeholder("col-right-1", $col) { margin-right: 0 }
+	@include placeholder("col-right-2", $col) { margin-right: $col }
+	@include placeholder("col-right-3", $col) { margin-right: 2*$col }
 
 	@include placeholder("col-right-p0", $col) { padding-right: -$col }
-	@include placeholder("col-right-p1", $col) { padding-right: $col }
-	@include placeholder("col-right-p2", $col) { padding-right: 2*$col }
+	@include placeholder("col-right-p1", $col) { padding-right: 0 }
+	@include placeholder("col-right-p2", $col) { padding-right: $col }
 
 
 	@include breakpoint($breakpoint) {
 
-	// GENERAL GRID
-	.grid {
-		border-right-width: $col;
-	}
-
-	.grid__item {
-		border-left-width: $col + 1px;
-	}
-
-
-	// TEXT
-	.entry-card {
-		.entry-meta {
-			@include _("col-left-1");
-			@include _("col-right-2")
+		// GENERAL GRID
+		.grid {
+			border-right-width: $col;
 		}
 
-		.entry-header {
-			@include _("col-left-0");
-			@include _("col-left-p2");
-			@include _("col-right-1");
+		.grid__item {
+			border-left-width: $col + 1px;
 		}
 
-		.entry-content {
-			@include _("col-left-1");
-			@include _("col-right-1");
-		}
-	}
+		// GENERAL
+		.entry-card {
+			.entry-meta {
+				@include _("col-left-2");
+				@include _("col-right-3")
+			}
 
-
-	// LANDSCAPE
-	.entry-card--landscape {
-		.entry-meta {
-			
-		}
-
-		.entry-image {
-			@include _("col-left-0");
-			@include _("col-right-1");
-		}
-
-		.entry-header {
-			@include _("col-left-1");
-		}
-
-		.entry-content {
-
-		}
-	}
-
-
-	// WIDE
-	.entry-card--wide {
-		.entry-image {
-			@include _("col-left-0");
-			@include _("col-right-0");
-		}
-
-		.entry-header {
-			@include _("col-left-2");
-		}
-	}
-
-
-	// SQUARE
-	.entry-card--square {
-		.entry-meta {
-			
-		}
-
-		.entry-image {
-			@include _("col-left-1");
-			@include _("col-right-2");
-		}
-
-		.entry-header {
-			@include _("col-left-2");
-			@include _("col-right-2");
-		}
-
-		.entry-content {
-			@include _("col-right-2");
-		}
-	}
-
-
-	// PORTRAIT
-	// TALL
-	
-	
-	}
-}
-
-
-
-
-
-
-
-// Spacing Mixin
-@mixin spacings($gutter) {
-
-	.grid {
-		border-right-width: $gutter;
-	}
-
-	.grid__item {
-		border-left-width: $gutter + 1px;
-	}
-
-	.entry-block {
-		margin-left: $gutter;
-		margin-right: $gutter;
-	}
-
-	.entry-header {
-		margin-left: -$gutter;
-		margin-right: $gutter;
-		padding-left: 2*$gutter;
-	}
-
-	.entry-image--landscape {
-		margin-left: -$gutter;
-		margin-right: $gutter;
-	}
-
-	.entry-image--tall {
-		max-width: calc(45% - $gutter);
-	}
-
-	.entry-card--tall,
-	.entry-card--portrait {
-		margin-right: -$gutter;
-		padding-right: $gutter*1/2;
-	}
-
-	.entry-image--tall,
-	.entry-image--portrait {
-
-		// hard work man
-		~ .entry-header.entry-header {
-			margin-left: 0;
-			margin-top: -$gutter/2;
-			padding-top: $gutter/2;
-		}
-
-
-		~ .entry-header.entry-header,
-		~ .entry-content.entry-content {
-			margin-right: 0;
-			padding-right: 0;
-		}
-
-		~ .entry-content {
-			margin-right: 0;
-		}
-	}
-
-	.entry-image--wide {
-		margin: 0 #{-$gutter};
-	}
-
-	.entry-image--landscape,
-	.entry-image--tall, 
-	.entry-image--portrait	{
-		margin-left: -$gutter;
-	}
-
-	.entry-image--landscape {
-		margin-right: $gutter;
-	}
-
-	.entry-image--square,
-	.entry-image--square ~ * {
-		margin-left: $gutter;
-		margin-right: 2*$gutter;
-	}
-
-	.entry--even {
-
-		.entry-card--tall,
-		.entry-card--portrait {
-			margin-left: -$gutter;
-			margin-right: 0;
-			padding-left: $gutter/2;
-			padding-right: 0;
-
-			.entry-header,
 			.entry-content {
-				margin-left: 0;
-				margin-right: $gutter;
+				@include _("col-left-2");
+				@include _("col-right-2");
 			}
 		}
 
-		.entry-image--tall,
-		.entry-image--portrait {
-			margin-right: -$gutter;
+
+		// TEXT
+		.entry-card--text {
+			.entry-meta {
+
+			}
+
+			.entry-header {
+				@include _("col-left-0");
+				@include _("col-left-p3");
+				@include _("col-right-2");
+			}
+
+			.entry-content {
+
+			}
 		}
-	}
 
-	.entry-image--square + .entry-header {
-		margin-left: $gutter;
-		margin-right: $gutter;
-	}
 
-	.entry-image + .entry-header {
-		margin-left: $gutter;
-	}
+		// LANDSCAPE
+		.entry-card--landscape {
+			.entry-meta {
 
-	.entry-card {
-		.entry-meta {
-			margin-left: $gutter;
-			margin-right: $gutter;
+			}
+
+			.entry-image {
+				@include _("col-left-0");
+				@include _("col-right-2");
+			}
+
+			.entry-header {
+				@include _("col-left-2");
+				@include _("col-right-2");
+			}
+
+			.entry-content {
+
+			}
 		}
+
+
+		// WIDE
+		.entry-card--wide {
+			.entry-meta {
+
+			}
+
+			.entry-image {
+				@include _("col-left-0");
+				@include _("col-right-0");
+			}
+
+			.entry-header {
+				@include _("col-left-2");
+				@include _("col-right-2");
+			}
+
+			.entry-content {
+
+			}
+		}
+
+
+		// SQUARE
+		.entry-card--square {
+			.entry-meta {
+				
+			}
+
+			.entry-image {
+				@include _("col-left-2");
+				@include _("col-right-3");
+			}
+
+			.entry-header {
+				@include _("col-left-2");
+				@include _("col-right-3");
+			}
+
+			.entry-content {
+				@include _("col-right-3");
+			}
+		}
+
+
+		// PORTRAIT
+		// TALL
+		.entry-card--portrait,
+		.entry-card--tall {
+			.entry-image {
+				@include _("col-left-0");
+			}
+
+			.entry-header {
+				@include _("col-right-1");
+			}
+
+			.entry-content {
+				@include _("col-right-1");
+			}
+		}
+
+		// EVEN CASE
+		.entry--even {
+
+			// PORTRAIT
+			// TALL
+			.entry-card--portrait,
+			.entry-card--tall {
+				.entry-image {
+					@include _("col-right-0");
+				}
+
+				.entry-content {
+					@include _("col-left-1");
+				}
+			}
+		}
+	
 	}
 }
-// End 'Spacing Mixin'
-
 
 
 .blog, 
@@ -499,12 +425,9 @@ $cards-gutter: $gutter;
 	z-index: 40;
 	margin-bottom: $gutter/3;
 
-	~ .entry-block {
-		position: relative;
-		z-index: 30;
-	}
-
 	~ .entry-content {
+
+		margin-top: 2px;
 
 		p:last-of-type {
 			margin-bottom: 0;
@@ -533,8 +456,14 @@ $cards-gutter: $gutter;
 
 // #TALL
 
-.entry-image--tall {
+.entry-card--tall {
+	.entry-image {
 
+	}
+
+	.entry-content {
+		
+	}
 }
 
 
