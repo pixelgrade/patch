@@ -24,7 +24,7 @@
 		$gallery = get_post_gallery();
 		if ( $gallery ) : ?>
 
-			<aside class="entry-gallery entry-image entry-image--landscape">
+			<aside class="entry-gallery entry-image entry-image--wide">
 
 				<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
 					<span class="sticky-post"></span>

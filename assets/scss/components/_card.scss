@@ -470,6 +470,22 @@ $cards-gutter: $gutter;
 	}
 }
 
+//  GALLERy
+.entry-card.format-gallery {
+	.tiled-gallery {
+		// margin-bottom: 0;
+	}
+
+	.gallery-group a img {
+		opacity: 1;
+		transition: opacity 0.2s;
+
+		&:hover {
+			opacity: 0.75;
+		}
+	}
+}
+
 
 // EVEN CASE
 .entry--even {
