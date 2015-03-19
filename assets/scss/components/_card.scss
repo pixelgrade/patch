@@ -177,11 +177,11 @@ $cards-gutter: $gutter;
 			}
 
 			.entry-header {
-				@include _("col-right-1");
+				@include _("col-right-0");
 			}
 
 			.entry-content {
-				@include _("col-right-1");
+				@include _("col-right-0");
 			}
 		}
 
@@ -192,6 +192,10 @@ $cards-gutter: $gutter;
 			// TALL
 			.entry-card--portrait,
 			.entry-card--tall {
+				.entry-meta {
+					@include _("col-right-2")
+				}
+
 				.entry-image {
 					@include _("col-right-0");
 				}
@@ -352,8 +356,6 @@ $cards-gutter: $gutter;
 
 	}
 		.entry-title {
-			@extend %beta;
-			font-weight: normal;
 			margin: 0;
 		}
 
@@ -361,7 +363,6 @@ $cards-gutter: $gutter;
 	// Excerpt
 	.entry-content {
 		margin-bottom: $gutter/3;
-		font-size: 14px;
 
 		> :last-child {
 			margin-bottom: 0;
@@ -371,7 +372,7 @@ $cards-gutter: $gutter;
 			margin-bottom: 15px;
 
 			&:last-of-type {
-				// margin-bottom: 0;
+				margin-bottom: 0;
 			}
 		}
 	}
@@ -404,6 +405,7 @@ $cards-gutter: $gutter;
 .entry-card--text {
 	.entry-header {
 		padding: 20px;
+		margin-top: 0;
 		margin-bottom: 15px;
 		background: $black;
 	}
@@ -418,11 +420,13 @@ $cards-gutter: $gutter;
 // 	TALL
 .entry-card--tall .entry-image {
 	max-width: 45%;	
-	max-width: calc(45% - $gutter);
+	// max-width: calc(45% - #{$gutter});
 }
 
 .entry-card--tall,
 .entry-card--portrait {
+
+	margin-bottom: 10px;
 
 	.entry-image {
 		float: left;
@@ -442,7 +446,8 @@ $cards-gutter: $gutter;
 	}
 
 	.entry-header {
-
+		top: -$gutter/4;
+		margin-bottom: -$gutter/4;
 	}
 }
 
@@ -520,6 +525,7 @@ $cards-gutter: $gutter;
 //   3.0 - Responsive Cards Spacing
 //\*-----------------------------------------*/
 
+@include cards-spacing(24px, xsmall);
 @include cards-spacing(30px, large);
 	
 @include query-below($lap) {
@@ -553,7 +559,6 @@ $cards-gutter: $gutter;
 	}
 }
 
-@include cards-spacing(24px, xsmall);
 
 @include query-below($xsmall) {
 	.layout-grid {
@@ -637,3 +642,136 @@ $cards-gutter: $gutter;
 ///*-----------------------------------------*\
 //   4.0 - Title Size
 //\*-----------------------------------------*/
+
+
+// EXCERPT
+.entry-card {
+
+	.entry-content {
+		@extend %fs-14;
+		margin-top: 8px;
+	}
+
+	.entry-content--short {
+		@extend %fs-16;
+	}
+}
+
+// TITLES
+// Default Styling
+.entry-card {
+	.entry-title {
+		@extend %lh-1-45;
+		@extend %ls-0-04;
+		font-size: 26px;
+		@extend %beta;
+		font-weight: normal;
+	}
+
+	.entry-header--long .entry-title {
+		@extend .light;
+	}
+}
+
+// TEXT
+.entry-card--text {
+
+	.entry-header .entry-title {
+
+	}
+
+	.entry-header--short .entry-title {
+		@extend %fs-42;
+	}
+
+	.entry-header--medium .entry-title {
+		@extend %fs-36;
+	}
+
+	.entry-header--long .entry-title {
+		@extend %fs-30;
+		font-weight: normal;
+	}
+}
+
+// PORTRAIT
+// TALL
+.entry-card--portrait,
+.entry-card--tall {
+	.entry-title {
+		@extend %ls-0-02;
+		font-weight: bold;
+	}
+
+	.entry-header--short .entry-title {
+		font-weight: bold;
+		@extend %lh-1-25;
+		@extend %ls-0;
+		font-size: 36px;
+	}
+
+	.entry-header--medium .entry-title {
+		@extend %lh-1-33;
+		font-size: 30px;
+	}
+
+	.entry-header--long .entry-title {
+		font-weight: bold;
+	}
+
+}
+
+
+.entry-card--landscape,
+.entry-card--wide,
+.entry-card--square {
+	
+}
+
+
+
+.entry-image--square 	+ .entry-header .entry-title,
+.entry-image--landscape + .entry-header .entry-title,
+.entry-image--wide 		+ .entry-header .entry-title,
+.entry-image--portrait  + .entry-header--long .entry-title,
+.entry-image--tall  	+ .entry-header--long .entry-title {
+	// @extend %fs-24;
+}
+
+.entry-image--portrait  + .entry-header--short .entry-title {
+	// @extend %fs-36;
+}
+
+.entry-image--square 	+ .entry-header--long .entry-title,
+.entry-image--landscape + .entry-header--long .entry-title,
+.entry-image--wide 		+ .entry-header--long .entry-title {
+	// @extend .light;
+}
+
+.entry-image--portrait  + .entry-header .entry-title,
+.entry-image--tall  	+ .entry-header .entry-title {
+	// @extend .bold;
+	// @extend %ls-0-02;
+}
+
+.entry-image--portrait  + .entry-header--medium .entry-title,
+.entry-image--tall  	+ .entry-header--medium .entry-title {
+	// @extend %fs-30;
+}
+
+// No Featured Images Cases
+.entry-header--long .entry-title {
+	// @extend %fs-30;
+}
+
+.entry-header--medium .entry-title {
+	// @extend %fs-36;
+}
+
+.entry-header--short .entry-title {
+	// @extend %fs-42;
+}
+
+.entry-title--short {
+	// @extend %fs-42;
+}
