@@ -399,7 +399,7 @@ if ( ! function_exists( 'patch_get_post_thumbnail_class' ) ) :
 		}
 
 		//get the aspect ratio specific class
-		$classes[] = patch_get_post_thumbnail_aspect_ratio_class( $post );
+		$classes[] = 'entry-image--' . patch_get_post_thumbnail_aspect_ratio_class( $post );
 
 		if ( ! empty( $class ) ) {
 			if ( ! is_array( $class ) ) {
@@ -443,7 +443,7 @@ if ( ! function_exists( 'patch_get_post_thumbnail_aspect_ratio_class' ) ) :
 			return $class;
 		}
 
-		// .entry-image--[tall|portrait|square|landscape|wide] class depending on the aspect ratio
+		// [tall|portrait|square|landscape|wide] class depending on the aspect ratio
 		// 16:9 = 1.78
 		// 3:2 = 1.500
 		// 4:3 = 1.34
@@ -462,19 +462,19 @@ if ( ! function_exists( 'patch_get_post_thumbnail_aspect_ratio_class' ) ) :
 			//now let's begin to see what kind of featured image we have
 			//first TALL ones; lower than 9:16
 			if ( $image_aspect_ratio < 0.5625 ) {
-				$class = 'entry-image--tall';
+				$class = 'tall';
 			} elseif ( $image_aspect_ratio < 0.75 ) {
 				//now PORTRAIT ones; lower than 3:4
-				$class = 'entry-image--portrait';
+				$class = 'portrait';
 			} elseif ( $image_aspect_ratio > 1.78 ) {
 				//now WIDE ones; higher than 16:9
-				$class = 'entry-image--wide';
+				$class = 'wide';
 			} elseif ( $image_aspect_ratio > 1.34 ) {
 				//now LANDSCAPE ones; higher than 4:3
-				$class = 'entry-image--landscape';
+				$class = 'landscape';
 			} else {
 				//it's definitely a SQUARE-ish one; between 3:4 and 4:3
-				$class = 'entry-image--square';
+				$class = 'square';
 			}
 		}
 
