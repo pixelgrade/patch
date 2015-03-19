@@ -66,6 +66,7 @@ function patch_post_classes( $classes ) {
 				case 'video': ;
 				case 'audio': $classes[] = 'entry-card--landscape';
 					break;
+				default: $classes[] = 'entry-card--text';
 			}
 		}
 	}

@@ -7,42 +7,42 @@
  */
 ?>
 
-<?php if ( ! is_singular() ) { echo '<div class="grid__item">'; } ?>
+<div class="grid__item">
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<div class="entry-meta">
+		<div class="entry-meta">
 
-		<?php patch_first_category(); ?>
+			<?php patch_first_category(); ?>
 
-		<?php patch_posted_on(); ?>
+			<?php patch_posted_on(); ?>
 
-	</div><!-- .entry-meta -->
+		</div><!-- .entry-meta -->
 
-	<?php if ( has_post_thumbnail() ) : ?>
+		<?php if ( has_post_thumbnail() ) : ?>
 
-		<a href="<?php patch_get_post_format_link_url(); ?>" <?php patch_post_thumbnail_class( 'entry-image' ); ?>>
+			<a href="<?php patch_get_post_format_link_url(); ?>" <?php patch_post_thumbnail_class( 'entry-image' ); ?>>
 
-			<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
+				<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
 
-		</a>
+			</a>
 
-	<?php else : ?>
+		<?php else : ?>
 
-		<header <?php patch_post_title_class(); ?>>
+			<header <?php patch_post_title_class(); ?>>
 
-			<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark"><span class="link__text">', esc_url( patch_get_post_format_link_url() ) ), '</span>&nbsp;<i class="link__icon  fa fa-external-link"></i></a></h1>' ); ?>
+				<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark"><span class="link__text">', esc_url( patch_get_post_format_link_url() ) ), '</span>&nbsp;<i class="link__icon  fa fa-external-link"></i></a></h1>' ); ?>
 
-		</header><!-- .entry-header -->
+			</header><!-- .entry-header -->
 
-	<?php endif; ?>
+		<?php endif; ?>
 
-	<footer class="entry-footer">
+		<footer class="entry-footer">
 
-		<?php patch_entry_footer(); ?>
+			<?php patch_entry_footer(); ?>
 
-	</footer><!-- .entry-footer -->
+		</footer><!-- .entry-footer -->
 
-</article><!-- #post-## -->
+	</article><!-- #post-## -->
 
-<?php if ( ! is_singular() ) { echo '</div>'; } ?>
+</div><!-- .grid__item -->
