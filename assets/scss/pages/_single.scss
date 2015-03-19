@@ -225,7 +225,7 @@
 	margin-bottom: 0;
 
 	.single &, .page:not(.entry-card) & {
-		margin: $gutter -2*$col;
+		// margin: $gutter -2*$col;
 		// width: calc(100% + #{4 * $col});
 
 		.gallery-row {
