@@ -85,6 +85,10 @@
 .site-content {
 	min-height: calc(100vh - 60px);
 
+	@include query-above($lap) {
+		margin-bottom: 30px;
+	}
+
 	.admin-bar & {
 		min-height: calc(100vh - 60px - 32px);
 	}

@@ -92,6 +92,11 @@ if ( ! function_exists( 'patch_get_cats_list' ) ) :
 			$post_ID = get_the_ID();
 		}
 
+		//obviously pages don't have categories
+		if ( 'page' == get_post_type( $post_ID ) ) {
+			return '';
+		}
+
 		$cats = '';
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( __( ', ', 'patch_txtd' ), '', $post_ID );
@@ -128,6 +133,11 @@ function patch_first_category( $post_ID = null) {
 	//use the current post ID is none given
 	if ( empty( $post_ID ) ) {
 		$post_ID = get_the_ID();
+	}
+
+	//obviously pages don't have categories
+	if ( 'page' == get_post_type( $post_ID ) ) {
+		return;
 	}
 
 	//first get all categories ordered by count

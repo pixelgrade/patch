@@ -17,60 +17,60 @@ if ( ! empty( $media ) ) {
 	$content = str_replace( $media[0], '', $content );
 } ?>
 
-<?php if ( ! is_singular() ) { echo '<div class="grid__item">'; } ?>
+<div class="grid__item">
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<div class="entry-meta">
+		<div class="entry-meta">
 
-		<?php patch_first_category(); ?>
+			<?php patch_first_category(); ?>
 
-		<?php patch_posted_on(); ?>
+			<?php patch_posted_on(); ?>
 
-	</div><!-- .entry-meta -->
+		</div><!-- .entry-meta -->
 
-	<?php if ( ! empty( $media ) ) : ?>
+		<?php if ( ! empty( $media ) ) : ?>
 
-		<div class="entry-media">
+			<div class="entry-media entry-image entry-image--landscape">
 
-			<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
-				<span class="sticky-post"></span>
-			<?php endif; ?>
+				<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
+					<span class="sticky-post"></span>
+				<?php endif; ?>
 
-			<?php echo apply_filters( 'embed_oembed_html', $media[0] ); ?>
+				<?php echo apply_filters( 'embed_oembed_html', $media[0] ); ?>
 
-		</div><!-- .entry-media -->
+			</div><!-- .entry-media -->
 
-	<?php endif; ?>
+		<?php endif; ?>
 
-	<header <?php patch_post_title_class(); ?>>
+		<header <?php patch_post_title_class(); ?>>
 
-		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+			<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
-	</header><!-- .entry-header -->
+		</header><!-- .entry-header -->
 
-	<div <?php patch_post_excerpt_class(); ?>>
+		<div <?php patch_post_excerpt_class(); ?>>
 
-		<?php the_excerpt(); ?>
+			<?php the_excerpt(); ?>
 
-		<?php
-		wp_link_pages( array(
-			'before' => '<div class="page-links"><span class="pagination-title">' . __( 'Pages:', 'patch_txtd' ),
-			'after'  => '</span></div>',
-			'link_before' => '<span>',
-			'link_after'  => '</span>',
-			'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'patch_txtd' ) . ' </span>%',
-			'separator'   => '<span class="screen-reader-text">, </span>',
-		) ); ?>
+			<?php
+			wp_link_pages( array(
+				'before' => '<div class="page-links"><span class="pagination-title">' . __( 'Pages:', 'patch_txtd' ),
+				'after'  => '</span></div>',
+				'link_before' => '<span>',
+				'link_after'  => '</span>',
+				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'patch_txtd' ) . ' </span>%',
+				'separator'   => '<span class="screen-reader-text">, </span>',
+			) ); ?>
 
-	</div><!-- .entry-content -->
+		</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+		<footer class="entry-footer">
 
-		<?php patch_entry_footer(); ?>
+			<?php patch_entry_footer(); ?>
 
-	</footer><!-- .entry-footer -->
+		</footer><!-- .entry-footer -->
 
-</article><!-- #post-## -->
+	</article><!-- #post-## -->
 
-<?php if ( ! is_singular() ) { echo '</div>'; } ?>
+</div><!-- .grid__item -->

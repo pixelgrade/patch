@@ -219,19 +219,35 @@ a {
 	 @if $editor-style { 
 	 	.mce-content-body & {
 			@extend %smarter-links-underlines;
+
+			&[href$=".jpg"], &[href$=".jpeg"], &[href$=".png"], &[href$=".gif"], &[href$=".bmp"], &[href*="attachment"] {
+				padding-left: 0;
+				padding-right: 0;
+
+				box-shadow: none;
+				background: none;
+			}
 		}	
 	 }
-    	@else { 
+    	@else {
 			.single .entry-content &, .page .entry-content & {
 				@extend %smarter-links-underlines;
 
-				 &[href$=".jpg"], &[href$=".jpeg"], &[href$=".png"], &[href$=".gif"], &[href$=".bmp"], &[href*="attachment"] {
+				 &[href$=".jpg"], &[href$=".jpeg"], &[href$=".png"], &[href$=".gif"], &[href$=".bmp"], &[href*="attachment"], &[rel*="attachment"] {
 					 padding-left: 0;
 					 padding-right: 0;
 
 					 box-shadow: none;
 					 background: none;
 				 }
+			}
+
+		 	.single .entry-content .gallery &, .page .entry-content .gallery & {
+				padding-left: 0;
+				padding-right: 0;
+
+				box-shadow: none;
+				background: none;
 			}
     	}
 

@@ -7,45 +7,45 @@
  */
 ?>
 
-<?php if ( ! is_singular() ) { echo '<div class="grid__item">'; } ?>
+<div class="grid__item">
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<div class="entry-meta">
+		<div class="entry-meta">
 
-		<?php patch_first_category(); ?>
+			<?php patch_first_category(); ?>
 
-		<?php patch_posted_on(); ?>
+			<?php patch_posted_on(); ?>
 
-	</div><!-- .entry-meta -->
+		</div><!-- .entry-meta -->
 
-	<div class="entry-content entry-content--long">
+		<div class="entry-content entry-content--long">
 
-		<?php
-		/* translators: %s: Name of current post */
-		the_content( sprintf(
-			__( 'Continue reading %s', 'patch_txtd' ),
-			the_title( '<span class="screen-reader-text">', '</span>', false )
-		) ); ?>
+			<?php
+			/* translators: %s: Name of current post */
+			the_content( sprintf(
+				__( 'Continue reading %s', 'patch_txtd' ),
+				the_title( '<span class="screen-reader-text">', '</span>', false )
+			) ); ?>
 
-		<?php
-		wp_link_pages( array(
-			'before' => '<div class="page-links"><span class="pagination-title">' . __( 'Pages:', 'patch_txtd' ),
-			'after'  => '</span></div>',
-			'link_before' => '<span>',
-			'link_after'  => '</span>',
-			'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'patch_txtd' ) . ' </span>%',
-			'separator'   => '<span class="screen-reader-text">, </span>',
-		) ); ?>
+			<?php
+			wp_link_pages( array(
+				'before' => '<div class="page-links"><span class="pagination-title">' . __( 'Pages:', 'patch_txtd' ),
+				'after'  => '</span></div>',
+				'link_before' => '<span>',
+				'link_after'  => '</span>',
+				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'patch_txtd' ) . ' </span>%',
+				'separator'   => '<span class="screen-reader-text">, </span>',
+			) ); ?>
 
-	</div><!-- .entry-content -->
+		</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+		<footer class="entry-footer">
 
-		<?php patch_entry_footer(); ?>
+			<?php patch_entry_footer(); ?>
 
-	</footer><!-- .entry-footer -->
+		</footer><!-- .entry-footer -->
 
-</article><!-- #post-## -->
+	</article><!-- #post-## -->
 
-<?php if ( ! is_singular() ) { echo '</div>'; } ?>
+</div><!-- .grid__item -->

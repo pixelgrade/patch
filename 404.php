@@ -11,7 +11,7 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-			<section class="error-404 not-found grid__item">
+			<section class="error-404 not-found">
 				<header class="page-header">
 					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'patch_txtd' ); ?></h1>
 				</header><!-- .page-header -->
