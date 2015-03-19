@@ -98,7 +98,6 @@
 
 		&:hover {
 			color: $black;
-			// text-decoration: underline;
 		}
 	}
 
@@ -125,10 +124,6 @@
 
 	a {
 		color: $black;
-
-		&:hover {
-			text-decoration: underline;
-		}
 	}
 
 	.comment-author-link {
@@ -149,7 +144,7 @@
 	}
 }
 
-.rsswidget{ //rss entry title
+.rsswidget { //rss entry title
 	text-decoration: underline;
 	font-weight: bold;
 }
