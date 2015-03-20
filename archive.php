@@ -12,11 +12,9 @@
  * @since Patch 1.0
  */
 
-$have_posts = false;
-
 get_header(); ?>
 
-<?php if ( have_posts() ) : $have_posts = true; ?>
+<?php if ( have_posts() ) : ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
@@ -33,9 +31,5 @@ get_header(); ?>
 	<?php get_template_part( 'content', 'none' ); ?>
 
 <?php endif; ?>
-
-<?php if ( $have_posts ) {
-	get_sidebar();
-} ?>
 
 <?php get_footer(); ?>
