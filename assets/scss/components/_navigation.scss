@@ -5,10 +5,12 @@
 	opacity: 0;
 
 	@include query-below($lap) {
+		display: block;
 		margin-top: $gutter/2;
-		margin-bottom: $gutter*3/2;
-		border-left: 0; 
-		width: 100%;
+		// margin-bottom: $gutter*3/2;
+		margin-left: 2*$gutter;
+		margin-right: 2*$gutter;
+		border-left: 0;
 	}
 
 	a {
@@ -284,7 +286,7 @@
 	}
 }
 
-.single, .page {
+.single, .page, .search-no-results, .no-posts {
 
 	.site-header { 
 		position: relative;

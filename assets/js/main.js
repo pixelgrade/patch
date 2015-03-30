@@ -1249,14 +1249,12 @@ if (!Date.now) Date.now = function () {
         $blocks.each(function (i, obj) {
           var $post = $(obj).find('.entry-card, .site-header, .page-header');
 
-          if ($post.find('.entry-image--portrait').length) {
-            $post.addClass('entry-card--portrait');
-          }
-
-          if ($post.find('.entry-image--tall').length) {
-            $post.addClass('entry-card--tall');
-          }
-
+          // if ($post.find('.entry-image--portrait').length) {
+          // 	$post.addClass('entry-card--portrait');
+          // }
+          // if ($post.find('.entry-image--tall').length) {
+          // 	$post.addClass('entry-card--tall');
+          // }
           animatePost($post, i * 100);
         });
         },

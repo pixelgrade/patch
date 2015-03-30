@@ -1,7 +1,7 @@
 @include query-above($lap) {
 	body {
 		border: $gutter/2 solid black;
-
+		border-bottom: 0;
 	}
 }
 
@@ -20,7 +20,7 @@
 }
 
 // Categories
-.cat-links {
+.cat-links, .entry-format {
 	margin-right: 10px;
 	padding: 6px 14px;
 	background-color: $accent;

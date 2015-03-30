@@ -1,32 +1,20 @@
 <?php
 /**
- * The template for displaying the post content on single post view
+ * The template for displaying single gallery post format posts.
  *
  * @package Patch
  * @since Patch 1.0
  */
-
-//get the post thumbnail aspect ratio specific class
-if ( has_post_thumbnail() ) {
-	$ar_class = patch_get_post_thumbnail_aspect_ratio_class();
-} ?>
+?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-	<?php if ( has_post_thumbnail() && ( 'tall' == $ar_class || 'portrait' == $ar_class ) ) : ?>
-
-		<div class="entry-featured  entry-thumbnail">
-
-			<?php the_post_thumbnail( 'patch-single-image' ); ?>
-
-		</div>
-
-	<?php endif; ?>
 
 	<header class="entry-header">
 		<div class="entry-meta">
 
 			<?php patch_cats_list(); ?>
+
+			<?php patch_post_format_link(); ?>
 
 			<div class="clearfix">
 
@@ -40,13 +28,17 @@ if ( has_post_thumbnail() ) {
 
 	</header><!-- .entry-header -->
 
-	<?php if ( has_post_thumbnail() && ! ( 'tall' == $ar_class || 'portrait' == $ar_class ) ) : ?>
+	<?php
+	//output the first gallery in the content - if it exists
+	$gallery = get_post_gallery();
 
-		<div class="entry-featured  entry-thumbnail">
+	if ( $gallery ) : ?>
 
-			<?php the_post_thumbnail( 'patch-single-image' ); ?>
+		<div class="entry-featured  entry-gallery">
 
-		</div>
+			<?php echo $gallery; ?>
+
+		</div><!-- .entry-gallery -->
 
 	<?php endif; ?>
 

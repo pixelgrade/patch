@@ -1,143 +1,233 @@
 
-// #CARDS
-// Masonry Archive Posts
+///*-----------------------------------------*\
+//   #CARDS STYLING & SPACING
+//\*-----------------------------------------*/
+
+//**
+// * Table of Contents
+// * --------------------------------------------------
+// *  1.0 - Spacing Mixin
+// *  2.0 - General Cards Styling
+// *  3.0 - Responsive Cards Spacing
+// *  4.0 - Title Sizes
+// */
 
 
-// Spacing Mixin
-@mixin spacings($gutter) {
 
-	.grid {
-		border-right-width: $gutter;
-	}
 
-	.grid__item {
-		border-left-width: $gutter + 1px;
-	}
+///*-----------------------------------------*\
+//   
+//   1.0 - Spacing Mixin
+//
+//	 Cards Columns:
+//
+//   |---|   |   |             |   |   |---|
+//   |---|   |   |             |   |   |---|
+//   |-0-| 1 | 2 |  Grid Item  | 2 | 1 |-0-|
+//   |---|   |   |             |   |   |---|
+//   |---|   |   |             |   |   |---|
+//   
+//\*-----------------------------------------*/
 
-	.entry-block {
-		margin-left: $gutter;
-		margin-right: $gutter;
-	}
+$breakpoints: (
+	"xsmall"	: $xsmall,
+	"large"		: $large
+);
 
-	.entry-header {
-		margin-left: -$gutter;
-		margin-right: $gutter;
-		padding-left: 2*$gutter;
-	}
+$cards-gutter: $gutter;
 
-	.entry-image--landscape {
-		margin-left: -$gutter;
-		margin-right: $gutter;
-	}
+@mixin cards-spacing($col, $breakpoint) {
 
-	.entry-image--tall {
-		max-width: calc(45% - $gutter);
-	}
+	$cards-gutter: $col !global;
 
-	.entry-card--tall,
-	.entry-card--portrait {
-		margin-right: -$gutter;
-		padding-right: $gutter*1/2;
-	}
+	@include placeholder("col-left--2", $col) { margin-left: -2 * $col }
+	@include placeholder("col-left--1", $col) { margin-left: -1 * $col }
+	@include placeholder("col-left-0", $col) { margin-left: 0 }
+	@include placeholder("col-left-1", $col) { margin-left: $col }
+	@include placeholder("col-left-2", $col) { margin-left: 2*$col }
 
-	.entry-image--tall,
-	.entry-image--portrait {
 
-		// hard work man
-		~ .entry-header.entry-header {
-			margin-left: 0;
-			margin-top: -$gutter/2;
-			padding-top: $gutter/2;
+	@include placeholder("col-left-p0", $col) { padding-left: 0 }
+	@include placeholder("col-left-p05", $col) { padding-left: $col/2 }
+	@include placeholder("col-left-p1", $col) { padding-left: $col }
+	@include placeholder("col-left-p2", $col) { padding-left: 2*$col }
+	@include placeholder("col-left-p3", $col) { padding-left: 3*$col }
+
+
+	@include placeholder("col-right--2", $col) { margin-right: -2 * $col }
+	@include placeholder("col-right--1", $col) { margin-right: -1 * $col }
+	@include placeholder("col-right-0", $col) { margin-right: 0 }
+	@include placeholder("col-right-1", $col) { margin-right: $col }
+	@include placeholder("col-right-2", $col) { margin-right: 2*$col }
+	@include placeholder("col-right-3", $col) { margin-right: 3*$col }
+
+	@include placeholder("col-right-p0", $col) { padding-right: 0 }
+	@include placeholder("col-right-p05", $col) { padding-right: $col/2 }
+	@include placeholder("col-right-p1", $col) { padding-right: $col }
+	@include placeholder("col-right-p2", $col) { padding-right: 2*$col }
+
+
+	@include breakpoint($breakpoint) {
+
+		// GENERAL GRID
+		.grid {
+			// padding-left: $col;
 		}
 
-
-		~ .entry-header.entry-header,
-		~ .entry-content.entry-content {
-			margin-right: 0;
-			padding-right: 0;
+		.grid__item {
 		}
 
-		~ .entry-content {
-			margin-right: 0;
-		}
-	}
+		// GENERAL
+		.entry-card {
+			@include _("col-right-2");
+			@include _("col-left--1");
+			// @include _("col-right-p1");
 
-	.entry-image--wide {
-		margin: 0 #{-$gutter};
-	}
-
-	.entry-image--landscape,
-	.entry-image--tall, 
-	.entry-image--portrait	{
-		margin-left: -$gutter;
-	}
-
-	.entry-image--landscape {
-		margin-right: $gutter;
-	}
-
-	.entry-image--square,
-	.entry-image--square ~ * {
-		margin-left: $gutter;
-		margin-right: 2*$gutter;
-	}
-
-	.entry--even {
-
-		.entry-card--tall,
-		.entry-card--portrait {
-			margin-left: -$gutter;
-			margin-right: 0;
-			padding-left: $gutter/2;
-			padding-right: 0;
-
-			.entry-header,
+			.entry-meta,
 			.entry-content {
-				margin-left: 0;
-				margin-right: $gutter;
+				@include _("col-left-2");
 			}
 		}
 
-		.entry-image--tall,
-		.entry-image--portrait {
-			margin-right: -$gutter;
+
+		// TEXT
+		.entry-card--text {
+			.entry-meta {
+
+			}
+
+			.entry-header {
+				@include _("col-left-p2");
+			}
+
+			.entry-content {
+
+			}
 		}
-	}
 
-	.entry-image--square + .entry-header {
-		margin-left: $gutter;
-		margin-right: $gutter;
-	}
 
-	.entry-image + .entry-header {
-		margin-left: $gutter;
-	}
+		// LANDSCAPE
+		.entry-card--landscape {
 
-	.entry-card {
-		.entry-meta {
-			margin-left: $gutter;
-			margin-right: $gutter;
+			.entry-meta {
+
+			}
+
+			.entry-image {
+			}
+
+			.entry-header {
+				@include _("col-left-2");
+			}
+
+			.entry-content {
+
+			}
+		}
+
+
+		// WIDE
+		.entry-card--wide {
+			.entry-meta {
+
+			}
+
+			.entry-image {
+				@include _("col-left-0");
+				@include _("col-right-0");
+			}
+
+			.entry-header {
+				@include _("col-left-2");
+				@include _("col-right-2");
+			}
+
+			.entry-content {
+
+			}
+		}
+
+
+		// SQUARE
+		.entry-card--square {
+			@include _("col-right-3");
+
+			.entry-meta {
+				
+			}
+
+			.entry-image {
+				@include _("col-left-2");
+			}
+
+			.entry-header {
+				@include _("col-left-2");
+			}
+
+			.entry-content {
+
+			}
+		}
+
+
+		// PORTRAIT
+		// TALL
+		.entry-card.entry-card--portrait,
+		.entry-card.entry-card--tall {
+			@include _("col-right-0"); 
+			@include _("col-left-1"); 
+
+			.entry-image {
+				@include _("col-left--2");
+			}
+			
+			.entry-meta,
+			.entry-header,
+			.entry-content {
+				@include _("col-left-0");
+				@include _("col-right-p05");
+			}
+		}
+
+		// EVEN CASE
+		.entry--even {
+
+			// PORTRAIT
+			// TALL
+			.entry-card.entry-card--portrait,
+			.entry-card.entry-card--tall {
+				@include _("col-left--1");
+				@include _("col-right-2");
+
+				.entry-meta {
+				}
+
+				.entry-image {
+					@include _("col-right--2");
+				}
+
+				.entry-meta,
+				.entry-header,
+				.entry-content {
+					@include _("col-right-p0");
+					// daca e inca una portrait sa nu acopere scrisu, gen
+					@include _("col-left-p1");
+				}
+			}
 		}
 	}
 }
-// End 'Spacing Mixin'
 
 
 
-.blog, .archive, .search {
 
-	.entry-header {
-		position: relative;
-		padding: 20px;
-		margin-bottom: 15px;
-		background: black;
-		color: white;
 
-		@include query-above($small) {
-			margin-right: $gutter;
-		}
-	}
+///*-----------------------------------------*\
+//   2.0 - General Cards Styling
+//\*-----------------------------------------*/
 
+// LAYOUT GRID
+.layout-grid {
 	.page-header {
 		margin-top: 50px;
 	}
@@ -145,34 +235,11 @@
 	.page-title {
 		margin-top: 0;
 	}
-
-	@media only screen and (min-width: 480px) {
-		@include spacings(24px);
-	}
-
-	@media only screen and (min-width: 1440px) {
-		@include spacings(30px);	
-	}
-
-	@media only screen and (min-width: 1800px) {
-		// @include spacings(24px);	
-	}
-
-
-
-	@media only screen and (min-width: 1260px) {
-		// @include spacings($gutter/2);	
-	}
-
-	@media only screen and (min-width: 1360px), screen and (min-width: 420px) and (max-width: 1259px) {
-		// @include spacings($gutter);
-	}
 }
 
 
 
-// #CARD
-
+// GENERAL CARD
 .entry-card,
 .site-header {
 	transform: translateZ(0);
@@ -192,31 +259,15 @@
 }
 
 .entry-card {
+
 	@extend .clearfix;
 	position: relative;
+	padding-top: 1px; // hack to keep things inside
 	background: white;
-	// hack to keep things inside
-	padding-top: 1px;
+	// background: rgba(#bbd, 0.75);
 
-	.entry-image img {
-		transition: filter .3s ease-in-out;
-		transition: -webkit-filter .3s ease-in-out;
-		transform: translateZ(0);
-	}
 
-	&:hover {
-
-		.entry-image img {
-			-webkit-backface-visiblity: hidden;
-			filter: saturate(0);
-			-webkit-filter: grayscale(1);
-		}
-
-		span {
-			opacity: 1;
-		}
-	}
-	
+	// ELEMENTS
 	// Post Meta (categories, author and date)
 	.entry-meta {
 		@extend %clearfix;
@@ -252,38 +303,76 @@
 			opacity: 1;
 		}
 	}
+		.entry-time {
+			display: none;
+		}
 
-	.entry--even & {
 
-		&.entry-card--tall,
-		&.entry-card--portrait {
-			.entry-meta {
-				right: 0;
+	// Featured Image
+	.entry-image {
+		position: relative;
+		z-index: 32; //over .entry-meta
+		display: block;
 
-				> * {
-					float: right;
-					margin-left: 10px;
-					margin-right: 0;
-				}
-					
-				.posted-on:before {
-					display: none;
-				}
+		figure {
+			max-width: 100%;
+			height: auto;
+		}
 
-				.posted-on:after {
-					content: "/";
-					margin-left: 4px;
-				}
-			}
+		img {
+			display: block;
+			width: 100%;
+
+			transition: filter .3s ease-in-out;
+			transition: -webkit-filter .3s ease-in-out;
+			transform: translateZ(0);
+		}
+
+		// Read More
+		.hover {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateY(-50%) translateX(-50%);
+			z-index: 100;
+
+			@extend %beta;
+			@extend %fs-24;
+			text-transform: uppercase;
+			text-align: center;
+			// -webkit-font-smoothing: antialiased;
+
+			color: white;
+
+			opacity: 0;
+
+			transition: all 0.3s;
 		}
 	}
 
-	.entry-time {
-		display: none;
-	}
 
+	// Title
+	.entry-header {
+		position: relative;
+		padding: 0px;
+		margin-top: 10px;
+		margin-bottom: 0;
+		// border-bottom: 5px solid white;
+
+		a {
+			color: currentColor;
+			text-decoration: none;
+		}
+
+	}
+		.entry-title {
+			margin: 0;
+		}
+
+
+	// Excerpt
 	.entry-content {
-		font-size: 14px;
+		margin-bottom: $gutter/3;
 
 		> :last-child {
 			margin-bottom: 0;
@@ -293,181 +382,178 @@
 			margin-bottom: 15px;
 
 			&:last-of-type {
-				// margin-bottom: 0;
+				margin-bottom: 0;
 			}
 		}
 	}
+
+	// Entry Card 
+	// HOVER
+	&:hover {
+		.entry-image {
+				img {
+					-webkit-backface-visiblity: hidden;
+					filter: saturate(0);
+					-webkit-filter: grayscale(1);
+				}
+				.hover {
+					opacity: 1;
+				}
+			}
+	}
+
 }
 
 
 
-.entry-image {
-	position: relative;
-	z-index: 32; //over .entry-meta
-	display: block;
+///*-----------------------------------------*\
+//   CARD LAYOUT
+//\*-----------------------------------------*/
 
-	figure {
-		max-width: 100%;
-		height: auto;
+
+// 	TEXT (no featured image)
+.entry-card--text {
+	.entry-header {
+		padding: 20px;
+		margin-top: 0;
+		margin-bottom: 15px;
+		background: $black;
 	}
-
-	// background: black;
-
-	@include query-above($lap) {
-		margin-right: $gutter;
-
-		&--wide {
-			margin: 0 #{-$gutter};
+		.entry-title {
+			color: white;
 		}
-	}
-
-	img {
-		display: block;
-		width: 100%;
-	}
-
-	.hover {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translateY(-50%) translateX(-50%);
-		z-index: 100;
-
-		@extend %beta;
-		@extend %fs-24;
-		text-transform: uppercase;
-		text-align: center;
-		// -webkit-font-smoothing: antialiased;
-
-		color: white;
-
-		opacity: 0;
-
-		transition: all 0.3s;
-	}
 }
 
 
 
-// #PORTRAIT
-// #TALL
-
-.entry-image--tall {
+// 	PORTRAIT
+// 	TALL
+.entry-card--tall .entry-image {
 	max-width: 45%;	
-	max-width: calc(45% - $gutter);
+	// max-width: calc(45% - #{$gutter});
 }
 
-.entry-image--tall,
-.entry-image--portrait {
-	float: left;
-	margin-right: $gutter/2;
-	position: relative;
-	z-index: 40;
-	margin-bottom: $gutter/3;
+.entry-card--tall,
+.entry-card--portrait {
 
-	~ .entry-block {
+	margin-bottom: 10px;
+
+	.entry-image {
+		float: left;
+		margin-right: $gutter/2;
 		position: relative;
-		z-index: 30;
+		z-index: 40;
+		margin-bottom: $gutter/3;
 	}
 
-	~ .entry-content {
+	.entry-content {
+
+		margin-top: 2px;
 
 		p:last-of-type {
 			margin-bottom: 0;
 		}
 	}
 
-	+ .entry-header {
-		// margin-top: 0 !important;
-
-		h1 {
-			// letter-spacing: 0.02em;
-		}
+	.entry-header {
+		top: -$gutter/4;
+		margin-bottom: -$gutter/4;
 	}
 }
 
-
-
-// #PORTRAIT
-
-.entry-image--portrait {
+// 	PORTRAIT
+.entry-card--portrait .entry-image {
 	max-width: 55%;
 
 	@include query-above($small) {
 	}
 }
 
-// #TALL
+// 	TALL
+.entry-card--tall {
+	.entry-image {
 
-.entry-image--tall {
-
-}
-
-
-
-
-.entry-header {
-	@extend .entry-block;
-	// text-transform: uppercase;
-
-	.entry-card & .entry-title{
-		color: white;
 	}
 
-	.entry-image + & {
-		background: none;
-		color: black;
-		padding: 0;
+	.entry-content {
+		
+	}
+}
 
-
-		margin-top: 10px;
+//  GALLERy
+.entry-card.format-gallery {
+	.tiled-gallery {
 		margin-bottom: 0;
-		border-bottom: 5px solid white;
+	}
 
-		.entry-title {
-			color: $dark;
+	.gallery-group a img {
+		opacity: 1;
+		transition: opacity 0.2s;
+
+		&:hover {
+			opacity: 0.75;
 		}
 	}
-
-	a {
-		color: currentColor;
-		text-decoration: none;
-	}
 }
 
-.entry-title {
-	@extend %beta;
-	font-weight: normal;
-	margin: 0;
-}
 
-.entry-content {
-	@extend .entry-block;	
-	margin-bottom: $gutter/3;
-}
-
+// EVEN CASE
 .entry--even {
 	position: relative;
 	z-index: 20;
 
-	.entry-image--tall,
-	.entry-image--portrait {
-		margin-right: 0;
-		padding-right: 0;
+	// PORTRAIT
+	// TALL
+	.entry-card.entry-card--tall,
+	.entry-card.entry-card--portrait {
+		.entry-meta {
+			right: 0;
 
-		margin-left: $gutter/2;	
-		float: right;
-		
-		~ .entry-block {
+			> * {
+				float: right;
+				margin-left: 10px;
+				margin-right: 0;
+			}
+				
+			.posted-on:before {
+				display: none;
+			}
+
+			.posted-on:after {
+				content: "/";
+				margin-left: 4px;
+			}
+		}
+
+		.entry-image {
+			margin-left: $gutter/2;
+			margin-right: 0;
+			float: right;
+		}
+
+		.entry-header {
 			text-align: right;
 		}
-	} 
 
-} 
+		.entry-content {
+			text-align: right;
+		}
+	}
+}
 
-.blog, .archive, .search {
+
+
+
+
+///*-----------------------------------------*\
+//   3.0 - Responsive Cards Spacing
+//\*-----------------------------------------*/
+
+@include cards-spacing(24px, xsmall);
+@include cards-spacing(30px, large);
 	
-	@include query-below($lap) {
+@include query-below($lap) {
+	.layout-grid {
 		.entry-header {
 			margin-left: 0;
 			margin-right: 0;
@@ -495,9 +581,11 @@
 			margin-right: $gutter;
 		}
 	}
+}
 
-	@include query-below(480px) {
 
+@include query-below($xsmall) {
+	.layout-grid {
 		.entry-header {
 			padding-left: $gutter;
 			margin-right: 0;
@@ -525,11 +613,12 @@
 		.entry-meta {
 			margin-left: $gutter;
 			margin-right: $gutter;
-		}
-		
+		}	
 	}
+}
 
-	@include query-below(320px) {
+@include query-below($mobile) {
+	.layout-grid {
 		.entry-image--tall,
 		.entry-image--portrait {
 			max-width: 35%;
@@ -538,7 +627,10 @@
 }
 
 
-// Sticky Post Ribbon
+
+///*-----------------------------------------*\
+//   Sticky Post Ribbon
+//\*-----------------------------------------*/
 .sticky .sticky-post {
 	position: absolute;
 	top: 0;
@@ -566,14 +658,91 @@
 		border-left: 8px solid transparent;
 		border-right: none;
 	}
+}
 
 
 
-	// display: inherit;
 
-	&.entry-card {
-		// @todo
-		// needs design
+///*-----------------------------------------*\
+//   4.0 - Title Size
+//\*-----------------------------------------*/
 
+
+// EXCERPT
+.entry-card {
+
+	.entry-content {
+		@extend %fs-14;
+		margin-top: 8px;
+	}
+
+	.entry-content--short {
+		@extend %fs-16;
 	}
 }
+
+// TITLES
+// Default Styling
+.entry-card {
+	.entry-title {
+		@extend %lh-1-45;
+		@extend %ls-0-04;
+		font-size: 26px;
+		@extend %beta;
+		font-weight: normal;
+	}
+
+	.entry-header--long .entry-title {
+		@extend .light;
+	}
+}
+
+// TEXT
+.entry-card--text {
+
+	.entry-header .entry-title {
+
+	}
+
+	.entry-header--short .entry-title {
+		@extend %fs-42;
+	}
+
+	.entry-header--medium .entry-title {
+		@extend %fs-36;
+	}
+
+	.entry-header--long .entry-title {
+		@extend %fs-30;
+		font-weight: normal;
+	}
+}
+
+// PORTRAIT
+// TALL
+.entry-card--portrait,
+.entry-card--tall {
+	.entry-title {
+		@extend %ls-0-02;
+		font-weight: bold;
+	}
+
+	.entry-header--short .entry-title {
+		font-weight: bold;
+		@extend %lh-1-25;
+		@extend %ls-0;
+		font-size: 36px;
+	}
+
+	.entry-header--medium .entry-title {
+		@extend %lh-1-33;
+		font-size: 30px;
+	}
+
+	.entry-header--long .entry-title {
+		font-weight: bold;
+	}
+
+}
+
+

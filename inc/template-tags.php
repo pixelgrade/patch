@@ -84,6 +84,8 @@ if ( ! function_exists( 'patch_get_cats_list' ) ) :
 
 	/**
 	 * Returns HTML with comma separated category links
+	 *
+	 * @param int|WP_Post $post_ID Optional. Post ID or post object.
 	 */
 	function patch_get_cats_list( $post_ID = null) {
 
@@ -114,6 +116,8 @@ if ( ! function_exists( 'patch_cats_list' ) ) :
 
 	/**
 	 * Prints HTML with comma separated category links
+	 *
+	 * @param int|WP_Post $post_ID Optional. Post ID or post object.
 	 */
 	function patch_cats_list( $post_ID = null) {
 
@@ -123,9 +127,56 @@ if ( ! function_exists( 'patch_cats_list' ) ) :
 
 endif;
 
+if ( ! function_exists( 'patch_get_post_format_link' ) ) :
+
+	/**
+	 * Returns HTML with the post format link
+	 *
+	 * @param int|WP_Post $post_ID Optional. Post ID or post object.
+	 */
+	function patch_get_post_format_link( $post_ID = null) {
+
+		//use the current post ID is none given
+		if ( empty( $post_ID ) ) {
+			$post_ID = get_the_ID();
+		}
+
+		$post_format = get_post_format( $post_ID );
+
+		if ( empty( $post_format ) || 'standard' == $post_format ) {
+			return '';
+		}
+
+		return '<span class="entry-format">
+				<a href="' . esc_url( get_post_format_link( $post_format ) ) .'" title="' . esc_attr( sprintf( __( 'All %s Posts', 'patch_txtd' ), get_post_format_string( $post_format ) ) ) . '">' .
+					get_post_format_string( $post_format ) .
+				'</a>
+			</span>';
+
+	} #function
+
+endif;
+
+if ( ! function_exists( 'patch_post_format_link' ) ) :
+
+	/**
+	 * Prints HTML with the post format link
+	 *
+	 * @param int|WP_Post $post_ID Optional. Post ID or post object.
+	 */
+	function patch_post_format_link( $post_ID = null) {
+
+		echo patch_get_post_format_link( $post_ID );
+
+	} #function
+
+endif;
+
 /**
  * Prints HTML with the category of a certain post, with the most posts in it
  * The most important category of a post
+ *
+ * @param int|WP_Post $post_ID Optional. Post ID or post object.
  */
 function patch_first_category( $post_ID = null) {
 	global $wp_rewrite;
@@ -540,7 +591,7 @@ if ( ! function_exists( 'patch_get_post_title_class' ) ) :
 			$classes[] = 'entry-header--long';
 		}
 
-		if ( !empty($class) ) {
+		if ( ! empty($class) ) {
 			if ( ! is_array( $class ) ) {
 				$class = preg_split( '#\s+#', $class );
 			}
@@ -611,8 +662,8 @@ if ( ! function_exists( 'patch_get_post_excerpt_class' ) ) :
 			$classes[] = 'entry-content--long';
 		}
 
-		if ( !empty($class) ) {
-			if ( !is_array( $class ) ) {
+		if ( ! empty( $class ) ) {
+			if ( ! is_array( $class ) ) {
 				$class = preg_split( '#\s+#', $class );
 			}
 
@@ -728,7 +779,7 @@ if ( ! function_exists( 'patch_get_author_bio_links' ) ) :
 			$markup .= '<ul class="author__social-links">' . PHP_EOL;
 
 			foreach ( $profile['entry'][0]['urls'] as $link ) {
-				if ( !empty( $link['value'] ) && ! empty( $link['title'] ) ) {
+				if ( ! empty( $link['value'] ) && ! empty( $link['title'] ) ) {
 					$markup .= '<li class="author__social-links__list-item">' . PHP_EOL;
 					$markup .= '<a class="author__social-link" href="' . $link['value'] . '" target="_blank">' . $link['title'] . '</a>' . PHP_EOL;
 					$markup .= '</li>' . PHP_EOL;
@@ -748,11 +799,13 @@ if ( ! function_exists( 'patch_secondary_page_title' ) ) :
 	/**
 	 * Display the markup for the archive or search pages title.
 	 */
-	function patch_the_secondary_page_title() {
+	function patch_the_secondary_page_title() { ?>
 
-		if ( is_archive() ) : ?>
+		<div class="grid__item">
 
-			<header class="page-header grid__item entry-card">
+		<?php if ( is_archive() ) : ?>
+
+			<header class="page-header entry-card">
 
 				<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
 
@@ -762,12 +815,15 @@ if ( ! function_exists( 'patch_secondary_page_title' ) ) :
 
 		<?php elseif ( is_search() ) : ?>
 
-			<header class="page-header grid__item entry-card">
+			<header class="page-header entry-card">
 				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'patch_txtd' ), get_search_query() ); ?></h1>
 			</header><!-- .page-header -->
 
-		<?php endif;
-	} #function
+		<?php endif; ?>
+
+		</div><!-- .grid__item -->
+
+	<?php } #function
 
 endif;
 
@@ -869,7 +925,7 @@ if ( ! function_exists( 'patch_get_post_format_first_image' ) ) :
 		$pattern = get_shortcode_regex();
 
 		//first search for an image with a caption shortcode
-		if (   preg_match_all( '/'. $pattern .'/s', $post->post_content, $matches )
+		if ( preg_match_all( '/'. $pattern .'/s', $post->post_content, $matches )
 		       && array_key_exists( 2, $matches )
 		       && in_array( 'caption', $matches[2] ) ) {
 
