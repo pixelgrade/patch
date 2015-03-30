@@ -40,46 +40,52 @@ $cards-gutter: $gutter;
 
 	$cards-gutter: $col !global;
 
-	@include placeholder("col-left-0", $col) { margin-left: -$col }
-	@include placeholder("col-left-1", $col) { margin-left: 0 }
-	@include placeholder("col-left-2", $col) { margin-left: $col }
+	@include placeholder("col-left--2", $col) { margin-left: -2 * $col }
+	@include placeholder("col-left--1", $col) { margin-left: -1 * $col }
+	@include placeholder("col-left-0", $col) { margin-left: 0 }
+	@include placeholder("col-left-1", $col) { margin-left: $col }
+	@include placeholder("col-left-2", $col) { margin-left: 2*$col }
 
-	@include placeholder("col-left-p0", $col) { padding-left: -$col }
-	@include placeholder("col-left-p1", $col) { padding-left: 0 }
-	@include placeholder("col-left-p2", $col) { padding-left: $col }
-	@include placeholder("col-left-p3", $col) { padding-left: 2*$col }
 
-	@include placeholder("col-right-0", $col) { margin-right: -$col }
-	@include placeholder("col-right-1", $col) { margin-right: 0 }
-	@include placeholder("col-right-2", $col) { margin-right: $col }
-	@include placeholder("col-right-3", $col) { margin-right: 2*$col }
+	@include placeholder("col-left-p0", $col) { padding-left: 0 }
+	@include placeholder("col-left-p05", $col) { padding-left: $col/2 }
+	@include placeholder("col-left-p1", $col) { padding-left: $col }
+	@include placeholder("col-left-p2", $col) { padding-left: 2*$col }
+	@include placeholder("col-left-p3", $col) { padding-left: 3*$col }
 
-	@include placeholder("col-right-p0", $col) { padding-right: -$col }
-	@include placeholder("col-right-p1", $col) { padding-right: 0 }
-	@include placeholder("col-right-p2", $col) { padding-right: $col }
+
+	@include placeholder("col-right--2", $col) { margin-right: -2 * $col }
+	@include placeholder("col-right--1", $col) { margin-right: -1 * $col }
+	@include placeholder("col-right-0", $col) { margin-right: 0 }
+	@include placeholder("col-right-1", $col) { margin-right: $col }
+	@include placeholder("col-right-2", $col) { margin-right: 2*$col }
+	@include placeholder("col-right-3", $col) { margin-right: 3*$col }
+
+	@include placeholder("col-right-p0", $col) { padding-right: 0 }
+	@include placeholder("col-right-p05", $col) { padding-right: $col/2 }
+	@include placeholder("col-right-p1", $col) { padding-right: $col }
+	@include placeholder("col-right-p2", $col) { padding-right: 2*$col }
 
 
 	@include breakpoint($breakpoint) {
 
 		// GENERAL GRID
 		.grid {
-			border-right-width: $col;
+			// padding-left: $col;
 		}
 
 		.grid__item {
-			border-left-width: $col + 1px;
 		}
 
 		// GENERAL
 		.entry-card {
-			.entry-meta {
-				@include _("col-left-2");
-				@include _("col-right-3")
-			}
+			@include _("col-right-2");
+			@include _("col-left--1");
+			// @include _("col-right-p1");
 
+			.entry-meta,
 			.entry-content {
 				@include _("col-left-2");
-				@include _("col-right-2");
 			}
 		}
 
@@ -91,9 +97,7 @@ $cards-gutter: $gutter;
 			}
 
 			.entry-header {
-				@include _("col-left-0");
-				@include _("col-left-p3");
-				@include _("col-right-2");
+				@include _("col-left-p2");
 			}
 
 			.entry-content {
@@ -104,18 +108,16 @@ $cards-gutter: $gutter;
 
 		// LANDSCAPE
 		.entry-card--landscape {
+
 			.entry-meta {
 
 			}
 
 			.entry-image {
-				@include _("col-left-0");
-				@include _("col-right-2");
 			}
 
 			.entry-header {
 				@include _("col-left-2");
-				@include _("col-right-2");
 			}
 
 			.entry-content {
@@ -148,40 +150,42 @@ $cards-gutter: $gutter;
 
 		// SQUARE
 		.entry-card--square {
+			@include _("col-right-3");
+
 			.entry-meta {
 				
 			}
 
 			.entry-image {
 				@include _("col-left-2");
-				@include _("col-right-3");
 			}
 
 			.entry-header {
 				@include _("col-left-2");
-				@include _("col-right-3");
 			}
 
 			.entry-content {
-				@include _("col-right-3");
+
 			}
 		}
 
 
 		// PORTRAIT
 		// TALL
-		.entry-card--portrait,
-		.entry-card--tall {
+		.entry-card.entry-card--portrait,
+		.entry-card.entry-card--tall {
+			@include _("col-right-0"); 
+			@include _("col-left-1"); 
+
 			.entry-image {
-				@include _("col-left-0");
+				@include _("col-left--2");
 			}
-
-			.entry-header {
-				@include _("col-right-0");
-			}
-
+			
+			.entry-meta,
+			.entry-header,
 			.entry-content {
-				@include _("col-right-0");
+				@include _("col-left-0");
+				@include _("col-right-p05");
 			}
 		}
 
@@ -190,22 +194,27 @@ $cards-gutter: $gutter;
 
 			// PORTRAIT
 			// TALL
-			.entry-card--portrait,
-			.entry-card--tall {
+			.entry-card.entry-card--portrait,
+			.entry-card.entry-card--tall {
+				@include _("col-left--1");
+				@include _("col-right-2");
+
 				.entry-meta {
-					@include _("col-right-2")
 				}
 
 				.entry-image {
-					@include _("col-right-0");
+					@include _("col-right--2");
 				}
 
+				.entry-meta,
+				.entry-header,
 				.entry-content {
-					@include _("col-left-1");
+					@include _("col-right-p0");
+					// daca e inca una portrait sa nu acopere scrisu, gen
+					@include _("col-left-p1");
 				}
 			}
 		}
-	
 	}
 }
 
@@ -255,6 +264,7 @@ $cards-gutter: $gutter;
 	position: relative;
 	padding-top: 1px; // hack to keep things inside
 	background: white;
+	// background: rgba(#bbd, 0.75);
 
 
 	// ELEMENTS
@@ -494,8 +504,8 @@ $cards-gutter: $gutter;
 
 	// PORTRAIT
 	// TALL
-	.entry-card--tall,
-	.entry-card--portrait {
+	.entry-card.entry-card--tall,
+	.entry-card.entry-card--portrait {
 		.entry-meta {
 			right: 0;
 
@@ -516,10 +526,8 @@ $cards-gutter: $gutter;
 		}
 
 		.entry-image {
+			margin-left: $gutter/2;
 			margin-right: 0;
-			padding-right: 0;
-
-			margin-left: $gutter/2;	
 			float: right;
 		}
 
