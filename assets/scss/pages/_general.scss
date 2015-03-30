@@ -117,17 +117,6 @@
 		padding: 30px;
 	}
 
-
-	@include query-above($lap) {
-		.site-footer {
-			position: fixed;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			z-index: 50;
-		}
-	}
-
 	@include query-above($lap) {
 		.site-content {
 			padding: 60px;
