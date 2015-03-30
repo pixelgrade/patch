@@ -84,6 +84,8 @@ if ( ! function_exists( 'patch_get_cats_list' ) ) :
 
 	/**
 	 * Returns HTML with comma separated category links
+	 *
+	 * @param int|WP_Post $post_ID Optional. Post ID or post object.
 	 */
 	function patch_get_cats_list( $post_ID = null) {
 
@@ -114,6 +116,8 @@ if ( ! function_exists( 'patch_cats_list' ) ) :
 
 	/**
 	 * Prints HTML with comma separated category links
+	 *
+	 * @param int|WP_Post $post_ID Optional. Post ID or post object.
 	 */
 	function patch_cats_list( $post_ID = null) {
 
@@ -123,9 +127,56 @@ if ( ! function_exists( 'patch_cats_list' ) ) :
 
 endif;
 
+if ( ! function_exists( 'patch_get_post_format_link' ) ) :
+
+	/**
+	 * Returns HTML with the post format link
+	 *
+	 * @param int|WP_Post $post_ID Optional. Post ID or post object.
+	 */
+	function patch_get_post_format_link( $post_ID = null) {
+
+		//use the current post ID is none given
+		if ( empty( $post_ID ) ) {
+			$post_ID = get_the_ID();
+		}
+
+		$post_format = get_post_format( $post_ID );
+
+		if ( empty( $post_format ) || 'standard' == $post_format ) {
+			return '';
+		}
+
+		return '<span class="entry-format">
+				<a href="' . esc_url( get_post_format_link( $post_format ) ) .'" title="' . esc_attr( sprintf( __( 'All %s Posts', 'patch_txtd' ), get_post_format_string( $post_format ) ) ) . '">' .
+					get_post_format_string( $post_format ) .
+				'</a>
+			</span>';
+
+	} #function
+
+endif;
+
+if ( ! function_exists( 'patch_post_format_link' ) ) :
+
+	/**
+	 * Prints HTML with the post format link
+	 *
+	 * @param int|WP_Post $post_ID Optional. Post ID or post object.
+	 */
+	function patch_post_format_link( $post_ID = null) {
+
+		echo patch_get_post_format_link( $post_ID );
+
+	} #function
+
+endif;
+
 /**
  * Prints HTML with the category of a certain post, with the most posts in it
  * The most important category of a post
+ *
+ * @param int|WP_Post $post_ID Optional. Post ID or post object.
  */
 function patch_first_category( $post_ID = null) {
 	global $wp_rewrite;

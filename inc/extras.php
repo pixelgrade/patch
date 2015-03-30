@@ -69,17 +69,20 @@ function patch_post_classes( $classes ) {
 		}
 	} else {
 		//handle other post formats
-		if ( ! is_singular() ) {
-			switch ( get_post_format() ) {
-				case 'image': $classes[] = 'entry-card--landscape';
-					break;
-				case 'gallery': $classes[] = 'entry-card--landscape';
-					break;
-				case 'video': ;
-				case 'audio': $classes[] = 'entry-card--landscape';
-					break;
-				default: $classes[] = 'entry-card--text';
-			}
+		$prefix = 'entry-card--';
+		if ( is_singular() ) {
+			$prefix = 'entry-image--';
+		}
+
+		switch ( get_post_format() ) {
+			case 'image': $classes[] = $prefix . 'landscape';
+				break;
+			case 'gallery': $classes[] = $prefix . 'landscape';
+				break;
+			case 'video': ;
+			case 'audio': $classes[] = $prefix . 'landscape';
+				break;
+			default: $classes[] = $prefix . 'text';
 		}
 	}
 
@@ -305,6 +308,20 @@ function patch_get_media_embedded_in_content( $content, $types = null ) {
 
 	return $html;
 }
+
+/**
+ * When dealing with gallery post format, we need to strip the first gallery in the content since we show it at the top
+ */
+function patch_strip_first_content_gallery( $content ) {
+	if ( 'gallery' == get_post_format() ) {
+		$regex   = '/\[gallery.*]/';
+		$content = preg_replace( $regex, '', $content, 1 );
+	}
+
+	return $content;
+}
+
+add_filter( 'the_content', 'patch_strip_first_content_gallery' );
 
 /**
  * Add "Styles" drop-down
