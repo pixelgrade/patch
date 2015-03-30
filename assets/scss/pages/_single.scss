@@ -9,7 +9,7 @@
 	margin-right: auto;
 }
 
-.single, .page:not(.entry-card) {
+.single, .page:not(.entry-card), .no-posts {
 
 	.hentry,
 	.comments-area,
@@ -135,13 +135,16 @@
 				// margin-right: -3*$gutter;
 			}
 			
-			@include rhythm(margin-bottom, 2.5);
+			@include rhythm(margin-bottom, 2);
 		}
 	}
 
 	.entry-header {
 		@include rhythm(margin-bottom, 2);
 	}
+		.entry-title {
+			margin: 0;
+		}
 
 	.entry-meta {
 		position: static;
@@ -215,4 +218,18 @@
 
 .nav-links {
 	@extend %single-width;
+}
+
+// Tiled Gallery
+.tiled-gallery {
+	margin-bottom: 0;
+
+	.single &, .page:not(.entry-card) & {
+		// margin: $gutter -2*$col;
+		// width: calc(100% + #{4 * $col});
+
+		.gallery-row {
+			// width: 100%;
+		}
+	}
 }

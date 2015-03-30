@@ -46,7 +46,7 @@
 // Pull Content Outside
 
 
-@include query-above($lap) {
+@include query-above($desk) {
     $pull-offset : 2 * $col;
     $pull-gutter : 40px;
 

@@ -101,7 +101,7 @@
 		height: auto;
 		-webkit-appearance: none;
 
-		@include placeholder {
+		@include input-placeholder {
 			color: $black;
 		}
 

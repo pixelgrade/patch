@@ -17,22 +17,29 @@
  * @return array
  */
 function patch_body_classes( $classes ) {
+	global $wp_query;
+
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
 	}
 
 	if ( ( is_single() || is_page() ) && is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[ ] = 'has_sidebar';
+		$classes[] = 'has_sidebar';
 	}
 
 	//add this class where we have the masonry layout
 	if ( ! is_singular() ) {
 		$classes[] = 'layout-grid';
+
+		//add a.no-posts class when the loop is empty
+		if ( ! $wp_query->posts ) {
+			$classes[] = 'no-posts';
+		}
 	}
 
 	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) {
-		$classes[ ] = 'has_infinite-scroll';
+		$classes[] = 'has_infinite-scroll';
 	}
 
 	return $classes;
@@ -62,17 +69,20 @@ function patch_post_classes( $classes ) {
 		}
 	} else {
 		//handle other post formats
-		if ( ! is_singular() ) {
-			switch ( get_post_format() ) {
-				case 'image': $classes[] = 'entry-card--landscape';
-					break;
-				case 'gallery': $classes[] = 'entry-card--landscape';
-					break;
-				case 'video': ;
-				case 'audio': $classes[] = 'entry-card--landscape';
-					break;
-				default: $classes[] = 'entry-card--text';
-			}
+		$prefix = 'entry-card--';
+		if ( is_singular() ) {
+			$prefix = 'entry-image--';
+		}
+
+		switch ( get_post_format() ) {
+			case 'image': $classes[] = $prefix . 'landscape';
+				break;
+			case 'gallery': $classes[] = $prefix . 'landscape';
+				break;
+			case 'video': ;
+			case 'audio': $classes[] = $prefix . 'landscape';
+				break;
+			default: $classes[] = $prefix . 'text';
 		}
 	}
 
@@ -253,8 +263,8 @@ add_filter( 'excerpt_length', 'patch_excerpt_length', 999 );
 function patch_search_form( $form ) {
 	$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
 				<label>
-					<span class="screen-reader-text">' . _x( 'Search for:', 'label' ) . '</span>
-					<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' ) . '" value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' ) . '" />
+					<span class="screen-reader-text">' . _x( 'Search for:', 'label' , 'patch_txtd' ) . '</span>
+					<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' , 'patch_txtd' ) . '" value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' , 'patch_txtd' ) . '" />
 				</label>
 				<button class="search-submit"><i class="fa fa-search"></i></button>
 			</form>';
@@ -300,6 +310,20 @@ function patch_get_media_embedded_in_content( $content, $types = null ) {
 }
 
 /**
+ * When dealing with gallery post format, we need to strip the first gallery in the content since we show it at the top
+ */
+function patch_strip_first_content_gallery( $content ) {
+	if ( 'gallery' == get_post_format() ) {
+		$regex   = '/\[gallery.*]/';
+		$content = preg_replace( $regex, '', $content, 1 );
+	}
+
+	return $content;
+}
+
+add_filter( 'the_content', 'patch_strip_first_content_gallery' );
+
+/**
  * Add "Styles" drop-down
  */
 function patch_mce_editor_buttons( $buttons ) {
@@ -313,7 +337,6 @@ add_filter( 'mce_buttons_2', 'patch_mce_editor_buttons' );
  * Add styles/classes to the "Styles" drop-down
  */
 function patch_mce_before_init( $settings ) {
-
 	$style_formats = array(
 		array( 'title' => __( 'Intro Text', 'patch_txtd' ), 'selector' => 'p', 'classes' => 'intro' ),
 		array( 'title' => __( 'Dropcap', 'patch_txtd' ), 'inline' => 'span', 'classes' => 'dropcap' ),

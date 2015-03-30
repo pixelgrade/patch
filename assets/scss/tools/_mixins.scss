@@ -79,7 +79,7 @@ $typography-font-sizes: () !default;
 
 
 
-@mixin placeholder {
+@mixin input-placeholder {
 	&::-webkit-input-placeholder {
 		@content
 	}
@@ -120,4 +120,80 @@ $typography-font-sizes: () !default;
             #{$prop}: $value + 46px;
         }
     }
+}
+
+
+// Used for Cards Spacing
+// http://www.sitepoint.com/cross-media-query-extend-sass/
+
+$default-breakpoint: root;
+$current-breakpoint: $default-breakpoint;
+$placeholders: ();
+
+@mixin breakpoint($breakpoint) {
+      // Get the width from the keyword `$breakpoint`
+      // Or `null` if the keyword doesn't exist in `$breakpoints` map
+      $value: map-get($breakpoints, $breakpoint);
+ 
+  // If `$breakpoint` exists as a key in `$breakpoints`
+  @if $value != null {
+        // Update `$current-breakpoint`
+        $current-breakpoint: $breakpoint !global;
+ 
+    // Open a media query block
+    @media (min-width: $value) {
+      // Let the user dump content
+      @content;
+    }
+ 
+    // Then reset `$current-breakpoint` to `$default-breakpoint` (root)
+    $current-breakpoint: $default-breakpoint !global;
+  }
+ 
+  // If `$breakpoint` doesn't exist in `$breakpoints`, 
+  // Warn the user and do nothing
+  @else {
+    @warn "Invalid breakpoint `#{$breakpoint}`.";
+  }
+}
+
+@mixin placeholder($name, $gutter) {
+      // If placeholder doesn't exist yet in `$placeholders` list
+      @if not index($placeholders, #{$name}-#{$gutter}) {
+        // Store its name
+        $placeholders: append($placeholders, #{$name}-#{$gutter}) !global;
+ 
+    // At root level
+    @at-root {
+      // Looping through `$breakpoints`
+      @each $breakpoint, $value in $breakpoints {
+            // Opening a media query block
+            @media (min-width: $value) {
+              // Generating a placeholder
+              // Called $name-$breakpoint 
+              %#{$name}-#{$gutter}-#{$breakpoint} {
+            @content;
+          }
+        }
+      }
+ 
+      // And dumping a placeholder out of any media query as well
+      // so basically at root level
+      %#{$name}-#{$gutter}-#{$default-breakpoint} {
+        @content;
+      }
+    }
+  }
+ 
+  // If placeholder already exists, just warn the user
+  @else {
+    // @warn "Placeholder `#{$name}` already exists.";
+    
+  }
+
+  // @debug (#{$name}-#{$default-breakpoint});
+}
+
+@mixin _($name) {
+      @extend %#{$name}-#{$cards-gutter}-#{$current-breakpoint} !optional;
 }

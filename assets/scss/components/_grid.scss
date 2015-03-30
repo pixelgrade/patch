@@ -3,7 +3,7 @@
 	padding-bottom: 2*$gutter;
 
 	@include query-above($lap) {
-		padding: $gutter;
+		padding: 1.5*$gutter;
 	}
 
 	@include query-above(1360px) {
