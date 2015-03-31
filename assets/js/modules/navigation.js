@@ -64,7 +64,7 @@ var navigation = (function() {
 
 				} else {
 
-					$nav.insertAfter($navTrigger);
+					$nav.appendTo($('#page'));
 
 					$([$nav, $navTrigger]).each(function (i, obj) {
 						$(obj).velocity({

@@ -1477,7 +1477,7 @@ if (!Date.now) Date.now = function () {
 
             } else {
 
-              $nav.insertAfter($navTrigger);
+              $nav.appendTo($('#page'));
 
               $([$nav, $navTrigger]).each(function (i, obj) {
                 $(obj).velocity({
@@ -1590,7 +1590,8 @@ if (!Date.now) Date.now = function () {
       $overlay.find('input').focus();
 
       $overlay.velocity({
-        translateX: 0
+        translateX: 0,
+        translateZ: 0.01
       }, {
         duration: 0
       }).velocity({
