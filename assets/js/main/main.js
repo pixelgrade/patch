@@ -18,7 +18,7 @@ $window.load(function() {
   // shadows.init();
 //   svgLogo.init();
 //   animator.animate();
-   scrollToTop();
+  scrollToTop();
   moveFeaturedImage();
   magnificPopupInit();
 

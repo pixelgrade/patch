@@ -24,6 +24,8 @@ var navigation = (function() {
 
 		if (android_ancient) triggerEvents = 'click';
 
+		var $navParent = $nav.parent();
+
 		$navTrigger.on(triggerEvents, function (e) {
 
 			// but we still have to prevent the default behavior of the touchstart event
@@ -53,11 +55,16 @@ var navigation = (function() {
 							translateZ: 0.01
 						}, {
 							duration: 300,
-							easing: "easeInQuart"
+							easing: "easeInQuart",
+							complete: function () {
+								$nav.appendTo($navParent);
+							}
 						});
 					});
 
 				} else {
+
+					$nav.insertAfter($navTrigger);
 
 					$([$nav, $navTrigger]).each(function (i, obj) {
 						$(obj).velocity({
