@@ -1307,6 +1307,8 @@ if (!Date.now) Date.now = function () {
           }
         });
 
+        $container.find('.grid__item:first-child').css('z-index', 40);
+
         unbindEvents();
         $container.masonry('layout');
         bindEvents();

@@ -102,10 +102,13 @@
 		a {
 			@extend .light;
 			position: relative;
-			display: inline-block;
 			line-height: 1.5;
+			display: block;
 			letter-spacing: 0.06em;
-			
+
+			@include query-above($lap) {
+				display: inline;
+			}
 		}
 	}
 
@@ -116,9 +119,7 @@
 			
 			&:after {
 				content: "+";
-				position: absolute;
-				top: -0.1em;
-				right: 0;
+				margin-left: 10px;
 			}
 		}
 
@@ -137,7 +138,7 @@
 		/*.sub-menu*/ul {
 			position: absolute;
 			top: 0; 
-			margin-left: -8px;
+			margin-left: -28px;
 			margin-top: 4px;
 
 			display: inline-block;
