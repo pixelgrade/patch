@@ -138,9 +138,6 @@ if (!Date.now) Date.now = function () {
       
       
       firefox = ua.indexOf('gecko') != -1,
-      firefox_3x = firefox && ua.match(/rv:1.9/i),
-      ie = ua.indexOf('msie' != -1),
-      ie_newer = ua.match(/msie (9|([1-9][0-9]))/i),
       safari = ua.indexOf('safari') != -1 && ua.indexOf('chrome') == -1,
       
       
