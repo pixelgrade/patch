@@ -38,6 +38,10 @@ function patch_body_classes( $classes ) {
 		}
 	}
 
+	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) {
+		$classes[] = 'infinite-scroll';
+	}
+
 	return $classes;
 }
 
