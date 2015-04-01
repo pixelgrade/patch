@@ -27,6 +27,7 @@
 			'menu_class'     => 'nav  nav--footer',
 			'items_wrap'         => '<nav class="footer-menu"><h5 class="screen-reader-text">'.__( 'Footer navigation', 'patch' ).'</h5><ul id="%1$s" class="%2$s">%3$s</ul></nav>',
 			'depth'          => 1,
+			'fallback_cb'    => '',
 		) ); ?>
 	</footer><!-- #colophon -->
 	<div class="overlay--search">

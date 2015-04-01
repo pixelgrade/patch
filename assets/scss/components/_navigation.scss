@@ -131,9 +131,21 @@
 		@extend .nav; 
 		display: block;
 		min-width: 10em;
+
+		@include query-below($lap) {
+			li {
+				display: block;
+			}
+		}
 	}
 
-	@include query-above($lap) {		
+	@include query-below($lap) {
+		.sub-menu {
+			padding-left: 12px;
+		}
+	}
+
+	@include query-above($lap) {
 
 		/*.sub-menu*/ul {
 			position: absolute;

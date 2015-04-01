@@ -30,29 +30,6 @@ function magnificPopupInit() {
                 navigateByImgClick: true
                 //arrowMarkup: '<a href="#" class="gallery-arrow gallery-arrow--%dir% control-item arrow-button arrow-button--%dir%">%dir%</a>'
             }
-            //callbacks: {
-            //    elementParse: function (item) {
-            //
-            //        if (this.currItem != undefined) {
-            //            item = this.currItem;
-            //        }
-            //
-            //        var output = '';
-            //        if (typeof item.el.attr('data-alt') !== "undefined" && item.el.attr('data-alt') !== "") {
-            //            output += '<small>' + item.el.attr('data-alt') + '</small>';
-            //        }
-            //
-            //        $('.mfp-title').html(output);
-            //    },
-            //    change: function (item) {
-            //        var output = '';
-            //        if (typeof item.el.attr('data-alt') !== "undefined" && item.el.attr('data-alt') !== "") {
-            //            output += '<small>' + item.el.attr('data-alt') + '</small>';
-            //        }
-            //
-            //        $('.mfp-title').html(output);
-            //    }
-            //}
         });
     });
 }

@@ -17,10 +17,10 @@ function patch_jetpack_setup() {
 	 * See: http://jetpack.me/support/infinite-scroll/
 	 */
 	add_theme_support( 'infinite-scroll', array(
-		'type'      => 'scroll',
-		'container' => 'posts',
-		'wrapper'   => false,
-		'footer'    => 'page',
+		'type'           => 'scroll',
+		'container'      => 'posts',
+		'wrapper'        => false,
+		'footer'         => 'page',
 	) );
 
 	/**
@@ -81,4 +81,18 @@ function patch_remove_to_move_relatedposts() {
 	}
 }
 
-add_filter( 'wp', 'patch_remove_to_move_relatedposts', 20 ); ?>
+add_filter( 'wp', 'patch_remove_to_move_relatedposts', 20 );
+
+
+/**
+ * Detect if the footer menu is active and if it is
+ * switch Infinite Scroll to click mode
+ */
+
+function switch_infinite_scroll_mode() {
+
+	if ( has_nav_menu( 'footer' ) ) return true;
+	else return false;
+}
+
+add_filter( 'infinite_scroll_has_footer_widgets', 'switch_infinite_scroll_mode' ); ?>

@@ -64,12 +64,11 @@ if ( ! function_exists( 'patch_setup' ) ) :
 		) );
 
 		/*
-		 * Switch default core markup for comment form, and comments
+		 * Switch default core markup for comment form, galleries and captions
 		 * to output valid HTML5.
 		 */
 		add_theme_support( 'html5', array(
 			'comment-form',
-			'comment-list',
 			'gallery',
 			'caption',
 		) );
@@ -138,12 +137,16 @@ function patch_scripts() {
 	//Register Velocity.js plugin
 	wp_register_script( 'patch-velocity', get_stylesheet_directory_uri() . '/assets/js/velocity.js', array(), '1.2.2', true );
 
+	//Register Magnific Popup plugin
+	wp_register_script( 'patch-magnificpopup', get_stylesheet_directory_uri() . '/assets/js/magnificpopup.js', array(), '1.0.0', true );
+
 	//Enqueue Patch Custom Scripts
 	wp_enqueue_script( 'patch-scripts', get_stylesheet_directory_uri() . '/assets/js/main.js', array(
 		'jquery',
 		'masonry',
 		'patch-imagesloaded',
 		'patch-velocity',
+		'patch-magnificpopup',
 	), '1.0.0', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

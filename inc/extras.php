@@ -38,10 +38,6 @@ function patch_body_classes( $classes ) {
 		}
 	}
 
-	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) {
-		$classes[] = 'has_infinite-scroll';
-	}
-
 	return $classes;
 }
 
@@ -225,7 +221,7 @@ if ( ! function_exists( 'patch_comment' ) ) :
 					<div class="comment__links">
 						<?php
 						//we need some space before Edit
-						edit_comment_link( __( 'Edit', 'patch' ), '  ' );
+						edit_comment_link( __( 'Edit', 'patch' ) );
 
 						comment_reply_link( array_merge( $args, array(
 							'depth'     => $depth,

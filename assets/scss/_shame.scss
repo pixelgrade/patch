@@ -37,8 +37,16 @@
 .site-content {
 	min-height: calc(100vh - 60px);
 
+	.infinite-scroll.neverending & {
+		min-height: 100vh;
+	}
+
 	.admin-bar & {
 		min-height: calc(100vh - 60px - 32px);
+	}
+
+	.admin-bar.infinite-scroll.neverending & {
+		min-height: calc(100vh - 32px);
 	}
 }
 

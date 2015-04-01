@@ -87,14 +87,6 @@ var masonry = (function() {
 	},
 
 	animatePost = function($post, delay) {
-		// $post.velocity({
-		// 	opacity: 1
-		// }, {
-		// 	duration: 300,
-		// 	delay: delay,
-		// 	easing: 'easeOutCubic'
-		// });
-		
 		setTimeout(function() {
 			$post.addClass('is-visible');
 		}, delay);

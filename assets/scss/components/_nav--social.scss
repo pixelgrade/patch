@@ -1,6 +1,7 @@
 %nav--social a {
 	
 	&:before {
+		content: $fa-var-share-alt;
 		font-family: FontAwesome; 
 		-webkit-font-smoothing: antialiased;
 		text-align: center;
