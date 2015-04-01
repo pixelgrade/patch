@@ -47,6 +47,14 @@
 	}
 }
 
+.infinite-scroll.neverending .site-footer {
+	display: none;
+}
+
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
 @include query-above($lap) {
 	.site-info {
 		text-align: left;
