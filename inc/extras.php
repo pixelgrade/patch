@@ -117,12 +117,12 @@ if ( ! function_exists( 'patch_fonts_url' ) ) :
 		* supported by Oswald, translate this to 'off'. Do not translate
 		* into your own language.
 		*/
-		if ( 'off' !== _x( 'on', 'Oswald font: on or off', 'patch_txtd' ) ) {
+		if ( 'off' !== _x( 'on', 'Oswald font: on or off', 'patch' ) ) {
 			$fonts[] = 'Oswald:300,400,700';
 		}
 
 		/* translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language. */
-		$subset = _x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', 'patch_txtd' );
+		$subset = _x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', 'patch' );
 
 		if ( 'cyrillic' == $subset ) {
 			$subsets .= ',cyrillic,cyrillic-ext';
@@ -145,25 +145,6 @@ if ( ! function_exists( 'patch_fonts_url' ) ) :
 	} #function
 
 endif;
-
-/**
- * Sets the authordata global when viewing an author archive.
- * This provides backwards compatibility with
- * http://core.trac.wordpress.org/changeset/25574
- * It removes the need to call the_post() and rewind_posts() in an author
- * template to print information about the author.
- * @global WP_Query $wp_query WordPress Query object.
- * @return void
- */
-function patch_setup_author() {
-	global $wp_query;
-
-	if ( $wp_query->is_author() && isset( $wp_query->post ) ) {
-		$GLOBALS['authordata'] = get_userdata( $wp_query->post->post_author );
-	}
-}
-
-add_action( 'wp', 'patch_setup_author' );
 
 if ( ! function_exists( 'patch_comment' ) ) :
 
@@ -190,12 +171,12 @@ if ( ! function_exists( 'patch_comment' ) ) :
 				<header class="comment__meta comment-author">
 					<?php printf( '<span class="comment__author-name">%s</span>', get_comment_author_link() ) ?>
 					<time class="comment__time" datetime="<?php comment_time( 'c' ); ?>">
-						<a href="<?php echo esc_url( get_comment_link( get_comment_ID() ) ) ?>" class="comment__timestamp"><?php printf( __( 'on %s at %s', 'patch_txtd' ), get_comment_date(), get_comment_time() ); ?> </a>
+						<a href="<?php echo esc_url( get_comment_link( get_comment_ID() ) ) ?>" class="comment__timestamp"><?php printf( __( 'on %s at %s', 'patch' ), get_comment_date(), get_comment_time() ); ?> </a>
 					</time>
 					<div class="comment__links">
 						<?php
 						//we need some space before Edit
-						edit_comment_link( __( 'Edit', 'patch_txtd' ), '  ' );
+						edit_comment_link( __( 'Edit', 'patch' ), '  ' );
 
 						comment_reply_link( array_merge( $args, array(
 							'depth'     => $depth,
@@ -207,7 +188,7 @@ if ( ! function_exists( 'patch_comment' ) ) :
 				<!-- .comment-meta -->
 				<?php if ( '0' == $comment->comment_approved ) : ?>
 					<div class="alert info">
-						<p><?php _e( 'Your comment is awaiting moderation.', 'patch_txtd' ) ?></p>
+						<p><?php _e( 'Your comment is awaiting moderation.', 'patch' ) ?></p>
 					</div>
 				<?php endif; ?>
 				<section class="comment__content comment">
@@ -263,8 +244,8 @@ add_filter( 'excerpt_length', 'patch_excerpt_length', 999 );
 function patch_search_form( $form ) {
 	$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
 				<label>
-					<span class="screen-reader-text">' . _x( 'Search for:', 'label' , 'patch_txtd' ) . '</span>
-					<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' , 'patch_txtd' ) . '" value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' , 'patch_txtd' ) . '" />
+					<span class="screen-reader-text">' . _x( 'Search for:', 'label' , 'patch' ) . '</span>
+					<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' , 'patch' ) . '" value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' , 'patch' ) . '" />
 				</label>
 				<button class="search-submit"><i class="fa fa-search"></i></button>
 			</form>';
@@ -338,12 +319,12 @@ add_filter( 'mce_buttons_2', 'patch_mce_editor_buttons' );
  */
 function patch_mce_before_init( $settings ) {
 	$style_formats = array(
-		array( 'title' => __( 'Intro Text', 'patch_txtd' ), 'selector' => 'p', 'classes' => 'intro' ),
-		array( 'title' => __( 'Dropcap', 'patch_txtd' ), 'inline' => 'span', 'classes' => 'dropcap' ),
-		array( 'title' => __( 'Highlight', 'patch_txtd' ), 'inline' => 'span', 'classes' => 'highlight' ),
-		array( 'title' => __( 'Pull Left', 'patch_txtd' ), 'inline' => 'p', 'classes' => 'pull-left' ),
-		array( 'title' => __( 'Pull Right', 'patch_txtd' ), 'inline' => 'p', 'classes' => 'pull-right' ),
-		array( 'title' => __( 'Two Columns', 'patch_txtd' ), 'selector' => 'p', 'classes' => 'twocolumn', 'wrapper' => true ),
+		array( 'title' => __( 'Intro Text', 'patch' ), 'selector' => 'p', 'classes' => 'intro' ),
+		array( 'title' => __( 'Dropcap', 'patch' ), 'inline' => 'span', 'classes' => 'dropcap' ),
+		array( 'title' => __( 'Highlight', 'patch' ), 'inline' => 'span', 'classes' => 'highlight' ),
+		array( 'title' => __( 'Pull Left', 'patch' ), 'inline' => 'p', 'classes' => 'pull-left' ),
+		array( 'title' => __( 'Pull Right', 'patch' ), 'inline' => 'p', 'classes' => 'pull-right' ),
+		array( 'title' => __( 'Two Columns', 'patch' ), 'selector' => 'p', 'classes' => 'twocolumn', 'wrapper' => true ),
 	);
 
 	$settings['style_formats'] = json_encode( $style_formats );

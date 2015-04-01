@@ -28,9 +28,9 @@ if ( ! function_exists( 'patch_setup' ) ) :
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on Patch, use a find and replace
-		 * to change 'patch_txtd' to the name of your theme in all the template files
+		 * to change 'patch' to the name of your theme in all the template files
 		 */
-		load_theme_textdomain( 'patch_txtd', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'patch', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -58,9 +58,9 @@ if ( ! function_exists( 'patch_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'primary' 	=> __( 'Primary Menu', 'patch_txtd' ),
-			'social' 	=> __( 'Social Menu', 'patch_txtd' ),
-			'footer'    => __( 'Footer Menu', 'patch_txtd' ),
+			'primary' 	=> __( 'Primary Menu', 'patch' ),
+			'social' 	=> __( 'Social Menu', 'patch' ),
+			'footer'    => __( 'Footer Menu', 'patch' ),
 		) );
 
 		/*
@@ -95,11 +95,6 @@ if ( ! function_exists( 'patch_setup' ) ) :
 		 */
 		add_editor_style( array( 'editor-style.css', patch_fonts_url() ) );
 
-		/*
-		 * Now some cleanup to remove features that we do not support
-		 */
-		remove_theme_support( 'custom-header' );
-
 	}
 
 endif;
@@ -113,7 +108,7 @@ add_action( 'after_setup_theme', 'patch_setup' );
  */
 function patch_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'patch_txtd' ),
+		'name'          => __( 'Sidebar', 'patch' ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -138,17 +133,11 @@ function patch_scripts() {
 	//Default Fonts
 	wp_enqueue_style( 'patch-fonts', patch_fonts_url(), array(), null );
 
-	//Enqueue jQuery
-	wp_enqueue_script( 'jquery' );
+	//Register ImagesLoaded plugin
+	wp_register_script( 'patch-imagesloaded', get_stylesheet_directory_uri() . '/assets/js/imagesloaded.js', array(), '3.1.8', true );
 
-	//Enqueue Masonry
-	wp_enqueue_script( 'masonry' );
-
-	//Enqueue ImagesLoaded plugin
-	wp_enqueue_script( 'patch-imagesloaded', get_stylesheet_directory_uri() . '/assets/js/imagesloaded.js', array(), '3.1.8', true );
-
-	//Enqueue Velocity.js plugin
-	wp_enqueue_script( 'patch-velocity', get_stylesheet_directory_uri() . '/assets/js/velocity.js', array(), '1.1.0', true );
+	//Register Velocity.js plugin
+	wp_register_script( 'patch-velocity', get_stylesheet_directory_uri() . '/assets/js/velocity.js', array(), '1.2.2', true );
 
 	//Enqueue Patch Custom Scripts
 	wp_enqueue_script( 'patch-scripts', get_stylesheet_directory_uri() . '/assets/js/main.js', array(

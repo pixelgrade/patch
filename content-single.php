@@ -56,7 +56,7 @@ if ( has_post_thumbnail() ) {
 
 		<?php
 		wp_link_pages( array(
-			'before' => '<div class="page-links">' . __( 'Pages:', 'patch_txtd' ),
+			'before' => '<div class="page-links">' . __( 'Pages:', 'patch' ),
 			'after'  => '</div>',
 		) ); ?>
 

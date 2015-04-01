@@ -45,7 +45,7 @@ if ( ! function_exists( 'patch_posted_on' ) ) :
 		}
 
 		$byline = sprintf(
-			_x( 'by %s', 'post author', 'patch_txtd' ),
+			_x( 'by %s', 'post author', 'patch' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( $author_name ) . '</a></span>'
 		);
 
@@ -101,7 +101,7 @@ if ( ! function_exists( 'patch_get_cats_list' ) ) :
 
 		$cats = '';
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( __( ', ', 'patch_txtd' ), '', $post_ID );
+		$categories_list = get_the_category_list( __( ', ', 'patch' ), '', $post_ID );
 		if ( $categories_list && patch_categorized_blog() ) {
 			$cats = '<span class="cat-links">' . $categories_list . '</span>';
 		}
@@ -148,7 +148,7 @@ if ( ! function_exists( 'patch_get_post_format_link' ) ) :
 		}
 
 		return '<span class="entry-format">
-				<a href="' . esc_url( get_post_format_link( $post_format ) ) .'" title="' . esc_attr( sprintf( __( 'All %s Posts', 'patch_txtd' ), get_post_format_string( $post_format ) ) ) . '">' .
+				<a href="' . esc_url( get_post_format_link( $post_format ) ) .'" title="' . esc_attr( sprintf( __( 'All %s Posts', 'patch' ), get_post_format_string( $post_format ) ) ) . '">' .
 					get_post_format_string( $post_format ) .
 				'</a>
 			</span>';
@@ -233,7 +233,7 @@ if ( ! function_exists( 'patch_entry_footer' ) ) :
 	 * Prints HTML with meta information for posts on archives.
 	 */
 	function patch_entry_footer() {
-		edit_post_link( __( 'Edit', 'patch_txtd' ), '<span class="edit-link">', '</span>' );
+		edit_post_link( __( 'Edit', 'patch' ), '<span class="edit-link">', '</span>' );
 	}
 
 endif;
@@ -250,7 +250,7 @@ if ( ! function_exists( 'patch_single_entry_footer' ) ) :
 			$tags_list = get_the_tag_list( '', ' ' );
 			if ( $tags_list ) {
 				/* translators: There is a space at the end */
-				echo '<span class="screen-reader-text">' . __( 'Tagged with: ', 'patch_txtd' ) . '</span><span class="tags-links">' . $tags_list . '</span>';
+				echo '<span class="screen-reader-text">' . __( 'Tagged with: ', 'patch' ) . '</span><span class="tags-links">' . $tags_list . '</span>';
 			}
 
 			// Jetpack share buttons.
@@ -277,11 +277,11 @@ if ( ! function_exists( 'patch_single_entry_footer' ) ) :
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link">';
-			comments_popup_link( __( 'Leave a comment', 'patch_txtd' ), __( '1 Comment', 'patch_txtd' ), __( '% Comments', 'patch_txtd' ) );
+			comments_popup_link( __( 'Leave a comment', 'patch' ), __( '1 Comment', 'patch' ), __( '% Comments', 'patch' ) );
 			echo '</span>';
 		}
 
-		edit_post_link( __( 'Edit', 'patch_txtd' ), '<span class="edit-link">', '</span>' );
+		edit_post_link( __( 'Edit', 'patch' ), '<span class="edit-link">', '</span>' );
 	} #function
 
 endif;
@@ -300,45 +300,45 @@ if ( ! function_exists( 'the_archive_title' ) ) :
 	 */
 	function the_archive_title( $before = '', $after = '' ) {
 		if ( is_category() ) {
-			$title = sprintf( __( 'Category: %s', 'patch_txtd' ), single_cat_title( '', false ) );
+			$title = sprintf( __( 'Category: %s', 'patch' ), single_cat_title( '', false ) );
 		} elseif ( is_tag() ) {
-			$title = sprintf( __( 'Tag: %s', 'patch_txtd' ), single_tag_title( '', false ) );
+			$title = sprintf( __( 'Tag: %s', 'patch' ), single_tag_title( '', false ) );
 		} elseif ( is_author() ) {
-			$title = sprintf( __( 'Author: %s', 'patch_txtd' ), '<span class="vcard">' . get_the_author() . '</span>' );
+			$title = sprintf( __( 'Author: %s', 'patch' ), '<span class="vcard">' . get_the_author() . '</span>' );
 		} elseif ( is_year() ) {
-			$title = sprintf( __( 'Year: %s', 'patch_txtd' ), get_the_date( _x( 'Y', 'yearly archives date format', 'patch_txtd' ) ) );
+			$title = sprintf( __( 'Year: %s', 'patch' ), get_the_date( _x( 'Y', 'yearly archives date format', 'patch' ) ) );
 		} elseif ( is_month() ) {
-			$title = sprintf( __( 'Month: %s', 'patch_txtd' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'patch_txtd' ) ) );
+			$title = sprintf( __( 'Month: %s', 'patch' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'patch' ) ) );
 		} elseif ( is_day() ) {
-			$title = sprintf( __( 'Day: %s', 'patch_txtd' ), get_the_date( _x( 'F j, Y', 'daily archives date format', 'patch_txtd' ) ) );
+			$title = sprintf( __( 'Day: %s', 'patch' ), get_the_date( _x( 'F j, Y', 'daily archives date format', 'patch' ) ) );
 		} elseif ( is_tax( 'post_format' ) ) {
 			if ( is_tax( 'post_format', 'post-format-aside' ) ) {
-				$title = _x( 'Asides', 'post format archive title', 'patch_txtd' );
+				$title = _x( 'Asides', 'post format archive title', 'patch' );
 			} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-				$title = _x( 'Galleries', 'post format archive title', 'patch_txtd' );
+				$title = _x( 'Galleries', 'post format archive title', 'patch' );
 			} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-				$title = _x( 'Images', 'post format archive title', 'patch_txtd' );
+				$title = _x( 'Images', 'post format archive title', 'patch' );
 			} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-				$title = _x( 'Videos', 'post format archive title', 'patch_txtd' );
+				$title = _x( 'Videos', 'post format archive title', 'patch' );
 			} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-				$title = _x( 'Quotes', 'post format archive title', 'patch_txtd' );
+				$title = _x( 'Quotes', 'post format archive title', 'patch' );
 			} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-				$title = _x( 'Links', 'post format archive title', 'patch_txtd' );
+				$title = _x( 'Links', 'post format archive title', 'patch' );
 			} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-				$title = _x( 'Statuses', 'post format archive title', 'patch_txtd' );
+				$title = _x( 'Statuses', 'post format archive title', 'patch' );
 			} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-				$title = _x( 'Audio', 'post format archive title', 'patch_txtd' );
+				$title = _x( 'Audio', 'post format archive title', 'patch' );
 			} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-				$title = _x( 'Chats', 'post format archive title', 'patch_txtd' );
+				$title = _x( 'Chats', 'post format archive title', 'patch' );
 			}
 		} elseif ( is_post_type_archive() ) {
-			$title = sprintf( __( 'Archives: %s', 'patch_txtd' ), post_type_archive_title( '', false ) );
+			$title = sprintf( __( 'Archives: %s', 'patch' ), post_type_archive_title( '', false ) );
 		} elseif ( is_tax() ) {
 			$tax = get_taxonomy( get_queried_object()->taxonomy );
 			/* translators: 1: Taxonomy singular name, 2: Current taxonomy term */
-			$title = sprintf( __( '%1$s: %2$s', 'patch_txtd' ), $tax->labels->singular_name, single_term_title( '', false ) );
+			$title = sprintf( __( '%1$s: %2$s', 'patch' ), $tax->labels->singular_name, single_term_title( '', false ) );
 		} else {
-			$title = __( 'Archives', 'patch_txtd' );
+			$title = __( 'Archives', 'patch' );
 		}
 
 		/**
@@ -703,7 +703,7 @@ if ( ! function_exists( 'patch_post_excerpt' ) ) :
 		if ( $has_more ) {
 			/* translators: %s: Name of current post */
 			the_content( sprintf(
-				__( 'Continue reading %s', 'patch_txtd' ),
+				__( 'Continue reading %s', 'patch' ),
 				the_title( '<span class="screen-reader-text">', '</span>', false )
 			) );
 		} else {
@@ -733,7 +733,7 @@ function patch_get_post_excerpt( $post_id = null ) {
 	if ( $has_more ) {
 		/* translators: %s: Name of current post */
 		$excerpt = get_the_content( sprintf(
-			__( 'Continue reading %s', 'patch_txtd' ),
+			__( 'Continue reading %s', 'patch' ),
 			the_title( '<span class="screen-reader-text">', '</span>', false )
 		) );
 	} else {
@@ -781,7 +781,7 @@ if ( ! function_exists( 'patch_get_author_bio_links' ) ) :
 			foreach ( $profile['entry'][0]['urls'] as $link ) {
 				if ( ! empty( $link['value'] ) && ! empty( $link['title'] ) ) {
 					$markup .= '<li class="author__social-links__list-item">' . PHP_EOL;
-					$markup .= '<a class="author__social-link" href="' . $link['value'] . '" target="_blank">' . $link['title'] . '</a>' . PHP_EOL;
+					$markup .= '<a class="author__social-link" href="' . esc_url( $link['value'] ) . '" target="_blank">' . $link['title'] . '</a>' . PHP_EOL;
 					$markup .= '</li>' . PHP_EOL;
 				}
 			}
@@ -816,7 +816,7 @@ if ( ! function_exists( 'patch_secondary_page_title' ) ) :
 		<?php elseif ( is_search() ) : ?>
 
 			<header class="page-header entry-card">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'patch_txtd' ), get_search_query() ); ?></h1>
+				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'patch' ), get_search_query() ); ?></h1>
 			</header><!-- .page-header -->
 
 		<?php endif; ?>
@@ -842,7 +842,7 @@ if ( ! function_exists( 'patch_the_image_navigation' ) ) :
 		} ?>
 
 		<nav class="navigation post-navigation" role="navigation">
-			<h5 class="screen-reader-text"><?php _e( 'Image navigation', 'patch_txtd' ); ?></h5>
+			<h5 class="screen-reader-text"><?php _e( 'Image navigation', 'patch' ); ?></h5>
 			<div class="attachment-navigation">
 				<?php
 				if ( $prev_image ) {
@@ -852,7 +852,7 @@ if ( ! function_exists( 'patch_the_image_navigation' ) ) :
 						<a href="<?php echo get_attachment_link( $prev_image->ID ); ?>" rel="prev">
 		                    <span class="navigation-item__content">
                                 <span class="post-thumb"><?php echo $prev_thumbnail; ?></span>
-                                <span class="navigation-item__name"><?php _e( 'Previous image', 'patch_txtd' ); ?></span>
+                                <span class="navigation-item__name"><?php _e( 'Previous image', 'patch' ); ?></span>
                                 <h3 class="post-title"><?php echo get_the_title( $prev_image->ID ); ?></h3>
 		                    </span>
 						</a>
@@ -867,7 +867,7 @@ if ( ! function_exists( 'patch_the_image_navigation' ) ) :
 						<a href="<?php echo get_attachment_link( $next_image->ID ); ?>" rel="prev">
 		                    <span class="navigation-item__content">
 	                                <span class="post-thumb"><?php echo $next_thumbnail; ?></span>
-	                                <span class="navigation-item__name"><?php _e( 'Next image', 'patch_txtd' ); ?></span>
+	                                <span class="navigation-item__name"><?php _e( 'Next image', 'patch' ); ?></span>
 	                                <h3 class="post-title"><?php echo get_the_title( $next_image->ID ); ?></h3>
 	                        </span>
 						</a>
@@ -992,14 +992,14 @@ if ( ! function_exists( 'patch_paging_nav' ) ) :
 		$format .= $wp_rewrite->using_permalinks() ? user_trailingslashit( $wp_rewrite->pagination_base . '/%#%', 'paged' ) : '?paged=%#%'; ?>
 
 		<nav class="pagination" role="navigation">
-			<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'patch_txtd' ); ?></h1>
+			<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'patch' ); ?></h1>
 
 			<div class="nav-links">
 
 				<?php
 				//output a disabled previous "link" if on the fist page
 				if ( 1 == $paged ) {
-					echo '<span class="prev page-numbers disabled">' . __( 'Previous', 'patch_txtd' ) . '</span>';
+					echo '<span class="prev page-numbers disabled">' . __( 'Previous', 'patch' ) . '</span>';
 				}
 
 				//output the numbered page links
@@ -1009,14 +1009,14 @@ if ( ! function_exists( 'patch_paging_nav' ) ) :
 					'total'     => $wp_query->max_num_pages,
 					'current'   => $paged,
 					'prev_next' => true,
-					'prev_text' => __( 'Previous', 'patch_txtd' ),
-					'next_text' => __( 'Next', 'patch_txtd' ),
+					'prev_text' => __( 'Previous', 'patch' ),
+					'next_text' => __( 'Next', 'patch' ),
 					'add_args'  => array_map( 'urlencode', $query_args ),
 				) );
 
 				//output a disabled next "link" if on the last page
 				if ( $paged == $wp_query->max_num_pages ) {
-					echo '<span class="next page-numbers disabled">' . __( 'Next', 'patch_txtd' ) . '</span>';
+					echo '<span class="next page-numbers disabled">' . __( 'Next', 'patch' ) . '</span>';
 				} ?>
 
 			</div><!-- .nav-links -->

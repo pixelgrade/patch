@@ -9,7 +9,7 @@
 //get the media objects from the content and bring up only the first one
 /* translators: %s: Name of current post */
 $content = apply_filters( 'the_content', get_the_content( sprintf(
-	__( 'Continue reading %s', 'patch_txtd' ),
+	__( 'Continue reading %s', 'patch' ),
 	the_title( '<span class="screen-reader-text">', '</span>', false )
 ) ) );
 $media   = patch_get_media_embedded_in_content( $content );
@@ -51,11 +51,11 @@ if ( ! empty( $media ) ) {
 
 			<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links"><span class="pagination-title">' . __( 'Pages:', 'patch_txtd' ),
+				'before' => '<div class="page-links"><span class="pagination-title">' . __( 'Pages:', 'patch' ),
 				'after'  => '</span></div>',
 				'link_before' => '<span>',
 				'link_after'  => '</span>',
-				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'patch_txtd' ) . ' </span>%',
+				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'patch' ) . ' </span>%',
 				'separator'   => '<span class="screen-reader-text">, </span>',
 			) ); ?>
 
