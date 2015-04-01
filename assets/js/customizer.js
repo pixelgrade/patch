@@ -13,7 +13,6 @@
 	wp.customize( 'blogname', function( value ) {
 		value.bind( function( text ) {
 			$( '.site-title a span, .site-title text' ).text( text );
-			svgLogo.init();
 		} );
 	} );
 
