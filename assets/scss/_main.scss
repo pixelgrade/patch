@@ -13,32 +13,36 @@
  *
  * Table of Contents
  * --------------------------------------------------
- *  1.0 - Normalize
- *  2.0 - Reset
- *  3.0 - Base Styles
- *    3.1 - Typography
- *    3.2 - Images
- *    3.3 - Forms
- *  4.0 - Helpers
- *    4.1 - WordPress Core Elements
- *  5.0 - Patterns
- *  6.0 - Basic Structure
- *    6.1 - Page
- *  7.0 - Header
- *  8.0 - Navigation
- *  9.0 - Content
- *    9.1 - Archives
- *    9.2 - Pagination
- *    9.3 - Singular
- *    9.4 - Post Formats
- *    9.5 - Comments
- *    9.6 - Search Form
- *  10.0 - Sidebar
- *    10.1 - Widgets
- *  11.0 - Footer
- *  12.0 - Toolbar
- *  13.0 - Jetpack's plugins styling
- *  14.0 - Overwrites
+ * 1.0 - Normalize
+ * 2.0 - Reset
+ * 3.0 - Base Styles
+ *   3.1 - Typography
+ *   3.2 - Images
+ * 4.0 - Helpers
+ *   4.1 - Theme specific classes
+ *   4.2 - Alignments
+ * 5.0 - Vendor
+ *   5.1 - Font Awesome
+ *   5.2 - Magnific Popup 
+ * 6.0 - Patterns
+ * 7.0 - Components
+ *   7.1 - Grid
+ *   7.2 - Navigation
+ *   7.3 - Author
+ *   7.4 - Footer
+ *   7.5 - Comments
+ *   7.6 - Tags
+ *   7.7 - Widgets
+ *   7.8 - Search form
+ *   7.9 - Pagination
+ *   7.10 - Related posts
+ * 8.0 - Pages
+ *   8.1 - Single
+ *   8.2 - General
+ * 9.0 - Layout
+ *   9.1 - Page
+ *   9.2 - Sidebar
+ * 10.0 - Overwrites
  *
  */
 
@@ -59,6 +63,7 @@
 @import "tools/queries";
 @import "tools/baseline";
 @import "tools/aliases";
+
 
 
 
@@ -90,24 +95,17 @@
  *   3.2 - Images
  */
 @import "base/images";
-/**
- *   3.3 - Forms
- */
-// @import "base/forms";
 
 
 
 
 
 // #TRUMPS
-
 /**
  * 4.0 - Helpers
  */
 @import "trumps/clearfix";
 @import "trumps/bass";
-// @import "trumps/misc";
-// @import "trumps/widths";
 /**
  *   4.1 - Theme specific classes
 */
@@ -121,67 +119,115 @@
 
 
 
-// #OBJECTS
-
-/**
- * 5.0 - Patterns
- */
-// @import "objects/grid";
-@import "objects/nav";
-// @import "objects/tables";
-// @import "objects/flag";
-@import "objects/media";
-// @import "objects/buttons";
-// @import "objects/button";
-// @import "objects/search-form";
-
-
-
-
-
 // #VENDOR
+/**
+ * 5.0 - Vendor
+ *   5.1 - Font Awesome
+ */
 @import "vendor/font-awesome/variables";
+/**
+ *   5.2 - Magnific Popup
+ */
 @import "vendor/magnific-popup/mfp-settings";
 @import "vendor/magnific-popup/magnific-popup";
 
 
 
 
-// #LAYOUT
+
+// #OBJECTS
+
+/**
+ * 6.0 - Patterns
+ */
+@import "objects/nav";
+
+@import "objects/media";
 
 
 
 
 
 // #COMPONENTS
+/**
+ * 7.0 - Components
+ *   7.1 - Grid
+ */
 @import "components/grid";
 @import "components/card";
+/**
+ *   7.2 - Navigation
+ */
 @import "components/navigation";
+/**
+ *   7.3 - Author
+ */
 @import "components/author";
+/**
+ *   7.4 - Footer
+ */
 @import "components/footer";
+/**
+ *   7.5 - Comments
+ */
 @import "components/comments";
+/**
+ *   7.6 - Tags
+ */
 @import "components/tags";
+/**
+ *   7.7 - Widgets
+ */
 @import "components/widgets";
+/**
+ *   7.8 - Search form
+ */
 @import "components/search-form";
+/**
+ *   7.9 - Pagination
+ */
 @import "components/pagination";
+/**
+ *   7.10 - Related posts
+ */
 @import "components/related";
 
 
 
 
+
 // #PAGES
-// #PAGES
+/**
+ * 8.0 - Pages
+ *   8.1 - Single
+ */
 @import "pages/single";
+/**
+ *   8.2 - General
+ */
 @import "pages/general";
 
 
+
+
+
+// #LAYOUT
+/**
+ * 9.0 - Layout
+ *   9.1 - Page
+ */
 @import "layout/page";
+/**
+ *   9.2 - Sidebar
+ */
 @import "layout/sidebar";
+
+
 
 
 // #SHAME
 
 /**
- * 14.0 - Overwrites
+ * 10.0 - Overwrites
  */
 @import "shame";
