@@ -64,12 +64,11 @@ if ( ! function_exists( 'patch_setup' ) ) :
 		) );
 
 		/*
-		 * Switch default core markup for comment form, and comments
+		 * Switch default core markup for comment form, galleries and captions
 		 * to output valid HTML5.
 		 */
 		add_theme_support( 'html5', array(
 			'comment-form',
-			'comment-list',
 			'gallery',
 			'caption',
 		) );
