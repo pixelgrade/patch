@@ -15,14 +15,9 @@ $window.load(function() {
   browserSize();
   navigation.init();
   masonry.refresh();
-  // shadows.init();
-//   svgLogo.init();
-//   animator.animate();
   scrollToTop();
   moveFeaturedImage();
   magnificPopupInit();
-
-//   if (latestKnownScrollY) $window.trigger('scroll');
 });
 
 // /* ====== ON RESIZE ====== */
@@ -30,42 +25,6 @@ $window.load(function() {
 function onResize() {
   browserSize();
   masonry.refresh();
-//   fixedSidebars.refresh();
-//   fixedSidebars.update();
 }
 
 $window.on('debouncedresize', onResize);
-
-// /* ====== ON SCROLL ====== */
-
-var scrollingTimer;
-
-function onScroll() {
-  // disableHoverOnScroll();
-  // latestKnownScrollY = window.scrollY;
-  // requestTick();
-}
-
-// function disableHoverOnScroll() {
-//   clearTimeout(scrollingTimer);
-//   $body.addClass('disable-hover');
-//   scrollingTimer = setTimeout(function(){
-//     $body.removeClass('disable-hover');
-//   }, 500);
-// }
-
-$window.on('scroll', onScroll);
-
-// function requestTick() {
-//   if (!ticking) {
-//     requestAnimationFrame(update);
-//   }
-//   ticking = true;
-// }
-
-// function update() {
-//   fixedSidebars.update();
-//   navigation.toggleTopBar();
-//   svgLogo.update();
-//   ticking = false;
-// }

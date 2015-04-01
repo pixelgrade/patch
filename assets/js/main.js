@@ -179,29 +179,6 @@ if (!Date.now) Date.now = function () {
           navigateByImgClick: true
           //arrowMarkup: '<a href="#" class="gallery-arrow gallery-arrow--%dir% control-item arrow-button arrow-button--%dir%">%dir%</a>'
         }
-        //callbacks: {
-        //    elementParse: function (item) {
-        //
-        //        if (this.currItem != undefined) {
-        //            item = this.currItem;
-        //        }
-        //
-        //        var output = '';
-        //        if (typeof item.el.attr('data-alt') !== "undefined" && item.el.attr('data-alt') !== "") {
-        //            output += '<small>' + item.el.attr('data-alt') + '</small>';
-        //        }
-        //
-        //        $('.mfp-title').html(output);
-        //    },
-        //    change: function (item) {
-        //        var output = '';
-        //        if (typeof item.el.attr('data-alt') !== "undefined" && item.el.attr('data-alt') !== "") {
-        //            output += '<small>' + item.el.attr('data-alt') + '</small>';
-        //        }
-        //
-        //        $('.mfp-title').html(output);
-        //    }
-        //}
       });
     });
   }
@@ -300,13 +277,6 @@ if (!Date.now) Date.now = function () {
         
         
         animatePost = function ($post, delay) {
-        // $post.velocity({
-        // 	opacity: 1
-        // }, {
-        // 	duration: 300,
-        // 	delay: delay,
-        // 	easing: 'easeOutCubic'
-        // });
         setTimeout(function () {
           $post.addClass('is-visible');
         }, delay);
@@ -844,14 +814,9 @@ if (!Date.now) Date.now = function () {
     browserSize();
     navigation.init();
     masonry.refresh();
-    // shadows.init();
-    //   svgLogo.init();
-    //   animator.animate();
     scrollToTop();
     moveFeaturedImage();
     magnificPopupInit();
-
-    //   if (latestKnownScrollY) $window.trigger('scroll');
   });
 
   // /* ====== ON RESIZE ====== */
@@ -859,43 +824,9 @@ if (!Date.now) Date.now = function () {
   function onResize() {
     browserSize();
     masonry.refresh();
-    //   fixedSidebars.refresh();
-    //   fixedSidebars.update();
   }
 
-  $window.on('debouncedresize', onResize);
-
-  // /* ====== ON SCROLL ====== */
-  var scrollingTimer;
-
-  function onScroll() {
-    // disableHoverOnScroll();
-    // latestKnownScrollY = window.scrollY;
-    // requestTick();
-  }
-
-  // function disableHoverOnScroll() {
-  //   clearTimeout(scrollingTimer);
-  //   $body.addClass('disable-hover');
-  //   scrollingTimer = setTimeout(function(){
-  //     $body.removeClass('disable-hover');
-  //   }, 500);
-  // }
-  $window.on('scroll', onScroll);
-
-  // function requestTick() {
-  //   if (!ticking) {
-  //     requestAnimationFrame(update);
-  //   }
-  //   ticking = true;
-  // }
-  // function update() {
-  //   fixedSidebars.update();
-  //   navigation.toggleTopBar();
-  //   svgLogo.update();
-  //   ticking = false;
-  // }
-  /* ====== HELPER FUNCTIONS ====== */
+  $window.on('debouncedresize', onResize); /* ====== HELPER FUNCTIONS ====== */
 
 
 
