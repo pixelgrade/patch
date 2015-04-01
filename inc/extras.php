@@ -302,34 +302,4 @@ function patch_strip_first_content_gallery( $content ) {
 	return $content;
 }
 
-add_filter( 'the_content', 'patch_strip_first_content_gallery' );
-
-/**
- * Add "Styles" drop-down
- */
-function patch_mce_editor_buttons( $buttons ) {
-	array_unshift( $buttons, 'styleselect' );
-	return $buttons;
-}
-
-add_filter( 'mce_buttons_2', 'patch_mce_editor_buttons' );
-
-/**
- * Add styles/classes to the "Styles" drop-down
- */
-function patch_mce_before_init( $settings ) {
-	$style_formats = array(
-		array( 'title' => __( 'Intro Text', 'patch' ), 'selector' => 'p', 'classes' => 'intro' ),
-		array( 'title' => __( 'Dropcap', 'patch' ), 'inline' => 'span', 'classes' => 'dropcap' ),
-		array( 'title' => __( 'Highlight', 'patch' ), 'inline' => 'span', 'classes' => 'highlight' ),
-		array( 'title' => __( 'Pull Left', 'patch' ), 'inline' => 'p', 'classes' => 'pull-left' ),
-		array( 'title' => __( 'Pull Right', 'patch' ), 'inline' => 'p', 'classes' => 'pull-right' ),
-		array( 'title' => __( 'Two Columns', 'patch' ), 'selector' => 'p', 'classes' => 'twocolumn', 'wrapper' => true ),
-	);
-
-	$settings['style_formats'] = json_encode( $style_formats );
-
-	return $settings;
-} #function
-
-add_filter( 'tiny_mce_before_init', 'patch_mce_before_init' ); ?>
+add_filter( 'the_content', 'patch_strip_first_content_gallery' ); ?>
