@@ -104,6 +104,10 @@ h1, %h1 {
 	.single &.entry-title, .page &.entry-title {
 		font-size: rem(56px);
 		margin-bottom: 0;
+
+		@include query-below($lap) {
+			font-size: rem(42px);
+		}
 	}
 }
 
