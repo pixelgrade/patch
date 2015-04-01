@@ -176,7 +176,7 @@ if ( ! function_exists( 'patch_comment' ) ) :
 					<div class="comment__links">
 						<?php
 						//we need some space before Edit
-						edit_comment_link( __( 'Edit', 'patch' ), '  ' );
+						edit_comment_link( __( 'Edit', 'patch' ) );
 
 						comment_reply_link( array_merge( $args, array(
 							'depth'     => $depth,
