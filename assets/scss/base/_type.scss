@@ -258,12 +258,6 @@ a {
 				box-shadow: none;
 				background: none;
 			}
-
-		 	.more-link-wrapper & {
-				@extend %smarter-links-underlines;
-				margin-top: 10px;
-				display: inline-block;
-			}
     	}
 
 	.edit-link & {

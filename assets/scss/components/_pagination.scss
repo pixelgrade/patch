@@ -73,7 +73,7 @@
 		display: none;
 	}
 
-	.has_infinite-scroll & {
+	.infinite-scroll & {
 		display: none;
 	}
 
@@ -188,6 +188,6 @@ div#infinite-handle{
 	}
 }
 
-.has_infinite-scroll .grid {
+.infinite-scroll .grid {
 	margin-bottom: 60px;
 }
