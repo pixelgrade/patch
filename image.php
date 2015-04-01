@@ -21,9 +21,9 @@ get_header(); ?>
 			<?php patch_the_image_navigation(); ?>
 
 			<nav class="nav-links">
-				<a class="smart-link" href="<?php echo get_the_permalink( wp_get_post_parent_id( get_the_ID() ) ); ?>">
+				<a class="smart-link" href="<?php echo esc_url( get_permalink( wp_get_post_parent_id( get_the_ID() ) ) ); ?>">
 
-					<?php echo sprintf( _x( 'Posted in %s', 'attachment parent post', 'patch_txtd' ), get_the_title( wp_get_post_parent_id( get_the_ID() ) ) ); ?>
+					<?php echo sprintf( _x( 'Posted in %s', 'attachment parent post', 'patch' ), get_the_title( wp_get_post_parent_id( get_the_ID() ) ) ); ?>
 
 				</a>
 			</nav>

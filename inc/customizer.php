@@ -16,14 +16,14 @@ function patch_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 
 	// Rename the label to "Display Site Title & Tagline" in order to make this option clearer.
-	$wp_customize->get_control( 'display_header_text' )->label = __( 'Display Site Title &amp; Tagline', 'patch_txtd' );
+	$wp_customize->get_control( 'display_header_text' )->label = __( 'Display Site Title &amp; Tagline', 'patch' );
 
 	/*
 	 * Add custom settings
 	 */
 
 	$wp_customize->add_section( 'patch_theme_options', array(
-		'title'             => __( 'Theme', 'patch_txtd' ),
+		'title'             => __( 'Theme', 'patch' ),
 		'priority'          => 30,
 	) );
 
@@ -33,7 +33,7 @@ function patch_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'patch_hide_author_bio', array(
-		'label'             => __( 'Hide the author bio on single posts.', 'patch_txtd' ),
+		'label'             => __( 'Hide the author bio on single posts.', 'patch' ),
 		'section'           => 'patch_theme_options',
 		'type'              => 'checkbox',
 	) );

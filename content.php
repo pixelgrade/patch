@@ -27,7 +27,7 @@
 					<span class="sticky-post"></span>
 				<?php endif; ?>
 
-				<span class="hover" role="presentation"><?php _e( 'Read More', 'patch_txtd' ); ?></span>
+				<span class="hover" role="presentation"><?php _e( 'Read More', 'patch' ); ?></span>
 				<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
 			</a>
 
@@ -57,11 +57,11 @@
 
 			<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links"><span class="pagination-title">' . __( 'Pages:', 'patch_txtd' ),
+				'before' => '<div class="page-links"><span class="pagination-title">' . __( 'Pages:', 'patch' ),
 				'after'  => '</span></div>',
 				'link_before' => '<span>',
 				'link_after'  => '</span>',
-				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'patch_txtd' ) . ' </span>%',
+				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'patch' ) . ' </span>%',
 				'separator'   => '<span class="screen-reader-text">, </span>',
 			) ); ?>
 

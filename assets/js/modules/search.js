@@ -85,7 +85,8 @@
     $overlay.find('input').focus();
 
     $overlay.velocity({
-      translateX: 0
+      translateX: 0,
+      translateZ: 0.01
     }, {
       duration: 0
     }).velocity({

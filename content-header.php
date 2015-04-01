@@ -43,7 +43,7 @@
 		wp_nav_menu( array(
 			'theme_location' => 'primary',
 			'container'      => '',
-			'menu_class'     => 'nav  nav--main',
+			'menu_class'     => 'nav nav--main',
 			'fallback_cb' => false,
 		) ); ?>
 
@@ -52,7 +52,7 @@
 		wp_nav_menu( array(
 			'theme_location' => 'social',
 			'container'      => '',
-			'menu_class'     => 'nav  nav--social',
+			'menu_class'     => 'nav nav--social',
 			'fallback_cb' => false,
 		) ); ?>
 

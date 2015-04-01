@@ -1307,6 +1307,8 @@ if (!Date.now) Date.now = function () {
           }
         });
 
+        $container.find('.grid__item:first-child').css('z-index', 40);
+
         unbindEvents();
         $container.masonry('layout');
         bindEvents();
@@ -1438,6 +1440,8 @@ if (!Date.now) Date.now = function () {
 
         if (android_ancient) triggerEvents = 'click';
 
+        var $navParent = $nav.parent();
+
         $navTrigger.on(triggerEvents, function (e) {
 
           // but we still have to prevent the default behavior of the touchstart event
@@ -1466,11 +1470,16 @@ if (!Date.now) Date.now = function () {
                   translateZ: 0.01
                 }, {
                   duration: 300,
-                  easing: "easeInQuart"
+                  easing: "easeInQuart",
+                  complete: function () {
+                    $nav.appendTo($navParent);
+                  }
                 });
               });
 
             } else {
+
+              $nav.appendTo($('#page'));
 
               $([$nav, $navTrigger]).each(function (i, obj) {
                 $(obj).velocity({
@@ -1583,7 +1592,8 @@ if (!Date.now) Date.now = function () {
       $overlay.find('input').focus();
 
       $overlay.velocity({
-        translateX: 0
+        translateX: 0,
+        translateZ: 0.01
       }, {
         duration: 0
       }).velocity({

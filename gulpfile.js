@@ -162,8 +162,7 @@ gulp.task('help', function () {
 		'build						  Generate the build directory with the cleaned theme \n' +
 		'help               Print all commands \n' +
 		'=== Style === \n' +
-		'styles             Compiles styles \n' +
-		'styles-prod        Compiles styles in production mode \n' +
+		'styles             Compiles styles in production mode\n' +
 		'styles-dev         Compiles styles in development mode \n' +
 		'=== Scripts === \n' +
 		'scripts            Concatenate all js scripts \n' +
