@@ -24,6 +24,7 @@ var ua                  = navigator.userAgent.toLowerCase(),
     windowHeight        = $window.height(),
     windowWidth         = $window.width(),
     documentHeight      = $document.height(),
+    orientation         = windowWidth > windowHeight ? 'portrait' : 'landscape',
 
     latestKnownScrollY  = window.scrollY,
     ticking             = false;
