@@ -17,7 +17,7 @@ get_header(); ?>
 				</header><!-- .page-header -->
 
 				<div class="page-content">
-					<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links in the side menu or a search?', 'patch' ); ?></p>
+					<p><?php _e( 'It looks like nothing was found at this location. Why not try searching for something?', 'patch' ); ?></p>
 
 					<?php get_search_form(); ?>
 
