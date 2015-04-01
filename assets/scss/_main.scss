@@ -39,7 +39,10 @@
  * 8.0 - Pages
  *   8.1 - Single
  *   8.2 - General
- * 9.0 - Overwrites
+ * 9.0 - Layout
+ *   9.1 - Page
+ *   9.2 - Sidebar
+ * 10.0 - Overwrites
  *
  */
 
@@ -208,9 +211,23 @@
 
 
 
+// #LAYOUT
+/**
+ * 9.0 - Layout
+ *   9.1 - Page
+ */
+@import "layout/page";
+/**
+ *   9.2 - Sidebar
+ */
+@import "layout/sidebar";
+
+
+
+
 // #SHAME
 
 /**
- * 9.0 - Overwrites
+ * 10.0 - Overwrites
  */
 @import "shame";
