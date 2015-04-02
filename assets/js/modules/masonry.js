@@ -10,7 +10,8 @@ var masonry = (function() {
 
 	init = function() {
 
-		if (windowWidth < 800) {
+		if (windowWidth < 900) {
+			evenClasses();
 			$container.imagesLoaded(function() {
 				showBlocks($blocks);
 			});
@@ -52,13 +53,24 @@ var masonry = (function() {
 			return;
 		}
 
-		if (windowWidth < 800) {
+		if (windowWidth < 900) {
 			$container.masonry('destroy');
 			initialized = false;
+			evenClasses();
 			return;
 		}
 		
 		$container.masonry('layout');
+	},
+
+	evenClasses = function() {
+		$container.find('.entry-card--tall, .entry-card--portrait').each(function(i, card) {
+			if (i % 2 == 0) {
+				$(card).parent().addClass('entry--even');
+			} else {
+				$(card).parent().removeClass('entry--even');
+			}
+		});
 	},
 
 	showBlocks = function($blocks) {

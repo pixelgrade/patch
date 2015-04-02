@@ -69,12 +69,12 @@ $cards-gutter: $gutter;
 
 	@include breakpoint($breakpoint) {
 
-		// GENERAL GRID
-		.grid {
-			// padding-left: $col;
-		}
-
-		.grid__item {
+		.site-branding,
+		.nav--main,
+		.nav--social,
+		.site-title {
+			@include _("col-left-1");
+			@include _("col-right-3");
 		}
 
 		// GENERAL
@@ -267,7 +267,9 @@ $cards-gutter: $gutter;
 	// background: rgba(#bbd, 0.75);
 	
 	@include query-below($lap) {
-		margin-right: 0;
+		&.entry-card {
+			margin-right: $gutter;
+		}
 	}
 
 
@@ -558,11 +560,19 @@ $cards-gutter: $gutter;
 	
 @include query-below($lap) {
 	.layout-grid {
-		.entry-header {
+
+		.site-branding {
 			margin-left: 0;
 			margin-right: 0;
-			padding-left: $gutter;
-			padding-right: $gutter * 2/3;
+		}
+
+		.entry-card {
+			margin-right: 0;
+		}
+
+		.entry-header,
+		.entry-content {
+			margin-right: $gutter;
 		}
 
 		.entry-image + .entry-header {
@@ -590,6 +600,7 @@ $cards-gutter: $gutter;
 
 @include query-below($xsmall) {
 	.layout-grid {
+
 		.entry-header {
 			padding-left: $gutter;
 			margin-right: 0;
