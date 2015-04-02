@@ -76,7 +76,7 @@
 	}
 }
 
-.search-no-results, .error404 {
+.no-posts {
 	.site-header {
 		float: none;
 		display: inline-block;
@@ -87,13 +87,6 @@
 			width: 100%;
 			padding: 0 $gutter;
 		}
-	}
-
-	.site-header + .not-found {
-		display: inline-block;
-		padding: 0 $gutter;
-		float: none;
-		margin-top: 0;
 	}
 
 	.site-branding {
@@ -110,7 +103,7 @@
 
 	.site-main {
 		padding-top: 0;
-		max-width: 620px;
+		max-width: 720px;
 	}
 
 	.site-content {
