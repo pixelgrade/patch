@@ -3,13 +3,10 @@
 var masonry = (function() {
 
 	var $container 		= $('.grid'),
-		// $sidebar		= $('.sidebar--main'),
 		$blocks			= $container.children().addClass('post--animated  post--loaded'),
 		initialized		= false,
 		columns 		= 1,
-		containerTop,
-		containerBottom,
-		// sidebarTop,
+		deviceOrientation = orientation,
 
 	init = function() {
 
@@ -17,11 +14,7 @@ var masonry = (function() {
 			$container.imagesLoaded(function() {
 				showBlocks($blocks);
 			});
-		}
-
-		if ($container.length) {
-			containerTop = $container.offset().top;
-			containerBottom = containerTop + $container.outerHeight();
+			return;
 		}
 
 		$container.imagesLoaded(function() {
@@ -37,14 +30,13 @@ var masonry = (function() {
 				$container.masonry('layout');
 			}, 100);
 
-			showBlocks($blocks);
-			
-			initialized = true;			
+			showBlocks($blocks);	
+			initialized = true;		
 		});
 	},
 
 	unbindEvents = function() {
-		$body.off('post-load');
+		$body.off('post-load', onLoad);
 		$container.masonry('off', 'layoutComplete', onLayout);
 	},
 
@@ -63,7 +55,6 @@ var masonry = (function() {
 		if (windowWidth < 800) {
 			$container.masonry('destroy');
 			initialized = false;
-			init();
 			return;
 		}
 		
@@ -73,15 +64,6 @@ var masonry = (function() {
 	showBlocks = function($blocks) {
 		$blocks.each(function(i, obj) {
 			var $post = $(obj).find('.entry-card, .site-header, .page-header');
-
-			// if ($post.find('.entry-image--portrait').length) {
-			// 	$post.addClass('entry-card--portrait');
-			// }
-
-			// if ($post.find('.entry-image--tall').length) {
-			// 	$post.addClass('entry-card--tall');
-			// }
-
 			animatePost($post, i * 100);
 		});
 	},

@@ -143,7 +143,7 @@ if (!Date.now) Date.now = function () {
       
       is_small = $('.js-nav-trigger').is(':visible');
 
-  windowHeight = $window.height(), windowWidth = $window.width(), documentHeight = $document.height(),
+  windowHeight = $window.height(), windowWidth = $window.width(), documentHeight = $document.height(), orientation = windowWidth > windowHeight ? 'portrait' : 'landscape',
 
   latestKnownScrollY = window.scrollY, ticking = false;
 
@@ -183,15 +183,11 @@ if (!Date.now) Date.now = function () {
   var masonry = (function () {
 
     var $container = $('.grid'),
-        
-        
-        // $sidebar		= $('.sidebar--main'),
         $blocks = $container.children().addClass('post--animated  post--loaded'),
         initialized = false,
         columns = 1,
-        containerTop, containerBottom,
+        deviceOrientation = orientation,
         
-        // sidebarTop,
         
         init = function () {
 
@@ -199,11 +195,7 @@ if (!Date.now) Date.now = function () {
           $container.imagesLoaded(function () {
             showBlocks($blocks);
           });
-        }
-
-        if ($container.length) {
-          containerTop = $container.offset().top;
-          containerBottom = containerTop + $container.outerHeight();
+          return;
         }
 
         $container.imagesLoaded(function () {
@@ -220,14 +212,13 @@ if (!Date.now) Date.now = function () {
           }, 100);
 
           showBlocks($blocks);
-
           initialized = true;
         });
         },
         
         
         unbindEvents = function () {
-        $body.off('post-load');
+        $body.off('post-load', onLoad);
         $container.masonry('off', 'layoutComplete', onLayout);
         },
         
@@ -248,7 +239,6 @@ if (!Date.now) Date.now = function () {
         if (windowWidth < 800) {
           $container.masonry('destroy');
           initialized = false;
-          init();
           return;
         }
 
@@ -259,13 +249,6 @@ if (!Date.now) Date.now = function () {
         showBlocks = function ($blocks) {
         $blocks.each(function (i, obj) {
           var $post = $(obj).find('.entry-card, .site-header, .page-header');
-
-          // if ($post.find('.entry-image--portrait').length) {
-          // 	$post.addClass('entry-card--portrait');
-          // }
-          // if ($post.find('.entry-image--tall').length) {
-          // 	$post.addClass('entry-card--tall');
-          // }
           animatePost($post, i * 100);
         });
         },
@@ -843,6 +826,7 @@ if (!Date.now) Date.now = function () {
     windowHeight = $window.height();
     windowWidth = $window.width();
     documentHeight = $document.height();
+    orientation = windowWidth > windowHeight ? 'portrait' : 'landscape';
   }
 
 

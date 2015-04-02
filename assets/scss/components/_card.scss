@@ -265,6 +265,10 @@ $cards-gutter: $gutter;
 	padding-top: 1px; // hack to keep things inside
 	background: white;
 	// background: rgba(#bbd, 0.75);
+	
+	@include query-below($lap) {
+		margin-right: 0;
+	}
 
 
 	// ELEMENTS

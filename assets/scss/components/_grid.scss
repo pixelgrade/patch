@@ -36,13 +36,9 @@
 
 .grid {
 	@extend .clearfix;
-	// margin-top: $gutter;
+	position: relative;
 	transition: height .3s ease-in-out;
 	border-right: 0 solid transparent;
-
-	// @include query-above($lap) {
-	// 	border-right: $gutter solid transparent;
-	// }
 }
 
 .grid__item {

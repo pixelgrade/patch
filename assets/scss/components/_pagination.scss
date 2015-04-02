@@ -167,8 +167,11 @@
 	transform: translateX(-50%);
 }
 
-div#infinite-handle{
-	left: calc(50% + 15px);
+.infinite-loader .spinner {
+	left: 0 !important;
+}
+
+div#infinite-handle {
 
 	span {
 		@extend %smarter-links-underlines;
