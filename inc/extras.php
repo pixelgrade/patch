@@ -58,10 +58,13 @@ function patch_post_classes( $classes ) {
 	}
 
 	if ( has_post_thumbnail() ) {
-		if ( is_singular() ) {
-			$classes[] = 'entry-image--' . patch_get_post_thumbnail_aspect_ratio_class();
-		} else {
-			$classes[] = 'entry-card--' . patch_get_post_thumbnail_aspect_ratio_class();
+		//no need for the featured image aspect ratio class for quotes because we are not using it in a regular fashion
+		if ( 'quote' != get_post_format() ) {
+			if ( is_singular() ) {
+				$classes[] = 'entry-image--' . patch_get_post_thumbnail_aspect_ratio_class();
+			} else {
+				$classes[] = 'entry-card--' . patch_get_post_thumbnail_aspect_ratio_class();
+			}
 		}
 	} else {
 		//handle other post formats

@@ -34,17 +34,25 @@
 				<span class="sticky-post"></span>
 			<?php endif; ?>
 
-			<div class="content-quote">
+			<?php
+			/* translators: %s: Name of current post */
+			$content = get_the_content( sprintf(
+				__( 'Continue reading %s', 'patch' ),
+				the_title( '<span class="screen-reader-text">', '</span>', false )
+			) );
+
+			//now we need to test for the length of the quote so we can decide on a class
+			$quote_length = mb_strlen( strip_tags( $content ) );
+			$quote_class = 'entry-quote--long';
+			if ( $quote_length < 50 ) {
+				$quote_class = 'entry-quote--short';
+			} ?>
+
+			<div class="content-quote <?php echo $quote_class; ?>">
 				<div class="flexbox">
 					<div class="flexbox__item">
 
 						<?php
-						/* translators: %s: Name of current post */
-						$content = get_the_content( sprintf(
-							__( 'Continue reading %s', 'patch' ),
-							the_title( '<span class="screen-reader-text">', '</span>', false )
-						) );
-
 						//test if there is a </blockquote> tag in here
 						if ( false !== strpos( $content,'</blockquote>' ) ) {
 							echo $content;
