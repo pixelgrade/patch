@@ -698,6 +698,7 @@ $cards-gutter: $gutter;
 	.entry-content {
 		@extend %fs-14;
 		margin-top: 8px;
+		word-break: break-word;
 	}
 
 	.entry-content--short {
