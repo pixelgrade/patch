@@ -301,4 +301,52 @@ function patch_strip_first_content_gallery( $content ) {
 	return $content;
 }
 
-add_filter( 'the_content', 'patch_strip_first_content_gallery' ); ?>
+add_filter( 'the_content', 'patch_strip_first_content_gallery' );
+
+/*
+ * Due to the fact that we need a wrapper for center aligned images and for the ones with alignnone, we need to wrap the images without a caption
+ * The images with captions already are wrapped by the figure tag
+ */
+function patch_wrap_images_in_figure( $content ) {
+	$classes = array ('aligncenter', 'alignnone');
+
+	foreach ($classes as $class) {
+
+		//this regex basically tells this
+		//match all the images that are not in captions and that have the X class
+		//when an image is wrapped by an anchor tag, match that too
+		$regex = '~\[caption[^\]]*\].*\[\/caption\]|((?:<a[^>]*>\s*)?<img.*class="[^"]*' . $class . '[^"]*[^>]*>(?:\s*<\/a>)?)~i';
+
+		$callback = new PatchWrapImagesInFigureCallback( $class );
+
+		// Replace the matches
+		$content = preg_replace_callback(
+			$regex,
+			// in the callback function, if Group 1 is empty,
+			// set the replacement to the whole match,
+			// i.e. don't replace
+			array( $callback, 'callback' ),
+			$content );
+	}
+
+	return $content;
+}
+
+add_filter( 'the_content', 'patch_wrap_images_in_figure' );
+
+//We need to use a class so we can pass the $class variable to the callback function
+class PatchWrapImagesInFigureCallback {
+	private $class;
+
+	function __construct( $class ) {
+		$this->class = $class;
+	}
+
+	public function callback( $match ) {
+		if ( empty( $match[1] ) ) {
+			return $match[0];
+		}
+
+		return '<span class="' . $this->class . '">' . $match[1] . '</span>';
+	}
+} ?>
