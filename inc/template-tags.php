@@ -799,31 +799,34 @@ if ( ! function_exists( 'patch_secondary_page_title' ) ) :
 	/**
 	 * Display the markup for the archive or search pages title.
 	 */
-	function patch_the_secondary_page_title() { ?>
+	function patch_the_secondary_page_title() {
 
-		<div class="grid__item">
+		if ( is_archive() || is_search() ) { ?>
 
-		<?php if ( is_archive() ) : ?>
+			<div class="grid__item">
 
-			<header class="page-header entry-card">
+				<?php if ( is_archive() ) : ?>
 
-				<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
+					<header class="page-header entry-card">
 
-				<?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
+						<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
 
-			</header><!-- .page-header -->
+						<?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
 
-		<?php elseif ( is_search() ) : ?>
+					</header><!-- .page-header -->
 
-			<header class="page-header entry-card">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'patch' ), get_search_query() ); ?></h1>
-			</header><!-- .page-header -->
+				<?php elseif ( is_search() ) : ?>
 
-		<?php endif; ?>
+					<header class="page-header entry-card">
+						<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'patch' ), get_search_query() ); ?></h1>
+					</header><!-- .page-header -->
 
-		</div><!-- .grid__item -->
+				<?php endif; ?>
 
-	<?php } #function
+			</div><!-- .grid__item -->
+
+		<?php }
+	} #function
 
 endif;
 
