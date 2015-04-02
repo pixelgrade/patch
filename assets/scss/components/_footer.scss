@@ -50,8 +50,10 @@
 	display: none;
 }
 
-.infinity-end.neverending .site-footer {
-	display: block;
+.infinity-end.neverending, .neverending.no-posts {
+	.site-footer{
+		display: block;
+	}
 }
 
 @include query-above($lap) {

@@ -41,12 +41,20 @@
 		min-height: 100vh;
 	}
 
+	.infinite-scroll.neverending.no-posts & {
+		min-height: calc(100vh - 60px);
+	}
+
 	.admin-bar & {
 		min-height: calc(100vh - 60px - 32px);
 	}
 
 	.admin-bar.infinite-scroll.neverending & {
 		min-height: calc(100vh - 32px);
+	}
+
+	.admin-bar.infinite-scroll.neverending.no-posts & {
+		min-height: calc(100vh - 60px - 32px);
 	}
 }
 
@@ -67,4 +75,12 @@
 	background: black;
 	box-shadow: black 0 0 25px;
 	// transform: translateZ(0);
+}
+
+// Hiding the WPStats smiley icon
+// because it creates space under footer
+#wpstats {
+	bottom: 0;
+	left: -9999px;
+	position: fixed;
 }
