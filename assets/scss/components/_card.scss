@@ -105,6 +105,11 @@ $cards-gutter: $gutter;
 			}
 		}
 
+		.entry-card.format-quote {
+			.entry-content {
+				@include _("col-left-p2");
+			}
+		}
 
 		// LANDSCAPE
 		.entry-card--landscape {
@@ -558,7 +563,8 @@ $cards-gutter: $gutter;
 	
 @include query-below($lap) {
 	.layout-grid {
-		.entry-header {
+		.entry-header,
+		.entry-card.format-quote .entry-content {
 			margin-left: 0;
 			margin-right: 0;
 			padding-left: $gutter;
@@ -747,6 +753,39 @@ $cards-gutter: $gutter;
 		font-weight: bold;
 	}
 
+}
+
+// Blockquote
+.entry-card.format-quote {
+	margin-right: 60px;
+
+	.entry-content {
+		margin: 0;
+		padding-top: (20px + $gutter);
+		padding-bottom: (20px + $gutter);
+		padding-right: 20px;
+	}
+
+	blockquote {
+		font-size: 24px;
+		color: white;
+		margin-bottom: 0;
+		font-weight: 300;
+	}
+
+	cite {
+		display: block;
+		margin-top: 18px;
+
+		color: white;
+		font-size: 15px;
+		text-transform: uppercase;
+	}
+
+	cite, cite a {
+		color: white;
+		font-weight: 300;
+	}
 }
 
 
