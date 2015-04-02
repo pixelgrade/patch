@@ -757,8 +757,6 @@ $cards-gutter: $gutter;
 
 // Blockquote
 .entry-card.format-quote {
-	margin-right: 60px;
-
 	.entry-content {
 		margin: 0;
 		padding-top: (20px + $gutter);
@@ -771,6 +769,10 @@ $cards-gutter: $gutter;
 		color: white;
 		margin-bottom: 0;
 		font-weight: 300;
+	}
+
+	.entry-quote--short blockquote {
+		font-size: 30px;
 	}
 
 	cite {
