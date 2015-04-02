@@ -1,15 +1,34 @@
+// .layout-grid .site-content {
+// 	// padding: $gutter/2;
+// 	padding-bottom: 2*$gutter;
+
+// 	@include query-above($lap) {
+// 		padding: 1*$gutter + 30px;
+// 	}
+
+// 	@include query-above(1360px) {
+// 		padding: 2.5*$gutter;
+// 	}
+// }
+
 .site-main {
-	// padding: $gutter/2;
-	padding-bottom: 2*$gutter;
+	padding-top: 2.5*$gutter;
+	padding-bottom: 2.5*$gutter;
+}
+
+.layout-grid .site-content {
 
 	@include query-above($lap) {
-		padding: 1.5*$gutter;
+		padding-left: 1*$gutter + 30px;
+		padding-right: 1*$gutter + 30px;
 	}
 
 	@include query-above(1360px) {
-		padding: 2*$gutter;
+		padding-left: 2.5*$gutter;
+		padding-right: 2.5*$gutter;
 	}
 }
+
 
 .grid,
 .pagination {
@@ -27,6 +46,7 @@
 
 	@include query-above(1260px) {
 		max-width: 1400px;
+		max-width: 2000px;
 	}
 
 	@include query-above(1800px) {
@@ -73,5 +93,5 @@
 }
 
 .grid, .grid__item { 
-	// border-color: rgba(yellow, 0.25);
+	border-color: rgba(yellow, 0.25);
 }

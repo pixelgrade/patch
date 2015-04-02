@@ -68,6 +68,11 @@ $cards-gutter: $gutter;
 
 
 	@include breakpoint($breakpoint) {
+		
+		// Grid Alignment
+		.site-main {
+			padding-left: $gutter;
+		}
 
 		// GENERAL GRID
 		.grid {
