@@ -449,6 +449,14 @@ p.comment-form-email{
 	text-align: right;
 	float: right;
 
+	.comment-respond.js & {
+		border: 0;
+
+		&:hover {
+			background: none;
+		}
+	}
+
 	#submit {
 		@extend %beta;
 		padding-top: 0;
