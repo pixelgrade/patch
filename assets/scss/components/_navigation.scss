@@ -324,3 +324,14 @@
 		margin-bottom: 10px;
 	}
 }
+
+
+.layout-grid {
+	.main-navigation {
+		@include query-above($lap) {
+			&>ul:last-child {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}

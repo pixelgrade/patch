@@ -19,8 +19,8 @@
 .layout-grid .site-content {
 
 	@include query-above($lap) {
-		padding-left: 1*$gutter + 30px;
-		padding-right: 1*$gutter + 30px;
+		padding-left: 1*$gutter;
+		padding-right: 1*$gutter;
 	}
 
 	@include query-above(1360px) {
@@ -45,12 +45,11 @@
 	}
 
 	@include query-above(1260px) {
-		max-width: 1400px;
-		max-width: 2000px;
+		max-width: 1350px;
 	}
 
-	@include query-above(1800px) {
-		max-width: 1800px;
+	@include query-above(1700px) {
+		max-width: 1850px;
 	}
 }
 
@@ -83,7 +82,7 @@
     	}
     }
 
-    @include query-above(1800px) {
+    @include query-above(1700px) {
     	width: 25%;
 
 		&:nth-child(4) {
