@@ -163,7 +163,7 @@
 	vertical-align: middle;
 }
 
-.jetpack_subscription_widget{
+.jetpack_subscription_widget, .widget_blog_subscription {
 
 	&.widget {
 		margin: 30px 0 30px -60px;
@@ -201,13 +201,10 @@
 	input[type='submit']{
 		@extend %beta;
 
-		float: right;
 		height: 32px;
 		margin-right: 2px;
 		padding: 0 10px;
 		border: 1px solid white;
-		transform: translateY(-107%); // for IE
-		transform: translateY(calc(-100% - 2px ));
 
 		color: $dark;
 		background-color: $accent;
@@ -216,5 +213,24 @@
 		text-transform: uppercase;
 		font-weight: 400;
 		letter-spacing: 0.1em;
+	}
+}
+
+.widget_recent_entries {
+	a {
+		font-weight: 500;
+		display: block;
+		margin-bottom: 3px;
+	}
+
+	.post-date {
+		color: $light;
+		font-size: 12px;
+	}
+}
+
+.milestone-widget {
+	strong {
+		color: white;
 	}
 }
