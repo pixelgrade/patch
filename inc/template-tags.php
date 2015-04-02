@@ -254,9 +254,7 @@ if ( ! function_exists( 'patch_single_entry_footer' ) ) :
 			}
 
 			// Jetpack share buttons.
-			if ( function_exists( 'sharing_display' ) ) {
-				sharing_display( '', true );
-			}
+			sharing_display( '', true );
 
 			// Jetpack Likes.
 			if ( class_exists( 'Jetpack_Likes' ) ) {
@@ -270,9 +268,7 @@ if ( ! function_exists( 'patch_single_entry_footer' ) ) :
 			}
 
 			//Jetpack Related Posts
-			if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
-				echo do_shortcode( '[jetpack-related-posts]' );
-			}
+			echo do_shortcode( '[jetpack-related-posts]' );
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
