@@ -798,7 +798,10 @@ $cards-gutter: $gutter;
 		font-size: 24px;
 		color: white;
 		margin-bottom: 0;
-		// font-weight: 300;
+
+		* {
+			color: white;
+		}
 	}
 
 	.entry-quote--short blockquote {
