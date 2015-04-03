@@ -157,6 +157,11 @@ function patch_scripts() {
 add_action( 'wp_enqueue_scripts', 'patch_scripts' );
 
 /**
+ * MB string functions for when the MB library is not available
+ */
+require get_template_directory() . '/inc/mb_compat.php';
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';

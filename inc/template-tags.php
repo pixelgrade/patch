@@ -87,7 +87,7 @@ if ( ! function_exists( 'patch_get_cats_list' ) ) :
 	 *
 	 * @param int|WP_Post $post_ID Optional. Post ID or post object.
 	 */
-	function patch_get_cats_list( $post_ID = null) {
+	function patch_get_cats_list( $post_ID = null ) {
 
 		//use the current post ID is none given
 		if ( empty( $post_ID ) ) {
@@ -119,7 +119,7 @@ if ( ! function_exists( 'patch_cats_list' ) ) :
 	 *
 	 * @param int|WP_Post $post_ID Optional. Post ID or post object.
 	 */
-	function patch_cats_list( $post_ID = null) {
+	function patch_cats_list( $post_ID = null ) {
 
 		echo patch_get_cats_list( $post_ID );
 
@@ -134,7 +134,7 @@ if ( ! function_exists( 'patch_get_post_format_link' ) ) :
 	 *
 	 * @param int|WP_Post $post_ID Optional. Post ID or post object.
 	 */
-	function patch_get_post_format_link( $post_ID = null) {
+	function patch_get_post_format_link( $post_ID = null ) {
 
 		//use the current post ID is none given
 		if ( empty( $post_ID ) ) {
@@ -164,7 +164,7 @@ if ( ! function_exists( 'patch_post_format_link' ) ) :
 	 *
 	 * @param int|WP_Post $post_ID Optional. Post ID or post object.
 	 */
-	function patch_post_format_link( $post_ID = null) {
+	function patch_post_format_link( $post_ID = null ) {
 
 		echo patch_get_post_format_link( $post_ID );
 
@@ -178,7 +178,7 @@ endif;
  *
  * @param int|WP_Post $post_ID Optional. Post ID or post object.
  */
-function patch_first_category( $post_ID = null) {
+function patch_first_category( $post_ID = null ) {
 	global $wp_rewrite;
 
 	//use the current post ID is none given
