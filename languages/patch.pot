@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Patch 1.0-wpcom\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/patch\n"
-"POT-Creation-Date: 2015-04-02 03:25:21+00:00\n"
+"POT-Creation-Date: 2015-04-03 03:25:12+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,9 +61,9 @@ msgid "Comments are closed."
 msgstr ""
 
 #. translators: %s: Name of current post
-#: content-aside.php:27 content-audio.php:12 content-quote.php:44
+#: content-aside.php:27 content-audio.php:12 content-quote.php:40
 #: content-single-audio.php:12 content-single-video.php:12
-#: content-video.php:12 inc/template-tags.php:706 inc/template-tags.php:736
+#: content-video.php:12 inc/template-tags.php:702 inc/template-tags.php:732
 msgid "Continue reading %s"
 msgstr ""
 
@@ -79,8 +79,8 @@ msgstr ""
 msgid "Page"
 msgstr ""
 
-#: content-attachment.php:54 content-page.php:42 inc/extras.php:175
-#: inc/template-tags.php:236 inc/template-tags.php:284
+#: content-attachment.php:54 content-page.php:42 inc/extras.php:178
+#: inc/template-tags.php:236 inc/template-tags.php:280
 msgid "Edit"
 msgstr ""
 
@@ -175,7 +175,7 @@ msgstr ""
 #. Translators: If there are characters in your language that are not
 #. 		* supported by Roboto, translate this to 'off'. Do not translate
 #. 		* into your own language.
-#: inc/extras.php:108
+#: inc/extras.php:111
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr ""
@@ -183,7 +183,7 @@ msgstr ""
 #. Translators: If there are characters in your language that are not
 #. 		* supported by Oswald, translate this to 'off'. Do not translate
 #. 		* into your own language.
-#: inc/extras.php:116
+#: inc/extras.php:119
 msgctxt "Oswald font: on or off"
 msgid "on"
 msgstr ""
@@ -191,25 +191,25 @@ msgstr ""
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
 #. 'vietnamese'. Do not translate into your own language.
-#: inc/extras.php:121
+#: inc/extras.php:124
 msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr ""
 
-#: inc/extras.php:170
+#: inc/extras.php:173
 msgid "on %s at %s"
 msgstr ""
 
-#: inc/extras.php:187
+#: inc/extras.php:190
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/extras.php:243 inc/extras.php:244
+#: inc/extras.php:246 inc/extras.php:247
 msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: inc/extras.php:244
+#: inc/extras.php:247
 msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr ""
@@ -233,140 +233,140 @@ msgstr ""
 msgid "Tagged with: "
 msgstr ""
 
-#: inc/template-tags.php:280
+#: inc/template-tags.php:276
 msgid "Leave a comment"
 msgstr ""
 
-#: inc/template-tags.php:280
+#: inc/template-tags.php:276
 msgid "1 Comment"
 msgstr ""
 
-#: inc/template-tags.php:280
+#: inc/template-tags.php:276
 msgid "% Comments"
 msgstr ""
 
-#: inc/template-tags.php:303
+#: inc/template-tags.php:299
 msgid "Category: %s"
 msgstr ""
 
-#: inc/template-tags.php:305
+#: inc/template-tags.php:301
 msgid "Tag: %s"
 msgstr ""
 
-#: inc/template-tags.php:307
+#: inc/template-tags.php:303
 msgid "Author: %s"
 msgstr ""
 
-#: inc/template-tags.php:309
+#: inc/template-tags.php:305
 msgid "Year: %s"
 msgstr ""
 
-#: inc/template-tags.php:309
+#: inc/template-tags.php:305
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: inc/template-tags.php:311
+#: inc/template-tags.php:307
 msgid "Month: %s"
 msgstr ""
 
-#: inc/template-tags.php:311
+#: inc/template-tags.php:307
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr ""
 
-#: inc/template-tags.php:313
+#: inc/template-tags.php:309
 msgid "Day: %s"
 msgstr ""
 
-#: inc/template-tags.php:313
+#: inc/template-tags.php:309
 msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr ""
 
-#: inc/template-tags.php:316
+#: inc/template-tags.php:312
 msgctxt "post format archive title"
 msgid "Asides"
 msgstr ""
 
-#: inc/template-tags.php:318
+#: inc/template-tags.php:314
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr ""
 
-#: inc/template-tags.php:320
+#: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Images"
 msgstr ""
 
-#: inc/template-tags.php:322
+#: inc/template-tags.php:318
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr ""
 
-#: inc/template-tags.php:324
+#: inc/template-tags.php:320
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr ""
 
-#: inc/template-tags.php:326
+#: inc/template-tags.php:322
 msgctxt "post format archive title"
 msgid "Links"
 msgstr ""
 
-#: inc/template-tags.php:328
+#: inc/template-tags.php:324
 msgctxt "post format archive title"
 msgid "Statuses"
 msgstr ""
 
-#: inc/template-tags.php:330
+#: inc/template-tags.php:326
 msgctxt "post format archive title"
 msgid "Audio"
 msgstr ""
 
-#: inc/template-tags.php:332
+#: inc/template-tags.php:328
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr ""
 
-#: inc/template-tags.php:335
+#: inc/template-tags.php:331
 msgid "Archives: %s"
 msgstr ""
 
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
-#: inc/template-tags.php:339
+#: inc/template-tags.php:335
 msgid "%1$s: %2$s"
 msgstr ""
 
-#: inc/template-tags.php:341
+#: inc/template-tags.php:337
 msgid "Archives"
 msgstr ""
 
-#: inc/template-tags.php:819
+#: inc/template-tags.php:817
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/template-tags.php:845
+#: inc/template-tags.php:844
 msgid "Image navigation"
 msgstr ""
 
-#: inc/template-tags.php:855
+#: inc/template-tags.php:854
 msgid "Previous image"
 msgstr ""
 
-#: inc/template-tags.php:870
+#: inc/template-tags.php:869
 msgid "Next image"
 msgstr ""
 
-#: inc/template-tags.php:995
+#: inc/template-tags.php:994
 msgid "Posts navigation"
 msgstr ""
 
-#: inc/template-tags.php:1002 inc/template-tags.php:1012
+#: inc/template-tags.php:1001 inc/template-tags.php:1011
 msgid "Previous"
 msgstr ""
 
-#: inc/template-tags.php:1013 inc/template-tags.php:1019
+#: inc/template-tags.php:1012 inc/template-tags.php:1018
 msgid "Next"
 msgstr ""
 

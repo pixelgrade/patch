@@ -76,8 +76,7 @@ $cards-gutter: $gutter;
 
 		.site-branding,
 		.nav--main,
-		.nav--social,
-		.site-title {
+		.nav--social {
 			@include _("col-left-1");
 			@include _("col-right-3");
 		}
@@ -144,12 +143,11 @@ $cards-gutter: $gutter;
 
 			.entry-image {
 				@include _("col-left-0");
-				@include _("col-right-0");
+				@include _("col-right--2");
 			}
 
 			.entry-header {
 				@include _("col-left-2");
-				@include _("col-right-2");
 			}
 
 			.entry-content {
