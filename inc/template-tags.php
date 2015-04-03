@@ -244,31 +244,13 @@ if ( ! function_exists( 'patch_single_entry_footer' ) ) :
 	 * Prints HTML with meta information for the categories, tags, Jetpack likes, shares, related, and comments.
 	 */
 	function patch_single_entry_footer() {
-		// Hide category and tag text for pages.
+		//don't show author bio for pages
 		if ( 'post' == get_post_type() ) {
-
-			$tags_list = get_the_tag_list( '', ' ' );
-			if ( $tags_list ) {
-				/* translators: There is a space at the end */
-				echo '<span class="screen-reader-text">' . __( 'Tagged with: ', 'patch' ) . '</span><span class="tags-links">' . $tags_list . '</span>';
-			}
-
-			// Jetpack share buttons.
-			sharing_display( '', true );
-
-			// Jetpack Likes.
-			if ( class_exists( 'Jetpack_Likes' ) ) {
-				$custom_likes = new Jetpack_Likes;
-				echo $custom_likes->post_likes( '' );
-			}
 
 			// Author bio.
 			if ( ! get_theme_mod( 'patch_hide_author_bio', false ) ) {
 				get_template_part( 'author-bio' );
 			}
-
-			//Jetpack Related Posts
-			echo do_shortcode( '[jetpack-related-posts]' );
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {

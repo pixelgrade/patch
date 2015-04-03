@@ -63,7 +63,7 @@ function patch_remove_to_move_share() {
 	}
 }
 
-add_action( 'loop_start', 'patch_remove_to_move_share' );
+//add_action( 'loop_start', 'patch_remove_to_move_share' );
 
 /**
  * Customize the placement of the sharing and likes
@@ -74,12 +74,15 @@ function patch_remove_to_move_relatedposts() {
 		return; //bail as we don't want to affect anything
 	}
 
-	$jprp     = Jetpack_RelatedPosts::init();
-	$callback = array( $jprp, 'filter_add_target_to_dom' );
-	remove_filter( 'the_content', $callback, 40 );
+	if ( class_exists('WPCOM_RelatedPosts') && method_exists( 'WPCOM_RelatedPosts', 'init' ) ) {
+		//var_dump(get_class_methods('WPCOM_RelatedPosts'));
+		$jprp     = WPCOM_RelatedPosts::init();
+		$callback = array( $jprp, 'filter_add_target_to_dom' );
+		remove_filter( 'the_content', $callback, 40 );
+	}
 }
 
-add_filter( 'wp', 'patch_remove_to_move_relatedposts', 20 );
+//add_filter( 'wp', 'patch_remove_to_move_relatedposts', 9999 );
 
 
 /**
