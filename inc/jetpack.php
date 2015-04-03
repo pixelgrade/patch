@@ -56,10 +56,10 @@ function patch_remove_to_move_share() {
 		return; //bail as we don't want to affect anything
 	}
 
-	remove_filter( 'the_content', 'sharing_display',19 );
-	remove_filter( 'the_excerpt', 'sharing_display',19 );
+	remove_filter( 'post_flair', 'sharing_display', 20 );
+
 	if ( class_exists( 'Jetpack_Likes' ) ) {
-		remove_filter( 'the_content', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
+		remove_filter( 'post_flair', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
 	}
 }
 
@@ -74,11 +74,9 @@ function patch_remove_to_move_relatedposts() {
 		return; //bail as we don't want to affect anything
 	}
 
-	if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
-		$jprp     = Jetpack_RelatedPosts::init();
-		$callback = array( $jprp, 'filter_add_target_to_dom' );
-		remove_filter( 'the_content', $callback, 40 );
-	}
+	$jprp     = Jetpack_RelatedPosts::init();
+	$callback = array( $jprp, 'filter_add_target_to_dom' );
+	remove_filter( 'the_content', $callback, 40 );
 }
 
 add_filter( 'wp', 'patch_remove_to_move_relatedposts', 20 );
@@ -88,7 +86,6 @@ add_filter( 'wp', 'patch_remove_to_move_relatedposts', 20 );
  * Detect if the footer menu is active and if it is
  * switch Infinite Scroll to click mode
  */
-
 function switch_infinite_scroll_mode() {
 
 	if ( has_nav_menu( 'footer' ) ) return true;

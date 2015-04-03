@@ -40,13 +40,18 @@ img {
         margin-left: -3 * $gutter;
         margin-right: -3 * $gutter;
         max-width: calc(#{6 * $gutter} + 100%);
-        width: auto !important;
+
+        .entry-content & {
+            width: auto !important;
+        }
     }
 
     text-align: center;
 
     img {
         margin: 0 auto;
+        max-width: 100%;
+        height: auto;
     }
 }
 

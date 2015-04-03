@@ -698,6 +698,7 @@ $cards-gutter: $gutter;
 	.entry-content {
 		@extend %fs-14;
 		margin-top: 8px;
+		word-break: break-word;
 	}
 
 	.entry-content--short {
@@ -798,7 +799,10 @@ $cards-gutter: $gutter;
 		font-size: 24px;
 		color: white;
 		margin-bottom: 0;
-		// font-weight: 300;
+
+		* {
+			color: white;
+		}
 	}
 
 	.entry-quote--short blockquote {
