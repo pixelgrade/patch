@@ -106,9 +106,7 @@
 
 	.entry-image--portrait,
 	.entry-image--tall {
-		// max-width: none;
 		float: none;
-		// margin-right: 0;
 
 		.entry-featured {
 			margin-bottom: $gutter;
@@ -243,4 +241,8 @@
 			// width: 100%;
 		}
 	}
+}
+
+.entry-footer {
+	clear: both;
 }

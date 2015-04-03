@@ -180,31 +180,36 @@ strong {
 
 /* Links */
 
-%hover {
-	&:before {
-		content: "";
-		position: absolute;
-		right: -0.2em;
-		bottom: 0.1em;
-		left: -0.2em;
-		height: 0.4em;
-		background: $accent;
-		z-index: -1;
+%link--underline--menu {
+	position: relative;
+	background-color: $accent;
+	box-shadow: white 0 1.1em inset;
+	line-height: 1.4em;
+	transition: box-shadow .2s ease-out, background-color .15s ease-out;
+	padding-left: .2em;
+	padding-right: .1em;
+	margin-left: -.2em;
+	margin-right: -.1em;
+}
+
+
+%link--underline {
+	@extend %link--underline--menu;
+
+	&:hover {
+		@extend %link--underline--hover;
 	}
+}
+
+%link--underline--hover {
+	box-shadow: white 0 0 inset;
+	transition: box-shadow .2s ease-in, background-color .15s ease-in;
 }
 
 // Smarter Links Underlines
 
 %smarter-links-underlines {
-	text-decoration: none;
-
-	box-shadow: inset 0 -8px 0 $accent;
-	padding-left: 2px;
-	padding-right: 2px;
-
-	&:hover{
-		background-color: $accent;
-	}
+	@extend %link--underline;
 }
 
 .smart-link {
