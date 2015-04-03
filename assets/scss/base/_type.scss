@@ -185,16 +185,17 @@ strong {
 	background-color: $accent;
 	box-shadow: white 0 1.1em inset;
 	line-height: 1.4em;
-	// transition: box-shadow .2s ease-out, background-color .15s ease-out;
-	padding-left: .2em;
-	padding-right: .2em;
-	margin-left: -.2em;
-	margin-right: -.2em;
+	// transition: none;
+	// padding-left: .2em;
+	// padding-right: .2em;
+	// margin-left: -.2em;
+	// margin-right: -.2em;
 }
 
 
 %link--underline {
 	@extend %link--underline--menu;
+	transition: box-shadow .15s ease-out;
 
 	&:hover {
 		@extend %link--underline--hover;
@@ -221,7 +222,7 @@ a {
 	color: $black;
 	font-weight: 500;
 	
-	transition: all 0.15s;
+	// transition: all 0.15s;
 
 	h1 &, .site-title &, h2 &, h3 & {
 		color: $accent; 

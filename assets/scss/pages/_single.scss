@@ -44,6 +44,10 @@
 
 	.entry-content {
 		margin-bottom: 42px;
+
+		a {
+			box-shadow: white 0 0.8em inset;
+		}
 	}
 
 	@include query-below($lap) {
