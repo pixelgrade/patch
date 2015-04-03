@@ -74,7 +74,7 @@ function patch_remove_to_move_relatedposts() {
 		return; //bail as we don't want to affect anything
 	}
 
-	if ( class_exists('WPCOM_RelatedPosts') && method_exists( 'WPCOM_RelatedPosts', 'init' ) ) {
+	if ( class_exists( 'WPCOM_RelatedPosts' ) && method_exists( 'WPCOM_RelatedPosts', 'init' ) ) {
 		$jprp     = WPCOM_RelatedPosts::init();
 		$callback = array( $jprp, 'filter_add_target_to_dom' );
 		remove_filter( 'the_content', $callback, 40 );
@@ -90,8 +90,11 @@ function patch_remove_to_move_relatedposts() {
  */
 function switch_infinite_scroll_mode() {
 
-	if ( has_nav_menu( 'footer' ) ) return true;
-	else return false;
+	if ( has_nav_menu( 'footer' ) ) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 add_filter( 'infinite_scroll_has_footer_widgets', 'switch_infinite_scroll_mode' ); ?>
