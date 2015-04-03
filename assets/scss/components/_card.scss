@@ -4,7 +4,7 @@
 //\*-----------------------------------------*/
 
 //**
-// * Table of Contents
+// * Table of Content
 // * --------------------------------------------------
 // *  1.0 - Spacing Mixin
 // *  2.0 - General Cards Styling
@@ -68,6 +68,11 @@ $cards-gutter: $gutter;
 
 
 	@include breakpoint($breakpoint) {
+		
+		// Grid Alignment
+		.site-main {
+			padding-left: $gutter;
+		}
 
 		.site-branding,
 		.nav--main,
@@ -105,6 +110,11 @@ $cards-gutter: $gutter;
 			}
 		}
 
+		.entry-card.format-quote {
+			.entry-content {
+				@include _("col-left-p2");
+			}
+		}
 
 		// LANDSCAPE
 		.entry-card--landscape {
@@ -599,7 +609,6 @@ $cards-gutter: $gutter;
 
 @include query-below($xsmall) {
 	.layout-grid {
-
 		.entry-header {
 			padding-left: $gutter;
 			margin-right: 0;
@@ -688,6 +697,7 @@ $cards-gutter: $gutter;
 	.entry-content {
 		@extend %fs-14;
 		margin-top: 8px;
+		word-break: break-word;
 	}
 
 	.entry-content--short {
@@ -757,6 +767,55 @@ $cards-gutter: $gutter;
 		font-weight: bold;
 	}
 
+}
+
+// Blockquote
+.entry-card.format-quote {
+	.entry-content {
+		margin-left: 0;
+		margin-bottom: 20px;
+		padding-top: (20px + $gutter);
+		padding-bottom: (20px + $gutter);
+		padding-right: $gutter;
+
+		-webkit-font-smoothing: antialiased;
+
+		background-color: black;
+		background-size: cover;
+		background-position: center center;
+
+		a {
+			box-shadow: inset 0 -3px 0 $accent;
+			color: white;
+
+			&:hover {
+				color: $accent;
+			}
+		}
+	}
+
+	blockquote {
+		font-size: 24px;
+		color: white;
+		margin-bottom: 0;
+
+		* {
+			color: white;
+		}
+	}
+
+	.entry-quote--short blockquote {
+		font-size: 30px;
+	}
+
+	cite {
+		display: block;
+		margin-top: 18px;
+
+		color: white;
+		font-size: 15px;
+		text-transform: uppercase;
+	}
 }
 
 

@@ -11,10 +11,32 @@
 
 .single, .page:not(.entry-card), .no-posts {
 
+	@include query-below($lap) {
+		.site-content {
+			padding: 0 45px;
+			padding-bottom: 30px;
+		}
+	}
+
+	@include query-above($lap) {
+		.site-content {
+			padding: 60px;
+		}
+	}
+
+	@include query-above(1260px) {
+		.site-main {
+			padding: 0 2*$col;
+		}
+	}
+}
+
+.single, .page:not(.entry-card) {
+
 	.hentry,
 	.comments-area,
 	.nocomments,
-	.comment-respond {
+	#respond.comment-respond {
 		@extend %single-width;
 		margin-top: 0;
 		margin-bottom: 0;
@@ -25,11 +47,6 @@
 	}
 
 	@include query-below($lap) {
-		.site-content {
-			padding: 0 45px;
-			padding-bottom: 30px;
-		}
-
 		.entry-header {
 			padding-left: 0;
 			padding-right: 0;
@@ -46,12 +63,6 @@
 	@include query-above($lap) {
 		.site-content {
 			padding: 60px;
-		}
-	}
-
-	@include query-above(1260px) {
-		.site-main {
-			padding: 0 2*$col;
 		}
 	}
 
@@ -97,7 +108,7 @@
 	.entry-image--tall {
 		// max-width: none;
 		float: none;
-		// margin-right: 0; 
+		// margin-right: 0;
 
 		.entry-featured {
 			margin-bottom: $gutter;
@@ -105,7 +116,7 @@
 			@include query-above($lap) {
 				float: left;
 				margin: 0 $gutter $gutter 0;
-				max-width: 40%;	
+				max-width: 40%;
 			}
 
 			@include query-above(1260px) {
@@ -134,7 +145,7 @@
 			@include query-above(1440px) {
 				// margin-right: -3*$gutter;
 			}
-			
+
 			@include rhythm(margin-bottom, 2);
 		}
 	}
@@ -142,9 +153,9 @@
 	.entry-header {
 		@include rhythm(margin-bottom, 2);
 	}
-		.entry-title {
-			margin: 0;
-		}
+	.entry-title {
+		margin: 0;
+	}
 
 	.entry-meta {
 		position: static;
