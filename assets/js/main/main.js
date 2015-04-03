@@ -18,6 +18,7 @@ $window.load(function() {
   scrollToTop();
   moveFeaturedImage();
   magnificPopupInit();
+  logoAnimation.init();
 });
 
 // /* ====== ON RESIZE ====== */
@@ -27,4 +28,21 @@ function onResize() {
   masonry.refresh();
 }
 
+function requestTick() {
+  if (!ticking) {
+    requestAnimationFrame(update);
+  }
+  ticking = true;  
+}
+
+function update() {
+  svgLogo.update();
+  ticking = false;
+}
+
 $window.on('debouncedresize', onResize);
+
+$window.on('scroll', function() {
+  latestKnownScrollY = window.scrollY;
+  requestTick();
+});

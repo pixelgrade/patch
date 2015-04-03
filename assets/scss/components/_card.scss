@@ -134,12 +134,11 @@ $cards-gutter: $gutter;
 
 			.entry-image {
 				@include _("col-left-0");
-				@include _("col-right-0");
+				@include _("col-right--2");
 			}
 
 			.entry-header {
 				@include _("col-left-2");
-				@include _("col-right-2");
 			}
 
 			.entry-content {
