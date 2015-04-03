@@ -580,7 +580,6 @@ if ( ! function_exists( 'patch_get_post_title_class' ) ) :
 		// 0-29 chars = short
 		// 30-59 = medium
 		// 60+ = long
-		// @ todo Put in the needed logic for when mb functions are not present
 		$title_length = mb_strlen( get_the_title( $post ) );
 
 		if ( $title_length < 30 ) {
@@ -651,7 +650,6 @@ if ( ! function_exists( 'patch_get_post_excerpt_class' ) ) :
 		// 0-99 chars = short
 		// 100-199 = medium
 		// 200+ = long
-		// @ todo Put in the needed logic for when mb functions are not present
 		$excerpt_length = mb_strlen( patch_get_post_excerpt( $post ) );
 
 		if ( $excerpt_length < 99 ) {
