@@ -75,14 +75,13 @@ function patch_remove_to_move_relatedposts() {
 	}
 
 	if ( class_exists('WPCOM_RelatedPosts') && method_exists( 'WPCOM_RelatedPosts', 'init' ) ) {
-		//var_dump(get_class_methods('WPCOM_RelatedPosts'));
 		$jprp     = WPCOM_RelatedPosts::init();
 		$callback = array( $jprp, 'filter_add_target_to_dom' );
 		remove_filter( 'the_content', $callback, 40 );
 	}
 }
 
-//add_filter( 'wp', 'patch_remove_to_move_relatedposts', 9999 );
+//add_filter( 'wp', 'patch_remove_to_move_relatedposts', 20 );
 
 
 /**
