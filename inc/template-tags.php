@@ -244,7 +244,7 @@ if ( ! function_exists( 'patch_single_entry_footer' ) ) :
 	 * Prints HTML with meta information for the categories, tags, Jetpack likes, shares, related, and comments.
 	 */
 	function patch_single_entry_footer() {
-		//don't show author bio for pages
+		//only show tags and author bio for posts, not pages and what have you
 		if ( 'post' == get_post_type() ) {
 
 			$tags_list = get_the_tag_list( '', ' ' );
@@ -253,25 +253,9 @@ if ( ! function_exists( 'patch_single_entry_footer' ) ) :
 				echo '<span class="screen-reader-text">' . __( 'Tagged with: ', 'patch' ) . '</span><span class="tags-links">' . $tags_list . '</span>';
 			}
 
-			// Jetpack share buttons.
-			if ( function_exists( 'sharing_display' ) ) {
-				sharing_display( '', true );
-			}
-
-			// Jetpack Likes.
-			if ( class_exists( 'Jetpack_Likes' ) ) {
-				$custom_likes = new Jetpack_Likes;
-				echo $custom_likes->post_likes( '' );
-			}
-
 			// Author bio.
 			if ( ! get_theme_mod( 'patch_hide_author_bio', false ) ) {
 				get_template_part( 'author-bio' );
-			}
-
-			//Jetpack Related Posts
-			if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
-				echo do_shortcode( '[jetpack-related-posts]' );
 			}
 		}
 

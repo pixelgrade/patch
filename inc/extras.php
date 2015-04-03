@@ -407,9 +407,9 @@ add_filter( 'tiny_mce_before_init', 'patch_mce_before_init' );
  * The images with captions already are wrapped by the figure tag
  */
 function patch_wrap_images_in_figure( $content ) {
-	$classes = array ('aligncenter', 'alignnone');
+	$classes = array( 'aligncenter', 'alignnone' );
 
-	foreach ($classes as $class) {
+	foreach ( $classes as $class ) {
 
 		//this regex basically tells this
 		//match all the images that are not in captions and that have the X class
