@@ -244,8 +244,14 @@ if ( ! function_exists( 'patch_single_entry_footer' ) ) :
 	 * Prints HTML with meta information for the categories, tags, Jetpack likes, shares, related, and comments.
 	 */
 	function patch_single_entry_footer() {
-		//don't show author bio for pages
+		//only show tags and author bio for posts, not pages and what have you
 		if ( 'post' == get_post_type() ) {
+
+			$tags_list = get_the_tag_list( '', ' ' );
+			if ( $tags_list ) {
+				/* translators: There is a space at the end */
+				echo '<span class="screen-reader-text">' . __( 'Tagged with: ', 'patch' ) . '</span><span class="tags-links">' . $tags_list . '</span>';
+			}
 
 			// Author bio.
 			if ( ! get_theme_mod( 'patch_hide_author_bio', false ) ) {

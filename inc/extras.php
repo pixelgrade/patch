@@ -303,23 +303,6 @@ function patch_strip_first_content_gallery( $content ) {
 
 add_filter( 'the_content', 'patch_strip_first_content_gallery' );
 
-function patch_add_tags_after_content( $content ) {
-	// Hide category and tag text for pages.
-	if ( 'post' == get_post_type() ) {
-
-		$tags_list = get_the_tag_list( '', ' ' );
-		if ( $tags_list ) {
-			/* translators: There is a space at the end */
-			$content .= "\n" . '<span class="screen-reader-text">' . __( 'Tagged with: ', 'patch' ) . '</span><span class="tags-links">' . $tags_list . '</span>';
-		}
-
-	}
-
-	return $content;
-}
-
-add_filter( 'the_content', 'patch_add_tags_after_content', 0 );
-
 /*
  * Due to the fact that we need a wrapper for center aligned images and for the ones with alignnone, we need to wrap the images without a caption
  * The images with captions already are wrapped by the figure tag
