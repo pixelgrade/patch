@@ -36,7 +36,7 @@ function requestTick() {
 }
 
 function update() {
-  svgLogo.update();
+  logoAnimation.update();
   ticking = false;
 }
 

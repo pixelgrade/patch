@@ -887,7 +887,7 @@ if (!Date.now) Date.now = function () {
   }
 
   function update() {
-    svgLogo.update();
+    logoAnimation.update();
     ticking = false;
   }
 

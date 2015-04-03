@@ -76,8 +76,7 @@ $cards-gutter: $gutter;
 
 		.site-branding,
 		.nav--main,
-		.nav--social,
-		.site-title {
+		.nav--social {
 			@include _("col-left-1");
 			@include _("col-right-3");
 		}
