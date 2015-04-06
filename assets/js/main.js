@@ -151,7 +151,8 @@ if (!Date.now) Date.now = function () {
   var logoAnimation = (function () {
 
     var $logo = $('img.site-logo'),
-        $clone, distance,
+        $clone, distance, initialized = false,
+        
         
         init = function () {
 
@@ -179,13 +180,15 @@ if (!Date.now) Date.now = function () {
           }, {
             duration: 0
           });
+
+          initialized = true;
         }
         },
         
         
         update = function () {
 
-        if (!$logo.length) {
+        if (!$logo.length || !initialized) {
           return;
         }
 

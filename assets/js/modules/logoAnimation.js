@@ -3,6 +3,7 @@ var logoAnimation = (function() {
 	var $logo  = $('img.site-logo'),
 		$clone,
 		distance,
+		initialized = false,
 
 	init = function() {
 
@@ -30,12 +31,14 @@ var logoAnimation = (function() {
 			}, {
 				duration: 0
 			});
+
+			initialized = true;
 		}
 	},
 
 	update = function() {
 
-		if (!$logo.length) {
+		if (!$logo.length || !initialized) {
 			return;
 		}
 
