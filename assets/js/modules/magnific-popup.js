@@ -1,9 +1,9 @@
 /* --- Magnific Popup Initialization --- */
 
 function magnificPopupInit() {
-    $('.entry-content').each(function () { // the containers for all your galleries should have the class gallery
-        $(this).magnificPopup({
-            delegate: 'a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]', // the container for each your gallery items
+        $('a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]').filter(function(elem) {
+            return !$(this).parents('.gallery').length
+        }).magnificPopup({
             type: 'image',
             closeOnContentClick: false,
             closeBtnInside: false,
@@ -24,12 +24,6 @@ function magnificPopupInit() {
                     }
                     return output;
                 }
-            },
-            gallery: {
-                enabled: true,
-                navigateByImgClick: true
-                //arrowMarkup: '<a href="#" class="gallery-arrow gallery-arrow--%dir% control-item arrow-button arrow-button--%dir%">%dir%</a>'
             }
         });
-    });
 }
