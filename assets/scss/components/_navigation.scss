@@ -249,6 +249,7 @@
 		top: 32px;
 
 		@media screen and (max-width: 782px) {
+			position: absolute;
 			top: 46px;
 		}
 	}
@@ -270,13 +271,16 @@
 	.mobile-header {
 		display: block;
 	}
+}
 
-	.site {
-		padding-top: 70px;
+.site {
+	@include query-below($lap) {
+		padding-top: 24px;
 	}
 }
 
-.navigation__trigger {
+.navigation__trigger,
+.search__trigger {
 	position: absolute;
 	top: 0; left: 0;
 	padding: $gutter/2;
@@ -289,6 +293,11 @@
 	background: none;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-tap-highlight-color: transparent; /* For some Androids */
+}
+
+.search__trigger {
+	left: auto;
+	right: 0;
 }
 
 
