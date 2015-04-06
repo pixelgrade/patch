@@ -442,7 +442,7 @@ p.comment-form-email{
 }
 
 
-.form-submit {
+:first-child:not(input) ~ .form-submit {
 	@extend %link--underline;
 	position: relative;
 	@include rhythm(margin-top, 1);
