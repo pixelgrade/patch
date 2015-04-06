@@ -802,6 +802,11 @@ if (!Date.now) Date.now = function () {
               right = images[i];
             }
 
+            if (right.isEven && left.isPortrait && right.isPortrait && imagesOverlap(left.card, right.card)) {
+              right.$el.closest('.grid__item').removeClass('entry--even');
+              right.isEven = true;
+            }
+
             source = !left.isPortrait || left.isEven ? left : left.card;
             destination = right;
 
