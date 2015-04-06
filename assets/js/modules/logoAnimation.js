@@ -35,6 +35,10 @@ var logoAnimation = (function() {
 
 	update = function() {
 
+		if (!$logo.length) {
+			return;
+		}
+
 		if (distance < latestKnownScrollY) {
 			$clone.velocity({
 				translateY: 0,
