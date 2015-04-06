@@ -178,7 +178,14 @@
 	}
 
 	a, span {
-		padding: 12px !important;
+		padding: 8px;
+	}
+
+	.single & , .page:not(.entry-card) & {
+		a, span {
+			display: inline-block;
+			box-shadow: white 0 2em inset;
+		}
 	}
 }
 
