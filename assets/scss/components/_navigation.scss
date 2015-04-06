@@ -102,6 +102,8 @@
 		position: relative;
 		display: block;
 		letter-spacing: 0.06em;
+		padding-left: 2px;
+		padding-right: 2px;
 
 		@include query-above($lap) {
 			display: inline !important;
