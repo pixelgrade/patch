@@ -7,6 +7,7 @@ $(document).ready(function() {
 function init() {
   browserSize();
   platformDetect(); 
+  masonry.refresh();
 }
 
 // /* ====== ON WINDOW LOAD ====== */
@@ -14,7 +15,6 @@ function init() {
 $window.load(function() {
   browserSize();
   navigation.init();
-  masonry.refresh();
   scrollToTop();
   moveFeaturedImage();
   magnificPopupInit();

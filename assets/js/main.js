@@ -185,6 +185,10 @@ if (!Date.now) Date.now = function () {
         
         update = function () {
 
+        if (!$logo.length) {
+          return;
+        }
+
         if (distance < latestKnownScrollY) {
           $clone.velocity({
             translateY: 0,
@@ -859,13 +863,13 @@ if (!Date.now) Date.now = function () {
   function init() {
     browserSize();
     platformDetect();
+    masonry.refresh();
   }
 
   // /* ====== ON WINDOW LOAD ====== */
   $window.load(function () {
     browserSize();
     navigation.init();
-    masonry.refresh();
     scrollToTop();
     moveFeaturedImage();
     magnificPopupInit();
