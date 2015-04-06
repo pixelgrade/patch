@@ -179,11 +179,13 @@
 
 	a, span {
 		padding: 8px;
-		display: inline-block;
 	}
 
-	body .entry-content & a {
-		box-shadow: white 0 2em inset;
+	.single & , .page:not(.entry-card) & {
+		a, span {
+			display: inline-block;
+			box-shadow: white 0 2em inset;
+		}
 	}
 }
 
