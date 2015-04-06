@@ -178,7 +178,12 @@
 	}
 
 	a, span {
-		padding: 12px !important;
+		padding: 8px;
+		display: inline-block;
+	}
+
+	body .entry-content & a {
+		box-shadow: white 0 2em inset;
 	}
 }
 
