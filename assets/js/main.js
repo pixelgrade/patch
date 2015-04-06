@@ -185,6 +185,10 @@ if (!Date.now) Date.now = function () {
         
         update = function () {
 
+        if (!$logo.length) {
+          return;
+        }
+
         if (distance < latestKnownScrollY) {
           $clone.velocity({
             translateY: 0,
@@ -229,11 +233,6 @@ if (!Date.now) Date.now = function () {
             }
             return output;
           }
-        },
-        gallery: {
-          enabled: true,
-          navigateByImgClick: true
-          //arrowMarkup: '<a href="#" class="gallery-arrow gallery-arrow--%dir% control-item arrow-button arrow-button--%dir%">%dir%</a>'
         }
       });
     });

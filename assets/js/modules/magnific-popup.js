@@ -24,11 +24,6 @@ function magnificPopupInit() {
                     }
                     return output;
                 }
-            },
-            gallery: {
-                enabled: true,
-                navigateByImgClick: true
-                //arrowMarkup: '<a href="#" class="gallery-arrow gallery-arrow--%dir% control-item arrow-button arrow-button--%dir%">%dir%</a>'
             }
         });
     });
