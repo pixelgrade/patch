@@ -869,6 +869,7 @@ if (!Date.now) Date.now = function () {
     browserSize();
     platformDetect();
     masonry.refresh();
+    reorderSingleFooter();
   }
 
   // /* ====== ON WINDOW LOAD ====== */
@@ -1006,5 +1007,29 @@ if (!Date.now) Date.now = function () {
 
   function is_touch() {
     return $.support.touch;
+  }
+
+  function reorderSingleFooter() {
+    if (!$body.hasClass('single')) {
+      return;
+    }
+
+    var $related = $('.jp-relatedposts'),
+        $jp = $('#jp-post-flair'),
+        $author = $('.author-info'),
+        $footer = $('.entry-footer');
+
+    if ($related.length && $author.length) {
+      $related.instertAfter($author);
+    }
+
+    if ($jp.length) {
+      if ($author.length) {
+        $jp.instertBefore($author);
+        if ($related.length) {
+          $related.instertAfter($author);
+        }
+      }
+    }
   }
 })(jQuery);

@@ -8,6 +8,7 @@ function init() {
   browserSize();
   platformDetect(); 
   masonry.refresh();
+  reorderSingleFooter();
 }
 
 // /* ====== ON WINDOW LOAD ====== */
