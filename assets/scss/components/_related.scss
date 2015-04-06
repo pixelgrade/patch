@@ -3,7 +3,7 @@
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	font-size: 13px;
-	margin: 0 0 10px;
+	margin: 0 0 15px;
 	
 
 	&, em {
@@ -55,7 +55,7 @@ body {
 			background: none;
 			border: 1px solid $lightest;
 			margin-right: 15px;
-			padding: 5px 19px;
+			padding: 2px 19px 3px;
 			padding-left: 40px;
 			position: relative;
 			border-radius: 0;
@@ -79,7 +79,7 @@ body {
 			width: 30px;
 			text-align: center;
 			border-right: 1px solid $lightest;
-			padding-top: 8px;
+			padding-top: 5px;
 		}
 	}
 
@@ -153,4 +153,8 @@ body div#jp-relatedposts {
 		background: none;
 		padding: 0;
 	}
+}
+
+div#jp-post-flair {
+	padding: 0;
 }

@@ -113,15 +113,11 @@ function reorderSingleFooter() {
       $author   = $('.author-info'),
       $footer   = $('.entry-footer');
 
-  if ($related.length && $author.length) {
-    $related.instertAfter($author);
-  }
-
   if ($jp.length) {
     if ($author.length) {
-      $jp.instertBefore($author);
+      $jp.insertBefore($author);
       if ($related.length) {
-        $related.instertAfter($author);
+        $related.insertAfter($author);
       }
     }
   }
