@@ -797,6 +797,11 @@ if (!Date.now) Date.now = function () {
               right = images[i];
             }
 
+            if (right.isEven && left.isPortrait && right.isPortrait && imagesOverlap(left.card, right.card)) {
+              right.$el.closest('.grid__item').removeClass('entry--even');
+              right.isEven = true;
+            }
+
             source = !left.isPortrait || left.isEven ? left : left.card;
             destination = right;
 
@@ -858,13 +863,14 @@ if (!Date.now) Date.now = function () {
   function init() {
     browserSize();
     platformDetect();
+    masonry.refresh();
+    reorderSingleFooter();
   }
 
   // /* ====== ON WINDOW LOAD ====== */
   $window.load(function () {
     browserSize();
     navigation.init();
-    masonry.refresh();
     scrollToTop();
     moveFeaturedImage();
     magnificPopupInit();
@@ -996,5 +1002,25 @@ if (!Date.now) Date.now = function () {
 
   function is_touch() {
     return $.support.touch;
+  }
+
+  function reorderSingleFooter() {
+    if (!$body.hasClass('single')) {
+      return;
+    }
+
+    var $related = $('.jp-relatedposts'),
+        $jp = $('#jp-post-flair'),
+        $author = $('.author-info'),
+        $footer = $('.entry-footer');
+
+    if ($jp.length) {
+      if ($author.length) {
+        $jp.insertBefore($author);
+        if ($related.length) {
+          $related.insertAfter($author);
+        }
+      }
+    }
   }
 })(jQuery);
