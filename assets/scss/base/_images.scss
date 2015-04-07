@@ -1,7 +1,7 @@
 // 1. Fluid images for responsive purposes.
 // 2. Offset `alt` text from surrounding copy.
  
-img{
+img {
     max-width: 100%;
     height: auto;
 }
@@ -17,33 +17,32 @@ img{
 		display: block;
 	}
 }
+
 @if $editor-style { 
-.wp-caption-dd {
-	text-align: center;
-	font-size: 13px;
-	padding: 8 0 0;
+	.wp-caption-dd {
+		text-align: center;
+		font-size: 14px;
+		padding: 8 0 0;
 
-	border-bottom: 2px solid #f2f2f2;
+		border-bottom: 2px solid #f2f2f2;
 
-}} @else { 
-.wp-caption-text {
-	text-align: center;
-	font-size: rem(13px);
-	padding: rem(8px) 0 0;
-
-	.archive__grid & {
-		border-bottom: 0;
 	}
-}}
+} @else { 
+	.wp-caption-text {
+		text-align: center;
+		font-size: 14px;
+		padding: 10px 0 0;
+
+		.archive__grid & {
+			border-bottom: 0;
+		}
+	}	
+}
 
 /* Galleries */
 .gallery {
-	@include rhythm(margin-left, -1);
-	@include rhythm(margin-top, -1);
-
-	.grid__item & {
-		margin-left: 0;
-	}
+	margin-top: -20px;
+	margin-left: -20px;
 
 	.gallery-item {
 		margin: 0;
@@ -52,13 +51,32 @@ img{
 
 		text-align: center;
 		border: 0 solid transparent;
-		@include rhythm(border-top-width, 1);
-		@include rhythm(border-left-width, 1);
+		margin-top: 20px;
+		padding-left: 20px;
 	}
 
 	.gallery-caption {
 		border: 0;
 	}
+
+	.entry-content & {
+		margin-top: 0;
+		margin-bottom: 20px;
+	}
+}
+
+.entry-card .gallery {
+	margin-top: -2px;
+	margin-left: -2px;
+}
+
+.entry-card .gallery-item {
+	margin-top: 2px;
+	padding-left: 2px;
+}
+
+.entry-card figcaption {
+	display: none;
 }
 
 .gallery-item img {
