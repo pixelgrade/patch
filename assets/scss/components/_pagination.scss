@@ -174,8 +174,6 @@
 div#infinite-handle {
 
 	span {
-		@extend %smarter-links-underlines;
-
 		background: transparent;
 		border-radius: 0;
 		color: $dark;
@@ -184,9 +182,30 @@ div#infinite-handle {
 
 		padding-left: 5px;
 		padding-right: 5px;
+
+		&:after {
+			content: "";
+
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			z-index: -1;
+
+			width: 100%;
+			height: 10px;
+
+			background-color: $accent;
+			transition: all .1s linear;
+		}
 	}
 
+	&:hover span:after { height: 100%; }
+
+
 	button {
+		position: relative;
+		z-index: 5;
+
 		text-transform: uppercase;
 	}
 }

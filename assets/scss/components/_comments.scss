@@ -144,7 +144,7 @@ li.comment, li.pingback, li.trackback {
 		z-index: 1;
 
 		@include query-below($lap) {
-			@include rhythm(left, -4);
+			left: -40px;
 		}
 	}
 
@@ -175,6 +175,10 @@ li.comment, li.pingback, li.trackback {
 			}
 		}
 	}
+
+	.media__body {
+		overflow: visible;
+	}
 }
 
 $first-padding-unit: 20px;
@@ -186,10 +190,39 @@ li.depth-2:before {
 }
 
 @include query-above($lap) {
-	@for $i from 3 through 10 {
+	@for $i from 3 through 5 {
 		li.depth-#{$i}:before {
 			left: - ( $i * $first-padding-unit + $second-padding-unit * ( $i - 2 ) );
 			width: $i * $first-padding-unit + $second-padding-unit * ( $i - 2 );
+		}
+	}
+
+	@for $i from 6 through 10 {
+		li.comment.depth-#{$i} {
+			.children li {
+				margin-left: 0;
+				padding-left: 0;
+
+				.comment-number {
+					left: -40px;
+				}
+			}
+		}
+	}
+
+	li.comment.depth-6 {
+		&:before {
+			left: -280px;
+			width: 280px;
+		}
+	}
+
+	@for $i from 7 through 10 {
+		li.comment.depth-#{$i} {
+			&:before {
+				left: -320px;
+				width: 320px;
+			}
 		}
 	}
 }

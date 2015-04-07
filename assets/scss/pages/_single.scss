@@ -178,13 +178,23 @@
 	}
 
 	a, span {
-		padding: 8px;
+		padding: 8px !important;
+	}
+
+	a {
+		@extend %smarter-links-underlines;
+		margin-right: 3px;
+		box-shadow: white 0 2em inset;
+		display: inline-block;
 	}
 
 	.single & , .page:not(.entry-card) & {
 		a, span {
-			display: inline-block;
 			box-shadow: white 0 2em inset;
+		}
+
+		span {
+			display: inline-block;
 		}
 	}
 }
