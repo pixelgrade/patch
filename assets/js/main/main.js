@@ -20,6 +20,7 @@ $window.load(function() {
   moveFeaturedImage();
   magnificPopupInit();
   logoAnimation.init();
+  logoAnimation.update();
 });
 
 // /* ====== ON RESIZE ====== */

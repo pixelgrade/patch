@@ -11,9 +11,22 @@
 
 .single, .page:not(.entry-card), .no-posts {
 
+	.site {
+		@include query-above($lap) {
+			padding-top: 0;
+		}
+	}
+
 	@include query-below($lap) {
+		.site-header {
+			max-width: 330px;
+			padding: 0 20px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
 		.site-content {
-			padding: 0 45px;
+			padding: 0 24px;
 			padding-bottom: 30px;
 		}
 	}
@@ -71,7 +84,6 @@
 	}
 
 	.entry-featured {
-		margin-top: $gutter;
 		margin-bottom: $gutter;
 
 		img {

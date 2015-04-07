@@ -17,13 +17,17 @@ var logoAnimation = (function() {
 				cloneMid 		= cloneTop + cloneHeight / 2,
 				$header 		= $('.mobile-header'),
 				headerOffset 	= $header.offset(),
+				headerHeight	= $header.outerHeight(),
+				headerMid 		= headerHeight / 2,
 				logoOffset		= $logo.offset(),
 				logoTop			= logoOffset.top,
 				logoWidth 		= $logo.width(),
 				logoHeight		= $logo.height(),
 				logoMid 		= logoTop + logoHeight / 2;
 
-			distance = logoMid - cloneMid;
+			distance = logoMid - headerMid;
+
+			console.log(logoMid, headerMid);
 
 			$clone.velocity({
 				translateY: distance,
