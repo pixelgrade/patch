@@ -55,15 +55,15 @@
 
 .sidebar {
 	a {
-	position: relative;
+		position: relative;
 		font-weight: 300;
 
 		&:before {
 			background: transparent;
 		}
+	}
 
-		&:hover { 
-			@extend %link--underline;
-		}
+	.widget a:hover { 
+		@extend %link--underline;
 	}
 }
