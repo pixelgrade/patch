@@ -15,6 +15,7 @@ function init() {
 
 $window.load(function() {
   browserSize();
+  Sidebar.init();
   navigation.init();
   scrollToTop();
   moveFeaturedImage();
