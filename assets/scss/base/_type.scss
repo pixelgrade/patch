@@ -282,7 +282,10 @@ a {
 	}
 }
 
-
+::selection {
+	background: $accent;
+	color: $black;
+}
 
 
 
