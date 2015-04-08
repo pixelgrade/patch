@@ -29,6 +29,7 @@ $window.load(function() {
 function onResize() {
   browserSize();
   masonry.refresh();
+  Sidebar.init();
 }
 
 function requestTick() {

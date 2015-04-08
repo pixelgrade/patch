@@ -2,9 +2,9 @@ var Sidebar = (function () {
 
 	var $header 		= $('.site-header'),
 		$sidebar		= $('#secondary'),
-		$target 		= $header,
-		$clone 			= $header.clone(),
 		$siteContent 	= $('.site-content'),
+		$target 		= $header,
+		$clone,
 
 	init = function() {
 
@@ -13,13 +13,14 @@ var Sidebar = (function () {
 		}
 
 		if ($sidebar.length) {
+			$sidebar.find('.site-header').remove();
 			$header.hide();
-			$clone.css('float', 'none');
-			$clone.prependTo($sidebar).show();
+			$clone = $header.clone(true).css('float', 'none').prependTo($sidebar).show();
 			$target = $sidebar;
 		}
 
 		if (!sidebarFits()) {
+			$target.css('position', '');
 			return;
 		}
 

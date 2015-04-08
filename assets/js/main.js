@@ -862,10 +862,9 @@ if (!Date.now) Date.now = function () {
 
     var $header = $('.site-header'),
         $sidebar = $('#secondary'),
-        $target = $header,
-        $clone = $header.clone(),
         $siteContent = $('.site-content'),
-        
+        $target = $header,
+        $clone,
         
         init = function () {
 
@@ -874,13 +873,14 @@ if (!Date.now) Date.now = function () {
         }
 
         if ($sidebar.length) {
+          $sidebar.find('.site-header').remove();
           $header.hide();
-          $clone.css('float', 'none');
-          $clone.prependTo($sidebar).show();
+          $clone = $header.clone(true).css('float', 'none').prependTo($sidebar).show();
           $target = $sidebar;
         }
 
         if (!sidebarFits()) {
+          $target.css('position', '');
           return;
         }
 
@@ -932,6 +932,7 @@ if (!Date.now) Date.now = function () {
   function onResize() {
     browserSize();
     masonry.refresh();
+    Sidebar.init();
   }
 
   function requestTick() {
