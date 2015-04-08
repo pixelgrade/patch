@@ -1,16 +1,16 @@
 var Sidebar = (function () {
 
-	var init = function() {
+	var $header 		= $('.site-header'),
+		$sidebar		= $('#secondary'),
+		$target 		= $header,
+		$clone 			= $header.clone(),
+		$siteContent 	= $('.site-content'),
 
-		if (!isSingle) {
+	init = function() {
+
+		if (!isSingle()) {
 			return;
 		}
-
-		var $header 		= $('.site-header'),
-			$sidebar		= $('#secondary'),
-			$target 		= $header,
-			$clone 			= $header.clone(),
-			$siteContent 	= $('.site-content');
 
 		if ($sidebar.length) {
 			$header.hide();
@@ -19,7 +19,7 @@ var Sidebar = (function () {
 			$target = $sidebar;
 		}
 
-		if (!sidebarFits) {
+		if (!sidebarFits()) {
 			return;
 		}
 
@@ -32,7 +32,7 @@ var Sidebar = (function () {
 	},
 
 	sidebarFits = function() {
-		return windowHeight < $target.outerHeight() + $siteContent.css('paddingTop') + $siteContent.css('paddingBottom') + $html.css('marginTop') + $body.css('borderTopWidth') + $body.css('borderBottomWidth');
+		return windowHeight > parseInt($target.outerHeight(), 10) + parseInt($siteContent.css('paddingTop'), 10) + parseInt($siteContent.css('paddingBottom'), 10) + parseInt($html.css('marginTop'), 10) + parseInt($body.css('borderTopWidth'), 10) + parseInt($body.css('borderBottomWidth'), 10);
 	};
 
 	return {

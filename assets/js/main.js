@@ -860,32 +860,33 @@ if (!Date.now) Date.now = function () {
   })();
   var Sidebar = (function () {
 
-    var init = function () {
+    var $header = $('.site-header'),
+        $sidebar = $('#secondary'),
+        $target = $header,
+        $clone = $header.clone(),
+        $siteContent = $('.site-content'),
+        
+        
+        init = function () {
 
-      if (!isSingle) {
-        return;
-      }
+        if (!isSingle()) {
+          return;
+        }
 
-      var $header = $('.site-header'),
-          $sidebar = $('#secondary'),
-          $target = $header,
-          $clone = $header.clone(),
-          $siteContent = $('.site-content');
+        if ($sidebar.length) {
+          $header.hide();
+          $clone.css('float', 'none');
+          $clone.prependTo($sidebar).show();
+          $target = $sidebar;
+        }
 
-      if ($sidebar.length) {
-        $header.hide();
-        $clone.css('float', 'none');
-        $clone.prependTo($sidebar).show();
-        $target = $sidebar;
-      }
+        if (!sidebarFits()) {
+          return;
+        }
 
-      if (!sidebarFits) {
-        return;
-      }
+        $target.css('position', 'fixed');
 
-      $target.css('position', 'fixed');
-
-    },
+        },
         
         
         isSingle = function () {
@@ -894,7 +895,7 @@ if (!Date.now) Date.now = function () {
         
         
         sidebarFits = function () {
-        return windowHeight < $target.outerHeight() + $siteContent.css('paddingTop') + $siteContent.css('paddingBottom') + $html.css('marginTop') + $body.css('borderTopWidth') + $body.css('borderBottomWidth');
+        return windowHeight > parseInt($target.outerHeight(), 10) + parseInt($siteContent.css('paddingTop'), 10) + parseInt($siteContent.css('paddingBottom'), 10) + parseInt($html.css('marginTop'), 10) + parseInt($body.css('borderTopWidth'), 10) + parseInt($body.css('borderBottomWidth'), 10);
         };
 
     return {
