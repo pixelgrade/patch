@@ -109,7 +109,7 @@ if ( ! function_exists( 'patch_fonts_url' ) ) :
 		* into your own language.
 		*/
 		if ( 'off' !== _x( 'on', 'Roboto font: on or off', 'fifteen_txtd' ) ) {
-			$fonts[] = 'Roboto:500,400,300,500italic,400italic,300italic:latin';
+			$fonts[] = 'Roboto:500,400,300,500italic,400italic,300italic';
 		}
 
 		/* Translators: If there are characters in your language that are not
@@ -349,4 +349,22 @@ class PatchWrapImagesInFigureCallback {
 
 		return '<span class="' . $this->class . '">' . $match[1] . '</span>';
 	}
-} ?>
+}
+
+/**
+ * Add a search link to the Social Menu
+ *
+ * @param string $items The HTML list content for the menu items.
+ * @param object $args  An object containing wp_nav_menu() arguments.
+ *
+ * @return string
+ */
+function patch_add_search_to_nav( $items, $args )
+{
+	if( $args->theme_location == 'social' && ( ! get_theme_mod( 'patch_disable_search_in_social_menu', false ) ) ) {
+		$items .= '<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#search">' . __( 'Search', 'patch' ) . '</a></li>';
+	}
+	return $items;
+}
+
+add_filter( 'wp_nav_menu_items', 'patch_add_search_to_nav', 10, 2 ); ?>

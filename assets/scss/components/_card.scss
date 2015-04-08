@@ -714,8 +714,14 @@ $cards-gutter: $gutter;
 
 	.entry-content {
 		@extend %fs-14;
+		@extend %hyphens;
+
+		-webkit-hyphens: auto;
+		-moz-hyphens: auto;
+		-ms-hyphens: auto;
+		hyphens: auto;
+
 		margin-top: 8px;
-		word-break: break-word;
 	}
 
 	.entry-content--short {

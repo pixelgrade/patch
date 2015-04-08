@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Patch 1.0-wpcom\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/patch\n"
-"POT-Creation-Date: 2015-04-07 03:25:06+00:00\n"
+"POT-Creation-Date: 2015-04-08 03:24:09+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -169,6 +169,10 @@ msgid "Theme"
 msgstr ""
 
 #: inc/customizer.php:36
+msgid "Hide search button in Social Menu."
+msgstr ""
+
+#: inc/customizer.php:47
 msgid "Hide the author bio on single posts."
 msgstr ""
 
@@ -212,6 +216,10 @@ msgstr ""
 #: inc/extras.php:247
 msgctxt "placeholder"
 msgid "Search &hellip;"
+msgstr ""
+
+#: inc/extras.php:365
+msgid "Search"
 msgstr ""
 
 #: inc/template-tags.php:48

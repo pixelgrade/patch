@@ -176,8 +176,6 @@ if (!Date.now) Date.now = function () {
 
           distance = logoMid - headerMid;
 
-          console.log(logoMid, headerMid);
-
           $clone.velocity({
             translateY: distance,
             translateX: '-50%'

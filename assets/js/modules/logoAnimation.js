@@ -27,8 +27,6 @@ var logoAnimation = (function() {
 
 			distance = logoMid - headerMid;
 
-			console.log(logoMid, headerMid);
-
 			$clone.velocity({
 				translateY: distance,
 				translateX: '-50%'
