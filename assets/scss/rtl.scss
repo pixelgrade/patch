@@ -7,3 +7,228 @@ of your CSS stylesheet in a separate stylesheet file named rtl.css.
 
 http://codex.wordpress.org/Right_to_Left_Language_Support
 */
+
+
+
+
+
+// #SETTINGS
+
+@import "settings";
+
+
+
+
+
+// #TOOLS
+
+@import "tools/functions";
+@import "tools/mixins";
+@import "tools/queries";
+@import "tools/baseline";
+@import "tools/aliases";
+
+
+
+.rtl {
+
+	.grid__item {
+		float: right;
+	}
+
+	// header - nav - sidebar
+	
+	.single,
+	.page,
+	.error404,
+	.search-no-results,
+	.no-posts {
+
+		@include query-above($lap) {
+
+			.content-area {
+				float: left;
+				margin-left: 0;
+				margin-right: -$sidebar;
+			}
+
+			.site-main {
+				margin-left: 0;
+				margin-right: $sidebar + 84px;
+			}
+
+			.sidebar,
+			.site-header {
+				float: right;
+				width: $sidebar;
+				padding-left: 0;
+			}
+
+			.sidebar {
+				clear: right;
+			}
+		}
+	}
+
+
+	.search-form .search-submit {
+		float: left;
+	}
+
+	.nav--main {
+		.menu-item-has-children {
+			padding-left: .5em;
+
+			> a {
+				&:after {
+					right: 100%;
+					left: auto;
+					margin-left: 0;
+					margin-right: 0.25em;
+				}
+			}
+		}
+
+		> li {
+		    @include query-above($lap) {
+				float: right;
+				padding-right: 0;
+				padding-left: 10px;
+		    }
+		}
+
+		@include query-below($lap) {
+			.sub-menu {
+				padding-right: 12px;
+				padding-left: 0;
+			}
+		}
+
+		@include query-above($lap) {
+
+			/*.sub-menu*/ul {
+				margin-left: 0;
+				margin-right: .25em;
+
+				li {
+					float: right;
+					clear: right;
+
+					&.menu-item-has-children {
+						padding-left: .25em; 
+						padding-right: 0;
+					}
+				}
+
+				ul {
+					margin-right: 0;
+					left: auto;
+					right: 100%;
+				}
+			}
+		}
+	}
+
+	.single, .page, .no-posts {
+		.nav--main > li {
+			float: right;
+		}
+	}
+
+	.nav--social {
+		left: auto;
+		right: -6px;
+	}
+
+	// single
+	
+	.cat-links,
+	.entry-format {
+		margin-right: 0;
+	 	margin-left: 10px;
+	}
+
+	.tags-links a {
+		margin-left: 10px;
+		margin-right: 0;
+
+		&:before {
+			content: "";
+		}
+
+		&:after {
+			content: "#";
+		}
+	}
+
+	.media__img {
+		float: right;
+		margin-right: 0;
+		margin-left: 24px;
+	}
+
+	.author-info__avatar {
+		margin-right: 0;
+		margin-left: 20px;
+	}
+
+	.author-info__title {
+		margin-right: 0;
+		margin-left: 0.5em;
+	}
+
+	.author__social-links li {
+		margin-right: 0;
+		margin-left: 10px;
+	}
+
+	// archive
+	
+	.entry-card.entry-card--portrait,
+	.entry-card.entry-card--tall {
+		text-align: left;
+	}
+
+	.entry--even {
+		.entry-card.entry-card--portrait,
+		.entry-card.entry-card--tall {
+			text-align: right;
+		}		
+	}
+
+	.entry-card .entry-meta > * {
+		float: right;
+	}
+
+	.posted-on {
+		margin-left: 0;
+		margin-right: 4px;
+
+		&:before {
+			margin-right: 0;
+			margin-left: 4px;
+		}
+	}
+
+	.page-numbers.prev {
+		right: 0;
+		left: auto;
+	}
+
+	.page-numbers.prev:before {
+		content: url("assets/svg/arrow-right.svg");
+		margin-left: 1.25rem;
+		margin-right: 0;
+	}
+
+	.page-numbers.next {
+		left: 0;
+		right: auto;
+	}
+
+	.page-numbers.next:after {
+		content: url("assets/svg/arrow-left.svg");
+		margin-right: 1.25rem;
+		margin-left: 0;
+	}
+}

@@ -18,11 +18,16 @@ var masonry = (function() {
 			return;
 		}
 
+		var isRtl = $body.hasClass('rtl');
+
+		console.log(isRtl);
+
 		$container.imagesLoaded(function() {
 			$container.masonry({
 				itemSelector: '.grid__item',
 				columnWidth: ".grid__item:not(.site-header)",
-				transitionDuration: 0
+				transitionDuration: 0,
+				isOriginLeft: !isRtl
 			});
 			bindEvents();
 			onLayout();
@@ -110,13 +115,18 @@ var masonry = (function() {
 			var $obj = $(obj),
 				left = $obj.offset().left;
 
-			$obj.css('z-index', values.length - values.indexOf(left));
-
-			if (newValues.indexOf(left) != -1) {
-				$obj.addClass('entry--even');
+			if (!$body.hasClass('rtl')) {
+				$obj.css('z-index', values.length - values.indexOf(left));
 			} else {
-				$obj.removeClass('entry--even');
+				$obj.css('z-index', values.indexOf(left));
 			}
+
+			if ($body.hasClass('rtl')) {
+				$obj.toggleClass('entry--even', newValues.indexOf(left) == -1);
+			} else {
+				$obj.toggleClass('entry--even', newValues.indexOf(left) != -1);
+			}
+
 		});
 
 		$container.find('.grid__item:first-child').css('z-index', 40);
