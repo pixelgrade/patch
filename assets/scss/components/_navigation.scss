@@ -251,8 +251,15 @@
 		top: 32px;
 
 		@media screen and (max-width: 782px) {
-			position: absolute;
 			top: 46px;
+		}
+
+		@media screen and (max-width: 600px) {
+			position: absolute;
+
+			img {
+				display: none;
+			}
 		}
 	}
 
@@ -272,12 +279,6 @@
 @include query-below($lap) {
 	.mobile-header {
 		display: block;
-	}
-}
-
-.site {
-	@include query-below($lap) {
-		padding-top: 24px;
 	}
 }
 

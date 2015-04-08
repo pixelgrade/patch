@@ -151,7 +151,8 @@ if (!Date.now) Date.now = function () {
   var logoAnimation = (function () {
 
     var $logo = $('img.site-logo'),
-        $clone, distance,
+        $clone, distance, initialized = false,
+        
         
         init = function () {
 
@@ -165,13 +166,15 @@ if (!Date.now) Date.now = function () {
               cloneMid = cloneTop + cloneHeight / 2,
               $header = $('.mobile-header'),
               headerOffset = $header.offset(),
+              headerHeight = $header.outerHeight(),
+              headerMid = headerHeight / 2,
               logoOffset = $logo.offset(),
               logoTop = logoOffset.top,
               logoWidth = $logo.width(),
               logoHeight = $logo.height(),
               logoMid = logoTop + logoHeight / 2;
 
-          distance = logoMid - cloneMid;
+          distance = logoMid - headerMid;
 
           $clone.velocity({
             translateY: distance,
@@ -179,13 +182,15 @@ if (!Date.now) Date.now = function () {
           }, {
             duration: 0
           });
+
+          initialized = true;
         }
         },
         
         
         update = function () {
 
-        if (!$logo.length) {
+        if (!$logo.length || !initialized) {
           return;
         }
 
@@ -873,6 +878,7 @@ if (!Date.now) Date.now = function () {
     moveFeaturedImage();
     magnificPopupInit();
     logoAnimation.init();
+    logoAnimation.update();
   });
 
   // /* ====== ON RESIZE ====== */
