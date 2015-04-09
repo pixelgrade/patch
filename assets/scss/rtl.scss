@@ -504,11 +504,6 @@ $second-padding-unit: 40px;
 		}
 	}
 
-
-
-
-	/* Comments Navigation */
-
 	.comment-navigation {
 		padding-left: 0;
 		@include rhythm(padding-right, 5);
@@ -537,6 +532,14 @@ $second-padding-unit: 40px;
 			a:after {
 				content: " \2190";
 			}
+		}
+	}
+
+	// footer 
+	
+	@include query-above($lap) {
+		.site-info {
+			text-align: right;
 		}
 	}
 
