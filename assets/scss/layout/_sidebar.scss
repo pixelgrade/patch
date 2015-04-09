@@ -45,7 +45,6 @@
 	}
 
 	@include query-above($lap) {
-		@include rhythm(padding-bottom, 4);
 		z-index: 5;
 		float: left;
 		width: $sidebar;
@@ -55,15 +54,15 @@
 
 .sidebar {
 	a {
-	position: relative;
+		position: relative;
 		font-weight: 300;
 
 		&:before {
 			background: transparent;
 		}
+	}
 
-		&:hover { 
-			@extend %link--underline;
-		}
+	.widget a:hover { 
+		@extend %link--underline;
 	}
 }

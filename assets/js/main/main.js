@@ -15,6 +15,7 @@ function init() {
 
 $window.load(function() {
   browserSize();
+  Sidebar.init();
   navigation.init();
   scrollToTop();
   moveFeaturedImage();
@@ -28,6 +29,7 @@ $window.load(function() {
 function onResize() {
   browserSize();
   masonry.refresh();
+  Sidebar.init();
 }
 
 function requestTick() {
