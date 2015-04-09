@@ -28,6 +28,8 @@ http://codex.wordpress.org/Right_to_Left_Language_Support
 @import "tools/baseline";
 @import "tools/aliases";
 
+$first-padding-unit: 20px;
+$second-padding-unit: 40px;
 
 
 .rtl {
@@ -38,11 +40,11 @@ http://codex.wordpress.org/Right_to_Left_Language_Support
 
 	// header - nav - sidebar
 	
-	.single,
-	.page,
-	.error404,
-	.search-no-results,
-	.no-posts {
+	&.single,
+	&.page,
+	&.error404,
+	&.search-no-results,
+	&.no-posts {
 
 		@include query-above($lap) {
 
@@ -164,7 +166,9 @@ http://codex.wordpress.org/Right_to_Left_Language_Support
 		}
 	}
 
-	.single, .page, .no-posts {
+	&.single,
+	&.page,
+	&.no-posts {
 		.nav--main > li {
 			float: right;
 		}
@@ -266,4 +270,274 @@ http://codex.wordpress.org/Right_to_Left_Language_Support
 		margin-right: 1.25rem;
 		margin-left: 0;
 	}
+
+	// comments
+	
+	.comments-area {
+
+		&:before {
+			left: auto;
+			right: 20px;
+			border-left: 0;
+			border-right: 1px solid $borders;
+		}
+
+		&:after {
+			@extend %comment-number--dark;
+			left: auto;
+			right: 0;
+		}
+	}
+
+	.comment-number--dark,
+	%comment-number--dark {
+		margin-left: $gutter;
+		margin-right: 0;
+	}
+
+	.comments-area-title, .comment-reply-title {
+
+		.comments-title {
+			margin-right: 0;
+			margin-left: $gutter/2;
+		}
+	}
+
+	.comments-area-title {
+		padding-right: 40px;
+		padding-left: 0;
+
+		.comment-number {
+			left: auto;
+			right: -40px;
+			margin-left: -20px;
+			margin-right: 0;
+		}
+	}
+
+	.commentlist > .comment, .commentlist > .pingback, .commentlist > .trackback {
+		padding-left: 0;
+		padding-right: 40px;
+	}
+
+	@include query-below($lap) {
+		.depth-1 > .comment-article > .comment-number {
+			left: auto;
+			right: 0;
+		}
+	}
+
+	.commentlist {
+		border-right: 0;
+		padding-right: 0;
+	}
+
+	li.comment, li.pingback, li.trackback {
+
+		.comment-number {
+			left: auto;
+			right: 0;
+
+			@include query-below($lap) {
+				left: auto;
+				right: -40px;
+			}
+		}
+
+		.children {
+
+			@include query-below($lap) {
+				margin-right: 0;
+			}
+
+			li {
+				@include query-above($lap) {
+					margin-right: 20px;
+					margin-left: 0;
+					padding-right: 40px;
+					padding-left: 0;
+				}
+			}
+		}
+
+	}
+
+	li.depth-2:before {
+		left: auto;
+		right: -2 * $first-padding-unit;
+	}
+
+	@include query-above($lap) {
+		@for $i from 3 through 5 {
+			li.depth-#{$i}:before {
+				left: auto;
+				right: - ( $i * $first-padding-unit + $second-padding-unit * ( $i - 2 ) );
+			}
+		}
+
+		@for $i from 6 through 10 {
+			li.comment.depth-#{$i} {
+				.children li {
+					margin-right: 0;
+					padding-right: 0;
+
+					.comment-number {
+						left: auto;
+						right: -40px;
+					}
+				}
+			}
+		}
+
+		li.comment.depth-6 {
+			&:before {
+				left: auto;
+				right: -280px;
+			}
+		}
+
+		@for $i from 7 through 10 {
+			li.comment.depth-#{$i} {
+				&:before {
+					left: auto;
+					right: -320px;
+				}
+			}
+		}
+	}
+
+	.comment__author-name {
+
+		.bypostauthor &:before {
+			margin-left: 10px;
+		}
+	}
+
+	.comment-article {
+		margin-left: 0;
+		margin-right: 20px;
+	}
+
+	.comment__avatar {
+		margin-right: 0;
+		@include rhythm(margin-left, 1);
+	}
+
+	// here
+
+	.comment__links {
+		margin-left: 0;
+		@include rhythm(margin-right, 2, 14px);
+	}
+
+	.comment-edit-link, .comment-reply-link {
+		margin-right: 0;
+		@include rhythm(margin-left, 1, 14px);
+	}
+
+	.comment-reply-title {
+		padding-left: 0;
+		padding-right: 60px;
+
+		&:before {
+			@extend %comment-number--dark;
+			right: 0;
+			left: auto;
+		}
+
+		.comment & {
+			padding-right: 0;
+
+			a {
+				margin-left: 0;
+				margin-right: 15px;
+			}
+		}
+	}
+
+	.comment-respond {
+
+		@include query-above($lap) {
+
+			.comment & {
+				padding-right: 0;
+				margin-left: 0;
+			}
+		}
+
+		.comment &{
+			margin-left: 0;
+			@include rhythm(margin-right, 2);
+		}
+	}
+
+	/* Comments Form */
+
+	.comment-form {
+
+		// for jetpack comments
+		iframe {
+			padding-left: 0;
+			padding-right: 1.5*$u;
+		}
+	}
+
+	:first-child:not(input) ~ .form-submit {
+		float: left;
+	}
+
+	.comment-subscription-form {
+		float: right;
+		clear: right;
+
+		input[type="checkbox"] {
+			margin-right: 0;
+			@include rhythm(margin-left, 1);
+		}
+	}
+
+	.add-comment {
+
+		.add-comment__button {
+			margin-right: 0;
+			@include rhythm(margin-left, 1, 24px);
+		}
+	}
+
+
+
+
+	/* Comments Navigation */
+
+	.comment-navigation {
+		padding-left: 0;
+		@include rhythm(padding-right, 5);
+
+		.comment-number {
+			left: auto;
+			right: 0;
+		}
+
+		.assistive-text {
+			margin-left: 0;
+			margin-right: 8px;
+		}
+
+		.nav-previous {
+			float: right;
+
+			a:before {
+				content: "\2192 ";
+			}
+		}
+
+		.nav-next {
+			float: left;
+
+			a:after {
+				content: " \2190";
+			}
+		}
+	}
+
 }
