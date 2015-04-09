@@ -724,6 +724,10 @@ $cards-gutter: $gutter;
 		margin-top: 8px;
 	}
 
+	.entry-meta + .entry-content {
+		margin-top: 0;
+	}
+
 	.entry-content--short {
 		@extend %fs-16;
 	}
