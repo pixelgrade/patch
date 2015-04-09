@@ -543,4 +543,20 @@ $second-padding-unit: 40px;
 		}
 	}
 
+	// attachment
+	
+	.attachment-navigation {
+
+		.navigation-item--previous {
+			margin-left: 0;
+			margin-right: -12px;
+		}
+
+		.navigation-item--next {
+			margin-right: 0;
+			margin-left: -12px;
+		}
+		
+	}
+
 }
