@@ -1,0 +1,373 @@
+# Translation of Patch in Dutch
+# This file is distributed under the same license as the Patch package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2015-04-08 19:26:43+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/0.1\n"
+"Project-Id-Version: Patch\n"
+
+#. Description of the plugin/theme
+#: wp-content/themes/premium/patch/style.css
+msgid "An algorithmic design experiment that cleverly imagines the best layout for your content. Patch brings unity and balance to your beautiful crafted diversity."
+msgstr ""
+
+#: inc/template-tags.php:998 inc/template-tags.php:1004
+msgid "Next"
+msgstr "Volgende"
+
+#: inc/template-tags.php:987 inc/template-tags.php:997
+msgid "Previous"
+msgstr "Voorgaande"
+
+#: inc/template-tags.php:855
+msgid "Next image"
+msgstr "Volgende afbeelding"
+
+#: inc/template-tags.php:980
+msgid "Posts navigation"
+msgstr "Berichtennavigatie"
+
+#: inc/template-tags.php:840
+msgid "Previous image"
+msgstr "Vorige afbeelding"
+
+#: inc/template-tags.php:830
+msgid "Image navigation"
+msgstr "Afbeeldingnavigatie"
+
+#: inc/template-tags.php:803
+msgid "Search Results for: %s"
+msgstr "Zoekresultaten voor: %s"
+
+#: inc/template-tags.php:325
+msgid "Archives"
+msgstr "Archieven"
+
+#: inc/template-tags.php:319
+msgid "Archives: %s"
+msgstr "Archieven: %s"
+
+#. translators: 1: Taxonomy singular name, 2: Current taxonomy term
+#: inc/template-tags.php:323
+msgid "%1$s: %2$s"
+msgstr "%1$s: %2$s"
+
+#: inc/template-tags.php:316
+msgctxt "post format archive title"
+msgid "Chats"
+msgstr "Gesprekken"
+
+#: inc/template-tags.php:312
+msgctxt "post format archive title"
+msgid "Statuses"
+msgstr "Statussen"
+
+#: inc/template-tags.php:314
+msgctxt "post format archive title"
+msgid "Audio"
+msgstr "Audio"
+
+#: inc/template-tags.php:308
+msgctxt "post format archive title"
+msgid "Quotes"
+msgstr "Citaten"
+
+#: inc/template-tags.php:310
+msgctxt "post format archive title"
+msgid "Links"
+msgstr "Links"
+
+#: inc/template-tags.php:306
+msgctxt "post format archive title"
+msgid "Videos"
+msgstr "Video's"
+
+#: inc/template-tags.php:302
+msgctxt "post format archive title"
+msgid "Galleries"
+msgstr "Galerijen"
+
+#: inc/template-tags.php:304
+msgctxt "post format archive title"
+msgid "Images"
+msgstr "Afbeeldingen"
+
+#: inc/template-tags.php:300
+msgctxt "post format archive title"
+msgid "Asides"
+msgstr "Zijdelings"
+
+#: inc/template-tags.php:297
+msgctxt "daily archives date format"
+msgid "F j, Y"
+msgstr "j F Y"
+
+#: inc/template-tags.php:295
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "F Y"
+
+#: inc/template-tags.php:297
+msgid "Day: %s"
+msgstr "Dag: %s"
+
+#: inc/template-tags.php:295
+msgid "Month: %s"
+msgstr "Maand: %s"
+
+#: inc/template-tags.php:293
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: inc/template-tags.php:293
+msgid "Year: %s"
+msgstr "Jaar: %s"
+
+#: inc/template-tags.php:291
+msgid "Author: %s"
+msgstr "Auteur: %s"
+
+#: inc/template-tags.php:289
+msgid "Tag: %s"
+msgstr "Tag: %s"
+
+#: inc/template-tags.php:287
+msgid "Category: %s"
+msgstr "Categorie: %s"
+
+#: inc/template-tags.php:264
+msgid "% Comments"
+msgstr "% reacties"
+
+#: inc/template-tags.php:264
+msgid "1 Comment"
+msgstr "1 reactie"
+
+#. translators: There is a space at the end
+#: inc/template-tags.php:253
+msgid "Tagged with: "
+msgstr "Met de volgende tags:"
+
+#: inc/template-tags.php:264
+msgid "Leave a comment"
+msgstr "Een reactie plaatsen"
+
+#: inc/template-tags.php:151
+msgid "All %s Posts"
+msgstr "Alle %s berichten"
+
+#: inc/template-tags.php:48
+msgctxt "post author"
+msgid "by %s"
+msgstr "door %s"
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:104
+msgid ", "
+msgstr ", "
+
+#: inc/extras.php:365
+msgid "Search"
+msgstr "Zoeken"
+
+#: inc/extras.php:247
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr "Zoek &hellip;"
+
+#: inc/extras.php:246 inc/extras.php:247
+msgctxt "label"
+msgid "Search for:"
+msgstr "Zoek op:"
+
+#. translators: To add an additional character subset specific to your
+#. language, translate this to 'greek', 'cyrillic', 'devanagari' or
+#. 'vietnamese'. Do not translate into your own language.
+#: inc/extras.php:124
+msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
+msgid "no-subset"
+msgstr "no-subset"
+
+#: inc/extras.php:173
+msgid "on %s at %s"
+msgstr ""
+
+#: inc/extras.php:190
+msgid "Your comment is awaiting moderation."
+msgstr "Je reactie is in afwachting van moderatie."
+
+#: inc/customizer.php:36
+msgid "Hide search button in Social Menu."
+msgstr ""
+
+#: inc/customizer.php:47
+msgid "Hide the author bio on single posts."
+msgstr ""
+
+#. Translators: If there are characters in your language that are not
+#. * supported by Roboto, translate this to 'off'. Do not translate
+#. * into your own language.
+#: inc/extras.php:111
+msgctxt "Roboto font: on or off"
+msgid "on"
+msgstr ""
+
+#. Translators: If there are characters in your language that are not
+#. * supported by Oswald, translate this to 'off'. Do not translate
+#. * into your own language.
+#: inc/extras.php:119
+msgctxt "Oswald font: on or off"
+msgid "on"
+msgstr ""
+
+#: image.php:26
+msgctxt "attachment parent post"
+msgid "Posted in %s"
+msgstr ""
+
+#: inc/customizer.php:19
+msgid "Display Site Title &amp; Tagline"
+msgstr "Toon site titel &amp; tagline"
+
+#: inc/customizer.php:26
+msgid "Theme"
+msgstr "Thema"
+
+#: header.php:25
+msgid "Menu"
+msgstr "Menu"
+
+#: header.php:32
+msgid "Skip to content"
+msgstr "Spring naar inhoud"
+
+#: functions.php:63
+msgid "Footer Menu"
+msgstr "Voettekstmenu"
+
+#: functions.php:109
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#: footer.php:36
+msgid "Begin typing your search above and press return to search. Press Esc to cancel."
+msgstr "Begin hierboven met het typen van uw zoekopdracht en druk op Enter om te zoeken. Druk op Esc om te annuleren."
+
+#: functions.php:61
+msgid "Primary Menu"
+msgstr "Primair menu"
+
+#: functions.php:62
+msgid "Social Menu"
+msgstr "Social-menu"
+
+#: footer.php:18
+msgid "<span class=\"theme-name\">Theme: %1$s</span> by %2$s."
+msgstr ""
+
+#: footer.php:28
+msgid "Footer navigation"
+msgstr "Footer navigatie"
+
+#: footer.php:16
+msgid "http://wordpress.org/"
+msgstr "http://nl.wordpress.org/"
+
+#: footer.php:16
+msgid "Proudly powered by %s"
+msgstr "Met trots ondersteund door %s"
+
+#: content.php:30
+msgid "Read More"
+msgstr "Lees Meer"
+
+#: content-none.php:34
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Het lijkt erop dat we niet kunnen vinden wat je zoekt. Misschien kan zoeken helpen."
+
+#: content-none.php:29
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Sorry, maar niets kwam overeen met je zoektermen. Gelieve het opnieuw te proberen met een aantal andere trefwoorden."
+
+#: content-none.php:25
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Klaar om je eerste bericht te publiceren? <a href=\"%1$s\">Begin hier</a>."
+
+#: content-none.php:18
+msgid "Nothing Found"
+msgstr "Niets gevonden"
+
+#: content-attachment.php:54 content-page.php:42 inc/extras.php:178
+#: inc/template-tags.php:236 inc/template-tags.php:268
+msgid "Edit"
+msgstr "Bewerken"
+
+#: content-aside.php:37 content-attachment.php:46 content-audio.php:58
+#: content-gallery.php:55 content-video.php:62 content.php:64
+msgid "Page"
+msgstr "Pagina"
+
+#. translators: %s: Name of current post
+#: content-aside.php:27 content-audio.php:12 content-quote.php:40
+#: content-single-audio.php:12 content-single-video.php:12 content-video.php:12
+#: inc/template-tags.php:688 inc/template-tags.php:718
+msgid "Continue reading %s"
+msgstr "Lees verder %s"
+
+#: content-aside.php:33 content-attachment.php:42 content-audio.php:54
+#: content-gallery.php:51 content-page.php:33 content-single-audio.php:59
+#: content-single-gallery.php:51 content-single-video.php:59
+#: content-single.php:59 content-video.php:58 content.php:60
+msgid "Pages:"
+msgstr "Pagina&#39;s:"
+
+#: comments.php:42 comments.php:63
+msgid "Newer Comments"
+msgstr "Nieuwere reacties"
+
+#: comments.php:75
+msgid "Comments are closed."
+msgstr "Reacties zijn gesloten."
+
+#: comments.php:41 comments.php:62
+msgid "Older Comments"
+msgstr "Oudere reacties"
+
+#: comments.php:24
+msgid "Comment"
+msgid_plural "Comments"
+msgstr[0] "Reactie"
+msgstr[1] "Reacties"
+
+#: comments.php:26
+msgid "There are no comments"
+msgstr "Er zijn geen reacties"
+
+#: comments.php:28
+msgid "Add yours"
+msgstr "Voeg uw reactie toe"
+
+#: comments.php:39 comments.php:60
+msgid "Comment navigation"
+msgstr "Reactienavigatie"
+
+#: author-bio.php:18
+msgid "All posts"
+msgstr "Alle berichten"
+
+#: 404.php:16
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Oeps! Die pagina kon niet worden gevonden."
+
+#: 404.php:20
+msgid "It looks like nothing was found at this location. Why not try searching for something?"
+msgstr ""
+
+#: author-bio.php:18
+msgid "View all posts by %s"
+msgstr "Bekijk alle berichten van %s"
