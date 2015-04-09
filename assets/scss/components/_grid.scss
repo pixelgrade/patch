@@ -11,8 +11,21 @@
 // 	}
 // }
 
-.site-main {
+
+.site {
 	padding-top: 2.5*$gutter;
+
+	.admin-bar {
+		padding-top: 2.5*$gutter + 32px;
+
+		@media screen and (max-width: 782px) {
+			padding-top: 2.5*$gutter + 46px;			
+		}
+	}
+}
+	
+
+.site-main {
 	padding-bottom: 2.5*$gutter;
 }
 

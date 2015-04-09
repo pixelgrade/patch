@@ -3,9 +3,9 @@
 	border-top-width: 4px;
 	padding: 20px;
 	font-size: 15px;
-	line-height: 22px;
-	margin-top: 60px;
-	margin-bottom: 40px;
+	line-height: 1.5;
+	margin-top: 54px;
+	margin-bottom: 36px;
 }
 
 .author-info__avatar {
@@ -39,7 +39,7 @@
 	@extend %smarter-links-underlines;
 
 	position: relative;
-	top: -3px;
+	top: -2px;
 
 	letter-spacing: 0.05em;
 	font-size: 13px;

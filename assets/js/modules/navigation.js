@@ -49,7 +49,7 @@ var navigation = (function() {
 			if(!android_ancient) {
 				if (!isOpen) {
 
-					$([$nav, $navTrigger]).each(function (i, obj) {
+					$([$nav, '.mobile-header']).each(function (i, obj) {
 						$(obj).velocity({
 							translateX: 0,
 							translateZ: 0.01
@@ -66,7 +66,7 @@ var navigation = (function() {
 
 					$nav.appendTo($('#page'));
 
-					$([$nav, $navTrigger]).each(function (i, obj) {
+					$([$nav, '.mobile-header']).each(function (i, obj) {
 						$(obj).velocity({
 							translateX: offset,
 							translateZ: 0.01

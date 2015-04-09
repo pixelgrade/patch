@@ -102,3 +102,23 @@ function setQueryParameter(uri, key, value) {
 function is_touch() {
   return $.support.touch;
 }
+
+function reorderSingleFooter() {
+  if (!$body.hasClass('single')) {
+    return;
+  }
+
+  var $related  = $('.jp-relatedposts'),
+      $jp       = $('#jp-post-flair'),
+      $author   = $('.author-info'),
+      $footer   = $('.entry-footer');
+
+  if ($jp.length) {
+    if ($author.length) {
+      $jp.insertBefore($author);
+      if ($related.length) {
+        $related.insertAfter($author);
+      }
+    }
+  }
+}

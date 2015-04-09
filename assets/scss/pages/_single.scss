@@ -11,9 +11,22 @@
 
 .single, .page:not(.entry-card), .no-posts {
 
+	.site {
+		@include query-above($lap) {
+			padding-top: 0;
+		}
+	}
+
 	@include query-below($lap) {
+		.site-header {
+			max-width: 330px;
+			padding: 0 20px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
 		.site-content {
-			padding: 0 45px;
+			padding: 0 24px;
 			padding-bottom: 30px;
 		}
 	}
@@ -44,6 +57,10 @@
 
 	.entry-content {
 		margin-bottom: 42px;
+
+		a {
+			box-shadow: white 0 0.8em inset;
+		}
 	}
 
 	@include query-below($lap) {
@@ -67,7 +84,6 @@
 	}
 
 	.entry-featured {
-		margin-top: $gutter;
 		margin-bottom: $gutter;
 
 		img {
@@ -106,9 +122,7 @@
 
 	.entry-image--portrait,
 	.entry-image--tall {
-		// max-width: none;
 		float: none;
-		// margin-right: 0;
 
 		.entry-featured {
 			margin-bottom: $gutter;
@@ -176,7 +190,24 @@
 	}
 
 	a, span {
-		padding: 12px !important;
+		padding: 8px !important;
+	}
+
+	a {
+		@extend %smarter-links-underlines;
+		margin-right: 3px;
+		box-shadow: white 0 2em inset;
+		display: inline-block;
+	}
+
+	.single & , .page:not(.entry-card) & {
+		a, span {
+			box-shadow: white 0 2em inset;
+		}
+
+		span {
+			display: inline-block;
+		}
 	}
 }
 
@@ -243,4 +274,8 @@
 			// width: 100%;
 		}
 	}
+}
+
+.entry-footer {
+	clear: both;
 }

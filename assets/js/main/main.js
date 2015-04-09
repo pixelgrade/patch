@@ -7,6 +7,8 @@ $(document).ready(function() {
 function init() {
   browserSize();
   platformDetect(); 
+  masonry.refresh();
+  reorderSingleFooter();
 }
 
 // /* ====== ON WINDOW LOAD ====== */
@@ -14,11 +16,11 @@ function init() {
 $window.load(function() {
   browserSize();
   navigation.init();
-  masonry.refresh();
   scrollToTop();
   moveFeaturedImage();
   magnificPopupInit();
   logoAnimation.init();
+  logoAnimation.update();
 });
 
 // /* ====== ON RESIZE ====== */

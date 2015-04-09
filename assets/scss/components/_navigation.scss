@@ -64,9 +64,8 @@
 .nav--main {
 	@extend .clearfix;
 	@extend %beta;
-	// @extend %fs-24;
 	font-size: 24px;
-	line-height: 1.875;
+	line-height: 1.5;
 	margin-bottom: $gutter;
 
 	.single &, .page:not(.entry-card) & {
@@ -76,19 +75,16 @@
 	li {
 		display: block;
 		position: relative;
+		margin-bottom: 10px;
 
-		&[class*="current-menu"] > a,
+		&[class*="current-menu"] > a {
+			@extend %link--underline--menu;
+		}
+
 		&:hover > a {
-			@extend %hover;
-
-			&:before {
-				bottom: 0;
-			}
+			@extend %link--underline--menu;
 		}
 
-		a:before {
-
-		}
 	}
 
 	> li {
@@ -99,27 +95,32 @@
 			padding-right: 10px;
 	    }
 
-		a {
-			@extend .light;
-			position: relative;
-			line-height: 1.5;
-			display: block;
-			letter-spacing: 0.06em;
+	}
 
-			@include query-above($lap) {
-				display: inline;
-			}
+	a {
+		@extend .light;
+		position: relative;
+		display: block;
+		letter-spacing: 0.06em;
+		padding-left: 2px;
+		padding-right: 2px;
+
+		@include query-above($lap) {
+			display: inline !important;
 		}
 	}
 
 	.menu-item-has-children {
+		padding-right: .5em;
 
 		> a {
-			padding-right: 0.65em;
 			
 			&:after {
 				content: "+";
-				margin-left: 10px;
+				position: absolute;
+				top: -0.1em;
+				left: 100%;
+				margin-left: 0.25em;
 			}
 		}
 
@@ -137,6 +138,10 @@
 				display: block;
 			}
 		}
+
+		li:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	@include query-below($lap) {
@@ -149,32 +154,35 @@
 
 		/*.sub-menu*/ul {
 			position: absolute;
-			top: 0; 
-			left: 100%;
-			margin-left: -28px;
+			top: 0;
 			margin-top: 4px;
+			margin-left: .25em;
 
 			display: inline-block;
 			pointer-events: none;
 			opacity: 0;
 			transform-origin: 0 0;
 			transform: scale(0.95);
-			transition: all 0.15s;
+			transition: transform 0.15s, opacity 0.15s;
 
 			background: white;
 			z-index: 100;
 			padding: $gutter/2;
 			border-radius: 3px;
 			box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
-
 			font-size: 18px;
-			line-height: 2.2;
 
 			li {
-				width: 100%;
+				float: left;
+				clear: left;
+
+				&.menu-item-has-children {
+					padding-right: .25em; 
+				}
 			}
 
 			ul {
+				margin-left: 0;
 				top: -$gutter/2;
 				left: 100%;
 			}
@@ -245,6 +253,14 @@
 		@media screen and (max-width: 782px) {
 			top: 46px;
 		}
+
+		@media screen and (max-width: 600px) {
+			position: absolute;
+
+			img {
+				display: none;
+			}
+		}
 	}
 
 	.site-logo {
@@ -264,13 +280,10 @@
 	.mobile-header {
 		display: block;
 	}
-
-	.site {
-		padding-top: 70px;
-	}
 }
 
-.navigation__trigger {
+.navigation__trigger,
+.search__trigger {
 	position: absolute;
 	top: 0; left: 0;
 	padding: $gutter/2;
@@ -283,6 +296,11 @@
 	background: none;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-tap-highlight-color: transparent; /* For some Androids */
+}
+
+.search__trigger {
+	left: auto;
+	right: 0;
 }
 
 
@@ -348,9 +366,9 @@
 	}
 
 	.nav--main > li {
-		float: none;
+		float: left;
 		width: 100%;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 	}
 }
 

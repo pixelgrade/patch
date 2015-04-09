@@ -63,7 +63,7 @@
 		}
 
 		&:hover { 
-			@extend %hover;
+			@extend %link--underline;
 		}
 	}
 }

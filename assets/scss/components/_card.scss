@@ -70,8 +70,12 @@ $cards-gutter: $gutter;
 	@include breakpoint($breakpoint) {
 		
 		// Grid Alignment
-		.site-main {
-			padding-left: $gutter;
+		.grid {
+			border-left: $gutter solid transparent;
+		}
+
+		.layout-grid .site-header {
+			padding-right: $gutter;
 		}
 
 		.site-branding,
@@ -226,6 +230,12 @@ $cards-gutter: $gutter;
 	}
 }
 
+@include query-above($lap) {
+	.site-header.site-header {
+		padding-right: 0;
+	}
+}
+
 
 
 
@@ -260,7 +270,9 @@ $cards-gutter: $gutter;
 }
 
 .site-header {
+	
 	@include query-below($lap) {
+		margin-bottom: 20px; 
 		transform: none !important;
 		z-index: 100;
 	}
@@ -567,12 +579,19 @@ $cards-gutter: $gutter;
 @include cards-spacing(30px, large);
 	
 @include query-below($lap) {
-	.layout-grid {
 
-		.site-branding {
-			margin-left: 0;
-			margin-right: 0;
+	.site-branding {
+		margin-left: 0;
+		margin-right: 0;
+
+		img {
+			display: block;
+			margin: 0 auto;
+			margin-bottom: 5px;
 		}
+	}
+
+	.layout-grid {
 
 		.entry-card {
 			margin-right: 0;
@@ -695,8 +714,14 @@ $cards-gutter: $gutter;
 
 	.entry-content {
 		@extend %fs-14;
+		@extend %hyphens;
+
+		-webkit-hyphens: auto;
+		-moz-hyphens: auto;
+		-ms-hyphens: auto;
+		hyphens: auto;
+
 		margin-top: 8px;
-		word-break: break-word;
 	}
 
 	.entry-content--short {

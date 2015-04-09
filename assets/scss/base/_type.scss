@@ -180,31 +180,34 @@ strong {
 
 /* Links */
 
-%hover {
-	&:before {
-		content: "";
-		position: absolute;
-		right: -0.2em;
-		bottom: 0.1em;
-		left: -0.2em;
-		height: 0.4em;
-		background: $accent;
-		z-index: -1;
+%link--underline--menu {
+	position: relative;
+	background-color: $accent;
+	box-shadow: white 0 1.1em inset;
+	line-height: 1.4em;
+	// transition: none;
+	padding-left: 2px;
+	padding-right: 2px;
+
+}
+
+%link--underline--hover {
+	box-shadow: white 0 0 inset;
+	// transition: box-shadow .2s ease-in, background-color .15s ease-in;
+}
+
+%link--underline {
+	@extend %link--underline--menu;
+	transition: box-shadow .15s ease-out;
+
+	&:hover {
+		@extend %link--underline--hover;
 	}
 }
 
 // Smarter Links Underlines
-
 %smarter-links-underlines {
-	text-decoration: none;
-
-	box-shadow: inset 0 -8px 0 $accent;
-	padding-left: 2px;
-	padding-right: 2px;
-
-	&:hover{
-		background-color: $accent;
-	}
+	@extend %link--underline;
 }
 
 .smart-link {
@@ -216,7 +219,7 @@ a {
 	color: $black;
 	font-weight: 500;
 	
-	transition: all 0.15s;
+	// transition: all 0.15s;
 
 	h1 &, .site-title &, h2 &, h3 & {
 		color: $accent; 
@@ -258,6 +261,13 @@ a {
 				box-shadow: none;
 				background: none;
 			}
+
+			.nav--main &, .sidebar & {
+				margin-left: -2px;
+				margin-right: -2px;
+				padding-left: 2px;
+				padding-right: 2px;
+			}
     	}
 
 	.edit-link & {
@@ -272,7 +282,10 @@ a {
 	}
 }
 
-
+::selection {
+	background: $accent;
+	color: $black;
+}
 
 
 

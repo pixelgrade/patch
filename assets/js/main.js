@@ -151,7 +151,8 @@ if (!Date.now) Date.now = function () {
   var logoAnimation = (function () {
 
     var $logo = $('img.site-logo'),
-        $clone, distance,
+        $clone, distance, initialized = false,
+        
         
         init = function () {
 
@@ -165,13 +166,15 @@ if (!Date.now) Date.now = function () {
               cloneMid = cloneTop + cloneHeight / 2,
               $header = $('.mobile-header'),
               headerOffset = $header.offset(),
+              headerHeight = $header.outerHeight(),
+              headerMid = headerHeight / 2,
               logoOffset = $logo.offset(),
               logoTop = logoOffset.top,
               logoWidth = $logo.width(),
               logoHeight = $logo.height(),
               logoMid = logoTop + logoHeight / 2;
 
-          distance = logoMid - cloneMid;
+          distance = logoMid - headerMid;
 
           $clone.velocity({
             translateY: distance,
@@ -179,11 +182,17 @@ if (!Date.now) Date.now = function () {
           }, {
             duration: 0
           });
+
+          initialized = true;
         }
         },
         
         
         update = function () {
+
+        if (!$logo.length || !initialized) {
+          return;
+        }
 
         if (distance < latestKnownScrollY) {
           $clone.velocity({
@@ -211,31 +220,24 @@ if (!Date.now) Date.now = function () {
   })(); /* --- Magnific Popup Initialization --- */
 
   function magnificPopupInit() {
-    $('.entry-content').each(function () { // the containers for all your galleries should have the class gallery
-      $(this).magnificPopup({
-        delegate: 'a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]',
-        // the container for each your gallery items
-        type: 'image',
-        closeOnContentClick: false,
-        closeBtnInside: false,
-        removalDelay: 500,
-        mainClass: 'mfp-fade',
-        image: {
-          markup: '<div class="mfp-figure">' + '<div class="mfp-img"></div>' + '<div class="mfp-bottom-bar">' + '<div class="mfp-title"></div>' + '<div class="mfp-counter"></div>' + '</div>' + '</div>',
-          titleSrc: function (item) {
-            var output = '';
-            if (typeof item.el.attr('data-alt') !== "undefined" && item.el.attr('data-alt') !== "") {
-              output += '<small>' + item.el.attr('data-alt') + '</small>';
-            }
-            return output;
+    $('a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]').filter(function (elem) {
+      return !$(this).parents('.gallery').length
+    }).magnificPopup({
+      type: 'image',
+      closeOnContentClick: false,
+      closeBtnInside: false,
+      removalDelay: 500,
+      mainClass: 'mfp-fade',
+      image: {
+        markup: '<div class="mfp-figure">' + '<div class="mfp-img"></div>' + '<div class="mfp-bottom-bar">' + '<div class="mfp-title"></div>' + '<div class="mfp-counter"></div>' + '</div>' + '</div>',
+        titleSrc: function (item) {
+          var output = '';
+          if (typeof item.el.attr('data-alt') !== "undefined" && item.el.attr('data-alt') !== "") {
+            output += '<small>' + item.el.attr('data-alt') + '</small>';
           }
-        },
-        gallery: {
-          enabled: true,
-          navigateByImgClick: true
-          //arrowMarkup: '<a href="#" class="gallery-arrow gallery-arrow--%dir% control-item arrow-button arrow-button--%dir%">%dir%</a>'
+          return output;
         }
-      });
+      }
     });
   }
 
@@ -525,7 +527,7 @@ if (!Date.now) Date.now = function () {
           if (!android_ancient) {
             if (!isOpen) {
 
-              $([$nav, $navTrigger]).each(function (i, obj) {
+              $([$nav, '.mobile-header']).each(function (i, obj) {
                 $(obj).velocity({
                   translateX: 0,
                   translateZ: 0.01
@@ -542,7 +544,7 @@ if (!Date.now) Date.now = function () {
 
               $nav.appendTo($('#page'));
 
-              $([$nav, $navTrigger]).each(function (i, obj) {
+              $([$nav, '.mobile-header']).each(function (i, obj) {
                 $(obj).velocity({
                   translateX: offset,
                   translateZ: 0.01
@@ -798,6 +800,11 @@ if (!Date.now) Date.now = function () {
               right = images[i];
             }
 
+            if (right.isEven && left.isPortrait && right.isPortrait && imagesOverlap(left.card, right.card)) {
+              right.$el.closest('.grid__item').removeClass('entry--even');
+              right.isEven = true;
+            }
+
             source = !left.isPortrait || left.isEven ? left : left.card;
             destination = right;
 
@@ -859,17 +866,19 @@ if (!Date.now) Date.now = function () {
   function init() {
     browserSize();
     platformDetect();
+    masonry.refresh();
+    reorderSingleFooter();
   }
 
   // /* ====== ON WINDOW LOAD ====== */
   $window.load(function () {
     browserSize();
     navigation.init();
-    masonry.refresh();
     scrollToTop();
     moveFeaturedImage();
     magnificPopupInit();
     logoAnimation.init();
+    logoAnimation.update();
   });
 
   // /* ====== ON RESIZE ====== */
@@ -997,5 +1006,25 @@ if (!Date.now) Date.now = function () {
 
   function is_touch() {
     return $.support.touch;
+  }
+
+  function reorderSingleFooter() {
+    if (!$body.hasClass('single')) {
+      return;
+    }
+
+    var $related = $('.jp-relatedposts'),
+        $jp = $('#jp-post-flair'),
+        $author = $('.author-info'),
+        $footer = $('.entry-footer');
+
+    if ($jp.length) {
+      if ($author.length) {
+        $jp.insertBefore($author);
+        if ($related.length) {
+          $related.insertAfter($author);
+        }
+      }
+    }
   }
 })(jQuery);
