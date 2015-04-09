@@ -895,7 +895,7 @@ if (!Date.now) Date.now = function () {
         
         
         sidebarFits = function () {
-        return windowHeight > parseInt($target.outerHeight(), 10) + parseInt($siteContent.css('paddingTop'), 10) + parseInt($siteContent.css('paddingBottom'), 10) + parseInt($html.css('marginTop'), 10) + parseInt($body.css('borderTopWidth'), 10) + parseInt($body.css('borderBottomWidth'), 10);
+        return windowHeight > parseInt($('.site-footer').outerHeight(), 10) + parseInt($target.outerHeight(), 10) + parseInt($siteContent.css('paddingTop'), 10) + parseInt($siteContent.css('paddingBottom'), 10) + parseInt($html.css('marginTop'), 10) + parseInt($body.css('borderTopWidth'), 10);
         };
 
     return {

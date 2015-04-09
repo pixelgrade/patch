@@ -2,6 +2,7 @@
 	width: 100%;
 	height: 38px;
 	border: 2px solid #d7d7d7;
+	overflow: hidden;
 
 	&, & + p {
 		max-width: 620px;

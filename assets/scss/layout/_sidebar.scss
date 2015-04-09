@@ -45,7 +45,6 @@
 	}
 
 	@include query-above($lap) {
-		@include rhythm(padding-bottom, 4);
 		z-index: 5;
 		float: left;
 		width: $sidebar;
