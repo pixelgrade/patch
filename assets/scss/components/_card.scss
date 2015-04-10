@@ -813,6 +813,10 @@ $cards-gutter: $gutter;
 		background-size: cover;
 		background-position: center center;
 
+		@include query-below($xsmall) {
+			padding-left: 24px;
+		}
+
 		a {
 			box-shadow: inset 0 -3px 0 $accent;
 			color: white;
