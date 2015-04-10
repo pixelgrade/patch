@@ -8,7 +8,7 @@ var Sidebar = (function () {
 
 	init = function() {
 
-		if (!isSingle()) {
+		if (!isSingle() || windowWidth < 900) {
 			return;
 		}
 
