@@ -553,6 +553,10 @@ if (!Date.now) Date.now = function () {
 
             } else {
 
+              if ($('#demosite-activate-wrap').length) {
+                $nav.css('top', $('.mobile-header').css('top'));
+              }
+
               $([$nav, '.mobile-header-wrapper']).each(function (i, obj) {
                 $(obj).velocity({
                   translateX: offset,

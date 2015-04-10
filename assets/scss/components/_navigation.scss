@@ -258,16 +258,30 @@
 	.admin-bar & {
 		top: 32px;
 
-		@media screen and (max-width: 782px) {
-			top: 46px;
-		}
-
 		@media screen and (max-width: 600px) {
 			position: absolute;
 
 			img {
 				display: none;
 			}
+		}
+	}
+
+	#demosite-activate-wrap ~ & {
+		top: 80px;
+	}
+
+	.admin-bar #demosite-activate-wrap ~ & {
+		top: 112px;
+	}
+
+	@media screen and (max-width: 782px) {
+		.admin-bar & {
+			top: 46px;
+		}
+
+		.admin-bar #demosite-activate-wrap ~ & {
+			top: 126px;
 		}
 	}
 
