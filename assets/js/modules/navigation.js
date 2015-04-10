@@ -47,6 +47,7 @@ var navigation = (function() {
 			}
 
 			if(!android_ancient) {
+				
 				if (!isOpen) {
 
 					$([$nav, '.mobile-header']).each(function (i, obj) {
@@ -63,8 +64,6 @@ var navigation = (function() {
 					});
 
 				} else {
-
-					$nav.appendTo($('#page'));
 
 					$([$nav, '.mobile-header']).each(function (i, obj) {
 						$(obj).velocity({
