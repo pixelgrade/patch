@@ -474,7 +474,7 @@ $cards-gutter: $gutter;
 	}
 
 	.entry-content {
-
+		position: relative;
 		margin-top: 2px;
 
 		p:last-of-type {
