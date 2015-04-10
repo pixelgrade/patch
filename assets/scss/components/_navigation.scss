@@ -117,9 +117,12 @@
 			
 			&:after {
 				content: "+";
-				position: absolute;
-				top: -0.1em;
-				left: 100%;
+				// this caused the + icon to
+				// be misplaced on two-line
+				// menu items
+				// position: absolute;
+				// top: -0.1em;
+				// left: 100%;
 				margin-left: 0.25em;
 			}
 		}
