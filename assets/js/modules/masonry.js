@@ -20,8 +20,6 @@ var masonry = (function() {
 
 		var isRtl = $body.hasClass('rtl');
 
-		console.log(isRtl);
-
 		$container.imagesLoaded(function() {
 			$container.masonry({
 				itemSelector: '.grid__item',
