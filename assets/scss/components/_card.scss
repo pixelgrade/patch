@@ -327,6 +327,7 @@ $cards-gutter: $gutter;
 		.touch & {
 			position: static;
 			opacity: 1;
+			overflow: hidden;
 		}
 	}
 		.entry-time {

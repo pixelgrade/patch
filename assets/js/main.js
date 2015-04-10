@@ -525,6 +525,7 @@ if (!Date.now) Date.now = function () {
           }
 
           if (!android_ancient) {
+
             if (!isOpen) {
 
               $([$nav, '.mobile-header']).each(function (i, obj) {
@@ -541,8 +542,6 @@ if (!Date.now) Date.now = function () {
               });
 
             } else {
-
-              $nav.appendTo($('#page'));
 
               $([$nav, '.mobile-header']).each(function (i, obj) {
                 $(obj).velocity({
@@ -868,7 +867,7 @@ if (!Date.now) Date.now = function () {
         
         init = function () {
 
-        if (!isSingle()) {
+        if (!isSingle() || windowWidth < 900) {
           return;
         }
 
