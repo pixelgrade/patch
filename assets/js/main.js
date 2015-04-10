@@ -158,13 +158,13 @@ if (!Date.now) Date.now = function () {
 
         if ($logo.length) {
 
-          $clone = $logo.clone().appendTo('.mobile-header');
+          $clone = $logo.clone().appendTo('.mobile-header-wrapper');
 
           var cloneOffset = $clone.offset(),
               cloneTop = cloneOffset.top,
               cloneHeight = $clone.height(),
               cloneMid = cloneTop + cloneHeight / 2,
-              $header = $('.mobile-header'),
+              $header = $('.mobile-header-wrapper'),
               headerOffset = $header.offset(),
               headerHeight = $header.outerHeight(),
               headerMid = headerHeight / 2,
