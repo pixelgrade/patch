@@ -47,10 +47,10 @@ var navigation = (function() {
 			}
 
 			if(!android_ancient) {
-				
+
 				if (!isOpen) {
 
-					$([$nav, '.mobile-header']).each(function (i, obj) {
+					$([$nav, '.mobile-header-wrapper']).each(function (i, obj) {
 						$(obj).velocity({
 							translateX: 0,
 							translateZ: 0.01
@@ -63,9 +63,11 @@ var navigation = (function() {
 						});
 					});
 
+					$html.removeClass('no-scroll');
+
 				} else {
 
-					$([$nav, '.mobile-header']).each(function (i, obj) {
+					$([$nav, '.mobile-header-wrapper']).each(function (i, obj) {
 						$(obj).velocity({
 							translateX: offset,
 							translateZ: 0.01
@@ -74,6 +76,8 @@ var navigation = (function() {
 							duration: 300
 						});
 					});
+
+					$html.addClass('no-scroll');
 
 				}
 
