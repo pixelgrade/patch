@@ -2,7 +2,7 @@
 (function() {
 
   var isOpen = false,
-    $overlay = $('.overlay--search');
+      $overlay = $('.overlay--search');
 
   // update overlay position (if it's open) on window.resize
   $window.on('debouncedresize', function() {

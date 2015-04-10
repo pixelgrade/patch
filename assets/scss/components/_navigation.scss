@@ -117,9 +117,12 @@
 			
 			&:after {
 				content: "+";
-				position: absolute;
-				top: -0.1em;
-				left: 100%;
+				// this caused the + icon to
+				// be misplaced on two-line
+				// menu items
+				// position: absolute;
+				// top: -0.1em;
+				// left: 100%;
 				margin-left: 0.25em;
 			}
 		}
@@ -134,6 +137,8 @@
 		min-width: 10em;
 
 		@include query-below($lap) {
+			margin-top: 10px;
+
 			li {
 				display: block;
 			}
@@ -200,8 +205,8 @@
 	}
 }
 
-@include query-below($lap) {
-	.main-navigation {
+.main-navigation {
+	@include query-below($lap) {
 		position: fixed;
 		top: 0;
 		left: -100%;
@@ -224,14 +229,19 @@
 	}
 }
 
+@media screen and (max-width: 600px) {
+	.main-navigation { position: absolute; }
+	.grid.grid { position: static; }
+}
+
 @include query-below($lap) {
 	.admin-bar .main-navigation {
-		padding-top: 32px;
+		padding-top: 56px;
 	}
 }
 @media screen and (max-width: 782px) {
 	.admin-bar .main-navigation {
-		padding-top: 46px;
+		padding-top: 70px;
 	}
 }
 
@@ -242,17 +252,11 @@
 	top: 0;
 	left: 0;
 	z-index: 50;
-	border-bottom: 1px solid $lightest;
-	background: white;
 	display: none;
 	overflow: hidden;
 
 	.admin-bar & {
 		top: 32px;
-
-		@media screen and (max-width: 782px) {
-			top: 46px;
-		}
 
 		@media screen and (max-width: 600px) {
 			position: absolute;
@@ -260,6 +264,24 @@
 			img {
 				display: none;
 			}
+		}
+	}
+
+	#demosite-activate-wrap ~ & {
+		top: 80px;
+	}
+
+	.admin-bar #demosite-activate-wrap ~ & {
+		top: 112px;
+	}
+
+	@media screen and (max-width: 782px) {
+		.admin-bar & {
+			top: 46px;
+		}
+
+		.admin-bar #demosite-activate-wrap ~ & {
+			top: 126px;
 		}
 	}
 
@@ -273,6 +295,15 @@
 		margin-top: 10px;
 		will-change: transform;
 	}
+}
+
+.mobile-header-wrapper {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+	height: 100%;
+	border-bottom: 1px solid $lightest;
+	background: white;
 }
 
 

@@ -2,6 +2,20 @@
 	body {
 		border: 18px solid black;
 		border-bottom: 0;
+
+		&:before {
+			content: "";
+			position: fixed;
+			top: 0; left: 0;
+			height: 18px;
+			width: 100%;
+			background: black;
+			z-index: 9999;
+		}
+
+		&.admin-bar:before {
+			height: 50px;
+		}
 	}
 }
 

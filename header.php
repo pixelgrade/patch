@@ -20,14 +20,6 @@
 
 <body <?php body_class(); ?>>
 
-<div class="mobile-header">
-	<button class="navigation__trigger  js-nav-trigger">
-		<i class="fa fa-bars"></i><span class="screen-reader-text"><?php _e( 'Menu', 'patch' ); ?></span>
-	</button>
-	<button class="nav__item--search  search__trigger">
-		<i class="fa fa-search"></i>
-	</button>
-</div>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'patch' ); ?></a>
 

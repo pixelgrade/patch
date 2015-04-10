@@ -45,6 +45,7 @@ $cards-gutter: $gutter;
 	@include placeholder("col-left-0", $col) { margin-left: 0 }
 	@include placeholder("col-left-1", $col) { margin-left: $col }
 	@include placeholder("col-left-2", $col) { margin-left: 2*$col }
+	@include placeholder("col-left-3", $col) { margin-left: 2*$col }
 
 
 	@include placeholder("col-left-p0", $col) { padding-left: 0 }
@@ -68,6 +69,10 @@ $cards-gutter: $gutter;
 
 
 	@include breakpoint($breakpoint) {
+
+		#infinite-handle, .infinite-loader {
+			margin-left: -$gutter / 2;
+		}
 		
 		// Grid Alignment
 		.grid {
@@ -83,13 +88,17 @@ $cards-gutter: $gutter;
 		.nav--social {
 			@include _("col-left-1");
 			@include _("col-right-3");
+
+			.rtl & {
+				@include _("col-right-1");
+				@include _("col-left-3");				
+			}
 		}
 
 		// GENERAL
 		.entry-card {
 			@include _("col-right-2");
 			@include _("col-left--1");
-			// @include _("col-right-p1");
 
 			.entry-meta,
 			.entry-content {
@@ -199,6 +208,13 @@ $cards-gutter: $gutter;
 				@include _("col-left-0");
 				@include _("col-right-p05");
 			}
+
+			.rtl & {
+				.entry-meta {
+					@include _("col-right-0");
+					@include _("col-left-p05");		
+				}				
+			}
 		}
 
 		// EVEN CASE
@@ -222,7 +238,6 @@ $cards-gutter: $gutter;
 				.entry-header,
 				.entry-content {
 					@include _("col-right-p0");
-					// daca e inca una portrait sa nu acopere scrisu, gen
 					@include _("col-left-p1");
 				}
 			}
@@ -327,6 +342,7 @@ $cards-gutter: $gutter;
 		.touch & {
 			position: static;
 			opacity: 1;
+			overflow: hidden;
 		}
 	}
 		.entry-time {
@@ -473,7 +489,7 @@ $cards-gutter: $gutter;
 	}
 
 	.entry-content {
-
+		position: relative;
 		margin-top: 2px;
 
 		p:last-of-type {
@@ -724,6 +740,10 @@ $cards-gutter: $gutter;
 		margin-top: 8px;
 	}
 
+	.entry-meta + .entry-content {
+		margin-top: 0;
+	}
+
 	.entry-content--short {
 		@extend %fs-16;
 	}
@@ -807,6 +827,10 @@ $cards-gutter: $gutter;
 		background-color: black;
 		background-size: cover;
 		background-position: center center;
+
+		@include query-below($xsmall) {
+			padding-left: 24px;
+		}
 
 		a {
 			box-shadow: inset 0 -3px 0 $accent;
