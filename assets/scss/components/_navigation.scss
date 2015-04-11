@@ -379,14 +379,17 @@
 
 .single, .page, .no-posts {
 
-	.site-header { 
-		position: relative;
+	.site-header {
 		z-index: 1;
 		opacity: 1;
 		border-left: 0;
 	}
 
-	@include query-above($lap) { 
+	@include query-above($lap) {
+		.site-header {
+			position: relative;
+		}
+
 		.site-branding,
 		.nav--main,
 		.nav--social,
@@ -394,12 +397,12 @@
 			margin-left: 0;
 			margin-right: 0;
 		}
-	}
 
-	.nav--main > li {
-		float: left;
-		width: 100%;
-		margin-bottom: 20px;
+		.nav--main > li {
+			float: left;
+			width: 100%;
+			margin-bottom: 20px;
+		}
 	}
 }
 

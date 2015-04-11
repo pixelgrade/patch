@@ -5,7 +5,6 @@
 .no-posts {
 	.site-content .container {
 		@extend %clearfix;
-		position: relative;
 	}
 
 	.content-area {
@@ -13,6 +12,9 @@
 	}
 
 	@include query-above($lap) {
+		.site-content .container {
+			position: relative;
+		}
 
 		.content-area {
 			float: right;
