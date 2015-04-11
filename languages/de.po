@@ -238,11 +238,11 @@ msgstr ""
 msgid "Theme"
 msgstr "Theme"
 
-#: header.php:25
+#: footer.php:45
 msgid "Menu"
 msgstr "Menü"
 
-#: header.php:32
+#: header.php:24
 msgid "Skip to content"
 msgstr "Zum Inhalt springen"
 
