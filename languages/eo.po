@@ -238,11 +238,11 @@ msgstr "Montri la titolon kaj frapfrazon de la retejo"
 msgid "Theme"
 msgstr "Etoso"
 
-#: header.php:25
+#: footer.php:45
 msgid "Menu"
 msgstr "Menuo"
 
-#: header.php:32
+#: header.php:24
 msgid "Skip to content"
 msgstr "Iri rekte al la enhavo"
 

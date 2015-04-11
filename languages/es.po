@@ -238,11 +238,11 @@ msgstr "Muestra el título del sitio y el eslogan"
 msgid "Theme"
 msgstr "Tema"
 
-#: header.php:25
+#: footer.php:45
 msgid "Menu"
 msgstr "Menu"
 
-#: header.php:32
+#: header.php:24
 msgid "Skip to content"
 msgstr "Saltar al contenido."
 

@@ -238,11 +238,11 @@ msgstr "Toon site titel &amp; tagline"
 msgid "Theme"
 msgstr "Thema"
 
-#: header.php:25
+#: footer.php:45
 msgid "Menu"
 msgstr "Menu"
 
-#: header.php:32
+#: header.php:24
 msgid "Skip to content"
 msgstr "Spring naar inhoud"
 

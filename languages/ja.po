@@ -238,11 +238,11 @@ msgstr "サイト名とタグラインを表示"
 msgid "Theme"
 msgstr "テーマ名"
 
-#: header.php:25
+#: footer.php:45
 msgid "Menu"
 msgstr "メニュー"
 
-#: header.php:32
+#: header.php:24
 msgid "Skip to content"
 msgstr "コンテンツへ移動"
 

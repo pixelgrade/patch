@@ -238,11 +238,11 @@ msgstr "نمایش عنوان و توضیحات سایت"
 msgid "Theme"
 msgstr "پوشته"
 
-#: header.php:25
+#: footer.php:45
 msgid "Menu"
 msgstr "گزینگان"
 
-#: header.php:32
+#: header.php:24
 msgid "Skip to content"
 msgstr "پرش به محتوا"
 
