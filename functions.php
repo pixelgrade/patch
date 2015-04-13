@@ -123,25 +123,25 @@ add_action( 'widgets_init', 'patch_widgets_init' );
  */
 function patch_scripts() {
 	//FontAwesome Stylesheet
-	wp_enqueue_style( 'patch-font-awesome-style', get_stylesheet_directory_uri() . '/assets/css/font-awesome.css', array(), '4.3.0' );
+	wp_enqueue_style( 'patch-font-awesome-style', get_template_directory_uri() . '/assets/css/font-awesome.css', array(), '4.3.0' );
 
 	//Main Stylesheet
-	wp_enqueue_style( 'patch-style', get_stylesheet_uri(), array( 'patch-font-awesome-style' ) );
+	wp_enqueue_style( 'patch-style', get_template_directory_uri() . '/style.css', array( 'patch-font-awesome-style' ) );
 
 	//Default Fonts
 	wp_enqueue_style( 'patch-fonts', patch_fonts_url(), array(), null );
 
 	//Register ImagesLoaded plugin
-	wp_register_script( 'patch-imagesloaded', get_stylesheet_directory_uri() . '/assets/js/imagesloaded.js', array(), '3.1.8', true );
+	wp_register_script( 'patch-imagesloaded', get_template_directory_uri() . '/assets/js/imagesloaded.js', array(), '3.1.8', true );
 
 	//Register Velocity.js plugin
-	wp_register_script( 'patch-velocity', get_stylesheet_directory_uri() . '/assets/js/velocity.js', array(), '1.2.2', true );
+	wp_register_script( 'patch-velocity', get_template_directory_uri() . '/assets/js/velocity.js', array(), '1.2.2', true );
 
 	//Register Magnific Popup plugin
-	wp_register_script( 'patch-magnificpopup', get_stylesheet_directory_uri() . '/assets/js/magnificpopup.js', array(), '1.0.0', true );
+	wp_register_script( 'patch-magnificpopup', get_template_directory_uri() . '/assets/js/magnificpopup.js', array(), '1.0.0', true );
 
 	//Enqueue Patch Custom Scripts
-	wp_enqueue_script( 'patch-scripts', get_stylesheet_directory_uri() . '/assets/js/main.js', array(
+	wp_enqueue_script( 'patch-scripts', get_template_directory_uri() . '/assets/js/main.js', array(
 		'jquery',
 		'masonry',
 		'patch-imagesloaded',
