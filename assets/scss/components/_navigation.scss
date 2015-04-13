@@ -114,7 +114,7 @@
 		padding-right: .5em;
 
 		> a {
-
+			
 			&:after {
 				content: "+";
 				// this caused the + icon to
@@ -130,9 +130,9 @@
 	}
 
 	// Sub menus
-	//
+	// 
 	/*.sub-menu*/ul {
-		@extend .nav;
+		@extend .nav; 
 		display: block;
 		min-width: 10em;
 
@@ -182,7 +182,7 @@
 				clear: left;
 
 				&.menu-item-has-children {
-					padding-right: .25em;
+					padding-right: .25em; 
 				}
 			}
 
@@ -211,7 +211,7 @@
 		top: 0;
 		left: -100%;
 		right: 100%;
-		z-index: 150;
+		z-index: 50;
 
 		margin: 0;
 		margin-left: $gutter * 2;
@@ -230,7 +230,7 @@
 }
 
 @media screen and (max-width: 600px) {
-	.admin-bar .main-navigation { position: absolute; }
+	.main-navigation { position: absolute; }
 	.grid.grid { position: static; }
 }
 
