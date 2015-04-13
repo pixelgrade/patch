@@ -114,7 +114,7 @@
 		padding-right: .5em;
 
 		> a {
-			
+
 			&:after {
 				content: "+";
 				// this caused the + icon to
@@ -130,9 +130,9 @@
 	}
 
 	// Sub menus
-	// 
+	//
 	/*.sub-menu*/ul {
-		@extend .nav; 
+		@extend .nav;
 		display: block;
 		min-width: 10em;
 
@@ -182,7 +182,7 @@
 				clear: left;
 
 				&.menu-item-has-children {
-					padding-right: .25em; 
+					padding-right: .25em;
 				}
 			}
 

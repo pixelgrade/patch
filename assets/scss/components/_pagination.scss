@@ -161,10 +161,16 @@
 
 #infinite-handle,
 .infinite-loader {
-	position: absolute;
-	top: 100%;
+	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
+
+	display: inline-block;
+
+	@include query-above($lap) {
+		position: absolute;
+		top: 100%;
+	}
 }
 
 .infinite-loader .spinner {
