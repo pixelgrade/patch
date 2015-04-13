@@ -211,7 +211,7 @@
 		top: 0;
 		left: -100%;
 		right: 100%;
-		z-index: 50;
+		z-index: 150;
 
 		margin: 0;
 		margin-left: $gutter * 2;
@@ -230,7 +230,7 @@
 }
 
 @media screen and (max-width: 600px) {
-//	.main-navigation { position: absolute; }
+	.admin-bar .main-navigation { position: absolute; }
 	.grid.grid { position: static; }
 }
 
@@ -251,7 +251,7 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 500;
+	z-index: 50;
 	display: none;
 	overflow: hidden;
 
