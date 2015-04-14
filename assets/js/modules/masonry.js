@@ -15,6 +15,11 @@ var masonry = (function() {
 			$container.imagesLoaded(function() {
 				showBlocks($blocks);
 			});
+
+			$( document.body ).on( 'post-load', function () {
+				showBlocks($container.children().addClass('post--animated  post--loaded'));
+			} );
+
 			return;
 		}
 
@@ -148,7 +153,8 @@ var masonry = (function() {
 
 	return {
 		init: init,
-		refresh: refresh
+		refresh: refresh,
+		showBlocks: showBlocks
 	}
 
 })();
