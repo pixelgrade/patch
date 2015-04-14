@@ -153,8 +153,7 @@ var masonry = (function() {
 
 	return {
 		init: init,
-		refresh: refresh,
-		showBlocks: showBlocks
+		refresh: refresh
 	}
 
 })();
