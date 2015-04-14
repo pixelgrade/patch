@@ -405,8 +405,7 @@ if (!Date.now) Date.now = function () {
 
     return {
       init: init,
-      refresh: refresh,
-      showBlocks: showBlocks
+      refresh: refresh
     }
 
   })();
