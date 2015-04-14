@@ -150,6 +150,8 @@
 	}
 
 	@include query-below($lap) {
+		overflow: hidden; 
+		
 		.sub-menu {
 			padding-left: 12px;
 		}

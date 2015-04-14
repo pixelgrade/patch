@@ -60,6 +60,7 @@
 	height: 100%;
 	background: white;
 	border-left: 1px solid $borders;
+	transition: left .3s ease-in-out;
 
 	@include query-below($lap) {
 		padding-left: 24px;
@@ -107,6 +108,10 @@
 			font-size: 48px;
 			margin-bottom: 24px;
 		}
+	}
+
+	&.is-visible {
+		left: 0;
 	}
 }
 
