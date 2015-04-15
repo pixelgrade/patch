@@ -476,12 +476,11 @@ p.comment-form-email{
 
 
 :first-child:not(input) ~ .form-submit {
-	@extend %link--underline;
+	@extend .clearfix;
 	position: relative;
 	@include rhythm(margin-top, 1);
 	margin-bottom: 0;
 	text-align: right;
-	float: right;
 
 	.comment-respond.js & {
 		border: 0;
@@ -492,10 +491,11 @@ p.comment-form-email{
 	}
 
 	#submit {
+		@extend %link--underline;
 		@extend %beta;
+		float: right;
 		padding: 0;
 		border: 0;
-		background: none;
 		font-size: 18px;
 		line-height: 1.5;
 		font-weight: bold;
