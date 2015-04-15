@@ -43,7 +43,7 @@
 
 	@include query-below($lap) {
 		border-top: 1px solid $gray;
-		// @include rhythm(padding-top, 4);
+		@include rhythm(padding-top, 2);
 	}
 
 	@include query-above($lap) {
