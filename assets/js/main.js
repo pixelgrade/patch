@@ -220,8 +220,8 @@ if (!Date.now) Date.now = function () {
   })(); /* --- Magnific Popup Initialization --- */
 
   function magnificPopupInit() {
-    $('a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]').filter(function (elem) {
-      return !$(this).parents('.gallery').length
+    $('.entry-content a[href$=".jpg"], .entry-content a[href$=".jpeg"], .entry-content a[href$=".png"], .entry-content a[href$=".gif"]').filter(function (elem) {
+      return !$(this).parents('.gallery, .tiled-gallery').length;
     }).magnificPopup({
       type: 'image',
       closeOnContentClick: false,
