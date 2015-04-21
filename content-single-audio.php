@@ -7,15 +7,7 @@
  */
 
 //get the media objects from the content and bring up only the first one
-/* translators: %s: Name of current post */
-$content = apply_filters( 'the_content', get_the_content( sprintf(
-	__( 'Continue reading %s', 'patch' ),
-	the_title( '<span class="screen-reader-text">', '</span>', false )
-) ) );
-$media   = patch_get_media_embedded_in_content( $content );
-if ( ! empty( $media ) ) {
-	$content = str_replace( $media[0], '', $content );
-} ?>
+$media   = patch_audio_attachment(); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -42,7 +34,7 @@ if ( ! empty( $media ) ) {
 
 		<div class="entry-featured entry-media">
 
-			<?php echo apply_filters( 'embed_oembed_html', $media[0] ); ?>
+			<?php echo $media; ?>
 
 		</div><!-- .entry-media -->
 
@@ -50,9 +42,7 @@ if ( ! empty( $media ) ) {
 
 	<div class="entry-content">
 
-		<?php
-		// the content without the first audio embed in it
-		echo $content; ?>
+		<?php the_content(); ?>
 
 		<?php
 		wp_link_pages( array(
