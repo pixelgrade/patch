@@ -43,6 +43,10 @@
 		font-size: 36px;
 		text-align: inherit;
 	}
+
+	.sidebar & a {
+		font-weight: 500;
+	}
 }
 
 .site-description {
