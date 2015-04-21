@@ -1010,4 +1010,21 @@ if ( ! function_exists( 'patch_paging_nav' ) ) :
 	<?php
 	} #function
 
-endif; ?>
+endif;
+
+/**
+ * Handles the output of the media for audio attachment posts. This should be used within The Loop.
+ *
+ * @return string
+ */
+function patch_audio_attachment() {
+	return hybrid_media_grabber( array( 'type' => 'audio', 'split_media' => true ) );
+}
+/**
+ * Handles the output of the media for video attachment posts. This should be used within The Loop.
+ *
+ * @return string
+ */
+function patch_video_attachment() {
+	return hybrid_media_grabber( array( 'type' => 'video', 'split_media' => true ) );
+} ?>

@@ -7,15 +7,7 @@
  */
 
 //get the media objects from the content and bring up only the first one
-/* translators: %s: Name of current post */
-$content = apply_filters( 'the_content', get_the_content( sprintf(
-	__( 'Continue reading %s', 'patch' ),
-	the_title( '<span class="screen-reader-text">', '</span>', false )
-) ) );
-$media   = patch_get_media_embedded_in_content( $content );
-if ( ! empty( $media ) ) {
-	$content = str_replace( $media[0], '', $content );
-} ?>
+$media   = patch_audio_attachment();?>
 
 <div class="grid__item">
 
@@ -33,7 +25,7 @@ if ( ! empty( $media ) ) {
 
 			<div class="entry-media entry-image entry-image--landscape">
 
-				<?php echo apply_filters( 'embed_oembed_html', $media[0] ); ?>
+				<?php echo $media; ?>
 
 			</div><!-- .entry-media -->
 
