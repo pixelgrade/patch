@@ -11,7 +11,7 @@ var shadows = (function() {
 		jQuery('.entry-image-shadow').remove();
 		jQuery('.entry-card').removeData('shadow');
 
-		$('.entry-card .entry-image img').each(function(i, obj) {
+		$('.entry-card .entry-image img').not('.video-player img').each(function(i, obj) {
 			var image = new Object(),
 				card = new Object(),
 				$obj = $(obj),

@@ -87,7 +87,7 @@
 	.entry-featured {
 		margin-bottom: $gutter;
 
-		img {
+		> img {
 			display: block;
 			margin: 0 auto;
 		}
@@ -115,7 +115,7 @@
 				margin: $gutter -2*$col;
 			}
 
-			img {
+			> img {
 				width: 100%;
 			}
 		}
@@ -144,7 +144,7 @@
 				max-width: 70%;
 			}
 
-			img {
+			> img {
 				width: 100%;
 			}
 		}
@@ -179,6 +179,11 @@
 	.entry-meta > * {
 		display: inline-block;
 		margin-bottom: 5px;
+	}
+
+	&.single-format-video .entry-featured.entry-featured {
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
 
