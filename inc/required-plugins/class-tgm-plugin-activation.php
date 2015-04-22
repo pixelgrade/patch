@@ -158,7 +158,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 			self::$instance = $this;
 
 			$this->strings = array(
-				'page_title'                     => __( 'Install Required Plugins', 'tgmpa' ),
+				'page_title'                     => __( 'Install Plugins', 'tgmpa' ),
 				'menu_title'                     => __( 'Install Plugins', 'tgmpa' ),
 				'installing'                     => __( 'Installing Plugin: %s', 'tgmpa' ),
 				'oops'                           => __( 'Something went wrong.', 'tgmpa' ),
