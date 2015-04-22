@@ -171,7 +171,7 @@ msgstr "door %s"
 msgid ", "
 msgstr ", "
 
-#: inc/extras.php:365
+#: inc/extras.php:330
 msgid "Search"
 msgstr "Zoeken"
 
@@ -307,22 +307,21 @@ msgstr "Niets gevonden"
 msgid "Edit"
 msgstr "Bewerken"
 
-#: content-aside.php:37 content-attachment.php:46 content-audio.php:58
-#: content-gallery.php:55 content-video.php:62 content.php:64
+#: content-aside.php:37 content-attachment.php:46 content-audio.php:50
+#: content-gallery.php:55 content-video.php:54 content.php:64
 msgid "Page"
 msgstr "Pagina"
 
 #. translators: %s: Name of current post
-#: content-aside.php:27 content-audio.php:12 content-quote.php:40
-#: content-single-audio.php:12 content-single-video.php:12 content-video.php:12
-#: inc/template-tags.php:688 inc/template-tags.php:718
+#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:688
+#: inc/template-tags.php:718
 msgid "Continue reading %s"
 msgstr "Lees verder %s"
 
-#: content-aside.php:33 content-attachment.php:42 content-audio.php:54
-#: content-gallery.php:51 content-page.php:33 content-single-audio.php:59
-#: content-single-gallery.php:51 content-single-video.php:59
-#: content-single.php:59 content-video.php:58 content.php:60
+#: content-aside.php:33 content-attachment.php:42 content-audio.php:46
+#: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
+#: content-single-gallery.php:51 content-single-video.php:49
+#: content-single.php:59 content-video.php:50 content.php:60
 msgid "Pages:"
 msgstr "Pagina&#39;s:"
 
