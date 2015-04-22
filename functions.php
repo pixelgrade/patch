@@ -172,6 +172,11 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/extras.php';
 
 /**
+ * Load the Hybrid Media Grabber class
+ */
+require get_template_directory() . '/inc/hybrid-media-grabber.php';
+
+/**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
@@ -195,4 +200,4 @@ require get_template_directory() . '/inc/required-plugins/required-plugins.php';
  * Load the theme update logic
  */
 require_once( get_template_directory() . '/inc/wp-updates-theme.php' );
-new WPUpdatesThemeUpdater_1240( 'http://wp-updates.com/api/2/theme', basename( get_template_directory() ) );?>
+new WPUpdatesThemeUpdater_1240( 'http://wp-updates.com/api/2/theme', basename( get_template_directory() ) ); ?>

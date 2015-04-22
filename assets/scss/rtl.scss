@@ -77,6 +77,17 @@ $second-padding-unit: 40px;
 		float: left;
 	}
 
+	.search-form {
+		left: auto;
+		right: 100%;
+		transition: right .3s ease-in-out;
+
+		&.is-visible {
+			left: auto;
+			right: 0;
+		}
+	}
+
 	.overlay__close {
 		right: auto;
 		left: 48px;

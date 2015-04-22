@@ -220,8 +220,8 @@ if (!Date.now) Date.now = function () {
   })(); /* --- Magnific Popup Initialization --- */
 
   function magnificPopupInit() {
-    $('a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]').filter(function (elem) {
-      return !$(this).parents('.gallery').length
+    $('.entry-content a[href$=".jpg"], .entry-content a[href$=".jpeg"], .entry-content a[href$=".png"], .entry-content a[href$=".gif"]').filter(function (elem) {
+      return !$(this).parents('.gallery, .tiled-gallery').length;
     }).magnificPopup({
       type: 'image',
       closeOnContentClick: false,
@@ -259,6 +259,11 @@ if (!Date.now) Date.now = function () {
           $container.imagesLoaded(function () {
             showBlocks($blocks);
           });
+
+          $(document.body).on('post-load', function () {
+            showBlocks($container.children().addClass('post--animated  post--loaded'));
+          });
+
           return;
         }
 
@@ -589,21 +594,17 @@ if (!Date.now) Date.now = function () {
         $overlay = $('.overlay--search');
 
     // update overlay position (if it's open) on window.resize
-    $window.on('debouncedresize', function () {
-
-      windowWidth = $window.outerWidth();
-
-      if (isOpen) {
-        $overlay.velocity({
-          translateX: -1 * windowWidth
-        }, {
-          duration: 200,
-          easing: "easeInCubic"
-        });
-      }
-
-    });
-
+    // $window.on('debouncedresize', function() {
+    //   windowWidth = $window.outerWidth();
+    //   if (isOpen) {
+    //     $overlay.velocity({
+    //       translateX: -1 * windowWidth
+    //     }, {
+    //       duration: 200,
+    //       easing: "easeInCubic"
+    //     });
+    //   }
+    // });
     /**
      * dismiss overlay
      */
@@ -614,26 +615,7 @@ if (!Date.now) Date.now = function () {
         return;
       }
 
-      var offset;
-
-      if ($body.hasClass('rtl')) {
-        offset = windowWidth
-      } else {
-        offset = -1 * windowWidth
-      }
-
-      // we don't need a timeline for this animations so we'll use a simple tween between two states
-      $overlay.velocity({
-        translateX: offset
-      }, {
-        duration: 0
-      });
-      $overlay.velocity({
-        translateX: 0
-      }, {
-        duration: 300,
-        easing: "easeInCubic"
-      });
+      $overlay.removeClass('is-visible');
 
       // remove focus from the search field
       $overlay.find('input').blur();
@@ -669,18 +651,7 @@ if (!Date.now) Date.now = function () {
       // automatically focus the search field so the user can type right away
       $overlay.find('input').focus();
 
-      $overlay.velocity({
-        translateX: 0,
-        translateZ: 0.01
-      }, {
-        duration: 0
-      }).velocity({
-        translateX: offset
-      }, {
-        duration: 300,
-        easing: "easeOut",
-        queue: false
-      });
+      $overlay.addClass('is-visible');
 
       $('.search-form').velocity({
         translateX: 300,
@@ -757,7 +728,7 @@ if (!Date.now) Date.now = function () {
       jQuery('.entry-image-shadow').remove();
       jQuery('.entry-card').removeData('shadow');
 
-      $('.entry-card .entry-image img').each(function (i, obj) {
+      $('.entry-card .entry-image img').not('.video-player img').each(function (i, obj) {
         var image = new Object(),
             card = new Object(),
             $obj = $(obj),

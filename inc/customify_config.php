@@ -15,17 +15,17 @@ function patch_add_customify_options( $options ) {
 	 */
 	$options['sections'] = array(
 		'presets_section' => array(
-				'title'    => __( 'Style Presets', 'patch_txtd' ),
+				'title'    => __( 'Style Presets', 'patch' ),
 				'options' => array(
 					'theme_style'   => array(
 						'type'      => 'preset',
-						'label'     => __( 'Select a style:', 'patch_txtd' ),
-						'desc' => __( 'Conveniently change the design of your site with built-in style presets. Easy as pie.', 'patch_txtd' ),
+						'label'     => __( 'Select a style:', 'patch' ),
+						'desc' => __( 'Conveniently change the design of your site with built-in style presets. Easy as pie.', 'patch' ),
 						'default'   => 'patch',
 						'choices_type' => 'awesome',
 						'choices'  => array(
 							'patch' => array(
-								'label' => __( 'Patch', 'patch_txtd' ),
+								'label' => __( 'Patch', 'patch' ),
 								'preview' => array(
 									'color-text' => '#ffffff',
 									'background-card' => '#121012',
@@ -45,7 +45,7 @@ function patch_add_customify_options( $options ) {
 							),
 
 							'adler' => array(
-								'label' => __( 'Adler', 'patch_txtd' ),
+								'label' => __( 'Adler', 'patch' ),
 								'preview' => array(
 									'color-text' => '#fff',
 									'background-card' => '#0e364f',
@@ -65,7 +65,7 @@ function patch_add_customify_options( $options ) {
 							),
 
 							'royal' => array(
-								'label' => __( 'Royal', 'patch_txtd' ),
+								'label' => __( 'Royal', 'patch' ),
 								'preview' => array(
 									'color-text' => '#ffffff',
 									'background-card' => '#615375',
@@ -85,7 +85,7 @@ function patch_add_customify_options( $options ) {
 							),
 							
 							'queen' => array(
-								'label' => __( 'Queen', 'patch_txtd' ),
+								'label' => __( 'Queen', 'patch' ),
 								'preview' => array(
 									'color-text' => '#fbedec',
 									'background-card' => '#773347',
@@ -104,7 +104,7 @@ function patch_add_customify_options( $options ) {
 								)
 							),
 							'carrot' => array(
-								'label' => __( 'Carrot', 'patch_txtd' ),
+								'label' => __( 'Carrot', 'patch' ),
 								'preview' => array(
 									'color-text' => '#ffffff',
 									'background-card' => '#df421d',
@@ -124,7 +124,7 @@ function patch_add_customify_options( $options ) {
 							),
 
 							'velvet' => array(
-								'label' => __( 'Velvet', 'patch_txtd' ),
+								'label' => __( 'Velvet', 'patch' ),
 								'preview' => array(
 									'color-text' => '#ffffff',
 									'background-card' => '#282828',
@@ -148,11 +148,11 @@ function patch_add_customify_options( $options ) {
 				)
 			),
 		'colors_section' => array(
-			'title'    => __( 'Colors', 'patch_txtd' ),
+			'title'    => __( 'Colors', 'patch' ),
 			'options' => array(
 				'accent_color'   => array(
 					'type'      => 'color',
-					'label'     => __( 'Accent Color', 'patch_txtd' ),
+					'label'     => __( 'Accent Color', 'patch' ),
 					'live' => true,
 					'default'   => '#ffeb00',
 					'css'  => array(
@@ -207,7 +207,7 @@ function patch_add_customify_options( $options ) {
 				),
 				'headings_color' => array(
 					'type'      => 'color',
-					'label'     => __( 'Headings Color', 'patch_txtd' ),
+					'label'     => __( 'Headings Color', 'patch' ),
 					'live' => true,
 					'default'   => '#171617',
 					'css'  => array(
@@ -219,7 +219,7 @@ function patch_add_customify_options( $options ) {
 				),
 				'body_color'     => array(
 					'type'      => 'color',
-					'label'     => __( 'Body Color', 'patch_txtd' ),
+					'label'     => __( 'Body Color', 'patch' ),
 					'live' => true,
 					'default'   => '#3d3e40',
 					'css'  => array(
@@ -232,7 +232,7 @@ function patch_add_customify_options( $options ) {
 
 				'border_color'	=> array(
 					'type'      => 'color',
-					'label'     => __( 'Border Color', 'patch_txtd' ),
+					'label'     => __( 'Border Color', 'patch' ),
 					'live' => true,
 					'default'   => '#171617',
 					'css'  => array(
@@ -249,7 +249,7 @@ function patch_add_customify_options( $options ) {
 				),
 				'border_text_color'	=> array(
 					'type'      => 'color',
-					'label'     => __( 'Border Text Color', 'patch_txtd' ),
+					'label'     => __( 'Border Text Color', 'patch' ),
 					'live' => true,
 					'default'   => '#ffffff',
 					'css'  => array(
@@ -268,11 +268,11 @@ function patch_add_customify_options( $options ) {
 		 */
 
 		'typography_section' => array(
-			'title'    => __( 'Fonts', 'patch_txtd' ),
+			'title'    => __( 'Fonts', 'patch' ),
 			'options' => array(
 				'headings_font' => array(
 					'type'     => 'typography',
-					'label'    => __( 'Headings', 'patch_txtd' ),
+					'label'    => __( 'Headings', 'patch' ),
 					'default'  => 'Playfair Display", serif',
 					'selector' => '.dropcap,  .single .entry-content:before,  .page .entry-content:before,
 									.site-title, h1, h2, h3, h4, h5, h6,
@@ -305,7 +305,7 @@ function patch_add_customify_options( $options ) {
 				),
 				'body_font'     => array(
 					'type'    => 'typography',
-					'label'   => __( 'Body Text', 'patch_txtd' ),
+					'label'   => __( 'Body Text', 'patch' ),
 					'default' => '"Droid Serif", serif',
 					'selector' => 'html body, blockquote cite, .widget, div.sharedaddy .sd-social h3.sd-title',
 					'load_all_weights' => true,

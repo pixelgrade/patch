@@ -361,7 +361,7 @@ $cards-gutter: $gutter;
 			height: auto;
 		}
 
-		img {
+		> img {
 			display: block;
 			width: 100%;
 
@@ -489,7 +489,6 @@ $cards-gutter: $gutter;
 	}
 
 	.entry-content {
-		position: relative;
 		margin-top: 2px;
 
 		p:last-of-type {
@@ -729,9 +728,9 @@ $cards-gutter: $gutter;
 .entry-card {
 
 	.entry-content {
+		position: relative;
 		@extend %fs-14;
 		@extend %hyphens;
-
 		-webkit-hyphens: auto;
 		-moz-hyphens: auto;
 		-ms-hyphens: auto;

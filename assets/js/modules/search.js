@@ -5,20 +5,20 @@
       $overlay = $('.overlay--search');
 
   // update overlay position (if it's open) on window.resize
-  $window.on('debouncedresize', function() {
+  // $window.on('debouncedresize', function() {
 
-    windowWidth = $window.outerWidth();
+  //   windowWidth = $window.outerWidth();
 
-    if (isOpen) {
-      $overlay.velocity({
-        translateX: -1 * windowWidth
-      }, {
-        duration: 200,
-        easing: "easeInCubic"
-      });
-    }
+  //   if (isOpen) {
+  //     $overlay.velocity({
+  //       translateX: -1 * windowWidth
+  //     }, {
+  //       duration: 200,
+  //       easing: "easeInCubic"
+  //     });
+  //   }
 
-  });
+  // });
 
   /**
    * dismiss overlay
@@ -29,26 +29,7 @@
       return;
     }
 
-    var offset;
-
-    if ($body.hasClass('rtl')) {
-      offset = windowWidth
-    } else {
-      offset = -1 * windowWidth
-    }
-
-    // we don't need a timeline for this animations so we'll use a simple tween between two states
-    $overlay.velocity({
-      translateX: offset
-    }, {
-      duration: 0
-    });
-    $overlay.velocity({
-      translateX: 0
-    }, {
-      duration: 300,
-      easing: "easeInCubic"
-    });
+    $overlay.removeClass('is-visible');
 
     // remove focus from the search field
     $overlay.find('input').blur();
@@ -84,18 +65,7 @@
     // automatically focus the search field so the user can type right away
     $overlay.find('input').focus();
 
-    $overlay.velocity({
-      translateX: 0,
-      translateZ: 0.01
-    }, {
-      duration: 0
-    }).velocity({
-      translateX: offset
-    }, {
-      duration: 300,
-      easing: "easeOut",
-      queue: false
-    });
+    $overlay.addClass('is-visible');
 
     $('.search-form').velocity({
       translateX: 300,
