@@ -30,19 +30,18 @@ function patch_add_customify_options( $options ) {
 									'color-text' => '#ffffff',
 									'background-card' => '#121012',
 									'background-label' => '#fee900',
-									'font-main' => 'Playfair Display',
-									'font-alt' => 'Droid Serif',
+									'font-main' => 'Oswald',
+									'font-alt' => 'Roboto',
 								),
 								'options' => array(
 									'accent_color' => '#ffeb00',
 									'headings_color' => '#171617',
 									'body_color' => '#3d3e40',
-									'border_color' => '#000000',
-									'border_text_color' => '#ffffff',
-									'headings_font' => 'Playfair Display',
-									'body_font' => 'Droid Serif',
+									'headings_font' => 'Oswald',
+									'body_font' => 'Roboto',
 								)
 							),
+
 
 							'adler' => array(
 								'label' => __( 'Adler', 'patch' ),
@@ -57,10 +56,8 @@ function patch_add_customify_options( $options ) {
 									'accent_color' => '#68f3c8',
 									'headings_color' => '#0e364f',
 									'body_color' => '#45525a',
-									'border_color' => '#000000',
-									'border_text_color' => '#68f3c8',
 									'headings_font' => 'Permanent Marker',
-									'body_font' => 'Droid Sans Mono',
+									'body_font' => 'Droid Sans Mono'
 								)
 							),
 
@@ -77,8 +74,6 @@ function patch_add_customify_options( $options ) {
 									'accent_color' => '#8eb2c5',
 									'headings_color' => '#725c92',
 									'body_color' => '#6f8089',
-									'border_color' => '#615375',
-									'border_text_color' => '#ffffff',
 									'headings_font' => 'Abril Fatface',
 									'body_font' => 'PT Serif',
 								)
@@ -95,10 +90,8 @@ function patch_add_customify_options( $options ) {
 								),
 								'options' => array(
 									'accent_color' => '#cd8085',
-									'headings_color' => '#54323c',
-									'body_color' => '#cd8085',
-									'border_color' => '#41212a',
-									'border_text_color' => '#ffffff',
+									'headings_color' => '#cd8085',
+									'body_color' => '#54323c',
 									'headings_font' => 'Cinzel Decorative',
 									'body_font' => 'Gentium Basic',
 								)
@@ -116,13 +109,10 @@ function patch_add_customify_options( $options ) {
 									'accent_color' => '#df421d',
 									'headings_color' => '#df421d',
 									'body_color' => '#7e7e7e',
-									'border_color' => '#fff',
-									'border_text_color' => '#4b4b4b',
 									'headings_font' => 'Oswald',
 									'body_font' => 'PT Sans Narrow',
 								)
 							),
-
 							'velvet' => array(
 								'label' => __( 'Velvet', 'patch' ),
 								'preview' => array(
@@ -136,8 +126,6 @@ function patch_add_customify_options( $options ) {
 									'accent_color' => '#000000',
 									'headings_color' => '#000000',
 									'body_color' => '#000000',
-									'border_color' => '#000000',
-									'border_text_color' => '#ffffff',
 									'headings_font' => 'Pinyon Script',
 									'body_font' => 'Josefin Sans',
 								)
@@ -157,51 +145,67 @@ function patch_add_customify_options( $options ) {
 					'default'   => '#ffeb00',
 					'css'  => array(
 						array(
-							'property'     => 'color',
-							'selector' => 'blockquote a:hover,
-												.format-quote .edit-link a:hover,
-												.content-quote blockquote:before,
-												.widget a:hover,
-												.widget_blog_subscription input[type="submit"],
-												.widget_blog_subscription a:hover,
-												blockquote a:hover',
-
+							'property' => 'text-shadow',
+							'selector' => '.dropcap',
+							'callback_filter' => 'patch_dropcap_text_shadow'
 						),
 						array(
-							'property'     => 'outline-color',
-							'selector' => 'select:focus,
-												textarea:focus,
-												input[type="text"]:focus,
-												input[type="password"]:focus,
-												input[type="datetime"]:focus,
-												input[type="datetime-local"]:focus,
-												input[type="date"]:focus,
-												input[type="month"]:focus,
-												input[type="time"]:focus,
-												input[type="week"]:focus,
-												input[type="number"]:focus,
-												input[type="email"]:focus,
-												input[type="url"]:focus,
-												input[type="search"]:focus,
-												input[type="tel"]:focus,
-												input[type="color"]:focus,
-												.form-control:focus',
+							'property' => 'box-shadow',
+							'selector' => '.entry-card.format-quote .entry-content a',
+							'callback_filter' => 'patch_link_box_shadow'
 						),
 						array(
-							'property'     => 'border-color',
-							'selector' => '.widget_blog_subscription input[type="submit"]',
+							'property' => 'color',
+							'selector' => 
+								'h1 a,
+								.site-title a,
+								h2 a,
+								h3 a,
+								.entry-card.format-quote .entry-content a:hover,
+								.bypostauthor .comment__author-name:before,
+								.site-footer a:hover'
 						),
 						array(
-							'property'     => 'background',
-							'selector' => '.highlight:before,
-												.arcpatch__grid .accent-box,
-												.sticky:after,
-												.content-quote blockquote:after',
+							'property' => 'fill',
+							'selector' => '#bar'
 						),
 						array(
-							'property'		=> 'box-shadow',
-							'selector'	=> '.content-quote blockquote:after',
-							'callback_filter' => 'accent_color_box_shadow',
+							'property' => 'background-color',
+							'selector' => 
+								'.smart-link,
+								.single .entry-content a,
+								.page .entry-content a,
+								.edit-link a,
+								.author-info__link,
+								.comments_add-comment,
+								.comment .comment-reply-title a,
+								.page-links a,
+								:first-child:not(input) ~ .form-submit,
+								.sidebar .widget a:hover,
+								.nav--main li[class*="current-menu"] > a,
+								.nav--main li:hover > a,
+								.highlight,
+								.sticky .sticky-post,
+								.nav--social a:hover:before,
+								.jetpack_subscription_widget input[type="submit"],
+								.widget_blog_subscription input[type="submit"],
+								.search-form .search-submit,
+								div#infinite-handle span:after,
+								.cat-links,
+								.entry-format',
+						),
+						array(
+							'property' => 'background-color',
+							'selector' => '::-moz-selection'
+						),
+						array(
+							'property' => 'background-color',
+							'selector' => '::selection'
+						),
+						array(
+							'property' => 'border-top-color',
+							'selector' => '.sticky .sticky-post:before,
+								.sticky .sticky-post:after'
 						)
 					),
 				),
@@ -212,8 +216,8 @@ function patch_add_customify_options( $options ) {
 					'default'   => '#171617',
 					'css'  => array(
 						array(
-							'property'     => 'color',
-							'selector' => '.site-title a, h1, h2, h3, blockquote, .dropcap, .single .entry-content:before, .page .entry-content:before',
+							'property' => 'color',
+							'selector' => '.site-title a, h1, h2, h3, h4, h5, h6',
 						)
 					)
 				),
@@ -224,43 +228,14 @@ function patch_add_customify_options( $options ) {
 					'default'   => '#3d3e40',
 					'css'  => array(
 						array(
-							'selector' => 'body, .posted-on a, .posted-by a, .entry-title a',
-							'property'     => 'color',
+							'selector' => 'body',
+							'property' => 'color'
 						)
 					)
 				),
-
-				'border_color'	=> array(
-					'type'      => 'color',
-					'label'     => __( 'Border Color', 'patch' ),
-					'live' => true,
-					'default'   => '#171617',
-					'css'  => array(
-						array(
-							'selector' => 'body:before, body:after',
-							'media' => 'screen and (min-width: 1000px)',
-							'property'     => 'background',
-						),
-						array(
-							'selector' => '#infinite-footer, .site-footer',
-							'property'     => 'background-color',
-						),
-					)
-				),
-				'border_text_color'	=> array(
-					'type'      => 'color',
-					'label'     => __( 'Border Text Color', 'patch' ),
-					'live' => true,
-					'default'   => '#ffffff',
-					'css'  => array(
-						array(
-							'selector' => '.site-footer a, #infinite-footer .blog-info a, #infinite-footer .blog-credits a',
-							'property'     => 'color',
-						)
-					)
-				)
 			)
 		),
+
 
 
 		/**
@@ -273,16 +248,39 @@ function patch_add_customify_options( $options ) {
 				'headings_font' => array(
 					'type'     => 'typography',
 					'label'    => __( 'Headings', 'patch' ),
-					'default'  => 'Playfair Display", serif',
-					'selector' => '.dropcap,  .single .entry-content:before,  .page .entry-content:before,
-									.site-title, h1, h2, h3, h4, h5, h6,
-									.fs-36px,  .arcpatch__grid .entry-title,
-									blockquote',
-					'font_weight' => false,
-					'load_all_weights' => true,
-					'subsets' => true,
-					'recommended' => array(
-						'Playfair Display',
+					'default'  => 'Oswald", sans-serif',
+					'selector' => 'h1, 
+					.site-title,
+					h2,
+					h3,
+					h4,
+					.edit-link a,
+					blockquote,
+					.dropcap,
+					.mfp-container,
+					.entry-card .entry-image .hover,
+					.entry-card .entry-title,
+					.nav--main,
+					.author-info__link,
+					.comments-area-title .comments-title,
+					.comment-reply-title .comments-title,
+					.comments_add-comment,
+					.comment-reply-title,
+					.comment .comment-reply-title a,
+					:first-child:not(input) ~ .form-submit #submit,
+					.jetpack_subscription_widget input[type="submit"],
+					.widget_blog_subscription input[type="submit"],
+					.search-form .search-submit,
+					.overlay--search .search-form,
+					.overlay--search .search-field,
+					.posts-navigation, #infinite-handle,
+					body div.sharedaddy h3.sd-title,
+					body div#jp-relatedposts h3.jp-relatedposts-headline,
+					.entry-meta',
+				'font_weight' => false,
+				'load_all_weights' => true,
+				'subsets' => true,
+				'recommended' => array(
 						'Oswald',
 						'Lato',
 						'Open Sans',
@@ -300,23 +298,34 @@ function patch_add_customify_options( $options ) {
 						'Pacifico',
 						'Handlee',
 						'Satify',
-						'Pompiere',
+						'Pompiere'
+					)
+				),
+				'headings_caps' => array(
+					'type'	=> 'checkbox',
+					'label' => __( 'Capitalize Headings', 'patch' ),
+					'css'	=> array(
+						array(
+							'property' => 'text-transform',
+							'selector' => 'h1, .site-title, h2, h4, h5, .spanac',
+							'callback_filter' => 'patch_capitalize_headings'
+						),
 					)
 				),
 				'body_font'     => array(
 					'type'    => 'typography',
 					'label'   => __( 'Body Text', 'patch' ),
-					'default' => '"Droid Serif", serif',
-					'selector' => 'html body, blockquote cite, .widget, div.sharedaddy .sd-social h3.sd-title',
+					'default' => 'Roboto, sans-serif',
+					'selector' => 'body, h5, .entry-card .entry-meta',
 					'load_all_weights' => true,
 					'recommended' => array(
-						'Droid Serif',
+						'Roboto',
 						'Lato',
 						'Open Sans',
 						'PT Sans',
 						'Cabin',
 						'Gentium Book Basic',
-						'PT Serif',
+						'PT Serif'
 					)
 				)
 			)
@@ -327,12 +336,29 @@ function patch_add_customify_options( $options ) {
 	return $options;
 }
 
-if ( ! function_exists('accent_color_box_shadow') ) {
-	function accent_color_box_shadow( $value, $selector, $property, $unit ) {
-		$output = $selector .'{ 
-									-webkit-box-shadow: '. $value .' 5.5em 0 0;
-										box-shadow: '. $value .' 5.5em 0 0; 
-								}';
+if ( !function_exists('patch_capitalize_headings') ) {
+	function patch_capitalize_headings( $value, $selector, $property, $unit ) {
+		$output = $selector .'{
+			text-transform: ' . $value ? 'uppercase' : 'none' .
+		'}';
+		return $output;
+	}
+}
+
+if ( !function_exists('patch_dropcap_text_shadow') ) {
+	function patch_dropcap_text_shadow( $value, $selector, $property, $unit ) {
+		$output = $selector . '{
+			text-shadow: 2px 2px 0 white, 4px 4px 0 ' . $value .
+		'}';
+		return $output;		
+	}
+}
+
+if ( !function_exists('patch_link_box_shadow') ) {
+	function patch_link_box_shadow( $value, $selector, $property, $unit ) {
+		$output = $selector .'{
+			box-shadow: inset 0 -3px 0 ' . $value .
+		'}';
 		return $output;
 	}
 }
