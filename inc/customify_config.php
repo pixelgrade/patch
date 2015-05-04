@@ -307,7 +307,7 @@ function patch_add_customify_options( $options ) {
 					'css'	=> array(
 						array(
 							'property' => 'text-transform',
-							'selector' => 'h1, .site-title, h2, h4, h5, .spanac',
+							'selector' => 'h1, .site-title, h2, h4, h5',
 							'callback_filter' => 'patch_capitalize_headings'
 						),
 					)
@@ -336,29 +336,32 @@ function patch_add_customify_options( $options ) {
 	return $options;
 }
 
-if ( !function_exists('patch_capitalize_headings') ) {
-	function patch_capitalize_headings( $value, $selector, $property, $unit ) {
-		$output = $selector .'{
-			text-transform: ' . $value ? 'uppercase' : 'none' .
-		                                               '}';
-		return $output;
-	}
+function patch_capitalize_headings( $value, $selector, $property, $unit ) {
+
+	$result = $value ? 'uppercase' : 'none';
+
+	$output = $selector .'{
+		text-transform: ' . $result . ";\n" .
+	"}\n";
+
+	return $output;
 }
+
 
 if ( !function_exists('patch_dropcap_text_shadow') ) {
 	function patch_dropcap_text_shadow( $value, $selector, $property, $unit ) {
 		$output = $selector . '{
-			text-shadow: 2px 2px 0 white, 4px 4px 0 ' . $value .
-		          '}';
+			text-shadow: 2px 2px 0 white, 4px 4px 0 ' . $value . ";\n".
+		          "}\n";
 		return $output;
 	}
 }
 
 if ( !function_exists('patch_link_box_shadow') ) {
 	function patch_link_box_shadow( $value, $selector, $property, $unit ) {
-		$output = $selector .'{
-			box-shadow: inset 0 -3px 0 ' . $value .
-		          '}';
+		$output = $selector . '{
+			box-shadow: inset 0 -3px 0 ' . $value . ";\n".
+		          "}\n";
 		return $output;
 	}
 }
