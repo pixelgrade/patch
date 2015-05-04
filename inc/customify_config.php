@@ -38,6 +38,7 @@ function patch_add_customify_options( $options ) {
 								'headings_color' => '#171617',
 								'body_color' => '#3d3e40',
 								'headings_font' => 'Oswald',
+								'headings_caps' => true,
 								'body_font' => 'Roboto',
 							)
 						),
@@ -57,6 +58,7 @@ function patch_add_customify_options( $options ) {
 								'headings_color' => '#0e364f',
 								'body_color' => '#45525a',
 								'headings_font' => 'Permanent Marker',
+								'headings_caps' => true,
 								'body_font' => 'Droid Sans Mono'
 							)
 						),
@@ -75,6 +77,7 @@ function patch_add_customify_options( $options ) {
 								'headings_color' => '#725c92',
 								'body_color' => '#6f8089',
 								'headings_font' => 'Abril Fatface',
+								'headings_caps' => false,
 								'body_font' => 'PT Serif',
 							)
 						),
@@ -93,6 +96,7 @@ function patch_add_customify_options( $options ) {
 								'headings_color' => '#cd8085',
 								'body_color' => '#54323c',
 								'headings_font' => 'Cinzel Decorative',
+								'headings_caps' => false,
 								'body_font' => 'Gentium Basic',
 							)
 						),
@@ -110,6 +114,7 @@ function patch_add_customify_options( $options ) {
 								'headings_color' => '#df421d',
 								'body_color' => '#7e7e7e',
 								'headings_font' => 'Oswald',
+								'headings_caps' => false,
 								'body_font' => 'PT Sans Narrow',
 							)
 						),
@@ -127,6 +132,7 @@ function patch_add_customify_options( $options ) {
 								'headings_color' => '#000000',
 								'body_color' => '#000000',
 								'headings_font' => 'Pinyon Script',
+								'headings_caps' => false,
 								'body_font' => 'Josefin Sans',
 							)
 						),
@@ -303,11 +309,12 @@ function patch_add_customify_options( $options ) {
 				),
 				'headings_caps' => array(
 					'type'	=> 'checkbox',
+					'default' => true,
 					'label' => __( 'Capitalize Headings', 'patch' ),
 					'css'	=> array(
 						array(
 							'property' => 'text-transform',
-							'selector' => 'h1, .site-title, h2, h4, h5',
+							'selector' => 'h1, .site-title, h2, h4, h5, .site-header, blockquote, .entry-card .entry-image .hover, .entry-card.format-quote cite, .author-info__link, .comments_add-comment, .comment .comment-reply-title a, .tags-links a, .jetpack_subscription_widget input[type="submit"], .widget_blog_subscription input[type="submit"], .search-form .search-submit, .page-numbers.prev, .page-numbers.next, .posts-navigation, #infinite-handle, div#infinite-handle button',
 							'callback_filter' => 'patch_capitalize_headings'
 						),
 					)
