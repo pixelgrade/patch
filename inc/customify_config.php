@@ -169,7 +169,8 @@ function patch_add_customify_options( $options ) {
 								h3 a,
 								.entry-card.format-quote .entry-content a:hover,
 								.bypostauthor .comment__author-name:before,
-								.site-footer a:hover'
+								.site-footer a:hover',
+							'callback_filter' => 'patch_color_contrast'
 						),
 						array(
 							'property' => 'fill',
@@ -186,7 +187,7 @@ function patch_add_customify_options( $options ) {
 								.comments_add-comment,
 								.comment .comment-reply-title a,
 								.page-links a,
-								:first-child:not(input) ~ .form-submit,
+								:first-child:not(input) ~ .form-submit #submit,
 								.sidebar .widget a:hover,
 								.nav--main li[class*="current-menu"] > a,
 								.nav--main li:hover > a,
@@ -314,7 +315,7 @@ function patch_add_customify_options( $options ) {
 					'css'	=> array(
 						array(
 							'property' => 'text-transform',
-							'selector' => 'h1, .site-title, h2, h4, h5, .site-header, blockquote, .entry-card .entry-image .hover, .entry-card.format-quote cite, .author-info__link, .comments_add-comment, .comment .comment-reply-title a, .tags-links a, .jetpack_subscription_widget input[type="submit"], .widget_blog_subscription input[type="submit"], .search-form .search-submit, .page-numbers.prev, .page-numbers.next, .posts-navigation, #infinite-handle, div#infinite-handle button',
+							'selector' => 'h1, .site-title, h2, h4, h5, .site-header, blockquote, .entry-card .entry-image .hover, .entry-card.format-quote cite, .author-info__link, .comments_add-comment, .comment .comment-reply-title a, .tags-links a, .jetpack_subscription_widget input[type="submit"], .widget_blog_subscription input[type="submit"], .search-form .search-submit, .page-numbers.prev, .page-numbers.next, .posts-navigation, #infinite-handle, div#infinite-handle button, .entry-meta, .byline .author',
 							'callback_filter' => 'patch_capitalize_headings'
 						),
 					)
@@ -370,6 +371,22 @@ if ( !function_exists('patch_link_box_shadow') ) {
 			box-shadow: inset 0 -3px 0 ' . $value . ";\n".
 		          "}\n";
 		return $output;
+	}
+}
+
+if ( !function_exists('patch_color_contrast') ) {
+	function patch_color_contrast( $value, $selector, $property, $unit ) {
+		
+		// Determine if the color is considered to be dark
+		// if(isDark($value)){
+
+			$output = '.cat-links a, .highlight,
+				.smart-link:hover, .single .entry-content a:hover, .page .entry-content a:hover, .edit-link a:hover, .author-info__link:hover, .comments_add-comment:hover, .comment .comment-reply-title a:hover, .page-links a:hover, :first-child:not(input) ~ .form-submit #submit:hover, .sidebar .widget a:hover, .nav--social a:hover {
+			  color: white;
+			}';
+			return $output;
+
+		// }
 	}
 }
 

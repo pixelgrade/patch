@@ -188,7 +188,6 @@ strong {
 	// transition: none;
 	padding-left: 2px;
 	padding-right: 2px;
-
 }
 
 %link--underline--hover {
@@ -198,7 +197,7 @@ strong {
 
 %link--underline {
 	@extend %link--underline--menu;
-	transition: box-shadow .15s ease-out;
+	transition: box-shadow .15s ease-out, color .15s;
 
 	&:hover {
 		@extend %link--underline--hover;
