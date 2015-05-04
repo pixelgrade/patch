@@ -376,17 +376,30 @@ if ( !function_exists('patch_link_box_shadow') ) {
 
 if ( !function_exists('patch_color_contrast') ) {
 	function patch_color_contrast( $value, $selector, $property, $unit ) {
-		
+
+		// Get our color
+		if( empty($value) || ! preg_match('/^#[a-f0-9]{6}$/i', $value)) {
+			return '';
+		}
+
+		$color = $value;
+		// Calculate straight from rbg
+		$r = hexdec($color[0].$color[1]);
+		$g = hexdec($color[2].$color[3]);
+		$b = hexdec($color[4].$color[5]);
+		$is_dark = (( $r*299 + $g*587 + $b*114 )/1000 <= 130);
+
 		// Determine if the color is considered to be dark
-		// if(isDark($value)){
+		if( $is_dark ){
 
-			$output = '.cat-links a, .highlight,
-				.smart-link:hover, .single .entry-content a:hover, .page .entry-content a:hover, .edit-link a:hover, .author-info__link:hover, .comments_add-comment:hover, .comment .comment-reply-title a:hover, .page-links a:hover, :first-child:not(input) ~ .form-submit #submit:hover, .sidebar .widget a:hover, .nav--social a:hover {
-			  color: white;
-			}';
-			return $output;
+		$output = '.cat-links a, .highlight,
+			.smart-link:hover, .single .entry-content a:hover, .page .entry-content a:hover, .edit-link a:hover, .author-info__link:hover, .comments_add-comment:hover, .comment .comment-reply-title a:hover, .page-links a:hover, :first-child:not(input) ~ .form-submit #submit:hover, .sidebar .widget a:hover, .nav--social a:hover {
+		  color: white;
+		}';
+		return $output;
 
-		// }
+		}
+		return '';
 	}
 }
 
