@@ -86,18 +86,18 @@ function patch_add_customify_options( $options ) {
 							'label' => __( 'Queen', 'patch' ),
 							'preview' => array(
 								'color-text' => '#fbedec',
-								'background-card' => '#773347',
+								'background-card' => '#a33b61',
 								'background-label' => '#41212a',
-								'font-main' => 'Cinzel Decorative',
-								'font-alt' => 'Gentium Basic',
+								'font-main' => 'Playfair Display',
+								'font-alt' => 'Merriweather',
 							),
 							'options' => array(
-								'accent_color' => '#cd8085',
-								'headings_color' => '#cd8085',
-								'body_color' => '#54323c',
-								'headings_font' => 'Cinzel Decorative',
+								'accent_color' => '#c17390',
+								'headings_color' => '#a33b61',
+								'body_color' => '#403b3c',
+								'headings_font' => 'Playfair Display',
 								'headings_caps' => false,
-								'body_font' => 'Gentium Basic',
+								'body_font' => 'Merriweather',
 							)
 						),
 						'carrot' => array(
