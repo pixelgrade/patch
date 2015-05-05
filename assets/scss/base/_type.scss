@@ -252,6 +252,8 @@ a {
 
 					 box-shadow: none;
 					 background: none;
+					 transition: background 0.15s;
+
 				 }
 			}
 				.single .entry-content &:hover, .page:not(.entry-card) .entry-content &:hover {
