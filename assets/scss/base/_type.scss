@@ -243,7 +243,7 @@ a {
     	@else {
 			.single .entry-content &, .page .entry-content & {
 				@extend %link--underline--menu;
-				transition: box-shadow .15s ease-out;
+				transition: box-shadow .15s ease-out, color .15s;
 
 				 &[href$=".jpg"], &[href$=".jpeg"], &[href$=".png"], &[href$=".gif"], &[href$=".bmp"], &[href*="attachment"], &[rel*="attachment"] {
 					 padding-left: 0;
