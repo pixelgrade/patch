@@ -395,9 +395,10 @@ if ( !function_exists('patch_color_contrast') ) {
 				.smart-link:hover, .single .entry-content a:hover, .page .entry-content a:hover, .edit-link a:hover, .author-info__link:hover, .comments_add-comment:hover, .comment .comment-reply-title a:hover, .page-links a:hover, :first-child:not(input) ~ .form-submit #submit:hover, .sidebar .widget a:hover, .nav--social a:hover {
 			  color: white;
 			}';
-		return $output;
 
+			return $output;
 		}
+		
 		return '';
 	}
 }
