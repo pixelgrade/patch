@@ -185,7 +185,7 @@ strong {
 	background-color: $accent;
 	box-shadow: white 0 1.1em inset;
 	line-height: 1.4em;
-	// transition: none;
+
 	padding-left: 2px;
 	padding-right: 2px;
 
@@ -193,7 +193,6 @@ strong {
 
 %link--underline--hover {
 	box-shadow: white 0 0 inset;
-	// transition: box-shadow .2s ease-in, background-color .15s ease-in;
 }
 
 %link--underline {
@@ -243,9 +242,16 @@ a {
 	 }
     	@else {
 			.single .entry-content &, .page .entry-content & {
-				@extend %smarter-links-underlines;
+				@extend %link--underline--menu;
+				transition: box-shadow .15s ease-out;
+			}
+				.single .entry-content &, .page:not(.entry-card) .entry-content &:hover {
+					@extend %link--underline--hover;
+				}
 
-				 &[href$=".jpg"], &[href$=".jpeg"], &[href$=".png"], &[href$=".gif"], &[href$=".bmp"], &[href*="attachment"], &[rel*="attachment"] {
+			
+			.single .entry-content &, .page1 .entry-content & {
+				&[href$=".jpg"], &[href$=".jpeg"], &[href$=".png"], &[href$=".gif"], &[href$=".bmp"], &[href*="attachment"], &[rel*="attachment"] {
 					 padding-left: 0;
 					 padding-right: 0;
 
@@ -253,6 +259,7 @@ a {
 					 background: none;
 				 }
 			}
+
 
 		 	.single .entry-content .gallery &, .page .entry-content .gallery & {
 				padding-left: 0;
