@@ -242,7 +242,8 @@ a {
 	 }
     	@else {
 			.single .entry-content &, .page .entry-content & {
-				@extend %smarter-links-underlines;
+				@extend %link--underline--menu;
+				transition: box-shadow .15s ease-out;
 
 				 &[href$=".jpg"], &[href$=".jpeg"], &[href$=".png"], &[href$=".gif"], &[href$=".bmp"], &[href*="attachment"], &[rel*="attachment"] {
 					 padding-left: 0;
@@ -250,8 +251,14 @@ a {
 
 					 box-shadow: none;
 					 background: none;
+					 transition: background 0.15s;
+
 				 }
 			}
+				.single .entry-content &:hover, .page:not(.entry-card) .entry-content &:hover {
+					@extend %link--underline--hover;
+				}
+
 
 		 	.single .entry-content .gallery &, .page .entry-content .gallery & {
 				padding-left: 0;
