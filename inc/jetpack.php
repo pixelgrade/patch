@@ -37,7 +37,7 @@ function patch_jetpack_setup() {
 		)
 	) );
 
-	add_image_size( 'patch-site-logo', 1360, 600, false );
+	add_image_size( 'patch-site-logo', 1000, 500, false );
 
 	/**
 	 * Add theme support for Jetpack responsive videos
