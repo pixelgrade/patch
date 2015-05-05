@@ -185,14 +185,12 @@ strong {
 	background-color: $accent;
 	box-shadow: white 0 1.1em inset;
 	line-height: 1.4em;
-	// transition: none;
 	padding-left: 2px;
 	padding-right: 2px;
 }
 
 %link--underline--hover {
 	box-shadow: white 0 0 inset;
-	// transition: box-shadow .2s ease-in, background-color .15s ease-in;
 }
 
 %link--underline {
