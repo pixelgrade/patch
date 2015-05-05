@@ -383,19 +383,18 @@ if ( !function_exists('patch_color_contrast') ) {
 		}
 
 		$color = $value;
-		// Calculate straight from rbg
+		// Calculate straight from RGB
 		$r = hexdec($color[0].$color[1]);
 		$g = hexdec($color[2].$color[3]);
 		$b = hexdec($color[4].$color[5]);
-		$is_dark = (( $r*299 + $g*587 + $b*114 )/1000 <= 130);
+		$is_dark = (( $r * 0.2126 + $g * 0.7152 + $b * 0.0722 ) < 40);
 
 		// Determine if the color is considered to be dark
 		if( $is_dark ){
-
-		$output = '.cat-links a, .highlight,
-			.smart-link:hover, .single .entry-content a:hover, .page .entry-content a:hover, .edit-link a:hover, .author-info__link:hover, .comments_add-comment:hover, .comment .comment-reply-title a:hover, .page-links a:hover, :first-child:not(input) ~ .form-submit #submit:hover, .sidebar .widget a:hover, .nav--social a:hover {
-		  color: white;
-		}';
+			$output = '.cat-links a, .highlight,
+				.smart-link:hover, .single .entry-content a:hover, .page .entry-content a:hover, .edit-link a:hover, .author-info__link:hover, .comments_add-comment:hover, .comment .comment-reply-title a:hover, .page-links a:hover, :first-child:not(input) ~ .form-submit #submit:hover, .sidebar .widget a:hover, .nav--social a:hover {
+			  color: white;
+			}';
 		return $output;
 
 		}
