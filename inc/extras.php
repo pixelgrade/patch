@@ -431,4 +431,10 @@ function patch_add_search_to_nav( $items, $args )
 	return $items;
 }
 
-add_filter( 'wp_nav_menu_items', 'patch_add_search_to_nav', 10, 2 ); ?>
+add_filter( 'wp_nav_menu_items', 'patch_add_search_to_nav', 10, 2 );
+
+function patch_allow_skype_protocol( $protocols ){
+	$protocols[] = 'skype';
+	return $protocols;
+}
+add_filter( 'kses_allowed_protocols' , 'patch_allow_skype_protocol' ); ?>
