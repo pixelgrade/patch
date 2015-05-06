@@ -184,16 +184,14 @@ strong {
 	position: relative;
 	background-color: $accent;
 	box-shadow: white 0 1.1em inset;
-	line-height: 1.4em;
-	// transition: none;
-	padding-left: 2px;
+	margin-left: -3px;
+	margin-right: -2px;
+	padding-left: 3px;
 	padding-right: 2px;
-
 }
 
 %link--underline--hover {
 	box-shadow: white 0 0 inset;
-	// transition: box-shadow .2s ease-in, background-color .15s ease-in;
 }
 
 %link--underline {
@@ -203,15 +201,6 @@ strong {
 	&:hover {
 		@extend %link--underline--hover;
 	}
-}
-
-// Smarter Links Underlines
-%smarter-links-underlines {
-	@extend %link--underline;
-}
-
-.smart-link {
-	@extend %smarter-links-underlines;
 }
 
 a {
@@ -230,7 +219,7 @@ a {
 
 	 @if $editor-style { 
 	 	.mce-content-body & {
-			@extend %smarter-links-underlines;
+			@extend %link--underline;
 
 			&[href$=".jpg"], &[href$=".jpeg"], &[href$=".png"], &[href$=".gif"], &[href$=".bmp"], &[href*="attachment"] {
 				padding-left: 0;
@@ -278,7 +267,7 @@ a {
     	}
 
 	.edit-link & {
-		@extend %smarter-links-underlines;
+		@extend %link--underline;
 		@extend %beta;
 		display: inline-block;
 		position: relative;

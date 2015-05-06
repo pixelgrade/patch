@@ -65,6 +65,7 @@
 	}
 
 	.widget a:hover { 
-		@extend %link--underline;
+		@extend %link--underline--menu;
+		box-shadow: white 0 0.8em inset;
 	}
 }

@@ -118,7 +118,7 @@
 
 .comments_add-comment {
 	@extend %beta;
-	@extend %smarter-links-underlines;
+	@extend %link--underline;
 	margin-top: 3px;
 	text-transform: uppercase;
 	font-size: 13px;
@@ -361,7 +361,7 @@ li.depth-2:before {
 
 		a {
 			@extend %beta;
-			@extend %smarter-links-underlines;
+			@extend %link--underline;
 			margin-top: 3px;
 			text-transform: uppercase;
 			font-size: 13px;
@@ -503,7 +503,7 @@ p.comment-form-email{
 		@extend %link--underline;
 		@extend %beta;
 		float: right;
-		padding: 0;
+		padding: 0 .5em 0 .7em;
 		border: 0;
 		font-size: 18px;
 		line-height: 1.5;

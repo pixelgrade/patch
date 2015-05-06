@@ -36,7 +36,7 @@
 
 .author-info__link {
 	@extend %beta;
-	@extend %smarter-links-underlines;
+	@extend %link--underline;
 
 	position: relative;
 	top: -2px;

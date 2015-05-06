@@ -80,7 +80,7 @@
 		display: block;
 		position: relative;
 		margin-bottom: 10px;
-
+		
 		&[class*="current-menu"] > a {
 			@extend %link--underline--menu;
 		}

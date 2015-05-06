@@ -200,7 +200,7 @@
 	}
 
 	a {
-		@extend %smarter-links-underlines;
+		@extend %link--underline;
 		margin-right: 3px;
 		box-shadow: white 0 2em inset;
 		display: inline-block;
