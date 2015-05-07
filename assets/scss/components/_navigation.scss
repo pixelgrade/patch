@@ -92,7 +92,7 @@
 		&[class*="current-menu"] > a,
 		&:hover > a {
 			@extend %link--underline--menu;
-			box-shadow: white 0 22px inset;
+			box-shadow: white 0 24px inset;
 		}
 
 	}
