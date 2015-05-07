@@ -364,6 +364,7 @@ $cards-gutter: $gutter;
 		> img {
 			display: block;
 //			width: 100%;
+			margin: 0 auto;
 
 			transition: filter .3s ease-in-out;
 			transition: -webkit-filter .3s ease-in-out;
