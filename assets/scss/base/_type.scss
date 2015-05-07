@@ -172,7 +172,6 @@ p {
 
 b,
 strong {
-	color: $black;
 	font-weight: 500;
 }
 
@@ -184,9 +183,9 @@ strong {
 	position: relative;
 	background-color: $accent;
 	box-shadow: white 0 1.1em inset;
-	margin-left: -3px;
+	margin-left: -2px;
 	margin-right: -2px;
-	padding-left: 3px;
+	padding-left: 2px;
 	padding-right: 2px;
 }
 

@@ -80,13 +80,19 @@
 		display: block;
 		position: relative;
 		margin-bottom: 10px;
-		
-		&[class*="current-menu"] > a {
-			@extend %link--underline--menu;
-		}
 
+		> a {
+			line-height: 34px;
+			margin-left: -5px;
+			padding-left: 5px;
+			margin-right: -4px;
+			padding-right: 4px;
+		}
+		
+		&[class*="current-menu"] > a,
 		&:hover > a {
 			@extend %link--underline--menu;
+			box-shadow: white 0 22px inset;
 		}
 
 	}
@@ -189,6 +195,11 @@
 
 				&.menu-item-has-children {
 					padding-right: .25em;
+				}
+
+				&[class*="current-menu"] > a,
+				&:hover > a {
+					box-shadow: white 0 16px inset;
 				}
 			}
 
