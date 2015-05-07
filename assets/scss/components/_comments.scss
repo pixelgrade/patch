@@ -118,7 +118,11 @@
 
 .comments_add-comment {
 	@extend %beta;
+	
 	@extend %link--underline;
+	padding-left: 2px;
+	padding-right: 2px;
+
 	margin-top: 3px;
 	text-transform: uppercase;
 	font-size: 13px;
@@ -361,10 +365,15 @@ li.depth-2:before {
 
 		a {
 			@extend %beta;
+
 			@extend %link--underline;
+			padding-left: 2px;
+			padding-right: 2px;
+
 			margin-top: 3px;
 			text-transform: uppercase;
 			font-size: 13px;
+			line-height: 22px;
 			letter-spacing: 0.1em;
 			position: relative;
 			color: black;
@@ -503,7 +512,7 @@ p.comment-form-email{
 		@extend %link--underline;
 		@extend %beta;
 		float: right;
-		padding: 0 .1em 0 .2em;
+		padding: 0 .1em 0 .3em;
 		border: 0;
 		font-size: 18px;
 		line-height: 26px;

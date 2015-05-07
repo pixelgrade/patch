@@ -36,7 +36,10 @@
 
 .author-info__link {
 	@extend %beta;
+	
 	@extend %link--underline;
+	padding-left: 2px;
+	padding-right: 2px;
 
 	position: relative;
 	top: -2px;
