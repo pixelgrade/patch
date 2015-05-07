@@ -36,13 +36,14 @@
 
 .author-info__link {
 	@extend %beta;
-	@extend %smarter-links-underlines;
+	@extend %link--underline;
 
 	position: relative;
 	top: -2px;
 
-	letter-spacing: 0.05em;
+	letter-spacing: 0.1em;
 	font-size: 13px;
+	line-height: 22px;
 	text-transform: uppercase;
 }
 

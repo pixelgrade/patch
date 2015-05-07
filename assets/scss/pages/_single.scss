@@ -60,7 +60,13 @@
 		margin-bottom: 42px;
 
 		a {
+			margin-left: 0;
+			margin-right: 0;
 			box-shadow: white 0 0.8em inset;
+		}
+
+		blockquote a {
+  			box-shadow: white 0 19px inset;
 		}
 	}
 
@@ -200,7 +206,7 @@
 	}
 
 	a {
-		@extend %smarter-links-underlines;
+		@extend %link--underline;
 		margin-right: 3px;
 		box-shadow: white 0 2em inset;
 		display: inline-block;
