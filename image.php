@@ -20,13 +20,13 @@ get_header(); ?>
 
 			<?php patch_the_image_navigation(); ?>
 
-			<nav class="nav-links">
-				<a class="smart-link" href="<?php echo esc_url( get_permalink( wp_get_post_parent_id( get_the_ID() ) ) ); ?>">
-
-					<?php echo sprintf( _x( 'Posted in %s', 'attachment parent post', 'patch' ), get_the_title( wp_get_post_parent_id( get_the_ID() ) ) ); ?>
-
-				</a>
-			</nav>
+			<div class="entry-content">
+				<nav class="nav-links">
+					<a href="<?php echo esc_url( get_permalink( wp_get_post_parent_id( get_the_ID() ) ) ); ?>">
+						<?php echo sprintf( _x( 'Posted in %s', 'attachment parent post', 'patch' ), get_the_title( wp_get_post_parent_id( get_the_ID() ) ) ); ?>
+					</a>
+				</nav>
+			</div>
 
 			<?php
 			// If comments are open or we have at least one comment, load up the comment template
