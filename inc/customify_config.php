@@ -160,6 +160,7 @@ function patch_add_customify_options( $options ) {
 							'selector' => '.entry-card.format-quote .entry-content a',
 							'callback_filter' => 'patch_link_box_shadow'
 						),
+
 						array(
 							'property' => 'color',
 							'selector' =>
@@ -169,9 +170,14 @@ function patch_add_customify_options( $options ) {
 								h3 a,
 								.entry-card.format-quote .entry-content a:hover,
 								.bypostauthor .comment__author-name:before,
-								.site-footer a:hover',
+								.site-footer a:hover, .test',
+							// 'callback_filter' => 'patch_color_contrast'
+						),
+						array(
+							'property' => 'color',
 							'callback_filter' => 'patch_color_contrast'
 						),
+
 						array(
 							'property' => 'fill',
 							'selector' => '#bar'
@@ -315,7 +321,7 @@ function patch_add_customify_options( $options ) {
 					'css'	=> array(
 						array(
 							'property' => 'text-transform',
-							'selector' => 'h1, .site-title, h2, h4, h5, .site-header, blockquote, .entry-card .entry-image .hover, .entry-card.format-quote cite, .author-info__link, .comments_add-comment, .comment .comment-reply-title a, .tags-links a, .jetpack_subscription_widget input[type="submit"], .widget_blog_subscription input[type="submit"], .search-form .search-submit, .page-numbers.prev, .page-numbers.next, .posts-navigation, #infinite-handle, div#infinite-handle button, .entry-meta, .byline .author',
+							'selector' => 'h1, .site-title, h2, h4, h5, .site-header, blockquote, .entry-card .entry-image .hover, .entry-card.format-quote cite, .author-info__link, .comments_add-comment, .comment .comment-reply-title a, .tags-links a, .jetpack_subscription_widget input[type="submit"], .widget_blog_subscription input[type="submit"], .search-form .search-submit, .page-numbers.prev, .page-numbers.next, .posts-navigation, #infinite-handle, div#infinite-handle button, .entry-meta, .byline .author, :first-child:not(input) ~ .form-submit #submit',
 							'callback_filter' => 'patch_capitalize_headings'
 						),
 					)
@@ -392,9 +398,10 @@ if ( !function_exists('patch_color_contrast') ) {
 		// Determine if the color is considered to be dark
 		if( $is_dark ){
 			$output = '.cat-links a, .highlight, .search-form .search-submit,
-				.smart-link:hover, .single .entry-content a:hover, .page .entry-content a:hover, .edit-link a:hover, .author-info__link:hover, .comments_add-comment:hover, .comment .comment-reply-title a:hover, .page-links a:hover, :first-child:not(input) ~ .form-submit #submit:hover, .sidebar .widget a:hover, .nav--social a:hover {
+				.smart-link:hover, .single .entry-content a:hover, .page .entry-content a:hover, .edit-link a:hover, .author-info__link:hover, .comments_add-comment:hover, .comment .comment-reply-title a:hover, .page-links a:hover, :first-child:not(input) ~ .form-submit #submit:hover, .nav--social a:hover, .site-footer a:hover {
 			  color: white;
-			}';
+			}
+			';
 
 			return $output;
 		}
