@@ -391,15 +391,44 @@ if ( !function_exists('patch_color_contrast') ) {
 
 		// Determine if the color is considered to be dark
 		if( $is_dark ){
-			$output = '.cat-links a, .highlight,
+			$output = '.cat-links a, .highlight, .search-form .search-submit,
 				.smart-link:hover, .single .entry-content a:hover, .page .entry-content a:hover, .edit-link a:hover, .author-info__link:hover, .comments_add-comment:hover, .comment .comment-reply-title a:hover, .page-links a:hover, :first-child:not(input) ~ .form-submit #submit:hover, .sidebar .widget a:hover, .nav--social a:hover {
 			  color: white;
 			}';
-		return $output;
 
+			return $output;
 		}
+		
 		return '';
 	}
 }
+
+function load_javascript_thing() { ?>
+	<script>
+		function patch_color_contrast($value, $selector, $property, $unit) {
+			var c = $value.substring(1);      // strip #
+			var rgb = parseInt(c, 16);   // convert rrggbb to decimal
+			var r = (rgb >> 16) & 0xff;  // extract red
+			var g = (rgb >>  8) & 0xff;  // extract green
+			var b = (rgb >>  0) & 0xff;  // extract blue
+
+			var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+			// pick a different colour
+			var this_selector = ".cat-links a, .highlight, .search-form .search-submit, .smart-link:hover, .single .entry-content a:hover, .page .entry-content a:hover, .edit-link a:hover, .author-info__link:hover, .comments_add-comment:hover, .comment .comment-reply-title a:hover, .page-links a:hover, :first-child:not(input) ~ .form-submit #submit:hover, .sidebar .widget a:hover, .nav--social a:hover";
+			var elements = document.querySelectorAll(this_selector);
+			if (luma < 40) {
+				for (var i = 0; i < elements.length; i++) {
+					elements[i].style.color = 'white';
+				}
+			} else {
+				for (var i = 0; i < elements.length; i++) {
+					elements[i].style.color = 'black';
+				}
+			}
+		}
+	</script>
+<?php }
+
+add_action('customize_preview_init', 'load_javascript_thing');
 
 add_filter( 'customify_filter_fields', 'patch_add_customify_options' ); ?>
