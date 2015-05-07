@@ -172,7 +172,6 @@ p {
 
 b,
 strong {
-	color: $black;
 	font-weight: 500;
 }
 
@@ -184,7 +183,8 @@ strong {
 	position: relative;
 	background-color: $accent;
 	box-shadow: white 0 1.1em inset;
-	line-height: 1.4em;
+	margin-left: -2px;
+	margin-right: -2px;
 	padding-left: 2px;
 	padding-right: 2px;
 }
@@ -200,15 +200,6 @@ strong {
 	&:hover {
 		@extend %link--underline--hover;
 	}
-}
-
-// Smarter Links Underlines
-%smarter-links-underlines {
-	@extend %link--underline;
-}
-
-.smart-link {
-	@extend %smarter-links-underlines;
 }
 
 a {
@@ -227,7 +218,7 @@ a {
 
 	 @if $editor-style { 
 	 	.mce-content-body & {
-			@extend %smarter-links-underlines;
+			@extend %link--underline;
 
 			&[href$=".jpg"], &[href$=".jpeg"], &[href$=".png"], &[href$=".gif"], &[href$=".bmp"], &[href*="attachment"] {
 				padding-left: 0;
@@ -275,7 +266,7 @@ a {
     	}
 
 	.edit-link & {
-		@extend %smarter-links-underlines;
+		@extend %link--underline;
 		@extend %beta;
 		display: inline-block;
 		position: relative;
