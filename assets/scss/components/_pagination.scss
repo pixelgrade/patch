@@ -192,6 +192,9 @@ div#infinite-handle {
 
 	button {
 		@extend %link--underline;
+		padding-left: 3px;
+		padding-right: 3px;
+		
 		position: relative;
 		z-index: 5;
 		text-transform: uppercase;
