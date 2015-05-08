@@ -180,39 +180,26 @@
 div#infinite-handle {
 
 	span {
-		background: transparent;
+		background: none;
 		border-radius: 0;
 		color: $dark;
 		cursor: pointer;
 		font-size: 20px;
-
-		padding-left: 5px;
-		padding-right: 5px;
-
-		&:after {
-			content: "";
-
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			z-index: -1;
-
-			width: 100%;
-			height: 10px;
-
-			background-color: $accent;
-			transition: all .1s linear;
-		}
 	}
 
 	&:hover span:after { height: 100%; }
 
 
 	button {
+		@extend %link--underline;
+		padding-left: 3px;
+		padding-right: 3px;
+		
 		position: relative;
 		z-index: 5;
-
 		text-transform: uppercase;
+		line-height: 1.4;
+		box-shadow: white 0 22px inset;
 	}
 }
 
