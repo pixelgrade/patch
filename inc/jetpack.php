@@ -17,7 +17,6 @@ function patch_jetpack_setup() {
 	 * See: http://jetpack.me/support/infinite-scroll/
 	 */
 	add_theme_support( 'infinite-scroll', array(
-		'type'           => 'scroll',
 		'container'      => 'posts',
 		'wrapper'        => false,
 		'footer'         => 'page',
