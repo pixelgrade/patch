@@ -200,6 +200,15 @@ div#infinite-handle {
 		text-transform: uppercase;
 		line-height: 1.4;
 		box-shadow: white 0 22px inset;
+
+		background-color: $accent !important;
+
+		&:hover {
+			padding-left: 3px;
+			padding-right: 3px;
+
+			line-height: 1.4;
+		}
 	}
 }
 

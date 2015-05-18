@@ -81,3 +81,38 @@
 .no-scroll {
 	overflow: hidden;
 }
+
+
+// Videopress style
+.jetpack-video-wrapper, .entry-featured{
+
+	.video-player,
+	.videopress-poster,
+	.videopress-placeholder {
+		width: 100% !important;
+		height: auto !important;
+	}
+
+	.videopress-poster {
+		display: block;
+	}
+
+	.play-button{
+		span {
+			margin: 0 !important;
+
+			transform: translateX(-50%) translateY(-50%);
+		}
+
+		img {
+			width: auto !important;
+			height: auto !important;
+		}
+
+		& + div {
+			position: absolute !important;
+			right: 0;
+		}
+	}
+}
+
