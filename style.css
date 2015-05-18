@@ -1,27 +1,20 @@
-@charset "UTF-8";
 /*
-/*
-Theme Name: Patch
+Theme Name: Patch Child
 Theme URI: http://pixelgrade.com/demos/patch/
 Author: PixelGrade
 Author URI: http://pixelgrade.com
+Template: Patch
 Description: An algorithmic design experiment that cleverly imagines the best layout for your content. Patch brings unity and balance to your beautiful crafted diversity.
-Version: 1.0-wpcom
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: patch
 Domain Path: /languages/
 Tags: light, white, one-column, two-columns, three-columns, left-sidebar, responsive-layout, custom-menu, featured-images, editor-style, infinite-scroll, microformats, post-formats, rtl-language-support, site-logo, sticky-post, theme-options, threaded-comments, translation-ready, blog, journal, lifestream, magazine, news, scrapbooking, video, bright, clean, bold, geometric, minimal, modern, smart, adaptive
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
-Patch is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
-
-Resetting and rebuilding styles have been helped along thanks to the fine work of
-Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
-along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
-and Blueprint http://www.blueprintcss.org/
 */
 
-@import "main"; 
+/* Add your custom CSS rules that overwrite the ones in the main Lens theme here */
+
+/* This file assumes you wish to add new CSS rules that will overwrite the ones in the parent's CSS files
+If you wish however, you can copy the whole style.css file from the parent here and hack at it - see functions.php for more details.
+In that case please remember that you still need to retain the header above (replace the header of the parent style.css with the one above),
+specifically the 'Template: Patch' line. */

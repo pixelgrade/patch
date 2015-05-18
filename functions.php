@@ -1,182 +1,92 @@
 <?php
 /**
- * Patch functions and definitions
+ * Patch Child functions and definitions
  *
- * @package Patch
- * @since Patch 1.0
- */
-
-/**
- * Set the content width based on the theme's design and stylesheet.
- */
-if ( ! isset( $content_width ) ) {
-	$content_width = 980; /* pixels */
-}
-
-if ( ! function_exists( 'patch_setup' ) ) :
-
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
-	 */
-	function patch_setup() {
-
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on Patch, use a find and replace
-		 * to change 'patch' to the name of your theme in all the template files
-		 */
-		load_theme_textdomain( 'patch', get_template_directory() . '/languages' );
-
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
-
-		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
-		add_theme_support( 'title-tag' );
-
-		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-		 */
-		add_theme_support( 'post-thumbnails' );
-
-		//used as featured image for posts on home page and archive pages
-		add_image_size( 'patch-masonry-image', 500, 9999, false );
-
-		//used for the single post featured image
-		add_image_size( 'patch-single-image', 1024, 9999, false );
-
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'primary' 	=> __( 'Primary Menu', 'patch' ),
-			'social' 	=> __( 'Social Menu', 'patch' ),
-			'footer'    => __( 'Footer Menu', 'patch' ),
-		) );
-
-		/*
-		 * Switch default core markup for comment form, galleries and captions
-		 * to output valid HTML5.
-		 */
-		add_theme_support( 'html5', array(
-			'comment-form',
-			'gallery',
-			'caption',
-		) );
-
-		/*
-		 * Enable support for Post Formats.
-		 * See http://codex.wordpress.org/Post_Formats
-		 */
-		add_theme_support( 'post-formats', array(
-			'aside',
-			'gallery',
-			'image',
-			'audio',
-			'video',
-			'quote',
-			'link',
-		) );
-
-		/*
-		 * Add editor custom style to make it look more like the frontend
-		 * Also enqueue the custom Google Fonts also
-		 */
-		add_editor_style( array( 'editor-style.css', patch_fonts_url() ) );
-
-	}
-
-endif;
-
-add_action( 'after_setup_theme', 'patch_setup' );
-
-/**
- * Register widget area.
+ * Bellow you will find several ways to tackle the enqueue of static resources/files
+ * It depends on the amount of customization you want to do
+ * If you either wish to simply overwrite/add some CSS rules or JS code
+ * Or if you want to replace certain files from the parent with your own (like style.css or main.js)
  *
- * @link http://codex.wordpress.org/Function_Reference/register_sidebar
+ * @package PatchChild
  */
-function patch_widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'patch' ),
-		'id'            => 'sidebar-1',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h4 class="widget-title">',
-		'after_title'   => '</h4>',
-	) );
+
+/**
+ * Setup Patch Child Theme's textdomain.
+ *
+ * Declare textdomain for this child theme.
+ * Translations can be filed in the /languages/ directory.
+ */
+function patch_child_theme_setup() {
+	load_child_theme_textdomain( 'patch-child-theme', get_stylesheet_directory() . '/languages' );
 }
-
-add_action( 'widgets_init', 'patch_widgets_init' );
+add_action( 'after_setup_theme', 'patch_child_theme_setup' );
 
 /**
- * Enqueue scripts and styles.
+ * Add all the extra static resources of the child theme - right now only the style.css file
  */
-function patch_scripts() {
-	//FontAwesome Stylesheet
-	wp_enqueue_style( 'patch-font-awesome-style', get_stylesheet_directory_uri() . '/assets/css/font-awesome.css', array(), '4.3.0' );
-
-	//Main Stylesheet
-	wp_enqueue_style( 'patch-style', get_stylesheet_uri(), array( 'patch-font-awesome-style' ) );
-
-	//Default Fonts
-	wp_enqueue_style( 'patch-fonts', patch_fonts_url(), array(), null );
-
-	//Register ImagesLoaded plugin
-	wp_register_script( 'patch-imagesloaded', get_stylesheet_directory_uri() . '/assets/js/imagesloaded.js', array(), '3.1.8', true );
-
-	//Register Velocity.js plugin
-	wp_register_script( 'patch-velocity', get_stylesheet_directory_uri() . '/assets/js/velocity.js', array(), '1.2.2', true );
-
-	//Register Magnific Popup plugin
-	wp_register_script( 'patch-magnificpopup', get_stylesheet_directory_uri() . '/assets/js/magnificpopup.js', array(), '1.0.0', true );
-
-	//Enqueue Patch Custom Scripts
-	wp_enqueue_script( 'patch-scripts', get_stylesheet_directory_uri() . '/assets/js/main.js', array(
-		'jquery',
-		'masonry',
-		'patch-imagesloaded',
-		'patch-velocity',
-		'patch-magnificpopup',
-	), '1.0.0', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+function patch_child_enqueue_styles() {
+	// Here we are adding the child style.css while still retaining all of the parents assets (style.css, JS files, etc)
+	wp_enqueue_style( 'patch-child-style',
+		get_stylesheet_directory_uri() . '/style.css',
+		array('patch-style') //make sure the the child's style.css comes after the parents so you can overwrite rules
+	);
 }
-
-add_action( 'wp_enqueue_scripts', 'patch_scripts' );
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
+add_action( 'wp_enqueue_scripts', 'patch_child_enqueue_styles' );
 
 /**
- * Custom functions that act independently of the theme templates.
+ * If you want to overwrite whole static resources files from the parent theme, this is the way to do it
  */
-require get_template_directory() . '/inc/extras.php';
 
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
+/*
 
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
+function patch_child_enqueue_styles() {
+	//Let's assume you want to completely overwrite the main.js file in the parent
 
-/**
- * Load the Hybrid Media Grabber class
+	//First you will have to make sure the parent's file is not added
+	// see the parent's function.php -> the patch_scripts_styles() function for details like resources names
+	wp_dequeue_script( 'patch-scripts' );
+	//Remember that the rest of the static resources will still get added like patch-imagesloaded, patch-hoverintent and patch-velocity
+
+	//We will add the main.js from the child theme (located let's say in assets/js/main.js) with the same dependecies as the main.js in the parent
+	//This is not required, but I assume you are not modifying that much :)
+	wp_enqueue_script( 'patch-child-scripts',
+		get_stylesheet_directory_uri() . '/assets/js/main.js',
+		array( 'jquery', 'masonry', 'patch-imagesloaded', 'patch-hoverintent', 'patch-velocity' ),
+		'1.0.0', true );
+
+	//Now for the style.css
+
+	// Here we are adding the child style.css
+	wp_enqueue_style( 'patch-child-style',
+		get_stylesheet_directory_uri() . '/style.css',
+		array('patch-style') //make sure the the child's style.css comes after the parents so you can overwrite rules
+	);
+}
+add_action( 'wp_enqueue_scripts', 'patch_child_enqueue_styles', 11 );
+//the 11 priority parameter is need so we do this after the function in the parent so there is something to dequeue
+//the default priority of any action is 10
+
+*/
+
+/*
+ * Let me give you a second example like the above only in this case we will assume you have copied the whole style.css from the parent into your child theme
  */
-require get_template_directory() . '/inc/hybrid-media-grabber.php'; ?>
+
+/*
+
+function patch_child_enqueue_styles() {
+	//First you will have to make sure the parent's file is not added
+	// see the parent's function.php -> the patch_scripts_styles() function for details like resources names
+	wp_dequeue_style( 'patch-style' );
+
+	//Now for the style.css
+
+	// Here we are adding the child style.css
+	wp_enqueue_style( 'patch-child-style',
+		get_stylesheet_directory_uri() . '/style.css',
+		array('patch-font-awesome-style') //use the same dependencies as the parent because we want to still use FontAwesome icons
+	);
+}
+add_action( 'wp_enqueue_scripts', 'patch_child_enqueue_styles', 11 );
+
+*/
