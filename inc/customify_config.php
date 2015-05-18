@@ -402,8 +402,9 @@ if ( !function_exists('patch_color_contrast') ) {
 			return $output;
 		}
 
+		// if it is not a dark color, just go for the default way
 		$output = $selector . ' {
-			  color: white;
+			  color: ' . $value .';
 			}
 			';
 
