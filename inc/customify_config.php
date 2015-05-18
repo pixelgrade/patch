@@ -171,11 +171,7 @@ function patch_add_customify_options( $options ) {
 								.entry-card.format-quote .entry-content a:hover,
 								.bypostauthor .comment__author-name:before,
 								.site-footer a:hover, .test',
-							// 'callback_filter' => 'patch_color_contrast'
-						),
-						array(
-							'property' => 'color',
-							'callback_filter' => 'patch_color_contrast'
+							 'callback_filter' => 'patch_color_contrast'
 						),
 
 						array(
@@ -405,8 +401,13 @@ if ( !function_exists('patch_color_contrast') ) {
 
 			return $output;
 		}
-		
-		return '';
+
+		$output = $selector . ' {
+			  color: white;
+			}
+			';
+
+		return $output;
 	}
 }
 
