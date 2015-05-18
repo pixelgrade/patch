@@ -49,6 +49,18 @@ function patch_customize_register( $wp_customize ) {
 		'type'              => 'checkbox',
 	) );
 
+	$wp_customize->add_setting( 'patch_footer_copyright', array(
+		'default'           => '',
+		'sanitize_callback' => 'wp_kses_post',
+	) );
+
+	$wp_customize->add_control( 'patch_footer_copyright', array(
+		'label'             => __( 'Additional copyright text', 'patch' ),
+		'description' => '',
+		'section'           => 'patch_theme_options',
+		'type'              => 'textarea',
+	) );
+
 }
 
 add_action( 'customize_register', 'patch_customize_register' );

@@ -13,9 +13,14 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'patch' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'patch' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( '<span class="theme-name">Theme: %1$s</span> by %2$s.', 'patch' ), 'Patch', '<a href="http://pixelgrade.com" rel="designer">PixelGrade</a>' ); ?>
+
+			<?php
+			if ( get_theme_mod( 'patch_footer_copyright', false ) ) {
+				echo get_theme_mod( 'patch_footer_copyright', '' );
+			}
+
+			printf( __( '<span class="theme-name">%1$s theme</span> by %2$s.', 'patch' ), 'Patch', '<a href="https://pixelgrade.com" rel="designer">PixelGrade</a>' ); ?>
+			
 		</div><!-- .site-info
 		--><div class="back-to-top-wrapper">
 			<a href="#top" class="back-to-top-button"><?php get_template_part( 'assets/svg/back-to-top' ); ?></a>
