@@ -58,7 +58,7 @@ function patch_customize_register( $wp_customize ) {
 		'label'             => __( 'Additional copyright text', 'patch' ),
 		'description' => '',
 		'section'           => 'patch_theme_options',
-		'type'              => 'textarea',
+		'type'              => 'text',
 	) );
 
 }

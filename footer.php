@@ -17,10 +17,14 @@
 			<?php
 			if ( get_theme_mod( 'patch_footer_copyright', false ) ) {
 				echo get_theme_mod( 'patch_footer_copyright', '' );
+			} else {
+				echo '© '.get_bloginfo('name').' –';
 			}
 
-			printf( __( '<span class="theme-name">%1$s theme</span> by %2$s.', 'patch' ), 'Patch', '<a href="https://pixelgrade.com" rel="designer">PixelGrade</a>' ); ?>
-			
+			printf( ' %1$s <span>'. __('by', 'patch') .'</span> %2$s', 
+					'<a href="https://pixelgrade.com/themes/patch/" title="'. __( 'Patch - A Newspaper-Inspired WordPress Theme', 'patch' ) .'" rel="theme">'. __( 'Patch Theme', 'patch' ) .'</a>', 
+					'<a href="https://pixelgrade.com" title="'. __( 'The PixelGrade Website', 'patch' ) .'" rel="designer">PixelGrade</a>')?>
+
 		</div><!-- .site-info
 		--><div class="back-to-top-wrapper">
 			<a href="#top" class="back-to-top-button"><?php get_template_part( 'assets/svg/back-to-top' ); ?></a>
