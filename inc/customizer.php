@@ -55,7 +55,7 @@ function patch_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'patch_footer_copyright', array(
-		'label'             => __( 'Additional copyright text', 'patch' ),
+		'label'             => __( 'Additional Copyright Text', 'patch' ),
 		'description' => '',
 		'section'           => 'patch_theme_options',
 		'type'              => 'text',
