@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Patch 1.0-wpcom\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/patch\n"
-"POT-Creation-Date: 2015-04-22 03:25:13+00:00\n"
+"Project-Id-Version: Patch 1.0.2\n"
+"Report-Msgid-Bugs-To: https://help.pixelgrade.com\n"
+"POT-Creation-Date: 2015-05-27 07:58:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,9 +17,7 @@ msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
 #: 404.php:20
-msgid ""
-"It looks like nothing was found at this location. Why not try searching for "
-"something?"
+msgid "It looks like nothing was found at this location. Why not try searching for something?"
 msgstr ""
 
 #: author-bio.php:18
@@ -61,24 +59,25 @@ msgid "Comments are closed."
 msgstr ""
 
 #. translators: %s: Name of current post
+
 #: content-aside.php:27 content-quote.php:40 inc/template-tags.php:688
 #: inc/template-tags.php:718
 msgid "Continue reading %s"
 msgstr ""
 
-#: content-aside.php:33 content-attachment.php:42 content-audio.php:46
+#: content-aside.php:33 content-attachment.php:42 content-audio.php:47
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
-#: content-single.php:59 content-video.php:50 content.php:60
+#: content-single.php:59 content-video.php:51 content.php:60
 msgid "Pages:"
 msgstr ""
 
-#: content-aside.php:37 content-attachment.php:46 content-audio.php:50
-#: content-gallery.php:55 content-video.php:54 content.php:64
+#: content-aside.php:37 content-attachment.php:46 content-audio.php:51
+#: content-gallery.php:55 content-video.php:55 content.php:64
 msgid "Page"
 msgstr ""
 
-#: content-attachment.php:54 content-page.php:42 inc/extras.php:178
+#: content-attachment.php:54 content-page.php:42 inc/extras.php:231
 #: inc/template-tags.php:236 inc/template-tags.php:268
 msgid "Edit"
 msgstr ""
@@ -88,49 +87,46 @@ msgid "Nothing Found"
 msgstr ""
 
 #: content-none.php:25
-msgid ""
-"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
 #: content-none.php:29
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with some "
-"different keywords."
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
 #: content-none.php:34
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
 #: content.php:30
 msgid "Read More"
 msgstr ""
 
-#: footer.php:16
-msgid "http://wordpress.org/"
+#: footer.php:24
+msgid "by"
 msgstr ""
 
-#: footer.php:16
-msgid "Proudly powered by %s"
+#: footer.php:25
+msgid "Patch - A Newspaper-Inspired WordPress Theme"
 msgstr ""
 
-#: footer.php:18
-msgid "<span class=\"theme-name\">Theme: %1$s</span> by %2$s."
+#: footer.php:25
+msgid "Patch Theme"
 msgstr ""
 
-#: footer.php:28
+#: footer.php:26
+msgid "The PixelGrade Website"
+msgstr ""
+
+#: footer.php:37
 msgid "Footer navigation"
 msgstr ""
 
-#: footer.php:36
-msgid ""
-"Begin typing your search above and press return to search. Press Esc to "
-"cancel."
+#: footer.php:45
+msgid "Begin typing your search above and press return to search. Press Esc to cancel."
 msgstr ""
 
-#: footer.php:45
+#: footer.php:54
 msgid "Menu"
 msgstr ""
 
@@ -159,6 +155,74 @@ msgctxt "attachment parent post"
 msgid "Posted in %s"
 msgstr ""
 
+#: inc/customify_config.php:18
+msgid "Style Presets"
+msgstr ""
+
+#: inc/customify_config.php:22
+msgid "Select a style:"
+msgstr ""
+
+#: inc/customify_config.php:23
+msgid "Conveniently change the design of your site with built-in style presets. Easy as pie."
+msgstr ""
+
+#: inc/customify_config.php:28
+msgid "Patch"
+msgstr ""
+
+#: inc/customify_config.php:48
+msgid "Adler"
+msgstr ""
+
+#: inc/customify_config.php:67
+msgid "Royal"
+msgstr ""
+
+#: inc/customify_config.php:86
+msgid "Queen"
+msgstr ""
+
+#: inc/customify_config.php:104
+msgid "Carrot"
+msgstr ""
+
+#: inc/customify_config.php:122
+msgid "Velvet"
+msgstr ""
+
+#: inc/customify_config.php:145
+msgid "Colors"
+msgstr ""
+
+#: inc/customify_config.php:149
+msgid "Accent Color"
+msgstr ""
+
+#: inc/customify_config.php:223
+msgid "Headings Color"
+msgstr ""
+
+#: inc/customify_config.php:235
+msgid "Body Color"
+msgstr ""
+
+#: inc/customify_config.php:255
+msgid "Fonts"
+msgstr ""
+
+#: inc/customify_config.php:259
+msgid "Headings"
+msgstr ""
+
+#: inc/customify_config.php:316
+msgid "Capitalize Headings"
+msgstr ""
+
+#: inc/customify_config.php:327
+msgid "Body Text"
+msgstr ""
+
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
 msgstr ""
@@ -175,10 +239,19 @@ msgstr ""
 msgid "Hide the author bio on single posts."
 msgstr ""
 
+#: inc/customizer.php:58
+msgid "Additional Copyright Text"
+msgstr ""
+
+#: inc/extras.php:125
+msgid "Page %s"
+msgstr ""
+
 #. Translators: If there are characters in your language that are not
 #. 		* supported by Roboto, translate this to 'off'. Do not translate
 #. 		* into your own language.
-#: inc/extras.php:111
+
+#: inc/extras.php:164
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr ""
@@ -186,7 +259,8 @@ msgstr ""
 #. Translators: If there are characters in your language that are not
 #. 		* supported by Oswald, translate this to 'off'. Do not translate
 #. 		* into your own language.
-#: inc/extras.php:119
+
+#: inc/extras.php:172
 msgctxt "Oswald font: on or off"
 msgid "on"
 msgstr ""
@@ -194,31 +268,345 @@ msgstr ""
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
 #. 'vietnamese'. Do not translate into your own language.
-#: inc/extras.php:124
+
+#: inc/extras.php:177
 msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr ""
 
-#: inc/extras.php:173
+#: inc/extras.php:226
 msgid "on %s at %s"
 msgstr ""
 
-#: inc/extras.php:190
+#: inc/extras.php:243
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/extras.php:246 inc/extras.php:247
+#: inc/extras.php:315 inc/extras.php:316
 msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: inc/extras.php:247
+#: inc/extras.php:316
 msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr ""
 
-#: inc/extras.php:330
+#: inc/extras.php:355
+msgid "Intro Text"
+msgstr ""
+
+#: inc/extras.php:356
+msgid "Dropcap"
+msgstr ""
+
+#: inc/extras.php:357
+msgid "Highlight"
+msgstr ""
+
+#: inc/extras.php:358
+msgid "Pull Left"
+msgstr ""
+
+#: inc/extras.php:359
+msgid "Pull Right"
+msgstr ""
+
+#: inc/extras.php:360
+msgid "Two Columns"
+msgstr ""
+
+#: inc/extras.php:429
 msgid "Search"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:226
+#: inc/required-plugins/required-plugins.php:48
+msgid "Install Required Plugins"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:227
+#: inc/required-plugins/required-plugins.php:49
+msgid "Install Plugins"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:228
+#: inc/required-plugins/required-plugins.php:50
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:229
+msgid "Something went wrong."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:230
+#: inc/required-plugins/required-plugins.php:53
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:231
+#: inc/required-plugins/required-plugins.php:55
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:232
+#: inc/required-plugins/required-plugins.php:57
+msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
+msgid_plural "Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:233
+#: inc/required-plugins/required-plugins.php:59
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:234
+#: inc/required-plugins/required-plugins.php:61
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:235
+#: inc/required-plugins/required-plugins.php:63
+msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
+msgid_plural "Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:236
+#: inc/required-plugins/required-plugins.php:65
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:237
+#: inc/required-plugins/required-plugins.php:67
+msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
+msgid_plural "Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:238
+#: inc/required-plugins/required-plugins.php:69
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:239
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:240
+#: inc/required-plugins/required-plugins.php:71
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:241
+msgid "Return to the dashboard"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:242
+#: inc/required-plugins/class-tgm-plugin-activation.php:2116
+#: inc/required-plugins/required-plugins.php:72
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:243
+#: inc/required-plugins/class-tgm-plugin-activation.php:1778
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:244
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:245
+msgid "Dismiss this notice"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:595
+#: inc/required-plugins/class-tgm-plugin-activation.php:2346
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1281
+#: inc/required-plugins/class-tgm-plugin-activation.php:1465
+msgid "Private Repository"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1285
+#: inc/required-plugins/class-tgm-plugin-activation.php:1469
+msgid "Pre-Packaged"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1290
+msgid "WordPress Repository"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1293
+msgid "Required"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1293
+msgid "Recommended"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1296
+msgid "Not Installed"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1299
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1416
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Install %2$s"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1438
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Activate %2$s"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1490
+msgid "No plugins to install or activate. <a href=\"%1$s\">Return to the Dashboard</a>"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1506
+msgid "Plugin"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1507
+msgid "Source"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1508
+msgid "Type"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1509
+msgid "Status"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1527
+msgid "Install"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1528
+msgid "Activate"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1639
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1755
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2099
+msgid "Install package not available."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2100
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2101
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2102
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2103
+msgid "Plugin install failed."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2104
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2115
+msgid "Plugin activation failed."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2238
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2239
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2243
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2244
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2244
+#: inc/required-plugins/class-tgm-plugin-activation.php:2251
+msgid "Show Details"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2244
+#: inc/required-plugins/class-tgm-plugin-activation.php:2251
+msgid "Hide Details"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2245
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2246
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2250
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2251
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2252
+msgid "All installations have been completed."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2253
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/required-plugins/required-plugins.php:52
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: inc/required-plugins/required-plugins.php:70
+msgid "Activate installed plugin"
+msgid_plural "Activate installed plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/required-plugins/required-plugins.php:73
+msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
 #: inc/template-tags.php:48
@@ -227,6 +615,7 @@ msgid "by %s"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
+
 #: inc/template-tags.php:104
 msgid ", "
 msgstr ""
@@ -236,6 +625,7 @@ msgid "All %s Posts"
 msgstr ""
 
 #. translators: There is a space at the end
+
 #: inc/template-tags.php:253
 msgid "Tagged with: "
 msgstr ""
@@ -341,6 +731,7 @@ msgid "Archives: %s"
 msgstr ""
 
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
+
 #: inc/template-tags.php:323
 msgid "%1$s: %2$s"
 msgstr ""
@@ -377,30 +768,18 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#. Theme Name of the plugin/theme
-#: wp-content/themes/premium/patch/style.css
-msgid "Patch"
-msgstr ""
-
 #. Theme URI of the plugin/theme
-#: wp-content/themes/premium/patch/style.css
-msgid "http://pixelgrade.com/demos/patch/"
+msgid "https://pixelgrade.com/demos/patch/"
 msgstr ""
 
 #. Description of the plugin/theme
-#: wp-content/themes/premium/patch/style.css
-msgid ""
-"An algorithmic design experiment that cleverly imagines the best layout for "
-"your content. Patch brings unity and balance to your beautiful crafted "
-"diversity."
+msgid "An algorithmic design experiment that cleverly imagines the best layout for your content. Patch brings unity and balance to your beautiful crafted diversity."
 msgstr ""
 
 #. Author of the plugin/theme
-#: wp-content/themes/premium/patch/style.css
 msgid "PixelGrade"
 msgstr ""
 
 #. Author URI of the plugin/theme
-#: wp-content/themes/premium/patch/style.css
-msgid "http://pixelgrade.com"
+msgid "https://pixelgrade.com/"
 msgstr ""
