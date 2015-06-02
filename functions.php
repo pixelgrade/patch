@@ -200,6 +200,11 @@ require get_template_directory() . '/inc/customify_config.php';
 require get_template_directory() . '/inc/required-plugins/required-plugins.php';
 
 /**
+ * Hooks and functions for a self-hosted installation
+ */
+require_once(get_template_directory() . '/inc/patch-self-hosted.php');
+
+/**
  * Load the theme update logic
  */
 require_once( get_template_directory() . '/inc/wp-updates-theme.php' );
