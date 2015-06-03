@@ -280,12 +280,13 @@ button {
 	height: 44px;
 	line-height: 44px;
 
-	position: absolute;
+	position: fixed;
 	right: 0;
-	top: 0;
+	top: 16px;
 	text-decoration: none;
 	text-align: center;
 	opacity: 1;
+
 	@if $mfp-IE7support {
 		filter: unquote("alpha(opacity=#{$mfp-controls-opacity*100})");
 	}
@@ -293,7 +294,7 @@ button {
 	color: #000000;
 
 	font-style: normal;
-	font-size: 28px;
+	font-size: 34px;
 	font-family: Arial, Baskerville, monospace;
 
 	&:hover,
@@ -304,8 +305,8 @@ button {
 		}
 	}
 
-	&:active {
-		top: 1px;
+	.admin-bar & {
+		top: 50px;
 	}
 }
 .mfp-close-btn-in {
