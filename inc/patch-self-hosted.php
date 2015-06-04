@@ -18,7 +18,7 @@ function pixelgrade_activate_patch() {
 		$license_key = file_get_contents( get_template_directory() . '/license_key.txt');
 	}
 
-	$url = 'http://themesapi.pixelgrade.com/wp-json/api/licenses/activate_theme';
+	$url = 'https://themesapi.pixelgrade.com/wp-json/api/licenses/activate_theme';
 
 	$request_args = array(
 		'method' => 'GET',
