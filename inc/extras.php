@@ -423,8 +423,7 @@ class PatchWrapImagesInFigureCallback {
  *
  * @return string
  */
-function patch_add_search_to_nav( $items, $args )
-{
+function patch_add_search_to_nav( $items, $args ) {
 	if( $args->theme_location == 'social' && ( ! get_theme_mod( 'patch_disable_search_in_social_menu', false ) ) ) {
 		$items .= '<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#search">' . __( 'Search', 'patch' ) . '</a></li>';
 	}
@@ -433,7 +432,7 @@ function patch_add_search_to_nav( $items, $args )
 
 add_filter( 'wp_nav_menu_items', 'patch_add_search_to_nav', 10, 2 );
 
-function patch_allow_skype_protocol( $protocols ){
+function patch_allow_skype_protocol( $protocols ) {
 	$protocols[] = 'skype';
 	return $protocols;
 }
@@ -471,8 +470,7 @@ add_filter( 'kses_allowed_protocols' , 'patch_allow_skype_protocol' );
  * @return string Trimmed string.
  * @link http://book.cakephp.org/3.0/en/core-libraries/string.html#truncating-text
  */
-function patch_truncate($text, $length = 100, array $options = [])
-{
+function patch_truncate($text, $length = 100, array $options = []) {
 	$default = [
 		'ellipsis' => apply_filters('excerpt_more', '[…]' ), 'exact' => false, 'html' => false
 	];
