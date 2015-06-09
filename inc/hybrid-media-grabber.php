@@ -408,7 +408,7 @@ class Hybrid_Media_Grabber {
 
 		remove_filter( 'the_content', array( $this, 'split_media' ), 5 );
 
-		return str_replace( $this->original_media, '', $content );
+		return apply_filters('the_content', str_replace( $this->original_media, '', $content ) );
 	}
 
 	/**
