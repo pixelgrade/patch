@@ -470,21 +470,25 @@ add_filter( 'kses_allowed_protocols' , 'patch_allow_skype_protocol' );
  * @return string Trimmed string.
  * @link http://book.cakephp.org/3.0/en/core-libraries/string.html#truncating-text
  */
-function patch_truncate($text, $length = 100, array $options = []) {
-	$default = [
-		'ellipsis' => apply_filters('excerpt_more', '[…]' ), 'exact' => false, 'html' => false
-	];
+function patch_truncate($text, $length = 100, $options = array() ) {
+	$default = array(
+		'ellipsis' => apply_filters('excerpt_more', '[…]' ),
+		'exact' => false,
+		'html' => false,
+	);
+
 	if ( ! empty( $options['html'] ) && strtolower( mb_internal_encoding() ) === 'utf-8') {
 		$default['ellipsis'] = "\xe2\x80\xa6";
 	}
-	$options += $default;
+	$options = array_merge( $default, $options );
 	extract($options);
-	if ( $html ) {
+
+	if ( true === $html ) {
 		if ( mb_strlen( preg_replace( '/<.*?>/', '', $text ) ) <= $length) {
 			return $text;
 		}
 		$totalLength = mb_strlen( strip_tags( $ellipsis ) );
-		$openTags = [];
+		$openTags = array();
 		$truncate = '';
 		preg_match_all( '/(<\/?([\w+]+)[^>]*>)?([^<>]*)/', $text, $tags, PREG_SET_ORDER );
 		foreach ( $tags as $tag ) {
@@ -529,9 +533,9 @@ function patch_truncate($text, $length = 100, array $options = []) {
 		}
 		$truncate = mb_substr( $text, 0, $length - mb_strlen( $ellipsis ) );
 	}
-	if ( ! $exact ) {
+	if ( false === $exact ) {
 		$spacepos = mb_strrpos( $truncate, ' ' );
-		if ( $html ) {
+		if ( true === $html ) {
 			$truncateCheck = mb_substr( $truncate, 0, $spacepos );
 			$lastOpenTag = mb_strrpos( $truncateCheck, '<' );
 			$lastCloseTag = mb_strrpos( $truncateCheck, '>' );
@@ -563,7 +567,7 @@ function patch_truncate($text, $length = 100, array $options = []) {
 		}
 	}
 	$truncate .= $ellipsis;
-	if ( $html ) {
+	if ( true === $html ) {
 		foreach ( $openTags as $tag ) {
 			$truncate .= '</' . $tag . '>';
 		}
