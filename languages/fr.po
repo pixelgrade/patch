@@ -15,31 +15,31 @@ msgstr ""
 msgid "An algorithmic design experiment that cleverly imagines the best layout for your content. Patch brings unity and balance to your beautiful crafted diversity."
 msgstr ""
 
-#: inc/template-tags.php:998 inc/template-tags.php:1004
+#: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
 msgstr "Suivant"
 
-#: inc/template-tags.php:987 inc/template-tags.php:997
+#: inc/template-tags.php:1027 inc/template-tags.php:1037
 msgid "Previous"
 msgstr "Précédent"
 
-#: inc/template-tags.php:855
+#: inc/template-tags.php:895
 msgid "Next image"
 msgstr "Image suivante"
 
-#: inc/template-tags.php:980
+#: inc/template-tags.php:1020
 msgid "Posts navigation"
 msgstr "Navigation des articles"
 
-#: inc/template-tags.php:840
+#: inc/template-tags.php:880
 msgid "Previous image"
 msgstr "Image précédente"
 
-#: inc/template-tags.php:830
+#: inc/template-tags.php:870
 msgid "Image navigation"
 msgstr "Navigation des images"
 
-#: inc/template-tags.php:803
+#: inc/template-tags.php:843
 msgid "Search Results for: %s"
 msgstr "Résultats de recherche pour : %s"
 
@@ -171,7 +171,7 @@ msgstr "par %s"
 msgid ", "
 msgstr ", "
 
-#: inc/extras.php:330
+#: inc/extras.php:329
 msgid "Search"
 msgstr "Recherche"
 
@@ -313,8 +313,8 @@ msgid "Page"
 msgstr "Page"
 
 #. translators: %s: Name of current post
-#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:688
-#: inc/template-tags.php:718
+#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
+#: inc/template-tags.php:758
 msgid "Continue reading %s"
 msgstr "Continuer la lecture de %s"
 
