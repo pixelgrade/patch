@@ -355,8 +355,8 @@ function patch_mce_before_init( $settings ) {
 		array( 'title' => __( 'Intro Text', 'patch' ), 'selector' => 'p', 'classes' => 'intro' ),
 		array( 'title' => __( 'Dropcap', 'patch' ), 'inline' => 'span', 'classes' => 'dropcap' ),
 		array( 'title' => __( 'Highlight', 'patch' ), 'inline' => 'span', 'classes' => 'highlight' ),
-		array( 'title' => __( 'Pull Left', 'patch' ), 'inline' => 'p', 'classes' => 'pull-left' ),
-		array( 'title' => __( 'Pull Right', 'patch' ), 'inline' => 'p', 'classes' => 'pull-right' ),
+		array( 'title' => __( 'Pull Left', 'patch' ), 'selector' => 'p', 'classes' => 'pull-left', 'wrapper' => true ),
+		array( 'title' => __( 'Pull Right', 'patch' ), 'selector' => 'p', 'classes' => 'pull-right', 'wrapper' => true ),
 		array( 'title' => __( 'Two Columns', 'patch' ), 'selector' => 'p', 'classes' => 'twocolumn', 'wrapper' => true ),
 	);
 
