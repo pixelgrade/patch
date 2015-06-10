@@ -7,7 +7,6 @@ function magnificPopupInit() {
             type: 'image',
             closeOnContentClick: false,
             closeBtnInside: false,
-            removalDelay: 500,
             mainClass: 'mfp-fade',
             image: {
                 markup: '<div class="mfp-figure">' +

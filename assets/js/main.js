@@ -226,7 +226,6 @@ if (!Date.now) Date.now = function () {
       type: 'image',
       closeOnContentClick: false,
       closeBtnInside: false,
-      removalDelay: 500,
       mainClass: 'mfp-fade',
       image: {
         markup: '<div class="mfp-figure">' + '<div class="mfp-img"></div>' + '<div class="mfp-bottom-bar">' + '<div class="mfp-title"></div>' + '<div class="mfp-counter"></div>' + '</div>' + '</div>',

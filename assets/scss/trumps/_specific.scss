@@ -2,7 +2,7 @@
     font-size: rem(18px);
     font-weight: 500;
     line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
 
     @include query-below($lap) {
         font-size: 1.2em;
@@ -10,14 +10,29 @@
     }
 }
 
-@include query-above(1000px){
-    .twocolumn {
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2;
-        -webkit-column-gap: 40px;
-        -moz-column-gap: 40px;
-        column-gap: 40px;
+@if $editor-style == false {
+    @include query-above(1000px) {
+        .twocolumn {
+            -webkit-column-count: 2;
+            -moz-column-count: 2;
+            column-count: 2;
+            -webkit-column-gap: 40px;
+            -moz-column-gap: 40px;
+            column-gap: 40px;
+        }
+    }
+}
+
+@if $editor-style {
+    @include query-above(870px) {
+        .twocolumn {
+            -webkit-column-count: 2;
+            -moz-column-count: 2;
+            column-count: 2;
+            -webkit-column-gap: 40px;
+            -moz-column-gap: 40px;
+            column-gap: 40px;
+        }
     }
 }
 
@@ -45,38 +60,76 @@
 
 // Pull Content Outside
 
+@if $editor-style == false {
+    @include query-above($desk) {
+        $pull-offset : 2 * $col;
+        $pull-gutter : 40px;
 
-@include query-above($desk) {
-    $pull-offset : 2 * $col;
-    $pull-gutter : 40px;
+        .pull-left {
+            margin-left: -$pull-offset;
+            margin-bottom: rhythm(1);
+            width: calc(#{$pull-offset + $pull-gutter/2} + 50%);
+            padding-right: $pull-gutter;
 
-    .pull-left {
-        margin-left: -$pull-offset;
-        margin-bottom: rhythm(1);
-        width: calc(#{$pull-offset + $pull-gutter/2} + 50%);
-        padding-right: $pull-gutter;
+            padding-left: 1.5*$gutter;
+            float: left;
 
-        padding-left: 1.5*$gutter;
-        float: left;
+            text-align: right;
 
-        text-align: right;
+            & + .pull-right {
+                margin-right: -$pull-offset;
+                width: calc(#{$pull-offset - $pull-gutter/2} + 50%);
+                padding-left: 0;
+            }
+        }
 
-        & + .pull-right {
+        .pull-right {
             margin-right: -$pull-offset;
-            width: calc(#{$pull-offset - $pull-gutter/2} + 50%);
-            padding-left: 0;
+            margin-bottom: rhythm(1);
+            width: calc(#{$pull-offset + $pull-gutter/2} + 50%);
+            padding-left: $pull-gutter;
+
+            padding-right: 1.5*$gutter;
+            float: right;
+
+            text-align: left;
         }
     }
+}
 
-    .pull-right {
-        margin-right: -$pull-offset;
-        margin-bottom: rhythm(1);
-        width: calc(#{$pull-offset + $pull-gutter/2} + 50%);
-        padding-left: $pull-gutter;
+@if $editor-style {
+    @include query-above(870px) {
+        $pull-offset : 100px;
+        $pull-gutter : 40px;
 
-        padding-right: 1.5*$gutter;
-        float: right;
+        .pull-left {
+            margin-left: -$pull-offset;
+            margin-bottom: rhythm(1);
+            width: calc(#{$pull-offset + $pull-gutter/2} + 50%);
+            padding-right: $pull-gutter;
 
-        text-align: left;
+            padding-left: 1.5*$gutter;
+            float: left;
+
+            text-align: right;
+
+            & + .pull-right {
+                margin-right: -$pull-offset;
+                width: calc(#{$pull-offset - $pull-gutter/2} + 50%);
+                padding-left: 0;
+            }
+        }
+
+        .pull-right {
+            margin-right: -$pull-offset;
+            margin-bottom: rhythm(1);
+            width: calc(#{$pull-offset + $pull-gutter/2} + 50%);
+            padding-left: $pull-gutter;
+
+            padding-right: 1.5*$gutter;
+            float: right;
+
+            text-align: left;
+        }
     }
 }

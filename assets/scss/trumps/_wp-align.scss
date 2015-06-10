@@ -35,7 +35,7 @@ img {
     }
 }
 
-.aligncenter, .alignnone {
+.aligncenter, .alignnone, .entry-content .jetpack-video-wrapper {
     @include query-above($lap) {
         margin-left: -3 * $gutter;
         margin-right: -3 * $gutter;

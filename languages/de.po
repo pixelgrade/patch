@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/0.1\n"
+"X-Generator: GlotPress/1.0-alpha-1000\n"
 "Project-Id-Version: Patch\n"
 
 #. Description of the plugin/theme
@@ -15,31 +15,31 @@ msgstr ""
 msgid "An algorithmic design experiment that cleverly imagines the best layout for your content. Patch brings unity and balance to your beautiful crafted diversity."
 msgstr ""
 
-#: inc/template-tags.php:998 inc/template-tags.php:1004
+#: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
 msgstr "Weiter"
 
-#: inc/template-tags.php:987 inc/template-tags.php:997
+#: inc/template-tags.php:1027 inc/template-tags.php:1037
 msgid "Previous"
 msgstr "Vorheriges"
 
-#: inc/template-tags.php:855
+#: inc/template-tags.php:895
 msgid "Next image"
 msgstr "Nächstes Bild"
 
-#: inc/template-tags.php:980
+#: inc/template-tags.php:1020
 msgid "Posts navigation"
 msgstr "Beiträge-Navigation"
 
-#: inc/template-tags.php:840
+#: inc/template-tags.php:880
 msgid "Previous image"
 msgstr "Vorheriges Bild"
 
-#: inc/template-tags.php:830
+#: inc/template-tags.php:870
 msgid "Image navigation"
 msgstr "Bilder-Navigation"
 
-#: inc/template-tags.php:803
+#: inc/template-tags.php:843
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für: %s"
 
@@ -171,7 +171,7 @@ msgstr "von %s"
 msgid ", "
 msgstr ", "
 
-#: inc/extras.php:330
+#: inc/extras.php:329
 msgid "Search"
 msgstr "Suche"
 
@@ -313,8 +313,8 @@ msgid "Page"
 msgstr "Seite"
 
 #. translators: %s: Name of current post
-#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:688
-#: inc/template-tags.php:718
+#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
+#: inc/template-tags.php:758
 msgid "Continue reading %s"
 msgstr "Weiterlesen von %s"
 
