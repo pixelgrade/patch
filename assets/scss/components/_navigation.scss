@@ -88,7 +88,7 @@
 			margin-right: -6px;
 			padding-right: 6px;
 		}
-		
+
 		&[class*="current-menu"] > a,
 		&:hover > a {
 			@extend %link--underline--menu;
@@ -160,8 +160,8 @@
 	}
 
 	@include query-below($lap) {
-		overflow: hidden; 
-		
+		overflow: hidden;
+
 		.sub-menu {
 			padding-left: 12px;
 		}
@@ -389,6 +389,12 @@
 		&:hover {
 			&:before {
 				background: $accent;
+			}
+		}
+
+		&[href*="#search"] {
+			@include query-below($lap) {
+				display: none;
 			}
 		}
 	}

@@ -3,9 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Patch\n"
-"Report-Msgid-Bugs-To: https://help.pixelgrade.com\n"
-"POT-Creation-Date: 2015-05-27 07:58:07+00:00\n"
-"PO-Revision-Date: 2015-05-27 11:00+0200\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/patch\n"
+"POT-Creation-Date: 2015-06-11 07:36:59+00:00\n"
+"PO-Revision-Date: 2015-06-11 10:51+0200\n"
 "Last-Translator: Vlad Olaru <vlad.olaru@pixelgrade.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -64,8 +64,8 @@ msgid "Comments are closed."
 msgstr "סגור לתגובות."
 
 #. translators: %s: Name of current post
-#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:688
-#: inc/template-tags.php:718
+#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
+#: inc/template-tags.php:758
 msgid "Continue reading %s"
 msgstr " להמשיך לקרוא את %s"
 
@@ -326,44 +326,44 @@ msgstr ""
 msgid "Two Columns"
 msgstr ""
 
-#: inc/extras.php:429
+#: inc/extras.php:428
 msgid "Search"
 msgstr "חיפוש"
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:226
+#: inc/required-plugins/class-tgm-plugin-activation.php:161
 #: inc/required-plugins/required-plugins.php:48
 msgid "Install Required Plugins"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:227
+#: inc/required-plugins/class-tgm-plugin-activation.php:162
 #: inc/required-plugins/required-plugins.php:49
 msgid "Install Plugins"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:228
+#: inc/required-plugins/class-tgm-plugin-activation.php:163
 #: inc/required-plugins/required-plugins.php:50
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:229
+#: inc/required-plugins/class-tgm-plugin-activation.php:164
 msgid "Something went wrong."
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:230
+#: inc/required-plugins/class-tgm-plugin-activation.php:165
 #: inc/required-plugins/required-plugins.php:53
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:231
+#: inc/required-plugins/class-tgm-plugin-activation.php:166
 #: inc/required-plugins/required-plugins.php:55
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:232
+#: inc/required-plugins/class-tgm-plugin-activation.php:167
 #: inc/required-plugins/required-plugins.php:57
 msgid ""
 "Sorry, but you do not have the correct permissions to install the %s plugin. "
@@ -376,21 +376,21 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:233
+#: inc/required-plugins/class-tgm-plugin-activation.php:168
 #: inc/required-plugins/required-plugins.php:59
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:234
+#: inc/required-plugins/class-tgm-plugin-activation.php:169
 #: inc/required-plugins/required-plugins.php:61
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:235
+#: inc/required-plugins/class-tgm-plugin-activation.php:170
 #: inc/required-plugins/required-plugins.php:63
 msgid ""
 "Sorry, but you do not have the correct permissions to activate the %s "
@@ -403,7 +403,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:236
+#: inc/required-plugins/class-tgm-plugin-activation.php:171
 #: inc/required-plugins/required-plugins.php:65
 msgid ""
 "The following plugin needs to be updated to its latest version to ensure "
@@ -414,7 +414,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:237
+#: inc/required-plugins/class-tgm-plugin-activation.php:172
 #: inc/required-plugins/required-plugins.php:67
 msgid ""
 "Sorry, but you do not have the correct permissions to update the %s plugin. "
@@ -427,209 +427,193 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:238
+#: inc/required-plugins/class-tgm-plugin-activation.php:173
 #: inc/required-plugins/required-plugins.php:69
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:239
+#: inc/required-plugins/class-tgm-plugin-activation.php:174
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:240
+#: inc/required-plugins/class-tgm-plugin-activation.php:175
 #: inc/required-plugins/required-plugins.php:71
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:241
+#: inc/required-plugins/class-tgm-plugin-activation.php:176
 msgid "Return to the dashboard"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:242
-#: inc/required-plugins/class-tgm-plugin-activation.php:2116
+#: inc/required-plugins/class-tgm-plugin-activation.php:177
+#: inc/required-plugins/class-tgm-plugin-activation.php:1956
 #: inc/required-plugins/required-plugins.php:72
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:243
-#: inc/required-plugins/class-tgm-plugin-activation.php:1778
+#: inc/required-plugins/class-tgm-plugin-activation.php:178
+#: inc/required-plugins/class-tgm-plugin-activation.php:1644
 msgid "The following plugin was activated successfully:"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:244
+#: inc/required-plugins/class-tgm-plugin-activation.php:179
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:245
+#: inc/required-plugins/class-tgm-plugin-activation.php:180
 msgid "Dismiss this notice"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:595
-#: inc/required-plugins/class-tgm-plugin-activation.php:2346
+#: inc/required-plugins/class-tgm-plugin-activation.php:532
+#: inc/required-plugins/class-tgm-plugin-activation.php:2173
 msgid "Return to the Dashboard"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:1281
-#: inc/required-plugins/class-tgm-plugin-activation.php:1465
+#: inc/required-plugins/class-tgm-plugin-activation.php:1167
+#: inc/required-plugins/class-tgm-plugin-activation.php:1348
 msgid "Private Repository"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:1285
-#: inc/required-plugins/class-tgm-plugin-activation.php:1469
+#: inc/required-plugins/class-tgm-plugin-activation.php:1170
+#: inc/required-plugins/class-tgm-plugin-activation.php:1351
 msgid "Pre-Packaged"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:1290
+#: inc/required-plugins/class-tgm-plugin-activation.php:1175
 msgid "WordPress Repository"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:1293
+#: inc/required-plugins/class-tgm-plugin-activation.php:1178
 msgid "Required"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:1293
+#: inc/required-plugins/class-tgm-plugin-activation.php:1178
 msgid "Recommended"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:1296
+#: inc/required-plugins/class-tgm-plugin-activation.php:1181
 msgid "Not Installed"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:1299
+#: inc/required-plugins/class-tgm-plugin-activation.php:1183
 msgid "Installed But Not Activated"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:1416
-msgctxt "%2$s = plugin name in screen reader markup"
-msgid "Install %2$s"
-msgstr ""
-
-#: inc/required-plugins/class-tgm-plugin-activation.php:1438
-msgctxt "%2$s = plugin name in screen reader markup"
-msgid "Activate %2$s"
-msgstr ""
-
-#: inc/required-plugins/class-tgm-plugin-activation.php:1490
-msgid ""
-"No plugins to install or activate. <a href=\"%1$s\">Return to the Dashboard</"
-"a>"
-msgstr ""
-
-#: inc/required-plugins/class-tgm-plugin-activation.php:1506
-msgid "Plugin"
-msgstr ""
-
-#: inc/required-plugins/class-tgm-plugin-activation.php:1507
-msgid "Source"
-msgstr ""
-
-#: inc/required-plugins/class-tgm-plugin-activation.php:1508
-msgid "Type"
-msgstr ""
-
-#: inc/required-plugins/class-tgm-plugin-activation.php:1509
-msgid "Status"
-msgstr ""
-
-#: inc/required-plugins/class-tgm-plugin-activation.php:1527
+#: inc/required-plugins/class-tgm-plugin-activation.php:1288
+#: inc/required-plugins/class-tgm-plugin-activation.php:1409
 msgid "Install"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:1528
+#: inc/required-plugins/class-tgm-plugin-activation.php:1312
+#: inc/required-plugins/class-tgm-plugin-activation.php:1410
 msgid "Activate"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:1639
-msgid "No plugins are available to be installed at this time."
+#: inc/required-plugins/class-tgm-plugin-activation.php:1372
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:1755
-msgid "No plugins are available to be activated at this time."
+#: inc/required-plugins/class-tgm-plugin-activation.php:1388
+msgid "Plugin"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2099
+#: inc/required-plugins/class-tgm-plugin-activation.php:1389
+msgid "Source"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1390
+msgid "Type"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1391
+msgid "Status"
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:1939
 msgid "Install package not available."
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2100
+#: inc/required-plugins/class-tgm-plugin-activation.php:1940
 msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2101
+#: inc/required-plugins/class-tgm-plugin-activation.php:1941
 msgid "Unpacking the package&#8230;"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2102
+#: inc/required-plugins/class-tgm-plugin-activation.php:1942
 msgid "Installing the plugin&#8230;"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2103
+#: inc/required-plugins/class-tgm-plugin-activation.php:1943
 msgid "Plugin install failed."
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2104
+#: inc/required-plugins/class-tgm-plugin-activation.php:1944
 msgid "Plugin installed successfully."
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2115
+#: inc/required-plugins/class-tgm-plugin-activation.php:1955
 msgid "Plugin activation failed."
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2238
-msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
-msgstr ""
-
-#: inc/required-plugins/class-tgm-plugin-activation.php:2239
-msgid "The installation of %1$s failed."
-msgstr ""
-
-#: inc/required-plugins/class-tgm-plugin-activation.php:2243
+#: inc/required-plugins/class-tgm-plugin-activation.php:2069
 msgid ""
 "The installation and activation process is starting. This process may take a "
 "while on some hosts, so please be patient."
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2244
+#: inc/required-plugins/class-tgm-plugin-activation.php:2070
 msgid "%1$s installed and activated successfully."
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2244
-#: inc/required-plugins/class-tgm-plugin-activation.php:2251
+#: inc/required-plugins/class-tgm-plugin-activation.php:2070
+#: inc/required-plugins/class-tgm-plugin-activation.php:2079
 msgid "Show Details"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2244
-#: inc/required-plugins/class-tgm-plugin-activation.php:2251
+#: inc/required-plugins/class-tgm-plugin-activation.php:2070
+#: inc/required-plugins/class-tgm-plugin-activation.php:2079
 msgid "Hide Details"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2245
+#: inc/required-plugins/class-tgm-plugin-activation.php:2071
 msgid "All installations and activations have been completed."
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2246
+#: inc/required-plugins/class-tgm-plugin-activation.php:2072
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2250
+#: inc/required-plugins/class-tgm-plugin-activation.php:2076
 msgid ""
 "The installation process is starting. This process may take a while on some "
 "hosts, so please be patient."
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2251
+#: inc/required-plugins/class-tgm-plugin-activation.php:2077
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2078
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: inc/required-plugins/class-tgm-plugin-activation.php:2079
 msgid "%1$s installed successfully."
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2252
+#: inc/required-plugins/class-tgm-plugin-activation.php:2080
 msgid "All installations have been completed."
 msgstr ""
 
-#: inc/required-plugins/class-tgm-plugin-activation.php:2253
+#: inc/required-plugins/class-tgm-plugin-activation.php:2081
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
@@ -775,31 +759,31 @@ msgstr "%1$s: %2$s"
 msgid "Archives"
 msgstr "ארכיון"
 
-#: inc/template-tags.php:803
+#: inc/template-tags.php:843
 msgid "Search Results for: %s"
 msgstr "תוצאות החיפוש: %s"
 
-#: inc/template-tags.php:830
+#: inc/template-tags.php:870
 msgid "Image navigation"
 msgstr "ניווט בתמונות"
 
-#: inc/template-tags.php:840
+#: inc/template-tags.php:880
 msgid "Previous image"
 msgstr "התמונה הקודמת"
 
-#: inc/template-tags.php:855
+#: inc/template-tags.php:895
 msgid "Next image"
 msgstr "הבא"
 
-#: inc/template-tags.php:980
+#: inc/template-tags.php:1020
 msgid "Posts navigation"
 msgstr "ניווט"
 
-#: inc/template-tags.php:987 inc/template-tags.php:997
+#: inc/template-tags.php:1027 inc/template-tags.php:1037
 msgid "Previous"
 msgstr "קודם"
 
-#: inc/template-tags.php:998 inc/template-tags.php:1004
+#: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
 msgstr "לשלב הבא"
 
