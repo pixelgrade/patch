@@ -28,6 +28,11 @@ function wpgrade_register_required_plugins() {
 	//	);
 	$plugins = array(
 		array(
+			'name'               => 'Jetpack',
+			'slug'               => 'jetpack',
+			'required'           => false,
+		),
+		array(
 			'name'               => 'Customify',
 			'slug'               => 'customify',
 			'required'           => false,
