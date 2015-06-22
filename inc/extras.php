@@ -161,7 +161,7 @@ if ( ! function_exists( 'patch_fonts_url' ) ) :
 		* supported by Roboto, translate this to 'off'. Do not translate
 		* into your own language.
 		*/
-		if ( 'off' !== _x( 'on', 'Roboto font: on or off', 'fifteen_txtd' ) ) {
+		if ( 'off' !== _x( 'on', 'Roboto font: on or off', 'patch' ) ) {
 			$fonts[] = 'Roboto:500,400,300,500italic,400italic,300italic';
 		}
 
