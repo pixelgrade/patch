@@ -497,12 +497,13 @@ if ( ! function_exists( 'patch_get_post_thumbnail_aspect_ratio_class' ) ) :
 		// 2:3 = 0.67
 		// 9:16 = 0.5625
 
-		//$image_data[1] is width
-		//$image_data[2] is height
-		$image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+		//$image_data["width"] is width
+		//$image_data["height"] is height
+		//get directly the raw metadata
+		$image_data = wp_get_attachment_metadata( get_post_thumbnail_id( $post->ID ) );
 
-		if ( ! empty( $image_data[1] ) && ! empty( $image_data[2] ) ) {
-			$image_aspect_ratio = $image_data[1] / $image_data[2];
+		if ( ! empty( $image_data["width"] ) && ! empty( $image_data["height"] ) ) {
+			$image_aspect_ratio = $image_data["width"] / $image_data["height"];
 
 			//now let's begin to see what kind of featured image we have
 			//first TALL ones; lower than 9:16
