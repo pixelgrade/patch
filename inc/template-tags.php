@@ -830,13 +830,13 @@ if ( ! function_exists( 'patch_secondary_page_title' ) ) :
 
 				<?php if ( is_archive() ) : ?>
 
-					<header class="page-header entry-card">
-
+					<div class="page-header entry-card">
+						<header class="entry-header">
 						<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
 
 						<?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
-
-					</header><!-- .page-header -->
+						</header>
+					</div><!-- .page-header -->
 
 				<?php elseif ( is_search() ) : ?>
 
