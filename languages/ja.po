@@ -2,18 +2,18 @@
 # This file is distributed under the same license as the Patch package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2015-04-08 19:26:43+0000\n"
+"PO-Revision-Date: 2015-07-29 22:09:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: GlotPress/1.0-alpha-1000\n"
+"X-Generator: GlotPress/1.0-alpha-1100\n"
 "Project-Id-Version: Patch\n"
 
 #. Description of the plugin/theme
 #: wp-content/themes/premium/patch/style.css
 msgid "An algorithmic design experiment that cleverly imagines the best layout for your content. Patch brings unity and balance to your beautiful crafted diversity."
-msgstr ""
+msgstr "コンテンツのための最良のレイアウトを賢く想像する、アルゴリズム的な設計の実験。Patch は美しく作られた多様なコンテンツに対し、統一とバランスをもたらします。"
 
 #: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
@@ -201,14 +201,6 @@ msgstr "投稿日時: %s%s"
 msgid "Your comment is awaiting moderation."
 msgstr "あなたのコメントは承認待ちです。"
 
-#: inc/customizer.php:36
-msgid "Hide search button in Social Menu."
-msgstr ""
-
-#: inc/customizer.php:47
-msgid "Hide the author bio on single posts."
-msgstr ""
-
 #. Translators: If there are characters in your language that are not
 #. * supported by Roboto, translate this to 'off'. Do not translate
 #. * into your own language.
@@ -224,11 +216,6 @@ msgstr "on"
 msgctxt "Oswald font: on or off"
 msgid "on"
 msgstr "on"
-
-#: image.php:26
-msgctxt "attachment parent post"
-msgid "Posted in %s"
-msgstr ""
 
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
@@ -265,10 +252,6 @@ msgstr "メインメニュー"
 #: functions.php:62
 msgid "Social Menu"
 msgstr "ソーシャルメニュー"
-
-#: footer.php:18
-msgid "<span class=\"theme-name\">Theme: %1$s</span> by %2$s."
-msgstr ""
 
 #: footer.php:28
 msgid "Footer navigation"
@@ -361,10 +344,6 @@ msgstr "すべての投稿"
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "お探しのページが見つかりません。"
-
-#: 404.php:20
-msgid "It looks like nothing was found at this location. Why not try searching for something?"
-msgstr ""
 
 #: author-bio.php:18
 msgid "View all posts by %s"

@@ -7,13 +7,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: GlotPress/1.0-alpha-1000\n"
+"X-Generator: GlotPress/1.0-alpha-1100\n"
 "Project-Id-Version: Patch\n"
-
-#. Description of the plugin/theme
-#: wp-content/themes/premium/patch/style.css
-msgid "An algorithmic design experiment that cleverly imagines the best layout for your content. Patch brings unity and balance to your beautiful crafted diversity."
-msgstr ""
 
 #: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
@@ -161,11 +156,6 @@ msgstr "بیان دیدگاه"
 msgid "All %s Posts"
 msgstr "همهٔ %s نوشته"
 
-#: inc/template-tags.php:48
-msgctxt "post author"
-msgid "by %s"
-msgstr ""
-
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:104
 msgid ", "
@@ -193,21 +183,9 @@ msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr " "
 
-#: inc/extras.php:173
-msgid "on %s at %s"
-msgstr ""
-
 #: inc/extras.php:190
 msgid "Your comment is awaiting moderation."
 msgstr "دیدگاه شما چشم به راه بررسی است."
-
-#: inc/customizer.php:36
-msgid "Hide search button in Social Menu."
-msgstr ""
-
-#: inc/customizer.php:47
-msgid "Hide the author bio on single posts."
-msgstr ""
 
 #. Translators: If there are characters in your language that are not
 #. * supported by Roboto, translate this to 'off'. Do not translate
@@ -224,11 +202,6 @@ msgstr "فعال"
 msgctxt "Oswald font: on or off"
 msgid "on"
 msgstr "روی"
-
-#: image.php:26
-msgctxt "attachment parent post"
-msgid "Posted in %s"
-msgstr ""
 
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
@@ -254,10 +227,6 @@ msgstr "گزینگان پسایند"
 msgid "Sidebar"
 msgstr "ستون کناری"
 
-#: footer.php:36
-msgid "Begin typing your search above and press return to search. Press Esc to cancel."
-msgstr ""
-
 #: functions.php:61
 msgid "Primary Menu"
 msgstr "گزینگان اصلی"
@@ -265,10 +234,6 @@ msgstr "گزینگان اصلی"
 #: functions.php:62
 msgid "Social Menu"
 msgstr "گزینگان اجتماعی"
-
-#: footer.php:18
-msgid "<span class=\"theme-name\">Theme: %1$s</span> by %2$s."
-msgstr ""
 
 #: footer.php:28
 msgid "Footer navigation"
@@ -337,19 +302,6 @@ msgstr "دیدگاه‌ها بسته شده‌اند."
 msgid "Older Comments"
 msgstr "دیدگاه‌های پیشین"
 
-#: comments.php:24
-msgid "Comment"
-msgid_plural "Comments"
-msgstr[0] ""
-
-#: comments.php:26
-msgid "There are no comments"
-msgstr ""
-
-#: comments.php:28
-msgid "Add yours"
-msgstr ""
-
 #: comments.php:39 comments.php:60
 msgid "Comment navigation"
 msgstr "ناوبری دیدگاه"
@@ -361,10 +313,6 @@ msgstr "همه نوشته‌ها"
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "اوه! امکان یافتن صفحه نیست."
-
-#: 404.php:20
-msgid "It looks like nothing was found at this location. Why not try searching for something?"
-msgstr ""
 
 #: author-bio.php:18
 msgid "View all posts by %s"
