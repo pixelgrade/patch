@@ -188,8 +188,8 @@
 		margin-bottom: 20px;
 	}
 
-	input#subscribe-field {
-		@include rhythm(padding, 0.5);
+	#subscribe-email input {
+		padding: 0 9px;
 		width: 100%;
 		height: 36px;
 
