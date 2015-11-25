@@ -188,8 +188,8 @@
 		margin-bottom: 20px;
 	}
 
-	input#subscribe-field {
-		@include rhythm(padding, 0.5);
+	#subscribe-email input {
+		padding: 0 9px;
 		width: 100%;
 		height: 36px;
 
@@ -231,5 +231,28 @@
 .milestone-widget {
 	strong {
 		color: white;
+	}
+}
+
+.widget_top-posts {
+	.widget-grid-view-image {
+		width: 50%;
+	}
+
+	.widgets-list-layout {
+		.widgets-list-layout-blavatar {
+			width: 20%;
+		}
+
+		.widgets-list-layout-links {
+			width: 80%;
+		}
+	}
+}
+
+.widget_recent_comments {
+	td {
+		padding-top: 12px !important;
+		padding-bottom: 12px !important;
 	}
 }
