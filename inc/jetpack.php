@@ -60,4 +60,12 @@ function switch_infinite_scroll_mode() {
 	}
 }
 
-add_filter( 'infinite_scroll_has_footer_widgets', 'switch_infinite_scroll_mode' ); ?>
+add_filter( 'infinite_scroll_has_footer_widgets', 'switch_infinite_scroll_mode' );
+
+function patch_jetpack_responsive_videos_should_wrap_videopress_also( $video_patterns ) {
+	$video_patterns[] = 'https?://(.+\.)?videopress\.com/';
+
+	return $video_patterns;
+}
+
+add_filter ( 'jetpack_responsive_videos_oembed_videos', 'patch_jetpack_responsive_videos_should_wrap_videopress_also'); ?>
