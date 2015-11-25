@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Patch package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2015-04-08 19:26:43+0000\n"
+"PO-Revision-Date: 2015-11-19 05:44:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -305,6 +305,10 @@ msgstr "دیدگاه‌های پیشین"
 #: comments.php:39 comments.php:60
 msgid "Comment navigation"
 msgstr "ناوبری دیدگاه"
+
+#: comments.php:28
+msgid "Add yours"
+msgstr "مال خودتان را بیفزایید"
 
 #: author-bio.php:18
 msgid "All posts"

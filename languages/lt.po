@@ -1,55 +1,50 @@
-# Translation of Patch in Azerbaijani
+# Translation of Patch in Lithuanian
 # This file is distributed under the same license as the Patch package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2015-07-15 06:24:50+0000\n"
+"PO-Revision-Date: 2015-09-30 17:49:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: GlotPress/1.0-alpha-1100\n"
 "Project-Id-Version: Patch\n"
 
-#. Description of the plugin/theme
-#: wp-content/themes/premium/patch/style.css
-msgid "An algorithmic design experiment that cleverly imagines the best layout for your content. Patch brings unity and balance to your beautiful crafted diversity."
-msgstr "İçəriyiniz üçün ən yaxşı maketi ağıllıca düşünən bir alqoritmik dizayn bacarığı. Patch, diqətlə yaratdığınız çeşidliliyinizə birlik və tarazlıq gətirir."
-
 #: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
-msgstr "Sonrakı"
+msgstr "Kitas"
 
 #: inc/template-tags.php:1027 inc/template-tags.php:1037
 msgid "Previous"
-msgstr "Öncəki"
+msgstr "Ankstesnis"
 
 #: inc/template-tags.php:895
 msgid "Next image"
-msgstr "Sonrakı təsvir"
+msgstr "Kitas paveikslėlis"
 
 #: inc/template-tags.php:1020
 msgid "Posts navigation"
-msgstr "Yazı naviqasiyası"
+msgstr "Įrašų navigacija"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
-msgstr "Öncəki təsvir"
+msgstr "Ankstesnis paveikslėlis"
 
 #: inc/template-tags.php:870
 msgid "Image navigation"
-msgstr "Rəsmlər üzrə naviqasiya"
+msgstr "Image Navigation"
 
 #: inc/template-tags.php:843
 msgid "Search Results for: %s"
-msgstr " %s üçün Axtarışın Nəticələri:"
+msgstr "Paieškos rezultatai skirti: %s"
 
 #: inc/template-tags.php:325
 msgid "Archives"
-msgstr "Arxivlər"
+msgstr "Archyvai"
 
 #: inc/template-tags.php:319
 msgid "Archives: %s"
-msgstr "Arxivlər: %s"
+msgstr "Archyvai: %s"
 
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
@@ -59,27 +54,27 @@ msgstr "%1$s: %2$s"
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Chats"
-msgstr "Canlı Söhbət"
+msgstr "Pokalbiai"
 
 #: inc/template-tags.php:312
 msgctxt "post format archive title"
 msgid "Statuses"
-msgstr "Status"
+msgstr "Statusai"
 
 #: inc/template-tags.php:314
 msgctxt "post format archive title"
 msgid "Audio"
 msgstr "Audio"
 
-#: inc/template-tags.php:308
-msgctxt "post format archive title"
-msgid "Quotes"
-msgstr "Kvota"
-
 #: inc/template-tags.php:310
 msgctxt "post format archive title"
 msgid "Links"
-msgstr "Bağlantı"
+msgstr "Nuorodos"
+
+#: inc/template-tags.php:308
+msgctxt "post format archive title"
+msgid "Quotes"
+msgstr "Citatos"
 
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
@@ -89,101 +84,81 @@ msgstr "Video"
 #: inc/template-tags.php:302
 msgctxt "post format archive title"
 msgid "Galleries"
-msgstr "Qalereya"
+msgstr "Galerijos"
 
 #: inc/template-tags.php:304
 msgctxt "post format archive title"
 msgid "Images"
-msgstr "Təsvir"
-
-#: inc/template-tags.php:300
-msgctxt "post format archive title"
-msgid "Asides"
-msgstr "Yan sütun"
-
-#: inc/template-tags.php:297
-msgctxt "daily archives date format"
-msgid "F j, Y"
-msgstr "F j, Y"
-
-#: inc/template-tags.php:295
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr "F Y"
+msgstr "Paveikslėliai"
 
 #: inc/template-tags.php:297
 msgid "Day: %s"
-msgstr "Gün: %s"
+msgstr "Diena: %s"
 
 #: inc/template-tags.php:295
 msgid "Month: %s"
-msgstr "Ay: %s"
-
-#: inc/template-tags.php:293
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr "Y"
+msgstr "Mėnesis: %s"
 
 #: inc/template-tags.php:293
 msgid "Year: %s"
-msgstr "İl: %s"
+msgstr "Metai: %s"
 
 #: inc/template-tags.php:291
 msgid "Author: %s"
-msgstr "Müəllif: %s"
+msgstr "Autorius: %s"
 
 #: inc/template-tags.php:289
 msgid "Tag: %s"
-msgstr "Etiket: %s"
+msgstr "Žymė: %s"
 
 #: inc/template-tags.php:287
 msgid "Category: %s"
-msgstr "Kateqoriya: %s"
+msgstr "Kategorija: %s"
 
 #: inc/template-tags.php:264
 msgid "% Comments"
-msgstr "% Şərh"
+msgstr "% Komentaras"
 
 #: inc/template-tags.php:264
 msgid "1 Comment"
-msgstr "1 şərh"
+msgstr "Komentarų: 1"
+
+#: inc/template-tags.php:264
+msgid "Leave a comment"
+msgstr "Parašykite komentarą"
 
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
-msgstr "Bununla etiketləndi:"
-
-#: inc/template-tags.php:264
-msgid "Leave a comment"
-msgstr "Bir şərh yazın"
+msgstr "Pažymėta:"
 
 #: inc/template-tags.php:151
 msgid "All %s Posts"
-msgstr "bütün %s  yazıları"
+msgstr "Visi %s įrašai"
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:104
 msgid ", "
-msgstr ","
+msgstr ", "
 
 #: inc/template-tags.php:48
 msgctxt "post author"
 msgid "by %s"
-msgstr "%s tərəfindən"
+msgstr "sukurta %s"
 
 #: inc/extras.php:329
 msgid "Search"
-msgstr "Axtar"
+msgstr "Paieška"
 
 #: inc/extras.php:247
 msgctxt "placeholder"
 msgid "Search &hellip;"
-msgstr "Axtar &hellip;"
+msgstr "Ieškoti"
 
 #: inc/extras.php:246 inc/extras.php:247
 msgctxt "label"
 msgid "Search for:"
-msgstr "Axtarış:"
+msgstr "Ieškoti pagal:"
 
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
@@ -191,19 +166,11 @@ msgstr "Axtarış:"
 #: inc/extras.php:124
 msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
-msgstr "alt-set yoxdur"
+msgstr "nėra kalbos poaibio"
 
 #: inc/extras.php:190
 msgid "Your comment is awaiting moderation."
-msgstr "Şərhiniz yoxlama gözləyir."
-
-#. Translators: If there are characters in your language that are not
-#. * supported by Roboto, translate this to 'off'. Do not translate
-#. * into your own language.
-#: inc/extras.php:111
-msgctxt "Roboto font: on or off"
-msgid "on"
-msgstr "açıq"
+msgstr "Komentaras laukia administratoriaus patvirtinimo."
 
 #. Translators: If there are characters in your language that are not
 #. * supported by Oswald, translate this to 'off'. Do not translate
@@ -211,43 +178,64 @@ msgstr "açıq"
 #: inc/extras.php:119
 msgctxt "Oswald font: on or off"
 msgid "on"
-msgstr "açıq"
+msgstr "įjungta"
+
+#: inc/customizer.php:36
+msgid "Hide search button in Social Menu."
+msgstr "Paslėpti paieškos mygtuką socialiniame meniu."
+
+#: inc/customizer.php:47
+msgid "Hide the author bio on single posts."
+msgstr "Paslėpti autoriaus bio dėl pavienių įrašų."
 
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
-msgstr "Sayt başlığını və şüarını göstər"
+msgstr "Rodyti tinklaraščio pavadinimą ir apibūdinimą"
 
 #: inc/customizer.php:26
 msgid "Theme"
-msgstr "Mövzu"
+msgstr "Tema"
+
+#: image.php:26
+msgctxt "attachment parent post"
+msgid "Posted in %s"
+msgstr "Paskelbtas %s"
 
 #: footer.php:45
 msgid "Menu"
-msgstr "Menyu"
+msgstr "Meniu"
 
 #: header.php:24
 msgid "Skip to content"
-msgstr "Mühtəviyyata keç"
-
-#: functions.php:63
-msgid "Footer Menu"
-msgstr "Zirzəmi Menyusu"
+msgstr "Praleisti ir eiti į turinį"
 
 #: functions.php:109
 msgid "Sidebar"
-msgstr "Yan menyu"
+msgstr "Valdiklių sritis"
+
+#: functions.php:63
+msgid "Footer Menu"
+msgstr "Poraštės meniu"
 
 #: functions.php:61
 msgid "Primary Menu"
-msgstr "Əsas menyu"
+msgstr "Pagrindinis meniu"
 
 #: functions.php:62
 msgid "Social Menu"
-msgstr "Sosial menyu"
+msgstr "Socialinis meniu"
+
+#: footer.php:36
+msgid "Begin typing your search above and press return to search. Press Esc to cancel."
+msgstr "Įveskite savo paiešką aukščiau ir paspauskite mygtuką \"Enter\". Paspauskite \"Esc\", kad atšauktumėte."
+
+#: footer.php:18
+msgid "<span class=\"theme-name\">Theme: %1$s</span> by %2$s."
+msgstr "<span class=\"theme-name\">Tema: %1$s</span> sukurta %2$s."
 
 #: footer.php:28
 msgid "Footer navigation"
-msgstr "Zirzəmi Naviqasiyası"
+msgstr "Poraštės navigacija"
 
 #: footer.php:16
 msgid "http://wordpress.org/"
@@ -255,75 +243,94 @@ msgstr "http://wordpress.org/"
 
 #: footer.php:16
 msgid "Proudly powered by %s"
-msgstr "%s qürurla təqdim edər"
+msgstr "%s sistema"
 
 #: content.php:30
 msgid "Read More"
-msgstr "Davamını Oxu"
+msgstr "Skaityti daugiau"
 
 #: content-none.php:34
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr "Axtardığınız səhifə tapılmadı. Bəlkə axtarış qutusu axtardığınızı tapmaqda sizə kömək edər."
+msgstr "Atrodo mes negalime rasti to ko jūs ieškote. Gal paieška padės."
 
 #: content-none.php:29
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
-msgstr "Bağışlayın, axtarış kriteriyalarınıza uyğun heç bir şey tapılmadı. Bəzi fərqli açar kəlmələrdən istifadə edərək təkrar yoxlayın."
+msgstr "Deja, nieko panašaus rasti nepavyko. Pabandykite įvesti kitokį paieškos raktažodį."
 
 #: content-none.php:25
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr "İlk yazınızı dərc etməyə hazırsınızmı? <a href=\"%1$s\">Buradan başlayın</a>."
+msgstr "Pasirengę išleisti savo pirmą įrašą? <a href=\"%1$s\">Pradėkite čia</a>."
 
 #: content-none.php:18
 msgid "Nothing Found"
-msgstr "Tapılmadı"
+msgstr "Nieko nerasta"
 
 #: content-attachment.php:54 content-page.php:42 inc/extras.php:178
 #: inc/template-tags.php:236 inc/template-tags.php:268
 msgid "Edit"
-msgstr "Redaktə et"
+msgstr "Redaguoti"
 
 #: content-aside.php:37 content-attachment.php:46 content-audio.php:50
 #: content-gallery.php:55 content-video.php:54 content.php:64
 msgid "Page"
-msgstr "Səhifə"
+msgstr "Puslapis"
 
 #. translators: %s: Name of current post
 #: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
 #: inc/template-tags.php:758
 msgid "Continue reading %s"
-msgstr "%s oxumağa davam et"
+msgstr "Skaityti toliau: %s"
 
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:46
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
 #: content-single.php:59 content-video.php:50 content.php:60
 msgid "Pages:"
-msgstr "Səhifələr:"
+msgstr "Puslapiai:"
 
 #: comments.php:42 comments.php:63
 msgid "Newer Comments"
-msgstr "Ən yeni Şərhlər"
+msgstr "Naujesni komentarai"
 
 #: comments.php:75
 msgid "Comments are closed."
-msgstr "Şərh üçün bağlıdır."
+msgstr "Komentavimo galimybė išjungta."
 
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
-msgstr "Əvvəlki şərhlər"
+msgstr "Senesni komentarai"
 
 #: comments.php:39 comments.php:60
 msgid "Comment navigation"
-msgstr "Şərh naviqasiyası"
+msgstr "Komentaro naršymas"
+
+#: comments.php:26
+msgid "There are no comments"
+msgstr "Nėra komentarų"
+
+#: comments.php:28
+msgid "Add yours"
+msgstr "Pridėti Jūsų"
+
+#: comments.php:24
+msgid "Comment"
+msgid_plural "Comments"
+msgstr[0] "Komentaras"
+msgstr[1] "Komentarai"
+msgstr[2] "Komentarų"
 
 #: author-bio.php:18
 msgid "All posts"
-msgstr "Bütün yazılar"
+msgstr "Visi įrašai"
 
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
-msgstr "Bağışlayın! Bu səhifə tapılmır."
+msgstr "Deja, toks puslapis nerastas."
 
 #: author-bio.php:18
 msgid "View all posts by %s"
-msgstr "%s tərəfindən yazılmış bütün yazılara bax"
+msgstr "Peržiūrėti visus %s įrašus"
+
+#: 404.php:20
+msgid "It looks like nothing was found at this location. Why not try searching for something?"
+msgstr "Nieko nerasta šioje vietoje. Pabandykite paieškoti kažka."
