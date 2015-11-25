@@ -1,9 +1,10 @@
-var gulp 		= require('gulp'),
+var theme = 'patch',
+	gulp 		= require('gulp'),
 	sass 		= require('gulp-ruby-sass'),
 	prefix 		= require('gulp-autoprefixer'),
 	exec 		= require('gulp-exec'),
 	replace 	= require('gulp-replace'),
-	clean 		= require('gulp-clean'),
+	del         = require('del'),
 	minify 		= require('gulp-minify-css'),
 	livereload 	= require('gulp-livereload'),
 	concat 		= require('gulp-concat'),
@@ -46,7 +47,7 @@ gulp.task('styles', function () {
 	return gulp.src('assets/scss/**/*.scss')
 		.pipe(sass({sourcemap: false, style: 'expanded'}))
 		.pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
-		.pipe(cmq())
+		//.pipe(cmq())
 		.pipe(csscomb())
 		.pipe(chmod(644))
 		.pipe(gulp.dest('./'));
