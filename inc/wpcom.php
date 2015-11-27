@@ -42,4 +42,12 @@ function patch_remove_share_from_home() {
 		remove_filter( 'post_flair', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
 	}
 }
-add_action( 'loop_start', 'patch_remove_share_from_home' ); ?>
+add_action( 'loop_start', 'patch_remove_share_from_home' );
+
+/**
+ * Remove the widont filter.
+ */
+function espied_wido() {
+	remove_filter( 'the_title', 'widont' );
+}
+add_action( 'init', 'espied_wido' ); ?>
