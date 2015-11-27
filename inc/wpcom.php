@@ -47,7 +47,7 @@ add_action( 'loop_start', 'patch_remove_share_from_home' );
 /**
  * Remove the widont filter.
  */
-function espied_wido() {
+function patch_wido() {
 	remove_filter( 'the_title', 'widont' );
 }
-add_action( 'init', 'espied_wido' ); ?>
+add_action( 'init', 'patch_wido' ); ?>
