@@ -11,7 +11,7 @@ var theme = 'patch',
 		notify 		= require('gulp-notify'),
 		beautify 	= require('gulp-beautify'),
 		csscomb 	= require('gulp-csscomb'),
-		cmq 		= require('gulp-combine-media-queries'),
+		mmq 		= require('gulp-merge-media-queries'),
 		chmod 		= require('gulp-chmod');
 
 jsFiles = [
@@ -47,7 +47,7 @@ gulp.task('styles', function () {
 	return gulp.src('assets/scss/**/*.scss')
 			.pipe(sass({sourcemap: false, style: 'expanded'}))
 			.pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
-			//.pipe(cmq())
+			.pipe(mmq())
 			.pipe(csscomb())
 			.pipe(chmod(644))
 			.pipe(gulp.dest('./'));
