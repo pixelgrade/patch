@@ -12,6 +12,11 @@
 	margin-right: 20px;
 	filter: saturate(0) contrast(1.5);
 	-webkit-filter: saturate(0) contrast(1.5);
+
+	img {
+		margin: 0;
+		max-width: none;
+	}
 }
 
 .author-info__avatar,
