@@ -345,13 +345,18 @@ li.depth-2:before {
 	&:before {
 		@extend %comment-number;
 		@extend %comment-number--dark;
-		content: "+";
-		font-size: 60px;
-		line-height: 24px;
-		display: inline-block;
+
+		content: $fa-var-plus;
+
 		position: absolute;
 		top: 0;
 		left: 0;
+
+		display: inline-block;
+
+		font-family: FontAwesome;
+		font-size: 20px;
+		line-height: 42px;
 
 		.comment & {
 			display: none;
