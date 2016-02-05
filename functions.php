@@ -51,7 +51,7 @@ if ( ! function_exists( 'patch_setup' ) ) :
 		add_theme_support( 'post-thumbnails' );
 
 		//used as featured image for posts on home page and archive pages
-		add_image_size( 'patch-masonry-image', 500, 9999, false );
+		add_image_size( 'patch-masonry-image', 640, 9999, false );
 
 		//used for the single post featured image
 		add_image_size( 'patch-single-image', 1024, 9999, false );
