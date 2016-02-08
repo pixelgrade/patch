@@ -302,15 +302,17 @@
 		}
 	}
 
-	.site-logo {
+	.site-logo-link {
 		position: absolute;
 		top: 0;
 		left: 50%;
-		width: auto;
-		height: auto;
-		height: 30px;
 		margin-top: 10px;
 		will-change: transform;
+
+		&, img {
+			height: 30px;
+			width: auto;
+		}
 	}
 }
 
