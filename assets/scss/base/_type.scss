@@ -90,7 +90,7 @@ h1, %h1, h2, %h2, h3, %h3, h4, %h4, h5, %h5 {
 	font-weight: normal;
 }
 
-h1, %h1 { 
+h1, %h1 {
     @extend %beta;
 	@extend .caps;
 
@@ -121,7 +121,7 @@ h2, %h2 {
 
 	margin-top: rhythm(1.25);
 	margin-bottom: rhythm(1);
-	
+
     font-size: rem(24px);
 	@extend %ls-0-04;
     line-height: 1.25;
@@ -142,7 +142,7 @@ h4, %h4 {
 
 	margin-top: rhythm(2);
 	margin-bottom: rhythm(1);
-	
+
 	color: $dark;
 	font-size: rem(14px);
 	letter-spacing: 0.1em;
@@ -202,17 +202,17 @@ a {
 	text-decoration: none;
 	color: $black;
 	font-weight: 500;
-	
+
 	// transition: all 0.15s;
 
 	h1 &, .site-title &, h2 &, h3 & {
-		color: $accent; 
+		color: $accent;
 
 		// @Todo
 		// word-break: break-all;
 	}
 
-	 @if $editor-style { 
+	 @if $editor-style {
 	 	.mce-content-body & {
 			@extend %link--underline;
 
@@ -223,7 +223,7 @@ a {
 				box-shadow: none;
 				background: none;
 			}
-		}	
+		}
 	 }
     	@else {
 			.single .entry-content &, .page .entry-content & {
@@ -271,6 +271,10 @@ a {
 		font-size: 13px;
 		text-transform: uppercase;
 	}
+}
+
+.grid__item .entry-content a {
+	@extend %link--underline;
 }
 
 ::selection {
@@ -360,7 +364,7 @@ pre {
 	@include rhythm(padding-right, 3);
 	@include rhythm(padding-top, 2);
 	@include rhythm(padding-bottom, 2);
-	@include rhythm(margin-bottom, 2); 
+	@include rhythm(margin-bottom, 2);
 
 	border: 1px solid $light;
 
