@@ -273,8 +273,10 @@ a {
 	}
 }
 
-.grid__item .entry-content a {
-	@extend %link--underline;
+@if $editor-style == false {
+	.grid__item .entry-content a {
+		@extend %link--underline;
+	}
 }
 
 ::selection {
