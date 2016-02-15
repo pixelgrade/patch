@@ -861,6 +861,8 @@ if (!Date.now)
 
             init = function() {
 
+                console.log(isSingle());
+
                 if (!isSingle() || windowWidth < 900) {
                     return;
                 }
@@ -882,7 +884,7 @@ if (!Date.now)
             },
 
             isSingle = function() {
-                return $body.hasClass('single');
+                return $body.hasClass('single') || $body.hasClass('page');
             },
 
             sidebarFits = function() {

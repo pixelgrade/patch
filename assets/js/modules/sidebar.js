@@ -29,7 +29,7 @@ var Sidebar = (function () {
 	},
 
 	isSingle = function() {
-		return $body.hasClass('single');
+		return $body.hasClass('single') || $body.hasClass('page');
 	},
 
 	sidebarFits = function() {
