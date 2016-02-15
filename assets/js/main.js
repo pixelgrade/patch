@@ -861,8 +861,6 @@ if (!Date.now)
 
             init = function() {
 
-                console.log(isSingle());
-
                 if (!isSingle() || windowWidth < 900) {
                     return;
                 }
