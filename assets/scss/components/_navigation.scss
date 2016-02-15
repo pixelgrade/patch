@@ -371,19 +371,20 @@
 
 	a {
 		width: 1.75em;
-		visibility: hidden;
 		white-space: nowrap;
 		overflow: hidden;
+		color: transparent;
 
 		&:before {
 			display: inline-block;
-			text-align: center;
-			// width: 1em;
 			padding-right: .4em;
 			padding-left: .4em;
-			border-radius: 3px;
-			visibility: visible;
 
+			border-radius: 3px;
+
+			text-align: center;
+
+			color: $dark;
 			background: transparent;
 			transition: background 0.2s;
 		}
