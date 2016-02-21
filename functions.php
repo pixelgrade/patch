@@ -159,6 +159,71 @@ function patch_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'patch_scripts' );
 
+//Automagical updates
+function wupdates_check_JlplJ( $transient ) {
+	// Nothing to do here if the checked transient entry is empty
+	if ( empty( $transient->checked ) ) {
+		return $transient;
+	}
+
+	// Let's start gathering data about the theme
+	// First get the theme directory name (the theme slug - unique)
+	$slug = basename( get_template_directory() );
+	$http_args = array (
+		'body' => array(
+			'slug' => $slug,
+			'url' => home_url(), //the site's home URL
+			'version' => 0,
+			'data' => null, //no optional data is sent by default
+		)
+	);
+
+	// If the theme has been checked for updates before, get the checked version
+	if ( isset( $transient->checked[ $slug ] ) && $transient->checked[ $slug ] ) {
+		$http_args['body']['version'] = $transient->checked[ $slug ];
+	}
+
+	// Use this filter to add optional data to send
+	// Make sure you return an associative array - do not encode it in any way
+	$optional_data = apply_filters( 'wupdates_call_data_request', $http_args['body']['data'], $slug, $http_args['body']['version'] );
+
+	// Encrypting optional data with private key, just to keep your data a little safer
+	// You should not edit the code bellow
+	$optional_data = json_encode( $optional_data );
+	$w=array();$re="";$s=array();$sa=md5(str_rot13('3ca8964b58c60542370569087c3eafde747c9e29'));
+	$l=strlen($sa);$d=str_rot13($optional_data);$ii=-1;
+	while(++$ii<256){$w[$ii]=ord(substr($sa,(($ii%$l)+1),1));$s[$ii]=$ii;} $ii=-1;$j=0;
+	while(++$ii<256){$j=($j+$w[$ii]+$s[$ii])%255;$t=$s[$j];$s[$ii]=$s[$j];$s[$j]=$t;}
+	$l=strlen($d);$ii=-1;$j=0;$k=0;
+	while(++$ii<$l){$j=($j+1)%256;$k=($k+$s[$j])%255;$t=$w[$j];$s[$j]=$s[$k];$s[$k]=$t;
+	$x=$s[(($s[$j]+$s[$k])%255)];$re.=chr(ord($d[$ii])^$x);}
+	$optional_data=base64_encode($re);
+
+	// Save the encrypted optional data so it can be sent to the updates server
+	$http_args['body']['data'] = $optional_data;
+
+	// Check for an available update
+	$raw_response = wp_remote_post( 'https://wupdates.com/wp-json/wup/v1/themes/check_version/JlplJ', $http_args );
+
+	// We stop in case we haven't received a proper response
+	if ( is_wp_error( $raw_response ) || $raw_response['response']['code'] !== 200 ) {
+		return $transient;
+	}
+
+	$response = (array) json_decode($raw_response['body']);
+	if ( ! empty( $response ) ) {
+		// You can use this action to show notifications or take other action
+		do_action( 'wupdates_before_response', $response, $transient );
+		if ( isset( $response['allow_update'] ) && $response['allow_update'] && isset( $response['transient'] ) ) {
+			$transient->response[ $slug ] = (array) $response['transient'];
+		}
+		do_action( 'wupdates_after_response', $response, $transient );
+	}
+
+	return $transient;
+}
+add_filter( 'pre_set_site_transient_update_themes', 'wupdates_check_JlplJ' );
+
 /**
  * MB string functions for when the MB library is not available
  */
@@ -202,10 +267,4 @@ require get_template_directory() . '/inc/required-plugins/required-plugins.php';
 /**
  * Hooks and functions for a self-hosted installation
  */
-require_once(get_template_directory() . '/inc/patch-self-hosted.php');
-
-/**
- * Load the theme update logic
- */
-require_once( get_template_directory() . '/inc/wp-updates-theme.php' );
-new WPUpdatesThemeUpdater_1240( 'http://wp-updates.com/api/2/theme', basename( get_template_directory() ) ); ?>
+require_once(get_template_directory() . '/inc/patch-self-hosted.php'); ?>
