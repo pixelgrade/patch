@@ -573,4 +573,34 @@ function patch_truncate($text, $length = 100, $options = array() ) {
 		}
 	}
 	return $truncate;
-} ?>
+}
+
+function patch_add_classes_to_linked_images( $content ) {
+	$classes = 'img-link'; // can do multiple classes, separate with space
+
+	$patterns = array();
+	$replacements = array();
+
+	//first if it has class with single quotes
+	$patterns[0] = '/<a([^>]*)class=\'([^\']*)\'([^>]*)>\s*<img([^>]*)>\s*<\/a>/'; // matches img tag wrapped in anchor tag where anchor has existing classes contained in single quotes
+	$replacements[0] = '<a\1class="' . $classes . ' \2"\3><img\4></a>';
+
+	//second if it has class with double quotes
+	$patterns[1] = '/<a([^>]*)class="([^"]*)"([^>]*)>\s*<img([^>]*)>\s*<\/a>/'; // matches img tag wrapped in anchor tag where anchor has existing classes contained in double quotes
+	$replacements[1] = '<a\1class="' . $classes . ' \2"\3><img\4></a>';
+
+	//third no class attribute
+	$patterns[2] = '/<a(?![^>]*class)([^>]*)>\s*<img([^>]*)>\s*<\/a>/'; // matches img tag wrapped in anchor tag where anchor tag where anchor has no existing classes
+	$replacements[2] = '<a\1 class="' . $classes . '"><img\2></a>';
+
+	//make sure that we respected the desired order of execution
+	ksort($patterns);
+	ksort($replacements);
+
+	$content = preg_replace($patterns, $replacements, $content);
+
+	return $content;
+}
+
+add_filter('the_content', 'patch_add_classes_to_linked_images', 99, 1);
+?>
