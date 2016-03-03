@@ -302,13 +302,13 @@ msgstr "دیدگاه‌ها بسته شده‌اند."
 msgid "Older Comments"
 msgstr "دیدگاه‌های پیشین"
 
-#: comments.php:39 comments.php:60
-msgid "Comment navigation"
-msgstr "ناوبری دیدگاه"
-
 #: comments.php:28
 msgid "Add yours"
 msgstr "مال خودتان را بیفزایید"
+
+#: comments.php:39 comments.php:60
+msgid "Comment navigation"
+msgstr "ناوبری دیدگاه"
 
 #: author-bio.php:18
 msgid "All posts"

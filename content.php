@@ -28,7 +28,9 @@
 				<?php endif; ?>
 
 				<span class="hover" role="presentation"><?php _e( 'Read More', 'patch' ); ?></span>
+				<div class="entry-image-wrapper">
 				<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
+				</div>
 			</a>
 
 		<?php endif; ?>

@@ -156,15 +156,15 @@ msgstr "Lini një koment"
 msgid "All %s Posts"
 msgstr "Krejt postimet %s"
 
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:104
-msgid ", "
-msgstr ", "
-
 #: inc/template-tags.php:48
 msgctxt "post author"
 msgid "by %s"
 msgstr "nga %s"
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:104
+msgid ", "
+msgstr ", "
 
 #: inc/extras.php:329
 msgid "Search"

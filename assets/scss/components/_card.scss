@@ -370,7 +370,6 @@ $cards-gutter: $gutter;
 
 			transition: filter .3s ease-in-out;
 			transition: -webkit-filter .3s ease-in-out;
-			transform: translateZ(0);
 		}
 
 		// Read More
@@ -436,11 +435,12 @@ $cards-gutter: $gutter;
 	// HOVER
 	&:hover {
 		.entry-image {
-				img {
-					-webkit-backface-visiblity: hidden;
-					filter: saturate(0);
+				.entry-image-wrapper {
+					backface-visiblity: hidden;
+					//-webkit-filter: saturate(0);
 					-webkit-filter: grayscale(1);
 				}
+
 				.hover {
 					opacity: 1;
 				}

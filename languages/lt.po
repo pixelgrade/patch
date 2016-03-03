@@ -66,15 +66,15 @@ msgctxt "post format archive title"
 msgid "Audio"
 msgstr "Audio"
 
-#: inc/template-tags.php:310
-msgctxt "post format archive title"
-msgid "Links"
-msgstr "Nuorodos"
-
 #: inc/template-tags.php:308
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr "Citatos"
+
+#: inc/template-tags.php:310
+msgctxt "post format archive title"
+msgid "Links"
+msgstr "Nuorodos"
 
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
@@ -123,28 +123,28 @@ msgstr "% Komentaras"
 msgid "1 Comment"
 msgstr "Komentarų: 1"
 
-#: inc/template-tags.php:264
-msgid "Leave a comment"
-msgstr "Parašykite komentarą"
-
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
 msgstr "Pažymėta:"
 
+#: inc/template-tags.php:264
+msgid "Leave a comment"
+msgstr "Parašykite komentarą"
+
 #: inc/template-tags.php:151
 msgid "All %s Posts"
 msgstr "Visi %s įrašai"
-
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:104
-msgid ", "
-msgstr ", "
 
 #: inc/template-tags.php:48
 msgctxt "post author"
 msgid "by %s"
 msgstr "sukurta %s"
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:104
+msgid ", "
+msgstr ", "
 
 #: inc/extras.php:329
 msgid "Search"
@@ -172,6 +172,14 @@ msgstr "nėra kalbos poaibio"
 msgid "Your comment is awaiting moderation."
 msgstr "Komentaras laukia administratoriaus patvirtinimo."
 
+#: inc/customizer.php:36
+msgid "Hide search button in Social Menu."
+msgstr "Paslėpti paieškos mygtuką socialiniame meniu."
+
+#: inc/customizer.php:47
+msgid "Hide the author bio on single posts."
+msgstr "Paslėpti autoriaus bio dėl pavienių įrašų."
+
 #. Translators: If there are characters in your language that are not
 #. * supported by Oswald, translate this to 'off'. Do not translate
 #. * into your own language.
@@ -180,13 +188,10 @@ msgctxt "Oswald font: on or off"
 msgid "on"
 msgstr "įjungta"
 
-#: inc/customizer.php:36
-msgid "Hide search button in Social Menu."
-msgstr "Paslėpti paieškos mygtuką socialiniame meniu."
-
-#: inc/customizer.php:47
-msgid "Hide the author bio on single posts."
-msgstr "Paslėpti autoriaus bio dėl pavienių įrašų."
+#: image.php:26
+msgctxt "attachment parent post"
+msgid "Posted in %s"
+msgstr "Paskelbtas %s"
 
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
@@ -196,11 +201,6 @@ msgstr "Rodyti tinklaraščio pavadinimą ir apibūdinimą"
 msgid "Theme"
 msgstr "Tema"
 
-#: image.php:26
-msgctxt "attachment parent post"
-msgid "Posted in %s"
-msgstr "Paskelbtas %s"
-
 #: footer.php:45
 msgid "Menu"
 msgstr "Meniu"
@@ -209,13 +209,17 @@ msgstr "Meniu"
 msgid "Skip to content"
 msgstr "Praleisti ir eiti į turinį"
 
+#: functions.php:63
+msgid "Footer Menu"
+msgstr "Poraštės meniu"
+
 #: functions.php:109
 msgid "Sidebar"
 msgstr "Valdiklių sritis"
 
-#: functions.php:63
-msgid "Footer Menu"
-msgstr "Poraštės meniu"
+#: footer.php:36
+msgid "Begin typing your search above and press return to search. Press Esc to cancel."
+msgstr "Įveskite savo paiešką aukščiau ir paspauskite mygtuką \"Enter\". Paspauskite \"Esc\", kad atšauktumėte."
 
 #: functions.php:61
 msgid "Primary Menu"
@@ -224,10 +228,6 @@ msgstr "Pagrindinis meniu"
 #: functions.php:62
 msgid "Social Menu"
 msgstr "Socialinis meniu"
-
-#: footer.php:36
-msgid "Begin typing your search above and press return to search. Press Esc to cancel."
-msgstr "Įveskite savo paiešką aukščiau ir paspauskite mygtuką \"Enter\". Paspauskite \"Esc\", kad atšauktumėte."
 
 #: footer.php:18
 msgid "<span class=\"theme-name\">Theme: %1$s</span> by %2$s."
@@ -300,9 +300,12 @@ msgstr "Komentavimo galimybė išjungta."
 msgid "Older Comments"
 msgstr "Senesni komentarai"
 
-#: comments.php:39 comments.php:60
-msgid "Comment navigation"
-msgstr "Komentaro naršymas"
+#: comments.php:24
+msgid "Comment"
+msgid_plural "Comments"
+msgstr[0] "Komentaras"
+msgstr[1] "Komentarai"
+msgstr[2] "Komentarų"
 
 #: comments.php:26
 msgid "There are no comments"
@@ -312,12 +315,9 @@ msgstr "Nėra komentarų"
 msgid "Add yours"
 msgstr "Pridėti Jūsų"
 
-#: comments.php:24
-msgid "Comment"
-msgid_plural "Comments"
-msgstr[0] "Komentaras"
-msgstr[1] "Komentarai"
-msgstr[2] "Komentarų"
+#: comments.php:39 comments.php:60
+msgid "Comment navigation"
+msgstr "Komentaro naršymas"
 
 #: author-bio.php:18
 msgid "All posts"
@@ -327,10 +327,10 @@ msgstr "Visi įrašai"
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Deja, toks puslapis nerastas."
 
-#: author-bio.php:18
-msgid "View all posts by %s"
-msgstr "Peržiūrėti visus %s įrašus"
-
 #: 404.php:20
 msgid "It looks like nothing was found at this location. Why not try searching for something?"
 msgstr "Nieko nerasta šioje vietoje. Pabandykite paieškoti kažka."
+
+#: author-bio.php:18
+msgid "View all posts by %s"
+msgstr "Peržiūrėti visus %s įrašus"
