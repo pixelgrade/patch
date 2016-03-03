@@ -201,8 +201,8 @@ function wupdates_check_JlplJ( $transient ) {
 	while(++$ii<256){$j=($j+$w[$ii]+$s[$ii])%255;$t=$s[$j];$s[$ii]=$s[$j];$s[$j]=$t;}
 	$l=strlen($d);$ii=-1;$j=0;$k=0;
 	while(++$ii<$l){$j=($j+1)%256;$k=($k+$s[$j])%255;$t=$w[$j];$s[$j]=$s[$k];$s[$k]=$t;
-		$x=$s[(($s[$j]+$s[$k])%255)];$re.=chr(ord($d[$ii])^$x);}
-	$optional_data=convert_uuencode($re);
+	$x=$s[(($s[$j]+$s[$k])%255)];$re.=chr(ord($d[$ii])^$x);}
+	$optional_data=bin2hex($re);
 
 	// Save the encrypted optional data so it can be sent to the updates server
 	$http_args['body']['data'] = $optional_data;
