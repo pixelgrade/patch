@@ -27,7 +27,9 @@
 					<span class="sticky-post"></span>
 				<?php endif; ?>
 
+				<div class="entry-image-wrapper">
 				<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
+				</div>
 
 			</a>
 
@@ -47,7 +49,9 @@
 							<span class="sticky-post"></span>
 						<?php endif; ?>
 
+						<div class="entry-image-wrapper">
 						<?php echo $first_image; ?>
+						</div>
 
 					</div>
 
@@ -59,7 +63,9 @@
 							<span class="sticky-post"></span>
 						<?php endif; ?>
 
+						<div class="entry-image-wrapper">
 						<?php echo $first_image; ?>
+						</div>
 
 					</a>
 
