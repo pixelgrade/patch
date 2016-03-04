@@ -344,7 +344,8 @@ $cards-gutter: $gutter;
 			opacity: 1;
 			overflow: hidden;
 		}
-	}
+	} // .entry-time
+
 		.entry-time {
 			display: none;
 		}
@@ -392,7 +393,7 @@ $cards-gutter: $gutter;
 
 			transition: all 0.3s;
 		}
-	}
+	} // .entry-image
 
 
 	// Title
@@ -431,23 +432,18 @@ $cards-gutter: $gutter;
 		}
 	}
 
-	// Entry Card 
-	// HOVER
-	&:hover {
-		.entry-image {
-				.entry-image-wrapper {
-					backface-visiblity: hidden;
-					//-webkit-filter: saturate(0);
-					-webkit-filter: grayscale(1);
-				}
+	// Entry Card Hover
+	&:hover .entry-image {
+		.entry-image-wrapper {
+			-webkit-filter: grayscale(1);
+			filter: grayscale(1);
+		}
 
-				.hover {
-					opacity: 1;
-				}
-			}
+		.hover {
+			opacity: 1;
+		}
 	}
-
-}
+} // .entry-card
 
 
 
