@@ -65,9 +65,18 @@
 }
 
 .entry-image-shadow {
+	margin-left: -1px;
+
 	background: black;
 	box-shadow: black 0 0 25px;
 	// transform: translateZ(0);
+	opacity: 0;
+	transition: .3s linear opacity;
+	transition-delay: .25s;
+
+	.is-visible & {
+		opacity: 1;
+	}
 }
 
 // Hiding the WPStats smiley icon
