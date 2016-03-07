@@ -33,24 +33,26 @@ var options = {
 // styles related
 gulp.task('styles-dev', function () {
 	return gulp.src('assets/scss/**/*.scss')
-			.pipe(sass({sourcemap: true, style: 'compact'}))
+			.pipe(sass({'sourcemap=auto': true, style: 'compact'}))
 			.on('error', function (e) {
 				console.log(e.message);
 			})
 			// .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
 			// .pipe(chmod(644))
 			.pipe(gulp.dest('./'))
-			.pipe(livereload());
+			.pipe(livereload())
+			.pipe(notify({message: 'Styles task complete'}));
 });
 
 gulp.task('styles', function () {
 	return gulp.src('assets/scss/**/*.scss')
-			.pipe(sass({sourcemap: false, style: 'expanded'}))
+			.pipe(sass({'sourcemap=auto': true, style: 'expanded'}))
 			.pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
 			.pipe(mmq())
 			.pipe(csscomb())
 			.pipe(chmod(644))
-			.pipe(gulp.dest('./'));
+			.pipe(gulp.dest('./'))
+			.pipe(notify({message: 'Styles task complete'}));
 });
 
 gulp.task('styles-watch', function () {
