@@ -1,6 +1,6 @@
 var theme = 'patch',
 		gulp 		= require('gulp'),
-		sass 		= require('gulp-ruby-sass'),
+		sass 		= require('gulp-sass'),
 		prefix 		= require('gulp-autoprefixer'),
 		exec 		= require('gulp-exec'),
 		replace 	= require('gulp-replace'),
