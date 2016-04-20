@@ -990,7 +990,7 @@ if (!Date.now)
      * Handler for the back to top button
      */
     function scrollToTop() {
-        $('a[href=#top]').click(function(event) {
+        $('a[href="#top"]').click(function(event) {
             event.preventDefault();
             event.stopPropagation();
 
