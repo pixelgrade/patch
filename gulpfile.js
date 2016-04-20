@@ -48,7 +48,7 @@ gulp.task('styles', function () {
 	return gulp.src('assets/scss/**/*.scss')
 			.pipe(sass({'sourcemap=auto': true, style: 'expanded'}))
 			.pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
-			.pipe(mmq())
+			//.pipe(cmq())
 			.pipe(csscomb())
 			.pipe(chmod(644))
 			.pipe(gulp.dest('./'))
@@ -133,8 +133,7 @@ gulp.task('build', ['copy-folder'], function () {
 		files_to_remove[k] = '../build/patch/' + e;
 	});
 
-	return gulp.src(files_to_remove, {read: false})
-		.pipe(clean({force: true}));
+	return del.sync(files_to_remove, {force: true});
 });
 
 /**
