@@ -1,6 +1,6 @@
 var theme = 'patch',
 	gulp 		= require('gulp'),
-	sass 		= require('gulp-ruby-sass'),
+	sass 		= require('gulp-sass'),
 	prefix 		= require('gulp-autoprefixer'),
 	exec 		= require('gulp-exec'),
 	replace 	= require('gulp-replace'),
@@ -51,8 +51,7 @@ gulp.task('styles', function () {
 			//.pipe(cmq())
 			.pipe(csscomb())
 			.pipe(chmod(644))
-			.pipe(gulp.dest('./'))
-			.pipe(notify({message: 'Styles task complete'}));
+			.pipe(gulp.dest('./'));
 });
 
 gulp.task('styles-watch', function () {
