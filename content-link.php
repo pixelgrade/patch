@@ -21,7 +21,7 @@
 
 		<?php if ( has_post_thumbnail() ) : ?>
 
-			<a href="<?php patch_get_post_format_link_url(); ?>" <?php patch_post_thumbnail_class( 'entry-image' ); ?>>
+			<a href="<?php echo patch_get_post_format_link_url(); ?>" <?php patch_post_thumbnail_class( 'entry-image' ); ?>>
 
 				<?php the_post_thumbnail( 'patch-masonry-image' ); ?>
 
