@@ -1,5 +1,5 @@
-# Translation of Patch in Albanian
-# This file is distributed under the same license as the Patch package.
+# Translation of WordPress.com - Themes - Patch in Albanian
+# This file is distributed under the same license as the WordPress.com - Themes - Patch package.
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2015-11-03 20:05:54+0000\n"
@@ -7,8 +7,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/1.0-alpha-1100\n"
-"Project-Id-Version: Patch\n"
+"X-Generator: GlotPress/2.1.0-alpha\n"
+"Language: sq_AL\n"
+"Project-Id-Version: WordPress.com - Themes - Patch\n"
 
 #: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
