@@ -1,0 +1,320 @@
+# Translation of WordPress.com - Themes - Patch in French (Canada)
+# This file is distributed under the same license as the WordPress.com - Themes - Patch package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-07-29 11:26:19+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.2.0-alpha\n"
+"Language: fr_CA\n"
+"Project-Id-Version: WordPress.com - Themes - Patch\n"
+
+#: inc/template-tags.php:1038 inc/template-tags.php:1044
+msgid "Next"
+msgstr "Suivant"
+
+#: inc/template-tags.php:1027 inc/template-tags.php:1037
+msgid "Previous"
+msgstr "Précédent"
+
+#: inc/template-tags.php:1020
+msgid "Posts navigation"
+msgstr "Navigation des articles"
+
+#: inc/template-tags.php:895
+msgid "Next image"
+msgstr "Image suivante"
+
+#: inc/template-tags.php:880
+msgid "Previous image"
+msgstr "Image précédente"
+
+#: inc/template-tags.php:870
+msgid "Image navigation"
+msgstr "Navigation des images"
+
+#: inc/template-tags.php:843
+msgid "Search Results for: %s"
+msgstr "Résultats de recherche pour : %s"
+
+#: inc/template-tags.php:325
+msgid "Archives"
+msgstr "Archives"
+
+#. translators: 1: Taxonomy singular name, 2: Current taxonomy term
+#: inc/template-tags.php:323
+msgid "%1$s: %2$s"
+msgstr "%1$s : %2$s"
+
+#: inc/template-tags.php:319
+msgid "Archives: %s"
+msgstr "Archives&nbsp;: %s"
+
+#: inc/template-tags.php:316
+msgctxt "post format archive title"
+msgid "Chats"
+msgstr "Clavardages"
+
+#: inc/template-tags.php:312
+msgctxt "post format archive title"
+msgid "Statuses"
+msgstr "Statuts"
+
+#: inc/template-tags.php:310
+msgctxt "post format archive title"
+msgid "Links"
+msgstr "Liens"
+
+#: inc/template-tags.php:308
+msgctxt "post format archive title"
+msgid "Quotes"
+msgstr "Citations"
+
+#: inc/template-tags.php:306
+msgctxt "post format archive title"
+msgid "Videos"
+msgstr "Vidéos"
+
+#: inc/template-tags.php:304
+msgctxt "post format archive title"
+msgid "Images"
+msgstr "Images"
+
+#: inc/template-tags.php:302
+msgctxt "post format archive title"
+msgid "Galleries"
+msgstr "Galeries"
+
+#: inc/template-tags.php:300
+msgctxt "post format archive title"
+msgid "Asides"
+msgstr "Apartés"
+
+#: inc/template-tags.php:297
+msgctxt "daily archives date format"
+msgid "F j, Y"
+msgstr "j F Y"
+
+#: inc/template-tags.php:297
+msgid "Day: %s"
+msgstr "Jour&nbsp;: %s"
+
+#: inc/template-tags.php:295
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "F Y"
+
+#: inc/template-tags.php:295
+msgid "Month: %s"
+msgstr "Mois&nbsp;: %s"
+
+#: inc/template-tags.php:293
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: inc/template-tags.php:293
+msgid "Year: %s"
+msgstr "Année&nbsp;: %s"
+
+#: inc/template-tags.php:291
+msgid "Author: %s"
+msgstr "Auteur : %s"
+
+#: inc/template-tags.php:289
+msgid "Tag: %s"
+msgstr "Mot-clé : %s"
+
+#: inc/template-tags.php:287
+msgid "Category: %s"
+msgstr "Catégorie : %s"
+
+#: inc/template-tags.php:264
+msgid "% Comments"
+msgstr "% commentaires"
+
+#: inc/template-tags.php:264
+msgid "1 Comment"
+msgstr "1 commentaire"
+
+#: inc/template-tags.php:264
+msgid "Leave a comment"
+msgstr "Laisser un commentaire"
+
+#. translators: There is a space at the end
+#: inc/template-tags.php:253
+msgid "Tagged with: "
+msgstr "Marqué :"
+
+#: inc/template-tags.php:151
+msgid "All %s Posts"
+msgstr "Tous les articles de %s"
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:104
+msgid ", "
+msgstr ", "
+
+#: inc/template-tags.php:48
+msgctxt "post author"
+msgid "by %s"
+msgstr "par %s"
+
+#: inc/extras.php:329
+msgid "Search"
+msgstr "Chercher"
+
+#: inc/extras.php:247
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr "Chercher &hellip;"
+
+#: inc/extras.php:246 inc/extras.php:247
+msgctxt "label"
+msgid "Search for:"
+msgstr "Recherche pour&nbsp;:"
+
+#: inc/extras.php:190
+msgid "Your comment is awaiting moderation."
+msgstr "Votre commentaire est en attente de modération."
+
+#. translators: To add an additional character subset specific to your
+#. language, translate this to 'greek', 'cyrillic', 'devanagari' or
+#. 'vietnamese'. Do not translate into your own language.
+#: inc/extras.php:124
+msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
+msgid "no-subset"
+msgstr "no-subset"
+
+#. Translators: If there are characters in your language that are not
+#. * supported by Oswald, translate this to 'off'. Do not translate
+#. * into your own language.
+#: inc/extras.php:119
+msgctxt "Oswald font: on or off"
+msgid "on"
+msgstr "activée"
+
+#. Translators: If there are characters in your language that are not
+#. * supported by Roboto, translate this to 'off'. Do not translate
+#. * into your own language.
+#: inc/extras.php:111
+msgctxt "Roboto font: on or off"
+msgid "on"
+msgstr "activée"
+
+#: inc/customizer.php:26
+msgid "Theme"
+msgstr "Thème"
+
+#: inc/customizer.php:19
+msgid "Display Site Title &amp; Tagline"
+msgstr "Afficher le titre du site et son slogan"
+
+#: header.php:24
+msgid "Skip to content"
+msgstr "Aller au contenu principal"
+
+#: footer.php:45
+msgid "Menu"
+msgstr "Menu"
+
+#: functions.php:109
+msgid "Sidebar"
+msgstr "Colonne latérale"
+
+#: functions.php:63
+msgid "Footer Menu"
+msgstr "Menu du pied de page"
+
+#: functions.php:62
+msgid "Social Menu"
+msgstr "Menu de réseaux sociaux"
+
+#: functions.php:61
+msgid "Primary Menu"
+msgstr "Menu principal"
+
+#: footer.php:28
+msgid "Footer navigation"
+msgstr "Navigation du pied de page"
+
+#: footer.php:16
+msgid "Proudly powered by %s"
+msgstr "Fièrement propulsé par %s"
+
+#: footer.php:16
+msgid "http://wordpress.org/"
+msgstr "http://wordpress.org/"
+
+#: content.php:30
+msgid "Read More"
+msgstr "Lire la Suite"
+
+#: content-none.php:34
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Le contenu demandé n&rsquo;a pu être trouvé. Pourquoi ne pas lancer une recherche? "
+
+#: content-none.php:29
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Désolé, mais rien ne correspond à vos critères. Réessayez en modifiant les termes de recherche."
+
+#: content-none.php:25
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Vous êtes prêt à publier votre premier article? <a href=\"%1$s\">Commencez ici</a>."
+
+#: content-none.php:18
+msgid "Nothing Found"
+msgstr "Inaccessible"
+
+#: content-attachment.php:54 content-page.php:42 inc/extras.php:178
+#: inc/template-tags.php:236 inc/template-tags.php:268
+msgid "Edit"
+msgstr "Modifier"
+
+#: content-aside.php:37 content-attachment.php:46 content-audio.php:50
+#: content-gallery.php:55 content-video.php:54 content.php:66
+msgid "Page"
+msgstr "Page"
+
+#: content-aside.php:33 content-attachment.php:42 content-audio.php:46
+#: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
+#: content-single-gallery.php:51 content-single-video.php:49
+#: content-single.php:59 content-video.php:50 content.php:62
+msgid "Pages:"
+msgstr "Pages :"
+
+#. translators: %s: Name of current post
+#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
+#: inc/template-tags.php:758
+msgid "Continue reading %s"
+msgstr "Continuer la lecture de %s"
+
+#: comments.php:75
+msgid "Comments are closed."
+msgstr "Les commentaires sont fermés."
+
+#: comments.php:42 comments.php:63
+msgid "Newer Comments"
+msgstr "Commentaires ultérieurs"
+
+#: comments.php:41 comments.php:62
+msgid "Older Comments"
+msgstr "Commentaires antérieurs"
+
+#: comments.php:39 comments.php:60
+msgid "Comment navigation"
+msgstr "Navigation des commentaires"
+
+#: author-bio.php:18
+msgid "All posts"
+msgstr "Tous les articles"
+
+#: author-bio.php:18
+msgid "View all posts by %s"
+msgstr "Voir tous les articles par %s"
+
+#: 404.php:16
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Oups! Cette page est introuvable."
