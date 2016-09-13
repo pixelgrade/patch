@@ -12,6 +12,7 @@ var theme = 'patch',
 	beautify 	= require('gulp-beautify'),
 	csscomb 	= require('gulp-csscomb'),
 	cmq 		= require('gulp-combine-media-queries'),
+	fs          = require('fs'),
 	chmod 		= require('gulp-chmod');
 
 jsFiles = [
@@ -96,7 +97,7 @@ gulp.task('server', ['styles', 'scripts'], function () {
 gulp.task('copy-folder', ['styles', 'scripts'], function () {
 
 	return gulp.src('./')
-		.pipe(exec('rm -Rf ./../build; mkdir -p ./../build/patch; rsync -av --exclude="node_modules" ./* ./../build/patch/', options));
+		.pipe(exec('rm -Rf ./../build; mkdir -p ./../build/' + theme + '; rsync -av --exclude="node_modules" ./* ./../build/' + theme + '/', options));
 });
 
 /**
@@ -130,7 +131,7 @@ gulp.task('build', ['copy-folder'], function () {
 	];
 
 	files_to_remove.forEach(function (e, k) {
-		files_to_remove[k] = '../build/patch/' + e;
+		files_to_remove[k] = '../build/' + theme + '/' + e;
 	});
 
 	return del.sync(files_to_remove, {force: true});
@@ -141,8 +142,29 @@ gulp.task('build', ['copy-folder'], function () {
  */
 gulp.task('zip', ['build'], function(){
 
+	var versionString = '';
+	//get theme version from styles.css
+	var contents = fs.readFileSync("./style.css", "utf8");
+
+	// split it by lines
+	var lines = contents.split(/[\r\n]/);
+
+	function checkIfVersionLine(value, index, ar) {
+		var myRegEx = /^[Vv]ersion:/;
+		if ( myRegEx.test(value) ) {
+			return true;
+		}
+		return false;
+	}
+
+	// apply the filter
+	var versionLine = lines.filter(checkIfVersionLine);
+
+	versionString = versionLine[0].replace(/^[Vv]ersion:/, '' ).trim();
+	versionString = '-' + versionString.replace(/\./g,'-');
+
 	return gulp.src('./')
-		.pipe(exec('cd ./../; rm -rf patch.zip; cd ./build/; zip -r -X ./../patch.zip ./patch; cd ./../; rm -rf build'));
+		.pipe(exec('cd ./../; rm -rf' + theme[0].toUpperCase() + theme.slice(1) + '*.zip; cd ./build/; zip -r -X ./../' + theme[0].toUpperCase() + theme.slice(1) + '-Installer' + versionString +'.zip ./; cd ./../; rm -rf build'));
 
 });
 

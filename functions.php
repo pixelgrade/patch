@@ -6,13 +6,6 @@
  * @since Patch 1.0
  */
 
-/**
- * Set the content width based on the theme's design and stylesheet.
- */
-if ( ! isset( $content_width ) ) {
-	$content_width = 980; /* pixels */
-}
-
 if ( ! function_exists( 'patch_setup' ) ) :
 
 	/**
@@ -98,6 +91,64 @@ if ( ! function_exists( 'patch_setup' ) ) :
 endif;
 
 add_action( 'after_setup_theme', 'patch_setup' );
+
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
+function patch_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'patch_content_width', 980, 0 );
+}
+add_action( 'after_setup_theme', 'patch_content_width', 0 );
+
+/**
+ * Add custom image sizes attribute to enhance responsive image functionality
+ * for content images
+ *
+ * @since Patch 1.2.0
+ *
+ * @param string $sizes A source size value for use in a 'sizes' attribute.
+ * @param array  $size  Image size. Accepts an array of width and height
+ *                      values in pixels (in that order).
+ * @return string A source size value for use in a content image 'sizes' attribute.
+ */
+function patch_content_image_sizes_attr( $sizes, $size ) {
+	$width = $size[0];
+
+	//only do this for single posts, not the archives
+	if ( is_single() ) {
+		764 <= $width && $sizes = '(max-width: 620px) 100vw, (max-width: 899px) 620px, 764px';
+		764 > $width && 620 <= $width && $sizes = '(max-width: 620px) 100vw, (max-width: 899px) 620px, ' . $width . 'px';
+		620 > $width && $sizes = '(max-width: ' . $width . 'px) 100vw, ' . $width . 'px';
+	}
+
+	return $sizes;
+}
+add_filter( 'wp_calculate_image_sizes', 'patch_content_image_sizes_attr', 10 , 2 );
+
+/**
+ * Add custom image sizes attribute to enhance responsive image functionality
+ * for post thumbnails
+ *
+ * @since Patch 1.2.0
+ *
+ * @param array $attr Attributes for the image markup.
+ * @param int   $attachment Image attachment ID.
+ * @param array $size Registered image size or flat array of height and width dimensions.
+ * @return string A source size value for use in a post thumbnail 'sizes' attribute.
+ */
+function patch_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
+	//only do this for featured images, not all images
+	if ( 'post-thumbnail' === $size || 'patch-single-image' === $size ) {
+		$attr['sizes'] = '(max-width: 679px) 100vw, (max-width: 899px) 668px, (max-width: 1079px) 50vw, (max-width: 1259px) 620px, (max-width: 1449px) 66vw, 980px';
+	}
+
+	return $attr;
+}
+add_filter( 'wp_get_attachment_image_attributes', 'patch_post_thumbnail_sizes_attr', 10 , 3 );
 
 /**
  * Register widget area.
