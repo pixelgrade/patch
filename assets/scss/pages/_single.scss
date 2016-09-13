@@ -180,6 +180,10 @@
 
 	.entry-meta {
 		position: static;
+
+		@include query-above($lap) {
+			overflow: hidden;
+		}
 	}
 
 	.entry-meta > * {
