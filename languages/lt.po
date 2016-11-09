@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the WordPress.com - Themes - Patch package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-03-23 20:52:44+0000\n"
+"PO-Revision-Date: 2016-08-18 18:30:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: GlotPress/2.1.0-alpha\n"
+"X-Generator: GlotPress/2.2.0-alpha\n"
 "Language: lt\n"
 "Project-Id-Version: WordPress.com - Themes - Patch\n"
 
@@ -19,13 +19,13 @@ msgstr "Kitas"
 msgid "Previous"
 msgstr "Ankstesnis"
 
-#: inc/template-tags.php:895
-msgid "Next image"
-msgstr "Kitas paveikslėlis"
-
 #: inc/template-tags.php:1020
 msgid "Posts navigation"
 msgstr "Įrašų navigacija"
+
+#: inc/template-tags.php:895
+msgid "Next image"
+msgstr "Kitas paveikslėlis"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
@@ -43,29 +43,29 @@ msgstr "Paieškos rezultatai skirti: %s"
 msgid "Archives"
 msgstr "Archyvai"
 
-#: inc/template-tags.php:319
-msgid "Archives: %s"
-msgstr "Archyvai: %s"
-
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
+
+#: inc/template-tags.php:319
+msgid "Archives: %s"
+msgstr "Archyvai: %s"
 
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr "Pokalbiai"
 
-#: inc/template-tags.php:312
-msgctxt "post format archive title"
-msgid "Statuses"
-msgstr "Statusai"
-
 #: inc/template-tags.php:314
 msgctxt "post format archive title"
 msgid "Audio"
 msgstr "Audio"
+
+#: inc/template-tags.php:312
+msgctxt "post format archive title"
+msgid "Statuses"
+msgstr "Statusai"
 
 #: inc/template-tags.php:310
 msgctxt "post format archive title"
@@ -82,15 +82,25 @@ msgctxt "post format archive title"
 msgid "Videos"
 msgstr "Video"
 
+#: inc/template-tags.php:304
+msgctxt "post format archive title"
+msgid "Images"
+msgstr "Paveikslėliai"
+
 #: inc/template-tags.php:302
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr "Galerijos"
 
-#: inc/template-tags.php:304
+#: inc/template-tags.php:300
 msgctxt "post format archive title"
-msgid "Images"
-msgstr "Paveikslėliai"
+msgid "Asides"
+msgstr "Užrašai"
+
+#: inc/template-tags.php:297
+msgctxt "daily archives date format"
+msgid "F j, Y"
+msgstr "F j, Y"
 
 #: inc/template-tags.php:297
 msgid "Day: %s"
@@ -171,6 +181,10 @@ msgctxt "label"
 msgid "Search for:"
 msgstr "Ieškoti pagal:"
 
+#: inc/extras.php:190
+msgid "Your comment is awaiting moderation."
+msgstr "Komentaras laukia administratoriaus patvirtinimo."
+
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
 #. 'vietnamese'. Do not translate into your own language.
@@ -178,10 +192,6 @@ msgstr "Ieškoti pagal:"
 msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr "nėra kalbos poaibio"
-
-#: inc/extras.php:190
-msgid "Your comment is awaiting moderation."
-msgstr "Komentaras laukia administratoriaus patvirtinimo."
 
 #. Translators: If there are characters in your language that are not
 #. * supported by Oswald, translate this to 'off'. Do not translate
@@ -191,34 +201,34 @@ msgctxt "Oswald font: on or off"
 msgid "on"
 msgstr "įjungta"
 
-#: inc/customizer.php:36
-msgid "Hide search button in Social Menu."
-msgstr "Paslėpti paieškos mygtuką socialiniame meniu."
-
 #: inc/customizer.php:47
 msgid "Hide the author bio on single posts."
 msgstr "Paslėpti autoriaus bio dėl pavienių įrašų."
 
-#: inc/customizer.php:19
-msgid "Display Site Title &amp; Tagline"
-msgstr "Rodyti tinklaraščio pavadinimą ir apibūdinimą"
+#: inc/customizer.php:36
+msgid "Hide search button in Social Menu."
+msgstr "Paslėpti paieškos mygtuką socialiniame meniu."
 
 #: inc/customizer.php:26
 msgid "Theme"
 msgstr "Tema"
+
+#: inc/customizer.php:19
+msgid "Display Site Title &amp; Tagline"
+msgstr "Rodyti tinklaraščio pavadinimą ir apibūdinimą"
 
 #: image.php:26
 msgctxt "attachment parent post"
 msgid "Posted in %s"
 msgstr "Paskelbtas %s"
 
-#: footer.php:45
-msgid "Menu"
-msgstr "Meniu"
-
 #: header.php:24
 msgid "Skip to content"
 msgstr "Praleisti ir eiti į turinį"
+
+#: footer.php:45
+msgid "Menu"
+msgstr "Meniu"
 
 #: functions.php:109
 msgid "Sidebar"
@@ -228,33 +238,33 @@ msgstr "Valdiklių sritis"
 msgid "Footer Menu"
 msgstr "Poraštės meniu"
 
-#: functions.php:61
-msgid "Primary Menu"
-msgstr "Pagrindinis meniu"
-
 #: functions.php:62
 msgid "Social Menu"
 msgstr "Socialinis meniu"
+
+#: functions.php:61
+msgid "Primary Menu"
+msgstr "Pagrindinis meniu"
 
 #: footer.php:36
 msgid "Begin typing your search above and press return to search. Press Esc to cancel."
 msgstr "Įveskite savo paiešką aukščiau ir paspauskite mygtuką \"Enter\". Paspauskite \"Esc\", kad atšauktumėte."
 
-#: footer.php:18
-msgid "<span class=\"theme-name\">Theme: %1$s</span> by %2$s."
-msgstr "<span class=\"theme-name\">Tema: %1$s</span> sukurta %2$s."
-
 #: footer.php:28
 msgid "Footer navigation"
 msgstr "Poraštės navigacija"
 
-#: footer.php:16
-msgid "http://wordpress.org/"
-msgstr "http://wordpress.org/"
+#: footer.php:18
+msgid "<span class=\"theme-name\">Theme: %1$s</span> by %2$s."
+msgstr "<span class=\"theme-name\">Tema: %1$s</span> sukurta %2$s."
 
 #: footer.php:16
 msgid "Proudly powered by %s"
 msgstr "%s sistema"
+
+#: footer.php:16
+msgid "http://wordpress.org/"
+msgstr "http://wordpress.org/"
 
 #: content.php:30
 msgid "Read More"
@@ -286,12 +296,6 @@ msgstr "Redaguoti"
 msgid "Page"
 msgstr "Puslapis"
 
-#. translators: %s: Name of current post
-#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
-#: inc/template-tags.php:758
-msgid "Continue reading %s"
-msgstr "Skaityti toliau: %s"
-
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:46
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
@@ -299,13 +303,19 @@ msgstr "Skaityti toliau: %s"
 msgid "Pages:"
 msgstr "Puslapiai:"
 
-#: comments.php:42 comments.php:63
-msgid "Newer Comments"
-msgstr "Naujesni komentarai"
+#. translators: %s: Name of current post
+#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
+#: inc/template-tags.php:758
+msgid "Continue reading %s"
+msgstr "Skaityti toliau: %s"
 
 #: comments.php:75
 msgid "Comments are closed."
 msgstr "Komentavimo galimybė išjungta."
+
+#: comments.php:42 comments.php:63
+msgid "Newer Comments"
+msgstr "Naujesni komentarai"
 
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
@@ -315,13 +325,13 @@ msgstr "Senesni komentarai"
 msgid "Comment navigation"
 msgstr "Komentaro naršymas"
 
-#: comments.php:26
-msgid "There are no comments"
-msgstr "Nėra komentarų"
-
 #: comments.php:28
 msgid "Add yours"
 msgstr "Pridėti Jūsų"
+
+#: comments.php:26
+msgid "There are no comments"
+msgstr "Nėra komentarų"
 
 #: comments.php:24
 msgid "Comment"
@@ -334,10 +344,6 @@ msgstr[2] "Komentarų"
 msgid "All posts"
 msgstr "Visi įrašai"
 
-#: 404.php:16
-msgid "Oops! That page can&rsquo;t be found."
-msgstr "Deja, toks puslapis nerastas."
-
 #: author-bio.php:18
 msgid "View all posts by %s"
 msgstr "Peržiūrėti visus %s įrašus"
@@ -345,3 +351,7 @@ msgstr "Peržiūrėti visus %s įrašus"
 #: 404.php:20
 msgid "It looks like nothing was found at this location. Why not try searching for something?"
 msgstr "Nieko nerasta šioje vietoje. Pabandykite paieškoti kažka."
+
+#: 404.php:16
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Deja, toks puslapis nerastas."
