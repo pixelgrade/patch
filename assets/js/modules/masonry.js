@@ -84,6 +84,7 @@ var masonry = (function() {
 	showBlocks = function($blocks) {
 		$blocks.each(function(i, obj) {
 			var $post = $(obj).find('.entry-card, .site-header, .page-header');
+			$post.css('transform', 'translateY(0px)');
 			animatePost($post, i * 100);
 		});
 	},
