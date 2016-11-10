@@ -1,0 +1,56 @@
+# (required) The engine to run Wraith with. Examples: 'phantomjs', 'casperjs', 'slimerjs'
+browser: "casperjs"
+
+# (required) The domains to take screenshots of.
+domains:
+  current:  "https://pixelgrade.com/demos/patch"
+  new:      "http://10.0.1.3/patch"
+
+# (required) The paths to capture. All paths should exist for both of the domains specified above.
+paths:
+  page:
+    path: "/"
+  main_navigation:
+    path: "/"
+#    selector: ".nav--main"
+    before_capture: "wraith/interact-navigation.js"
+  search_overlay:
+    path: "/"
+#    selector: ".overlay--search"
+    before_capture: "wraith/interact-search.js"
+
+# (required) Screen widths (and optional height) to resize the browser to before taking the screenshot.
+screen_widths:
+#  - 320
+  - 375x667 #iphone 6
+#  - 768
+#  - 1024
+  - 1280x800
+
+# (optional) JavaScript file to execute before taking screenshot of every path. Default: nil
+#before_capture: 'wraith_interact.js'
+
+# (required) The directory that your screenshots will be stored in
+directory: 'screenshots'
+
+# (required) Amount of fuzz ImageMagick will use when comparing images. A higher fuzz makes the comparison less strict.
+fuzz: '20%'
+
+# (optional) The maximum acceptable level of difference (in %) between two images before Wraith reports a failure. Default: 0
+threshold: 5
+
+# (optional) Specify the template (and generated thumbnail sizes) for the gallery output.
+gallery:
+  template: 'slideshow_template' # Examples: 'basic_template' (default), 'slideshow_template'
+  thumb_width:  200
+  thumb_height: 200
+
+# (optional) Choose which results are displayed in the gallery, and in what order. Default: alphanumeric
+# Options:
+#   alphanumeric - all paths (with or without a difference) are shown, sorted by path
+#   diffs_first - all paths (with or without a difference) are shown, sorted by difference size (largest first)
+#   diffs_only - only paths with a difference are shown, sorted by difference size (largest first)
+# Note: different screen widths are always grouped together.
+mode: diffs_first
+
+verbose: true
