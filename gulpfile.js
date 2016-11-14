@@ -50,7 +50,7 @@ gulp.task('styles', function () {
 			.pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
 			.pipe(mmq())
 			.pipe(csscomb())
-			.pipe(chmod(644))
+			// .pipe(chmod(644))
 			.pipe(gulp.dest('./'))
 			.pipe(notify({message: 'Styles task complete'}));
 });
@@ -66,7 +66,7 @@ gulp.task('scripts', function () {
 	return gulp.src(jsFiles)
 			.pipe(concat('main.js'))
 			.pipe(beautify({indentSize: 2}))
-			.pipe(chmod(644))
+			// .pipe(chmod(644))
 			.pipe(gulp.dest('./assets/js/'));
 });
 

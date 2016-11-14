@@ -1,47 +1,47 @@
-# Translation of WordPress.com - Themes - Patch in Lithuanian
+# Translation of WordPress.com - Themes - Patch in Hungarian
 # This file is distributed under the same license as the WordPress.com - Themes - Patch package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-08-18 18:30:39+0000\n"
+"PO-Revision-Date: 2016-08-08 18:19:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.2.0-alpha\n"
-"Language: lt\n"
+"Language: hu\n"
 "Project-Id-Version: WordPress.com - Themes - Patch\n"
 
 #: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
-msgstr "Kitas"
+msgstr "Következő "
 
 #: inc/template-tags.php:1027 inc/template-tags.php:1037
 msgid "Previous"
-msgstr "Ankstesnis"
+msgstr "Előző"
 
 #: inc/template-tags.php:1020
 msgid "Posts navigation"
-msgstr "Įrašų navigacija"
+msgstr "Bejegyzés navigáció"
 
 #: inc/template-tags.php:895
 msgid "Next image"
-msgstr "Kitas paveikslėlis"
+msgstr "Következő kép"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
-msgstr "Ankstesnis paveikslėlis"
+msgstr "Előző kép"
 
 #: inc/template-tags.php:870
 msgid "Image navigation"
-msgstr "Image Navigation"
+msgstr "Kép navigáció"
 
 #: inc/template-tags.php:843
 msgid "Search Results for: %s"
-msgstr "Paieškos rezultatai skirti: %s"
+msgstr "%s kifejezésre történő keresés eredménye"
 
 #: inc/template-tags.php:325
 msgid "Archives"
-msgstr "Archyvai"
+msgstr "Archívum"
 
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
@@ -50,70 +50,70 @@ msgstr "%1$s: %2$s"
 
 #: inc/template-tags.php:319
 msgid "Archives: %s"
-msgstr "Archyvai: %s"
+msgstr "Archívumok: %s"
 
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Chats"
-msgstr "Pokalbiai"
+msgstr "Beszélgetés naplók"
 
 #: inc/template-tags.php:314
 msgctxt "post format archive title"
 msgid "Audio"
-msgstr "Audio"
+msgstr "Hangok"
 
 #: inc/template-tags.php:312
 msgctxt "post format archive title"
 msgid "Statuses"
-msgstr "Statusai"
+msgstr "Állapot üzenetek"
 
 #: inc/template-tags.php:310
 msgctxt "post format archive title"
 msgid "Links"
-msgstr "Nuorodos"
+msgstr "Hivatkozások"
 
 #: inc/template-tags.php:308
 msgctxt "post format archive title"
 msgid "Quotes"
-msgstr "Citatos"
+msgstr "Idézetek"
 
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
 msgid "Videos"
-msgstr "Video"
+msgstr "Videók"
 
 #: inc/template-tags.php:304
 msgctxt "post format archive title"
 msgid "Images"
-msgstr "Paveikslėliai"
+msgstr "Képek"
 
 #: inc/template-tags.php:302
 msgctxt "post format archive title"
 msgid "Galleries"
-msgstr "Galerijos"
+msgstr "Gallériák"
 
 #: inc/template-tags.php:300
 msgctxt "post format archive title"
 msgid "Asides"
-msgstr "Užrašai"
+msgstr "Közbevetések"
 
 #: inc/template-tags.php:297
 msgctxt "daily archives date format"
 msgid "F j, Y"
-msgstr "F j, Y"
+msgstr "Y-m-d"
 
 #: inc/template-tags.php:297
 msgid "Day: %s"
-msgstr "Diena: %s"
+msgstr "Nap: %s"
 
 #: inc/template-tags.php:295
 msgctxt "monthly archives date format"
 msgid "F Y"
-msgstr "F Y"
+msgstr "Y F"
 
 #: inc/template-tags.php:295
 msgid "Month: %s"
-msgstr "Mėnesis: %s"
+msgstr "Hónap: %s"
 
 #: inc/template-tags.php:293
 msgctxt "yearly archives date format"
@@ -122,40 +122,40 @@ msgstr "Y"
 
 #: inc/template-tags.php:293
 msgid "Year: %s"
-msgstr "Metai: %s"
+msgstr "Év: %s"
 
 #: inc/template-tags.php:291
 msgid "Author: %s"
-msgstr "Autorius: %s"
+msgstr "Szerző: %s"
 
 #: inc/template-tags.php:289
 msgid "Tag: %s"
-msgstr "Žymė: %s"
+msgstr "Címke: %s"
 
 #: inc/template-tags.php:287
 msgid "Category: %s"
-msgstr "Kategorija: %s"
+msgstr "Kategória: %s"
 
 #: inc/template-tags.php:264
 msgid "% Comments"
-msgstr "% Komentaras"
+msgstr "% hozzászólás"
 
 #: inc/template-tags.php:264
 msgid "1 Comment"
-msgstr "Komentarų: 1"
+msgstr "1 hozzászólás"
 
 #: inc/template-tags.php:264
 msgid "Leave a comment"
-msgstr "Parašykite komentarą"
+msgstr "Megjegyzés hozzáfűzése"
 
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
-msgstr "Pažymėta:"
+msgstr "Címke:"
 
 #: inc/template-tags.php:151
 msgid "All %s Posts"
-msgstr "Visi %s įrašai"
+msgstr "Minden %s bejegyzés"
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:104
@@ -165,25 +165,25 @@ msgstr ", "
 #: inc/template-tags.php:48
 msgctxt "post author"
 msgid "by %s"
-msgstr "sukurta %s"
+msgstr "%s által"
 
 #: inc/extras.php:329
 msgid "Search"
-msgstr "Paieška"
+msgstr "Keresés"
 
 #: inc/extras.php:247
 msgctxt "placeholder"
 msgid "Search &hellip;"
-msgstr "Ieškoti"
+msgstr "Keresés &hellip;"
 
 #: inc/extras.php:246 inc/extras.php:247
 msgctxt "label"
 msgid "Search for:"
-msgstr "Ieškoti pagal:"
+msgstr "Keresés:"
 
 #: inc/extras.php:190
 msgid "Your comment is awaiting moderation."
-msgstr "Komentaras laukia administratoriaus patvirtinimo."
+msgstr "Hozzászólásod moderálásra vár."
 
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
@@ -191,76 +191,55 @@ msgstr "Komentaras laukia administratoriaus patvirtinimo."
 #: inc/extras.php:124
 msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
-msgstr "nėra kalbos poaibio"
+msgstr "no-subset"
 
 #. Translators: If there are characters in your language that are not
-#. * supported by Oswald, translate this to 'off'. Do not translate
+#. * supported by Roboto, translate this to 'off'. Do not translate
 #. * into your own language.
-#: inc/extras.php:119
-msgctxt "Oswald font: on or off"
+#: inc/extras.php:111
+msgctxt "Roboto font: on or off"
 msgid "on"
-msgstr "įjungta"
-
-#: inc/customizer.php:47
-msgid "Hide the author bio on single posts."
-msgstr "Paslėpti autoriaus bio dėl pavienių įrašų."
-
-#: inc/customizer.php:36
-msgid "Hide search button in Social Menu."
-msgstr "Paslėpti paieškos mygtuką socialiniame meniu."
+msgstr "be"
 
 #: inc/customizer.php:26
 msgid "Theme"
-msgstr "Tema"
+msgstr "Sablon"
 
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
-msgstr "Rodyti tinklaraščio pavadinimą ir apibūdinimą"
-
-#: image.php:26
-msgctxt "attachment parent post"
-msgid "Posted in %s"
-msgstr "Paskelbtas %s"
+msgstr "Honlap címsorának &amp; alcímének megjelenítése"
 
 #: header.php:24
 msgid "Skip to content"
-msgstr "Praleisti ir eiti į turinį"
+msgstr "Tovább a tartalomra"
 
 #: footer.php:45
 msgid "Menu"
-msgstr "Meniu"
+msgstr "Menü"
 
 #: functions.php:109
 msgid "Sidebar"
-msgstr "Valdiklių sritis"
+msgstr "Oldalsáv"
 
 #: functions.php:63
 msgid "Footer Menu"
-msgstr "Poraštės meniu"
+msgstr "Lábléc menü"
 
 #: functions.php:62
 msgid "Social Menu"
-msgstr "Socialinis meniu"
+msgstr "Közösségi menü"
 
 #: functions.php:61
 msgid "Primary Menu"
-msgstr "Pagrindinis meniu"
-
-#: footer.php:36
-msgid "Begin typing your search above and press return to search. Press Esc to cancel."
-msgstr "Įveskite savo paiešką aukščiau ir paspauskite mygtuką \"Enter\". Paspauskite \"Esc\", kad atšauktumėte."
+msgstr "Elsődleges menü"
 
 #: footer.php:28
 msgid "Footer navigation"
-msgstr "Poraštės navigacija"
-
-#: footer.php:18
-msgid "<span class=\"theme-name\">Theme: %1$s</span> by %2$s."
-msgstr "<span class=\"theme-name\">Tema: %1$s</span> sukurta %2$s."
+msgstr "Lábléc navigáció"
 
 #: footer.php:16
 msgid "Proudly powered by %s"
-msgstr "%s sistema"
+msgstr "Köszönjük %s!"
 
 #: footer.php:16
 msgid "http://wordpress.org/"
@@ -268,90 +247,77 @@ msgstr "http://wordpress.org/"
 
 #: content.php:30
 msgid "Read More"
-msgstr "Skaityti daugiau"
+msgstr "Tovább"
 
 #: content-none.php:34
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr "Atrodo mes negalime rasti to ko jūs ieškote. Gal paieška padės."
+msgstr "Úgy tűnik, nem található az, amire gondoltunk. Talán, egy újabb keresés segíthet."
 
 #: content-none.php:29
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
-msgstr "Deja, nieko panašaus rasti nepavyko. Pabandykite įvesti kitokį paieškos raktažodį."
+msgstr "Elnézést, nem találunk a keresési feltételeknek megfelelő eredményt. Másik kulcsszóval, kifejezéssel újra kellene kezdeni egy keresést."
 
 #: content-none.php:25
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr "Pasirengę išleisti savo pirmą įrašą? <a href=\"%1$s\">Pradėkite čia</a>."
+msgstr "Készen állunk az első bejegyzés közzétételére? <a href=\"%1$s\">Kezdőlépések</a>."
 
 #: content-none.php:18
 msgid "Nothing Found"
-msgstr "Nieko nerasta"
+msgstr "Nincs megfelelő találat"
 
 #: content-attachment.php:54 content-page.php:42 inc/extras.php:178
 #: inc/template-tags.php:236 inc/template-tags.php:268
 msgid "Edit"
-msgstr "Redaguoti"
+msgstr "Szerkesztés"
 
 #: content-aside.php:37 content-attachment.php:46 content-audio.php:50
 #: content-gallery.php:55 content-video.php:54 content.php:66
 msgid "Page"
-msgstr "Puslapis"
+msgstr "Oldal"
 
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:46
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
 #: content-single.php:59 content-video.php:50 content.php:62
 msgid "Pages:"
-msgstr "Puslapiai:"
+msgstr "Oldalak:"
 
 #. translators: %s: Name of current post
 #: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
 #: inc/template-tags.php:758
 msgid "Continue reading %s"
-msgstr "Skaityti toliau: %s"
+msgstr "%s részletei..."
 
 #: comments.php:75
 msgid "Comments are closed."
-msgstr "Komentavimo galimybė išjungta."
+msgstr "Hozzászólások lezárva"
 
 #: comments.php:42 comments.php:63
 msgid "Newer Comments"
-msgstr "Naujesni komentarai"
+msgstr "Újabb hozzászólás"
 
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
-msgstr "Senesni komentarai"
+msgstr "Korábbi hozzászólások"
 
 #: comments.php:39 comments.php:60
 msgid "Comment navigation"
-msgstr "Komentaro naršymas"
-
-#: comments.php:28
-msgid "Add yours"
-msgstr "Pridėti Jūsų"
-
-#: comments.php:26
-msgid "There are no comments"
-msgstr "Nėra komentarų"
+msgstr "Hozzászólás navigáció"
 
 #: comments.php:24
 msgid "Comment"
 msgid_plural "Comments"
-msgstr[0] "Komentaras"
-msgstr[1] "Komentarai"
-msgstr[2] "Komentarų"
+msgstr[0] "Hozzászólás"
+msgstr[1] "Hozzászólás"
 
 #: author-bio.php:18
 msgid "All posts"
-msgstr "Visi įrašai"
+msgstr "Összes bejegyzés"
 
 #: author-bio.php:18
 msgid "View all posts by %s"
-msgstr "Peržiūrėti visus %s įrašus"
-
-#: 404.php:20
-msgid "It looks like nothing was found at this location. Why not try searching for something?"
-msgstr "Nieko nerasta šioje vietoje. Pabandykite paieškoti kažka."
+msgstr "Minden bejegyzés megjelenítése: %s"
 
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
-msgstr "Deja, toks puslapis nerastas."
+msgstr "Hoppá! A keresett oldal nem található."
