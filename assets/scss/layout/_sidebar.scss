@@ -32,6 +32,11 @@
 			width: $sidebar;
 			padding-right: 0;
 		}
+
+		.site-header {
+			// Above sidebar
+			z-index: 10;
+		}
 	}
 }
 
@@ -67,5 +72,15 @@
 	.widget a:hover { 
 		@extend %link--underline--menu;
 		box-shadow: white 0 0.8em inset;
+	}
+}
+
+
+@include query-above($lap) {
+	.has--fixed-sidebar {
+		.site-header,
+		.sidebar {
+			position: fixed;
+		}
 	}
 }

@@ -3,28 +3,24 @@ var Sidebar = (function () {
 	var $header 		= $('.site-header'),
 		$sidebar		= $('#secondary'),
 		$siteContent 	= $('.site-content'),
-		$target 		= $header,
-		$clone,
 
 	init = function() {
 
-		if (!isSingle() || windowWidth < 900) {
+		if ( !isSingle() || windowWidth < 900 ) {
 			return;
 		}
 
-		if ($sidebar.length) {
-			$sidebar.find('.site-header').remove();
-			$header.hide();
-			$clone = $header.clone(true).css('float', 'none').prependTo($sidebar).show();
-			$target = $sidebar;
-		}
+		if ( !sidebarFits() ) {
+			$body.removeClass('has--fixed-sidebar');
+			$sidebar.css('top', 0);
 
-		if (!sidebarFits()) {
-			$target.css('position', '');
 			return;
 		}
 
-		$target.css('position', 'fixed');
+		if( !$body.hasClass('has--fixed-sidebar') ) {
+			$sidebar.css('top', $header.offset().top + parseInt($header.outerHeight(), 10));
+			$body.addClass('has--fixed-sidebar');
+		}
 
 	},
 
@@ -32,8 +28,16 @@ var Sidebar = (function () {
 		return $body.hasClass('single') || $body.hasClass('page');
 	},
 
+	// If site-header + sidebar is greater than window height
 	sidebarFits = function() {
-		return windowHeight > parseInt($('.site-footer').outerHeight(), 10) + parseInt($target.outerHeight(), 10) + parseInt($siteContent.css('paddingTop'), 10) + parseInt($siteContent.css('paddingBottom'), 10) + parseInt($html.css('marginTop'), 10) + parseInt($body.css('borderTopWidth'), 10);
+		var sidebarHeight =		parseInt($header.outerHeight(), 10) +
+								parseInt($sidebar.outerHeight(), 10) +
+								parseInt($('.site-footer').outerHeight(), 10) +
+								parseInt($siteContent.css('paddingTop'), 10) +
+								parseInt($siteContent.css('paddingBottom'), 10) +
+								parseInt($html.css('marginTop'), 10) + parseInt($body.css('borderTopWidth'), 10);
+
+		return windowHeight > sidebarHeight;
 	};
 
 	return {
