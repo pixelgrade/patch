@@ -543,8 +543,10 @@ $cards-gutter: $gutter;
 
 // EVEN CASE
 .entry--even {
-	position: relative;
-	z-index: 20;
+	@include query-above($lap) {
+		position: relative;
+		z-index: 20;
+	}
 
 	// PORTRAIT
 	// TALL

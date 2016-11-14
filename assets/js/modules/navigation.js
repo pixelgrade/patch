@@ -77,7 +77,10 @@ var navigation = (function() {
 							translateZ: 0.01
 						}, {
 							easing: "easeOutCubic",
-							duration: 300
+							duration: 300,
+							begin: function() {
+								$nav.appendTo($body);
+							}
 						});
 					});
 
