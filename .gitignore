@@ -13,6 +13,7 @@ codekit-config.json
 
 node_modules
 build
+screenshots
 *-ck.js
 *.css.map
 *.js.mapbower_components/

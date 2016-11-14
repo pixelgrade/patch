@@ -51,8 +51,7 @@ gulp.task('styles', function () {
 			.pipe(mmq())
 			.pipe(csscomb())
 			// .pipe(chmod(644))
-			.pipe(gulp.dest('./'))
-			.pipe(notify({message: 'Styles task complete'}));
+			.pipe(gulp.dest('./'));
 });
 
 gulp.task('styles-watch', function () {
