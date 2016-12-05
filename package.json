@@ -15,7 +15,6 @@
         "gulp-beautify": "*",
         "gulp-csscomb": "*",
         "gulp-combine-media-queries": "*",
-        "gulp-chmod": "*",
         "del": "*"
     }
 }
