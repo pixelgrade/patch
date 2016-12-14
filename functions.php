@@ -67,6 +67,40 @@ if ( ! function_exists( 'patch_setup' ) ) :
 		) );
 
 		/*
+		 * Enable support for custom logo.
+		 *
+		 *  @since Patch 1.2.2
+		 */
+		add_theme_support( 'custom-logo', array(
+			'width'       => 1000,
+			'height'      => 500,
+			'flex-height' => true,
+			'header-text' => array(
+				'site-title',
+				'site-description-text',
+			)
+		) );
+
+		if ( ! function_exists( 'the_custom_logo' ) ) {
+			//in case we are on a WP version older than 4.5, try to use Jetpack's Site Logo feature
+			/**
+			 * Add theme support for site logo
+			 *
+			 * First, it's the image size we want to use for the logo thumbnails
+			 * Second, the 2 classes we want to use for the "Display Header Text" Customizer logic
+			 */
+			add_theme_support( 'site-logo', array(
+				'size'        => 'patch-site-logo',
+				'header-text' => array(
+					'site-title',
+					'site-description-text',
+				)
+			) );
+		}
+
+		add_image_size( 'patch-site-logo', 1000, 500, false );
+
+		/*
 		 * Enable support for Post Formats.
 		 * See http://codex.wordpress.org/Post_Formats
 		 */

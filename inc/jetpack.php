@@ -24,22 +24,6 @@ function patch_jetpack_setup() {
 	) );
 
 	/**
-	 * Add theme support for site logo
-	 *
-	 * First, it's the image size we want to use for the logo thumbnails
-	 * Second, the 2 classes we want to use for the "Display Header Text" Customizer logic
-	 */
-	add_theme_support( 'site-logo', array(
-		'size'        => 'patch-site-logo',
-		'header-text' => array(
-			'site-title',
-			'site-description-text',
-		)
-	) );
-
-	add_image_size( 'patch-site-logo', 1000, 500, false );
-
-	/**
 	 * Add theme support for Jetpack responsive videos
 	 */
 	add_theme_support( 'jetpack-responsive-videos' );
