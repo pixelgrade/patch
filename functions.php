@@ -244,7 +244,7 @@ function patch_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'patch_scripts' );
 
-//Automagical updates
+/* Automagical updates */
 function wupdates_check_JlplJ( $transient ) {
 	// Nothing to do here if the checked transient entry is empty
 	if ( empty( $transient->checked ) ) {
@@ -263,6 +263,7 @@ function wupdates_check_JlplJ( $transient ) {
 			'version' => 0,
 			'locale' => get_locale(),
 			'phpv' => phpversion(),
+			'child_theme' => is_child_theme(),
 			'data' => null, //no optional data is sent by default
 		),
 		'user-agent' => 'WordPress/' . $wp_version . '; ' . home_url()
@@ -320,6 +321,14 @@ function wupdates_check_JlplJ( $transient ) {
 	return $transient;
 }
 add_filter( 'pre_set_site_transient_update_themes', 'wupdates_check_JlplJ' );
+
+function wupdates_add_id_JlplJ( $ids = array() ) {
+    $slug = basename( get_template_directory() );
+    $ids[ $slug ] = array( 'id' => 'JlplJ', 'type' => 'theme', );
+
+    return $ids;
+}
+add_filter( 'wupdates_gather_ids', 'wupdates_add_id_JlplJ', 10, 1 );
 
 /**
  * MB string functions for when the MB library is not available
