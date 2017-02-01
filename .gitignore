@@ -14,7 +14,6 @@ codekit-config.json
 node_modules
 build
 *-ck.js
-*.css.map
 *.js.mapbower_components/
 node_modules/
 .idea

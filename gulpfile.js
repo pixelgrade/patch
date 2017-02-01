@@ -34,19 +34,6 @@ var theme_name = 'patch',
 	continueOnError: true // default: false
 };
 
-// styles related
-gulp.task('styles-dev', function () {
-	return gulp.src('assets/scss/**/*.scss')
-			.pipe(sass({'sourcemap=auto': true, style: 'compact'}))
-			.on('error', function (e) {
-				console.log(e.message);
-			})
-			// .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
-			.pipe(gulp.dest('./', {"mode": "0644"}))
-			.pipe(livereload())
-			.pipe(notify({message: 'Styles task complete'}));
-});
-
 gulp.task('styles', function () {
 	return gulp.src('assets/scss/**/*.scss')
 			.pipe(sass({'sourcemap=auto': true, style: 'expanded'}))
@@ -76,7 +63,7 @@ gulp.task('scripts-watch', function () {
 });
 
 gulp.task('watch', function () {
-	gulp.watch('assets/scss/**/*.scss', ['styles-dev']);
+	gulp.watch('assets/scss/**/*.scss', ['styles']);
 	gulp.watch('assets/js/**/*.js', ['scripts']);
 });
 
@@ -93,7 +80,7 @@ gulp.task('server', ['styles', 'scripts'], function () {
 /**
  * Copy theme folder outside in a build folder, recreate styles before that
  */
-gulp.task('copy-folder', ['styles', 'scripts'], function () {
+gulp.task('copy-folder', function () {
 
 	return gulp.src('./')
 		.pipe(exec('rm -Rf ./../build; mkdir -p ./../build/' + theme + '; rsync -av --exclude="node_modules" ./* ./../build/' + theme + '/', options));
@@ -229,10 +216,8 @@ gulp.task('help', function () {
 		'help               Print all commands \n' +
 		'=== Style === \n' +
 		'styles             Compiles styles in production mode\n' +
-		'styles-dev         Compiles styles in development mode \n' +
 		'=== Scripts === \n' +
 		'scripts            Concatenate all js scripts \n' +
-		'scripts-dev        Concatenate all js scripts and live-reload \n' +
 		'=== Watchers === \n' +
 		'watch              Watches all js and scss files \n' +
 		'styles-watch       Watch only styles\n' +
