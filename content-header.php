@@ -14,6 +14,8 @@
 
 		<?php if ( function_exists( 'jetpack_the_site_logo' ) ) { // display the Site Logo if present
 			jetpack_the_site_logo();
+		} else {
+			the_custom_logo();
 		} ?>
 
 		<?php
