@@ -5,7 +5,7 @@
 E_XCD=86       # Can't change directory?
 THEME_NAME=patch
 THEME_STAGGING_BRANCH=master
-DEMO_REPO=demo_tester
+DEMO_REPO=demos
 DEMO_BRANCH=master
 
 #=== Stop your keyboard here ===
