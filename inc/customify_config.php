@@ -141,6 +141,104 @@ function patch_add_customify_options( $options ) {
 				),
 			)
 		),
+		'header_section' => array(
+			'title'    => __( 'Header', 'patch' ),
+			'options' => array()
+		),
+		'footer_section' => array(
+			'title'    => __( 'Footer', 'patch' ),
+			'options' => array(
+				'top_spacing' => array(
+					'type'        => 'range',
+					'label'       => esc_html__( 'Top Spacing', 'patch' ),
+					'live'        => true,
+					'default'     => 12,
+					'input_attrs' => array(
+						'min'          => 0,
+						'max'          => 120,
+						'step'         => 12,
+						'data-preview' => true,
+					),
+					'css'         => array(
+						array(
+							'property' => 'padding-top',
+							'selector' => '.site-footer',
+							'unit'     => 'px',
+						),
+					),
+				),
+				'bottom_spacing' => array(
+					'type'        => 'range',
+					'label'       => esc_html__( 'Bottom Spacing', 'patch' ),
+					'live'        => true,
+					'default'     => 12,
+					'input_attrs' => array(
+						'min'          => 0,
+						'max'          => 120,
+						'step'         => 12,
+						'data-preview' => true,
+					),
+					'css'         => array(
+						array(
+							'property' => 'padding-bottom',
+							'selector' => '.site-footer',
+							'unit'     => 'px',
+						),
+					),
+				),
+				'hide_back_to_top' => array(
+					'type'	=> 'checkbox',
+					'default' => false,
+					'label' => __( 'Hide Back To Top Link', 'patch' ),
+					'css' => array(
+						array(
+							'property' => 'display',
+							'selector' => '.back-to-top-button',
+							'callback_filter' => 'patch_hide_back_to_top'
+						)
+					)
+				),
+			)
+		),
+		'main_content_section' => array(
+			'title'    => __( 'Main Content', 'patch' ),
+			'options' => array()
+		),
+		'blog_grid_section' => array(
+			'title'    => __( 'Blog Grid Items', 'patch' ),
+			'options' => array()
+		),
+		'demo_content_section' => array(
+			'title'    => __( 'Demo Content', 'patch' ),
+			'description' => esc_html__( 'If you would like to have a "ready to go" website as the Gema\'s demo page here is the button', 'patch' ),
+			'priority' => 999999,
+			'options' => array(
+				'import_demodata_button' => array(
+					'title' => 'Import',
+					'type'  => 'html',
+					'html' => '<input type="hidden" name="wpGrade-nonce-import-posts-pages" value="' . wp_create_nonce( 'wpGrade_nonce_import_demo_posts_pages' ) . '" />
+									<input type="hidden" name="wpGrade-nonce-import-theme-options" value="' . wp_create_nonce( 'wpGrade_nonce_import_demo_theme_options' ) . '" />
+									<input type="hidden" name="wpGrade-nonce-import-widgets" value="' . wp_create_nonce( 'wpGrade_nonce_import_demo_widgets' ) . '" />
+									<input type="hidden" name="wpGrade_import_ajax_url" value="' . admin_url( "admin-ajax.php" ) . '" />' .
+					          '<span class="description customize-control-description">' . esc_html__( '(Note: We cannot serve you the original images due the ', 'patch' ) . '<strong>&copy;</strong>)</span></br>' .
+					          '<a href="#" class="button button-primary" id="wpGrade_import_demodata_button" style="width: 70%; text-align: center; padding: 10px; display: inline-block; height: auto;  margin: 0 15% 10% 15%;">
+										' . __( 'Import demo data', 'patch' ) . '
+									</a>
+
+									<div class="wpGrade-loading-wrap hidden">
+										<span class="wpGrade-loading wpGrade-import-loading"></span>
+										<div class="wpGrade-import-wait">' .
+					          esc_html__( 'Please wait a few minutes (between 1 and 3 minutes usually, but depending on your hosting it can take longer) and ', 'patch' ) .
+					          '<strong>' . esc_html__( 'don\'t reload the page', 'patch' ) . '</strong>.' .
+					          esc_html__( 'You will be notified as soon as the import has finished!', 'patch' ) . '
+										</div>
+									</div>
+
+									<div class="wpGrade-import-results hidden"></div>
+									<div class="hr"><div class="inner"><span>&nbsp;</span></div></div>'
+				)
+			)
+		),
 		'colors_section' => array(
 			'title'    => __( 'Colors', 'patch' ),
 			'options' => array(
@@ -353,6 +451,17 @@ function patch_capitalize_headings( $value, $selector, $property, $unit ) {
 	$output = $selector .'{
 		text-transform: ' . $result . ";\n" .
 	"}\n";
+
+	return $output;
+}
+
+function patch_hide_back_to_top( $value, $selector, $property, $unit ) {
+
+	$output = '';
+
+	if ( $value ) {
+		$output = $selector . '{ display: none }';
+	}
 
 	return $output;
 }

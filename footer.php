@@ -18,7 +18,7 @@
 			if ( get_theme_mod( 'patch_footer_copyright', false ) ) {
 				echo get_theme_mod( 'patch_footer_copyright', '' );
 			} else {
-				echo '© '.get_bloginfo('name').' –';
+				echo '&copy; '.get_bloginfo('name').' –';
 			}
 
 			printf( ' %1$s <span>'. __('by', 'patch') .'</span> %2$s', 
