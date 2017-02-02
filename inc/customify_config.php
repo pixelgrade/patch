@@ -297,7 +297,60 @@ function patch_add_customify_options( $options ) {
 		),
 		'blog_grid_section' => array(
 			'title'    => __( 'Blog Grid Items', 'patch' ),
-			'options' => array()
+			'options' => array(
+				'blog_container_max_width' => array(
+					'type' => 'range',
+					'label' => esc_html__( 'Container Max Width', 'patch' ),
+					'live' => true,
+					'default' => 1350,
+					'input_attrs' => array(
+						'min' => 1000,
+						'max' => 2000,
+						'step' => 10,
+						'data-preview' => true
+					),
+					'css' => array(
+						array(
+							'media' => 'only screen and (min-width: 1260px)',
+							'property' => 'max-width',
+							'selector' => '.grid, .pagination',
+							'unit' => 'px'
+						),
+					)
+				),
+				'blog_container_sides_spacing' => array(
+					'type' => 'range',
+					'label' => esc_html__( 'Container Sides Spacing', 'patch' ),
+					'live' => true,
+					'default' => 60,
+					'input_attrs' => array(
+						'min' => 20,
+						'max' => 200,
+						'step' => 10,
+						'data-preview' => true
+					),
+					'css' => array(
+						array(
+							'media' => 'only screen and (min-width: 1260px)',
+							'property' => 'padding-left',
+							'selector' => '.layout-grid .site-content',
+							'unit' => 'px'
+						),
+						array(
+							'media' => 'only screen and (min-width: 1260px)',
+							'property' => 'padding-right',
+							'selector' => '.layout-grid .site-content',
+							'unit' => 'px'
+						),
+						array(
+							'media' => 'only screen and (min-width: 1260px)',
+							'property' => 'padding-right',
+							'selector' => '.layout-grid .site-content',
+							'unit' => 'px'
+						),
+					)
+				),
+			)
 		),
 		'demo_content_section' => array(
 			'title'    => __( 'Demo Content', 'patch' ),
