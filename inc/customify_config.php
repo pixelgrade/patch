@@ -143,12 +143,32 @@ function patch_add_customify_options( $options ) {
 		),
 		'header_section' => array(
 			'title'    => __( 'Header', 'patch' ),
-			'options' => array()
+			'options' => array(
+				'patch_navigation_items_spacing' => array(
+					'type'        => 'range',
+					'label'       => esc_html__( 'Navigation Items Spacing', 'patch' ),
+					'live'        => true,
+					'default'     => 10,
+					'input_attrs' => array(
+						'min'          => 0,
+						'max'          => 40,
+						'step'         => 1
+					),
+					'css'         => array(
+						array(
+							'property' => 'margin-bottom',
+							'selector' => '.no-valid-selector-here',
+							'unit'     => 'px',
+							'callback_filter' => 'patch_navigation_items_spacing_cb'
+						),
+					),
+				),
+			)
 		),
 		'footer_section' => array(
 			'title'    => __( 'Footer', 'patch' ),
 			'options' => array(
-				'top_spacing' => array(
+				'patch_footer_top_spacing' => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Top Spacing', 'patch' ),
 					'live'        => true,
@@ -167,7 +187,7 @@ function patch_add_customify_options( $options ) {
 						),
 					),
 				),
-				'bottom_spacing' => array(
+				'patch_footer_bottom_spacing' => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Bottom Spacing', 'patch' ),
 					'live'        => true,
@@ -186,7 +206,7 @@ function patch_add_customify_options( $options ) {
 						),
 					),
 				),
-				'hide_back_to_top' => array(
+				'patch_hide_back_to_top' => array(
 					'type'	=> 'checkbox',
 					'default' => false,
 					'label' => __( 'Hide Back To Top Link', 'patch' ),
@@ -503,6 +523,61 @@ function patch_capitalize_headings( $value, $selector, $property, $unit ) {
 
 	return $output;
 }
+
+function patch_navigation_items_spacing_cb( $value, $selector, $property, $unit ) {
+
+	$output = '';
+
+	$output .= '.nav--main li' . '{ ' . $property . ': ' . $value . $unit . '; }';
+
+	$output .= '@media only screen and (min-width: 900px) { ';
+	$output .= '.single .nav--main > li,
+				.page .nav--main > li,
+				.no-posts .nav--main > li' . '{ ' . $property . ': ' . 2 * $value . $unit . '; }';
+	$output .= '}';
+
+	return $output;
+}
+
+function patch_navigation_items_spacing_cb_customizer_preview() { ?>
+	<script type="text/javascript">
+		function patch_navigation_items_spacing_cb( value, selector, property, unit ) {
+
+			var css = '',
+				style = document.getElementById('patch_navigation_items_spacing_cb_style_tag'),
+				head = document.head || document.getElementsByTagName('head')[0];
+
+			css += '.nav--main li { margin-bottom: ' + value + unit + '; }';
+
+			css += '@media not screen and (min-width: 900px) {';
+			css += '.nav--main ul { margin-top: ' + value + unit + '; }';
+			css += '}';
+
+			css += '@media only screen and (min-width: 900px) { ';
+			css += '.single .nav--main > li, .page .nav--main > li, .no-posts .nav--main > li' + '{ margin-bottom: ' + 2 * value + unit + '; }';
+			css += '}';
+
+			console.log(css);
+
+			if ( style !== null ) {
+				style.innerHTML = css;
+			} else {
+				style = document.createElement('style');
+				style.setAttribute('id', 'patch_navigation_items_spacing_cb_style_tag');
+
+				style.type = 'text/css';
+				if ( style.styleSheet ) {
+					style.styleSheet.cssText = css;
+				} else {
+					style.appendChild(document.createTextNode(css));
+				}
+
+				head.appendChild(style);
+			}
+		}
+	</script>
+<?php }
+add_action( 'customize_preview_init', 'patch_navigation_items_spacing_cb_customizer_preview' );
 
 function patch_hide_back_to_top( $value, $selector, $property, $unit ) {
 
