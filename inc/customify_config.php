@@ -202,7 +202,56 @@ function patch_add_customify_options( $options ) {
 		),
 		'main_content_section' => array(
 			'title'    => __( 'Main Content', 'patch' ),
-			'options' => array()
+			'options' => array(
+				'container_max_width' => array(
+					'type' => 'range',
+					'label' => esc_html__( 'Content Width', 'patch' ),
+					'live' => true,
+					'default' => 620,
+					'input_attrs' => array(
+						'min' => 480,
+						'max' => 1240,
+						'step' => 10,
+						'data-preview' => true
+					),
+					'css' => array(
+						array(
+							'property' => 'max-width',
+							'selector' =>
+								'.single .hentry,
+								.single .comments-area,
+								.single .nocomments, 
+								.single #respond.comment-respond, 
+								.page:not(.entry-card) .hentry, 
+								.page:not(.entry-card) .comments-area, 
+								.page:not(.entry-card) .nocomments, 
+								.page:not(.entry-card) #respond.comment-respond, 
+								.attachment-navigation, .nav-links',
+							'unit' => 'px'
+						)
+					)
+				),
+				'container_sides_spacing' => array(
+					'type' => 'range',
+					'label' => esc_html__( 'Container Sides Spacing', 'patch' ),
+					'live' => true,
+					'default' => 180,
+					'input_attrs' => array(
+						'min' => 0,
+						'max' => 400,
+						'step' => 10,
+						'data-preview' => true
+					),
+					'css' => array(
+						array(
+							'property' => 'no-valid-property-here',
+							'selector' => '.no-valid-selector-here',
+							'unit' => 'px',
+							'callback_filter' => 'patch_content_sides_spacing'
+						),
+					)
+				)
+			)
 		),
 		'blog_grid_section' => array(
 			'title'    => __( 'Blog Grid Items', 'patch' ),
@@ -465,6 +514,82 @@ function patch_hide_back_to_top( $value, $selector, $property, $unit ) {
 
 	return $output;
 }
+
+function patch_content_sides_spacing( $value, $selector, $property, $unit ) {
+
+	$output = '';
+
+	$output .= '@media only screen and (min-width: 1260px) {';
+
+	$output .= '.single .site-main, 
+				.page:not(.entry-card) .site-main, 
+				.no-posts .site-main { ' .
+		           'padding-left: ' . $value . $unit . ';' .
+		           'padding-right: ' . $value . $unit . ';' .
+	           '}';
+
+	$output .= '.single .entry-image--landscape .entry-featured,
+				.single .entry-image--wide .entry-featured,
+				.page:not(.entry-card) .entry-image--landscape .entry-featured,
+				.page:not(.entry-card) .entry-image--wide .entry-featured { ' .
+		           'margin-left: ' . (-1 * $value) . $unit . ';' .
+		           'margin-right: ' . (-1 * $value) . $unit . ';' .
+           ' }';
+
+	$output .= '}';
+
+	return $output;
+}
+
+/**
+ * Outputs the inline JS code used in the Customizer for the aspect ratio live preview.
+ */
+function patch_content_sides_spacing_customizer_preview() { ?>
+	<script type="text/javascript">
+		function patch_content_sides_spacing( value, selector, property, unit ) {
+
+			var css = '',
+				style = document.getElementById('patch_content_sides_spacing_style_tag'),
+				head = document.head || document.getElementsByTagName('head')[0];
+
+			css += '@media only screen and (min-width: 1260px) {';
+
+			css += '.single .site-main,' +
+			       '.page:not(.entry-card) .site-main,' +
+			       '.no-posts .site-main { ' +
+			            'padding-left: ' + value + unit + ';' +
+						'padding-right: ' + value + unit + ';' +
+			       '}';
+
+			css += '.single .entry-image--landscape .entry-featured,' +
+		           '.single .entry-image--wide .entry-featured,' +
+			       '.page:not(.entry-card) .entry-image--landscape .entry-featured,' +
+			       '.page:not(.entry-card) .entry-image--wide .entry-featured { ' +
+						'margin-left: ' + (-1 * value) + unit + ';' +
+						'margin-right: ' + (-1 * value) + unit + ';' +
+					' }';
+
+			css += '}';
+
+			if ( style !== null ) {
+				style.innerHTML = css;
+			} else {
+				style = document.createElement('style');
+				style.setAttribute('id', 'patch_content_sides_spacing_style_tag');
+
+				style.type = 'text/css';
+				if ( style.styleSheet ) {
+					style.styleSheet.cssText = css;
+				} else {
+					style.appendChild(document.createTextNode(css));
+				}
+
+				head.appendChild(style);
+			}
+		}
+	</script>
+<?php }
+add_action( 'customize_preview_init', 'patch_content_sides_spacing_customizer_preview' );
 
 
 if ( !function_exists('patch_dropcap_text_shadow') ) {
