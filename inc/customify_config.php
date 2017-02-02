@@ -251,7 +251,7 @@ function patch_add_customify_options( $options ) {
 						)
 					)
 				),
-				'container_sides_spacing' => array(
+				'content_sides_spacing' => array(
 					'type' => 'range',
 					'label' => esc_html__( 'Container Sides Spacing', 'patch' ),
 					'live' => true,
@@ -268,6 +268,28 @@ function patch_add_customify_options( $options ) {
 							'selector' => '.no-valid-selector-here',
 							'unit' => 'px',
 							'callback_filter' => 'patch_content_sides_spacing'
+						),
+					)
+				),
+				'container_sides_spacing' => array(
+					'type' => 'range',
+					'label' => esc_html__( 'Container Sides Spacing', 'patch' ),
+					'live' => true,
+					'default' => 60,
+					'input_attrs' => array(
+						'min' => 20,
+						'max' => 200,
+						'step' => 10,
+						'data-preview' => true
+					),
+					'css' => array(
+						array(
+							'property' => 'padding',
+							'selector' =>
+								'.single .site-content, 
+								.page:not(.entry-card) .site-content, 
+								.no-posts .site-content',
+							'unit' => 'px'
 						),
 					)
 				)
@@ -596,12 +618,21 @@ function patch_content_sides_spacing( $value, $selector, $property, $unit ) {
 
 	$output .= '@media only screen and (min-width: 1260px) {';
 
-	$output .= '.single .site-main, 
-				.page:not(.entry-card) .site-main, 
-				.no-posts .site-main { ' .
-		           'padding-left: ' . $value . $unit . ';' .
-		           'padding-right: ' . $value . $unit . ';' .
-	           '}';
+	$output .=
+		'.single .site-main, 
+		.page:not(.entry-card) .site-main,
+		.no-posts .site-main { ' .
+			'padding-left: ' . $value . $unit . ';' .
+			'padding-right: ' . $value . $unit . ';' .
+		'}';
+
+	$output .=
+		'.single .entry-image--portrait .entry-featured,
+		.single .entry-image--tall .entry-featured, 
+		.page:not(.entry-card) .entry-image--portrait .entry-featured, 
+		.page:not(.entry-card) .entry-image--tall .entry-featured { ' .
+			'margin-left: ' . $value . $unit . ';' .
+        '}';
 
 	$output .= '.single .entry-image--landscape .entry-featured,
 				.single .entry-image--wide .entry-featured,
@@ -635,6 +666,13 @@ function patch_content_sides_spacing_customizer_preview() { ?>
 			            'padding-left: ' + value + unit + ';' +
 						'padding-right: ' + value + unit + ';' +
 			       '}';
+
+			css += '.single .entry-image--portrait .entry-featured,' +
+			       '.single .entry-image--tall .entry-featured,' +
+			       '.page:not(.entry-card) .entry-image--portrait .entry-featured,' +
+			       '.page:not(.entry-card) .entry-image--tall .entry-featured { ' +
+			            'margin-left: ' + (-1 * value) + unit + ';' +
+			       ' }';
 
 			css += '.single .entry-image--landscape .entry-featured,' +
 		           '.single .entry-image--wide .entry-featured,' +
