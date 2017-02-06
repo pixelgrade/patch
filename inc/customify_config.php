@@ -168,6 +168,26 @@ function patch_add_customify_options( $options ) {
 		'footer_section' => array(
 			'title'    => __( 'Footer', 'patch' ),
 			'options' => array(
+				'patch_footer_options_customizer_tabs'    => array(
+					'type' => 'html',
+					'html' => '<nav class="section-navigation  js-section-navigation">
+							<a href="#section-title-footer-layout">' . esc_html__( 'Layout', 'components' ) . '</a>
+							<a href="#section-title-footer-colors">' . esc_html__( 'Colors', 'components' ) . '</a>
+							</nav>',
+				),
+				// [Section] Layout
+				'patch_footer_title_layout_section'    => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-footer-layout" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Layout', 'components' ) . '</span>',
+				),
+				'patch_footer_copyright_text'               => array(
+					'type'              => 'textarea',
+					'label'             => esc_html__( 'Copyright Text', 'components' ),
+					'desc'              => esc_html__( 'Set the text that will appear in the footer area. Use %year% to display the current year.', 'components' ),
+					'default'           => __( '%year% &copy; Handcrafted with love by <a href="#">Pixelgrade</a> Team', 'components' ),
+					'sanitize_callback' => 'wp_kses_post',
+					'live'              => array( '.copyright-text' ),
+				),
 				'patch_footer_top_spacing' => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Top Spacing', 'patch' ),
@@ -217,6 +237,35 @@ function patch_add_customify_options( $options ) {
 							'callback_filter' => 'patch_hide_back_to_top'
 						)
 					)
+				),
+				// [Section] COLORS
+				'patch_footer_title_colors_section'    => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-footer-colors" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', 'components' ) . '</span>',
+				),
+				'patch_footer_body_text_color'       => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Text Color', 'patch' ),
+					'live'    => true,
+					'default' => '#b5b5b5',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.site-footer',
+						),
+					),
+				),
+				'patch_footer_links_color'           => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Links Color', 'patch' ),
+					'live'    => true,
+					'default' => '#b5b5b5',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.site-footer a',
+						),
+					),
 				),
 			)
 		),

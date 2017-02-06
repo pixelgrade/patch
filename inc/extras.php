@@ -603,4 +603,52 @@ function patch_add_classes_to_linked_images( $content ) {
 }
 
 add_filter('the_content', 'patch_add_classes_to_linked_images', 99, 1);
+
+// This function should come from Customify, but we need to do our best to make things happen
+if ( ! function_exists( 'pixelgrade_option') ) {
+	/**
+	 * Get option from the database
+	 *
+	 * @since Osteria 1.0
+	 *
+	 * @param string $option The option name.
+	 * @param mixed $default Optional. The default value to return when the option was not found or saved.
+	 * @param bool $force_default Optional. When true, we will use the $default value provided for when the option was not saved at least once.
+	 *                          When false, we will let the option's default set value (in the Customify settings) kick in first, than our $default.
+	 *                          It basically, reverses the order of fallback, first the option's default, then our own.
+	 *                          This is ignored when $default is null.
+	 *
+	 * @return mixed
+	 */
+	function pixelgrade_option( $option, $default = null, $force_default = true ) {
+		/** @var PixCustomifyPlugin $pixcustomify_plugin */
+		global $pixcustomify_plugin;
+
+		// if there is set an key in url force that value
+		if ( isset( $_GET[ $option ] ) && ! empty( $option ) ) {
+
+			return wp_unslash( sanitize_text_field( $_GET[ $option ] ) );
+
+		} elseif ( $pixcustomify_plugin !== null ) {
+			// if there is a customify value get it here
+
+			// First we see if we are not supposed to force over the option's default value
+			if ( $default !== null && $force_default == false ) {
+				// We will not pass the default here so Customify will fallback on the option's default value, if set
+				$customify_value = $pixcustomify_plugin->get_option( $option );
+
+				// We only fallback on the $default if none was given from Customify
+				if ( $customify_value == null ) {
+					return $default;
+				}
+			} else {
+				$customify_value = $pixcustomify_plugin->get_option( $option, $default );
+			}
+
+			return $customify_value;
+		}
+
+		return $default;
+	}
+}
 ?>
