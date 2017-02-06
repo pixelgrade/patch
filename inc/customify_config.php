@@ -567,9 +567,24 @@ function patch_add_customify_options( $options ) {
 							'property'        => 'dummy',
 							'selector'        => '.dummy',
 							'unit'            => 'px',
-//							'callback_filter' => 'osteria_blog_grid_packed_cb'
 						),
 					),
+				),
+				// [Sub Section] Items Excerpt
+				'blog_grid_title_items_excerpt_section' => array(
+					'type' => 'html',
+					'html' => '<span class="separator sub-section label">' . esc_html__( 'Items Excerpt', 'patch' ) . '</span>',
+				),
+				// Excerpt Visiblity
+				// Title + Checkbox
+				'blog_items_excerpt_visibility_title' => array(
+					'type' => 'html',
+					'html' => '<span class="customize-control-title">' . esc_html__( 'Excerpt Visibility', 'patch' ) . '</span><span class="description customize-control-description">' . esc_html__( 'Select whether to show or hide the summary.', 'patch' ) . '</span>',
+				),
+				'blog_items_excerpt_visibility'       => array(
+					'type'    => 'checkbox',
+					'label'   => esc_html__( 'Show Excerpt Text', 'patch' ),
+					'default' => 1,
 				),
 				// [Section] COLORS
 				'blog_grid_title_colors_section'        => array(

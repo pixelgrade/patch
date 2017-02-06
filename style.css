@@ -1827,145 +1827,91 @@ button.mfp-arrow-right {
 
 @media only screen and (min-width: 900px) {
 	.grid--1col-\@lap > * {
-		width: 100%; 
-
-		flex: 0 0 100%;
+		width: 100%;
 	}
 	.grid--2col-\@lap > * {
-		width: 50%; 
-
-		flex: 0 0 50%;
+		width: 50%;
 	}
 	.grid--3col-\@lap > * {
-		width: 33.33333%; 
-
-		flex: 0 0 33.33333%;
+		width: 33.33333%;
 	}
 	.grid--4col-\@lap > * {
-		width: 25%; 
-
-		flex: 0 0 25%;
+		width: 25%;
 	}
 	.grid--5col-\@lap > * {
-		width: 20%; 
-
-		flex: 0 0 20%;
+		width: 20%;
 	}
 	.grid--6col-\@lap > * {
-		width: 16.66667%; 
-
-		flex: 0 0 16.66667%;
+		width: 16.66667%;
 	}
 	.grid--7col-\@lap > * {
-		width: 14.28571%; 
-
-		flex: 0 0 14.28571%;
+		width: 14.28571%;
 	}
 	.grid--8col-\@lap > * {
-		width: 12.5%; 
-
-		flex: 0 0 12.5%;
+		width: 12.5%;
 	}
 	.grid--9col-\@lap > * {
-		width: 11.11111%; 
-
-		flex: 0 0 11.11111%;
+		width: 11.11111%;
 	}
 }
 
 @media only screen and (min-width: 1260px) {
 	.grid--1col-\@desk > * {
-		width: 100%; 
-
-		flex: 0 0 100%;
+		width: 100%;
 	}
 	.grid--2col-\@desk > * {
-		width: 50%; 
-
-		flex: 0 0 50%;
+		width: 50%;
 	}
 	.grid--3col-\@desk > * {
-		width: 33.33333%; 
-
-		flex: 0 0 33.33333%;
+		width: 33.33333%;
 	}
 	.grid--4col-\@desk > * {
-		width: 25%; 
-
-		flex: 0 0 25%;
+		width: 25%;
 	}
 	.grid--5col-\@desk > * {
-		width: 20%; 
-
-		flex: 0 0 20%;
+		width: 20%;
 	}
 	.grid--6col-\@desk > * {
-		width: 16.66667%; 
-
-		flex: 0 0 16.66667%;
+		width: 16.66667%;
 	}
 	.grid--7col-\@desk > * {
-		width: 14.28571%; 
-
-		flex: 0 0 14.28571%;
+		width: 14.28571%;
 	}
 	.grid--8col-\@desk > * {
-		width: 12.5%; 
-
-		flex: 0 0 12.5%;
+		width: 12.5%;
 	}
 	.grid--9col-\@desk > * {
-		width: 11.11111%; 
-
-		flex: 0 0 11.11111%;
+		width: 11.11111%;
 	}
 }
 
 @media only screen and (min-width: 1700px) {
 	.grid--1col-\@huge > * {
-		width: 100%; 
-
-		flex: 0 0 100%;
+		width: 100%;
 	}
 	.grid--2col-\@huge > * {
-		width: 50%; 
-
-		flex: 0 0 50%;
+		width: 50%;
 	}
 	.grid--3col-\@huge > * {
-		width: 33.33333%; 
-
-		flex: 0 0 33.33333%;
+		width: 33.33333%;
 	}
 	.grid--4col-\@huge > * {
-		width: 25%; 
-
-		flex: 0 0 25%;
+		width: 25%;
 	}
 	.grid--5col-\@huge > * {
-		width: 20%; 
-
-		flex: 0 0 20%;
+		width: 20%;
 	}
 	.grid--6col-\@huge > * {
-		width: 16.66667%; 
-
-		flex: 0 0 16.66667%;
+		width: 16.66667%;
 	}
 	.grid--7col-\@huge > * {
-		width: 14.28571%; 
-
-		flex: 0 0 14.28571%;
+		width: 14.28571%;
 	}
 	.grid--8col-\@huge > * {
-		width: 12.5%; 
-
-		flex: 0 0 12.5%;
+		width: 12.5%;
 	}
 	.grid--9col-\@huge > * {
-		width: 11.11111%; 
-
-		flex: 0 0 11.11111%;
+		width: 11.11111%;
 	}
 }
 
@@ -4697,10 +4643,11 @@ div#respond p.comment-subscription-form label {
 
 #infinite-handle,
 .infinite-loader {
-	display: inline-block; 
+	display: inline-block;
 	left: 50%;
 	position: relative;
 	transform: translateX(-50%);
+	width: auto;
 }
 @media only screen and (min-width: 900px) {
 	#infinite-handle,

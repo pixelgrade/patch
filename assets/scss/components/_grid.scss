@@ -112,7 +112,6 @@ $grid-breakpoints: (
     @media only screen and (min-width: $value) {
         @for $i from 1 through 9 {
             .grid--#{$i}col-\@#{$breakpoint} > * {
-                flex: 0 0 percentage(1/$i);
                 width: percentage(1/$i);
             }
         }

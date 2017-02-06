@@ -91,7 +91,7 @@ $cards-gutter: $gutter;
 
 			.rtl & {
 				@include _("col-right-1");
-				@include _("col-left-3");				
+				@include _("col-left-3");
 			}
 		}
 

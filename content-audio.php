@@ -40,9 +40,10 @@ $media = apply_filters('embed_oembed_html', $media ); ?>
 
 		<div <?php patch_post_excerpt_class(); ?>>
 
-			<?php the_excerpt(); ?>
+			<?php if ( true === pixelgrade_option( 'blog_items_excerpt_visibility' ) ) {
+				the_excerpt();
+			}
 
-			<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links"><span class="pagination-title">' . __( 'Pages:', 'patch' ),
 				'after'  => '</span></div>',

@@ -55,9 +55,10 @@
 
 		<div <?php patch_post_excerpt_class(); ?>>
 
-			<?php patch_post_excerpt(); ?>
+			<?php if ( true === pixelgrade_option( 'blog_items_excerpt_visibility' ) ) {
+				patch_post_excerpt();
+			}
 
-			<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links"><span class="pagination-title">' . __( 'Pages:', 'patch' ),
 				'after'  => '</span></div>',
