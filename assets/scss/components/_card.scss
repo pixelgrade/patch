@@ -769,11 +769,6 @@ $cards-gutter: $gutter;
 
 // TEXT
 .entry-card--text {
-
-	.entry-header .entry-title {
-
-	}
-
 	.entry-header--short .entry-title {
 		@extend %fs-42;
 	}

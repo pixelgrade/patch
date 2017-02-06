@@ -591,10 +591,60 @@ function patch_add_customify_options( $options ) {
 					'type' => 'html',
 					'html' => '<span id="section-title-blog-colors" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', 'patch' ) . '</span>',
 				),
+				'blog_item_title_color'             => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Item Title Color', 'patch' ),
+					'live'    => true,
+					'default' => '#000000',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.entry-card:not(.entry-card--text) .entry-title',
+						),
+						array(
+							'property' => 'background-color',
+							'selector' => '.entry-card--text .entry-header',
+						),
+					),
+				),
 				// [Section] FONTS
 				'blog_grid_title_fonts_section'          => array(
 					'type' => 'html',
 					'html' => '<span id="section-title-blog-fonts" class="separator section label large">&#x1f4dd;  ' . esc_html__( 'Fonts', 'patch' ) . '</span>',
+				),
+				'blog_item_title_font' => array(
+					'type'     => 'font',
+					'label'    => esc_html__( 'Item Title Font', 'patch' ),
+					'desc'     => esc_html__( '', 'patch' ),
+					'selector' => '/*.entry-card .entry-title*/',
+
+					// Set the defaults
+					'default'  => array(
+						'font-family'    => 'Oswald',
+						'font-weight'    => '400',
+						'font-size'      => 42,
+						'line-height'    => 1.15,
+						'letter-spacing' => 0,
+						'text-transform' => 'uppercase'
+					),
+
+					// List of recommended fonts defined by theme
+					'recommended' => $recommended_fonts,
+
+					// Sub Fields Configuration (optional)
+					'fields'   => array(
+						'font-size'       => array(                           // Set custom values for a range slider
+							'min'  => 8,
+							'max'  => 90,
+							'step' => 1,
+							'unit' => 'px',
+						),
+						'line-height'     => array( 0, 2, 0.1, '' ),           // Short-hand version
+						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
+						'text-align'      => false,                           // Disable sub-field (False by default)
+						'text-transform'  => true,
+						'text-decoration' => false
+					)
 				),
 			)
 		),
