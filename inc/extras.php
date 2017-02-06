@@ -424,7 +424,7 @@ class PatchWrapImagesInFigureCallback {
  * @return string
  */
 function patch_add_search_to_nav( $items, $args ) {
-	if( $args->theme_location == 'social' && ( ! get_theme_mod( 'patch_disable_search_in_social_menu', false ) ) ) {
+	if( $args->theme_location == 'social' && ( ! pixelgrade_option( 'patch_disable_search_in_social_menu', false ) ) ) {
 		$items .= '<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#search">' . __( 'Search', 'patch' ) . '</a></li>';
 	}
 	return $items;

@@ -9,6 +9,31 @@ function patch_add_customify_options( $options ) {
 
 	$options['opt-name'] = 'patch_options';
 
+	// Recommended Fonts List - Headings
+	$recommended_fonts = apply_filters( 'pixelgrade_header_customify_recommended_headings_fonts',
+		array(
+			'Oswald',
+			'Roboto',
+			'Playfair Display',
+			'Lato',
+			'Open Sans',
+			'Exo',
+			'PT Sans',
+			'Ubuntu',
+			'Vollkorn',
+			'Lora',
+			'Arvo',
+			'Josefin Slab',
+			'Crete Round',
+			'Kreon',
+			'Bubblegum Sans',
+			'The Girl Next Door',
+			'Pacifico',
+			'Handlee',
+			'Satify',
+			'Pompiere'
+		)
+	);
 
 	/**
 	 * COLORS - This section will handle different elements colors (eg. links, headings)
@@ -144,6 +169,44 @@ function patch_add_customify_options( $options ) {
 		'header_section' => array(
 			'title'    => __( 'Header', 'patch' ),
 			'options' => array(
+				'patch_header_options_customizer_tabs'        => array(
+					'type' => 'html',
+					'html' => '<nav class="section-navigation  js-section-navigation">
+							<a href="#section-title-header-layout">' . esc_html__( 'Layout', 'patch' ) . '</a>
+							<a href="#section-title-header-colors">' . esc_html__( 'Colors', 'patch' ) . '</a>
+							<a href="#section-title-header-fonts">' . esc_html__( 'Fonts', 'patch' ) . '</a>
+							</nav>',
+				),
+				// [Section] Layout
+				'patch_header_title_layout_section'    => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-header-layout" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Layout', 'patch' ) . '</span>',
+				),
+				'patch_header_logo_height'              => array(
+					'type'        => 'range',
+					'label'       => esc_html__( 'Logo Height', 'patch' ),
+					'desc'        => esc_html__( 'Adjust the max height of your logo container.', 'patch' ),
+					'live'        => true,
+					'default'     => 36,
+					'input_attrs' => array(
+						'min'          => 20,
+						'max'          => 200,
+						'step'         => 1,
+						'data-preview' => true,
+					),
+					'css'         => array(
+						array(
+							'property' => 'max-height',
+							'selector' => '.site-logo img, .custom-logo-link img',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'font-size',
+							'selector' => '.site-title',
+							'unit'     => 'px',
+						),
+					),
+				),
 				'patch_navigation_items_spacing' => array(
 					'type'        => 'range',
 					'label'       => esc_html__( 'Navigation Items Spacing', 'patch' ),
@@ -163,6 +226,78 @@ function patch_add_customify_options( $options ) {
 						),
 					),
 				),
+				'patch_disable_search_in_social_menu' => array(
+					'type'    => 'checkbox',
+					'label'   => esc_html__( 'Hide search button in Social Menu.', 'patch' ),
+					'default' => 0,
+				),
+				// [Section] COLORS
+				'patch_header_title_colors_section'    => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-header-colors" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', 'patch' ) . '</span>',
+				),
+				'patch_header_navigation_links_color' => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Navigation Links Color', 'patch' ),
+					'live'    => true,
+					'default' => '#000000',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.site-header a',
+						),
+					),
+				),
+				'patch_header_links_active_color'     => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Links Active Color', 'patch' ),
+					'live'    => true,
+					'default' => '#ffeb00',
+					'css'     => array(
+						array(
+							'property' => 'background-color',
+							'selector' => '.nav--main li:hover > a',
+						),
+					),
+				),
+				// [Section] FONTS
+				'patch_header_title_fonts_section'    => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-header-fonts" class="separator section label large">&#x1f4dd;  ' . esc_html__( 'Fonts', 'patch' ) . '</span>',
+				),
+				'patch_header_links_font' => array(
+					'type'     			=> 'font',
+					'label'            => esc_html__( 'Navigation Text', 'patch' ),
+					'desc'             => esc_html__( '', 'patch' ),
+					'selector'         => '.nav--main a',
+
+					// Set the defaults
+					'default'  => array(
+						'font-family'    => 'Oswald',
+						'font-weight'    => '300',
+						'font-size'      => 24,
+						'line-height'    => 1.181,
+						'letter-spacing' => 0.144,
+						'text-transform' => 'uppercase'
+					),
+
+					// List of recommended fonts defined by theme
+					'recommended' => $recommended_fonts,
+					// Sub Fields Configuration (optional)
+					'fields'   => array(
+						'font-size'       => array(                           // Set custom values for a range slider
+							'min'  => 8,
+							'max'  => 60,
+							'step' => 1,
+							'unit' => 'px',
+						),
+						'line-height'     => array( 0, 2, 0.1, '' ),           // Short-hand version
+						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
+						'text-align'      => false,                           // Disable sub-field (False by default)
+						'text-transform'  => true,
+						'text-decoration' => false
+					)
+				),
 			)
 		),
 		'footer_section' => array(
@@ -171,20 +306,20 @@ function patch_add_customify_options( $options ) {
 				'patch_footer_options_customizer_tabs'    => array(
 					'type' => 'html',
 					'html' => '<nav class="section-navigation  js-section-navigation">
-							<a href="#section-title-footer-layout">' . esc_html__( 'Layout', 'components' ) . '</a>
-							<a href="#section-title-footer-colors">' . esc_html__( 'Colors', 'components' ) . '</a>
+							<a href="#section-title-footer-layout">' . esc_html__( 'Layout', 'patch' ) . '</a>
+							<a href="#section-title-footer-colors">' . esc_html__( 'Colors', 'patch' ) . '</a>
 							</nav>',
 				),
 				// [Section] Layout
 				'patch_footer_title_layout_section'    => array(
 					'type' => 'html',
-					'html' => '<span id="section-title-footer-layout" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Layout', 'components' ) . '</span>',
+					'html' => '<span id="section-title-footer-layout" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Layout', 'patch' ) . '</span>',
 				),
-				'patch_footer_copyright_text'               => array(
+				'patch_footer_copyright' => array(
 					'type'              => 'textarea',
-					'label'             => esc_html__( 'Copyright Text', 'components' ),
-					'desc'              => esc_html__( 'Set the text that will appear in the footer area. Use %year% to display the current year.', 'components' ),
-					'default'           => __( '%year% &copy; Handcrafted with love by <a href="#">Pixelgrade</a> Team', 'components' ),
+					'label'             => esc_html__( 'Copyright Text', 'patch' ),
+					'desc'              => esc_html__( 'Set the text that will appear in the footer area. Use %year% to display the current year.', 'patch' ),
+					'default'           => __( '%year% &copy; Handcrafted with love by <a href="#">Pixelgrade</a> Team', 'patch' ),
 					'sanitize_callback' => 'wp_kses_post',
 					'live'              => array( '.copyright-text' ),
 				),
@@ -241,7 +376,7 @@ function patch_add_customify_options( $options ) {
 				// [Section] COLORS
 				'patch_footer_title_colors_section'    => array(
 					'type' => 'html',
-					'html' => '<span id="section-title-footer-colors" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', 'components' ) . '</span>',
+					'html' => '<span id="section-title-footer-colors" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', 'patch' ) . '</span>',
 				),
 				'patch_footer_body_text_color'       => array(
 					'type'    => 'color',
@@ -485,7 +620,6 @@ function patch_add_customify_options( $options ) {
 								:first-child:not(input) ~ .form-submit #submit,
 								.sidebar .widget a:hover,
 								.nav--main li[class*="current-menu"] > a,
-								.nav--main li:hover > a,
 								.highlight,
 								.sticky .sticky-post,
 								.nav--social a:hover:before,

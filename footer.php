@@ -23,8 +23,6 @@
 
 			$copyright_text = pixelgrade_option( 'patch_footer_copyright_text' );
 
-			var_dump($copyright_text);
-
 			if ( ! empty( $copyright_text ) ) {
 				// We need to parse some tags
 				// like %year%
