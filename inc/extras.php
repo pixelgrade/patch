@@ -609,7 +609,7 @@ if ( ! function_exists( 'pixelgrade_option') ) {
 	/**
 	 * Get option from the database
 	 *
-	 * @since Osteria 1.0
+	 * @since Patch 1.3.0
 	 *
 	 * @param string $option The option name.
 	 * @param mixed $default Optional. The default value to return when the option was not found or saved.
@@ -650,5 +650,56 @@ if ( ! function_exists( 'pixelgrade_option') ) {
 
 		return $default;
 	}
+}
+
+/**
+ * Retrieve the classes for the portfolio wrapper as an array.
+ *
+ * @since Patch 1.3.0
+ *
+ * @param string|array $class Optional. One or more classes to add to the class list.
+ * @param string|array $location Optional. The place (template) where the classes are displayed. This is a hint for filters.
+ *
+ * @return array Array of classes.
+ */
+function patch_get_blog_class( $class = '' ) {
+
+	$classes = array();
+
+	$classes[] = 'grid';
+
+	// items per row
+	$items_per_row = intval( pixelgrade_option( "blog_items_per_row", 3 ) );
+	$items_per_row_at_huge = $items_per_row;
+	$items_per_row_at_desk = $items_per_row == 1 ? 1 : $items_per_row > 4 ? $items_per_row - 1 : $items_per_row;
+	$items_per_row_at_lap = $items_per_row_at_desk > 1 ? $items_per_row_at_desk - 1 : $items_per_row_at_desk;
+	$items_per_row_class = "grid--" . $items_per_row_at_huge . "col-@desk  grid--" . $items_per_row_at_desk . "col-@lap  grid--" . $items_per_row_at_lap . "col-@small";
+
+	$classes[] = $items_per_row_class;
+
+	if ( ! empty( $class ) ) {
+		if ( ! is_array( $class ) ) {
+			$class = preg_split( '#\s+#', $class );
+		}
+		$classes = array_merge( $classes, $class );
+	} else {
+		// Ensure that we always coerce class to being an array.
+		$class = array();
+	}
+
+	$classes = array_map( 'esc_attr', $classes );
+
+	return array_unique( $classes );
+}
+
+/**
+ * Display the classes for the blog wrapper.
+ *
+ * @param string|array $class Optional. One or more classes to add to the class list.
+ * @param string|array $location Optional. The place (template) where the classes are displayed. This is a hint for filters.
+ */
+function patch_blog_class( $class = '' ) {
+	// Separates classes with a single space, collates classes
+	echo 'class="' . join( ' ', patch_get_blog_class( $class ) ) . '"';
 }
 ?>

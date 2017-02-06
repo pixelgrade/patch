@@ -482,6 +482,19 @@ function patch_add_customify_options( $options ) {
 		'blog_grid_section' => array(
 			'title'    => __( 'Blog Grid Items', 'patch' ),
 			'options' => array(
+				'blog_grid_options_customizer_tabs'          => array(
+					'type' => 'html',
+					'html' => '<nav class="section-navigation  js-section-navigation">
+								<a href="#section-title-blog-layout">' . esc_html__( 'Layout', 'patch' ) . '</a>
+								<a href="#section-title-blog-colors">' . esc_html__( 'Colors', 'patch' ) . '</a>
+								<a href="#section-title-blog-fonts">' . esc_html__( 'Fonts', 'patch' ) . '</a>
+								</nav>',
+				),
+				// [Section] Layout
+				'blog_grid_title_layout_section'    => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-blog-layout" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Layout', 'patch' ) . '</span>',
+				),
 				'blog_container_max_width' => array(
 					'type' => 'range',
 					'label' => esc_html__( 'Container Max Width', 'patch' ),
@@ -533,6 +546,40 @@ function patch_add_customify_options( $options ) {
 							'unit' => 'px'
 						),
 					)
+				),
+				'blog_grid_title_items_grid_section' => array(
+					'type' => 'html',
+					'html' => '<span class="separator sub-section label">' . esc_html__( 'Items Grid', 'patch' ) . '</span>',
+				),
+				'blog_items_per_row' => array(
+					'type'        => 'range',
+					'label'       => esc_html__( 'Items per Row', 'patch' ),
+					'desc'        => esc_html__( 'Set the desktop-based number of columns you want and we automatically make it right for other screen sizes.', 'patch' ),
+					'live'        => false,
+					'default'     => 3,
+					'input_attrs' => array(
+						'min'  => 1,
+						'max'  => 6,
+						'step' => 1,
+					),
+					'css'         => array(
+						array(
+							'property'        => 'dummy',
+							'selector'        => '.dummy',
+							'unit'            => 'px',
+//							'callback_filter' => 'osteria_blog_grid_packed_cb'
+						),
+					),
+				),
+				// [Section] COLORS
+				'blog_grid_title_colors_section'        => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-blog-colors" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', 'patch' ) . '</span>',
+				),
+				// [Section] FONTS
+				'blog_grid_title_fonts_section'          => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-blog-fonts" class="separator section label large">&#x1f4dd;  ' . esc_html__( 'Fonts', 'patch' ) . '</span>',
 				),
 			)
 		),
