@@ -166,6 +166,9 @@ function patch_add_customify_options( $options ) {
 				),
 			)
 		),
+
+
+		// Header
 		'header_section' => array(
 			'title'    => __( 'Header', 'patch' ),
 			'options' => array(
@@ -300,6 +303,602 @@ function patch_add_customify_options( $options ) {
 				),
 			)
 		),
+
+
+		// Main Content
+		'main_content_section' => array(
+			'title'    => __( 'Main Content', 'patch' ),
+			'options' => array(
+				'main_content_options_customizer_tabs'              => array(
+					'type' => 'html',
+					'html' => '<nav class="section-navigation  js-section-navigation">
+							<a href="#section-title-main-layout">' . esc_html__( 'Layout', 'patch' ) . '</a>
+							<a href="#section-title-main-colors">' . esc_html__( 'Colors', 'patch' ) . '</a>
+							<a href="#section-title-main-fonts">' . esc_html__( 'Fonts', 'patch' ) . '</a>
+							</nav>',
+				),
+
+				// [Section] Layout
+				'main_content_title_layout_section'    => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-main-layout" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Layout', 'patch' ) . '</span>',
+				),
+				'main_content_container_width'          => array(
+					'type'        => 'range',
+					'label'       => esc_html__( 'Site Container Max Width', 'patch' ),
+					'desc'        => esc_html__( 'Adjust the max width of your site content area.', 'patch' ),
+					'live'        => true,
+					'default'     => 1750,
+					'input_attrs' => array(
+						'min'          => 600,
+						'max'          => 2600,
+						'step'         => 10,
+						'data-preview' => true,
+					),
+					'css'         => array(
+						array(
+							'property' => 'max-width',
+							'selector' => '.single #page',
+							'unit'     => 'px',
+						),
+					),
+				),
+				'container_max_width' => array(
+					'type' => 'range',
+					'label' => esc_html__( 'Content Width', 'patch' ),
+					'desc' => esc_html__( 'Decrease the width of your content to create an inset area for your text. The inset size will be the space between Site Container and Content.', 'patch' ),
+					'live' => true,
+					'default' => 620,
+					'input_attrs' => array(
+						'min' => 480,
+						'max' => 1240,
+						'step' => 10,
+						'data-preview' => true
+					),
+					'css' => array(
+						array(
+							'property' => 'max-width',
+							'selector' =>
+								'.single .hentry,
+								.single .comments-area,
+								.single .nocomments, 
+								.single #respond.comment-respond, 
+								.page:not(.entry-card) .hentry, 
+								.page:not(.entry-card) .comments-area, 
+								.page:not(.entry-card) .nocomments, 
+								.page:not(.entry-card) #respond.comment-respond, 
+								.attachment-navigation, .nav-links',
+							'unit' => 'px'
+						)
+					)
+				),
+				'content_sides_spacing' => array(
+					'type' => 'range',
+					'label' => esc_html__( 'Content Sides Spacing', 'patch' ),
+					'live' => true,
+					'default' => 180,
+					'input_attrs' => array(
+						'min' => 0,
+						'max' => 400,
+						'step' => 10,
+						'data-preview' => true
+					),
+					'css' => array(
+						array(
+							'property' => 'no-valid-property-here',
+							'selector' => '.no-valid-selector-here',
+							'unit' => 'px',
+							'callback_filter' => 'patch_content_sides_spacing'
+						),
+					)
+				),
+				'container_sides_spacing' => array(
+					'type' => 'range',
+					'label' => esc_html__( 'Container Sides Spacing', 'patch' ),
+					'desc'  => esc_html__( 'Adjust the space separating the site content and the sides of the browser.', 'patch' ),
+					'live' => true,
+					'default' => 60,
+					'input_attrs' => array(
+						'min' => 20,
+						'max' => 200,
+						'step' => 10,
+						'data-preview' => true
+					),
+					'css' => array(
+						array(
+							'property' => 'padding',
+							'selector' =>
+								'.single .site-content, 
+								.page:not(.entry-card) .site-content, 
+								.no-posts .site-content',
+							'unit' => 'px'
+						),
+					)
+				),
+				'main_content_border_width'             => array(
+					'type'        => 'range',
+					'label'       => esc_html__( 'Site Border Width', 'patch' ),
+					'desc'        => esc_html__( '', 'patch' ),
+					'live'        => true,
+					'default'     => 18,
+					'input_attrs' => array(
+						'min'          => 0,
+						'max'          => 120,
+						'step'         => 1,
+						'data-preview' => true,
+					),
+					'css'         => array(
+						array(
+							'property' => 'border-width',
+							'selector' => 'body',
+							'unit'     => 'px',
+						),
+						array(
+							'property' => 'height',
+							'selector' => 'body:before',
+							'unit'     => 'px',
+						),
+					),
+				),
+
+				// [Section] COLORS
+				'main_content_border_color' => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Site Border Color', 'patch' ),
+					'live'    => true,
+					'default' => '#000000',
+					'css'     => array(
+						array(
+							'property' => 'border-color',
+							'selector' => 'body',
+						),
+						array(
+							'property' => 'background-color',
+							'selector' => 'body:before',
+						),
+					),
+				),
+				'main_content_title_colors_section' => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-main-colors" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', 'patch' ) . '</span>',
+				),
+				'main_content_page_title_color'         => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Page Title Color', 'patch' ),
+					'live'    => true,
+					'default' => '#171617',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.single .entry-title, .page .entry-title',
+						),
+					),
+				),
+				'main_content_body_text_color'          => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Body Text Color', 'patch' ),
+					'live'    => true,
+					'default' => '#3d3e40',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => 'body',
+						),
+					),
+				),
+				'main_content_body_link_color'          => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Body Link Underline Color', 'patch' ),
+					'live'    => true,
+					'default' => '#ffeb00',
+					'css'     => array(
+						array(
+							'property' => 'background-color',
+							'selector' => '.single .entry-content a, .page .entry-content a',
+						),
+					),
+				),
+				'accent_color'   => array(
+					'type'      => 'color',
+					'label'     => __( 'Accent Color', 'patch' ),
+					'live' => true,
+					'default'   => '#ffeb00',
+					'css'  => array(
+						array(
+							'property' => 'text-shadow',
+							'selector' => '.dropcap',
+							'callback_filter' => 'patch_dropcap_text_shadow'
+						),
+						array(
+							'property' => 'box-shadow',
+							'selector' => '.entry-card.format-quote .entry-content a',
+							'callback_filter' => 'patch_link_box_shadow'
+						),
+
+						array(
+							'property' => 'color',
+							'selector' =>
+								'h1 a,
+								.site-title a,
+								h2 a,
+								h3 a,
+								.entry-card.format-quote .entry-content a:hover,
+								.bypostauthor .comment__author-name:before,
+								.site-footer a:hover, .test',
+							'callback_filter' => 'patch_color_contrast'
+						),
+
+						array(
+							'property' => 'fill',
+							'selector' => '#bar'
+						),
+						array(
+							'property' => 'background-color',
+							'selector' =>
+								'.smart-link,
+								.edit-link a,
+								.author-info__link,
+								.comments_add-comment,
+								.comment .comment-reply-title a,
+								.page-links a,
+								:first-child:not(input) ~ .form-submit #submit,
+								.sidebar .widget a:hover,
+								.nav--main li[class*="current-menu"] > a,
+								.highlight,
+								.sticky .sticky-post,
+								.nav--social a:hover:before,
+								.jetpack_subscription_widget input[type="submit"],
+								.widget_blog_subscription input[type="submit"],
+								.search-form .search-submit,
+								div#infinite-handle span:after,
+								.cat-links,
+								.entry-format',
+						),
+						array(
+							'property' => 'background-color',
+							'selector' => '::-moz-selection'
+						),
+						array(
+							'property' => 'background-color',
+							'selector' => '::selection'
+						),
+						array(
+							'property' => 'border-top-color',
+							'selector' => '.sticky .sticky-post:before,
+								.sticky .sticky-post:after'
+						)
+					),
+				),
+
+				// [Sub Section] Headings Color
+				'main_content_title_headings_color_section'              => array(
+					'type' => 'html',
+					'html' => '<span class="separator sub-section label">' . esc_html__( 'Headings Color', 'patch' ) . '</span>',
+				),
+				'main_content_heading_1_color'          => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Heading 1', 'patch' ),
+					'live'    => true,
+					'default' => '#171617',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => 'h1, .site-title a',
+						),
+					),
+				),
+				'main_content_heading_2_color'          => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Heading 2', 'patch' ),
+					'live'    => true,
+					'default' => '#171617',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => 'h2',
+						),
+					),
+				),
+				'main_content_heading_3_color'          => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Heading 3', 'patch' ),
+					'live'    => true,
+					'default' => '#171617',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => 'h3'
+						),
+					),
+				),
+				'main_content_heading_4_color'          => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Heading 4', 'patch' ),
+					'live'    => true,
+					'default' => '#171617',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => 'h4',
+						),
+					),
+				),
+				'main_content_heading_5_color'          => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Heading 5', 'patch' ),
+					'live'    => true,
+					'default' => '#171617',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => 'h5',
+						),
+					),
+				),
+				'main_content_heading_6_color'          => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Heading 6', 'patch' ),
+					'live'    => true,
+					'default' => '#171617',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => 'h6',
+						),
+					),
+				),
+
+				// [Section] FONTS
+				'main_content_title_fonts_section'             => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-main-fonts" class="separator section label large">&#x1f4dd;  ' . esc_html__( 'Fonts', 'patch' ) . '</span>',
+				),
+
+				'main_content_page_title_font' => array(
+					'type'     => 'font',
+					'label'    => esc_html__( 'Page Title Font', 'patch' ),
+					'desc'     => esc_html__( '', 'patch' ),
+					'selector' => '.single .entry-title, .page .entry-title',
+
+					// Set the defaults
+					'default'  => array(
+						'font-family'    => 'Oswald',
+						'font-weight'    => '500',
+						'letter-spacing' => 0.174,
+						'text-transform' => 'uppercase'
+					),
+
+					// List of recommended fonts defined by theme
+					'recommended' => $recommended_fonts,
+
+
+					// Sub Fields Configuration (optional)
+					'fields'   => array(
+						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
+						'text-align'      => false,                           // Disable sub-field (False by default)
+						'text-transform'  => true,
+						'text-decoration' => false
+					)
+				),
+
+				'main_content_body_text_font' => array(
+					'type'     => 'font',
+					'label'    => esc_html__( 'Body Text Font', 'patch' ),
+					'desc'     => esc_html__( '', 'patch' ),
+					'selector' => 'body, .entry-content p, .comment-content p',
+
+					// Set the defaults
+					'default'  => array(
+						'font-family'    => 'Roboto',
+						'font-weight'    => '300',
+						'letter-spacing' => 0,
+						'text-transform' => 'none'
+					),
+
+					// List of recommended fonts defined by theme
+					'recommended' => $recommended_fonts,
+
+					// Sub Fields Configuration (optional)
+					'fields'   => array(
+						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
+						'text-align'      => false,                           // Disable sub-field (False by default)
+						'text-transform'  => true,
+						'text-decoration' => false
+					)
+				),
+
+				'main_content_quote_block_font' => array(
+					'type'     => 'font',
+					'label'    => esc_html__( 'Quote Block Font', 'patch' ),
+					'desc'     => esc_html__( '', 'patch' ),
+					'selector' => 'blockquote',
+
+					// Set the defaults
+					'default'  => array(
+						'font-family'    => 'Oswald',
+						'font-weight'    => '500',
+						'letter-spacing' => 0,
+						'text-transform' => 'uppercase'
+					),
+
+					// List of recommended fonts defined by theme
+					'recommended' => $recommended_fonts,
+
+					// Sub Fields Configuration (optional)
+					'fields'   => array(
+						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
+						'text-align'      => false,                           // Disable sub-field (False by default)
+						'text-transform'  => true,
+						'text-decoration' => false
+					)
+				),
+
+				// [Sub Section] Headings Fonts
+				'main_content_title_headings_fonts_section'     => array(
+					'type' => 'html',
+					'html' => '<span class="separator sub-section label">' . esc_html__( 'Headings Fonts', 'patch' ) . '</span>',
+				),
+
+				'main_content_heading_1_font' => array(
+					'type'     => 'font',
+					'label'    => esc_html__( 'Heading 1', 'patch' ),
+					'desc'     => esc_html__( '', 'patch' ),
+					'selector' => 'h1',
+
+					// Set the defaults
+					'default'  => array(
+						'font-family'    => 'Oswald',
+						'font-weight'    => '500',
+						'letter-spacing' => 0.04,
+						'text-transform' => 'uppercase'
+					),
+
+					// List of recommended fonts defined by theme
+					'recommended' => $recommended_fonts,
+					// Sub Fields Configuration (optional)
+					'fields'   => array(
+						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
+						'text-align'      => false,                           // Disable sub-field (False by default)
+						'text-transform'  => true,
+						'text-decoration' => false
+					)
+				),
+
+				'main_content_heading_2_font' => array(
+					'type'     => 'font',
+					'label'    => esc_html__( 'Heading 2', 'patch' ),
+					'desc'     => esc_html__( '', 'patch' ),
+					'selector' => 'h2',
+
+					// Set the defaults
+					'default'  => array(
+						'font-family'    => 'Oswald',
+						'font-weight'    => '500',
+						'letter-spacing' => 0.04,
+						'text-transform' => 'uppercase'
+					),
+
+					// List of recommended fonts defined by theme
+					'recommended' => $recommended_fonts,
+
+					// Sub Fields Configuration (optional)
+					'fields'   => array(
+						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
+						'text-align'      => false,                           // Disable sub-field (False by default)
+						'text-transform'  => true,
+						'text-decoration' => false
+					)
+				),
+
+				'main_content_heading_3_font' => array(
+					'type'     => 'font',
+					'label'    => esc_html__( 'Heading 3', 'patch' ),
+					'desc'     => esc_html__( '', 'patch' ),
+					'selector' => 'h3',
+
+					// Set the defaults
+					'default'  => array(
+						'font-family'    => 'Oswald',
+						'font-weight'    => '200',
+						'letter-spacing' => 0,
+						'text-transform' => 'none'
+					),
+
+					// List of recommended fonts defined by theme
+					'recommended' => $recommended_fonts,
+
+					// Sub Fields Configuration (optional)
+					'fields'   => array(
+						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
+						'text-align'      => false,                           // Disable sub-field (False by default)
+						'text-transform'  => true,
+						'text-decoration' => false
+					)
+				),
+
+				'main_content_heading_4_font' => array(
+					'type'     => 'font',
+					'label'    => esc_html__( 'Heading 4', 'patch' ),
+					'desc'     => esc_html__( '', 'patch' ),
+					'selector' => 'h4',
+
+					// Set the defaults
+					'default'  => array(
+						'font-family'    => 'Oswald',
+						'font-weight'    => '500',
+						'letter-spacing' => 0.1,
+						'text-transform' => 'uppercase'
+					),
+
+					// List of recommended fonts defined by theme
+					'recommended' => $recommended_fonts,
+
+					// Sub Fields Configuration (optional)
+					'fields'   => array(
+						'letter-spacing'  => array( -1, 2, 0.01, 0.02, 0.04, 'em' ),
+						'text-align'      => false,                           // Disable sub-field (False by default)
+						'text-transform'  => true,
+						'text-decoration' => false
+					)
+				),
+
+				'main_content_heading_5_font' => array(
+					'type'     => 'font',
+					'label'    => esc_html__( 'Heading 5', 'patch' ),
+					'desc'     => esc_html__( '', 'patch' ),
+					'selector' => 'h5',
+
+					// Set the defaults
+					'default'  => array(
+						'font-family'    => 'Roboto',
+						'font-weight'    => '500',
+						'letter-spacing' => 0.02,
+						'text-transform' => 'uppercase'
+					),
+
+					// List of recommended fonts defined by theme
+					'recommended' => $recommended_fonts,
+
+					// Sub Fields Configuration (optional)
+					'fields'   => array(
+						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
+						'text-align'      => false,                           // Disable sub-field (False by default)
+						'text-transform'  => true,
+						'text-decoration' => false
+					)
+				),
+
+				'main_content_heading_6_font' => array(
+					'type'     => 'font',
+					'label'    => esc_html__( 'Heading 6', 'patch' ),
+					'desc'     => esc_html__( '', 'patch' ),
+					'selector' => '.entry-content h6, h6, .h6',
+					'callback' => 'typeline_font_cb',
+
+					// Set the defaults
+					'default'  => array(
+						'font-family'    => 'Roboto',
+						'font-weight'    => '500',
+						'letter-spacing' => 0.03,
+						'text-transform' => 'none'
+					),
+
+					// List of recommended fonts defined by theme
+					'recommended' => $recommended_fonts,
+
+					// Sub Fields Configuration (optional)
+					'fields'   => array(
+						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
+						'text-align'      => false,                           // Disable sub-field (False by default)
+						'text-transform'  => true,
+						'text-decoration' => false
+					)
+				),
+			)
+		),
+
+
+		// Footer
 		'footer_section' => array(
 			'title'    => __( 'Footer', 'patch' ),
 			'options' => array(
@@ -404,81 +1003,9 @@ function patch_add_customify_options( $options ) {
 				),
 			)
 		),
-		'main_content_section' => array(
-			'title'    => __( 'Main Content', 'patch' ),
-			'options' => array(
-				'container_max_width' => array(
-					'type' => 'range',
-					'label' => esc_html__( 'Content Width', 'patch' ),
-					'live' => true,
-					'default' => 620,
-					'input_attrs' => array(
-						'min' => 480,
-						'max' => 1240,
-						'step' => 10,
-						'data-preview' => true
-					),
-					'css' => array(
-						array(
-							'property' => 'max-width',
-							'selector' =>
-								'.single .hentry,
-								.single .comments-area,
-								.single .nocomments, 
-								.single #respond.comment-respond, 
-								.page:not(.entry-card) .hentry, 
-								.page:not(.entry-card) .comments-area, 
-								.page:not(.entry-card) .nocomments, 
-								.page:not(.entry-card) #respond.comment-respond, 
-								.attachment-navigation, .nav-links',
-							'unit' => 'px'
-						)
-					)
-				),
-				'content_sides_spacing' => array(
-					'type' => 'range',
-					'label' => esc_html__( 'Container Sides Spacing', 'patch' ),
-					'live' => true,
-					'default' => 180,
-					'input_attrs' => array(
-						'min' => 0,
-						'max' => 400,
-						'step' => 10,
-						'data-preview' => true
-					),
-					'css' => array(
-						array(
-							'property' => 'no-valid-property-here',
-							'selector' => '.no-valid-selector-here',
-							'unit' => 'px',
-							'callback_filter' => 'patch_content_sides_spacing'
-						),
-					)
-				),
-				'container_sides_spacing' => array(
-					'type' => 'range',
-					'label' => esc_html__( 'Container Sides Spacing', 'patch' ),
-					'live' => true,
-					'default' => 60,
-					'input_attrs' => array(
-						'min' => 20,
-						'max' => 200,
-						'step' => 10,
-						'data-preview' => true
-					),
-					'css' => array(
-						array(
-							'property' => 'padding',
-							'selector' =>
-								'.single .site-content, 
-								.page:not(.entry-card) .site-content, 
-								.no-posts .site-content',
-							'unit' => 'px'
-						),
-					)
-				)
-			)
-		),
+
+
+		// Blog
 		'blog_grid_section' => array(
 			'title'    => __( 'Blog Grid Items', 'patch' ),
 			'options' => array(
@@ -499,7 +1026,8 @@ function patch_add_customify_options( $options ) {
 				),
 				'blog_container_max_width' => array(
 					'type' => 'range',
-					'label' => esc_html__( 'Container Max Width', 'patch' ),
+					'label'       => esc_html__( 'Blog Grid Max Width', 'patch' ),
+					'desc'        => esc_html__( 'Adjust the max width of the blog area.', 'patch' ),
 					'live' => true,
 					'default' => 1350,
 					'input_attrs' => array(
@@ -519,7 +1047,8 @@ function patch_add_customify_options( $options ) {
 				),
 				'blog_container_sides_spacing' => array(
 					'type' => 'range',
-					'label' => esc_html__( 'Container Sides Spacing', 'patch' ),
+					'label'       => esc_html__( 'Container Sides Spacing', 'patch' ),
+					'desc'        => esc_html__( 'Adjust the space separating the site content and the sides of the browser.', 'patch' ),
 					'live' => true,
 					'default' => 60,
 					'input_attrs' => array(
@@ -715,204 +1244,23 @@ function patch_add_customify_options( $options ) {
 				)
 			)
 		),
-		'colors_section' => array(
-			'title'    => __( 'Colors', 'patch' ),
-			'options' => array(
-				'accent_color'   => array(
-					'type'      => 'color',
-					'label'     => __( 'Accent Color', 'patch' ),
-					'live' => true,
-					'default'   => '#ffeb00',
-					'css'  => array(
-						array(
-							'property' => 'text-shadow',
-							'selector' => '.dropcap',
-							'callback_filter' => 'patch_dropcap_text_shadow'
-						),
-						array(
-							'property' => 'box-shadow',
-							'selector' => '.entry-card.format-quote .entry-content a',
-							'callback_filter' => 'patch_link_box_shadow'
-						),
-
-						array(
-							'property' => 'color',
-							'selector' =>
-								'h1 a,
-								.site-title a,
-								h2 a,
-								h3 a,
-								.entry-card.format-quote .entry-content a:hover,
-								.bypostauthor .comment__author-name:before,
-								.site-footer a:hover, .test',
-							 'callback_filter' => 'patch_color_contrast'
-						),
-
-						array(
-							'property' => 'fill',
-							'selector' => '#bar'
-						),
-						array(
-							'property' => 'background-color',
-							'selector' =>
-								'.smart-link,
-								.single .entry-content a,
-								.page .entry-content a,
-								.edit-link a,
-								.author-info__link,
-								.comments_add-comment,
-								.comment .comment-reply-title a,
-								.page-links a,
-								:first-child:not(input) ~ .form-submit #submit,
-								.sidebar .widget a:hover,
-								.nav--main li[class*="current-menu"] > a,
-								.highlight,
-								.sticky .sticky-post,
-								.nav--social a:hover:before,
-								.jetpack_subscription_widget input[type="submit"],
-								.widget_blog_subscription input[type="submit"],
-								.search-form .search-submit,
-								div#infinite-handle span:after,
-								.cat-links,
-								.entry-format',
-						),
-						array(
-							'property' => 'background-color',
-							'selector' => '::-moz-selection'
-						),
-						array(
-							'property' => 'background-color',
-							'selector' => '::selection'
-						),
-						array(
-							'property' => 'border-top-color',
-							'selector' => '.sticky .sticky-post:before,
-								.sticky .sticky-post:after'
-						)
-					),
-				),
-				'headings_color' => array(
-					'type'      => 'color',
-					'label'     => __( 'Headings Color', 'patch' ),
-					'live' => true,
-					'default'   => '#171617',
-					'css'  => array(
-						array(
-							'property' => 'color',
-							'selector' => '.site-title a, h1, h2, h3, h4, h5, h6',
-						)
-					)
-				),
-				'body_color'     => array(
-					'type'      => 'color',
-					'label'     => __( 'Body Color', 'patch' ),
-					'live' => true,
-					'default'   => '#3d3e40',
-					'css'  => array(
-						array(
-							'selector' => 'body',
-							'property' => 'color'
-						)
-					)
-				),
-			)
-		),
-
-
-
-		/**
-		 * FONTS - This section will handle different elements fonts (eg. headings, body)
-		 */
-
-		'typography_section' => array(
-			'title'    => __( 'Fonts', 'patch' ),
-			'options' => array(
-				'headings_font' => array(
-					'type'     => 'typography',
-					'label'    => __( 'Headings', 'patch' ),
-					'default'  => 'Oswald", sans-serif',
-					'selector' => 'h1,
-					.site-title,
-					h2,
-					h3,
-					h4,
-					.edit-link a,
-					blockquote,
-					.dropcap,
-					.mfp-container,
-					.entry-card .entry-image .hover,
-					.entry-card .entry-title,
-					.nav--main,
-					.author-info__link,
-					.comments-area-title .comments-title,
-					.comment-reply-title .comments-title,
-					.comments_add-comment,
-					.comment-reply-title,
-					.comment .comment-reply-title a,
-					:first-child:not(input) ~ .form-submit #submit,
-					.jetpack_subscription_widget input[type="submit"],
-					.widget_blog_subscription input[type="submit"],
-					.search-form .search-submit,
-					.overlay--search .search-form,
-					.overlay--search .search-field,
-					.posts-navigation, #infinite-handle,
-					body div.sharedaddy h3.sd-title,
-					body div#jp-relatedposts h3.jp-relatedposts-headline,
-					.entry-meta',
-					'font_weight' => false,
-					'load_all_weights' => true,
-					'subsets' => true,
-					'recommended' => array(
-						'Oswald',
-						'Lato',
-						'Open Sans',
-						'Exo',
-						'PT Sans',
-						'Ubuntu',
-						'Vollkorn',
-						'Lora',
-						'Arvo',
-						'Josefin Slab',
-						'Crete Round',
-						'Kreon',
-						'Bubblegum Sans',
-						'The Girl Next Door',
-						'Pacifico',
-						'Handlee',
-						'Satify',
-						'Pompiere'
-					)
-				),
-				'headings_caps' => array(
-					'type'	=> 'checkbox',
-					'default' => true,
-					'label' => __( 'Capitalize Headings', 'patch' ),
-					'css'	=> array(
-						array(
-							'property' => 'text-transform',
-							'selector' => 'h1, .site-title, h2, h4, h5, .site-header, blockquote, .entry-card .entry-image .hover, .entry-card.format-quote cite, .author-info__link, .comments_add-comment, .comment .comment-reply-title a, .tags-links a, .jetpack_subscription_widget input[type="submit"], .widget_blog_subscription input[type="submit"], .search-form .search-submit, .page-numbers.prev, .page-numbers.next, .posts-navigation, #infinite-handle, div#infinite-handle button, .entry-meta, .byline .author, :first-child:not(input) ~ .form-submit #submit',
-							'callback_filter' => 'patch_capitalize_headings'
-						),
-					)
-				),
-				'body_font'     => array(
-					'type'    => 'typography',
-					'label'   => __( 'Body Text', 'patch' ),
-					'default' => 'Roboto, sans-serif',
-					'selector' => 'body, h5, .entry-card .entry-meta',
-					'load_all_weights' => true,
-					'recommended' => array(
-						'Roboto',
-						'Lato',
-						'Open Sans',
-						'PT Sans',
-						'Cabin',
-						'Gentium Book Basic',
-						'PT Serif'
-					)
-				)
-			)
-		)
+//		'colors_section' => array(
+//			'title'    => __( 'Colors', 'patch' ),
+//			'options' => array(
+//				'headings_color' => array(
+//					'type'      => 'color',
+//					'label'     => __( 'Headings Color', 'patch' ),
+//					'live' => true,
+//					'default'   => '#171617',
+//					'css'  => array(
+//						array(
+//							'property' => 'color',
+//							'selector' => '.site-title a, h1, h2, h3, h4, h5, h6',
+//						)
+//					)
+//				),
+//			)
+//		),
 	);
 
 	return $options;
