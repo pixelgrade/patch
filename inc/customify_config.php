@@ -278,9 +278,7 @@ function patch_add_customify_options( $options ) {
 					'default'  => array(
 						'font-family'    => 'Oswald',
 						'font-weight'    => '300',
-						'font-size'      => 24,
-						'line-height'    => 1.181,
-						'letter-spacing' => 0.144,
+						'letter-spacing' => 0.06,
 						'text-transform' => 'uppercase'
 					),
 
@@ -288,13 +286,6 @@ function patch_add_customify_options( $options ) {
 					'recommended' => $recommended_fonts,
 					// Sub Fields Configuration (optional)
 					'fields'   => array(
-						'font-size'       => array(                           // Set custom values for a range slider
-							'min'  => 8,
-							'max'  => 60,
-							'step' => 1,
-							'unit' => 'px',
-						),
-						'line-height'     => array( 0, 2, 0.1, '' ),           // Short-hand version
 						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
 						'text-align'      => false,                           // Disable sub-field (False by default)
 						'text-transform'  => true,
@@ -1029,7 +1020,7 @@ function patch_add_customify_options( $options ) {
 					'label'       => esc_html__( 'Blog Grid Max Width', 'patch' ),
 					'desc'        => esc_html__( 'Adjust the max width of the blog area.', 'patch' ),
 					'live' => true,
-					'default' => 1350,
+					'default' => 1850,
 					'input_attrs' => array(
 						'min' => 1000,
 						'max' => 2000,
@@ -1061,12 +1052,6 @@ function patch_add_customify_options( $options ) {
 						array(
 							'media' => 'only screen and (min-width: 1260px)',
 							'property' => 'padding-left',
-							'selector' => '.layout-grid .site-content',
-							'unit' => 'px'
-						),
-						array(
-							'media' => 'only screen and (min-width: 1260px)',
-							'property' => 'padding-right',
 							'selector' => '.layout-grid .site-content',
 							'unit' => 'px'
 						),
@@ -1144,7 +1129,7 @@ function patch_add_customify_options( $options ) {
 					'type'    => 'select',
 					'label'   => esc_html__( 'Secondary Meta Section', 'patch' ),
 					'desc'    => esc_html__( '', 'patch' ),
-					'default' => 'date',
+					'default' => 'author_date',
 					'choices' => array(
 						'none'                    => esc_html__( 'None', 'patch' ),
 						'category_secondary'      => esc_html__( 'Category', 'patch' ),
