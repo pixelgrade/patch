@@ -484,18 +484,18 @@ if (!Date.now)
     }
 
     Array.prototype.getUnique = function() {
-            var u = {},
-                a = [];
-            for (var i = 0, l = this.length; i < l; ++i) {
-                if (u.hasOwnProperty(this[i])) {
-                    continue;
-                }
-                a.push(this[i]);
-                u[this[i]] = 1;
+        var u = {},
+            a = [];
+        for (var i = 0, l = this.length; i < l; ++i) {
+            if (u.hasOwnProperty(this[i])) {
+                continue;
             }
-            return a;
+            a.push(this[i]);
+            u[this[i]] = 1;
         }
-        /* ====== Navigation Logic ====== */
+        return a;
+    }
+    /* ====== Navigation Logic ====== */
 
     var navigation = (function() {
 
