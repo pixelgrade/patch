@@ -350,37 +350,39 @@ function patch_add_customify_options( $options ) {
 function patch_add_customify_import_demo_options( $options ) {
 	$import_demo_section = array(
 		// Import Demo Data
-		'import_demo_data' => array(
-			'title'       => __( 'Demo Data', 'patch' ),
-			'description' => esc_html__( 'If you would like to have a "ready to go" website as the Patch\'s demo page here is the button', 'patch' ),
-			'priority'    => 999999,
-			'options'     => array(
+		'demo_content_section' => array(
+			'title'    => __( 'Demo Content', 'patch' ),
+			'priority' => 999999,
+			'options' => array(
 				'import_demodata_button' => array(
 					'title' => 'Import',
 					'type'  => 'html',
-					'html'  => '<input type="hidden" name="wpGrade-nonce-import-posts-pages" value="' . wp_create_nonce( 'wpGrade_nonce_import_demo_posts_pages' ) . '" />
-									<input type="hidden" name="wpGrade-nonce-import-theme-options" value="' . wp_create_nonce( 'wpGrade_nonce_import_demo_theme_options' ) . '" />
-									<input type="hidden" name="wpGrade-nonce-import-widgets" value="' . wp_create_nonce( 'wpGrade_nonce_import_demo_widgets' ) . '" />
-									<input type="hidden" name="wpGrade_import_ajax_url" value="' . admin_url( "admin-ajax.php" ) . '" />' .
-					           '<span class="description customize-control-description">(' . esc_html__( 'Note: We cannot serve you the original images due the ', 'patch' ) . '<strong>&copy;</strong>)</span></br>' .
-					           '<a href="#" class="button button-primary" id="wpGrade_import_demodata_button" style="width: 70%; text-align: center; padding: 10px; display: inline-block; height: auto;  margin: 0 15% 10% 15%;">
-										' . __( 'Import demo data', 'patch' ) . '
-									</a>
-
-									<div class="wpGrade-loading-wrap hidden">
-										<span class="wpGrade-loading wpGrade-import-loading"></span>
-										<div class="wpGrade-import-wait">' .
-					           esc_html__( 'Please wait a few minutes (between 1 and 3 minutes usually, but depending on your hosting it can take longer) and ', 'patch' ) .
-					           '<strong>' . esc_html__( 'don\'t reload the page', 'patch' ) . '</strong>.' .
-					           esc_html__( 'You will be notified as soon as the import has finished!', 'patch' ) . '
-										</div>
-									</div>
-
-									<div class="wpGrade-import-results hidden"></div>
-									<div class="hr"><div class="inner"><span>&nbsp;</span></div></div>'
+					'html' =>
+						'<input type="hidden" name="wpGrade-nonce-import-posts-pages" value="' . wp_create_nonce( 'wpGrade_nonce_import_demo_posts_pages' ) . '" />' .
+						'<input type="hidden" name="wpGrade-nonce-import-theme-options" value="' . wp_create_nonce( 'wpGrade_nonce_import_demo_theme_options' ) . '" />' .
+						'<input type="hidden" name="wpGrade-nonce-import-widgets" value="' . wp_create_nonce( 'wpGrade_nonce_import_demo_widgets' ) . '" />' .
+						'<input type="hidden" name="wpGrade_import_ajax_url" value="' . admin_url( "admin-ajax.php" ) . '" />' .
+						'<div class="description customize-control-description">' .
+						'<p>' . esc_html__( 'Use the Demo Content as a starting point in building your site, rather than beginning with a blank template.', 'patch' ) . '</p>' .
+						'<p>' . esc_html__( 'Note that the images will be replaced with free samples as there isn\'t any redistribution license for them.', 'patch' ) . '</p>' .
+						'<p>' . sprintf( wp_kses( __( 'Read more about <a href="%s" target="_blank">Adding the Demo Content</a> on our Knowledge Base.', 'patch' ), array(  'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( 'https://pixelgrade.com/docs/getting-started/adding-demo-content/' ) ) . '</p>' .
+						'<a href="#" class="button button-primary" id="wpGrade_import_demodata_button" style="width: 70%; text-align: center; padding: 10px; display: inline-block; height: auto;  margin: 0 15% 10% 15%;">' .
+						__( 'Import demo data', 'patch' ) .
+						'</a>' .
+						'</div>' .
+						'<div class="wpGrade-loading-wrap hidden">' .
+						'<span class="wpGrade-loading wpGrade-import-loading"></span>' .
+						'<div class="wpGrade-import-wait">' .
+						esc_html__( 'Please wait a few minutes (between 1 and 3 minutes usually, but depending on your hosting it can take longer) and ', 'patch' ) .
+						'<strong>' . esc_html__( 'don\'t reload the page', 'patch' ) . '</strong>.' .
+						esc_html__( 'You will be notified as soon as the import has finished!', 'patch' ) .
+						'</div>' .
+						'</div>' .
+						'<div class="wpGrade-import-results hidden"></div>' .
+						'<div class="hr"><div class="inner"><span>&nbsp;</span></div></div>'
 				)
 			)
-		)
+		),
 	);
 
 	//Allow others to make changes
