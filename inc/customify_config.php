@@ -232,7 +232,7 @@ function patch_add_customify_options( $options ) {
 				'patch_disable_search_in_social_menu' => array(
 					'type'    => 'checkbox',
 					'label'   => esc_html__( 'Hide search button in Social Menu.', 'patch' ),
-					'default' => 0,
+					'default' => false,
 				),
 				// [Section] COLORS
 				'patch_header_title_colors_section'    => array(
@@ -826,7 +826,7 @@ function patch_add_customify_options( $options ) {
 
 					// Sub Fields Configuration (optional)
 					'fields'   => array(
-						'letter-spacing'  => array( -1, 2, 0.01, 0.02, 0.04, 'em' ),
+						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
 						'text-align'      => false,                           // Disable sub-field (False by default)
 						'text-transform'  => true,
 						'text-decoration' => false
@@ -905,13 +905,15 @@ function patch_add_customify_options( $options ) {
 					'type' => 'html',
 					'html' => '<span id="section-title-footer-layout" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Layout', 'patch' ) . '</span>',
 				),
-				'patch_footer_copyright' => array(
+				'patch_footer_copyright_text' => array(
 					'type'              => 'textarea',
 					'label'             => esc_html__( 'Copyright Text', 'patch' ),
 					'desc'              => esc_html__( 'Set the text that will appear in the footer area. Use %year% to display the current year.', 'patch' ),
-					'default'           => __( '%year% &copy; Handcrafted with love by <a href="#">Pixelgrade</a> Team', 'patch' ),
+					'default'           => sprintf( ' %1$s <span>'. __('by', 'patch') .'</span> %2$s',
+						'<a href="https://pixelgrade.com/themes/patch/" title="'. __( 'Patch - A Newspaper-Inspired WordPress Theme', 'patch' ) .'" rel="theme">'. __( 'Patch Theme', 'patch' ) .'</a>',
+						'<a href="https://pixelgrade.com" title="'. __( 'The PixelGrade Website', 'patch' ) .'" rel="designer">PixelGrade</a>' ),
 					'sanitize_callback' => 'wp_kses_post',
-					'live'              => array( '.copyright-text' ),
+					'live'              => array( '.site-info' ),
 				),
 				'patch_footer_top_spacing' => array(
 					'type'        => 'range',
@@ -1102,7 +1104,7 @@ function patch_add_customify_options( $options ) {
 				'blog_items_excerpt_visibility'       => array(
 					'type'    => 'checkbox',
 					'label'   => esc_html__( 'Show Excerpt Text', 'patch' ),
-					'default' => 1,
+					'default' => true,
 				),
 
 
@@ -1347,7 +1349,7 @@ function patch_content_sides_spacing( $value, $selector, $property, $unit ) {
 		.single .entry-image--tall .entry-featured, 
 		.page:not(.entry-card) .entry-image--portrait .entry-featured, 
 		.page:not(.entry-card) .entry-image--tall .entry-featured { ' .
-			'margin-left: ' . $value . $unit . ';' .
+			'margin-left: ' . (-1 * $value) . $unit . ';' .
         '}';
 
 	$output .= '.single .entry-image--landscape .entry-featured,
