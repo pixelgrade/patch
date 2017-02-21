@@ -397,6 +397,7 @@ function patch_add_customify_options( $options ) {
 					),
 					'css' => array(
 						array(
+							'media' => 'only screen and (min-width: 1260px)',
 							'property' => 'padding',
 							'selector' =>
 								'.single .site-content, 
