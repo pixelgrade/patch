@@ -59,12 +59,33 @@ function patch_add_customify_options( $options ) {
 								'font-alt' => 'Roboto',
 							),
 							'options' => array(
-								'accent_color' => '#ffeb00',
-								'headings_color' => '#171617',
-								'body_color' => '#3d3e40',
-								'headings_font' => 'Oswald',
-								'headings_caps' => true,
-								'body_font' => 'Roboto',
+								'accent_color'                    => '#ffeb00',
+                                'patch_header_links_active_color' => '#ffeb00',
+                                'main_content_body_link_color'    => '#ffeb00',
+
+								'main_content_body_text_color'    => '#3d3e40',
+
+								'blog_item_title_color'           => '#000000',
+								'main_content_page_title_color'   => '#171617',
+
+                                'main_content_heading_1_color'    => '#171617',
+								'main_content_heading_2_color'    => '#171617',
+								'main_content_heading_3_color'    => '#171617',
+								'main_content_heading_4_color'    => '#171617',
+								'main_content_heading_5_color'    => '#171617',
+								'main_content_heading_6_color'    => '#171617',
+
+								'patch_header_links_font'         => 'Oswald',
+								'main_content_page_title_font'    => 'Oswald',
+								'main_content_quote_block_font'   => 'Oswald',
+								'blog_item_title_font'            => 'Oswald',
+                                'main_content_heading_1_font'     => 'Oswald',
+								'main_content_heading_2_font'     => 'Oswald',
+								'main_content_heading_3_font'     => 'Oswald',
+								'main_content_heading_4_font'     => 'Oswald',
+								'main_content_heading_5_font'     => 'Roboto',
+								'main_content_heading_6_font'     => 'Roboto',
+								'main_content_body_text_font'     => 'Roboto',
 							)
 						),
 
@@ -79,12 +100,35 @@ function patch_add_customify_options( $options ) {
 								'font-alt' => 'Droid Sans Mono',
 							),
 							'options' => array(
-								'accent_color' => '#68f3c8',
-								'headings_color' => '#0e364f',
-								'body_color' => '#45525a',
-								'headings_font' => 'Permanent Marker',
-								'headings_caps' => true,
-								'body_font' => 'Droid Sans Mono'
+//								'headings_caps' => true,
+
+                                'accent_color'                    => '#68f3c8',
+                                'patch_header_links_active_color' => '#68f3c8',
+                                'main_content_body_link_color'    => '#68f3c8',
+
+								'main_content_body_text_color'    => '#45525a',
+
+								'blog_item_title_color'           => '#0e364f',
+								'main_content_page_title_color'   => '#0e364f',
+
+                                'main_content_heading_1_color'    => '#0e364f',
+								'main_content_heading_2_color'    => '#0e364f',
+								'main_content_heading_3_color'    => '#0e364f',
+								'main_content_heading_4_color'    => '#0e364f',
+								'main_content_heading_5_color'    => '#0e364f',
+								'main_content_heading_6_color'    => '#0e364f',
+
+								'patch_header_links_font'         => 'Permanent Marker',
+								'main_content_page_title_font'    => 'Permanent Marker',
+								'main_content_quote_block_font'   => 'Permanent Marker',
+								'blog_item_title_font'            => 'Permanent Marker',
+                                'main_content_heading_1_font'     => 'Permanent Marker',
+								'main_content_heading_2_font'     => 'Permanent Marker',
+								'main_content_heading_3_font'     => 'Permanent Marker',
+								'main_content_heading_4_font'     => 'Permanent Marker',
+								'main_content_heading_5_font'     => 'Droid Sans Mono',
+								'main_content_heading_6_font'     => 'Droid Sans Mono',
+								'main_content_body_text_font'     => 'Droid Sans Mono',
 							)
 						),
 
@@ -98,12 +142,35 @@ function patch_add_customify_options( $options ) {
 								'font-alt' => 'PT Serif',
 							),
 							'options' => array(
-								'accent_color' => '#8eb2c5',
-								'headings_color' => '#725c92',
-								'body_color' => '#6f8089',
-								'headings_font' => 'Abril Fatface',
-								'headings_caps' => false,
-								'body_font' => 'PT Serif',
+//								'headings_caps' => false,
+
+								'accent_color'                    => '#8eb2c5',
+								'patch_header_links_active_color' => '#8eb2c5',
+								'main_content_body_link_color'    => '#8eb2c5',
+
+								'main_content_body_text_color'    => '#6f8089',
+
+								'blog_item_title_color'           => '#725c92',
+								'main_content_page_title_color'   => '#725c92',
+
+								'main_content_heading_1_color'    => '#725c92',
+								'main_content_heading_2_color'    => '#725c92',
+								'main_content_heading_3_color'    => '#725c92',
+								'main_content_heading_4_color'    => '#725c92',
+								'main_content_heading_5_color'    => '#725c92',
+								'main_content_heading_6_color'    => '#725c92',
+
+								'patch_header_links_font'         => 'Abril Fatface',
+								'main_content_page_title_font'    => 'Abril Fatface',
+								'main_content_quote_block_font'   => 'Abril Fatface',
+								'blog_item_title_font'            => 'Abril Fatface',
+								'main_content_heading_1_font'     => 'Abril Fatface',
+								'main_content_heading_2_font'     => 'Abril Fatface',
+								'main_content_heading_3_font'     => 'Abril Fatface',
+								'main_content_heading_4_font'     => 'Abril Fatface',
+								'main_content_heading_5_font'     => 'PT Serif',
+								'main_content_heading_6_font'     => 'PT Serif',
+								'main_content_body_text_font'     => 'PT Serif',
 							)
 						),
 
@@ -117,12 +184,35 @@ function patch_add_customify_options( $options ) {
 								'font-alt' => 'Merriweather',
 							),
 							'options' => array(
-								'accent_color' => '#c17390',
-								'headings_color' => '#a33b61',
-								'body_color' => '#403b3c',
-								'headings_font' => 'Playfair Display',
-								'headings_caps' => false,
-								'body_font' => 'Merriweather',
+//								'headings_caps' => false,
+
+								'accent_color'                    => '#c17390',
+								'patch_header_links_active_color' => '#c17390',
+								'main_content_body_link_color'    => '#c17390',
+
+								'main_content_body_text_color'    => '#403b3c',
+
+								'blog_item_title_color'           => '#a33b61',
+								'main_content_page_title_color'   => '#a33b61',
+
+								'main_content_heading_1_color'    => '#a33b61',
+								'main_content_heading_2_color'    => '#a33b61',
+								'main_content_heading_3_color'    => '#a33b61',
+								'main_content_heading_4_color'    => '#a33b61',
+								'main_content_heading_5_color'    => '#a33b61',
+								'main_content_heading_6_color'    => '#a33b61',
+
+								'patch_header_links_font'         => 'Playfair Display',
+								'main_content_page_title_font'    => 'Playfair Display',
+								'main_content_quote_block_font'   => 'Playfair Display',
+								'blog_item_title_font'            => 'Playfair Display',
+								'main_content_heading_1_font'     => 'Playfair Display',
+								'main_content_heading_2_font'     => 'Playfair Display',
+								'main_content_heading_3_font'     => 'Playfair Display',
+								'main_content_heading_4_font'     => 'Playfair Display',
+								'main_content_heading_5_font'     => 'Merriweather',
+								'main_content_heading_6_font'     => 'Merriweather',
+								'main_content_body_text_font'     => 'Merriweather',
 							)
 						),
 						'carrot' => array(
@@ -135,12 +225,35 @@ function patch_add_customify_options( $options ) {
 								'font-alt' => 'PT Sans Narrow',
 							),
 							'options' => array(
-								'accent_color' => '#df421d',
-								'headings_color' => '#df421d',
-								'body_color' => '#7e7e7e',
-								'headings_font' => 'Oswald',
-								'headings_caps' => false,
-								'body_font' => 'PT Sans Narrow',
+//								'headings_caps' => false,
+
+								'accent_color'                    => '#df421d',
+								'patch_header_links_active_color' => '#df421d',
+								'main_content_body_link_color'    => '#df421d',
+
+								'main_content_body_text_color'    => '#7e7e7e',
+
+								'blog_item_title_color'           => '#df421d',
+								'main_content_page_title_color'   => '#df421d',
+
+								'main_content_heading_1_color'    => '#df421d',
+								'main_content_heading_2_color'    => '#df421d',
+								'main_content_heading_3_color'    => '#df421d',
+								'main_content_heading_4_color'    => '#df421d',
+								'main_content_heading_5_color'    => '#df421d',
+								'main_content_heading_6_color'    => '#df421d',
+
+								'patch_header_links_font'         => 'Oswald',
+								'main_content_page_title_font'    => 'Oswald',
+								'main_content_quote_block_font'   => 'Oswald',
+								'blog_item_title_font'            => 'Oswald',
+								'main_content_heading_1_font'     => 'Oswald',
+								'main_content_heading_2_font'     => 'Oswald',
+								'main_content_heading_3_font'     => 'Oswald',
+								'main_content_heading_4_font'     => 'Oswald',
+								'main_content_heading_5_font'     => 'PT Sans Narrow',
+								'main_content_heading_6_font'     => 'PT Sans Narrow',
+								'main_content_body_text_font'     => 'PT Sans Narrow',
 							)
 						),
 						'velvet' => array(
@@ -153,12 +266,35 @@ function patch_add_customify_options( $options ) {
 								'font-alt' => 'Josefin Sans',
 							),
 							'options' => array(
-								'accent_color' => '#000000',
-								'headings_color' => '#000000',
-								'body_color' => '#000000',
-								'headings_font' => 'Pinyon Script',
-								'headings_caps' => false,
-								'body_font' => 'Josefin Sans',
+//								'headings_caps' => false,
+
+								'accent_color'                    => '#000000',
+								'patch_header_links_active_color' => '#000000',
+								'main_content_body_link_color'    => '#000000',
+
+								'main_content_body_text_color'    => '#000000',
+
+								'blog_item_title_color'           => '#000000',
+								'main_content_page_title_color'   => '#000000',
+
+								'main_content_heading_1_color'    => '#000000',
+								'main_content_heading_2_color'    => '#000000',
+								'main_content_heading_3_color'    => '#000000',
+								'main_content_heading_4_color'    => '#000000',
+								'main_content_heading_5_color'    => '#000000',
+								'main_content_heading_6_color'    => '#000000',
+
+								'patch_header_links_font'         => 'Pinyon Script',
+								'main_content_page_title_font'    => 'Pinyon Script',
+								'main_content_quote_block_font'   => 'Pinyon Script',
+								'blog_item_title_font'            => 'Pinyon Script',
+								'main_content_heading_1_font'     => 'Pinyon Script',
+								'main_content_heading_2_font'     => 'Pinyon Script',
+								'main_content_heading_3_font'     => 'Pinyon Script',
+								'main_content_heading_4_font'     => 'Pinyon Script',
+								'main_content_heading_5_font'     => 'Josefin Sans',
+								'main_content_heading_6_font'     => 'Josefin Sans',
+								'main_content_body_text_font'     => 'Josefin Sans',
 							)
 						),
 
