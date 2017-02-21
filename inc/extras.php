@@ -424,7 +424,7 @@ class PatchWrapImagesInFigureCallback {
  * @return string
  */
 function patch_add_search_to_nav( $items, $args ) {
-	if( $args->theme_location == 'social' && ( ! get_theme_mod( 'patch_disable_search_in_social_menu', false ) ) ) {
+	if( $args->theme_location == 'social' && ( ! pixelgrade_option( 'patch_disable_search_in_social_menu', false ) ) ) {
 		$items .= '<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#search">' . __( 'Search', 'patch' ) . '</a></li>';
 	}
 	return $items;
@@ -603,4 +603,103 @@ function patch_add_classes_to_linked_images( $content ) {
 }
 
 add_filter('the_content', 'patch_add_classes_to_linked_images', 99, 1);
+
+// This function should come from Customify, but we need to do our best to make things happen
+if ( ! function_exists( 'pixelgrade_option') ) {
+	/**
+	 * Get option from the database
+	 *
+	 * @since Patch 1.3.0
+	 *
+	 * @param string $option The option name.
+	 * @param mixed $default Optional. The default value to return when the option was not found or saved.
+	 * @param bool $force_default Optional. When true, we will use the $default value provided for when the option was not saved at least once.
+	 *                          When false, we will let the option's default set value (in the Customify settings) kick in first, than our $default.
+	 *                          It basically, reverses the order of fallback, first the option's default, then our own.
+	 *                          This is ignored when $default is null.
+	 *
+	 * @return mixed
+	 */
+	function pixelgrade_option( $option, $default = null, $force_default = true ) {
+		/** @var PixCustomifyPlugin $pixcustomify_plugin */
+		global $pixcustomify_plugin;
+
+		// if there is set an key in url force that value
+		if ( isset( $_GET[ $option ] ) && ! empty( $option ) ) {
+
+			return wp_unslash( sanitize_text_field( $_GET[ $option ] ) );
+
+		} elseif ( $pixcustomify_plugin !== null ) {
+			// if there is a customify value get it here
+
+			// First we see if we are not supposed to force over the option's default value
+			if ( $default !== null && $force_default == false ) {
+				// We will not pass the default here so Customify will fallback on the option's default value, if set
+				$customify_value = $pixcustomify_plugin->get_option( $option );
+
+				// We only fallback on the $default if none was given from Customify
+				if ( $customify_value == null ) {
+					return $default;
+				}
+			} else {
+				$customify_value = $pixcustomify_plugin->get_option( $option, $default );
+			}
+
+			return $customify_value;
+		}
+
+		return $default;
+	}
+}
+
+/**
+ * Retrieve the classes for the portfolio wrapper as an array.
+ *
+ * @since Patch 1.3.0
+ *
+ * @param string|array $class Optional. One or more classes to add to the class list.
+ * @param string|array $location Optional. The place (template) where the classes are displayed. This is a hint for filters.
+ *
+ * @return array Array of classes.
+ */
+function patch_get_blog_class( $class = '' ) {
+
+	$classes = array();
+
+	$classes[] = 'grid';
+
+	// items per row
+	$items_per_row = intval( pixelgrade_option( "blog_items_per_row", 3 ) );
+	$items_per_row_at_huge = $items_per_row;
+	$items_per_row_at_desk = $items_per_row == 1 ? 1 : $items_per_row > 3 ? $items_per_row - 1 : $items_per_row;
+	$items_per_row_at_lap = $items_per_row_at_desk > 1 ? $items_per_row_at_desk - 1 : $items_per_row_at_desk;
+	$items_per_row_class = "grid--" . $items_per_row_at_huge . "col-@desk  grid--" . $items_per_row_at_desk . "col-@lap  grid--" . $items_per_row_at_lap . "col-@small";
+
+	$classes[] = $items_per_row_class;
+
+	if ( ! empty( $class ) ) {
+		if ( ! is_array( $class ) ) {
+			$class = preg_split( '#\s+#', $class );
+		}
+		$classes = array_merge( $classes, $class );
+	} else {
+		// Ensure that we always coerce class to being an array.
+		$class = array();
+	}
+
+	$classes = array_map( 'esc_attr', $classes );
+
+	return array_unique( $classes );
+}
+
+/**
+ * Display the classes for the blog wrapper.
+ *
+ * @param string|array $class Optional. One or more classes to add to the class list.
+ * @param string|array $location Optional. The place (template) where the classes are displayed. This is a hint for filters.
+ */
+function patch_blog_class( $class = '' ) {
+	// Separates classes with a single space, collates classes
+	echo 'class="' . join( ' ', patch_get_blog_class( $class ) ) . '"';
+}
 ?>

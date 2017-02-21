@@ -872,10 +872,10 @@ if (!Date.now)
                     return;
                 }
 
-                if (!$body.hasClass('has--fixed-sidebar')) {
-                    $sidebar.css('top', $header.offset().top + parseInt($header.outerHeight(), 10));
-                    $body.addClass('has--fixed-sidebar');
-                }
+                // if( !$body.hasClass('has--fixed-sidebar') ) {
+                $sidebar.css('top', $header.offset().top + parseInt($header.outerHeight(), 10));
+                $body.addClass('has--fixed-sidebar');
+                // }
 
             },
 

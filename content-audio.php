@@ -14,13 +14,7 @@ $media = apply_filters('embed_oembed_html', $media ); ?>
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<div class="entry-meta">
-
-			<?php patch_first_category(); ?>
-
-			<?php patch_posted_on(); ?>
-
-		</div><!-- .entry-meta -->
+		<div class="entry-meta"><?php patch_card_meta(); ?></div><!-- .entry-meta -->
 
 		<?php if ( ! empty( $media ) ) : ?>
 
@@ -40,9 +34,10 @@ $media = apply_filters('embed_oembed_html', $media ); ?>
 
 		<div <?php patch_post_excerpt_class(); ?>>
 
-			<?php the_excerpt(); ?>
+			<?php if ( true === pixelgrade_option( 'blog_items_excerpt_visibility' ) ) {
+				the_excerpt();
+			}
 
-			<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links"><span class="pagination-title">' . __( 'Pages:', 'patch' ),
 				'after'  => '</span></div>',

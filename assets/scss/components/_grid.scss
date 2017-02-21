@@ -11,99 +11,114 @@
 // 	}
 // }
 
-
 .site {
-	padding-top: 2.5*$gutter;
+    padding-top: 2.5*$gutter;
 
-	.admin-bar {
-		padding-top: 2.5*$gutter + 32px;
+    .admin-bar {
+        padding-top: 2.5*$gutter + 32px;
 
-		@media screen and (max-width: 782px) {
-			padding-top: 2.5*$gutter + 46px;			
-		}
-	}
+        @media screen and (max-width: 782px) {
+            padding-top: 2.5*$gutter + 46px;
+        }
+    }
 }
-	
 
 .site-main {
-	padding-bottom: 2.5*$gutter;
+    padding-bottom: 2.5*$gutter;
 }
 
 .layout-grid .site-content {
 
-	@include query-above($lap) {
-		padding-left: 1*$gutter;
-		padding-right: 1*$gutter;
-	}
+    @include query-above($lap) {
+        padding-left: 1*$gutter;
+        padding-right: 1*$gutter;
+    }
 
-	@include query-above(1360px) {
-		padding-left: 2.5*$gutter;
-		padding-right: 2.5*$gutter;
-	}
+    @include query-above(1360px) {
+        padding-left: 2.5*$gutter;
+        padding-right: 2.5*$gutter;
+    }
 }
-
 
 .grid,
 .pagination {
-	margin: 0 auto;
-	max-width: 400px;
+    margin: 0 auto;
+    max-width: 400px;
 
-	@include query-above(480px) {
-		max-width: 450px;
-	}
-
-	@include query-above($lap) {
-		max-width: 1000px;
-		margin-top: 0;
-	}
-
-	@include query-above(1260px) {
-		max-width: 1350px;
-	}
-
-	@include query-above(1700px) {
-		max-width: 1850px;
-	}
-}
-
-.grid {
-	@extend .clearfix;
-	position: relative;
-	transition: height .3s ease-in-out;
-	border-right: 0 solid transparent;
-}
-
-.grid__item {
-	width: 100%;
-	border-left: 0 solid transparent;
-	margin-bottom: 30px;
+    @include query-above(480px) {
+        max-width: 450px;
+    }
 
     @include query-above($lap) {
-		float: left;
-    	width: 50%;
-
-    	&:nth-child(1) {
-    		margin-top: 50px;
-    	}
+        max-width: 1000px;
+        margin-top: 0;
     }
 
     @include query-above(1260px) {
-    	width: 33.33%;
-
-    	&:nth-child(3) {
-    		margin-top: 50px;
-    	}
+        max-width: 1350px;
     }
 
     @include query-above(1700px) {
-    	width: 25%;
-
-		&:nth-child(4) {
-			// margin-top: 50px;
-		}
+        max-width: 1850px;
     }
 }
 
-.grid, .grid__item { 
-	border-color: rgba(yellow, 0.25);
+.grid {
+    @extend .clearfix;
+    position: relative;
+    transition: height .3s ease-in-out;
+    border-right: 0 solid transparent;
+}
+
+.grid__item {
+    width: 100%;
+    border-left: 0 solid transparent;
+    margin-bottom: 30px;
+
+    @include query-above($lap) {
+        float: left;
+
+        &:nth-child(1) {
+            margin-top: 50px;
+        }
+    }
+
+    @include query-above(1260px) {
+        &:nth-child(3) {
+            margin-top: 50px;
+        }
+    }
+
+    @include query-above(1700px) {
+        &:nth-child(4) {
+            // margin-top: 50px;
+        }
+    }
+}
+
+$grid-breakpoints: (
+        lap:  $lap,
+        desk: 1260px,
+        huge: 1700px,
+);
+
+@for $i from 1 through 9 {
+    .grid--#{$i}-col > * {
+        width: percentage(1/$i);
+    }
+}
+
+@each $breakpoint, $value in $grid-breakpoints {
+    @media only screen and (min-width: $value) {
+        @for $i from 1 through 9 {
+            .grid--#{$i}col-\@#{$breakpoint} > * {
+                width: percentage(1/$i);
+            }
+        }
+    }
+}
+
+.grid,
+.grid__item {
+    border-color: rgba(yellow, 0.25);
 }

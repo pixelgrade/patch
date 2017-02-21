@@ -49,7 +49,7 @@ if ( ! function_exists( 'patch_posted_on' ) ) :
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( $author_name ) . '</a></span>'
 		);
 
-		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>';
+		return '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>';
 
 	} #function
 
@@ -177,6 +177,7 @@ endif;
  * The most important category of a post
  *
  * @param int|WP_Post $post_ID Optional. Post ID or post object.
+ * @return string
  */
 function patch_first_category( $post_ID = null ) {
 	global $wp_rewrite;
@@ -188,7 +189,7 @@ function patch_first_category( $post_ID = null ) {
 
 	//obviously pages don't have categories
 	if ( 'page' == get_post_type( $post_ID ) ) {
-		return;
+		return null;
 	}
 
 	//first get all categories ordered by count
@@ -211,10 +212,79 @@ function patch_first_category( $post_ID = null ) {
 		$category = array_shift( $categories );
 		$rel = ( is_object( $wp_rewrite ) && $wp_rewrite->using_permalinks() ) ? 'rel="category tag"' : 'rel="category"';
 
-		echo '<span class="cat-links"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '" ' . $rel . '>' . $category->name . '</a></span>';
+		return '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" ' . $rel . '>' . $category->name . '</a>';
 	}
 
 } #function
+
+function patch_first_tag( $post_ID = null ) {
+	global $wp_rewrite;
+
+	//use the current post ID is none given
+	if ( empty( $post_ID ) ) {
+		$post_ID = get_the_ID();
+	}
+
+	//obviously pages don't have categories
+	if ( 'page' == get_post_type( $post_ID ) ) {
+		return null;
+	}
+
+	//first get all categories ordered by count
+	$tags = wp_get_post_tags( $post_ID,  array(
+		'orderby' => 'count',
+		'order' => 'DESC',
+	) );
+
+	if ( ! empty ( $tags ) ) {
+		$category = array_shift( $tags );
+		$rel = ( is_object( $wp_rewrite ) && $wp_rewrite->using_permalinks() ) ? 'rel="category tag"' : 'rel="tag"';
+
+		return '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" ' . $rel . '>' . $category->name . '</a>';
+	}
+
+} #function
+
+
+function patch_card_meta ( $post_id = NULL ) {
+	$meta = array();
+
+
+	$meta['category'] = patch_first_category();
+	$meta['tag'] = patch_first_tag();
+	$meta['author'] = get_the_author();
+	$meta['date'] = get_the_time( 'j F' );
+
+	$comments_number = get_comments_number(); // get_comments_number() returns only a numeric value
+
+	if ( comments_open() ) {
+		if ( $comments_number == 0 ) {
+			$comments = esc_html__( 'No Comments', 'osteria' );
+		} else {
+			$comments = sprintf( _n( '%d Comment', '%d Comments', $comments_number, 'osteria' ), $comments_number );
+		}
+		$meta['comments'] = '<a href="' . esc_url( get_comments_link() ) .'">' . esc_html( $comments ) . '</a>';
+	} else {
+		$meta['comments'] = '';
+	}
+
+	$blog_items_primary_meta = pixelgrade_option( 'blog_items_primary_meta', 'category', false );
+	if ( $blog_items_primary_meta !== 'none' && ! empty( $meta[ $blog_items_primary_meta ] ) ) {
+		echo '<span class="cat-links">' . $meta[ $blog_items_primary_meta ] . '</span>';
+	}
+
+	$meta['author_date'] = patch_posted_on();
+	$meta['category_secondary'] = '<span class="byline">' . $meta['category'] . '</span>';
+	$meta['tag_secondary'] = '<span class="byline">' . $meta['tag'] . '</span>';
+	$meta['author_secondary'] = '<span class="byline">' . $meta['author'] . '</span>';
+	$meta['date_secondary'] = '<span class="byline">' . $meta['date'] . '</span>';
+	$meta['comments_secondary'] = '<span class="byline">' . $meta['comments'] . '</span>';
+
+	$blog_items_secondary_meta = pixelgrade_option( 'blog_items_secondary_meta', 'date', false );
+	if ( $blog_items_secondary_meta !== 'none' && ! empty( $meta[ $blog_items_secondary_meta ] ) ) {
+		echo $meta[ $blog_items_secondary_meta ];
+	}
+}
 
 function patch_compare_categories( $a1, $a2 ) {
 	if ( $a1->term_id == $a2->term_id ) {

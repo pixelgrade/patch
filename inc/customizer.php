@@ -18,6 +18,17 @@ function patch_customize_register( $wp_customize ) {
 	// Rename the label to "Display Site Title & Tagline" in order to make this option clearer.
 	$wp_customize->get_control( 'display_header_text' )->label = __( 'Display Site Title &amp; Tagline', 'patch' );
 
+	$wp_customize->add_section( 'title_tagline' , array(
+		'title'		=> __( 'Site Title &amp; Logo', 'patch' ),
+		'priority'	=> 20,
+	));
+
+	$wp_customize->get_control( 'blogname' )->priority = 1;
+	$wp_customize->get_control( 'blogdescription' )->priority = 1;
+	$wp_customize->get_control( 'header_text' )->priority = 1;
+	$wp_customize->get_control( 'custom_logo' )->description = __('Upload a logo image to replace the Site Title and personalize it with your branding. Use the Header section to adjust its size.', 'patch');
+
+
 	/*
 	 * Add custom settings
 	 */
@@ -27,16 +38,10 @@ function patch_customize_register( $wp_customize ) {
 		'priority'          => 30,
 	) );
 
-	$wp_customize->add_setting( 'patch_disable_search_in_social_menu', array(
-		'default'           => '',
-		'sanitize_callback' => 'patch_sanitize_checkbox',
-	) );
-
-	$wp_customize->add_control( 'patch_disable_search_in_social_menu', array(
-		'label'             => __( 'Hide search button in Social Menu.', 'patch' ),
-		'section'           => 'patch_theme_options',
-		'type'              => 'checkbox',
-	) );
+//	$wp_customize->add_setting( 'patch_disable_search_in_social_menu', array(
+//		'default'           => '',
+//		'sanitize_callback' => 'patch_sanitize_checkbox',
+//	) );
 
 	$wp_customize->add_setting( 'patch_hide_author_bio', array(
 		'default'           => '',
@@ -47,11 +52,6 @@ function patch_customize_register( $wp_customize ) {
 		'label'             => __( 'Hide the author bio on single posts.', 'patch' ),
 		'section'           => 'patch_theme_options',
 		'type'              => 'checkbox',
-	) );
-
-	$wp_customize->add_setting( 'patch_footer_copyright', array(
-		'default'           => '',
-		'sanitize_callback' => 'wp_kses_post',
 	) );
 
 	$wp_customize->add_control( 'patch_footer_copyright', array(

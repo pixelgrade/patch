@@ -11,13 +11,7 @@
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<div class="entry-meta">
-
-			<?php patch_first_category(); ?>
-
-			<?php patch_posted_on(); ?>
-
-		</div><!-- .entry-meta -->
+		<div class="entry-meta"><?php patch_card_meta(); ?></div><!-- .entry-meta -->
 
 		<?php if ( has_post_thumbnail() ) : ?>
 
@@ -55,9 +49,10 @@
 
 		<div <?php patch_post_excerpt_class(); ?>>
 
-			<?php patch_post_excerpt(); ?>
+			<?php if ( true === pixelgrade_option( 'blog_items_excerpt_visibility' ) ) {
+				patch_post_excerpt();
+			}
 
-			<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links"><span class="pagination-title">' . __( 'Pages:', 'patch' ),
 				'after'  => '</span></div>',

@@ -91,7 +91,7 @@ $cards-gutter: $gutter;
 
 			.rtl & {
 				@include _("col-right-1");
-				@include _("col-left-3");				
+				@include _("col-left-3");
 			}
 		}
 
@@ -769,11 +769,6 @@ $cards-gutter: $gutter;
 
 // TEXT
 .entry-card--text {
-
-	.entry-header .entry-title {
-
-	}
-
 	.entry-header--short .entry-title {
 		@extend %fs-42;
 	}
