@@ -113,6 +113,9 @@ gulp.task('build', ['copy-folder'], function () {
 		'**/.DS_Store',
 		'__MACOSX',
 		'**/__MACOSX',
+		'tests',
+		'circle.yml',
+		'circle_scripts',
 		'README.md'
 	];
 
