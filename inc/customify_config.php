@@ -383,7 +383,7 @@ function patch_add_customify_options( $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.site-header a',
+							'selector' => '.site-header a, .nav--social a:before',
 						),
 					),
 				),
@@ -395,7 +395,7 @@ function patch_add_customify_options( $options ) {
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.nav--main li:hover > a',
+							'selector' => '.nav--main li:hover > a, .nav--social.nav--social a:hover:before',
 						),
 					),
 				),

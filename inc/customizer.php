@@ -38,11 +38,6 @@ function patch_customize_register( $wp_customize ) {
 		'priority'          => 30,
 	) );
 
-//	$wp_customize->add_setting( 'patch_disable_search_in_social_menu', array(
-//		'default'           => '',
-//		'sanitize_callback' => 'patch_sanitize_checkbox',
-//	) );
-
 	$wp_customize->add_setting( 'patch_hide_author_bio', array(
 		'default'           => '',
 		'sanitize_callback' => 'patch_sanitize_checkbox',

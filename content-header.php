@@ -57,6 +57,8 @@
 			'theme_location' => 'social',
 			'container'      => '',
 			'menu_class'     => 'nav nav--social',
+			'link_before'     => '<span class="screen-reader-text">',
+			'link_after'      => '</span>',
 			'fallback_cb' => false,
 		) ); ?>
 
