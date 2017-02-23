@@ -2939,6 +2939,11 @@ button.mfp-arrow-right {
 	display: block;
 }
 
+.site-logo img,
+.custom-logo-link img {
+	width: auto;
+}
+
 .nav--main {
 	font-size: 24px;
 	line-height: 1.5;
