@@ -1735,37 +1735,6 @@ button.mfp-arrow-right {
 	}
 }
 
-.grid,
-.pagination {
-	margin: 0 auto;
-	max-width: 400px;
-}
-@media only screen and (min-width: 480px) {
-	.grid,
-	.pagination {
-		max-width: 450px;
-	}
-}
-@media only screen and (min-width: 900px) {
-	.grid,
-	.pagination {
-		margin-top: 0; 
-		max-width: 1000px;
-	}
-}
-@media only screen and (min-width: 1260px) {
-	.grid,
-	.pagination {
-		max-width: 1350px;
-	}
-}
-@media only screen and (min-width: 1700px) {
-	.grid,
-	.pagination {
-		max-width: 1850px;
-	}
-}
-
 .grid {
 	border-right: 0 solid transparent; 
 	position: relative;
@@ -1788,6 +1757,18 @@ button.mfp-arrow-right {
 @media only screen and (min-width: 1260px) {
 	.grid__item:nth-child(3) {
 		margin-top: 50px;
+	}
+}
+
+.grid,
+.pagination {
+	margin: 0 auto;
+	max-width: 400px;
+}
+@media only screen and (min-width: 900px) {
+	.grid,
+	.pagination {
+		margin-top: 0;
 	}
 }
 
@@ -1828,29 +1809,56 @@ button.mfp-arrow-right {
 }
 
 @media only screen and (min-width: 900px) {
+	.grid--1col-\@lap {
+		max-width: 450px;
+	}
 	.grid--1col-\@lap > * {
 		width: 100%;
+	}
+	.grid--2col-\@lap {
+		max-width: 900px;
 	}
 	.grid--2col-\@lap > * {
 		width: 50%;
 	}
+	.grid--3col-\@lap {
+		max-width: 1350px;
+	}
 	.grid--3col-\@lap > * {
 		width: 33.33333%;
+	}
+	.grid--4col-\@lap {
+		max-width: 1800px;
 	}
 	.grid--4col-\@lap > * {
 		width: 25%;
 	}
+	.grid--5col-\@lap {
+		max-width: 2250px;
+	}
 	.grid--5col-\@lap > * {
 		width: 20%;
+	}
+	.grid--6col-\@lap {
+		max-width: 2700px;
 	}
 	.grid--6col-\@lap > * {
 		width: 16.66667%;
 	}
+	.grid--7col-\@lap {
+		max-width: 3150px;
+	}
 	.grid--7col-\@lap > * {
 		width: 14.28571%;
 	}
+	.grid--8col-\@lap {
+		max-width: 3600px;
+	}
 	.grid--8col-\@lap > * {
 		width: 12.5%;
+	}
+	.grid--9col-\@lap {
+		max-width: 4050px;
 	}
 	.grid--9col-\@lap > * {
 		width: 11.11111%;
@@ -1858,29 +1866,56 @@ button.mfp-arrow-right {
 }
 
 @media only screen and (min-width: 1260px) {
+	.grid--1col-\@desk {
+		max-width: 450px;
+	}
 	.grid--1col-\@desk > * {
 		width: 100%;
+	}
+	.grid--2col-\@desk {
+		max-width: 900px;
 	}
 	.grid--2col-\@desk > * {
 		width: 50%;
 	}
+	.grid--3col-\@desk {
+		max-width: 1350px;
+	}
 	.grid--3col-\@desk > * {
 		width: 33.33333%;
+	}
+	.grid--4col-\@desk {
+		max-width: 1800px;
 	}
 	.grid--4col-\@desk > * {
 		width: 25%;
 	}
+	.grid--5col-\@desk {
+		max-width: 2250px;
+	}
 	.grid--5col-\@desk > * {
 		width: 20%;
+	}
+	.grid--6col-\@desk {
+		max-width: 2700px;
 	}
 	.grid--6col-\@desk > * {
 		width: 16.66667%;
 	}
+	.grid--7col-\@desk {
+		max-width: 3150px;
+	}
 	.grid--7col-\@desk > * {
 		width: 14.28571%;
 	}
+	.grid--8col-\@desk {
+		max-width: 3600px;
+	}
 	.grid--8col-\@desk > * {
 		width: 12.5%;
+	}
+	.grid--9col-\@desk {
+		max-width: 4050px;
 	}
 	.grid--9col-\@desk > * {
 		width: 11.11111%;
@@ -1888,29 +1923,56 @@ button.mfp-arrow-right {
 }
 
 @media only screen and (min-width: 1700px) {
+	.grid--1col-\@huge {
+		max-width: 450px;
+	}
 	.grid--1col-\@huge > * {
 		width: 100%;
+	}
+	.grid--2col-\@huge {
+		max-width: 900px;
 	}
 	.grid--2col-\@huge > * {
 		width: 50%;
 	}
+	.grid--3col-\@huge {
+		max-width: 1350px;
+	}
 	.grid--3col-\@huge > * {
 		width: 33.33333%;
+	}
+	.grid--4col-\@huge {
+		max-width: 1800px;
 	}
 	.grid--4col-\@huge > * {
 		width: 25%;
 	}
+	.grid--5col-\@huge {
+		max-width: 2250px;
+	}
 	.grid--5col-\@huge > * {
 		width: 20%;
+	}
+	.grid--6col-\@huge {
+		max-width: 2700px;
 	}
 	.grid--6col-\@huge > * {
 		width: 16.66667%;
 	}
+	.grid--7col-\@huge {
+		max-width: 3150px;
+	}
 	.grid--7col-\@huge > * {
 		width: 14.28571%;
 	}
+	.grid--8col-\@huge {
+		max-width: 3600px;
+	}
 	.grid--8col-\@huge > * {
 		width: 12.5%;
+	}
+	.grid--9col-\@huge {
+		max-width: 4050px;
 	}
 	.grid--9col-\@huge > * {
 		width: 11.11111%;
@@ -2298,13 +2360,24 @@ button.mfp-arrow-right {
 	}
 }
 
+.grid {
+	border-left: 24px solid transparent;
+}
+
+.site-branding,
+.nav--main,
+.nav--social {
+	margin: 0 96px 24px 24px;
+}
+
+.site-branding {
+	margin-right: 96px;
+}
+
 @media (min-width: 480px) {
 	#infinite-handle,
 	.infinite-loader {
 		margin-left: -12px;
-	}
-	.grid {
-		border-left: 24px solid transparent;
 	}
 	.layout-grid .site-header {
 		padding-right: 24px;
@@ -2458,13 +2531,24 @@ button.mfp-arrow-right {
 	}
 }
 
+.grid {
+	border-left: 30px solid transparent;
+}
+
+.site-branding,
+.nav--main,
+.nav--social {
+	margin: 0 120px 30px 30px;
+}
+
+.site-branding {
+	margin-right: 120px;
+}
+
 @media (min-width: 1450px) {
 	#infinite-handle,
 	.infinite-loader {
 		margin-left: -12px;
-	}
-	.grid {
-		border-left: 24px solid transparent;
 	}
 	.layout-grid .site-header {
 		padding-right: 24px;
@@ -2896,17 +2980,6 @@ button.mfp-arrow-right {
 .site-header a {
 	color: black;
 	text-decoration: none;
-}
-
-@media only screen and (min-width: 900px) {
-	.site-branding,
-	.nav--main,
-	.nav--social {
-		margin: 0 96px 24px 24px;
-	}
-	.site-branding {
-		margin-right: 96px;
-	}
 }
 
 .site-title {

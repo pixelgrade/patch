@@ -19,18 +19,6 @@
 	}
 }
 
-@include query-above($lap) {
-	.site-branding,
-	.nav--main,
-	.nav--social {
-		margin: 0 4*$gutter $gutter $gutter;
-	}
-
-	.site-branding {
-		margin-right: 4*$gutter;
-	}
-}
-
 .site-title {
 	margin: 0 0 0 -3px;
 	font-size: 30px;

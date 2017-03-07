@@ -40,29 +40,6 @@
     }
 }
 
-.grid,
-.pagination {
-    margin: 0 auto;
-    max-width: 400px;
-
-    @include query-above(480px) {
-        max-width: 450px;
-    }
-
-    @include query-above($lap) {
-        max-width: 1000px;
-        margin-top: 0;
-    }
-
-    @include query-above(1260px) {
-        max-width: 1350px;
-    }
-
-    @include query-above(1700px) {
-        max-width: 1850px;
-    }
-}
-
 .grid {
     @extend .clearfix;
     position: relative;
@@ -96,10 +73,20 @@
     }
 }
 
+.grid,
+.pagination {
+    margin: 0 auto;
+    max-width: 400px;
+
+    @include query-above($lap) {
+        margin-top: 0; // ??
+    }
+}
+
 $grid-breakpoints: (
-        lap:  $lap,
-        desk: 1260px,
-        huge: 1700px,
+    lap:    $lap,
+    desk:   1260px,
+    huge:   1700px,
 );
 
 @for $i from 1 through 9 {
@@ -111,6 +98,10 @@ $grid-breakpoints: (
 @each $breakpoint, $value in $grid-breakpoints {
     @media only screen and (min-width: $value) {
         @for $i from 1 through 9 {
+            .grid--#{$i}col-\@#{$breakpoint} {
+                max-width: $i * 450px;
+            }
+
             .grid--#{$i}col-\@#{$breakpoint} > * {
                 width: percentage(1/$i);
             }

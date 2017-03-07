@@ -791,8 +791,8 @@ function patch_add_customify_options( $options ) {
 					// Set the defaults
 					'default'  => array(
 						'font-family'    => 'Oswald',
-						'font-weight'    => '500',
-						'letter-spacing' => 0.174,
+						'font-weight'    => 'regular',
+						'letter-spacing' => 0.04,
 						'text-transform' => 'uppercase'
 					),
 
@@ -1211,18 +1211,11 @@ function patch_add_customify_options( $options ) {
 					'label'       => esc_html__( 'Items per Row', 'patch' ),
 					'desc'        => esc_html__( 'Set the desktop-based number of columns you want and we automatically make it right for other screen sizes.', 'patch' ),
 					'live'        => false,
-					'default'     => 3,
+					'default'     => 4,
 					'input_attrs' => array(
 						'min'  => 1,
 						'max'  => 6,
 						'step' => 1,
-					),
-					'css'         => array(
-						array(
-							'property'        => 'dummy',
-							'selector'        => '.dummy',
-							'unit'            => 'px',
-						),
 					),
 				),
 
