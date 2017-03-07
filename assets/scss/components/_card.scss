@@ -67,21 +67,21 @@ $cards-gutter: $gutter;
 	@include placeholder("col-right-p1", $col) { padding-right: $col }
 	@include placeholder("col-right-p2", $col) { padding-right: 2*$col }
 
-    .grid {
-        border-left: $col solid transparent;
-    }
-
-    .site-branding,
-    .nav--main,
-    .nav--social {
-        margin: 0 4*$col $col $col;
-    }
-
-    .site-branding {
-        margin-right: 4*$col;
-    }
-
 	@include breakpoint($breakpoint) {
+
+        .grid {
+            border-left: $gutter solid transparent;
+        }
+
+        .site-branding,
+        .nav--main,
+        .nav--social {
+            margin: 0 4*$gutter $gutter $gutter;
+        }
+
+        .site-branding {
+            margin-right: 4*$gutter;
+        }
 
 		#infinite-handle, .infinite-loader {
 			margin-left: -$gutter / 2;

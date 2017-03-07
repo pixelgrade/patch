@@ -2360,21 +2360,18 @@ button.mfp-arrow-right {
 	}
 }
 
-.grid {
-	border-left: 24px solid transparent;
-}
-
-.site-branding,
-.nav--main,
-.nav--social {
-	margin: 0 96px 24px 24px;
-}
-
-.site-branding {
-	margin-right: 96px;
-}
-
 @media (min-width: 480px) {
+	.grid {
+		border-left: 24px solid transparent;
+	}
+	.site-branding,
+	.nav--main,
+	.nav--social {
+		margin: 0 96px 24px 24px;
+	}
+	.site-branding {
+		margin-right: 96px;
+	}
 	#infinite-handle,
 	.infinite-loader {
 		margin-left: -12px;
@@ -2531,21 +2528,18 @@ button.mfp-arrow-right {
 	}
 }
 
-.grid {
-	border-left: 30px solid transparent;
-}
-
-.site-branding,
-.nav--main,
-.nav--social {
-	margin: 0 120px 30px 30px;
-}
-
-.site-branding {
-	margin-right: 120px;
-}
-
 @media (min-width: 1450px) {
+	.grid {
+		border-left: 24px solid transparent;
+	}
+	.site-branding,
+	.nav--main,
+	.nav--social {
+		margin: 0 96px 24px 24px;
+	}
+	.site-branding {
+		margin-right: 96px;
+	}
 	#infinite-handle,
 	.infinite-loader {
 		margin-left: -12px;

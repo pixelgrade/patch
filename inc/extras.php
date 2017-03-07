@@ -670,10 +670,9 @@ function patch_get_blog_class( $class = '' ) {
 
 	// items per row
 	$items_per_row = intval( pixelgrade_option( "blog_items_per_row", 4 ) );
-	$items_per_row_at_huge = $items_per_row;
 	$items_per_row_at_desk = min( max($items_per_row - 1, 1), 4);
 	$items_per_row_at_lap = min( max($items_per_row - 2, 1), 3);
-	$items_per_row_class = "grid--" . $items_per_row_at_huge . "col-@huge  grid--" . $items_per_row_at_desk . "col-@desk  grid--" . $items_per_row_at_lap . "col-@lap";
+	$items_per_row_class = "grid--" . $items_per_row . "col-@huge  grid--" . $items_per_row_at_desk . "col-@desk  grid--" . $items_per_row_at_lap . "col-@lap";
 
 	$classes[] = $items_per_row_class;
 
