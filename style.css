@@ -3155,9 +3155,6 @@ button.mfp-arrow-right {
 }
 
 @media screen and (max-width: 600px) {
-	.admin-bar .main-navigation {
-		position: absolute;
-	}
 	.grid.grid {
 		position: static;
 	}
