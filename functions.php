@@ -244,6 +244,11 @@ function patch_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'patch_scripts' );
 
+function patch_responsive_videos_setup() {
+	add_theme_support( 'jetpack-responsive-videos' );
+}
+add_action( 'after_setup_theme', 'patch_responsive_videos_setup' );
+
 /* Automagical updates */
 function wupdates_check_JlplJ( $transient ) {
 	// Nothing to do here if the checked transient entry is empty

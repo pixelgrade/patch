@@ -1311,7 +1311,8 @@ function patch_add_customify_options( $options ) {
 					// Set the defaults
 					'default'  => array(
 						'font-family'    => 'Oswald',
-						'letter-spacing' => 0,
+						'font-weight'    => 'regular',
+						'letter-spacing' => 0.04,
 						'text-transform' => 'uppercase'
 					),
 
