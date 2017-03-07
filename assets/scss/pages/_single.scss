@@ -177,28 +177,24 @@
 
 	.entry-header {
 		@include rhythm(margin-bottom, 2);
-	}
-	.entry-title {
-		margin: 0;
-	}
-
-	.entry-meta {
-		position: static;
 
 		@include query-above($lap) {
 			overflow: hidden;
 		}
 	}
 
+	.entry-title {
+		margin: 0;
+	}
+
+	.entry-meta {
+		position: static;
+	}
+
 	.entry-meta > * {
 		display: inline-block;
 		margin-bottom: 5px;
 	}
-
-//	&.single-format-video .entry-featured.entry-featured {
-//		margin-left: 0;
-//		margin-right: 0;
-//	}
 }
 
 .page-links {

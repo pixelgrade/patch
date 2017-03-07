@@ -450,27 +450,7 @@ function patch_add_customify_options( $options ) {
 					'type' => 'html',
 					'html' => '<span id="section-title-main-layout" class="separator section label large">&#x1f4d0; ' . esc_html__( 'Layout', 'patch' ) . '</span>',
 				),
-				'main_content_container_width'          => array(
-					'type'        => 'range',
-					'label'       => esc_html__( 'Site Container Max Width', 'patch' ),
-					'desc'        => esc_html__( 'Adjust the max width of your site content area.', 'patch' ),
-					'live'        => true,
-					'default'     => 1750,
-					'input_attrs' => array(
-						'min'          => 600,
-						'max'          => 2600,
-						'step'         => 10,
-						'data-preview' => true,
-					),
-					'css'         => array(
-						array(
-							'property' => 'max-width',
-							'selector' => '.single #page',
-							'unit'     => 'px',
-						),
-					),
-				),
-				'container_max_width' => array(
+				'content_width' => array(
 					'type' => 'range',
 					'label' => esc_html__( 'Content Width', 'patch' ),
 					'desc' => esc_html__( 'Decrease the width of your content to create an inset area for your text. The inset size will be the space between Site Container and Content.', 'patch' ),

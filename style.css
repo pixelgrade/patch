@@ -5138,6 +5138,12 @@ div#jp-post-flair {
 .page:not(.entry-card) .entry-header {
 	margin-bottom: 1.5em;
 }
+@media only screen and (min-width: 900px) {
+	.single .entry-header,
+	.page:not(.entry-card) .entry-header {
+		overflow: hidden;
+	}
+}
 
 .single .entry-title,
 .page:not(.entry-card) .entry-title {
@@ -5147,12 +5153,6 @@ div#jp-post-flair {
 .single .entry-meta,
 .page:not(.entry-card) .entry-meta {
 	position: static;
-}
-@media only screen and (min-width: 900px) {
-	.single .entry-meta,
-	.page:not(.entry-card) .entry-meta {
-		overflow: hidden;
-	}
 }
 
 .single .entry-meta > *,
