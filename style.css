@@ -2027,6 +2027,22 @@ button.mfp-arrow-right {
 		margin-right: 24px;
 	}
 }
+.entry-card .jetpack-video-wrapper {
+	margin-bottom: 0;
+}
+.entry-card .entry-media {
+	padding-top: 56.25%;
+	position: relative;
+	/* 16:9 */
+}
+.entry-card .entry-media iframe {
+	display: block;
+	height: 100%; 
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
 .entry-card .entry-meta {
 	font-size: 11px;
 	font-weight: 400;
