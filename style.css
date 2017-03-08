@@ -1019,14 +1019,14 @@ h5 {
 /**
  *   4.1 - Theme specific classes
 */
-.intro {
+.intro.intro {
 	font-size: 1.125rem;
 	font-weight: 500;
 	-webkit-font-smoothing: antialiased; 
 	line-height: 1.75;
 }
 @media not screen and (min-width: 900px) {
-	.intro {
+	.intro.intro {
 		color: #000000; 
 		font-size: 1.2em;
 	}
