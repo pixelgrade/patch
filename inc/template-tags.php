@@ -14,43 +14,54 @@ if ( ! function_exists( 'patch_posted_on' ) ) :
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
 	function patch_posted_on() {
-
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time><time class="updated" hidden datetime="%4$s">%5$s</time>';
-		}
-
-		$date_format = ''; //use the format set in Settings > General
-
-		if ( ! is_single() ) {
-			//on home and archives, due to the layout, we need a shorter date format so it won't jump on a second line
-			$date_format = 'M j, Y';
-		}
-
-		$time_string = sprintf( $time_string,
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date( $date_format ) ),
-			esc_html( get_the_time() ),
-			esc_attr( get_the_modified_date( 'c' ) ),
-			esc_html( get_the_modified_date() )
-		);
-
-		$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
-
-		$author_name = get_the_author();
-
-		if ( ! is_single() ) {
-			//on home and archive pages we will use only the first name so we avoid having 2 lines in the byline
-			$author_name = patch_get_author_first_name();
-		}
-
-		$byline = sprintf(
-			_x( 'by %s', 'post author', 'patch' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( $author_name ) . '</a></span>'
-		);
-
-		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>';
+		echo patch_get_posted_on();
 	} #function
+
+endif;
+
+if ( ! function_exists( 'patch_get_posted_on' ) ) :
+
+    /**
+     * Returns HTML with meta information for the current post-date/time and author.
+     */
+    function patch_get_posted_on() {
+
+        $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time>';
+        if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+            $time_string = '<time class="entry-date published" datetime="%1$s">%2$s<span class="entry-time">%3$s</span></time><time class="updated" hidden datetime="%4$s">%5$s</time>';
+        }
+
+        $date_format = ''; //use the format set in Settings > General
+
+        if ( ! is_single() ) {
+            //on home and archives, due to the layout, we need a shorter date format so it won't jump on a second line
+            $date_format = 'M j, Y';
+        }
+
+        $time_string = sprintf( $time_string,
+                esc_attr( get_the_date( 'c' ) ),
+                esc_html( get_the_date( $date_format ) ),
+                esc_html( get_the_time() ),
+                esc_attr( get_the_modified_date( 'c' ) ),
+                esc_html( get_the_modified_date() )
+        );
+
+        $posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
+
+        $author_name = get_the_author();
+
+        if ( ! is_single() ) {
+            //on home and archive pages we will use only the first name so we avoid having 2 lines in the byline
+            $author_name = patch_get_author_first_name();
+        }
+
+        $byline = sprintf(
+                _x( 'by %s', 'post author', 'patch' ),
+                '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( $author_name ) . '</a></span>'
+        );
+
+        return '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>';
+    } #function
 
 endif;
 
@@ -248,11 +259,11 @@ function patch_first_tag( $post_ID = null ) {
 function patch_card_meta ( $post_id = NULL ) {
 	$meta = array();
 
-
 	$meta['category'] = patch_first_category();
 	$meta['tag'] = patch_first_tag();
 	$meta['author'] = get_the_author();
 	$meta['date'] = get_the_time( 'j F' );
+    $meta['author_date'] = patch_get_posted_on();
 
 	$comments_number = get_comments_number(); // get_comments_number() returns only a numeric value
 
@@ -272,7 +283,6 @@ function patch_card_meta ( $post_id = NULL ) {
 		echo '<span class="cat-links">' . $meta[ $blog_items_primary_meta ] . '</span>';
 	}
 
-	$meta['author_date'] = patch_posted_on();
 	$meta['category_secondary'] = '<span class="byline">' . $meta['category'] . '</span>';
 	$meta['tag_secondary'] = '<span class="byline">' . $meta['tag'] . '</span>';
 	$meta['author_secondary'] = '<span class="byline">' . $meta['author'] . '</span>';
@@ -280,6 +290,7 @@ function patch_card_meta ( $post_id = NULL ) {
 	$meta['comments_secondary'] = '<span class="byline">' . $meta['comments'] . '</span>';
 
 	$blog_items_secondary_meta = pixelgrade_option( 'blog_items_secondary_meta', 'date', false );
+
 	if ( $blog_items_secondary_meta !== 'none' && ! empty( $meta[ $blog_items_secondary_meta ] ) ) {
 		echo $meta[ $blog_items_secondary_meta ];
 	}
