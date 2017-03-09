@@ -793,7 +793,7 @@ function patch_add_customify_options( $options ) {
 					'type'     => 'font',
 					'label'    => esc_html__( 'Body Text Font', 'patch' ),
 					'desc'     => esc_html__( '', 'patch' ),
-					'selector' => 'body, .entry-content p, .comment-content p',
+					'selector' => 'body',
 
 					// Set the defaults
 					'default'  => array(
