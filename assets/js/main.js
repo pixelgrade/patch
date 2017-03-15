@@ -955,10 +955,15 @@ if (!Date.now)
         requestTick();
     });
 
+    // This function is used to readjust the layout of archive pages after facebook video embeds loaded
+    // It is based on the MutationObserver API so it can be extended to handle other DOM manipulations when no events are available
     (function() {
-        var observer, config;
+        var MutationObserver = window.MutationObserver,
+            observer, config;
 
-        if (typeof MutationObserver === "undefined") return;
+        if (typeof MutationObserver === "undefined") {
+            return;
+        }
 
         observer = new MutationObserver(function(mutations) {
             mutations.forEach(function(mutation) {
@@ -985,7 +990,6 @@ if (!Date.now)
         $(".grid .fb-video").each(function() {
             observer.observe(this, config);
         });
-
     })();
 
     /* ====== HELPER FUNCTIONS ====== */
