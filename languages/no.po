@@ -1,119 +1,119 @@
-# Translation of WordPress.com - Themes - Patch in Hungarian
+# Translation of WordPress.com - Themes - Patch in Norwegian
 # This file is distributed under the same license as the WordPress.com - Themes - Patch package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-03-02 19:01:28+0000\n"
+"PO-Revision-Date: 2016-12-22 15:35:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
-"Language: hu\n"
+"X-Generator: GlotPress/2.3.0-alpha\n"
+"Language: no\n"
 "Project-Id-Version: WordPress.com - Themes - Patch\n"
 
 #: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
-msgstr "Következő "
+msgstr "Neste"
 
 #: inc/template-tags.php:1027 inc/template-tags.php:1037
 msgid "Previous"
-msgstr "Előző"
+msgstr "Forrige"
 
 #: inc/template-tags.php:1020
 msgid "Posts navigation"
-msgstr "Bejegyzés navigáció"
+msgstr "Innleggsnavigasjon"
 
 #: inc/template-tags.php:895
 msgid "Next image"
-msgstr "Következő kép"
+msgstr "Neste bilde"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
-msgstr "Előző kép"
+msgstr "Forrige bilde"
 
 #: inc/template-tags.php:870
 msgid "Image navigation"
-msgstr "Kép navigáció"
+msgstr "Bildenavigasjon"
 
 #: inc/template-tags.php:843
 msgid "Search Results for: %s"
-msgstr "%s kifejezésre történő keresés eredménye"
+msgstr "Søkeresultater for: %s"
 
 #: inc/template-tags.php:325
 msgid "Archives"
-msgstr "Archívum"
+msgstr "Arkiver"
 
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
 msgid "%1$s: %2$s"
-msgstr "%1$s: %2$s"
+msgstr "%1$s @ %2$s"
 
 #: inc/template-tags.php:319
 msgid "Archives: %s"
-msgstr "Archívumok: %s"
+msgstr "Arkiv: %s"
 
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Chats"
-msgstr "Beszélgetés naplók"
+msgstr "Samtaler"
 
 #: inc/template-tags.php:314
 msgctxt "post format archive title"
 msgid "Audio"
-msgstr "Hangok"
+msgstr "Lyd"
 
 #: inc/template-tags.php:312
 msgctxt "post format archive title"
 msgid "Statuses"
-msgstr "Állapot üzenetek"
+msgstr "Statuser"
 
 #: inc/template-tags.php:310
 msgctxt "post format archive title"
 msgid "Links"
-msgstr "Hivatkozások"
+msgstr "Lenker"
 
 #: inc/template-tags.php:308
 msgctxt "post format archive title"
 msgid "Quotes"
-msgstr "Idézetek"
+msgstr "Sitater"
 
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
 msgid "Videos"
-msgstr "Videók"
+msgstr "Filmer"
 
 #: inc/template-tags.php:304
 msgctxt "post format archive title"
 msgid "Images"
-msgstr "Képek"
+msgstr "Bilder"
 
 #: inc/template-tags.php:302
 msgctxt "post format archive title"
 msgid "Galleries"
-msgstr "Gallériák"
+msgstr "Gallerier"
 
 #: inc/template-tags.php:300
 msgctxt "post format archive title"
 msgid "Asides"
-msgstr "Közbevetések"
+msgstr "Notiser"
 
 #: inc/template-tags.php:297
 msgctxt "daily archives date format"
 msgid "F j, Y"
-msgstr "Y-m-d"
+msgstr "F j, Y"
 
 #: inc/template-tags.php:297
 msgid "Day: %s"
-msgstr "Nap: %s"
+msgstr "Dag: %s"
 
 #: inc/template-tags.php:295
 msgctxt "monthly archives date format"
 msgid "F Y"
-msgstr "Y F"
+msgstr "F Y"
 
 #: inc/template-tags.php:295
 msgid "Month: %s"
-msgstr "Hónap: %s"
+msgstr "Måned: %s"
 
 #: inc/template-tags.php:293
 msgctxt "yearly archives date format"
@@ -122,40 +122,40 @@ msgstr "Y"
 
 #: inc/template-tags.php:293
 msgid "Year: %s"
-msgstr "Év: %s"
+msgstr "År: %s"
 
 #: inc/template-tags.php:291
 msgid "Author: %s"
-msgstr "Szerző: %s"
+msgstr "Forfatter: %s"
 
 #: inc/template-tags.php:289
 msgid "Tag: %s"
-msgstr "Címke: %s"
+msgstr "Merkelapp: %s"
 
 #: inc/template-tags.php:287
 msgid "Category: %s"
-msgstr "Kategória: %s"
+msgstr "Kategori: %s"
 
 #: inc/template-tags.php:264
 msgid "% Comments"
-msgstr "% hozzászólás"
+msgstr "% kommentarer"
 
 #: inc/template-tags.php:264
 msgid "1 Comment"
-msgstr "1 hozzászólás"
+msgstr "1 kommentar"
 
 #: inc/template-tags.php:264
 msgid "Leave a comment"
-msgstr "Megjegyzés hozzáfűzése"
+msgstr "Legg igjen en kommentar"
 
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
-msgstr "Címke:"
+msgstr "Tagget med"
 
 #: inc/template-tags.php:151
 msgid "All %s Posts"
-msgstr "Minden %s bejegyzés"
+msgstr "Alle %s innlegg"
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:104
@@ -165,41 +165,25 @@ msgstr ", "
 #: inc/template-tags.php:48
 msgctxt "post author"
 msgid "by %s"
-msgstr "%s által"
+msgstr "av %s"
 
 #: inc/extras.php:329
 msgid "Search"
-msgstr "Keresés"
+msgstr "Søk"
 
 #: inc/extras.php:247
 msgctxt "placeholder"
 msgid "Search &hellip;"
-msgstr "Keresés &hellip;"
+msgstr "Søk &hellip;"
 
 #: inc/extras.php:246 inc/extras.php:247
 msgctxt "label"
 msgid "Search for:"
-msgstr "Keresés:"
+msgstr "Søk etter:"
 
 #: inc/extras.php:190
 msgid "Your comment is awaiting moderation."
-msgstr "Hozzászólásod moderálásra vár."
-
-#. translators: To add an additional character subset specific to your
-#. language, translate this to 'greek', 'cyrillic', 'devanagari' or
-#. 'vietnamese'. Do not translate into your own language.
-#: inc/extras.php:124
-msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
-msgid "no-subset"
-msgstr "no-subset"
-
-#. Translators: If there are characters in your language that are not
-#. * supported by Oswald, translate this to 'off'. Do not translate
-#. * into your own language.
-#: inc/extras.php:119
-msgctxt "Oswald font: on or off"
-msgid "on"
-msgstr "on"
+msgstr "Din kommentar avventer moderasjon."
 
 #. Translators: If there are characters in your language that are not
 #. * supported by Roboto, translate this to 'off'. Do not translate
@@ -207,47 +191,51 @@ msgstr "on"
 #: inc/extras.php:111
 msgctxt "Roboto font: on or off"
 msgid "on"
-msgstr "be"
+msgstr "on"
 
 #: inc/customizer.php:26
 msgid "Theme"
-msgstr "Sablon"
+msgstr "Tema"
 
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
-msgstr "Honlap címsorának &amp; alcímének megjelenítése"
+msgstr "Vis nettstedstittel og slagord"
 
 #: header.php:24
 msgid "Skip to content"
-msgstr "Tovább a tartalomra"
+msgstr "Gå til innhold"
 
 #: footer.php:45
 msgid "Menu"
-msgstr "Menü"
+msgstr "Meny"
 
 #: functions.php:109
 msgid "Sidebar"
-msgstr "Oldalsáv"
+msgstr "Sidekolonnen"
 
 #: functions.php:63
 msgid "Footer Menu"
-msgstr "Lábléc menü"
+msgstr "Footer meny"
 
 #: functions.php:62
 msgid "Social Menu"
-msgstr "Közösségi menü"
+msgstr "Sosiale medier-meny"
 
 #: functions.php:61
 msgid "Primary Menu"
-msgstr "Elsődleges menü"
+msgstr "Primærmeny"
+
+#: footer.php:36
+msgid "Begin typing your search above and press return to search. Press Esc to cancel."
+msgstr "Start å skrive inn søket ditt over og trykk enter for å søke. Trykk Esc for å avbryte."
 
 #: footer.php:28
 msgid "Footer navigation"
-msgstr "Lábléc navigáció"
+msgstr "Footer navigering"
 
 #: footer.php:16
 msgid "Proudly powered by %s"
-msgstr "Köszönjük %s!"
+msgstr "Stolt drevet av %s"
 
 #: footer.php:16
 msgid "http://wordpress.org/"
@@ -255,81 +243,89 @@ msgstr "http://wordpress.org/"
 
 #: content.php:30
 msgid "Read More"
-msgstr "Tovább"
+msgstr "Les mer"
 
 #: content-none.php:34
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr "Úgy tűnik, nem található az, amire gondoltunk. Talán, egy újabb keresés segíthet."
+msgstr "Vi klarer ikke å finne det du leter etter. Prøv å søke."
 
 #: content-none.php:29
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
-msgstr "Elnézést, nem találunk a keresési feltételeknek megfelelő eredményt. Másik kulcsszóval, kifejezéssel újra kellene kezdeni egy keresést."
+msgstr "Beklager, men intet passet til ditt søkeuttrykk. Vennligst prøv igjen med noen andre nøkkelord."
 
 #: content-none.php:25
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr "Készen állunk az első bejegyzés közzétételére? <a href=\"%1$s\">Kezdőlépések</a>."
+msgstr "Klar for å publisere ditt første innlegg? <a href=\"%1$s\">Kom i gang her</a>."
 
 #: content-none.php:18
 msgid "Nothing Found"
-msgstr "Nincs megfelelő találat"
+msgstr "Ingenting funnet"
 
 #: content-attachment.php:54 content-page.php:42 inc/extras.php:178
 #: inc/template-tags.php:236 inc/template-tags.php:268
 msgid "Edit"
-msgstr "Szerkesztés"
+msgstr "endre"
 
 #: content-aside.php:37 content-attachment.php:46 content-audio.php:50
 #: content-gallery.php:55 content-video.php:54 content.php:66
 msgid "Page"
-msgstr "Oldal"
+msgstr "Side"
 
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:46
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
 #: content-single.php:59 content-video.php:50 content.php:62
 msgid "Pages:"
-msgstr "Oldalak:"
+msgstr "Sider:"
 
 #. translators: %s: Name of current post
 #: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
 #: inc/template-tags.php:758
 msgid "Continue reading %s"
-msgstr "%s részletei..."
+msgstr "Fortsett å lese %s"
 
 #: comments.php:75
 msgid "Comments are closed."
-msgstr "Hozzászólások lezárva"
+msgstr "Kommentarer er stengt."
 
 #: comments.php:42 comments.php:63
 msgid "Newer Comments"
-msgstr "Újabb hozzászólás"
+msgstr "Nyere kommentarer"
 
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
-msgstr "Korábbi hozzászólások"
+msgstr "Eldre kommentarer"
 
 #: comments.php:39 comments.php:60
 msgid "Comment navigation"
-msgstr "Hozzászólás navigáció"
+msgstr "Kommentarnavigasjon"
 
 #: comments.php:28
 msgid "Add yours"
-msgstr "Új írása"
+msgstr "Legg til din"
+
+#: comments.php:26
+msgid "There are no comments"
+msgstr "Det er ingen kommentarer"
 
 #: comments.php:24
 msgid "Comment"
 msgid_plural "Comments"
-msgstr[0] "Hozzászólás"
-msgstr[1] "Hozzászólás"
+msgstr[0] "Kommentar"
+msgstr[1] "Kommentarer"
 
 #: author-bio.php:18
 msgid "All posts"
-msgstr "Összes bejegyzés"
+msgstr "Alle innlegg"
 
 #: author-bio.php:18
 msgid "View all posts by %s"
-msgstr "Minden bejegyzés megjelenítése: %s"
+msgstr "Vis alle innlegg av %s"
+
+#: 404.php:20
+msgid "It looks like nothing was found at this location. Why not try searching for something?"
+msgstr "Siden ble dessverre ikke funnet. Du kan kanskje finne den ved å søke."
 
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
-msgstr "Hoppá! A keresett oldal nem található."
+msgstr "Auda! Den siden finnes ikke,"
