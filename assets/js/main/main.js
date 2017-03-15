@@ -4,10 +4,12 @@ $(document).ready(function() {
   init();
 });
 
+var masonryRefresh = debounce(masonry.refresh, 100);
+
 function init() {
   browserSize();
   platformDetect(); 
-  masonry.refresh();
+  masonryRefresh();
   reorderSingleFooter();
 }
 
@@ -28,7 +30,7 @@ $window.load(function() {
 
 function onResize() {
   browserSize();
-  masonry.refresh();
+  masonryRefresh();
   Sidebar.init();
 }
 
@@ -50,3 +52,36 @@ $window.on('scroll', function() {
   latestKnownScrollY = window.scrollY;
   requestTick();
 });
+
+(function() {
+	var observer, config;
+
+	if ( typeof MutationObserver === "undefined" ) return;
+
+	observer = new MutationObserver( function( mutations ) {
+		mutations.forEach( function( mutation ) {
+			if ( mutation.type === "childList" ) {
+				$.each( mutation.addedNodes, function(i, node) {
+					var $node = $( node );
+					if ( $node.is( 'iframe' ) ) {
+						$node.on( 'load', function() {
+							masonryRefresh();
+						});
+					}
+				});
+			}
+		} );
+	} );
+
+	config = {
+		childList: true,
+		characterData: false,
+		attributes: false,
+		subtree: true
+	};
+
+	$( ".grid .fb-video" ).each( function() {
+		observer.observe( this, config );
+	} );
+
+})();

@@ -484,18 +484,18 @@ if (!Date.now)
     }
 
     Array.prototype.getUnique = function() {
-            var u = {},
-                a = [];
-            for (var i = 0, l = this.length; i < l; ++i) {
-                if (u.hasOwnProperty(this[i])) {
-                    continue;
-                }
-                a.push(this[i]);
-                u[this[i]] = 1;
+        var u = {},
+            a = [];
+        for (var i = 0, l = this.length; i < l; ++i) {
+            if (u.hasOwnProperty(this[i])) {
+                continue;
             }
-            return a;
+            a.push(this[i]);
+            u[this[i]] = 1;
         }
-        /* ====== Navigation Logic ====== */
+        return a;
+    }
+    /* ====== Navigation Logic ====== */
 
     var navigation = (function() {
 
@@ -906,10 +906,12 @@ if (!Date.now)
         init();
     });
 
+    var masonryRefresh = debounce(masonry.refresh, 100);
+
     function init() {
         browserSize();
         platformDetect();
-        masonry.refresh();
+        masonryRefresh();
         reorderSingleFooter();
     }
 
@@ -930,7 +932,7 @@ if (!Date.now)
 
     function onResize() {
         browserSize();
-        masonry.refresh();
+        masonryRefresh();
         Sidebar.init();
     }
 
@@ -952,6 +954,40 @@ if (!Date.now)
         latestKnownScrollY = window.scrollY;
         requestTick();
     });
+
+    (function() {
+        var observer, config;
+
+        if (typeof MutationObserver === "undefined") return;
+
+        observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === "childList") {
+                    $.each(mutation.addedNodes, function(i, node) {
+                        var $node = $(node);
+                        if ($node.is('iframe')) {
+                            $node.on('load', function() {
+                                masonryRefresh();
+                            });
+                        }
+                    });
+                }
+            });
+        });
+
+        config = {
+            childList: true,
+            characterData: false,
+            attributes: false,
+            subtree: true
+        };
+
+        $(".grid .fb-video").each(function() {
+            observer.observe(this, config);
+        });
+
+    })();
+
     /* ====== HELPER FUNCTIONS ====== */
 
 
@@ -1075,5 +1111,29 @@ if (!Date.now)
                 }
             }
         }
+    }
+
+    // Returns a function, that, as long as it continues to be invoked, will not
+    // be triggered. The function will be called after it stops being called for
+    // N milliseconds. If `immediate` is passed, trigger the function on the
+    // leading edge, instead of the trailing.
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this,
+                args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) {
+                    func.apply(context, args);
+                }
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) {
+                func.apply(context, args);
+            }
+        };
     }
 })(jQuery);
