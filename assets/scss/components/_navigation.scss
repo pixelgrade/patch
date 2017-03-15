@@ -47,7 +47,8 @@
 	}
 }
 
-.site-logo-link {
+.site-logo-link,
+.custom-logo-link {
 	display: block;
 }
 
@@ -296,7 +297,8 @@
 		}
 	}
 
-	.site-logo-link {
+	.site-logo-link,
+    .custom-logo-link {
 		position: absolute;
 		top: 0;
 		left: 50%;

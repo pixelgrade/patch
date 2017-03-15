@@ -30,14 +30,14 @@ jsFiles = [
 var theme_name = 'patch',
 	main_branch = 'self-hosted',
 	options = {
-	silent: true,
-	continueOnError: true // default: false
-};
+		silent: true,
+		continueOnError: true // default: false
+	};
 
 gulp.task('styles', function () {
 	return gulp.src('assets/scss/**/*.scss')
 			.pipe(sass({'sourcemap=auto': true, style: 'expanded'}))
-			.pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
+			.pipe(prefix("last 1 version", "> 1%"))
 			//.pipe(cmq())
 			.pipe(csscomb())
 			.pipe(gulp.dest('./', {"mode": "0644"}));

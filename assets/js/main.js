@@ -158,7 +158,7 @@ if (!Date.now)
     ;
     var logoAnimation = (function() {
 
-        var $logo = $('.site-logo-link'),
+        var $logo = $('.site-logo-link, .custom-logo-link'),
             $clone,
             distance,
             initialized = false,
