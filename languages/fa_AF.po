@@ -1,23 +1,23 @@
-# Translation of Patch in Hebrew
+# Translation of Patch in Persian
 # This file is distributed under the same license as the Patch package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Patch\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/patch\n"
 "POT-Creation-Date: 2015-06-11 07:36:59+00:00\n"
-"PO-Revision-Date: 2015-06-11 10:51+0200\n"
+"PO-Revision-Date: 2017-05-02 23:05+0300\n"
 "Last-Translator: Vlad Olaru <vlad.olaru@pixelgrade.com>\n"
 "Language-Team: \n"
-"Language: he\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.7.5\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 2.0.1\n"
 
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
-msgstr "אופס. העמוד שביקשת אינו קיים."
+msgstr "اوه! امکان یافتن صفحه نیست."
 
 #: 404.php:20
 msgid ""
@@ -27,17 +27,16 @@ msgstr ""
 
 #: author-bio.php:18
 msgid "View all posts by %s"
-msgstr "הצגת הפוסטים של %s"
+msgstr "مشاهدهٔ همهٔ نوشته‌ها بر اساس %s"
 
 #: author-bio.php:18
 msgid "All posts"
-msgstr "כל הפוסטים"
+msgstr "همه نوشته‌ها"
 
 #: comments.php:24
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] ""
-msgstr[1] ""
 
 #: comments.php:26
 msgid "There are no comments"
@@ -49,67 +48,69 @@ msgstr ""
 
 #: comments.php:39 comments.php:60
 msgid "Comment navigation"
-msgstr "ניווט בתגובות"
+msgstr "ناوبری دیدگاه"
 
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
-msgstr "תגובות קודמות"
+msgstr "دیدگاه‌های پیشین"
 
 #: comments.php:42 comments.php:63
 msgid "Newer Comments"
-msgstr "תגובות חדשות"
+msgstr "دیدگاه‌های تازه‌تر"
 
 #: comments.php:75
 msgid "Comments are closed."
-msgstr "סגור לתגובות."
+msgstr "دیدگاه‌ها بسته شده‌اند."
 
 #. translators: %s: Name of current post
 #: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
 #: inc/template-tags.php:758
 msgid "Continue reading %s"
-msgstr " להמשיך לקרוא את %s"
+msgstr "به خواندن %s ادامه دهید"
 
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:47
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
-#: content-single-gallery.php:51 content-single-video.php:49
-#: content-single.php:59 content-video.php:51 content.php:60
+#: content-single-gallery.php:51 content-single-video.php:49 content-single.php:59
+#: content-video.php:51 content.php:60
 msgid "Pages:"
-msgstr ":עמודים"
+msgstr "صفحه‌ها:"
 
 #: content-aside.php:37 content-attachment.php:46 content-audio.php:51
 #: content-gallery.php:55 content-video.php:55 content.php:64
 msgid "Page"
-msgstr "עמוד"
+msgstr "صفحه"
 
 #: content-attachment.php:54 content-page.php:42 inc/extras.php:231
 #: inc/template-tags.php:236 inc/template-tags.php:268
 msgid "Edit"
-msgstr "עריכה"
+msgstr "ویرایش"
 
 #: content-none.php:18
 msgid "Nothing Found"
-msgstr "לא מצאתי כלום"
+msgstr "چیزی پیدا نشد"
 
 #: content-none.php:25
-msgid ""
-"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr "מוכן לפרסם את הרשומה הראשונה שלך? <a href=\"%1$s\">התחל כאן</a>."
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"آمادهٔ انتشار نخستین نوشتهٔ خود هستید؟ <a href=\"%1$s\">از اینجا بیآغازید</a>."
 
 #: content-none.php:29
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
-msgstr "מצוערים, אבל לא נמצאה התאמה. אפשר לנסות שוב עם מילות חיפוש שונות."
+msgstr "بدبختانه جستجوی شما نتیجه‌ای در بر نداشت. با واژگانی دیگر جستجو کنید."
 
 #: content-none.php:34
 msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
-msgstr "נראה כי לא ניתן למצוא את מה שחיפשת, אולי חיפוש יעזור."
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can "
+"help."
+msgstr ""
+"به نظر می‌آید ما نمی‌توانیم آنچه به دنبالش هستید بیابیم. احتمالا جست‌وجو می‌تواند کمک "
+"کند."
 
 #: content.php:30
 msgid "Read More"
-msgstr "קרא עוד"
+msgstr "بیشتر بخوانید"
 
 #: footer.php:24
 msgid "by"
@@ -129,37 +130,36 @@ msgstr ""
 
 #: footer.php:37
 msgid "Footer navigation"
-msgstr "ניווט כותרת תחתית"
+msgstr "ناوبری پسایند"
 
 #: footer.php:45
 msgid ""
-"Begin typing your search above and press return to search. Press Esc to "
-"cancel."
+"Begin typing your search above and press return to search. Press Esc to cancel."
 msgstr ""
 
 #: footer.php:54
 msgid "Menu"
-msgstr "תפריט"
+msgstr "گزینگان"
 
 #: functions.php:61
 msgid "Primary Menu"
-msgstr "תפריט ראשי"
+msgstr "گزینگان اصلی"
 
 #: functions.php:62
 msgid "Social Menu"
-msgstr "<span dir=rtl>תפריט חברתי</span>"
+msgstr "گزینگان اجتماعی"
 
 #: functions.php:63
 msgid "Footer Menu"
-msgstr "תפריט כותרת תחתית"
+msgstr "گزینگان پسایند"
 
 #: functions.php:109
 msgid "Sidebar"
-msgstr " סרגל צדדי"
+msgstr "ستون کناری"
 
 #: header.php:24
 msgid "Skip to content"
-msgstr "דילוג לתוכן"
+msgstr "پرش به محتوا"
 
 #: image.php:26
 msgctxt "attachment parent post"
@@ -176,8 +176,8 @@ msgstr ""
 
 #: inc/customify_config.php:23
 msgid ""
-"Conveniently change the design of your site with built-in style presets. "
-"Easy as pie."
+"Conveniently change the design of your site with built-in style presets. Easy as "
+"pie."
 msgstr ""
 
 #: inc/customify_config.php:28
@@ -238,11 +238,11 @@ msgstr ""
 
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
-msgstr "הצג כותרת ותיאור אתר"
+msgstr "نمایش عنوان و توضیحات سایت"
 
 #: inc/customizer.php:26
 msgid "Theme"
-msgstr "ערכת עיצוב"
+msgstr "پوشته"
 
 #: inc/customizer.php:36
 msgid "Hide search button in Social Menu."
@@ -266,7 +266,7 @@ msgstr ""
 #: inc/extras.php:164
 msgctxt "Roboto font: on or off"
 msgid "on"
-msgstr "off"
+msgstr "فعال"
 
 #. Translators: If there are characters in your language that are not
 #. * supported by Oswald, translate this to 'off'. Do not translate
@@ -274,7 +274,7 @@ msgstr "off"
 #: inc/extras.php:172
 msgctxt "Oswald font: on or off"
 msgid "on"
-msgstr "off"
+msgstr "روی"
 
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
@@ -282,7 +282,7 @@ msgstr "off"
 #: inc/extras.php:177
 msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
-msgstr "no-subset"
+msgstr " "
 
 #: inc/extras.php:226
 msgid "on %s at %s"
@@ -290,17 +290,17 @@ msgstr ""
 
 #: inc/extras.php:243
 msgid "Your comment is awaiting moderation."
-msgstr "התגובה ממתינה לאישור."
+msgstr "دیدگاه شما چشم به راه بررسی است."
 
 #: inc/extras.php:315 inc/extras.php:316
 msgctxt "label"
 msgid "Search for:"
-msgstr "חפש:"
+msgstr "جست‌وجو برای:"
 
 #: inc/extras.php:316
 msgctxt "placeholder"
 msgid "Search &hellip;"
-msgstr "חיפוש &hellip;"
+msgstr "جستجو &hellip;"
 
 #: inc/extras.php:355
 msgid "Intro Text"
@@ -328,7 +328,7 @@ msgstr ""
 
 #: inc/extras.php:428
 msgid "Search"
-msgstr "חיפוש"
+msgstr "جست‌وجو"
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:161
 #: inc/required-plugins/required-plugins.php:48
@@ -354,91 +354,75 @@ msgstr ""
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] ""
-msgstr[1] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:166
 #: inc/required-plugins/required-plugins.php:55
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] ""
-msgstr[1] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:167
 #: inc/required-plugins/required-plugins.php:57
 msgid ""
 "Sorry, but you do not have the correct permissions to install the %s plugin. "
-"Contact the administrator of this site for help on getting the plugin "
-"installed."
+"Contact the administrator of this site for help on getting the plugin installed."
 msgid_plural ""
-"Sorry, but you do not have the correct permissions to install the %s "
-"plugins. Contact the administrator of this site for help on getting the "
-"plugins installed."
+"Sorry, but you do not have the correct permissions to install the %s plugins. "
+"Contact the administrator of this site for help on getting the plugins installed."
 msgstr[0] ""
-msgstr[1] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:168
 #: inc/required-plugins/required-plugins.php:59
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] ""
-msgstr[1] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:169
 #: inc/required-plugins/required-plugins.php:61
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
-msgstr[1] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:170
 #: inc/required-plugins/required-plugins.php:63
 msgid ""
-"Sorry, but you do not have the correct permissions to activate the %s "
-"plugin. Contact the administrator of this site for help on getting the "
-"plugin activated."
+"Sorry, but you do not have the correct permissions to activate the %s plugin. "
+"Contact the administrator of this site for help on getting the plugin activated."
 msgid_plural ""
-"Sorry, but you do not have the correct permissions to activate the %s "
-"plugins. Contact the administrator of this site for help on getting the "
-"plugins activated."
+"Sorry, but you do not have the correct permissions to activate the %s plugins. "
+"Contact the administrator of this site for help on getting the plugins activated."
 msgstr[0] ""
-msgstr[1] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:171
 #: inc/required-plugins/required-plugins.php:65
 msgid ""
-"The following plugin needs to be updated to its latest version to ensure "
-"maximum compatibility with this theme: %1$s."
+"The following plugin needs to be updated to its latest version to ensure maximum "
+"compatibility with this theme: %1$s."
 msgid_plural ""
 "The following plugins need to be updated to their latest version to ensure "
 "maximum compatibility with this theme: %1$s."
 msgstr[0] ""
-msgstr[1] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:172
 #: inc/required-plugins/required-plugins.php:67
 msgid ""
 "Sorry, but you do not have the correct permissions to update the %s plugin. "
-"Contact the administrator of this site for help on getting the plugin "
-"updated."
+"Contact the administrator of this site for help on getting the plugin updated."
 msgid_plural ""
 "Sorry, but you do not have the correct permissions to update the %s plugins. "
-"Contact the administrator of this site for help on getting the plugins "
-"updated."
+"Contact the administrator of this site for help on getting the plugins updated."
 msgstr[0] ""
-msgstr[1] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:173
 #: inc/required-plugins/required-plugins.php:69
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
-msgstr[1] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:174
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
-msgstr[1] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:175
 #: inc/required-plugins/required-plugins.php:71
@@ -625,7 +609,6 @@ msgstr ""
 msgid "Activate installed plugin"
 msgid_plural "Activate installed plugins"
 msgstr[0] ""
-msgstr[1] ""
 
 #: inc/required-plugins/required-plugins.php:73
 msgid "All plugins installed and activated successfully. %s"
@@ -634,49 +617,49 @@ msgstr ""
 #: inc/template-tags.php:48
 msgctxt "post author"
 msgid "by %s"
-msgstr "מאת %s"
+msgstr ""
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:104
 msgid ", "
-msgstr ", "
+msgstr "، "
 
 #: inc/template-tags.php:151
 msgid "All %s Posts"
-msgstr "כל הרשומות של %s"
+msgstr "همهٔ %s نوشته"
 
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
-msgstr "תגים: "
+msgstr "برچسب زده شده با:"
 
 #: inc/template-tags.php:264
 msgid "Leave a comment"
-msgstr "כתיבת תגובה"
+msgstr "بیان دیدگاه"
 
 #: inc/template-tags.php:264
 msgid "1 Comment"
-msgstr "תגובה אחת"
+msgstr "۱ دیدگاه"
 
 #: inc/template-tags.php:264
 msgid "% Comments"
-msgstr "% תגובות"
+msgstr "% دیدگاه"
 
 #: inc/template-tags.php:287
 msgid "Category: %s"
-msgstr "קטגוריות: %s"
+msgstr "دسته: %s"
 
 #: inc/template-tags.php:289
 msgid "Tag: %s"
-msgstr "תגית: %s"
+msgstr "برچسب‌ها: %s"
 
 #: inc/template-tags.php:291
 msgid "Author: %s"
-msgstr "מחבר: %s"
+msgstr "نویسنده: %s"
 
 #: inc/template-tags.php:293
 msgid "Year: %s"
-msgstr "שנה: %s"
+msgstr "سال: %s"
 
 #: inc/template-tags.php:293
 msgctxt "yearly archives date format"
@@ -685,7 +668,7 @@ msgstr "Y"
 
 #: inc/template-tags.php:295
 msgid "Month: %s"
-msgstr "חודש: %s"
+msgstr "ماه: %s"
 
 #: inc/template-tags.php:295
 msgctxt "monthly archives date format"
@@ -694,61 +677,61 @@ msgstr "F Y"
 
 #: inc/template-tags.php:297
 msgid "Day: %s"
-msgstr "יום: %s"
+msgstr "روز: %s"
 
 #: inc/template-tags.php:297
 msgctxt "daily archives date format"
 msgid "F j, Y"
-msgstr "j בF Y"
+msgstr "j F Y"
 
 #: inc/template-tags.php:300
 msgctxt "post format archive title"
 msgid "Asides"
-msgstr "הערות"
+msgstr "حاشیه‌ها"
 
 #: inc/template-tags.php:302
 msgctxt "post format archive title"
 msgid "Galleries"
-msgstr "גלריות"
+msgstr "گالری‌‌ها"
 
 #: inc/template-tags.php:304
 msgctxt "post format archive title"
 msgid "Images"
-msgstr "תמונות"
+msgstr "تصویرها"
 
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
 msgid "Videos"
-msgstr "וידאו"
+msgstr "فیلم‌ها"
 
 #: inc/template-tags.php:308
 msgctxt "post format archive title"
 msgid "Quotes"
-msgstr "ציטוטים"
+msgstr "گفتاوردها"
 
 #: inc/template-tags.php:310
 msgctxt "post format archive title"
 msgid "Links"
-msgstr "לינקים"
+msgstr "پیوندها"
 
 #: inc/template-tags.php:312
 msgctxt "post format archive title"
 msgid "Statuses"
-msgstr "סטטוסים"
+msgstr "وضعیت‌ها"
 
 #: inc/template-tags.php:314
 msgctxt "post format archive title"
 msgid "Audio"
-msgstr "אודיו"
+msgstr "صوت"
 
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Chats"
-msgstr "צ'אטים"
+msgstr "گپ‌ها"
 
 #: inc/template-tags.php:319
 msgid "Archives: %s"
-msgstr "ארכיון: %s"
+msgstr "بایگانی‌ها: %s"
 
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
@@ -757,35 +740,35 @@ msgstr "%1$s: %2$s"
 
 #: inc/template-tags.php:325
 msgid "Archives"
-msgstr "ארכיון"
+msgstr "بایگانی"
 
 #: inc/template-tags.php:843
 msgid "Search Results for: %s"
-msgstr "תוצאות החיפוש: %s"
+msgstr "نتایج جست‌وجو برای: %s"
 
 #: inc/template-tags.php:870
 msgid "Image navigation"
-msgstr "ניווט בתמונות"
+msgstr "ناوبری تصویر"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
-msgstr "התמונה הקודמת"
+msgstr "تصویر پیشین"
 
 #: inc/template-tags.php:895
 msgid "Next image"
-msgstr "הבא"
+msgstr "تصویر پسین"
 
 #: inc/template-tags.php:1020
 msgid "Posts navigation"
-msgstr "ניווט"
+msgstr "ناوبری نوشته‌ها"
 
 #: inc/template-tags.php:1027 inc/template-tags.php:1037
 msgid "Previous"
-msgstr "קודם"
+msgstr "پیشین"
 
 #: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
-msgstr "לשלב הבא"
+msgstr "بعدی"
 
 #. Theme URI of the plugin/theme
 msgid "https://pixelgrade.com/demos/patch/"
@@ -793,9 +776,8 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"An algorithmic design experiment that cleverly imagines the best layout for "
-"your content. Patch brings unity and balance to your beautiful crafted "
-"diversity."
+"An algorithmic design experiment that cleverly imagines the best layout for your "
+"content. Patch brings unity and balance to your beautiful crafted diversity."
 msgstr ""
 
 #. Author of the plugin/theme
@@ -807,7 +789,7 @@ msgid "https://pixelgrade.com/"
 msgstr ""
 
 #~ msgid "http://wordpress.org/"
-#~ msgstr "http://he.wordpress.org/"
+#~ msgstr "http://wordpress.org/"
 
 #~ msgid "Proudly powered by %s"
-#~ msgstr "פועל על %s"
+#~ msgstr "با افتخار، نیرو گرفته از %s"

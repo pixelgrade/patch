@@ -1,23 +1,23 @@
-# Translation of Patch in Turkish
+# Translation of Patch in Azerbaijani
 # This file is distributed under the same license as the Patch package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Patch\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/patch\n"
 "POT-Creation-Date: 2015-06-11 07:36:59+00:00\n"
-"PO-Revision-Date: 2015-06-11 10:53+0200\n"
+"PO-Revision-Date: 2017-05-02 23:04+0300\n"
 "Last-Translator: Vlad Olaru <vlad.olaru@pixelgrade.com>\n"
 "Language-Team: \n"
-"Language: tr\n"
+"Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.7.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 2.0.1\n"
 
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
-msgstr "Üzgünüz! Bu sayfa bulunamıyor."
+msgstr "Bağışlayın! Bu səhifə tapılmır."
 
 #: 404.php:20
 msgid ""
@@ -27,95 +27,94 @@ msgstr ""
 
 #: author-bio.php:18
 msgid "View all posts by %s"
-msgstr "%s tarafından yazılmış tüm yazıları görüntüle"
+msgstr "%s tərəfindən yazılmış bütün yazılara bax"
 
 #: author-bio.php:18
 msgid "All posts"
-msgstr "Tüm yazılar"
+msgstr "Bütün yazılar"
 
 #: comments.php:24
 msgid "Comment"
 msgid_plural "Comments"
-msgstr[0] "Yorum"
-msgstr[1] "Yorumlar"
+msgstr[0] ""
+msgstr[1] ""
 
 #: comments.php:26
 msgid "There are no comments"
-msgstr "Yorum bulunmamakta"
+msgstr ""
 
 #: comments.php:28
 msgid "Add yours"
-msgstr "Kendi yorumunu ekle"
+msgstr ""
 
 #: comments.php:39 comments.php:60
 msgid "Comment navigation"
-msgstr "Yorum dolaşımı"
+msgstr "Şərh naviqasiyası"
 
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
-msgstr "Eski yorumlar"
+msgstr "Əvvəlki şərhlər"
 
 #: comments.php:42 comments.php:63
 msgid "Newer Comments"
-msgstr "Yeni yorumlar"
+msgstr "Ən yeni Şərhlər"
 
 #: comments.php:75
 msgid "Comments are closed."
-msgstr "Yorumlar kapalı."
+msgstr "Şərh üçün bağlıdır."
 
 #. translators: %s: Name of current post
 #: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
 #: inc/template-tags.php:758
 msgid "Continue reading %s"
-msgstr "Okumaya devam et %s"
+msgstr "%s oxumağa davam et"
 
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:47
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
 #: content-single.php:59 content-video.php:51 content.php:60
 msgid "Pages:"
-msgstr "Sayfalar:"
+msgstr "Səhifələr:"
 
 #: content-aside.php:37 content-attachment.php:46 content-audio.php:51
 #: content-gallery.php:55 content-video.php:55 content.php:64
 msgid "Page"
-msgstr "Sayfa"
+msgstr "Səhifə"
 
 #: content-attachment.php:54 content-page.php:42 inc/extras.php:231
 #: inc/template-tags.php:236 inc/template-tags.php:268
 msgid "Edit"
-msgstr "Düzenle"
+msgstr "Redaktə et"
 
 #: content-none.php:18
 msgid "Nothing Found"
-msgstr "Bulunamadı"
+msgstr "Tapılmadı"
 
 #: content-none.php:25
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
-"İlk yazınızı yayınlamaya hazır mısınız? <a href=\"%1$s\">Buradan başlayın</"
-"a>."
+"İlk yazınızı dərc etməyə hazırsınızmı? <a href=\"%1$s\">Buradan başlayın</a>."
 
 #: content-none.php:29
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
-"Üzgünüz fakat aradığınız kriterler ile örtüşen sonuç bulunamadı. Lütfen "
-"başka kriterler ile tekrar deneyin."
+"Bağışlayın, axtarış kriteriyalarınıza uyğun heç bir şey tapılmadı. Bəzi "
+"fərqli açar kəlmələrdən istifadə edərək təkrar yoxlayın."
 
 #: content-none.php:34
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
-"Aradığınız sayfa bulunamadı. Belki arama kutusu aradığınızı bulma konusunda "
-"yardımcı olabilir."
+"Axtardığınız səhifə tapılmadı. Bəlkə axtarış qutusu axtardığınızı tapmaqda "
+"sizə kömək edər."
 
 #: content.php:30
 msgid "Read More"
-msgstr "Devamını oku"
+msgstr "Davamını Oxu"
 
 #: footer.php:24
 msgid "by"
@@ -135,38 +134,37 @@ msgstr ""
 
 #: footer.php:37
 msgid "Footer navigation"
-msgstr "Sayfa alt bölüm gezintisi"
+msgstr "Zirzəmi Naviqasiyası"
 
 #: footer.php:45
 msgid ""
 "Begin typing your search above and press return to search. Press Esc to "
 "cancel."
 msgstr ""
-"Aramanızı yukarıya yazın ve aramak için girişe basın. İptal için Esc'e basın."
 
 #: footer.php:54
 msgid "Menu"
-msgstr "Menü"
+msgstr "Menyu"
 
 #: functions.php:61
 msgid "Primary Menu"
-msgstr "Birincil menü"
+msgstr "Əsas menyu"
 
 #: functions.php:62
 msgid "Social Menu"
-msgstr "Sosyal Menü"
+msgstr "Sosial menyu"
 
 #: functions.php:63
 msgid "Footer Menu"
-msgstr ""
+msgstr "Zirzəmi Menyusu"
 
 #: functions.php:109
 msgid "Sidebar"
-msgstr "Yan Menü"
+msgstr "Yan menyu"
 
 #: header.php:24
 msgid "Skip to content"
-msgstr "İçeriğe geç"
+msgstr "Mühtəviyyata keç"
 
 #: image.php:26
 msgctxt "attachment parent post"
@@ -245,11 +243,11 @@ msgstr ""
 
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
-msgstr "Site başlığı ve sloganını görüntüle"
+msgstr "Sayt başlığını və şüarını göstər"
 
 #: inc/customizer.php:26
 msgid "Theme"
-msgstr "Tema"
+msgstr "Mövzu"
 
 #: inc/customizer.php:36
 msgid "Hide search button in Social Menu."
@@ -273,7 +271,7 @@ msgstr ""
 #: inc/extras.php:164
 msgctxt "Roboto font: on or off"
 msgid "on"
-msgstr ""
+msgstr "açıq"
 
 #. Translators: If there are characters in your language that are not
 #. * supported by Oswald, translate this to 'off'. Do not translate
@@ -281,7 +279,7 @@ msgstr ""
 #: inc/extras.php:172
 msgctxt "Oswald font: on or off"
 msgid "on"
-msgstr "açık"
+msgstr "açıq"
 
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
@@ -289,25 +287,25 @@ msgstr "açık"
 #: inc/extras.php:177
 msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
-msgstr "alt kırılım yok"
+msgstr "alt-set yoxdur"
 
 #: inc/extras.php:226
 msgid "on %s at %s"
-msgstr "%s tarihinde saat %s 'te"
+msgstr ""
 
 #: inc/extras.php:243
 msgid "Your comment is awaiting moderation."
-msgstr "Yorumunuz denetim için bekliyor."
+msgstr "Şərhiniz yoxlama gözləyir."
 
 #: inc/extras.php:315 inc/extras.php:316
 msgctxt "label"
 msgid "Search for:"
-msgstr "Arama:"
+msgstr "Axtarış:"
 
 #: inc/extras.php:316
 msgctxt "placeholder"
 msgid "Search &hellip;"
-msgstr "Ara &hellip;"
+msgstr "Axtar &hellip;"
 
 #: inc/extras.php:355
 msgid "Intro Text"
@@ -335,7 +333,7 @@ msgstr ""
 
 #: inc/extras.php:428
 msgid "Search"
-msgstr "Ara"
+msgstr "Axtar"
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:161
 #: inc/required-plugins/required-plugins.php:48
@@ -646,32 +644,32 @@ msgstr ""
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:104
 msgid ", "
-msgstr ", "
+msgstr ","
 
 #: inc/template-tags.php:151
 msgid "All %s Posts"
-msgstr "Tüm %s yazıları"
+msgstr "bütün %s  yazıları"
 
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
-msgstr "Şununla etiketlendi:"
+msgstr "Bununla etiketləndi:"
 
 #: inc/template-tags.php:264
 msgid "Leave a comment"
-msgstr "Yorum bırakın"
+msgstr "Bir şərh yazın"
 
 #: inc/template-tags.php:264
 msgid "1 Comment"
-msgstr "1 yorum"
+msgstr "1 şərh"
 
 #: inc/template-tags.php:264
 msgid "% Comments"
-msgstr "% Yorum"
+msgstr "% Şərh"
 
 #: inc/template-tags.php:287
 msgid "Category: %s"
-msgstr "Kategori: %s"
+msgstr "Kateqoriya: %s"
 
 #: inc/template-tags.php:289
 msgid "Tag: %s"
@@ -679,11 +677,11 @@ msgstr "Etiket: %s"
 
 #: inc/template-tags.php:291
 msgid "Author: %s"
-msgstr "Yazar: %s"
+msgstr "Müəllif: %s"
 
 #: inc/template-tags.php:293
 msgid "Year: %s"
-msgstr "Yıl: %s"
+msgstr "İl: %s"
 
 #: inc/template-tags.php:293
 msgctxt "yearly archives date format"
@@ -706,7 +704,7 @@ msgstr "Gün: %s"
 #: inc/template-tags.php:297
 msgctxt "daily archives date format"
 msgid "F j, Y"
-msgstr "j F Y"
+msgstr "F j, Y"
 
 #: inc/template-tags.php:300
 msgctxt "post format archive title"
@@ -716,46 +714,46 @@ msgstr "Yan sütun"
 #: inc/template-tags.php:302
 msgctxt "post format archive title"
 msgid "Galleries"
-msgstr "Galeriler"
+msgstr "Qalereya"
 
 #: inc/template-tags.php:304
 msgctxt "post format archive title"
 msgid "Images"
-msgstr "Görseller"
+msgstr "Təsvir"
 
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
 msgid "Videos"
-msgstr "Videolar"
+msgstr "Video"
 
 #: inc/template-tags.php:308
 msgctxt "post format archive title"
 msgid "Quotes"
-msgstr "Alıntılar"
+msgstr "Kvota"
 
 #: inc/template-tags.php:310
 msgctxt "post format archive title"
 msgid "Links"
-msgstr "Bağlantılar"
+msgstr "Bağlantı"
 
 #: inc/template-tags.php:312
 msgctxt "post format archive title"
 msgid "Statuses"
-msgstr "Durumlar"
+msgstr "Status"
 
 #: inc/template-tags.php:314
 msgctxt "post format archive title"
 msgid "Audio"
-msgstr "Ses"
+msgstr "Audio"
 
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Chats"
-msgstr "Sohbetler"
+msgstr "Canlı Söhbət"
 
 #: inc/template-tags.php:319
 msgid "Archives: %s"
-msgstr "Arşivler: %s"
+msgstr "Arxivlər: %s"
 
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
@@ -764,35 +762,35 @@ msgstr "%1$s: %2$s"
 
 #: inc/template-tags.php:325
 msgid "Archives"
-msgstr "Arşivler"
+msgstr "Arxivlər"
 
 #: inc/template-tags.php:843
 msgid "Search Results for: %s"
-msgstr "Arama sonuçları: %s"
+msgstr " %s üçün Axtarışın Nəticələri:"
 
 #: inc/template-tags.php:870
 msgid "Image navigation"
-msgstr "Resim navigasyon"
+msgstr "Rəsmlər üzrə naviqasiya"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
-msgstr "Önceki görsel"
+msgstr "Öncəki təsvir"
 
 #: inc/template-tags.php:895
 msgid "Next image"
-msgstr "Sonraki görsel"
+msgstr "Sonrakı təsvir"
 
 #: inc/template-tags.php:1020
 msgid "Posts navigation"
-msgstr "Yazı dolaşımı"
+msgstr "Yazı naviqasiyası"
 
 #: inc/template-tags.php:1027 inc/template-tags.php:1037
 msgid "Previous"
-msgstr "Önceki"
+msgstr "Öncəki"
 
 #: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
-msgstr "Sonraki"
+msgstr "Sonrakı"
 
 #. Theme URI of the plugin/theme
 msgid "https://pixelgrade.com/demos/patch/"
@@ -804,8 +802,9 @@ msgid ""
 "your content. Patch brings unity and balance to your beautiful crafted "
 "diversity."
 msgstr ""
-"İçeriğiniz için en iyi yerleşimi zekice düşünen bir algoritmik tasarım "
-"deneyi. Patch, özenle oluşturduğunuz çeşitliliğinize birlik ve denge getirir."
+"İçəriyiniz üçün ən yaxşı maketi ağıllıca düşünən bir alqoritmik dizayn "
+"bacarığı. Patch, diqətlə yaratdığınız çeşidliliyinizə birlik və tarazlıq "
+"gətirir."
 
 #. Author of the plugin/theme
 msgid "PixelGrade"
@@ -819,4 +818,4 @@ msgstr ""
 #~ msgstr "http://wordpress.org/"
 
 #~ msgid "Proudly powered by %s"
-#~ msgstr "%s gururla sunar"
+#~ msgstr "%s qürurla təqdim edər"

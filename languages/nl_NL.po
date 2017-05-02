@@ -1,23 +1,23 @@
-# Translation of Patch in Spanish (Spain)
+# Translation of Patch in Dutch
 # This file is distributed under the same license as the Patch package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Patch\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/patch\n"
 "POT-Creation-Date: 2015-06-11 07:36:59+00:00\n"
-"PO-Revision-Date: 2015-06-11 10:50+0200\n"
+"PO-Revision-Date: 2017-05-02 23:08+0300\n"
 "Last-Translator: Vlad Olaru <vlad.olaru@pixelgrade.com>\n"
 "Language-Team: \n"
-"Language: es\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 2.0.1\n"
 
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
-msgstr "¡Vaya! Esa página no se puede encontrar."
+msgstr "Oeps! Die pagina kon niet worden gevonden."
 
 #: 404.php:20
 msgid ""
@@ -27,95 +27,94 @@ msgstr ""
 
 #: author-bio.php:18
 msgid "View all posts by %s"
-msgstr "Ver todas las entradas de %s"
+msgstr "Bekijk alle berichten van %s"
 
 #: author-bio.php:18
 msgid "All posts"
-msgstr "Todas las entradas"
+msgstr "Alle berichten"
 
 #: comments.php:24
 msgid "Comment"
 msgid_plural "Comments"
-msgstr[0] "Comentario"
-msgstr[1] "Comentarios"
+msgstr[0] "Reactie"
+msgstr[1] "Reacties"
 
 #: comments.php:26
 msgid "There are no comments"
-msgstr "No hay comentarios"
+msgstr "Er zijn geen reacties"
 
 #: comments.php:28
 msgid "Add yours"
-msgstr "Agrega el tuyo"
+msgstr "Voeg uw reactie toe"
 
 #: comments.php:39 comments.php:60
 msgid "Comment navigation"
-msgstr "Navegación de comentarios"
+msgstr "Reactienavigatie"
 
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
-msgstr "Comentarios anteriores"
+msgstr "Oudere reacties"
 
 #: comments.php:42 comments.php:63
 msgid "Newer Comments"
-msgstr "Comentarios más recientes"
+msgstr "Nieuwere reacties"
 
 #: comments.php:75
 msgid "Comments are closed."
-msgstr "Los comentarios están cerrados."
+msgstr "Reacties zijn gesloten."
 
 #. translators: %s: Name of current post
 #: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
 #: inc/template-tags.php:758
 msgid "Continue reading %s"
-msgstr "Continúa leyendo %s"
+msgstr "Lees verder %s"
 
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:47
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
 #: content-single.php:59 content-video.php:51 content.php:60
 msgid "Pages:"
-msgstr "Páginas:"
+msgstr "Pagina&#39;s:"
 
 #: content-aside.php:37 content-attachment.php:46 content-audio.php:51
 #: content-gallery.php:55 content-video.php:55 content.php:64
 msgid "Page"
-msgstr "Página"
+msgstr "Pagina"
 
 #: content-attachment.php:54 content-page.php:42 inc/extras.php:231
 #: inc/template-tags.php:236 inc/template-tags.php:268
 msgid "Edit"
-msgstr "Editar"
+msgstr "Bewerken"
 
 #: content-none.php:18
 msgid "Nothing Found"
-msgstr "No se ha encontrado nada"
+msgstr "Niets gevonden"
 
 #: content-none.php:25
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
-"¿Preparado para publicar tu primera entrada? <a href=\"%1$s\">Empieza aquí</"
-"a>."
+"Klaar om je eerste bericht te publiceren? <a href=\"%1$s\">Begin hier</a>."
 
 #: content-none.php:29
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
-"Lo sentimos, pero nada coincidió con su búsqueda. Por favor inténtelo de "
-"nuevo con otras palabras clave."
+"Sorry, maar niets kwam overeen met je zoektermen. Gelieve het opnieuw te "
+"proberen met een aantal andere trefwoorden."
 
 #: content-none.php:34
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
-"Parece que no podemos encontrar lo que estás buscando. Tal vez la búsqueda "
-"le pueda ayudar."
+"Het lijkt erop dat we niet kunnen vinden wat je zoekt. Misschien kan zoeken "
+"helpen."
 
 #: content.php:30
 msgid "Read More"
-msgstr "Leer Más"
+msgstr "Lees Meer"
 
 #: footer.php:24
 msgid "by"
@@ -135,15 +134,15 @@ msgstr ""
 
 #: footer.php:37
 msgid "Footer navigation"
-msgstr "Navegación a pie de página"
+msgstr "Footer navigatie"
 
 #: footer.php:45
 msgid ""
 "Begin typing your search above and press return to search. Press Esc to "
 "cancel."
 msgstr ""
-"Escribe arriba los términos de tu búsqueda y presiona “Intro” para buscar o "
-"“Esc” para cancelar."
+"Begin hierboven met het typen van uw zoekopdracht en druk op Enter om te "
+"zoeken. Druk op Esc om te annuleren."
 
 #: footer.php:54
 msgid "Menu"
@@ -151,23 +150,23 @@ msgstr "Menu"
 
 #: functions.php:61
 msgid "Primary Menu"
-msgstr "Menú Principal"
+msgstr "Primair menu"
 
 #: functions.php:62
 msgid "Social Menu"
-msgstr "Menú social"
+msgstr "Social-menu"
 
 #: functions.php:63
 msgid "Footer Menu"
-msgstr "Menú a pie de página"
+msgstr "Voettekstmenu"
 
 #: functions.php:109
 msgid "Sidebar"
-msgstr "Barra lateral"
+msgstr "Sidebar"
 
 #: header.php:24
 msgid "Skip to content"
-msgstr "Saltar al contenido."
+msgstr "Spring naar inhoud"
 
 #: image.php:26
 msgctxt "attachment parent post"
@@ -246,11 +245,11 @@ msgstr ""
 
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
-msgstr "Muestra el título del sitio y el eslogan"
+msgstr "Toon site titel &amp; tagline"
 
 #: inc/customizer.php:26
 msgid "Theme"
-msgstr "Tema"
+msgstr "Thema"
 
 #: inc/customizer.php:36
 msgid "Hide search button in Social Menu."
@@ -290,25 +289,25 @@ msgstr ""
 #: inc/extras.php:177
 msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
-msgstr "sin derivada"
+msgstr "no-subset"
 
 #: inc/extras.php:226
 msgid "on %s at %s"
-msgstr "el %s a las %s"
+msgstr ""
 
 #: inc/extras.php:243
 msgid "Your comment is awaiting moderation."
-msgstr "Tu comentario está pendiente de moderación."
+msgstr "Je reactie is in afwachting van moderatie."
 
 #: inc/extras.php:315 inc/extras.php:316
 msgctxt "label"
 msgid "Search for:"
-msgstr "Buscar:"
+msgstr "Zoek op:"
 
 #: inc/extras.php:316
 msgctxt "placeholder"
 msgid "Search &hellip;"
-msgstr "Buscar &hellip;"
+msgstr "Zoek &hellip;"
 
 #: inc/extras.php:355
 msgid "Intro Text"
@@ -336,7 +335,7 @@ msgstr ""
 
 #: inc/extras.php:428
 msgid "Search"
-msgstr "Buscar"
+msgstr "Zoeken"
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:161
 #: inc/required-plugins/required-plugins.php:48
@@ -642,7 +641,7 @@ msgstr ""
 #: inc/template-tags.php:48
 msgctxt "post author"
 msgid "by %s"
-msgstr "por %s"
+msgstr "door %s"
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:104
@@ -651,40 +650,40 @@ msgstr ", "
 
 #: inc/template-tags.php:151
 msgid "All %s Posts"
-msgstr "Las %s entradas"
+msgstr "Alle %s berichten"
 
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
-msgstr "Etiquetado con:"
+msgstr "Met de volgende tags:"
 
 #: inc/template-tags.php:264
 msgid "Leave a comment"
-msgstr "Deja un comentario"
+msgstr "Een reactie plaatsen"
 
 #: inc/template-tags.php:264
 msgid "1 Comment"
-msgstr "1 comentario"
+msgstr "1 reactie"
 
 #: inc/template-tags.php:264
 msgid "% Comments"
-msgstr "% comentarios"
+msgstr "% reacties"
 
 #: inc/template-tags.php:287
 msgid "Category: %s"
-msgstr "Categoría: %s"
+msgstr "Categorie: %s"
 
 #: inc/template-tags.php:289
 msgid "Tag: %s"
-msgstr "Etiqueta: %s"
+msgstr "Tag: %s"
 
 #: inc/template-tags.php:291
 msgid "Author: %s"
-msgstr "Autor: %s"
+msgstr "Auteur: %s"
 
 #: inc/template-tags.php:293
 msgid "Year: %s"
-msgstr "Año: %s"
+msgstr "Jaar: %s"
 
 #: inc/template-tags.php:293
 msgctxt "yearly archives date format"
@@ -693,7 +692,7 @@ msgstr "Y"
 
 #: inc/template-tags.php:295
 msgid "Month: %s"
-msgstr "Mes: %s"
+msgstr "Maand: %s"
 
 #: inc/template-tags.php:295
 msgctxt "monthly archives date format"
@@ -702,47 +701,47 @@ msgstr "F Y"
 
 #: inc/template-tags.php:297
 msgid "Day: %s"
-msgstr "Día: %s"
+msgstr "Dag: %s"
 
 #: inc/template-tags.php:297
 msgctxt "daily archives date format"
 msgid "F j, Y"
-msgstr "j F, Y"
+msgstr "j F Y"
 
 #: inc/template-tags.php:300
 msgctxt "post format archive title"
 msgid "Asides"
-msgstr "Asides"
+msgstr "Zijdelings"
 
 #: inc/template-tags.php:302
 msgctxt "post format archive title"
 msgid "Galleries"
-msgstr "Galerías"
+msgstr "Galerijen"
 
 #: inc/template-tags.php:304
 msgctxt "post format archive title"
 msgid "Images"
-msgstr "Imágenes"
+msgstr "Afbeeldingen"
 
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
 msgid "Videos"
-msgstr "Vídeos"
+msgstr "Video's"
 
 #: inc/template-tags.php:308
 msgctxt "post format archive title"
 msgid "Quotes"
-msgstr "Citas"
+msgstr "Citaten"
 
 #: inc/template-tags.php:310
 msgctxt "post format archive title"
 msgid "Links"
-msgstr "Enlaces"
+msgstr "Links"
 
 #: inc/template-tags.php:312
 msgctxt "post format archive title"
 msgid "Statuses"
-msgstr "Estatus"
+msgstr "Statussen"
 
 #: inc/template-tags.php:314
 msgctxt "post format archive title"
@@ -752,11 +751,11 @@ msgstr "Audio"
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Chats"
-msgstr "Chats"
+msgstr "Gesprekken"
 
 #: inc/template-tags.php:319
 msgid "Archives: %s"
-msgstr "Archivos: %s"
+msgstr "Archieven: %s"
 
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
@@ -765,35 +764,35 @@ msgstr "%1$s: %2$s"
 
 #: inc/template-tags.php:325
 msgid "Archives"
-msgstr "Archivos"
+msgstr "Archieven"
 
 #: inc/template-tags.php:843
 msgid "Search Results for: %s"
-msgstr "Resultados de la búsqueda para: %s"
+msgstr "Zoekresultaten voor: %s"
 
 #: inc/template-tags.php:870
 msgid "Image navigation"
-msgstr "Navegador de imágenes"
+msgstr "Afbeeldingnavigatie"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
-msgstr "Imagen anterior"
+msgstr "Vorige afbeelding"
 
 #: inc/template-tags.php:895
 msgid "Next image"
-msgstr "Próxima imagen"
+msgstr "Volgende afbeelding"
 
 #: inc/template-tags.php:1020
 msgid "Posts navigation"
-msgstr "Ir a las entradas"
+msgstr "Berichtennavigatie"
 
 #: inc/template-tags.php:1027 inc/template-tags.php:1037
 msgid "Previous"
-msgstr "Anterior"
+msgstr "Voorgaande"
 
 #: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
-msgstr "Siguiente"
+msgstr "Volgende"
 
 #. Theme URI of the plugin/theme
 msgid "https://pixelgrade.com/demos/patch/"
@@ -815,7 +814,7 @@ msgid "https://pixelgrade.com/"
 msgstr ""
 
 #~ msgid "http://wordpress.org/"
-#~ msgstr "http://wordpress.org/"
+#~ msgstr "http://nl.wordpress.org/"
 
 #~ msgid "Proudly powered by %s"
-#~ msgstr "Funciona con %s"
+#~ msgstr "Met trots ondersteund door %s"
