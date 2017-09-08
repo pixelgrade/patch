@@ -262,27 +262,28 @@ add_action( 'after_setup_theme', 'patch_responsive_videos_setup' );
 
 /* Automagical updates */
 function wupdates_check_JlplJ( $transient ) {
-	// Nothing to do here if the checked transient entry is empty
-	if ( empty( $transient->checked ) ) {
+	// First get the theme directory name (the theme slug - unique)
+	$slug = basename( get_template_directory() );
+
+	// Nothing to do here if the checked transient entry is empty or if we have already checked
+	if ( empty( $transient->checked ) || empty( $transient->checked[ $slug ] ) || ! empty( $transient->response[ $slug ] ) ) {
 		return $transient;
 	}
 
 	// Let's start gathering data about the theme
-	// First get the theme directory name (the theme slug - unique)
-	$slug = basename( get_template_directory() );
 	// Then WordPress version
 	include( ABSPATH . WPINC . '/version.php' );
 	$http_args = array (
 		'body' => array(
 			'slug' => $slug,
-			'url' => home_url(), //the site's home URL
+			'url' => home_url( '/' ), //the site's home URL
 			'version' => 0,
 			'locale' => get_locale(),
 			'phpv' => phpversion(),
 			'child_theme' => is_child_theme(),
 			'data' => null, //no optional data is sent by default
 		),
-		'user-agent' => 'WordPress/' . $wp_version . '; ' . home_url()
+		'user-agent' => 'WordPress/' . $wp_version . '; ' . home_url( '/' )
 	);
 
 	// If the theme has been checked for updates before, get the checked version
@@ -339,8 +340,12 @@ function wupdates_check_JlplJ( $transient ) {
 add_filter( 'pre_set_site_transient_update_themes', 'wupdates_check_JlplJ' );
 
 function wupdates_add_id_JlplJ( $ids = array() ) {
-    $slug = basename( get_template_directory() );
-    $ids[ $slug ] = array( 'id' => 'JlplJ', 'type' => 'theme', );
+	// First get the theme directory name (unique)
+	$slug = basename( get_template_directory() );
+
+	// Now add the predefined details about this product
+	// Do not tamper with these please!!!
+	$ids[ $slug ] = array( 'name' => 'Patch', 'slug' => 'patch', 'id' => 'JlplJ', 'type' => 'theme', 'digest' => '65d70b6547e622ea429312993454fe3d', );
 
     return $ids;
 }
