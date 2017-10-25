@@ -15,10 +15,6 @@ jobs:
           MYSQL_DATABASE: wordpress
           MYSQL_ROOT_PASSWORD: mypass
         ports: 3306:3306
-    branches:
-      only:
-        - test
-        - master
     steps:
       - checkout
       - run:
@@ -55,3 +51,15 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               sh ./.circleci/deploy_production.sh
             fi
+
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - build:
+          context: org-global
+          filters:
+            branches:
+              only:
+                - test
+                - master
