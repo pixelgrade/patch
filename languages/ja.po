@@ -1,14 +1,23 @@
-# Translation of Patch in Japanese
-# This file is distributed under the same license as the Patch package.
+# Translation of WordPress.com - Themes - Patch in Japanese
+# This file is distributed under the same license as the WordPress.com - Themes - Patch package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2015-07-29 22:09:08+0000\n"
+"PO-Revision-Date: 2017-03-23 05:01:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: GlotPress/1.0-alpha-1100\n"
-"Project-Id-Version: Patch\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: ja_JP\n"
+"Project-Id-Version: WordPress.com - Themes - Patch\n"
+
+#: inc/wpcom-colors.php:32
+msgid "Main Accent"
+msgstr "メインアクセント"
+
+#: inc/wpcom-colors.php:15
+msgid "Body Border"
+msgstr "本文枠線"
 
 #. Description of the plugin/theme
 #: wp-content/themes/premium/patch/style.css
@@ -23,13 +32,13 @@ msgstr "次"
 msgid "Previous"
 msgstr "前"
 
-#: inc/template-tags.php:895
-msgid "Next image"
-msgstr "次の画像"
-
 #: inc/template-tags.php:1020
 msgid "Posts navigation"
 msgstr "投稿ナビゲーション"
+
+#: inc/template-tags.php:895
+msgid "Next image"
+msgstr "次の画像"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
@@ -47,54 +56,54 @@ msgstr "検索結果: %s"
 msgid "Archives"
 msgstr "アーカイブ"
 
-#: inc/template-tags.php:319
-msgid "Archives: %s"
-msgstr "アーカイブ: %s"
-
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
+
+#: inc/template-tags.php:319
+msgid "Archives: %s"
+msgstr "アーカイブ: %s"
 
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr "チャット"
 
-#: inc/template-tags.php:312
-msgctxt "post format archive title"
-msgid "Statuses"
-msgstr "ステータス"
-
 #: inc/template-tags.php:314
 msgctxt "post format archive title"
 msgid "Audio"
 msgstr "音声"
 
-#: inc/template-tags.php:308
+#: inc/template-tags.php:312
 msgctxt "post format archive title"
-msgid "Quotes"
-msgstr "引用"
+msgid "Statuses"
+msgstr "ステータス"
 
 #: inc/template-tags.php:310
 msgctxt "post format archive title"
 msgid "Links"
 msgstr "リンク"
 
+#: inc/template-tags.php:308
+msgctxt "post format archive title"
+msgid "Quotes"
+msgstr "引用"
+
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr "動画"
 
-#: inc/template-tags.php:302
-msgctxt "post format archive title"
-msgid "Galleries"
-msgstr "ギャラリー"
-
 #: inc/template-tags.php:304
 msgctxt "post format archive title"
 msgid "Images"
 msgstr "画像"
+
+#: inc/template-tags.php:302
+msgctxt "post format archive title"
+msgid "Galleries"
+msgstr "ギャラリー"
 
 #: inc/template-tags.php:300
 msgctxt "post format archive title"
@@ -106,14 +115,14 @@ msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr "Y年n月j日"
 
+#: inc/template-tags.php:297
+msgid "Day: %s"
+msgstr "﻿日: %s"
+
 #: inc/template-tags.php:295
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "Y年n月"
-
-#: inc/template-tags.php:297
-msgid "Day: %s"
-msgstr "﻿日: %s"
 
 #: inc/template-tags.php:295
 msgid "Month: %s"
@@ -148,28 +157,28 @@ msgstr "%件のコメント"
 msgid "1 Comment"
 msgstr "1件のコメント"
 
+#: inc/template-tags.php:264
+msgid "Leave a comment"
+msgstr "コメントをどうぞ"
+
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
 msgstr "タグ:"
 
-#: inc/template-tags.php:264
-msgid "Leave a comment"
-msgstr "コメントをどうぞ"
-
 #: inc/template-tags.php:151
 msgid "All %s Posts"
 msgstr "すべての%s投稿"
-
-#: inc/template-tags.php:48
-msgctxt "post author"
-msgid "by %s"
-msgstr "投稿者: %s"
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:104
 msgid ", "
 msgstr ", "
+
+#: inc/template-tags.php:48
+msgctxt "post author"
+msgid "by %s"
+msgstr "投稿者: %s"
 
 #: inc/extras.php:329
 msgid "Search"
@@ -185,6 +194,14 @@ msgctxt "label"
 msgid "Search for:"
 msgstr "検索:"
 
+#: inc/extras.php:190
+msgid "Your comment is awaiting moderation."
+msgstr "あなたのコメントは承認待ちです。"
+
+#: inc/extras.php:173
+msgid "on %s at %s"
+msgstr "投稿日時: %s%s"
+
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
 #. 'vietnamese'. Do not translate into your own language.
@@ -192,22 +209,6 @@ msgstr "検索:"
 msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr "no-subset"
-
-#: inc/extras.php:173
-msgid "on %s at %s"
-msgstr "投稿日時: %s%s"
-
-#: inc/extras.php:190
-msgid "Your comment is awaiting moderation."
-msgstr "あなたのコメントは承認待ちです。"
-
-#. Translators: If there are characters in your language that are not
-#. * supported by Roboto, translate this to 'off'. Do not translate
-#. * into your own language.
-#: inc/extras.php:111
-msgctxt "Roboto font: on or off"
-msgid "on"
-msgstr "on"
 
 #. Translators: If there are characters in your language that are not
 #. * supported by Oswald, translate this to 'off'. Do not translate
@@ -217,53 +218,61 @@ msgctxt "Oswald font: on or off"
 msgid "on"
 msgstr "on"
 
-#: inc/customizer.php:19
-msgid "Display Site Title &amp; Tagline"
-msgstr "サイト名とタグラインを表示"
+#. Translators: If there are characters in your language that are not
+#. * supported by Roboto, translate this to 'off'. Do not translate
+#. * into your own language.
+#: inc/extras.php:111
+msgctxt "Roboto font: on or off"
+msgid "on"
+msgstr "on"
 
 #: inc/customizer.php:26
 msgid "Theme"
 msgstr "テーマ名"
 
-#: footer.php:45
-msgid "Menu"
-msgstr "メニュー"
+#: inc/customizer.php:19
+msgid "Display Site Title &amp; Tagline"
+msgstr "サイト名とタグラインを表示"
 
 #: header.php:24
 msgid "Skip to content"
 msgstr "コンテンツへ移動"
 
-#: functions.php:63
-msgid "Footer Menu"
-msgstr "フッターメニュー"
+#: footer.php:45
+msgid "Menu"
+msgstr "メニュー"
 
 #: functions.php:109
 msgid "Sidebar"
 msgstr "サイドバー"
 
-#: footer.php:36
-msgid "Begin typing your search above and press return to search. Press Esc to cancel."
-msgstr "上部にキーワードを入力し、リターンキーを押して検索を開始してください。キャンセルするには ESC キーをお使いください。"
+#: functions.php:63
+msgid "Footer Menu"
+msgstr "フッターメニュー"
+
+#: functions.php:62
+msgid "Social Menu"
+msgstr "ソーシャルメニュー"
 
 #: functions.php:61
 msgid "Primary Menu"
 msgstr "メインメニュー"
 
-#: functions.php:62
-msgid "Social Menu"
-msgstr "ソーシャルメニュー"
+#: footer.php:36
+msgid "Begin typing your search above and press return to search. Press Esc to cancel."
+msgstr "上部にキーワードを入力し、リターンキーを押して検索を開始してください。キャンセルするには ESC キーをお使いください。"
 
 #: footer.php:28
 msgid "Footer navigation"
 msgstr "フッターナビゲーション"
 
 #: footer.php:16
-msgid "http://wordpress.org/"
-msgstr "http://ja.wordpress.org/"
-
-#: footer.php:16
 msgid "Proudly powered by %s"
 msgstr "Proudly powered by %s"
+
+#: footer.php:16
+msgid "http://wordpress.org/"
+msgstr "http://ja.wordpress.org/"
 
 #: content.php:30
 msgid "Read More"
@@ -295,12 +304,6 @@ msgstr "編集"
 msgid "Page"
 msgstr "固定ページ"
 
-#. translators: %s: Name of current post
-#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
-#: inc/template-tags.php:758
-msgid "Continue reading %s"
-msgstr "続きを読む: %s"
-
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:46
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
@@ -308,43 +311,49 @@ msgstr "続きを読む: %s"
 msgid "Pages:"
 msgstr "ページ:"
 
-#: comments.php:42 comments.php:63
-msgid "Newer Comments"
-msgstr "より新しいコメント"
+#. translators: %s: Name of current post
+#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
+#: inc/template-tags.php:758
+msgid "Continue reading %s"
+msgstr "続きを読む: %s"
 
 #: comments.php:75
 msgid "Comments are closed."
 msgstr "コメントは受け付けていません。"
 
+#: comments.php:42 comments.php:63
+msgid "Newer Comments"
+msgstr "より新しいコメント"
+
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
 msgstr "過去のコメント"
+
+#: comments.php:39 comments.php:60
+msgid "Comment navigation"
+msgstr "コメントナビゲーション"
+
+#: comments.php:28
+msgid "Add yours"
+msgstr "追加"
+
+#: comments.php:26
+msgid "There are no comments"
+msgstr "まだコメントがありません"
 
 #: comments.php:24
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] "コメント"
 
-#: comments.php:26
-msgid "There are no comments"
-msgstr "まだコメントがありません"
-
-#: comments.php:28
-msgid "Add yours"
-msgstr "追加"
-
-#: comments.php:39 comments.php:60
-msgid "Comment navigation"
-msgstr "コメントナビゲーション"
-
 #: author-bio.php:18
 msgid "All posts"
 msgstr "すべての投稿"
 
-#: 404.php:16
-msgid "Oops! That page can&rsquo;t be found."
-msgstr "お探しのページが見つかりません。"
-
 #: author-bio.php:18
 msgid "View all posts by %s"
 msgstr "%s の投稿をすべて表示"
+
+#: 404.php:16
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "お探しのページが見つかりません。"

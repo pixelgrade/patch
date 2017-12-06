@@ -179,4 +179,5 @@ require get_template_directory() . '/inc/jetpack.php';
 /**
  * Load the Hybrid Media Grabber class
  */
-require get_template_directory() . '/inc/hybrid-media-grabber.php'; ?>
+require get_template_directory() . '/inc/hybrid-media-grabber.php';
+

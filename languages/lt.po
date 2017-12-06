@@ -2,14 +2,27 @@
 # This file is distributed under the same license as the WordPress.com - Themes - Patch package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-08-18 18:30:39+0000\n"
+"PO-Revision-Date: 2017-07-11 13:21:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: GlotPress/2.2.0-alpha\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
 "Language: lt\n"
 "Project-Id-Version: WordPress.com - Themes - Patch\n"
+
+#: inc/wpcom-colors.php:32
+msgid "Main Accent"
+msgstr "Pagrindinė spalva"
+
+#: inc/wpcom-colors.php:15
+msgid "Body Border"
+msgstr "Turinio kraštelis"
+
+#. Description of the plugin/theme
+#: wp-content/themes/premium/patch/style.css
+msgid "An algorithmic design experiment that cleverly imagines the best layout for your content. Patch brings unity and balance to your beautiful crafted diversity."
+msgstr "Eksperimentinio dizaino tema, siekianti balanso ir vientisumo."
 
 #: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
@@ -37,7 +50,7 @@ msgstr "Image Navigation"
 
 #: inc/template-tags.php:843
 msgid "Search Results for: %s"
-msgstr "Paieškos rezultatai skirti: %s"
+msgstr "Paieškos rezultatai pagal: %s"
 
 #: inc/template-tags.php:325
 msgid "Archives"
@@ -138,7 +151,7 @@ msgstr "Kategorija: %s"
 
 #: inc/template-tags.php:264
 msgid "% Comments"
-msgstr "% Komentaras"
+msgstr "Komentarų: %"
 
 #: inc/template-tags.php:264
 msgid "1 Comment"
@@ -185,13 +198,17 @@ msgstr "Ieškoti pagal:"
 msgid "Your comment is awaiting moderation."
 msgstr "Komentaras laukia administratoriaus patvirtinimo."
 
+#: inc/extras.php:173
+msgid "on %s at %s"
+msgstr "| %s | %s"
+
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
 #. 'vietnamese'. Do not translate into your own language.
 #: inc/extras.php:124
 msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
-msgstr "nėra kalbos poaibio"
+msgstr "no-subset"
 
 #. Translators: If there are characters in your language that are not
 #. * supported by Oswald, translate this to 'off'. Do not translate
@@ -199,7 +216,15 @@ msgstr "nėra kalbos poaibio"
 #: inc/extras.php:119
 msgctxt "Oswald font: on or off"
 msgid "on"
-msgstr "įjungta"
+msgstr "on"
+
+#. Translators: If there are characters in your language that are not
+#. * supported by Roboto, translate this to 'off'. Do not translate
+#. * into your own language.
+#: inc/extras.php:111
+msgctxt "Roboto font: on or off"
+msgid "on"
+msgstr "on"
 
 #: inc/customizer.php:47
 msgid "Hide the author bio on single posts."
@@ -256,11 +281,11 @@ msgstr "Poraštės navigacija"
 
 #: footer.php:18
 msgid "<span class=\"theme-name\">Theme: %1$s</span> by %2$s."
-msgstr "<span class=\"theme-name\">Tema: %1$s</span> sukurta %2$s."
+msgstr "<span class=\"theme-name\">Tema: %1$s</span> Sukūrė: %2$s"
 
 #: footer.php:16
 msgid "Proudly powered by %s"
-msgstr "%s sistema"
+msgstr "Sistema: %s"
 
 #: footer.php:16
 msgid "http://wordpress.org/"
@@ -272,7 +297,7 @@ msgstr "Skaityti daugiau"
 
 #: content-none.php:34
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr "Atrodo mes negalime rasti to ko jūs ieškote. Gal paieška padės."
+msgstr "Atrodo mes negalime rasti to ko Jūs ieškote. Gal paieška padės."
 
 #: content-none.php:29
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
@@ -280,7 +305,7 @@ msgstr "Deja, nieko panašaus rasti nepavyko. Pabandykite įvesti kitokį paieš
 
 #: content-none.php:25
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr "Pasirengę išleisti savo pirmą įrašą? <a href=\"%1$s\">Pradėkite čia</a>."
+msgstr "Pasirengę paskelbti savo pirmajį įrašą? <a href=\"%1$s\">Pradėkite čia</a>."
 
 #: content-none.php:18
 msgid "Nothing Found"
@@ -350,7 +375,7 @@ msgstr "Peržiūrėti visus %s įrašus"
 
 #: 404.php:20
 msgid "It looks like nothing was found at this location. Why not try searching for something?"
-msgstr "Nieko nerasta šioje vietoje. Pabandykite paieškoti kažka."
+msgstr "Nieko nerasta. Išbandykite paiešką."
 
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."

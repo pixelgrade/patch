@@ -2,14 +2,22 @@
 # This file is distributed under the same license as the WordPress.com - Themes - Patch package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-05-01 08:09:11+0000\n"
+"PO-Revision-Date: 2017-03-23 05:01:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/2.1.0-alpha\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
 "Language: sv_SE\n"
 "Project-Id-Version: WordPress.com - Themes - Patch\n"
+
+#: inc/wpcom-colors.php:32
+msgid "Main Accent"
+msgstr "Huvudaccentuering"
+
+#: inc/wpcom-colors.php:15
+msgid "Body Border"
+msgstr "Kantlinje för brödtext"
 
 #: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
@@ -19,13 +27,13 @@ msgstr "Nästa"
 msgid "Previous"
 msgstr "Föregående"
 
-#: inc/template-tags.php:895
-msgid "Next image"
-msgstr "Nästa bild"
-
 #: inc/template-tags.php:1020
 msgid "Posts navigation"
 msgstr "Inläggsnavigering"
+
+#: inc/template-tags.php:895
+msgid "Next image"
+msgstr "Nästa bild"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
@@ -43,14 +51,14 @@ msgstr "Sökresultat för: %s"
 msgid "Archives"
 msgstr "Arkiv"
 
-#: inc/template-tags.php:319
-msgid "Archives: %s"
-msgstr "Arkiv: %s"
-
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
+
+#: inc/template-tags.php:319
+msgid "Archives: %s"
+msgstr "Arkiv: %s"
 
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
@@ -102,14 +110,14 @@ msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr "j F, Y"
 
+#: inc/template-tags.php:297
+msgid "Day: %s"
+msgstr "Dag: %s"
+
 #: inc/template-tags.php:295
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "F Y"
-
-#: inc/template-tags.php:297
-msgid "Day: %s"
-msgstr "Dag: %s"
 
 #: inc/template-tags.php:295
 msgid "Month: %s"
@@ -144,14 +152,14 @@ msgstr "% kommentarer"
 msgid "1 Comment"
 msgstr "1 kommentar"
 
+#: inc/template-tags.php:264
+msgid "Leave a comment"
+msgstr "Lämna en kommentar"
+
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
 msgstr "Taggad med: "
-
-#: inc/template-tags.php:264
-msgid "Leave a comment"
-msgstr "Lämna en kommentar"
 
 #: inc/template-tags.php:151
 msgid "All %s Posts"
@@ -181,6 +189,10 @@ msgctxt "label"
 msgid "Search for:"
 msgstr "Sök"
 
+#: inc/extras.php:190
+msgid "Your comment is awaiting moderation."
+msgstr "Din kommentar inväntar granskning."
+
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
 #. 'vietnamese'. Do not translate into your own language.
@@ -189,53 +201,49 @@ msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr "no-subset"
 
-#: inc/extras.php:190
-msgid "Your comment is awaiting moderation."
-msgstr "Din kommentar inväntar granskning."
+#: inc/customizer.php:26
+msgid "Theme"
+msgstr "Tema"
 
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
 msgstr "Visa webbplatstitel &amp; slogan"
 
-#: inc/customizer.php:26
-msgid "Theme"
-msgstr "Tema"
+#: header.php:24
+msgid "Skip to content"
+msgstr "Hoppa till innehåll"
 
 #: footer.php:45
 msgid "Menu"
 msgstr "Meny"
 
-#: header.php:24
-msgid "Skip to content"
-msgstr "Hoppa till innehåll"
+#: functions.php:109
+msgid "Sidebar"
+msgstr "Sidopanel"
 
 #: functions.php:63
 msgid "Footer Menu"
 msgstr "Sidfotsmeny"
 
-#: functions.php:109
-msgid "Sidebar"
-msgstr "Sidopanel"
+#: functions.php:62
+msgid "Social Menu"
+msgstr "Social meny"
 
 #: functions.php:61
 msgid "Primary Menu"
 msgstr "Primär meny"
-
-#: functions.php:62
-msgid "Social Menu"
-msgstr "Social meny"
 
 #: footer.php:28
 msgid "Footer navigation"
 msgstr "Navigering i sidfot"
 
 #: footer.php:16
-msgid "http://wordpress.org/"
-msgstr "http://wordpress.org/"
-
-#: footer.php:16
 msgid "Proudly powered by %s"
 msgstr "Drivs med %s"
+
+#: footer.php:16
+msgid "http://wordpress.org/"
+msgstr "http://wordpress.org/"
 
 #: content.php:30
 msgid "Read More"
@@ -267,12 +275,6 @@ msgstr "Redigera"
 msgid "Page"
 msgstr "Sida"
 
-#. translators: %s: Name of current post
-#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
-#: inc/template-tags.php:758
-msgid "Continue reading %s"
-msgstr "Fortsätt läsa %s"
-
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:46
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
@@ -280,34 +282,40 @@ msgstr "Fortsätt läsa %s"
 msgid "Pages:"
 msgstr "Sidor:"
 
-#: comments.php:42 comments.php:63
-msgid "Newer Comments"
-msgstr "Nyare kommentarer"
+#. translators: %s: Name of current post
+#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
+#: inc/template-tags.php:758
+msgid "Continue reading %s"
+msgstr "Fortsätt läsa %s"
 
 #: comments.php:75
 msgid "Comments are closed."
 msgstr "Kommentarer inaktiverade."
 
+#: comments.php:42 comments.php:63
+msgid "Newer Comments"
+msgstr "Nyare kommentarer"
+
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
 msgstr "Äldre kommentarer"
-
-#: comments.php:28
-msgid "Add yours"
-msgstr "Lägg till"
 
 #: comments.php:39 comments.php:60
 msgid "Comment navigation"
 msgstr "Kommentarsnavigering"
 
+#: comments.php:28
+msgid "Add yours"
+msgstr "Lägg till"
+
 #: author-bio.php:18
 msgid "All posts"
 msgstr "Alla poster"
 
-#: 404.php:16
-msgid "Oops! That page can&rsquo;t be found."
-msgstr "Hoppsan, sidan kunde inte hittas."
-
 #: author-bio.php:18
 msgid "View all posts by %s"
 msgstr "Visa alla inlägg av %s"
+
+#: 404.php:16
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Hoppsan, sidan kunde inte hittas."
