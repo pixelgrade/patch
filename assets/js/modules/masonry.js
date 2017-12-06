@@ -16,10 +16,6 @@ var masonry = (function() {
 				showBlocks($blocks);
 			});
 
-			$( document.body ).on( 'post-load', function () {
-				showBlocks($container.children().addClass('post--animated  post--loaded'));
-			} );
-
 			return;
 		}
 
@@ -145,11 +141,15 @@ var masonry = (function() {
 	},
 
 	onLoad = function() {
-		var $newBlocks = $container.children().not('.post--loaded').addClass('post--loaded');
-		$newBlocks.imagesLoaded(function() {
-			$container.masonry('appended', $newBlocks, true).masonry('layout');
-			showBlocks($newBlocks);
-		});
+		if ( windowWidth < 900 ) {
+			showBlocks($container.children().addClass('post--animated  post--loaded'));
+		} else {
+			var $newBlocks = $container.children().not('.post--loaded').addClass('post--loaded');
+			$newBlocks.imagesLoaded(function() {
+				$container.masonry('appended', $newBlocks, true).masonry('layout');
+				showBlocks($newBlocks);
+			});
+		}
 	};
 
 	return {

@@ -1,17 +1,20 @@
 var theme = 'patch',
-		gulp 		= require('gulp'),
-		sass 		= require('gulp-sass'),
-		prefix 		= require('gulp-autoprefixer'),
-		exec 		= require('gulp-exec'),
-		replace 	= require('gulp-replace'),
-		del         = require('del'),
-		minify 		= require('gulp-minify-css'),
-		livereload 	= require('gulp-livereload'),
-		concat 		= require('gulp-concat'),
-		notify 		= require('gulp-notify'),
-		beautify 	= require('gulp-beautify'),
-		csscomb 	= require('gulp-csscomb'),
-		mmq 		= require('gulp-merge-media-queries');
+	gulp = require( 'gulp' ),
+	sass = require( 'gulp-sass' ),
+	prefix = require( 'gulp-autoprefixer' ),
+	exec = require( 'gulp-exec' ),
+	replace = require( 'gulp-replace' ),
+	del = require( 'del' ),
+	minify = require( 'gulp-minify-css' ),
+	livereload = require( 'gulp-livereload' ),
+	concat = require( 'gulp-concat' ),
+	notify = require( 'gulp-notify' ),
+	beautify = require( 'gulp-beautify' ),
+	csscomb = require( 'gulp-csscomb' ),
+	mmq = require( 'gulp-merge-media-queries' ),
+	fs = require( 'fs' ),
+	bs = require( 'browser-sync' ),
+	u = require( 'gulp-util' );
 
 jsFiles = [
 	'./assets/js/vendor/*.js',
@@ -23,6 +26,16 @@ jsFiles = [
 	'./assets/js/main/wrapper_end.js'
 ];
 
+var config = {
+	"baseurl": "demos.dev/patch"
+};
+
+if ( fs.existsSync( './gulpconfig.json' ) ) {
+	config = require( './gulpconfig.json' );
+} else {
+	config = require( './gulpconfig.example.json' );
+	console.log( "Don't forget to create your own gulpconfig.json from gulpconfig.json.example" );
+}
 
 var options = {
 	silent: true,
@@ -84,6 +97,35 @@ gulp.task('server', ['styles', 'scripts'], function () {
 	console.log('The styles and scripts have been compiled for production! Go and clear the caches!');
 });
 
+// -----------------------------------------------------------------------------
+// Browser Sync using Proxy server
+//
+// Makes web development better by eliminating the need to refresh. Essential
+// for CSS development and multi-device testing.
+//
+// This is how you'd connect to a local server that runs itself.
+// Examples would be a PHP site such as Wordpress or a
+// Drupal site, or a node.js site like Express.
+//
+// Usage: gulp browser-sync-proxy --port 8080
+// -----------------------------------------------------------------------------
+gulp.task( 'browser-sync', function() {
+	bs( {
+		// Point this to your pre-existing server.
+		proxy: config.baseurl + (
+			u.env.port ? ':' + u.env.port : ''
+		),
+		files: ['*.php', 'style.css', 'assets/js/main.js'],
+		// This tells BrowserSync to auto-open a tab once it boots.
+		open: true
+	}, function( err, bs ) {
+		if ( err ) {
+			console.log( bs.options );
+		}
+	} );
+} );
+
+gulp.task( 'bs', ['styles', 'scripts', 'browser-sync', 'watch'] );
 
 /**
  * Copy theme folder outside in a build folder, recreate styles before that

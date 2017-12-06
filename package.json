@@ -1,20 +1,22 @@
 {
     "name": "patch",
     "devDependencies": {
+        "browser-sync": "^2.18.13",
+        "del": "*",
         "gulp": "*",
-        "gulp-sass": "*",
-        "gulp-ruby-sass": "*",
         "gulp-autoprefixer": "*",
-        "gulp-minify-css": "*",
+        "gulp-beautify": "*",
+        "gulp-concat": "*",
+        "gulp-csscomb": "*",
+        "gulp-exec": "*",
         "gulp-ignore": "*",
         "gulp-livereload": "*",
-        "gulp-notify": "*",
-        "gulp-concat": "*",
-        "gulp-exec": "*",
-        "gulp-replace": "*",
-        "gulp-beautify": "*",
-        "gulp-csscomb": "*",
         "gulp-merge-media-queries": "*",
-        "del": "*"
+        "gulp-minify-css": "*",
+        "gulp-notify": "*",
+        "gulp-replace": "*",
+        "gulp-ruby-sass": "*",
+        "gulp-sass": "*",
+        "gulp-util": "^3.0.8"
     }
 }
