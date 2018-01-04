@@ -10,6 +10,7 @@ var masonry = (function() {
 
 	init = function() {
 
+        // For mobile devices we will not use masonry
 		if (windowWidth < 900) {
 			evenClasses();
 			$container.imagesLoaded(function() {
@@ -61,8 +62,13 @@ var masonry = (function() {
 			return;
 		}
 
+        // For mobile devices we will not use masonry
 		if (windowWidth < 900) {
-			$container.masonry('destroy');
+            // Only attempt to destroy if masonry was initialized first
+            if ( $container.data('masonry') ) {
+                $container.masonry('destroy');
+            }
+            
 			initialized = false;
 			evenClasses();
 			return;
