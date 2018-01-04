@@ -35,7 +35,7 @@ add_action( 'after_setup_theme', 'patch_jetpack_setup' );
  * Detect if the footer menu is active and if it is
  * switch Infinite Scroll to click mode
  */
-function switch_infinite_scroll_mode() {
+function patch_switch_infinite_scroll_mode() {
 
 	if ( has_nav_menu( 'footer' ) ) {
 		return true;
@@ -44,7 +44,7 @@ function switch_infinite_scroll_mode() {
 	}
 }
 
-add_filter( 'infinite_scroll_has_footer_widgets', 'switch_infinite_scroll_mode' );
+add_filter( 'infinite_scroll_has_footer_widgets', 'patch_switch_infinite_scroll_mode' );
 
 function patch_jetpack_responsive_videos_should_wrap_videopress_also( $video_patterns ) {
 	$video_patterns[] = 'https?://(.+\.)?videopress\.com/';
@@ -52,4 +52,4 @@ function patch_jetpack_responsive_videos_should_wrap_videopress_also( $video_pat
 	return $video_patterns;
 }
 
-add_filter ( 'jetpack_responsive_videos_oembed_videos', 'patch_jetpack_responsive_videos_should_wrap_videopress_also'); ?>
+add_filter ( 'jetpack_responsive_videos_oembed_videos', 'patch_jetpack_responsive_videos_should_wrap_videopress_also');

@@ -68,7 +68,7 @@ var masonry = (function() {
             if ( $container.data('masonry') ) {
                 $container.masonry('destroy');
             }
-            
+
 			initialized = false;
 			evenClasses();
 			return;

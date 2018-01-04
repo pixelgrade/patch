@@ -243,7 +243,7 @@ function patch_scripts() {
 		'patch-imagesloaded',
 		'patch-velocity',
 		'patch-magnificpopup',
-	), '1.0.2', true );
+	), '1.3.4', true );
 
 	$js_url = ( is_ssl() ) ? 'https://v0.wordpress.com/js/videopress.js' : 'http://s0.videopress.com/js/videopress.js';
 	wp_enqueue_script( 'videopress', $js_url, array( 'jquery', 'swfobject' ), '1.09' );
@@ -394,4 +394,4 @@ require get_template_directory() . '/inc/integrations.php';
 /**
  * Load Recommended/Required plugins notification
  */
-require get_template_directory() . '/inc/required-plugins/required-plugins.php'; ?>
+require get_template_directory() . '/inc/required-plugins/required-plugins.php';

@@ -1309,39 +1309,6 @@ function patch_add_customify_options( $options ) {
 				),
 			)
 		),
-		'demo_content_section' => array(
-			'title'    => __( 'Demo Content', 'patch' ),
-			'priority' => 999999,
-			'options' => array(
-				'import_demodata_button' => array(
-					'title' => 'Import',
-					'type'  => 'html',
-					'html' =>
-						'<input type="hidden" name="wpGrade-nonce-import-posts-pages" value="' . wp_create_nonce( 'wpGrade_nonce_import_demo_posts_pages' ) . '" />' .
-						'<input type="hidden" name="wpGrade-nonce-import-theme-options" value="' . wp_create_nonce( 'wpGrade_nonce_import_demo_theme_options' ) . '" />' .
-						'<input type="hidden" name="wpGrade-nonce-import-widgets" value="' . wp_create_nonce( 'wpGrade_nonce_import_demo_widgets' ) . '" />' .
-						'<input type="hidden" name="wpGrade_import_ajax_url" value="' . admin_url( "admin-ajax.php" ) . '" />' .
-						'<div class="description customize-control-description">' .
-							'<p>' . esc_html__( 'Use the Demo Content as a starting point in building your site, rather than beginning with a blank template.', 'patch' ) . '</p>' .
-							'<p>' . esc_html__( 'Note that the images will be replaced with free samples as there isn\'t any redistribution license for them.', 'patch' ) . '</p>' .
-							'<p>' . sprintf( wp_kses( __( 'Read more about <a href="%s" target="_blank">Adding the Demo Content</a> on our Knowledge Base.', 'patch' ), array(  'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( 'https://pixelgrade.com/docs/getting-started/adding-demo-content/' ) ) . '</p>' .
-							'<a href="#" class="button button-primary" id="wpGrade_import_demodata_button" style="width: 70%; text-align: center; padding: 10px; display: inline-block; height: auto;  margin: 0 15% 10% 15%;">' .
-								__( 'Import demo data', 'patch' ) .
-							'</a>' .
-						'</div>' .
-						'<div class="wpGrade-loading-wrap hidden">' .
-							'<span class="wpGrade-loading wpGrade-import-loading"></span>' .
-							'<div class="wpGrade-import-wait">' .
-								esc_html__( 'Please wait a few minutes (between 1 and 3 minutes usually, but depending on your hosting it can take longer) and ', 'patch' ) .
-								'<strong>' . esc_html__( 'don\'t reload the page', 'patch' ) . '</strong>.' .
-								esc_html__( 'You will be notified as soon as the import has finished!', 'patch' ) .
-							'</div>' .
-						'</div>' .
-						'<div class="wpGrade-import-results hidden"></div>' .
-						'<div class="hr"><div class="inner"><span>&nbsp;</span></div></div>'
-				)
-			)
-		),
 //		'colors_section' => array(
 //			'title'    => __( 'Colors', 'patch' ),
 //			'options' => array(
@@ -1363,60 +1330,6 @@ function patch_add_customify_options( $options ) {
 
 	return $options;
 }
-
-
-function patch_add_customify_import_demo_options( $options ) {
-	$import_demo_section = array(
-		// Import Demo Data
-		'demo_content_section' => array(
-			'title'    => __( 'Demo Content', 'patch' ),
-			'priority' => 999999,
-			'options' => array(
-				'import_demodata_button' => array(
-					'title' => 'Import',
-					'type'  => 'html',
-					'html' =>
-						'<input type="hidden" name="wpGrade-nonce-import-posts-pages" value="' . wp_create_nonce( 'wpGrade_nonce_import_demo_posts_pages' ) . '" />' .
-						'<input type="hidden" name="wpGrade-nonce-import-theme-options" value="' . wp_create_nonce( 'wpGrade_nonce_import_demo_theme_options' ) . '" />' .
-						'<input type="hidden" name="wpGrade-nonce-import-widgets" value="' . wp_create_nonce( 'wpGrade_nonce_import_demo_widgets' ) . '" />' .
-						'<input type="hidden" name="wpGrade_import_ajax_url" value="' . admin_url( "admin-ajax.php" ) . '" />' .
-						'<div class="description customize-control-description">' .
-						'<p>' . esc_html__( 'Use the Demo Content as a starting point in building your site, rather than beginning with a blank template.', 'patch' ) . '</p>' .
-						'<p>' . esc_html__( 'Note that the images will be replaced with free samples as there isn\'t any redistribution license for them.', 'patch' ) . '</p>' .
-						'<p>' . sprintf( wp_kses( __( 'Read more about <a href="%s" target="_blank">Adding the Demo Content</a> on our Knowledge Base.', 'patch' ), array(  'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url( 'https://pixelgrade.com/docs/getting-started/adding-demo-content/' ) ) . '</p>' .
-						'<a href="#" class="button button-primary" id="wpGrade_import_demodata_button" style="width: 70%; text-align: center; padding: 10px; display: inline-block; height: auto;  margin: 0 15% 10% 15%;">' .
-						__( 'Import demo data', 'patch' ) .
-						'</a>' .
-						'</div>' .
-						'<div class="wpGrade-loading-wrap hidden">' .
-						'<span class="wpGrade-loading wpGrade-import-loading"></span>' .
-						'<div class="wpGrade-import-wait">' .
-						esc_html__( 'Please wait a few minutes (between 1 and 3 minutes usually, but depending on your hosting it can take longer) and ', 'patch' ) .
-						'<strong>' . esc_html__( 'don\'t reload the page', 'patch' ) . '</strong>.' .
-						esc_html__( 'You will be notified as soon as the import has finished!', 'patch' ) .
-						'</div>' .
-						'</div>' .
-						'<div class="wpGrade-import-results hidden"></div>' .
-						'<div class="hr"><div class="inner"><span>&nbsp;</span></div></div>'
-				)
-			)
-		),
-	);
-
-	//Allow others to make changes
-	$import_demo_section = apply_filters( 'pixelgrade_customify_import_demo_section_options', $import_demo_section, $options );
-
-	//make sure we are in good working order
-	if ( empty( $options['sections'] ) ) {
-		$options['sections'] = array();
-	}
-
-	//append the general section
-	$options['sections'] = $options['sections'] + $import_demo_section;
-
-	return $options;
-}
-add_filter( 'customify_filter_fields', 'patch_add_customify_import_demo_options', 70, 1 );
 
 function patch_capitalize_headings( $value, $selector, $property, $unit ) {
 
@@ -1588,7 +1501,7 @@ function patch_content_sides_spacing_customizer_preview() { ?>
 add_action( 'customize_preview_init', 'patch_content_sides_spacing_customizer_preview' );
 
 
-if ( !function_exists('patch_dropcap_text_shadow') ) {
+if ( ! function_exists('patch_dropcap_text_shadow') ) {
 	function patch_dropcap_text_shadow( $value, $selector, $property, $unit ) {
 		$output = $selector . '{
 			text-shadow: 2px 2px 0 white, 4px 4px 0 ' . $value . ";\n".
@@ -1597,7 +1510,7 @@ if ( !function_exists('patch_dropcap_text_shadow') ) {
 	}
 }
 
-if ( !function_exists('patch_link_box_shadow') ) {
+if ( ! function_exists('patch_link_box_shadow') ) {
 	function patch_link_box_shadow( $value, $selector, $property, $unit ) {
 		$output = $selector . '{
 			box-shadow: inset 0 -3px 0 ' . $value . ";\n".
@@ -1606,7 +1519,7 @@ if ( !function_exists('patch_link_box_shadow') ) {
 	}
 }
 
-if ( !function_exists('patch_color_contrast') ) {
+if ( ! function_exists('patch_color_contrast') ) {
 	function patch_color_contrast( $value, $selector, $property, $unit ) {
 
 		// Get our color
@@ -1670,4 +1583,4 @@ function load_javascript_thing() { ?>
 
 add_action('customize_preview_init', 'load_javascript_thing');
 
-add_filter( 'customify_filter_fields', 'patch_add_customify_options' ); ?>
+add_filter( 'customify_filter_fields', 'patch_add_customify_options' );
