@@ -270,7 +270,11 @@ if (!Date.now)
                 if (windowWidth < 900) {
                     evenClasses();
                     $container.imagesLoaded(function() {
+                        // We only bind to the Jetpack Infinite Scroll for mobile devices
+                        $body.on('post-load', onLoad);
+
                         showBlocks($blocks);
+                        initialized = false;
                     });
 
                     return;
@@ -314,8 +318,12 @@ if (!Date.now)
                     return;
                 }
 
+                // For mobile devices we will not use masonry
                 if (windowWidth < 900) {
-                    $container.masonry('destroy');
+                    // Only attempt to destroy if masonry was initialized first
+                    if ($container.data('masonry')) {
+                        $container.masonry('destroy');
+                    }
                     initialized = false;
                     evenClasses();
                     return;
