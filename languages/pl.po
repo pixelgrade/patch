@@ -1,114 +1,110 @@
-# Translation of WordPress.com - Themes - Patch in Norwegian
+# Translation of WordPress.com - Themes - Patch in Polish
 # This file is distributed under the same license as the WordPress.com - Themes - Patch package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-12-27 20:50:49+0000\n"
+"PO-Revision-Date: 2017-12-23 19:48:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
-"Language: no\n"
+"Language: pl\n"
 "Project-Id-Version: WordPress.com - Themes - Patch\n"
-
-#: inc/wpcom-colors.php:32
-msgid "Main Accent"
-msgstr "Hovedaksent"
 
 #: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
-msgstr "Neste"
+msgstr "Dalej"
 
 #: inc/template-tags.php:1027 inc/template-tags.php:1037
 msgid "Previous"
-msgstr "Forrige"
+msgstr "Poprzedni"
 
 #: inc/template-tags.php:1020
 msgid "Posts navigation"
-msgstr "Innleggsnavigasjon"
+msgstr "Nawigacja po wpisach"
 
 #: inc/template-tags.php:895
 msgid "Next image"
-msgstr "Neste bilde"
+msgstr "Następny obrazek"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
-msgstr "Forrige bilde"
+msgstr "Poprzedni obrazek"
 
 #: inc/template-tags.php:870
 msgid "Image navigation"
-msgstr "Bildenavigasjon"
+msgstr "Nawigacja po obrazach"
 
 #: inc/template-tags.php:843
 msgid "Search Results for: %s"
-msgstr "Søkeresultater for: %s"
+msgstr "Wyniki wyszukiwania dla zapytania &#8222;%s&#8221;"
 
 #: inc/template-tags.php:325
 msgid "Archives"
-msgstr "Arkiver"
+msgstr "Archiwum"
 
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
 msgid "%1$s: %2$s"
-msgstr "%1$s @ %2$s"
+msgstr "%1$s: %2$s"
 
 #: inc/template-tags.php:319
 msgid "Archives: %s"
-msgstr "Arkiv: %s"
+msgstr "Archiwa: %s"
 
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Chats"
-msgstr "Samtaler"
+msgstr "Czaty"
 
 #: inc/template-tags.php:314
 msgctxt "post format archive title"
 msgid "Audio"
-msgstr "Lyd"
+msgstr "Pliki dźwiękowe"
 
 #: inc/template-tags.php:312
 msgctxt "post format archive title"
 msgid "Statuses"
-msgstr "Statuser"
+msgstr "Statusy"
 
 #: inc/template-tags.php:310
 msgctxt "post format archive title"
 msgid "Links"
-msgstr "Lenker"
+msgstr "Odnośniki"
 
 #: inc/template-tags.php:308
 msgctxt "post format archive title"
 msgid "Quotes"
-msgstr "Sitater"
+msgstr "Cytaty"
 
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
 msgid "Videos"
-msgstr "Filmer"
+msgstr "Filmy"
 
 #: inc/template-tags.php:304
 msgctxt "post format archive title"
 msgid "Images"
-msgstr "Bilder"
+msgstr "Obrazki"
 
 #: inc/template-tags.php:302
 msgctxt "post format archive title"
 msgid "Galleries"
-msgstr "Gallerier"
+msgstr "Galerie"
 
 #: inc/template-tags.php:300
 msgctxt "post format archive title"
 msgid "Asides"
-msgstr "Notiser"
+msgstr "Notatki na marginesie"
 
 #: inc/template-tags.php:297
 msgctxt "daily archives date format"
 msgid "F j, Y"
-msgstr "F j, Y"
+msgstr "j F Y"
 
 #: inc/template-tags.php:297
 msgid "Day: %s"
-msgstr "Dag: %s"
+msgstr "Dzień: %s"
 
 #: inc/template-tags.php:295
 msgctxt "monthly archives date format"
@@ -117,49 +113,45 @@ msgstr "F Y"
 
 #: inc/template-tags.php:295
 msgid "Month: %s"
-msgstr "Måned: %s"
+msgstr "Miesiąc: %s"
 
 #: inc/template-tags.php:293
 msgctxt "yearly archives date format"
 msgid "Y"
-msgstr "Y"
+msgstr "R"
 
 #: inc/template-tags.php:293
 msgid "Year: %s"
-msgstr "År: %s"
+msgstr "Rok: %s"
 
 #: inc/template-tags.php:291
 msgid "Author: %s"
-msgstr "Forfatter: %s"
+msgstr "Autor: %s"
 
 #: inc/template-tags.php:289
 msgid "Tag: %s"
-msgstr "Merkelapp: %s"
+msgstr "Etykieta: %s"
 
 #: inc/template-tags.php:287
 msgid "Category: %s"
-msgstr "Kategori: %s"
+msgstr "Kategoria: %s"
 
 #: inc/template-tags.php:264
 msgid "% Comments"
-msgstr "% kommentarer"
+msgstr "% komentarzy"
 
 #: inc/template-tags.php:264
 msgid "1 Comment"
-msgstr "1 kommentar"
+msgstr "1 komentarz"
 
 #: inc/template-tags.php:264
 msgid "Leave a comment"
-msgstr "Legg igjen en kommentar"
+msgstr "Dodaj komentarz"
 
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
-msgstr "Tagget med"
-
-#: inc/template-tags.php:151
-msgid "All %s Posts"
-msgstr "Alle %s innlegg"
+msgstr "Tagi:"
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:104
@@ -169,29 +161,29 @@ msgstr ", "
 #: inc/template-tags.php:48
 msgctxt "post author"
 msgid "by %s"
-msgstr "av %s"
+msgstr "Autor %s"
 
 #: inc/extras.php:329
 msgid "Search"
-msgstr "Søk"
+msgstr "Szukaj"
 
 #: inc/extras.php:247
 msgctxt "placeholder"
 msgid "Search &hellip;"
-msgstr "Søk &hellip;"
+msgstr "Szukaj &hellip;"
 
 #: inc/extras.php:246 inc/extras.php:247
 msgctxt "label"
 msgid "Search for:"
-msgstr "Søk etter:"
+msgstr "Szukaj:"
 
 #: inc/extras.php:190
 msgid "Your comment is awaiting moderation."
-msgstr "Din kommentar avventer moderasjon."
+msgstr "Twój komentarz oczekuje na moderację."
 
 #: inc/extras.php:173
 msgid "on %s at %s"
-msgstr "på %s den %s"
+msgstr "na %s w %s"
 
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
@@ -207,7 +199,7 @@ msgstr "no-subset"
 #: inc/extras.php:119
 msgctxt "Oswald font: on or off"
 msgid "on"
-msgstr "on"
+msgstr "włączone"
 
 #. Translators: If there are characters in your language that are not
 #. * supported by Roboto, translate this to 'off'. Do not translate
@@ -219,47 +211,39 @@ msgstr "on"
 
 #: inc/customizer.php:26
 msgid "Theme"
-msgstr "Tema"
+msgstr "Motyw"
 
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
-msgstr "Vis nettstedstittel og slagord"
+msgstr "Wyświetlaj tytuł i opis witryny"
 
 #: header.php:24
 msgid "Skip to content"
-msgstr "Gå til innhold"
+msgstr "Przeskocz do treści"
 
 #: footer.php:45
 msgid "Menu"
-msgstr "Meny"
+msgstr "Menu"
 
 #: functions.php:109
 msgid "Sidebar"
-msgstr "Sidekolonnen"
+msgstr "Panel boczny"
 
 #: functions.php:63
 msgid "Footer Menu"
-msgstr "Footer meny"
+msgstr "Menu w stopce"
 
 #: functions.php:62
 msgid "Social Menu"
-msgstr "Sosiale medier-meny"
+msgstr "Menu mediów społecznościowych"
 
 #: functions.php:61
 msgid "Primary Menu"
-msgstr "Primærmeny"
-
-#: footer.php:36
-msgid "Begin typing your search above and press return to search. Press Esc to cancel."
-msgstr "Start å skrive inn søket ditt over og trykk enter for å søke. Trykk Esc for å avbryte."
-
-#: footer.php:28
-msgid "Footer navigation"
-msgstr "Footer navigering"
+msgstr "Menu główne"
 
 #: footer.php:16
 msgid "Proudly powered by %s"
-msgstr "Stolt drevet av %s"
+msgstr "Dumnie wspierane przez WordPressa"
 
 #: footer.php:16
 msgid "http://wordpress.org/"
@@ -267,89 +251,79 @@ msgstr "http://wordpress.org/"
 
 #: content.php:30
 msgid "Read More"
-msgstr "Les mer"
+msgstr "Czytaj dalej"
 
 #: content-none.php:34
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr "Vi klarer ikke å finne det du leter etter. Prøv å søke."
+msgstr "Nie udało się znaleźć tego, czego szukasz. Być może wyszukiwanie przyniesie lepsze rezultaty."
 
 #: content-none.php:29
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
-msgstr "Beklager, men intet passet til ditt søkeuttrykk. Vennligst prøv igjen med noen andre nøkkelord."
+msgstr "Brak wyników wyszukiwania. Proszę spróbować ponownie z innymi słowami."
 
 #: content-none.php:25
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr "Klar for å publisere ditt første innlegg? <a href=\"%1$s\">Kom i gang her</a>."
+msgstr "Gotowy do publikacji swojego pierwszego postu? <a href=\"%1$s\">Zacznij tutaj</a>."
 
 #: content-none.php:18
 msgid "Nothing Found"
-msgstr "Ingenting funnet"
+msgstr "Niczego nie znaleziono"
 
 #: content-attachment.php:54 content-page.php:42 inc/extras.php:178
 #: inc/template-tags.php:236 inc/template-tags.php:268
 msgid "Edit"
-msgstr "endre"
+msgstr "Edytuj"
 
 #: content-aside.php:37 content-attachment.php:46 content-audio.php:50
 #: content-gallery.php:55 content-video.php:54 content.php:66
 msgid "Page"
-msgstr "Side"
+msgstr "strona"
 
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:46
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
 #: content-single.php:59 content-video.php:50 content.php:62
 msgid "Pages:"
-msgstr "Sider:"
+msgstr "Strony:"
 
 #. translators: %s: Name of current post
 #: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
 #: inc/template-tags.php:758
 msgid "Continue reading %s"
-msgstr "Fortsett å lese %s"
+msgstr "Czytaj dalej %s"
 
 #: comments.php:75
 msgid "Comments are closed."
-msgstr "Kommentarer er stengt."
+msgstr "Możliwość komentowania jest wyłączona."
 
 #: comments.php:42 comments.php:63
 msgid "Newer Comments"
-msgstr "Nyere kommentarer"
+msgstr "Nowsze komentarze"
 
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
-msgstr "Eldre kommentarer"
+msgstr "Starsze komentarze"
 
 #: comments.php:39 comments.php:60
 msgid "Comment navigation"
-msgstr "Kommentarnavigasjon"
+msgstr "Nawigacja po komentarzach"
 
 #: comments.php:28
 msgid "Add yours"
-msgstr "Legg til din"
+msgstr "Dodaj własny"
 
 #: comments.php:26
 msgid "There are no comments"
-msgstr "Det er ingen kommentarer"
-
-#: comments.php:24
-msgid "Comment"
-msgid_plural "Comments"
-msgstr[0] "Kommentar"
-msgstr[1] "Kommentarer"
+msgstr "Nie ma komentarzy"
 
 #: author-bio.php:18
 msgid "All posts"
-msgstr "Alle innlegg"
+msgstr "Wszystkie posty"
 
 #: author-bio.php:18
 msgid "View all posts by %s"
-msgstr "Vis alle innlegg av %s"
-
-#: 404.php:20
-msgid "It looks like nothing was found at this location. Why not try searching for something?"
-msgstr "Siden ble dessverre ikke funnet. Du kan kanskje finne den ved å søke."
+msgstr "Zobacz wszystkie wpisy, których autorem jest %s"
 
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
-msgstr "Auda! Den siden finnes ikke,"
+msgstr "Ups! Nie udało się znaleźć pożądanej strony."
