@@ -506,4 +506,4 @@ class Hybrid_Media_Grabber {
 
 		return array( $max_width, $max_height );
 	}
-} ?>
+}

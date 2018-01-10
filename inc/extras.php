@@ -78,70 +78,25 @@ function patch_post_classes( $classes ) {
 		}
 
 		switch ( get_post_format() ) {
-			case 'image': $classes[] = $prefix . 'landscape';
+			case 'image':
+				$classes[] = $prefix . 'landscape';
 				break;
-			case 'gallery': $classes[] = $prefix . 'landscape';
+			case 'gallery':
+				$classes[] = $prefix . 'landscape';
 				break;
-			case 'video': ;
-			case 'audio': $classes[] = $prefix . 'landscape';
+			case 'video':
+			case 'audio':
+				$classes[] = $prefix . 'landscape';
 				break;
-			default: $classes[] = $prefix . 'text';
+			default:
+				$classes[] = $prefix . 'text';
+				break;
 		}
 	}
 
 	return $classes;
 }
-
-add_filter( 'post_class', 'patch_post_classes' );
-
-if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
-	/**
-	 * Filters wp_title to print a neat <title> tag based on what is being viewed.
-	 *
-	 * @since Patch 1.0
-	 *
-	 * @param string $title Default title text for current view.
-	 * @param string $sep Optional separator.
-	 * @return string The filtered title.
-	 */
-	function patch_wp_title( $title, $sep ) {
-		if ( is_feed() ) {
-			return $title;
-		}
-
-		global $page, $paged;
-
-		// Add the blog name
-		$title .= get_bloginfo( 'name', 'display' );
-
-		// Add the blog description for the home/front page.
-		$site_description = get_bloginfo( 'description', 'display' );
-		if ( $site_description && ( is_home() || is_front_page() ) ) {
-			$title .= " $sep $site_description";
-		}
-
-		// Add a page number if necessary:
-		if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-			$title .= " $sep " . sprintf( __( 'Page %s', 'patch' ), max( $paged, $page ) );
-		}
-
-		return $title;
-	}
-	add_filter( 'wp_title', 'patch_wp_title', 10, 2 );
-
-	/**
-	 * Title shim for sites older than WordPress 4.1.
-	 *
-	 * @link https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
-	 * @todo Remove this function when WordPress 4.3 is released.
-	 */
-	function patch_render_title() {
-		?>
-		<title><?php wp_title( '|', true, 'right' ); ?></title>
-	<?php
-	}
-	add_action( 'wp_head', 'patch_render_title' );
-endif;
+add_filter( 'post_class', 'patch_post_classes', 10, 1 );
 
 if ( ! function_exists( 'patch_fonts_url' ) ) :
 
@@ -267,7 +222,6 @@ function patch_comment_form_remove_notes_after( $defaults ) {
 
 	return $defaults;
 }
-
 add_filter( 'comment_form_defaults', 'patch_comment_form_remove_notes_after' );
 
 /**
@@ -285,7 +239,6 @@ function patch_link_pages( $link ) {
 
 	return $link;
 }
-
 add_filter( 'wp_link_pages_link', 'patch_link_pages' );
 
 /**
@@ -294,7 +247,6 @@ add_filter( 'wp_link_pages_link', 'patch_link_pages' );
 function patch_read_more_link( $link ) {
 	return '<div class="more-link-wrapper">' . $link . '</div>';
 }
-
 add_filter( 'the_content_more_link', 'patch_read_more_link' );
 
 /**
@@ -303,7 +255,6 @@ add_filter( 'the_content_more_link', 'patch_read_more_link' );
 function patch_excerpt_length( $length ) {
 	return 35;
 }
-
 add_filter( 'excerpt_length', 'patch_excerpt_length', 999 );
 
 /**
@@ -320,7 +271,6 @@ function patch_search_form( $form ) {
 
 	return $form;
 }
-
 add_filter( 'get_search_form', 'patch_search_form' );
 
 /**
@@ -334,7 +284,6 @@ function patch_strip_first_content_gallery( $content ) {
 
 	return $content;
 }
-
 add_filter( 'the_content', 'patch_strip_first_content_gallery' );
 
 /**
@@ -344,7 +293,6 @@ function patch_mce_editor_buttons( $buttons ) {
 	array_unshift( $buttons, 'styleselect' );
 	return $buttons;
 }
-
 add_filter( 'mce_buttons_2', 'patch_mce_editor_buttons' );
 
 /**
@@ -364,7 +312,6 @@ function patch_mce_before_init( $settings ) {
 
 	return $settings;
 } #function
-
 add_filter( 'tiny_mce_before_init', 'patch_mce_before_init' );
 
 /*
@@ -395,7 +342,6 @@ function patch_wrap_images_in_figure( $content ) {
 
 	return $content;
 }
-
 add_filter( 'the_content', 'patch_wrap_images_in_figure' );
 
 //We need to use a class so we can pass the $class variable to the callback function
@@ -429,7 +375,6 @@ function patch_add_search_to_nav( $items, $args ) {
 	}
 	return $items;
 }
-
 add_filter( 'wp_nav_menu_items', 'patch_add_search_to_nav', 10, 2 );
 
 function patch_allow_skype_protocol( $protocols ) {
@@ -601,7 +546,6 @@ function patch_add_classes_to_linked_images( $content ) {
 
 	return $content;
 }
-
 add_filter('the_content', 'patch_add_classes_to_linked_images', 99, 1);
 
 // This function should come from Customify, but we need to do our best to make things happen

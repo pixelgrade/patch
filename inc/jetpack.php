@@ -28,7 +28,6 @@ function patch_jetpack_setup() {
 	 */
 	add_theme_support( 'jetpack-responsive-videos' );
 }
-
 add_action( 'after_setup_theme', 'patch_jetpack_setup' );
 
 /**
@@ -43,7 +42,6 @@ function patch_switch_infinite_scroll_mode() {
 		return false;
 	}
 }
-
 add_filter( 'infinite_scroll_has_footer_widgets', 'patch_switch_infinite_scroll_mode' );
 
 function patch_jetpack_responsive_videos_should_wrap_videopress_also( $video_patterns ) {
@@ -51,5 +49,4 @@ function patch_jetpack_responsive_videos_should_wrap_videopress_also( $video_pat
 
 	return $video_patterns;
 }
-
 add_filter ( 'jetpack_responsive_videos_oembed_videos', 'patch_jetpack_responsive_videos_should_wrap_videopress_also');

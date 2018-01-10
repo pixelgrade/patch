@@ -121,7 +121,7 @@ if ( ! function_exists( 'patch_setup' ) ) :
 		add_editor_style( array( 'editor-style.css', patch_fonts_url() ) );
 
 		/**
-		 * Pixcare Helper Plugin
+		 * Pixelgrade Care support
 		 */
 		add_theme_support( 'pixelgrade_care', array(
 				'support_url'   => 'https://pixelgrade.com/docs/patch/',
@@ -183,7 +183,7 @@ add_filter( 'wp_calculate_image_sizes', 'patch_content_image_sizes_attr', 10 , 2
  * @param array $attr Attributes for the image markup.
  * @param int   $attachment Image attachment ID.
  * @param array $size Registered image size or flat array of height and width dimensions.
- * @return string A source size value for use in a post thumbnail 'sizes' attribute.
+ * @return array
  */
 function patch_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 	//only do this for featured images, not all images
