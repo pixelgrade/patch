@@ -12,6 +12,10 @@
  * @since Patch 1.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 get_header(); ?>
 
 <?php if ( have_posts() ) : ?>
@@ -32,4 +36,4 @@ get_header(); ?>
 
 	<?php endif; ?>
 
-<?php get_footer(); ?>
+<?php get_footer();

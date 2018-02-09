@@ -7,6 +7,11 @@
  * @package Patch
  * @since Patch 1.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 ?>
 		</div><!-- .container -->
 	</div><!-- #content -->

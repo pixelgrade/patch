@@ -6,6 +6,10 @@
  * @since Patch 1.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 //get the post thumbnail aspect ratio specific class
 if ( has_post_thumbnail() ) {
 	$ar_class = patch_get_post_thumbnail_aspect_ratio_class();

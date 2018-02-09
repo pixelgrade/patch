@@ -5,27 +5,14 @@
  * @package Patch
  */
 
-require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
-add_action( 'tgmpa_register', 'wpgrade_register_required_plugins', 999 );
+require_once get_parent_theme_file_path( '/inc/required-plugins/class-tgm-plugin-activation.php' );
 
-function wpgrade_register_required_plugins() {
+function patch_register_required_plugins() {
 
 	/**
 	 * Array of plugin arrays. Required keys are name and slug.
 	 * If the source is NOT from the .org repo, then source is also required.
 	 */
-	//	$plugins = array(
-	//		array(
-	//			'name'     				=> 'PLUGIN NAME', // The plugin name
-	//			'slug'     				=> 'PLUGINSLUG', // The plugin slug (typically the folder name)
-	//			'source'   				=> 'PLUGIN_LOCATION', // The plugin source
-	//			'required' 				=> false, // If false, the plugin is only 'recommended' instead of required
-	//			'version' 				=> '1.0', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented. If the plugin version is higher than the plugin version installed , the user will be notified to update the plugin
-	//			'force_activation' 		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
-	//			'force_deactivation' 	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
-	//			'external_url' 			=> '', // If set, overrides default API URL and points to an external URL
-	//		)
-	//	);
 	
 	$protocol = 'http:';
 	if ( is_ssl() ) {
@@ -41,7 +28,7 @@ function wpgrade_register_required_plugins() {
 			'required'           => true,
 			'source'             => $protocol . '//wupdates.com/api_wupl_version/JxbVe/2v5t1czd3vw4kmb5xqmyxj1kkwmnt9q0463lhj393r5yxtshdyg05jssgd4jglnfx7A2vdxtfdcf78r9r1sm217k4ht3r2g7pkdng5f6tgwyrk23wryA0pjxvs7gwhhb',
 			'external_url'       => $protocol . '//github.com/pixelgrade/pixelgrade_care',
-			'version'            => '1.3.8',
+			'version'            => '1.4.1',
 			'is_automatic'       => true,
 		),
 		array(
@@ -98,3 +85,4 @@ function wpgrade_register_required_plugins() {
 	tgmpa( $plugins, $config );
 
 }
+add_action( 'tgmpa_register', 'patch_register_required_plugins', 999 );

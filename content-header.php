@@ -5,6 +5,11 @@
  * @package Patch
  * @since Patch 1.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 ?>
 
 <?php if ( ! is_singular() && ! is_404() && have_posts() ) { echo '<div class="grid__item">'; } ?>
@@ -66,4 +71,5 @@
 
 </header><!-- #masthead -->
 
-<?php if ( ! is_singular() && ! is_404() && have_posts() ) { echo '</div>'; } ?>
+<?php
+if ( ! is_singular() && ! is_404() && have_posts() ) { echo '</div>'; }

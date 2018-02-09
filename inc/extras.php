@@ -549,16 +549,16 @@ function patch_add_classes_to_linked_images( $content ) {
 add_filter('the_content', 'patch_add_classes_to_linked_images', 99, 1);
 
 // This function should come from Customify, but we need to do our best to make things happen
-if ( ! function_exists( 'pixelgrade_option') ) {
+if ( ! function_exists( 'pixelgrade_option' ) ) {
 	/**
 	 * Get option from the database
 	 *
 	 * @param string $option The option name.
-	 * @param mixed $default Optional. The default value to return when the option was not found or saved.
-	 * @param bool $force_default Optional. When true, we will use the $default value provided for when the option was not saved at least once.
-	 *                          When false, we will let the option's default set value (in the Customify settings) kick in first, then our $default.
-	 *                          It basically, reverses the order of fallback, first the option's default, then our own.
-	 *                          This is ignored when $default is null.
+	 * @param mixed  $default Optional. The default value to return when the option was not found or saved.
+	 * @param bool   $force_default Optional. When true, we will use the $default value provided for when the option was not saved at least once.
+	 *                            When false, we will let the option's default set value (in the Customify settings) kick in first, then our $default.
+	 *                            It basically, reverses the order of fallback, first the option's default, then our own.
+	 *                            This is ignored when $default is null.
 	 *
 	 * @return mixed
 	 */
@@ -568,7 +568,6 @@ if ( ! function_exists( 'pixelgrade_option') ) {
 
 		if ( $pixcustomify_plugin !== null ) {
 			// Customify is present so we should get the value via it
-
 			// We need to account for the case where a option has an 'active_callback' defined in it's config
 			$options_config = $pixcustomify_plugin->get_options_configs();
 			if ( ! empty( $options_config ) && ! empty( $options_config[ $option ] ) && ! empty( $options_config[ $option ]['active_callback'] ) ) {
@@ -598,7 +597,7 @@ if ( ! function_exists( 'pixelgrade_option') ) {
 			}
 
 			// Now that the option is truly active, we need to see if we are not supposed to force over the option's default value
-			if ( $default !== null && $force_default == false ) {
+			if ( $default !== null && false === $force_default ) {
 				// We will not pass the received $default here so Customify will fallback on the option's default value, if set
 				$customify_value = $pixcustomify_plugin->get_option( $option );
 
@@ -615,7 +614,7 @@ if ( ! function_exists( 'pixelgrade_option') ) {
 			// In case there is no Customify present and we were not supposed to force the default
 			// we want to know what the default value of the option should be according to the configuration
 			// For this we will fire the all-gathering-filter that Customify uses
-			$config = apply_filters('customify_filter_fields', array() );
+			$config = apply_filters( 'customify_filter_fields', array() );
 
 			// Next we will search for this option and see if it has a default value set ('default')
 			if ( ! empty( $config['sections'] ) && is_array( $config['sections'] ) ) {

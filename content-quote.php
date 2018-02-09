@@ -4,6 +4,11 @@
  *
  * @package Patch
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 ?>
 
 <div class="grid__item">

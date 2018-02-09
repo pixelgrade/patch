@@ -8,6 +8,10 @@
  * @since Patch 1.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 get_template_part( 'content', 'header' ); ?>
 
 <div id="primary" class="content-area">
@@ -42,4 +46,4 @@ get_template_part( 'content', 'header' ); ?>
 	</main><!-- #main -->
 </div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<?php get_sidebar();

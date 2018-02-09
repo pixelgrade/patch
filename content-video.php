@@ -6,6 +6,10 @@
  * @since Patch 1.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 //get the media objects from the content and bring up only the first one
 $media = patch_video_attachment();
 $media = apply_filters('embed_oembed_html', $media ); ?>

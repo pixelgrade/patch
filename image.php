@@ -5,6 +5,11 @@
  * @package Patch
  * @since Patch 1.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 global $content_width;
 //set the $content_width here as recommended by the VIP scanner
 $content_width = 620; /* pixels */
@@ -39,5 +44,6 @@ get_header(); ?>
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
 
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php
+get_sidebar();
+get_footer();

@@ -132,9 +132,7 @@ if ( ! function_exists( 'patch_setup' ) ) :
 		);
 
 	}
-
 endif;
-
 add_action( 'after_setup_theme', 'patch_setup' );
 
 /**
@@ -252,13 +250,7 @@ function patch_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-
 add_action( 'wp_enqueue_scripts', 'patch_scripts' );
-
-function patch_responsive_videos_setup() {
-	add_theme_support( 'jetpack-responsive-videos' );
-}
-add_action( 'after_setup_theme', 'patch_responsive_videos_setup' );
 
 /* Automagical updates */
 function wupdates_check_JlplJ( $transient ) {
@@ -394,4 +386,4 @@ require get_template_directory() . '/inc/integrations.php';
 /**
  * Load Recommended/Required plugins notification
  */
-require get_template_directory() . '/inc/required-plugins/required-plugins.php';
+require get_template_directory() . '/inc/required-plugins.php';

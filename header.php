@@ -7,6 +7,11 @@
  * @package Patch
  * @since Patch 1.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -28,4 +33,4 @@
 
 		<?php if ( is_singular() || is_404() ) {
 			get_template_part( 'content', 'header' );
-		} ?>
+		}

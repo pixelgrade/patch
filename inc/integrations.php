@@ -6,6 +6,6 @@
  */
 
 /**
- * Load PixCare compatibility file.
+ * Load Pixelgrade Care compatibility file.
  */
-require get_template_directory() . '/inc/integrations/pixcare.php';
+require get_parent_theme_file_path( '/inc/integrations/pixcare.php' );
