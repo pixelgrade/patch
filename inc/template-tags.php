@@ -50,11 +50,6 @@ if ( ! function_exists( 'patch_get_posted_on' ) ) :
 
         $author_name = get_the_author();
 
-        if ( ! is_single() ) {
-            //on home and archive pages we will use only the first name so we avoid having 2 lines in the byline
-            $author_name = patch_get_author_first_name();
-        }
-
         $byline = sprintf(
                 _x( 'by %s', 'post author', 'patch' ),
                 '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( $author_name ) . '</a></span>'
