@@ -117,7 +117,8 @@ gulp.task('build', ['copy-folder'], function () {
 		'circle.yml',
 		'circle_scripts',
 		'README.md',
-		'.labels'
+		'.labels',
+        '.circleci',
 	];
 
 	files_to_remove.forEach(function (e, k) {
