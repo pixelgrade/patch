@@ -5,9 +5,93 @@
  * @package Patch
  */
 
-function patch_add_customify_options( $options ) {
+/**
+ * Hook into the Customify's fields and settings.
+ *
+ * The config can turn to be complex so is best to visit:
+ * https://github.com/pixelgrade/customify
+ *
+ * @param array $options Contains the plugin's options array right before they are used, so edit with care
+ *
+ * @return array The returned options are required, if you don't need options return an empty array
+ */
+add_filter( 'customify_filter_fields', 'patch_add_customify_options', 11, 1 );
+add_filter( 'customify_filter_fields', 'pixelgrade_add_customify_style_manager_section', 12, 1 );
 
+add_filter( 'customify_filter_fields', 'patch_modify_customify_options', 20 );
+
+function patch_add_customify_options( $options ) {
 	$options['opt-name'] = 'patch_options';
+
+	//start with a clean slate - no Customify default sections
+	$options['sections'] = array();
+
+	return $options;
+}
+
+/**
+ * Add the Style Manager cross-theme Customizer section.
+ *
+ * @param array $options
+ *
+ * @return array
+ */
+function pixelgrade_add_customify_style_manager_section( $options ) {
+	if ( ! isset( $options['sections']['style_manager_section'] ) ) {
+		$options['sections']['style_manager_section'] = array();
+	}
+
+	// The section might be already defined, thus we merge, not replace the entire section config.
+	$options['sections']['style_manager_section'] = array_replace_recursive( $options['sections']['style_manager_section'], array(
+		'options' => array(
+			'primary_color' => array(
+				'connected_fields' => array(
+					'body_color',
+					'hive_blog_grid_item_title_color',
+					'hive_blog_grid_primary_meta_color',
+					'main_content_heading_1_color',
+					'main_content_heading_2_color',
+					'main_content_heading_3_color',
+					'main_content_heading_4_color',
+					'main_content_heading_5_color',
+					'header_navigation_links_color',
+					'header_links_active_color',
+					'border_color',
+				),
+			),
+			'secondary_color' => array(
+				'connected_fields' => array(
+					'hive_blog_grid_secondary_meta_color',
+					'body_link_color',
+				),
+			),
+			'tertiary_color' => array(
+				'connected_fields' => array(
+					'accent_color',
+				),
+			),
+			'quaternary_color' => array(
+				'connected_fields' => array(
+
+				),
+			),
+			'background_primary_color' => array(
+				'connected_fields' => array(
+					'body_background_color'
+				),
+			),
+			'background_secondary_color' => array(
+				'connected_fields' => array(
+
+				),
+			),
+		),
+	) );
+
+	return $options;
+}
+
+function patch_modify_customify_options( $options ) {
 
 	// Recommended Fonts List - Headings
 	$recommended_fonts = apply_filters( 'pixelgrade_header_customify_recommended_headings_fonts',
@@ -38,7 +122,7 @@ function patch_add_customify_options( $options ) {
 	/**
 	 * COLORS - This section will handle different elements colors (eg. links, headings)
 	 */
-	$options['sections'] = array(
+	$options['sections'] = array_replace_recursive( $options['sections'], array(
 		'presets_section' => array(
 			'title'    => __( 'Style Presets', 'patch' ),
 			'options' => array(
@@ -1326,7 +1410,7 @@ function patch_add_customify_options( $options ) {
 //				),
 //			)
 //		),
-	);
+	) );
 
 	return $options;
 }
@@ -1582,5 +1666,3 @@ function load_javascript_thing() { ?>
 <?php }
 
 add_action('customize_preview_init', 'load_javascript_thing');
-
-add_filter( 'customify_filter_fields', 'patch_add_customify_options' );
