@@ -44,43 +44,43 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 	// The section might be already defined, thus we merge, not replace the entire section config.
 	$options['sections']['style_manager_section'] = array_replace_recursive( $options['sections']['style_manager_section'], array(
 		'options' => array(
-			'primary_color' => array(
+			'master_primary_color' => array(
 				'connected_fields' => array(
-					'body_color',
-					'hive_blog_grid_item_title_color',
-					'hive_blog_grid_primary_meta_color',
-					'main_content_heading_1_color',
-					'main_content_heading_2_color',
-					'main_content_heading_3_color',
-					'main_content_heading_4_color',
-					'main_content_heading_5_color',
-					'header_navigation_links_color',
-					'header_links_active_color',
-					'border_color',
+//					'body_color',
+//					'hive_blog_grid_item_title_color',
+//					'hive_blog_grid_primary_meta_color',
+//					'main_content_heading_1_color',
+//					'main_content_heading_2_color',
+//					'main_content_heading_3_color',
+//					'main_content_heading_4_color',
+//					'main_content_heading_5_color',
+//					'header_navigation_links_color',
+//					'header_links_active_color',
+//					'border_color',
 				),
 			),
-			'secondary_color' => array(
+			'master_secondary_color' => array(
 				'connected_fields' => array(
-					'hive_blog_grid_secondary_meta_color',
-					'body_link_color',
+//					'hive_blog_grid_secondary_meta_color',
+//					'body_link_color',
 				),
 			),
-			'tertiary_color' => array(
+			'master_tertiary_color' => array(
 				'connected_fields' => array(
 					'accent_color',
 				),
 			),
-			'quaternary_color' => array(
+			'master_quaternary_color' => array(
 				'connected_fields' => array(
 
 				),
 			),
-			'background_primary_color' => array(
+			'master_background_primary_color' => array(
 				'connected_fields' => array(
 					'body_background_color'
 				),
 			),
-			'background_secondary_color' => array(
+			'master_background_secondary_color' => array(
 				'connected_fields' => array(
 
 				),
