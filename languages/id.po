@@ -11,13 +11,13 @@ msgstr ""
 "Language: id\n"
 "Project-Id-Version: WordPress.com - Themes - Patch\n"
 
-#: inc/wpcom-colors.php:32
-msgid "Main Accent"
-msgstr "Aksen Utama"
-
 #: inc/wpcom-colors.php:15
 msgid "Body Border"
 msgstr "Batas Isi"
+
+#: inc/wpcom-colors.php:32
+msgid "Main Accent"
+msgstr "Aksen Utama"
 
 #: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
@@ -27,13 +27,13 @@ msgstr "Berikut"
 msgid "Previous"
 msgstr "Sebelumnya"
 
-#: inc/template-tags.php:1020
-msgid "Posts navigation"
-msgstr "Navigasi pos"
-
 #: inc/template-tags.php:895
 msgid "Next image"
 msgstr "Gambar selanjutnya"
+
+#: inc/template-tags.php:1020
+msgid "Posts navigation"
+msgstr "Navigasi pos"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
@@ -51,54 +51,54 @@ msgstr "Hasil Pencarian untuk: %s"
 msgid "Archives"
 msgstr "Arsip"
 
+#: inc/template-tags.php:319
+msgid "Archives: %s"
+msgstr "Arsip: %s"
+
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
-
-#: inc/template-tags.php:319
-msgid "Archives: %s"
-msgstr "Arsip: %s"
 
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr "Obrolan"
 
-#: inc/template-tags.php:314
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr "Audio"
-
 #: inc/template-tags.php:312
 msgctxt "post format archive title"
 msgid "Statuses"
 msgstr "Status"
 
-#: inc/template-tags.php:310
+#: inc/template-tags.php:314
 msgctxt "post format archive title"
-msgid "Links"
-msgstr "Tautan"
+msgid "Audio"
+msgstr "Audio"
 
 #: inc/template-tags.php:308
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr "Kutipan"
 
+#: inc/template-tags.php:310
+msgctxt "post format archive title"
+msgid "Links"
+msgstr "Tautan"
+
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr "Video"
 
-#: inc/template-tags.php:304
-msgctxt "post format archive title"
-msgid "Images"
-msgstr "Gambar"
-
 #: inc/template-tags.php:302
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr "Galeri"
+
+#: inc/template-tags.php:304
+msgctxt "post format archive title"
+msgid "Images"
+msgstr "Gambar"
 
 #: inc/template-tags.php:300
 msgctxt "post format archive title"
@@ -110,14 +110,14 @@ msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr "F j, Y"
 
-#: inc/template-tags.php:297
-msgid "Day: %s"
-msgstr "Hari: %s"
-
 #: inc/template-tags.php:295
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "F Y"
+
+#: inc/template-tags.php:297
+msgid "Day: %s"
+msgstr "Hari: %s"
 
 #: inc/template-tags.php:295
 msgid "Month: %s"
@@ -152,14 +152,14 @@ msgstr "% Komentar"
 msgid "1 Comment"
 msgstr "1 komentar"
 
-#: inc/template-tags.php:264
-msgid "Leave a comment"
-msgstr "Meninggalkan komentar"
-
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
 msgstr "Ditandai sebagai:"
+
+#: inc/template-tags.php:264
+msgid "Leave a comment"
+msgstr "Meninggalkan komentar"
 
 #: inc/template-tags.php:151
 msgid "All %s Posts"
@@ -189,10 +189,6 @@ msgctxt "label"
 msgid "Search for:"
 msgstr "Cari:"
 
-#: inc/extras.php:190
-msgid "Your comment is awaiting moderation."
-msgstr "Komentar Anda sedang menunggu moderasi."
-
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
 #. 'vietnamese'. Do not translate into your own language.
@@ -201,61 +197,63 @@ msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr "no-subset"
 
-#. Translators: If there are characters in your language that are not
-#. * supported by Oswald, translate this to 'off'. Do not translate
-#. * into your own language.
-#: inc/extras.php:119
-msgctxt "Oswald font: on or off"
-msgid "on"
-msgstr "nyala"
+#: inc/extras.php:190
+msgid "Your comment is awaiting moderation."
+msgstr "Komentar Anda sedang menunggu moderasi."
 
-#. Translators: If there are characters in your language that are not
-#. * supported by Roboto, translate this to 'off'. Do not translate
-#. * into your own language.
+#. Translators: If there are characters in your language that are not supported
+#. by Roboto, translate this to 'off'. Do not translate into your own language.
 #: inc/extras.php:111
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr "nyala"
 
-#: inc/customizer.php:26
-msgid "Theme"
-msgstr "Tema"
+#. Translators: If there are characters in your language that are not supported
+#. by Oswald, translate this to 'off'. Do not translate into your own language.
+#: inc/extras.php:119
+msgctxt "Oswald font: on or off"
+msgid "on"
+msgstr "nyala"
 
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
 msgstr "Tampilkan Judul Situs &amp; diskripsi"
 
-#: header.php:24
-msgid "Skip to content"
-msgstr "Lanjut ke konten"
+#: inc/customizer.php:26
+msgid "Theme"
+msgstr "Tema"
 
 #: footer.php:45
 msgid "Menu"
 msgstr "Menu"
 
+#: header.php:24
+msgid "Skip to content"
+msgstr "Lanjut ke konten"
+
 #: functions.php:109
 msgid "Sidebar"
 msgstr "Bilah Sisi"
 
-#: functions.php:62
-msgid "Social Menu"
-msgstr "Menu sosial"
-
 #: functions.php:61
 msgid "Primary Menu"
 msgstr "Menu Utama"
+
+#: functions.php:62
+msgid "Social Menu"
+msgstr "Menu sosial"
 
 #: footer.php:28
 msgid "Footer navigation"
 msgstr "Pandu Arah Tampilan Bawah"
 
 #: footer.php:16
-msgid "Proudly powered by %s"
-msgstr "Dengan bangga ditenagai oleh %s"
-
-#: footer.php:16
 msgid "http://wordpress.org/"
 msgstr "http://id.wordpress.org/"
+
+#: footer.php:16
+msgid "Proudly powered by %s"
+msgstr "Dengan bangga ditenagai oleh %s"
 
 #: content.php:30
 msgid "Read More"
@@ -287,6 +285,12 @@ msgstr "Sunting"
 msgid "Page"
 msgstr "Halaman"
 
+#. translators: %s: Name of current post
+#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
+#: inc/template-tags.php:758
+msgid "Continue reading %s"
+msgstr "Lanjutkan membaca %s"
+
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:46
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
@@ -294,19 +298,13 @@ msgstr "Halaman"
 msgid "Pages:"
 msgstr "Halaman:"
 
-#. translators: %s: Name of current post
-#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
-#: inc/template-tags.php:758
-msgid "Continue reading %s"
-msgstr "Lanjutkan membaca %s"
+#: comments.php:42 comments.php:63
+msgid "Newer Comments"
+msgstr "Komentar Berikutnya"
 
 #: comments.php:75
 msgid "Comments are closed."
 msgstr "Komentar ditutup."
-
-#: comments.php:42 comments.php:63
-msgid "Newer Comments"
-msgstr "Komentar Berikutnya"
 
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
@@ -320,10 +318,10 @@ msgstr "Navigasi komentar"
 msgid "All posts"
 msgstr "Seluruh pos"
 
-#: author-bio.php:18
-msgid "View all posts by %s"
-msgstr "Lihat semua pos milik %s"
-
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Ups! Halaman itu tidak dapat ditemukan."
+
+#: author-bio.php:18
+msgid "View all posts by %s"
+msgstr "Lihat semua pos milik %s"

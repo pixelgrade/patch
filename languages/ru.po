@@ -11,13 +11,13 @@ msgstr ""
 "Language: ru\n"
 "Project-Id-Version: WordPress.com - Themes - Patch\n"
 
-#: inc/wpcom-colors.php:32
-msgid "Main Accent"
-msgstr "Основной акцент"
-
 #: inc/wpcom-colors.php:15
 msgid "Body Border"
 msgstr "Граница текста"
+
+#: inc/wpcom-colors.php:32
+msgid "Main Accent"
+msgstr "Основной акцент"
 
 #: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
@@ -27,13 +27,13 @@ msgstr "Далее"
 msgid "Previous"
 msgstr "Назад"
 
-#: inc/template-tags.php:1020
-msgid "Posts navigation"
-msgstr "Навигация по записям"
-
 #: inc/template-tags.php:895
 msgid "Next image"
 msgstr "Следующее изображение"
+
+#: inc/template-tags.php:1020
+msgid "Posts navigation"
+msgstr "Навигация по записям"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
@@ -47,54 +47,54 @@ msgstr "Результаты поиска: %s"
 msgid "Archives"
 msgstr "Архивы"
 
+#: inc/template-tags.php:319
+msgid "Archives: %s"
+msgstr "Архивы: %s"
+
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
-
-#: inc/template-tags.php:319
-msgid "Archives: %s"
-msgstr "Архивы: %s"
 
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr "Чаты"
 
-#: inc/template-tags.php:314
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr "Аудио"
-
 #: inc/template-tags.php:312
 msgctxt "post format archive title"
 msgid "Statuses"
 msgstr "Статусы"
 
-#: inc/template-tags.php:310
+#: inc/template-tags.php:314
 msgctxt "post format archive title"
-msgid "Links"
-msgstr "Ссылки"
+msgid "Audio"
+msgstr "Аудио"
 
 #: inc/template-tags.php:308
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr "Цитаты"
 
+#: inc/template-tags.php:310
+msgctxt "post format archive title"
+msgid "Links"
+msgstr "Ссылки"
+
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr "Видео"
 
-#: inc/template-tags.php:304
-msgctxt "post format archive title"
-msgid "Images"
-msgstr "Изображения"
-
 #: inc/template-tags.php:302
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr "Галереи"
+
+#: inc/template-tags.php:304
+msgctxt "post format archive title"
+msgid "Images"
+msgstr "Изображения"
 
 #: inc/template-tags.php:300
 msgctxt "post format archive title"
@@ -106,14 +106,14 @@ msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr "d.m.Y"
 
-#: inc/template-tags.php:297
-msgid "Day: %s"
-msgstr "День: %s"
-
 #: inc/template-tags.php:295
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "F Y"
+
+#: inc/template-tags.php:297
+msgid "Day: %s"
+msgstr "День: %s"
 
 #: inc/template-tags.php:295
 msgid "Month: %s"
@@ -148,14 +148,14 @@ msgstr "Комментарии (%)"
 msgid "1 Comment"
 msgstr "1 комментарий"
 
-#: inc/template-tags.php:264
-msgid "Leave a comment"
-msgstr "Оставить комментарий"
-
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
 msgstr "Отмечено как: "
+
+#: inc/template-tags.php:264
+msgid "Leave a comment"
+msgstr "Оставить комментарий"
 
 #: inc/template-tags.php:151
 msgid "All %s Posts"
@@ -185,10 +185,6 @@ msgctxt "label"
 msgid "Search for:"
 msgstr "Поиск:"
 
-#: inc/extras.php:190
-msgid "Your comment is awaiting moderation."
-msgstr "Ваш комментарий ожидает проверки."
-
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
 #. 'vietnamese'. Do not translate into your own language.
@@ -197,53 +193,56 @@ msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr "cyrillic"
 
-#. Translators: If there are characters in your language that are not
-#. * supported by Roboto, translate this to 'off'. Do not translate
-#. * into your own language.
+#: inc/extras.php:190
+msgid "Your comment is awaiting moderation."
+msgstr "Ваш комментарий ожидает проверки."
+
+#. Translators: If there are characters in your language that are not supported
+#. by Roboto, translate this to 'off'. Do not translate into your own language.
 #: inc/extras.php:111
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr "on"
 
-#: inc/customizer.php:26
-msgid "Theme"
-msgstr "Тема"
-
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
 msgstr "Отображать название и описание"
 
-#: header.php:24
-msgid "Skip to content"
-msgstr "Перейти к содержимому"
+#: inc/customizer.php:26
+msgid "Theme"
+msgstr "Тема"
 
 #: footer.php:45
 msgid "Menu"
 msgstr "Меню"
 
-#: functions.php:109
-msgid "Sidebar"
-msgstr "Боковая колонка"
+#: header.php:24
+msgid "Skip to content"
+msgstr "Перейти к содержимому"
 
 #: functions.php:63
 msgid "Footer Menu"
 msgstr "Меню подвала"
 
-#: functions.php:62
-msgid "Social Menu"
-msgstr "Меню социальных сетей"
+#: functions.php:109
+msgid "Sidebar"
+msgstr "Боковая колонка"
 
 #: functions.php:61
 msgid "Primary Menu"
 msgstr "Основное меню"
 
-#: footer.php:16
-msgid "Proudly powered by %s"
-msgstr "Сайт работает на %s"
+#: functions.php:62
+msgid "Social Menu"
+msgstr "Меню социальных сетей"
 
 #: footer.php:16
 msgid "http://wordpress.org/"
 msgstr "http://ru.wordpress.org/"
+
+#: footer.php:16
+msgid "Proudly powered by %s"
+msgstr "Сайт работает на %s"
 
 #: content.php:30
 msgid "Read More"
@@ -275,6 +274,12 @@ msgstr "Изменить"
 msgid "Page"
 msgstr "страница"
 
+#. translators: %s: Name of current post
+#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
+#: inc/template-tags.php:758
+msgid "Continue reading %s"
+msgstr "Читать далее %s"
+
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:46
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
@@ -282,19 +287,13 @@ msgstr "страница"
 msgid "Pages:"
 msgstr "Страниц:"
 
-#. translators: %s: Name of current post
-#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
-#: inc/template-tags.php:758
-msgid "Continue reading %s"
-msgstr "Читать далее %s"
+#: comments.php:42 comments.php:63
+msgid "Newer Comments"
+msgstr "Следующие комментарии"
 
 #: comments.php:75
 msgid "Comments are closed."
 msgstr "Обсуждение закрыто."
-
-#: comments.php:42 comments.php:63
-msgid "Newer Comments"
-msgstr "Следующие комментарии"
 
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
@@ -308,10 +307,6 @@ msgstr "Навигация по комментариям"
 msgid "Add yours"
 msgstr "Добавьте свой"
 
-#: comments.php:26
-msgid "There are no comments"
-msgstr "Комментариев нет"
-
 #: comments.php:24
 msgid "Comment"
 msgid_plural "Comments"
@@ -319,14 +314,18 @@ msgstr[0] "Комментарий"
 msgstr[1] "Комментария"
 msgstr[2] "Коммунтариев"
 
+#: comments.php:26
+msgid "There are no comments"
+msgstr "Комментариев нет"
+
 #: author-bio.php:18
 msgid "All posts"
 msgstr "Все записи"
 
-#: author-bio.php:18
-msgid "View all posts by %s"
-msgstr "Посмотреть все записи автора %s"
-
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Ошибка. Страница не найдена."
+
+#: author-bio.php:18
+msgid "View all posts by %s"
+msgstr "Посмотреть все записи автора %s"

@@ -11,13 +11,13 @@ msgstr ""
 "Language: pt_BR\n"
 "Project-Id-Version: WordPress.com - Themes - Patch\n"
 
-#: inc/wpcom-colors.php:32
-msgid "Main Accent"
-msgstr "Cor principal"
-
 #: inc/wpcom-colors.php:15
 msgid "Body Border"
 msgstr "Borda do texto"
+
+#: inc/wpcom-colors.php:32
+msgid "Main Accent"
+msgstr "Cor principal"
 
 #. Description of the plugin/theme
 #: wp-content/themes/premium/patch/style.css
@@ -32,13 +32,13 @@ msgstr "Avançar"
 msgid "Previous"
 msgstr "Anterior"
 
-#: inc/template-tags.php:1020
-msgid "Posts navigation"
-msgstr "Navegação de Posts"
-
 #: inc/template-tags.php:895
 msgid "Next image"
 msgstr "Imagem Seguinte"
+
+#: inc/template-tags.php:1020
+msgid "Posts navigation"
+msgstr "Navegação de Posts"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
@@ -56,54 +56,54 @@ msgstr "Resultados da pesquisa por: %s"
 msgid "Archives"
 msgstr "Arquivos"
 
+#: inc/template-tags.php:319
+msgid "Archives: %s"
+msgstr "Arquivo: %s"
+
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
 msgid "%1$s: %2$s"
 msgstr "%1$s @ %2$s"
-
-#: inc/template-tags.php:319
-msgid "Archives: %s"
-msgstr "Arquivo: %s"
 
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr "Chats"
 
-#: inc/template-tags.php:314
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr "Áudio"
-
 #: inc/template-tags.php:312
 msgctxt "post format archive title"
 msgid "Statuses"
 msgstr "Status"
 
-#: inc/template-tags.php:310
+#: inc/template-tags.php:314
 msgctxt "post format archive title"
-msgid "Links"
-msgstr "Links"
+msgid "Audio"
+msgstr "Áudio"
 
 #: inc/template-tags.php:308
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr "Citações"
 
+#: inc/template-tags.php:310
+msgctxt "post format archive title"
+msgid "Links"
+msgstr "Links"
+
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr "Vídeos"
 
-#: inc/template-tags.php:304
-msgctxt "post format archive title"
-msgid "Images"
-msgstr "Imagens"
-
 #: inc/template-tags.php:302
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr "Galerias"
+
+#: inc/template-tags.php:304
+msgctxt "post format archive title"
+msgid "Images"
+msgstr "Imagens"
 
 #: inc/template-tags.php:300
 msgctxt "post format archive title"
@@ -115,14 +115,14 @@ msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr "F j, Y"
 
-#: inc/template-tags.php:297
-msgid "Day: %s"
-msgstr "Dia: %s"
-
 #: inc/template-tags.php:295
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "F Y"
+
+#: inc/template-tags.php:297
+msgid "Day: %s"
+msgstr "Dia: %s"
 
 #: inc/template-tags.php:295
 msgid "Month: %s"
@@ -157,28 +157,28 @@ msgstr "% Comentários"
 msgid "1 Comment"
 msgstr "1 comentário"
 
-#: inc/template-tags.php:264
-msgid "Leave a comment"
-msgstr "Deixe um comentário"
-
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
 msgstr "Marcado como: "
 
+#: inc/template-tags.php:264
+msgid "Leave a comment"
+msgstr "Deixe um comentário"
+
 #: inc/template-tags.php:151
 msgid "All %s Posts"
 msgstr "Todos o conteúdo de tipo %s"
-
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:104
-msgid ", "
-msgstr ", "
 
 #: inc/template-tags.php:48
 msgctxt "post author"
 msgid "by %s"
 msgstr "por %s"
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:104
+msgid ", "
+msgstr ", "
 
 #: inc/extras.php:329
 msgid "Search"
@@ -194,14 +194,6 @@ msgctxt "label"
 msgid "Search for:"
 msgstr "Pesquisar por:"
 
-#: inc/extras.php:190
-msgid "Your comment is awaiting moderation."
-msgstr "O seu comentário aguarda moderação."
-
-#: inc/extras.php:173
-msgid "on %s at %s"
-msgstr "em %s em %s"
-
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
 #. 'vietnamese'. Do not translate into your own language.
@@ -210,69 +202,75 @@ msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr "sem subconjunto"
 
-#. Translators: If there are characters in your language that are not
-#. * supported by Oswald, translate this to 'off'. Do not translate
-#. * into your own language.
-#: inc/extras.php:119
-msgctxt "Oswald font: on or off"
-msgid "on"
-msgstr "ligada"
+#: inc/extras.php:173
+msgid "on %s at %s"
+msgstr "em %s em %s"
 
-#. Translators: If there are characters in your language that are not
-#. * supported by Roboto, translate this to 'off'. Do not translate
-#. * into your own language.
+#: inc/extras.php:190
+msgid "Your comment is awaiting moderation."
+msgstr "O seu comentário aguarda moderação."
+
+#. Translators: If there are characters in your language that are not supported
+#. by Roboto, translate this to 'off'. Do not translate into your own language.
 #: inc/extras.php:111
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr "on"
 
-#: inc/customizer.php:26
-msgid "Theme"
-msgstr "Tema"
+#. Translators: If there are characters in your language that are not supported
+#. by Oswald, translate this to 'off'. Do not translate into your own language.
+#: inc/extras.php:119
+msgctxt "Oswald font: on or off"
+msgid "on"
+msgstr "ligada"
 
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
 msgstr "Mostrar título do site &amp; descrição"
 
-#: header.php:24
-msgid "Skip to content"
-msgstr "Pular para o conteúdo"
+#: inc/customizer.php:26
+msgid "Theme"
+msgstr "Tema"
 
 #: footer.php:45
 msgid "Menu"
 msgstr "Menu"
 
-#: functions.php:109
-msgid "Sidebar"
-msgstr "Lateral"
+#: header.php:24
+msgid "Skip to content"
+msgstr "Pular para o conteúdo"
 
 #: functions.php:63
 msgid "Footer Menu"
 msgstr "Menu do Rodapé"
 
-#: functions.php:62
-msgid "Social Menu"
-msgstr "Menu social"
+#: functions.php:109
+msgid "Sidebar"
+msgstr "Lateral"
+
+#: footer.php:36
+msgid "Begin typing your search above and press return to search. Press Esc to cancel."
+msgstr "Digite sua pesquisa acima e pressione Enter para pesquisar. Pressione Esc para cancelar."
 
 #: functions.php:61
 msgid "Primary Menu"
 msgstr "Menu Principal"
 
-#: footer.php:36
-msgid "Begin typing your search above and press return to search. Press Esc to cancel."
-msgstr "Digite sua pesquisa acima e pressione Enter para pesquisar. Pressione Esc para cancelar."
+#: functions.php:62
+msgid "Social Menu"
+msgstr "Menu social"
 
 #: footer.php:28
 msgid "Footer navigation"
 msgstr "Navegação no rodapé"
 
 #: footer.php:16
-msgid "Proudly powered by %s"
-msgstr "Orgulhosamente mantido com %s"
-
-#: footer.php:16
 msgid "http://wordpress.org/"
 msgstr "http://wordpress.org/"
+
+#: footer.php:16
+msgid "Proudly powered by %s"
+msgstr "Orgulhosamente mantido com %s"
 
 #: content.php:30
 msgid "Read More"
@@ -304,6 +302,12 @@ msgstr "Editar"
 msgid "Page"
 msgstr "Página"
 
+#. translators: %s: Name of current post
+#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
+#: inc/template-tags.php:758
+msgid "Continue reading %s"
+msgstr "Continuar lendo %s"
+
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:46
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
@@ -311,35 +315,17 @@ msgstr "Página"
 msgid "Pages:"
 msgstr "Páginas:"
 
-#. translators: %s: Name of current post
-#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
-#: inc/template-tags.php:758
-msgid "Continue reading %s"
-msgstr "Continuar lendo %s"
+#: comments.php:42 comments.php:63
+msgid "Newer Comments"
+msgstr "Comentários recentes"
 
 #: comments.php:75
 msgid "Comments are closed."
 msgstr "Os comentários estão desativados."
 
-#: comments.php:42 comments.php:63
-msgid "Newer Comments"
-msgstr "Comentários recentes"
-
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
 msgstr "Comentários Antigos"
-
-#: comments.php:39 comments.php:60
-msgid "Comment navigation"
-msgstr "Navegação de Comentários"
-
-#: comments.php:28
-msgid "Add yours"
-msgstr "Adicione o seu"
-
-#: comments.php:26
-msgid "There are no comments"
-msgstr "Nenhum comentário"
 
 #: comments.php:24
 msgid "Comment"
@@ -347,14 +333,26 @@ msgid_plural "Comments"
 msgstr[0] "Comentário"
 msgstr[1] "Comentários"
 
+#: comments.php:26
+msgid "There are no comments"
+msgstr "Nenhum comentário"
+
+#: comments.php:28
+msgid "Add yours"
+msgstr "Adicione o seu"
+
+#: comments.php:39 comments.php:60
+msgid "Comment navigation"
+msgstr "Navegação de Comentários"
+
 #: author-bio.php:18
 msgid "All posts"
 msgstr "Todos os posts"
 
-#: author-bio.php:18
-msgid "View all posts by %s"
-msgstr "Ver todos os artigos de %s"
-
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Opa! Esta página não pode ser encontrada."
+
+#: author-bio.php:18
+msgid "View all posts by %s"
+msgstr "Ver todos os artigos de %s"

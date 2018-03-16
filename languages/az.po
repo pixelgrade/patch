@@ -11,13 +11,13 @@ msgstr ""
 "Language: az\n"
 "Project-Id-Version: WordPress.com - Themes - Patch\n"
 
-#: inc/wpcom-colors.php:32
-msgid "Main Accent"
-msgstr "Əsas Vurğu"
-
 #: inc/wpcom-colors.php:15
 msgid "Body Border"
 msgstr "Gövdə Kənarlığı"
+
+#: inc/wpcom-colors.php:32
+msgid "Main Accent"
+msgstr "Əsas Vurğu"
 
 #. Description of the plugin/theme
 #: wp-content/themes/premium/patch/style.css
@@ -32,13 +32,13 @@ msgstr "Sonrakı"
 msgid "Previous"
 msgstr "Öncəki"
 
-#: inc/template-tags.php:1020
-msgid "Posts navigation"
-msgstr "Yazı naviqasiyası"
-
 #: inc/template-tags.php:895
 msgid "Next image"
 msgstr "Sonrakı təsvir"
+
+#: inc/template-tags.php:1020
+msgid "Posts navigation"
+msgstr "Yazı naviqasiyası"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
@@ -56,54 +56,54 @@ msgstr " %s üçün Axtarışın Nəticələri:"
 msgid "Archives"
 msgstr "Arxivlər"
 
+#: inc/template-tags.php:319
+msgid "Archives: %s"
+msgstr "Arxivlər: %s"
+
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
-
-#: inc/template-tags.php:319
-msgid "Archives: %s"
-msgstr "Arxivlər: %s"
 
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr "Canlı Söhbət"
 
-#: inc/template-tags.php:314
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr "Audio"
-
 #: inc/template-tags.php:312
 msgctxt "post format archive title"
 msgid "Statuses"
 msgstr "Status"
 
-#: inc/template-tags.php:310
+#: inc/template-tags.php:314
 msgctxt "post format archive title"
-msgid "Links"
-msgstr "Bağlantı"
+msgid "Audio"
+msgstr "Audio"
 
 #: inc/template-tags.php:308
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr "Kvota"
 
+#: inc/template-tags.php:310
+msgctxt "post format archive title"
+msgid "Links"
+msgstr "Bağlantı"
+
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr "Video"
 
-#: inc/template-tags.php:304
-msgctxt "post format archive title"
-msgid "Images"
-msgstr "Təsvir"
-
 #: inc/template-tags.php:302
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr "Qalereya"
+
+#: inc/template-tags.php:304
+msgctxt "post format archive title"
+msgid "Images"
+msgstr "Təsvir"
 
 #: inc/template-tags.php:300
 msgctxt "post format archive title"
@@ -115,14 +115,14 @@ msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr "F j, Y"
 
-#: inc/template-tags.php:297
-msgid "Day: %s"
-msgstr "Gün: %s"
-
 #: inc/template-tags.php:295
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "F Y"
+
+#: inc/template-tags.php:297
+msgid "Day: %s"
+msgstr "Gün: %s"
 
 #: inc/template-tags.php:295
 msgid "Month: %s"
@@ -157,14 +157,14 @@ msgstr "% Şərh"
 msgid "1 Comment"
 msgstr "1 şərh"
 
-#: inc/template-tags.php:264
-msgid "Leave a comment"
-msgstr "Bir şərh yazın"
-
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
 msgstr "Bununla etiketləndi:"
+
+#: inc/template-tags.php:264
+msgid "Leave a comment"
+msgstr "Bir şərh yazın"
 
 #: inc/template-tags.php:151
 msgid "All %s Posts"
@@ -194,10 +194,6 @@ msgctxt "label"
 msgid "Search for:"
 msgstr "Axtarış:"
 
-#: inc/extras.php:190
-msgid "Your comment is awaiting moderation."
-msgstr "Şərhiniz yoxlama gözləyir."
-
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
 #. 'vietnamese'. Do not translate into your own language.
@@ -206,65 +202,67 @@ msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr "alt-set yoxdur"
 
-#. Translators: If there are characters in your language that are not
-#. * supported by Oswald, translate this to 'off'. Do not translate
-#. * into your own language.
-#: inc/extras.php:119
-msgctxt "Oswald font: on or off"
-msgid "on"
-msgstr "açıq"
+#: inc/extras.php:190
+msgid "Your comment is awaiting moderation."
+msgstr "Şərhiniz yoxlama gözləyir."
 
-#. Translators: If there are characters in your language that are not
-#. * supported by Roboto, translate this to 'off'. Do not translate
-#. * into your own language.
+#. Translators: If there are characters in your language that are not supported
+#. by Roboto, translate this to 'off'. Do not translate into your own language.
 #: inc/extras.php:111
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr "açıq"
 
-#: inc/customizer.php:26
-msgid "Theme"
-msgstr "Mövzu"
+#. Translators: If there are characters in your language that are not supported
+#. by Oswald, translate this to 'off'. Do not translate into your own language.
+#: inc/extras.php:119
+msgctxt "Oswald font: on or off"
+msgid "on"
+msgstr "açıq"
 
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
 msgstr "Sayt başlığını və şüarını göstər"
 
-#: header.php:24
-msgid "Skip to content"
-msgstr "Mühtəviyyata keç"
+#: inc/customizer.php:26
+msgid "Theme"
+msgstr "Mövzu"
 
 #: footer.php:45
 msgid "Menu"
 msgstr "Menyu"
 
-#: functions.php:109
-msgid "Sidebar"
-msgstr "Yan menyu"
+#: header.php:24
+msgid "Skip to content"
+msgstr "Mühtəviyyata keç"
 
 #: functions.php:63
 msgid "Footer Menu"
 msgstr "Zirzəmi Menyusu"
 
-#: functions.php:62
-msgid "Social Menu"
-msgstr "Sosial menyu"
+#: functions.php:109
+msgid "Sidebar"
+msgstr "Yan menyu"
 
 #: functions.php:61
 msgid "Primary Menu"
 msgstr "Əsas menyu"
+
+#: functions.php:62
+msgid "Social Menu"
+msgstr "Sosial menyu"
 
 #: footer.php:28
 msgid "Footer navigation"
 msgstr "Zirzəmi Naviqasiyası"
 
 #: footer.php:16
-msgid "Proudly powered by %s"
-msgstr "%s qürurla təqdim edər"
-
-#: footer.php:16
 msgid "http://wordpress.org/"
 msgstr "http://wordpress.org/"
+
+#: footer.php:16
+msgid "Proudly powered by %s"
+msgstr "%s qürurla təqdim edər"
 
 #: content.php:30
 msgid "Read More"
@@ -296,6 +294,12 @@ msgstr "Redaktə et"
 msgid "Page"
 msgstr "Səhifə"
 
+#. translators: %s: Name of current post
+#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
+#: inc/template-tags.php:758
+msgid "Continue reading %s"
+msgstr "%s oxumağa davam et"
+
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:46
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
@@ -303,19 +307,13 @@ msgstr "Səhifə"
 msgid "Pages:"
 msgstr "Səhifələr:"
 
-#. translators: %s: Name of current post
-#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
-#: inc/template-tags.php:758
-msgid "Continue reading %s"
-msgstr "%s oxumağa davam et"
+#: comments.php:42 comments.php:63
+msgid "Newer Comments"
+msgstr "Ən yeni Şərhlər"
 
 #: comments.php:75
 msgid "Comments are closed."
 msgstr "Şərh üçün bağlıdır."
-
-#: comments.php:42 comments.php:63
-msgid "Newer Comments"
-msgstr "Ən yeni Şərhlər"
 
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
@@ -329,10 +327,10 @@ msgstr "Şərh naviqasiyası"
 msgid "All posts"
 msgstr "Bütün yazılar"
 
-#: author-bio.php:18
-msgid "View all posts by %s"
-msgstr "%s tərəfindən yazılmış bütün yazılara bax"
-
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Bağışlayın! Bu səhifə tapılmır."
+
+#: author-bio.php:18
+msgid "View all posts by %s"
+msgstr "%s tərəfindən yazılmış bütün yazılara bax"

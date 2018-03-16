@@ -23,13 +23,13 @@ msgstr "Suivant"
 msgid "Previous"
 msgstr "Précédent"
 
-#: inc/template-tags.php:1020
-msgid "Posts navigation"
-msgstr "Navigation des articles"
-
 #: inc/template-tags.php:895
 msgid "Next image"
 msgstr "Image suivante"
+
+#: inc/template-tags.php:1020
+msgid "Posts navigation"
+msgstr "Navigation des articles"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
@@ -61,40 +61,40 @@ msgctxt "post format archive title"
 msgid "Chats"
 msgstr "Clavardages"
 
-#: inc/template-tags.php:314
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr "Audio"
-
 #: inc/template-tags.php:312
 msgctxt "post format archive title"
 msgid "Statuses"
 msgstr "Statuts"
 
-#: inc/template-tags.php:310
+#: inc/template-tags.php:314
 msgctxt "post format archive title"
-msgid "Links"
-msgstr "Liens"
+msgid "Audio"
+msgstr "Audio"
 
 #: inc/template-tags.php:308
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr "Citations"
 
+#: inc/template-tags.php:310
+msgctxt "post format archive title"
+msgid "Links"
+msgstr "Liens"
+
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr "Vidéos"
 
-#: inc/template-tags.php:304
-msgctxt "post format archive title"
-msgid "Images"
-msgstr "Images"
-
 #: inc/template-tags.php:302
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr "Galeries"
+
+#: inc/template-tags.php:304
+msgctxt "post format archive title"
+msgid "Images"
+msgstr "Images"
 
 #: inc/template-tags.php:300
 msgctxt "post format archive title"
@@ -106,14 +106,14 @@ msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr "j F Y"
 
-#: inc/template-tags.php:297
-msgid "Day: %s"
-msgstr "Jour&nbsp;: %s"
-
 #: inc/template-tags.php:295
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "F Y"
+
+#: inc/template-tags.php:297
+msgid "Day: %s"
+msgstr "Jour&nbsp;: %s"
 
 #: inc/template-tags.php:295
 msgid "Month: %s"
@@ -148,14 +148,14 @@ msgstr "% commentaires"
 msgid "1 Comment"
 msgstr "1 commentaire"
 
-#: inc/template-tags.php:264
-msgid "Leave a comment"
-msgstr "Laisser un commentaire"
-
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
 msgstr "Marqué :"
+
+#: inc/template-tags.php:264
+msgid "Leave a comment"
+msgstr "Laisser un commentaire"
 
 #: inc/template-tags.php:151
 msgid "All %s Posts"
@@ -197,19 +197,17 @@ msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr "no-subset"
 
-#. Translators: If there are characters in your language that are not
-#. * supported by Oswald, translate this to 'off'. Do not translate
-#. * into your own language.
-#: inc/extras.php:119
-msgctxt "Oswald font: on or off"
+#. Translators: If there are characters in your language that are not supported
+#. by Roboto, translate this to 'off'. Do not translate into your own language.
+#: inc/extras.php:111
+msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr "activée"
 
-#. Translators: If there are characters in your language that are not
-#. * supported by Roboto, translate this to 'off'. Do not translate
-#. * into your own language.
-#: inc/extras.php:111
-msgctxt "Roboto font: on or off"
+#. Translators: If there are characters in your language that are not supported
+#. by Oswald, translate this to 'off'. Do not translate into your own language.
+#: inc/extras.php:119
+msgctxt "Oswald font: on or off"
 msgid "on"
 msgstr "activée"
 
@@ -221,41 +219,41 @@ msgstr "Thème"
 msgid "Display Site Title &amp; Tagline"
 msgstr "Afficher le titre du site et son slogan"
 
-#: header.php:24
-msgid "Skip to content"
-msgstr "Aller au contenu principal"
-
 #: footer.php:45
 msgid "Menu"
 msgstr "Menu"
 
-#: functions.php:109
-msgid "Sidebar"
-msgstr "Colonne latérale"
+#: header.php:24
+msgid "Skip to content"
+msgstr "Aller au contenu principal"
 
 #: functions.php:63
 msgid "Footer Menu"
 msgstr "Menu du pied de page"
 
-#: functions.php:62
-msgid "Social Menu"
-msgstr "Menu de réseaux sociaux"
+#: functions.php:109
+msgid "Sidebar"
+msgstr "Colonne latérale"
 
 #: functions.php:61
 msgid "Primary Menu"
 msgstr "Menu principal"
+
+#: functions.php:62
+msgid "Social Menu"
+msgstr "Menu de réseaux sociaux"
 
 #: footer.php:28
 msgid "Footer navigation"
 msgstr "Navigation du pied de page"
 
 #: footer.php:16
-msgid "Proudly powered by %s"
-msgstr "Fièrement propulsé par %s"
-
-#: footer.php:16
 msgid "http://wordpress.org/"
 msgstr "http://wordpress.org/"
+
+#: footer.php:16
+msgid "Proudly powered by %s"
+msgstr "Fièrement propulsé par %s"
 
 #: content.php:30
 msgid "Read More"
@@ -300,13 +298,13 @@ msgstr "Pages :"
 msgid "Continue reading %s"
 msgstr "Continuer la lecture de %s"
 
-#: comments.php:75
-msgid "Comments are closed."
-msgstr "Les commentaires sont fermés."
-
 #: comments.php:42 comments.php:63
 msgid "Newer Comments"
 msgstr "Commentaires ultérieurs"
+
+#: comments.php:75
+msgid "Comments are closed."
+msgstr "Les commentaires sont fermés."
 
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
@@ -320,10 +318,10 @@ msgstr "Navigation des commentaires"
 msgid "All posts"
 msgstr "Tous les articles"
 
-#: author-bio.php:18
-msgid "View all posts by %s"
-msgstr "Voir tous les articles par %s"
-
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Oups! Cette page est introuvable."
+
+#: author-bio.php:18
+msgid "View all posts by %s"
+msgstr "Voir tous les articles par %s"

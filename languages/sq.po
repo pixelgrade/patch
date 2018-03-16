@@ -11,13 +11,13 @@ msgstr ""
 "Language: sq_AL\n"
 "Project-Id-Version: WordPress.com - Themes - Patch\n"
 
-#: inc/wpcom-colors.php:32
-msgid "Main Accent"
-msgstr "Theksimi Kryesor"
-
 #: inc/wpcom-colors.php:15
 msgid "Body Border"
 msgstr "Anë Lënde"
+
+#: inc/wpcom-colors.php:32
+msgid "Main Accent"
+msgstr "Theksimi Kryesor"
 
 #: inc/template-tags.php:1038 inc/template-tags.php:1044
 msgid "Next"
@@ -27,13 +27,13 @@ msgstr "Pasuesja"
 msgid "Previous"
 msgstr "I mëparshmi"
 
-#: inc/template-tags.php:1020
-msgid "Posts navigation"
-msgstr "Lëvizje te postimet"
-
 #: inc/template-tags.php:895
 msgid "Next image"
 msgstr "Figura pasuese"
+
+#: inc/template-tags.php:1020
+msgid "Posts navigation"
+msgstr "Lëvizje te postimet"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
@@ -51,54 +51,54 @@ msgstr "Përfundime Kërkimi për: %s"
 msgid "Archives"
 msgstr "Arkiva"
 
+#: inc/template-tags.php:319
+msgid "Archives: %s"
+msgstr "Arkiva: %s"
+
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
-
-#: inc/template-tags.php:319
-msgid "Archives: %s"
-msgstr "Arkiva: %s"
 
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr "Fjalosje"
 
-#: inc/template-tags.php:314
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr "Audio"
-
 #: inc/template-tags.php:312
 msgctxt "post format archive title"
 msgid "Statuses"
 msgstr "Gjendje"
 
-#: inc/template-tags.php:310
+#: inc/template-tags.php:314
 msgctxt "post format archive title"
-msgid "Links"
-msgstr "Lidhje"
+msgid "Audio"
+msgstr "Audio"
 
 #: inc/template-tags.php:308
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr "Thonjëza"
 
+#: inc/template-tags.php:310
+msgctxt "post format archive title"
+msgid "Links"
+msgstr "Lidhje"
+
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr "Video"
 
-#: inc/template-tags.php:304
-msgctxt "post format archive title"
-msgid "Images"
-msgstr "Figura"
-
 #: inc/template-tags.php:302
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr "Galeri"
+
+#: inc/template-tags.php:304
+msgctxt "post format archive title"
+msgid "Images"
+msgstr "Figura"
 
 #: inc/template-tags.php:300
 msgctxt "post format archive title"
@@ -110,14 +110,14 @@ msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr "j F, Y"
 
-#: inc/template-tags.php:297
-msgid "Day: %s"
-msgstr "Ditë: %s"
-
 #: inc/template-tags.php:295
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "F Y"
+
+#: inc/template-tags.php:297
+msgid "Day: %s"
+msgstr "Ditë: %s"
 
 #: inc/template-tags.php:295
 msgid "Month: %s"
@@ -152,14 +152,14 @@ msgstr "% Koment"
 msgid "1 Comment"
 msgstr "1 koment"
 
-#: inc/template-tags.php:264
-msgid "Leave a comment"
-msgstr "Lini një koment"
-
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
 msgstr "Etiketuar me: "
+
+#: inc/template-tags.php:264
+msgid "Leave a comment"
+msgstr "Lini një koment"
 
 #: inc/template-tags.php:151
 msgid "All %s Posts"
@@ -189,10 +189,6 @@ msgctxt "label"
 msgid "Search for:"
 msgstr "Kërko për:"
 
-#: inc/extras.php:190
-msgid "Your comment is awaiting moderation."
-msgstr "Komenti juaj po pret moderimin."
-
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
 #. 'vietnamese'. Do not translate into your own language.
@@ -201,57 +197,60 @@ msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr "pa nëngrup"
 
-#. Translators: If there are characters in your language that are not
-#. * supported by Roboto, translate this to 'off'. Do not translate
-#. * into your own language.
+#: inc/extras.php:190
+msgid "Your comment is awaiting moderation."
+msgstr "Komenti juaj po pret moderimin."
+
+#. Translators: If there are characters in your language that are not supported
+#. by Roboto, translate this to 'off'. Do not translate into your own language.
 #: inc/extras.php:111
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr "on"
 
-#: inc/customizer.php:26
-msgid "Theme"
-msgstr "Temë"
-
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
 msgstr "Shfaqe Titullin &amp; Moton e Sajtit"
 
-#: header.php:24
-msgid "Skip to content"
-msgstr "Hidhu te lënda"
+#: inc/customizer.php:26
+msgid "Theme"
+msgstr "Temë"
 
 #: footer.php:45
 msgid "Menu"
 msgstr "Menu"
 
-#: functions.php:109
-msgid "Sidebar"
-msgstr "Anështyllë"
+#: header.php:24
+msgid "Skip to content"
+msgstr "Hidhu te lënda"
 
 #: functions.php:63
 msgid "Footer Menu"
 msgstr "Menu Fundfaqeje"
 
-#: functions.php:62
-msgid "Social Menu"
-msgstr "Menu Shoqërore"
+#: functions.php:109
+msgid "Sidebar"
+msgstr "Anështyllë"
 
 #: functions.php:61
 msgid "Primary Menu"
 msgstr "Menuja Parësore"
+
+#: functions.php:62
+msgid "Social Menu"
+msgstr "Menu Shoqërore"
 
 #: footer.php:28
 msgid "Footer navigation"
 msgstr "Lëvizje te Fundfaqja"
 
 #: footer.php:16
-msgid "Proudly powered by %s"
-msgstr "Bazohet me krenari në %s"
-
-#: footer.php:16
 msgid "http://wordpress.org/"
 msgstr "http://wordpress.org/"
+
+#: footer.php:16
+msgid "Proudly powered by %s"
+msgstr "Bazohet me krenari në %s"
 
 #: content.php:30
 msgid "Read More"
@@ -283,6 +282,12 @@ msgstr "Përpuno"
 msgid "Page"
 msgstr "Faqe"
 
+#. translators: %s: Name of current post
+#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
+#: inc/template-tags.php:758
+msgid "Continue reading %s"
+msgstr "Vazhdoni leximin e %s"
+
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:46
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
@@ -290,19 +295,13 @@ msgstr "Faqe"
 msgid "Pages:"
 msgstr "Faqe:"
 
-#. translators: %s: Name of current post
-#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
-#: inc/template-tags.php:758
-msgid "Continue reading %s"
-msgstr "Vazhdoni leximin e %s"
+#: comments.php:42 comments.php:63
+msgid "Newer Comments"
+msgstr "Komentet Më të Reja"
 
 #: comments.php:75
 msgid "Comments are closed."
 msgstr "Komentet janë mbyllur."
-
-#: comments.php:42 comments.php:63
-msgid "Newer Comments"
-msgstr "Komentet Më të Reja"
 
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
@@ -316,10 +315,10 @@ msgstr "Lëvizje te komentet"
 msgid "All posts"
 msgstr "Tërë postimet"
 
-#: author-bio.php:18
-msgid "View all posts by %s"
-msgstr "Shihni tërë postimet nga %s"
-
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Hmm! Ajo faqe nuk gjendet dot."
+
+#: author-bio.php:18
+msgid "View all posts by %s"
+msgstr "Shihni tërë postimet nga %s"

@@ -19,13 +19,13 @@ msgstr "Következő "
 msgid "Previous"
 msgstr "Előző"
 
-#: inc/template-tags.php:1020
-msgid "Posts navigation"
-msgstr "Bejegyzés navigáció"
-
 #: inc/template-tags.php:895
 msgid "Next image"
 msgstr "Következő kép"
+
+#: inc/template-tags.php:1020
+msgid "Posts navigation"
+msgstr "Bejegyzés navigáció"
 
 #: inc/template-tags.php:880
 msgid "Previous image"
@@ -43,54 +43,54 @@ msgstr "%s kifejezésre történő keresés eredménye"
 msgid "Archives"
 msgstr "Archívum"
 
+#: inc/template-tags.php:319
+msgid "Archives: %s"
+msgstr "Archívumok: %s"
+
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 #: inc/template-tags.php:323
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
-
-#: inc/template-tags.php:319
-msgid "Archives: %s"
-msgstr "Archívumok: %s"
 
 #: inc/template-tags.php:316
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr "Beszélgetés naplók"
 
-#: inc/template-tags.php:314
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr "Hangok"
-
 #: inc/template-tags.php:312
 msgctxt "post format archive title"
 msgid "Statuses"
 msgstr "Állapot üzenetek"
 
-#: inc/template-tags.php:310
+#: inc/template-tags.php:314
 msgctxt "post format archive title"
-msgid "Links"
-msgstr "Hivatkozások"
+msgid "Audio"
+msgstr "Hangok"
 
 #: inc/template-tags.php:308
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr "Idézetek"
 
+#: inc/template-tags.php:310
+msgctxt "post format archive title"
+msgid "Links"
+msgstr "Hivatkozások"
+
 #: inc/template-tags.php:306
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr "Videók"
 
-#: inc/template-tags.php:304
-msgctxt "post format archive title"
-msgid "Images"
-msgstr "Képek"
-
 #: inc/template-tags.php:302
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr "Gallériák"
+
+#: inc/template-tags.php:304
+msgctxt "post format archive title"
+msgid "Images"
+msgstr "Képek"
 
 #: inc/template-tags.php:300
 msgctxt "post format archive title"
@@ -102,14 +102,14 @@ msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr "Y-m-d"
 
-#: inc/template-tags.php:297
-msgid "Day: %s"
-msgstr "Nap: %s"
-
 #: inc/template-tags.php:295
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "Y F"
+
+#: inc/template-tags.php:297
+msgid "Day: %s"
+msgstr "Nap: %s"
 
 #: inc/template-tags.php:295
 msgid "Month: %s"
@@ -144,14 +144,14 @@ msgstr "% hozzászólás"
 msgid "1 Comment"
 msgstr "1 hozzászólás"
 
-#: inc/template-tags.php:264
-msgid "Leave a comment"
-msgstr "Megjegyzés hozzáfűzése"
-
 #. translators: There is a space at the end
 #: inc/template-tags.php:253
 msgid "Tagged with: "
 msgstr "Címke:"
+
+#: inc/template-tags.php:264
+msgid "Leave a comment"
+msgstr "Megjegyzés hozzáfűzése"
 
 #: inc/template-tags.php:151
 msgid "All %s Posts"
@@ -181,10 +181,6 @@ msgctxt "label"
 msgid "Search for:"
 msgstr "Keresés:"
 
-#: inc/extras.php:190
-msgid "Your comment is awaiting moderation."
-msgstr "Hozzászólásod moderálásra vár."
-
 #. translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
 #. 'vietnamese'. Do not translate into your own language.
@@ -193,65 +189,67 @@ msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
 msgid "no-subset"
 msgstr "no-subset"
 
-#. Translators: If there are characters in your language that are not
-#. * supported by Oswald, translate this to 'off'. Do not translate
-#. * into your own language.
-#: inc/extras.php:119
-msgctxt "Oswald font: on or off"
-msgid "on"
-msgstr "on"
+#: inc/extras.php:190
+msgid "Your comment is awaiting moderation."
+msgstr "Hozzászólásod moderálásra vár."
 
-#. Translators: If there are characters in your language that are not
-#. * supported by Roboto, translate this to 'off'. Do not translate
-#. * into your own language.
+#. Translators: If there are characters in your language that are not supported
+#. by Roboto, translate this to 'off'. Do not translate into your own language.
 #: inc/extras.php:111
 msgctxt "Roboto font: on or off"
 msgid "on"
 msgstr "be"
 
-#: inc/customizer.php:26
-msgid "Theme"
-msgstr "Sablon"
+#. Translators: If there are characters in your language that are not supported
+#. by Oswald, translate this to 'off'. Do not translate into your own language.
+#: inc/extras.php:119
+msgctxt "Oswald font: on or off"
+msgid "on"
+msgstr "on"
 
 #: inc/customizer.php:19
 msgid "Display Site Title &amp; Tagline"
 msgstr "Honlap címsorának &amp; alcímének megjelenítése"
 
-#: header.php:24
-msgid "Skip to content"
-msgstr "Tovább a tartalomra"
+#: inc/customizer.php:26
+msgid "Theme"
+msgstr "Sablon"
 
 #: footer.php:45
 msgid "Menu"
 msgstr "Menü"
 
-#: functions.php:109
-msgid "Sidebar"
-msgstr "Oldalsáv"
+#: header.php:24
+msgid "Skip to content"
+msgstr "Tovább a tartalomra"
 
 #: functions.php:63
 msgid "Footer Menu"
 msgstr "Lábléc menü"
 
-#: functions.php:62
-msgid "Social Menu"
-msgstr "Közösségi menü"
+#: functions.php:109
+msgid "Sidebar"
+msgstr "Oldalsáv"
 
 #: functions.php:61
 msgid "Primary Menu"
 msgstr "Elsődleges menü"
+
+#: functions.php:62
+msgid "Social Menu"
+msgstr "Közösségi menü"
 
 #: footer.php:28
 msgid "Footer navigation"
 msgstr "Lábléc navigáció"
 
 #: footer.php:16
-msgid "Proudly powered by %s"
-msgstr "Köszönjük %s!"
-
-#: footer.php:16
 msgid "http://wordpress.org/"
 msgstr "http://wordpress.org/"
+
+#: footer.php:16
+msgid "Proudly powered by %s"
+msgstr "Köszönjük %s!"
 
 #: content.php:30
 msgid "Read More"
@@ -283,6 +281,12 @@ msgstr "Szerkesztés"
 msgid "Page"
 msgstr "Oldal"
 
+#. translators: %s: Name of current post
+#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
+#: inc/template-tags.php:758
+msgid "Continue reading %s"
+msgstr "%s részletei..."
+
 #: content-aside.php:33 content-attachment.php:42 content-audio.php:46
 #: content-gallery.php:51 content-page.php:33 content-single-audio.php:49
 #: content-single-gallery.php:51 content-single-video.php:49
@@ -290,19 +294,13 @@ msgstr "Oldal"
 msgid "Pages:"
 msgstr "Oldalak:"
 
-#. translators: %s: Name of current post
-#: content-aside.php:27 content-quote.php:40 inc/template-tags.php:724
-#: inc/template-tags.php:758
-msgid "Continue reading %s"
-msgstr "%s részletei..."
+#: comments.php:42 comments.php:63
+msgid "Newer Comments"
+msgstr "Újabb hozzászólás"
 
 #: comments.php:75
 msgid "Comments are closed."
 msgstr "Hozzászólások lezárva"
-
-#: comments.php:42 comments.php:63
-msgid "Newer Comments"
-msgstr "Újabb hozzászólás"
 
 #: comments.php:41 comments.php:62
 msgid "Older Comments"
@@ -312,24 +310,24 @@ msgstr "Korábbi hozzászólások"
 msgid "Comment navigation"
 msgstr "Hozzászólás navigáció"
 
-#: comments.php:28
-msgid "Add yours"
-msgstr "Új írása"
-
 #: comments.php:24
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] "Hozzászólás"
 msgstr[1] "Hozzászólás"
 
+#: comments.php:28
+msgid "Add yours"
+msgstr "Új írása"
+
 #: author-bio.php:18
 msgid "All posts"
 msgstr "Összes bejegyzés"
 
-#: author-bio.php:18
-msgid "View all posts by %s"
-msgstr "Minden bejegyzés megjelenítése: %s"
-
 #: 404.php:16
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Hoppá! A keresett oldal nem található."
+
+#: author-bio.php:18
+msgid "View all posts by %s"
+msgstr "Minden bejegyzés megjelenítése: %s"
