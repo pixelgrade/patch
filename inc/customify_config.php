@@ -44,45 +44,41 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 	// The section might be already defined, thus we merge, not replace the entire section config.
 	$options['sections']['style_manager_section'] = array_replace_recursive( $options['sections']['style_manager_section'], array(
 		'options' => array(
-			'primary_color' => array(
+			'sm_color_primary' => array(
 				'connected_fields' => array(
-					'body_color',
-					'hive_blog_grid_item_title_color',
-					'hive_blog_grid_primary_meta_color',
+					'accent_color',
+					'patch_header_links_active_color',
+					'main_content_body_link_color',
+				),
+			),
+
+			'sm_dark_primary' => array(
+				'connected_fields' => array(
+					'blog_item_title_color',
+					'main_content_page_title_color',
 					'main_content_heading_1_color',
 					'main_content_heading_2_color',
 					'main_content_heading_3_color',
 					'main_content_heading_4_color',
 					'main_content_heading_5_color',
-					'header_navigation_links_color',
-					'header_links_active_color',
-					'border_color',
-				),
-			),
-			'secondary_color' => array(
-				'connected_fields' => array(
-					'hive_blog_grid_secondary_meta_color',
-					'body_link_color',
-				),
-			),
-			'tertiary_color' => array(
-				'connected_fields' => array(
-					'accent_color',
-				),
-			),
-			'quaternary_color' => array(
-				'connected_fields' => array(
+					'main_content_heading_6_color',
 
 				),
 			),
-			'background_primary_color' => array(
+			'sm_dark_secondary' => array(
 				'connected_fields' => array(
-					'body_background_color'
+					'main_content_body_text_color'
 				),
 			),
-			'background_secondary_color' => array(
-				'connected_fields' => array(
 
+			'sm_light_primary' => array(
+				'connected_fields' => array(
+					'main_content_body_background_color'
+				),
+			),
+			'sm_light_secondary' => array(
+				'connected_fields' => array(
+					
 				),
 			),
 		),
@@ -149,7 +145,7 @@ function patch_modify_customify_options( $options ) {
 
 								'main_content_body_text_color'    => '#3d3e40',
 
-								'blog_item_title_color'           => '#000000',
+								'blog_item_title_color'           => '#171617',
 								'main_content_page_title_color'   => '#171617',
 
                                 'main_content_heading_1_color'    => '#171617',
@@ -675,6 +671,18 @@ function patch_modify_customify_options( $options ) {
 						array(
 							'property' => 'color',
 							'selector' => 'body',
+						),
+					),
+				),
+				'main_content_body_background_color'                                => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Body Background Color', 'hive_txtd' ),
+					'live'    => true,
+					'default' => '#ffffff',
+					'css'     => array(
+						array(
+							'selector' => 'body, .entry-card',
+							'property' => 'background-color',
 						),
 					),
 				),
