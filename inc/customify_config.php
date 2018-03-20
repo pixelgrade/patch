@@ -668,7 +668,8 @@ function patch_modify_customify_options( $options ) {
 						array(
 							'property' => 'color',
 							'selector' => '.single .entry-title, .page .entry-title, .dropcap,
-											.comment-number',
+											.comment-number,
+											.overlay--search .search-field',
 						),
 						array(
 							'property' => 'background-color',
@@ -697,7 +698,11 @@ function patch_modify_customify_options( $options ) {
 						array(
 							'selector' => 'body, .entry-card,
 											.comment-number,
-											textarea',
+											textarea,
+											.mobile-header-wrapper,
+											.main-navigation,
+											.overlay--search,
+											.overlay--search .search-field',
 							'property' => 'background-color',
 						),
 						array(

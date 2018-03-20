@@ -4566,16 +4566,16 @@ div#respond p.comment-subscription-form label {
 	-webkit-appearance: none;
 }
 .overlay--search .search-field::-webkit-input-placeholder {
-	color: #000000;
+	color: currentColor;
 }
 .overlay--search .search-field:-moz-placeholder {
-	color: #000000;
+	color: currentColor;
 }
 .overlay--search .search-field::-moz-placeholder {
-	color: #000000;
+	color: currentColor;
 }
 .overlay--search .search-field:-ms-input-placeholder {
-	color: #000000;
+	color: currentColor;
 }
 @media not screen and (min-width: 900px) {
 	.overlay--search .search-field {

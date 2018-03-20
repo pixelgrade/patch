@@ -101,7 +101,7 @@
 		-webkit-appearance: none;
 
 		@include input-placeholder {
-			color: $black;
+			color: currentColor;;
 		}
 
 		@include query-below($lap) {
