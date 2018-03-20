@@ -356,6 +356,10 @@ $cards-gutter: $gutter;
 
 		.byline {
 			margin-bottom: -5px;
+
+			a {
+				color: inherit;
+			}
 		}
 
 		.byline,

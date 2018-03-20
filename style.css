@@ -61,6 +61,10 @@ and Blueprint http://www.blueprintcss.org/
  * 10.0 - Overwrites
  *
  */
+body {
+	--box-shadow-color: white;
+}
+
 /**
  * 1.0 - Normalize
  */
@@ -561,7 +565,8 @@ strong {
 .nav--main li:hover > a,
 .sidebar .widget a:hover {
 	background-color: #ffde00;
-	box-shadow: white 0 1.1em inset; 
+	box-shadow: white 0 1.1em inset;
+	box-shadow: var(--box-shadow-color) 0 1.1em inset; 
 	position: relative;
 }
 
@@ -575,6 +580,7 @@ strong {
 .single .entry-content a:hover,
 .page:not(.entry-card) .entry-content a:hover {
 	box-shadow: white 0 0 inset;
+	box-shadow: var(--box-shadow-color) 0 0 inset;
 }
 
 .edit-link a,
@@ -1051,6 +1057,7 @@ h5 {
 	margin-bottom: 0.03243em;
 	margin-right: 0.16216em;
 	text-shadow: 2px 2px 0px white, 4px 4px 0px #ffde00;
+	text-shadow: 2px 2px 0px var(--box-shadow-color), 4px 4px 0px #ffde00;
 }
 
 .highlight {
@@ -1250,6 +1257,10 @@ figure img {
  *   5.2 - Magnific Popup
  */
 /* Magnific Popup CSS */
+body {
+	--box-shadow-color: white;
+}
+
 .mfp-bg {
 	background: #ffffff;
 	height: 100%;
@@ -2067,6 +2078,9 @@ button.mfp-arrow-right {
 }
 .entry-card .entry-meta .byline {
 	margin-bottom: -5px;
+}
+.entry-card .entry-meta .byline a {
+	color: inherit;
 }
 .entry-card .entry-meta .byline,
 .entry-card .entry-meta .posted-on {
@@ -3068,6 +3082,7 @@ button.mfp-arrow-right {
 .nav--main li[class*="current-menu"] > a,
 .nav--main li:hover > a {
 	box-shadow: white 0 24px inset;
+	box-shadow: var(--box-shadow-color) 0 24px inset;
 }
 @media only screen and (min-width: 900px) {
 	.nav--main > li {
@@ -3154,6 +3169,7 @@ button.mfp-arrow-right {
 	.nav--main ul li[class*="current-menu"] > a,
 	.nav--main ul li:hover > a {
 		box-shadow: white 0 16px inset;
+		box-shadow: var(--box-shadow-color) 0 16px inset;
 	}
 	.nav--main ul ul {
 		left: 100%; 
@@ -3495,14 +3511,20 @@ button.mfp-arrow-right {
 .site-footer a {
 	color: #b5b5b5;
 	font-weight: 300;
+	opacity: 0.7;
 	text-decoration: none;
-	transition: color 0.2s;
+	transition: all 0.2s;
 }
 .site-footer a[rel="designer"] {
 	color: white;
+	opacity: 1;
 }
 .site-footer a:hover {
 	color: #ffde00;
+	opacity: 1;
+}
+.site-footer a.back-to-top-button {
+	opacity: 1;
 }
 
 .infinite-scroll.neverending .site-footer {
@@ -4092,6 +4114,7 @@ li.depth-2:before {
 :first-child:not(input) ~ .form-submit #submit {
 	border: 0;
 	box-shadow: white 0 18px inset;
+	box-shadow: var(--box-shadow-color) 0 18px inset;
 	color: #171617;
 	float: right;
 	font-size: 18px;
@@ -5050,13 +5073,15 @@ div#jp-post-flair {
 }
 .single .entry-content a,
 .page:not(.entry-card) .entry-content a {
-	box-shadow: white 0 0.85em inset; 
+	box-shadow: white 0 0.85em inset;
+	box-shadow: var(--box-shadow-color) 0 0.85em inset; 
 	padding-left: 2px;
 	padding-right: 2px;
 }
 .single .entry-content blockquote a,
 .page:not(.entry-card) .entry-content blockquote a {
 	box-shadow: white 0 19px inset;
+	box-shadow: var(--box-shadow-color) 0 19px inset;
 }
 
 @media not screen and (min-width: 900px) {
@@ -5217,6 +5242,7 @@ div#jp-post-flair {
 }
 .page-links a {
 	box-shadow: white 0 2em inset;
+	box-shadow: var(--box-shadow-color) 0 2em inset;
 	display: inline-block; 
 	margin-right: 3px;
 }
@@ -5225,6 +5251,7 @@ div#jp-post-flair {
 .page:not(.entry-card) .page-links a,
 .page:not(.entry-card) .page-links span {
 	box-shadow: white 0 2em inset;
+	box-shadow: var(--box-shadow-color) 0 2em inset;
 }
 .single .page-links span,
 .page:not(.entry-card) .page-links span {
@@ -5333,8 +5360,9 @@ div#jp-post-flair {
 	margin-left: 4px;
 }
 .posted-on a {
-	color: currentColor; 
+	color: currentColor;
 	font-weight: 300;
+	opacity: 0.7;
 }
 .posted-on:before {
 	content: "/";
@@ -5491,6 +5519,7 @@ div#jp-post-flair {
 
 .sidebar .widget a:hover {
 	box-shadow: white 0 0.8em inset;
+	box-shadow: var(--box-shadow-color) 0 0.8em inset;
 }
 
 @media only screen and (min-width: 900px) {

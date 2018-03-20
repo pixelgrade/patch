@@ -15,6 +15,10 @@ Description: Used to style the TinyMCE editor.
  *    3.2 - Alignments
  *  4.0 - Media queries
  */
+body {
+	--box-shadow-color: white;
+}
+
 /**
  * 1.0 - Body
  * --------------------------------------------------
@@ -314,13 +318,15 @@ strong {
 .mce-content-body a,
 .edit-link a {
 	background-color: #ffde00;
-	box-shadow: white 0 1.1em inset; 
+	box-shadow: white 0 1.1em inset;
+	box-shadow: var(--box-shadow-color) 0 1.1em inset; 
 	position: relative;
 }
 
 .mce-content-body a:hover,
 .edit-link a:hover {
 	box-shadow: white 0 0 inset;
+	box-shadow: var(--box-shadow-color) 0 0 inset;
 }
 
 .mce-content-body a,
@@ -554,6 +560,7 @@ img {
 	margin-bottom: 0.03243em;
 	margin-right: 0.16216em;
 	text-shadow: 2px 2px 0px white, 4px 4px 0px #ffde00;
+	text-shadow: 2px 2px 0px var(--box-shadow-color), 4px 4px 0px #ffde00;
 }
 
 .highlight {

@@ -522,6 +522,7 @@ p.comment-form-email{
 		font-size: 18px;
 		line-height: 26px;
 		box-shadow: white 0 18px inset;
+		box-shadow: var(--box-shadow-color) 0 18px inset;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		color: $dark;

@@ -7,6 +7,10 @@ of your CSS stylesheet in a separate stylesheet file named rtl.css.
 
 http://codex.wordpress.org/Right_to_Left_Language_Support
 */
+body {
+	--box-shadow-color: white;
+}
+
 .rtl {
 	/* Comments Form */
 }

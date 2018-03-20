@@ -88,7 +88,9 @@
 		&[class*="current-menu"] > a,
 		&:hover > a {
 			@extend %link--underline--menu;
+			
 			box-shadow: white 0 24px inset;
+			box-shadow: var(--box-shadow-color) 0 24px inset;
 		}
 
 	}
@@ -196,6 +198,8 @@
 				&[class*="current-menu"] > a,
 				&:hover > a {
 					box-shadow: white 0 16px inset;
+
+					box-shadow: var(--box-shadow-color) 0 16px inset;
 				}
 			}
 

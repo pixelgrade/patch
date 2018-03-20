@@ -54,6 +54,8 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 
 			'sm_dark_primary' => array(
 				'connected_fields' => array(
+					'main_content_body_link_default_color',
+					'patch_header_navigation_links_color',
 					'blog_item_title_color',
 					'main_content_page_title_color',
 					'main_content_heading_1_color',
@@ -62,18 +64,25 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'main_content_heading_4_color',
 					'main_content_heading_5_color',
 					'main_content_heading_6_color',
-
+					'main_content_border_color',
 				),
 			),
 			'sm_dark_secondary' => array(
 				'connected_fields' => array(
-					'main_content_body_text_color'
+					'main_content_body_text_color',
+				),
+			),
+			'sm_dark_tertiary' => array(
+				'connected_fields' => array(
+
 				),
 			),
 
 			'sm_light_primary' => array(
 				'connected_fields' => array(
-					'main_content_body_background_color'
+					'main_content_body_background_color',
+					'patch_footer_body_text_color',
+					'patch_footer_links_color'
 				),
 			),
 			'sm_light_secondary' => array(
@@ -463,7 +472,7 @@ function patch_modify_customify_options( $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.site-header a, .nav--social a:before',
+							'selector' => '.site-header a, .nav--social a:before, div#infinite-handle span, :first-child:not(input) ~ .form-submit #submit',
 						),
 					),
 				),
@@ -642,7 +651,7 @@ function patch_modify_customify_options( $options ) {
 						),
 						array(
 							'property' => 'background-color',
-							'selector' => 'body:before',
+							'selector' => 'body:before, .site-footer',
 						),
 					),
 				),
@@ -658,7 +667,12 @@ function patch_modify_customify_options( $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.single .entry-title, .page .entry-title',
+							'selector' => '.single .entry-title, .page .entry-title, .dropcap,
+											.comment-number',
+						),
+						array(
+							'property' => 'background-color',
+							'selector' => '.comment-number.comment-number--dark, .comment-reply-title:before',
 						),
 					),
 				),
@@ -681,14 +695,46 @@ function patch_modify_customify_options( $options ) {
 					'default' => '#ffffff',
 					'css'     => array(
 						array(
-							'selector' => 'body, .entry-card',
+							'selector' => 'body, .entry-card,
+											.comment-number,
+											textarea',
 							'property' => 'background-color',
+						),
+						array(
+							'selector' => '.entry-card--text .entry-title, .site-footer a[rel="designer"], .comments-area:after, .comment-number.comment-number--dark, .comment-reply-title:before, .add-comment .add-comment__button',
+							'property' => 'color',
+						),
+						array(
+							'selector' => 'body',
+							'property' => '--box-shadow-color',
+						),
+						array(
+							'media' => 'only screen and (min-width: 900px)',
+							'selector' => '.nav--main ul',
+							'property' => 'background-color',
+						),
+						array(
+							'selector' => '#arrow',
+							'property' => 'fill',
+						),
+
+					),
+				),
+				'main_content_body_link_default_color'          => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Body Link Color', 'patch' ),
+					'live'    => true,
+					'default' => '#000000',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => 'a',
 						),
 					),
 				),
 				'main_content_body_link_color'          => array(
 					'type'    => 'color',
-					'label'   => esc_html__( 'Body Link Underline Color', 'patch' ),
+					'label'   => esc_html__( 'Body Link Active Color', 'patch' ),
 					'live'    => true,
 					'default' => '#ffeb00',
 					'css'     => array(
@@ -795,7 +841,7 @@ function patch_modify_customify_options( $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => 'h2',
+							'selector' => 'h2, blockquote',
 						),
 					),
 				),
@@ -1359,7 +1405,7 @@ function patch_modify_customify_options( $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.entry-card:not(.entry-card--text) .entry-title',
+							'selector' => '.entry-card:not(.entry-card--text) .entry-title, .byline, .posted-on',
 						),
 						array(
 							'property' => 'background-color',
@@ -1596,7 +1642,7 @@ add_action( 'customize_preview_init', 'patch_content_sides_spacing_customizer_pr
 if ( ! function_exists('patch_dropcap_text_shadow') ) {
 	function patch_dropcap_text_shadow( $value, $selector, $property, $unit ) {
 		$output = $selector . '{
-			text-shadow: 2px 2px 0 white, 4px 4px 0 ' . $value . ";\n".
+			text-shadow: 2px 2px 0 var(--box-shadow-color), 4px 4px 0 ' . $value . ";\n".
 		          "}\n";
 		return $output;
 	}

@@ -33,15 +33,22 @@
 		color: $light;
 		font-weight: 300;
 		text-decoration: none;
+		opacity: 0.7;
 
-		transition: color 0.2s;
+		transition: all 0.2s;
 
 		&[rel="designer"] {
 			color: white;
+			opacity: 1;
 		}
 
 		&:hover {
 			color: $accent;
+			opacity: 1;
+		}
+
+		&.back-to-top-button {
+			opacity: 1;
 		}
 	}
 }

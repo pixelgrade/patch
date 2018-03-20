@@ -72,6 +72,7 @@
 	.widget a:hover { 
 		@extend %link--underline--menu;
 		box-shadow: white 0 0.8em inset;
+		box-shadow: var(--box-shadow-color) 0 0.8em inset;
 	}
 }
 

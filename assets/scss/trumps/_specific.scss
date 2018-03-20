@@ -49,6 +49,7 @@
 
     color: $dark;
     text-shadow: 2px 2px 0px white, 4px 4px 0px $accent;
+    text-shadow: 2px 2px 0px var(--box-shadow-color), 4px 4px 0px $accent;
 }
 
 // span.dropcap{ font-weight: bold; }

@@ -67,10 +67,15 @@
 			padding-left: 2px;
 			padding-right: 2px;
 			box-shadow: white 0 0.85em inset;
+
+			box-shadow: var(--box-shadow-color) 0 0.85em inset;
 		}
 
 		blockquote a {
   			box-shadow: white 0 19px inset;
+
+ 
+			box-shadow: var(--box-shadow-color) 0 19px inset;
 		}
 	}
 
@@ -213,12 +218,14 @@
 		@extend %link--underline;
 		margin-right: 3px;
 		box-shadow: white 0 2em inset;
+		box-shadow: var(--box-shadow-color) 0 2em inset;
 		display: inline-block;
 	}
 
 	.single & , .page:not(.entry-card) & {
 		a, span {
 			box-shadow: white 0 2em inset;
+			box-shadow: var(--box-shadow-color) 0 2em inset;
 		}
 
 		span {
