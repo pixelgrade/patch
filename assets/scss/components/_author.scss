@@ -1,11 +1,23 @@
 .author-info {
-	border: 1px solid $lightest;
-	border-top-width: 4px;
+	position: relative;
 	padding: 20px;
-	font-size: 15px;
-	line-height: 1.5;
 	margin-top: 54px;
 	margin-bottom: 36px;
+
+	font-size: 15px;
+	line-height: 1.5;
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border: 1px solid currentColor;
+		border-top-width: 4px;
+		pointer-events: none;
+	}
 }
 
 .author-info__avatar {

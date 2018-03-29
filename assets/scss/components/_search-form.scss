@@ -121,11 +121,14 @@
 }
 
 .overlay__close {
-	width: 48px;
-	height: 48px;
 	position: absolute;
 	top: 48px;
 	right: 48px;
+
+	width: 48px;
+	height: 48px;
+
+	opacity: 0.75;
 	cursor: pointer;
 
 	.admin-bar & {
@@ -145,7 +148,7 @@
 		content: "";
 		display: block;
 		position: absolute;
-		background: $gray;
+		background: currentColor;
 		transform: rotate(45deg);
 		pointer-events: none;
 	}

@@ -466,10 +466,10 @@ img {
 
 /* Figures and Captions */
 .wp-caption {
-	color: #888888;
 	margin-left: 0;
 	margin-right: 0;
-	text-align: center; 
+	opacity: 0.8; 
+	text-align: center;
 	width: auto;
 }
 .wp-caption img {
@@ -479,7 +479,7 @@ img {
 .wp-caption-dd {
 	border-bottom: 2px solid #f2f2f2; 
 	font-size: 14px;
-	padding: 8 0 0;
+	padding: 8px 0 0;
 	text-align: center;
 }
 

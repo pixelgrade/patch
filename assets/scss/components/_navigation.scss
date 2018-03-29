@@ -88,7 +88,7 @@
 		&[class*="current-menu"] > a,
 		&:hover > a {
 			@extend %link--underline--menu;
-			
+
 			box-shadow: white 0 24px inset;
 			box-shadow: var(--box-shadow-color) 0 24px inset;
 		}
@@ -97,11 +97,11 @@
 
 	> li {
 
-	    @include query-above($lap) {
+		@include query-above($lap) {
 			float: left;
 			width: 50%;
 			padding-right: 10px;
-	    }
+		}
 
 	}
 
@@ -139,7 +139,8 @@
 
 	// Sub menus
 	//
-	/*.sub-menu*/ul {
+	/*.sub-menu*/
+	ul {
 		@extend .nav;
 		display: block;
 		min-width: 10em;
@@ -165,9 +166,14 @@
 		}
 	}
 
+	ul {
+		background: white;
+	}
+
 	@include query-above($lap) {
 
-		/*.sub-menu*/ul {
+		/*.sub-menu*/
+		ul {
 			position: absolute;
 			top: 0;
 			margin-top: 4px;
@@ -180,11 +186,10 @@
 			transform: scale(0.95);
 			transition: transform 0.15s, opacity 0.15s;
 
-			background: white;
 			z-index: 100;
 			padding: $gutter/2;
 			border-radius: 3px;
-			box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
+			box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
 			font-size: 18px;
 
 			li {
@@ -198,7 +203,6 @@
 				&[class*="current-menu"] > a,
 				&:hover > a {
 					box-shadow: white 0 16px inset;
-
 					box-shadow: var(--box-shadow-color) 0 16px inset;
 				}
 			}
@@ -218,6 +222,12 @@
 				transform: scale(1);
 				opacity: 1;
 			}
+		}
+	}
+
+	@include query-below($lap) {
+		ul {
+			background: transparent !important;
 		}
 	}
 }

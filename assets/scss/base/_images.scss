@@ -11,8 +11,8 @@ img {
 	width: auto;
 	margin-left: 0;
 	margin-right: 0;
-	color: #888888;
 	text-align: center;
+	opacity: 0.8;
 
 	img {
 		display: inline-block;
@@ -23,7 +23,7 @@ img {
 	.wp-caption-dd {
 		text-align: center;
 		font-size: 14px;
-		padding: 8 0 0;
+		padding: 8px 0 0;
 
 		border-bottom: 2px solid #f2f2f2;
 

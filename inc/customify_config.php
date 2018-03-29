@@ -687,6 +687,10 @@ function patch_modify_customify_options( $options ) {
 							'property' => 'color',
 							'selector' => 'body',
 						),
+						array(
+							'property' => 'background-color',
+							'selector' => '.entry-card .entry-image',
+						),
 					),
 				),
 				'main_content_body_background_color'                                => array(
@@ -697,32 +701,47 @@ function patch_modify_customify_options( $options ) {
 					'css'     => array(
 						array(
 							'selector' => 'body, .entry-card,
-											.comment-number,
-											textarea,
-											.mobile-header-wrapper,
-											.main-navigation,
-											.overlay--search,
-											.overlay--search .search-field',
+                                .comment-number,
+                                textarea,
+                                .mobile-header-wrapper,
+                                .main-navigation,
+                                .overlay--search,
+                                .overlay--search .search-field,
+                                .sharing-hidden .inner,
+                                .nav--main ul,
+                                input',
 							'property' => 'background-color',
 						),
 						array(
-							'selector' => '.entry-card--text .entry-title, .site-footer a[rel="designer"], .comments-area:after, .comment-number.comment-number--dark, .comment-reply-title:before, .add-comment .add-comment__button',
+							'selector' => '.entry-card--text .entry-title, 
+                                .site-footer a[rel="designer"], 
+                                .comments-area:after, 
+                                .comment-number.comment-number--dark, 
+                                .comment-reply-title:before, 
+                                .add-comment .add-comment__button',
 							'property' => 'color',
+						),
+						array(
+							'selector' => '.search-form .search-submit',
+							'property' => 'border-color',
+						),
+						array(
+							'selector' => '#arrow',
+							'property' => 'fill',
+						),
+						array(
+							'selector' => '.sharing-hidden .inner:after',
+							'property' => 'border-bottom-color',
 						),
 						array(
 							'selector' => 'body',
 							'property' => '--box-shadow-color',
 						),
 						array(
-							'media' => 'only screen and (min-width: 900px)',
-							'selector' => '.nav--main ul',
-							'property' => 'background-color',
+							'selector' => '.nav--main li[class*="current-menu"] > a, .nav--main li:hover > a',
+							'property' => 'box-shadow',
+                            'callback_filter' => 'patch_links_box_shadow_cb'
 						),
-						array(
-							'selector' => '#arrow',
-							'property' => 'fill',
-						),
-
 					),
 				),
 				'main_content_body_link_default_color'          => array(
@@ -1518,8 +1537,6 @@ function patch_navigation_items_spacing_cb_customizer_preview() { ?>
 			css += '.single .nav--main > li, .page .nav--main > li, .no-posts .nav--main > li' + '{ margin-bottom: ' + 2 * value + unit + '; }';
 			css += '}';
 
-			console.log(css);
-
 			if ( style !== null ) {
 				style.innerHTML = css;
 			} else {
@@ -1660,6 +1677,45 @@ if ( ! function_exists('patch_link_box_shadow') ) {
 		          "}\n";
 		return $output;
 	}
+}
+
+if ( ! function_exists('patch_links_box_shadow_cb') ) {
+	function patch_links_box_shadow_cb( $value, $selector, $property, $unit ) {
+		$output = $selector . '{
+			box-shadow: ' . $value . " 0 24px inset;\n" .
+          "}\n";
+		return $output;
+	}
+
+    function patch_links_box_shadow_cb_customizer_preview() { ?>
+        <script type="text/javascript">
+            function patch_links_box_shadow_cb( value, selector, property, unit ) {
+
+                var css = '',
+                    style = document.getElementById('patch_links_box_shadow_cb_style_tag'),
+                    head = document.head || document.getElementsByTagName('head')[0];
+
+                css += selector + ' { box-shadow: ' + value + ' 0 24px inset; } ';
+
+                if ( style !== null ) {
+                    style.innerHTML = css;
+                } else {
+                    style = document.createElement('style');
+                    style.setAttribute('id', 'patch_links_box_shadow_cb_style_tag');
+
+                    style.type = 'text/css';
+                    if ( style.styleSheet ) {
+                        style.styleSheet.cssText = css;
+                    } else {
+                        style.appendChild(document.createTextNode(css));
+                    }
+
+                    head.appendChild(style);
+                }
+            }
+        </script>
+    <?php }
+    add_action( 'customize_preview_init', 'patch_links_box_shadow_cb_customizer_preview' );
 }
 
 if ( ! function_exists('patch_color_contrast') ) {

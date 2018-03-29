@@ -7,9 +7,10 @@
 		content: "";
 		position: absolute;
 		left: 20px;
-		top: 2*$gutter;
+		top: 2 * $gutter;
 		bottom: 0;
-		border-left: 1px solid $borders;
+		border-left: 1px solid currentColor;
+		opacity: 0.7;
 	}
 
 	&:after {
@@ -30,20 +31,39 @@
 	}
 }
 
-.comment-number, %comment-number {
+.comment-number,
+%comment-number {
 	width: 40px;
 	height: 40px;
+
 	font-size: 18px;
 	font-weight: 300;
 	line-height: 40px;
-	border: 1px solid $light;
 	text-align: center;
+
 	color: $light;
 	background: white;
 
 }
 
-.comment-number--dark, %comment-number--dark {
+.comment-number {
+	position: relative;
+	display: block;
+
+	&:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border: 1px solid currentColor;
+		opacity: 0.7;
+	}
+}
+
+.comment-number--dark,
+%comment-number--dark {
 	@extend %comment-number;
 	display: inline-block;
 	margin-right: $gutter;
@@ -183,7 +203,8 @@ li.comment, li.pingback, li.trackback {
 					content: "";
 					position: absolute;
 					top: 20px;
-					border-top: 1px solid $borders;
+					border-top: 1px solid currentColor;
+					opacity: 0.7;
 				}
 			}
 		}
@@ -246,7 +267,6 @@ li.depth-2:before {
 
 	a {
 		font-size: 16px;
-		color: black;
 	}
 
 	.bypostauthor &:before {
@@ -263,8 +283,10 @@ li.depth-2:before {
 	margin-left: 20px;
 
 	&:hover {
-		.comment-edit-link, .comment-reply-link {
-			opacity: 1;
+
+		.comment-edit-link,
+		.comment-reply-link {
+			opacity: 0.7;
 		}
 	}
 }
@@ -283,11 +305,11 @@ li.depth-2:before {
 }
 
 .comment__time {
-	color: $light;
+	opacity: 0.5;
 	font-size: 14px;
 
 	a {
-		color: currentColor;
+		color: inherit;
 		font-weight: normal;
 	}
 }
@@ -312,20 +334,16 @@ li.depth-2:before {
 	@include font-size(14px);
 }
 
-.comment-edit-link, .comment-reply-link {
-	color: $gray;
+.comment-edit-link,
+.comment-reply-link {
 	opacity: 0;
 	@include rhythm(margin-right, 1, 14px);
 	transition: opacity .15s ease-in-out;
 	transform: translateZ(0);
 
 	@include query-below($lap) {
-		opacity: 1;
+		opacity: 0.7;
 	}
-}
-
-.comment-reply-link {
-	color: $light;
 }
 
 .comment-form p.logged-in-as {
@@ -430,12 +448,9 @@ li.depth-2:before {
 	input, textarea {
 		font-weight: 300;
 		border-radius: 0;
-		border: 1px solid $borders;
+		border: 1px solid currentColor;
 		box-shadow: none;
-	}
-
-	p{
-		// @extend %grid__item;
+		-webkit-appearance: none;
 	}
 
 	// for jetpack comments
@@ -492,7 +507,7 @@ p.comment-form-email{
 		@include rhythm(padding, 1);
 
 
-		border: 1px solid $borders;
+		border: 1px solid currentColor;
 		@include font-size(16px);
 	}
 }
