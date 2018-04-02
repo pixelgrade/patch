@@ -131,6 +131,10 @@ if ( ! function_exists( 'patch_setup' ) ) :
 			)
 		);
 
+		/**
+		 * Enable support for the Style Manager Customizer section (via Customify).
+		 */
+		add_theme_support( 'customizer_style_manager' );
 	}
 endif;
 add_action( 'after_setup_theme', 'patch_setup' );

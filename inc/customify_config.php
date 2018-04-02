@@ -37,6 +37,11 @@ function patch_add_customify_options( $options ) {
  * @return array
  */
 function pixelgrade_add_customify_style_manager_section( $options ) {
+	// If the theme hasn't declared support for style manager, bail.
+	if ( ! current_theme_supports( 'customizer_style_manager' ) ) {
+		return $options;
+	}
+
 	if ( ! isset( $options['sections']['style_manager_section'] ) ) {
 		$options['sections']['style_manager_section'] = array();
 	}
@@ -51,7 +56,6 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'main_content_body_link_color',
 				),
 			),
-
 			'sm_dark_primary' => array(
 				'connected_fields' => array(
 					'main_content_body_link_default_color',
@@ -77,7 +81,6 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 
 				),
 			),
-
 			'sm_light_primary' => array(
 				'connected_fields' => array(
 					'main_content_body_background_color',
