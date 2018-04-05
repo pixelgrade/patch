@@ -4507,10 +4507,22 @@ div#respond p.comment-subscription-form label {
  *   7.8 - Search form
  */
 .search-form {
-	border: 2px solid #d7d7d7;
+	border: 2px solid transparent;
 	height: 38px;
-	overflow: hidden; 
+	overflow: hidden;
+	position: relative; 
 	width: 100%;
+}
+.search-form:after {
+	border: 2px solid currentColor;
+	bottom: 0;
+	content: "";
+	left: 0;
+	opacity: 0.15;
+	pointer-events: none; 
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 .search-form,
 .search-form + p {
