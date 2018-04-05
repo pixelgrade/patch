@@ -1522,9 +1522,11 @@ function patch_navigation_items_spacing_cb( $value, $selector, $property, $unit 
 	return $output;
 }
 
-function patch_navigation_items_spacing_cb_customizer_preview() { ?>
-	<script type="text/javascript">
-		function patch_navigation_items_spacing_cb( value, selector, property, unit ) {
+function patch_navigation_items_spacing_cb_customizer_preview() {
+	$js = '';
+
+	$js .= "
+function patch_navigation_items_spacing_cb( value, selector, property, unit ) {
 
 			var css = '',
 				style = document.getElementById('patch_navigation_items_spacing_cb_style_tag'),
@@ -1555,10 +1557,11 @@ function patch_navigation_items_spacing_cb_customizer_preview() { ?>
 
 				head.appendChild(style);
 			}
-		}
-	</script>
-<?php }
-add_action( 'customize_preview_init', 'patch_navigation_items_spacing_cb_customizer_preview' );
+		}" . PHP_EOL;
+
+	wp_add_inline_script( 'customify-previewer-scripts', $js );
+}
+add_action( 'customize_preview_init', 'patch_navigation_items_spacing_cb_customizer_preview', 20 );
 
 function patch_hide_back_to_top( $value, $selector, $property, $unit ) {
 
@@ -1609,9 +1612,11 @@ function patch_content_sides_spacing( $value, $selector, $property, $unit ) {
 /**
  * Outputs the inline JS code used in the Customizer for the aspect ratio live preview.
  */
-function patch_content_sides_spacing_customizer_preview() { ?>
-	<script type="text/javascript">
-		function patch_content_sides_spacing( value, selector, property, unit ) {
+function patch_content_sides_spacing_customizer_preview() {
+	$js = '';
+
+	$js .= "
+function patch_content_sides_spacing( value, selector, property, unit ) {
 
 			var css = '',
 				style = document.getElementById('patch_content_sides_spacing_style_tag'),
@@ -1658,10 +1663,11 @@ function patch_content_sides_spacing_customizer_preview() { ?>
 
 				head.appendChild(style);
 			}
-		}
-	</script>
-<?php }
-add_action( 'customize_preview_init', 'patch_content_sides_spacing_customizer_preview' );
+		}" . PHP_EOL;
+
+	wp_add_inline_script( 'customify-previewer-scripts', $js );
+}
+add_action( 'customize_preview_init', 'patch_content_sides_spacing_customizer_preview', 20 );
 
 
 if ( ! function_exists('patch_dropcap_text_shadow') ) {
@@ -1686,13 +1692,18 @@ if ( ! function_exists('patch_links_box_shadow_cb') ) {
 	function patch_links_box_shadow_cb( $value, $selector, $property, $unit ) {
 		$output = $selector . '{
 			box-shadow: ' . $value . " 0 24px inset;\n" .
-          "}\n";
+		          "}\n";
+
 		return $output;
 	}
+}
 
-    function patch_links_box_shadow_cb_customizer_preview() { ?>
-        <script type="text/javascript">
-            function patch_links_box_shadow_cb( value, selector, property, unit ) {
+if ( ! function_exists('patch_links_box_shadow_cb_customizer_preview') ) {
+	function patch_links_box_shadow_cb_customizer_preview() {
+		$js = '';
+
+		$js .= "
+function patch_links_box_shadow_cb(value, selector, property, unit) {
 
                 var css = '',
                     style = document.getElementById('patch_links_box_shadow_cb_style_tag'),
@@ -1700,14 +1711,14 @@ if ( ! function_exists('patch_links_box_shadow_cb') ) {
 
                 css += selector + ' { box-shadow: ' + value + ' 0 24px inset; } ';
 
-                if ( style !== null ) {
+                if (style !== null) {
                     style.innerHTML = css;
                 } else {
                     style = document.createElement('style');
                     style.setAttribute('id', 'patch_links_box_shadow_cb_style_tag');
 
                     style.type = 'text/css';
-                    if ( style.styleSheet ) {
+                    if (style.styleSheet) {
                         style.styleSheet.cssText = css;
                     } else {
                         style.appendChild(document.createTextNode(css));
@@ -1715,11 +1726,12 @@ if ( ! function_exists('patch_links_box_shadow_cb') ) {
 
                     head.appendChild(style);
                 }
-            }
-        </script>
-    <?php }
-    add_action( 'customize_preview_init', 'patch_links_box_shadow_cb_customizer_preview' );
+            }" . PHP_EOL;
+
+		wp_add_inline_script( 'customify-previewer-scripts', $js );
+	}
 }
+add_action( 'customize_preview_init', 'patch_links_box_shadow_cb_customizer_preview', 20 );
 
 if ( ! function_exists('patch_color_contrast') ) {
 	function patch_color_contrast( $value, $selector, $property, $unit ) {
@@ -1757,10 +1769,13 @@ if ( ! function_exists('patch_color_contrast') ) {
 	}
 }
 
-function load_javascript_thing() { ?>
-	<script>
-		function patch_color_contrast($value, $selector, $property, $unit) {
-			var c = $value.substring(1);      // strip #
+if ( ! function_exists('patch_color_contrast_customizer_preview') ) {
+	function patch_color_contrast_customizer_preview() {
+		$js = '';
+
+		$js .= "
+function patch_color_contrast(value, selector, property, unit) {
+			var c = value.substring(1); // strip #
 			var rgb = parseInt(c, 16);   // convert rrggbb to decimal
 			var r = (rgb >> 16) & 0xff;  // extract red
 			var g = (rgb >>  8) & 0xff;  // extract green
@@ -1768,7 +1783,7 @@ function load_javascript_thing() { ?>
 
 			var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
 			// pick a different colour
-			var this_selector = ".cat-links a, .highlight, .search-form .search-submit, .smart-link:hover, .single .entry-content a:hover, .page .entry-content a:hover, .edit-link a:hover, .author-info__link:hover, .comments_add-comment:hover, .comment .comment-reply-title a:hover, .page-links a:hover, :first-child:not(input) ~ .form-submit #submit:hover, .sidebar .widget a:hover, .nav--social a:hover";
+			var this_selector = \".cat-links a, .highlight, .search-form .search-submit, .smart-link:hover, .single .entry-content a:hover, .page .entry-content a:hover, .edit-link a:hover, .author-info__link:hover, .comments_add-comment:hover, .comment .comment-reply-title a:hover, .page-links a:hover, :first-child:not(input) ~ .form-submit #submit:hover, .sidebar .widget a:hover, .nav--social a:hover\";
 			var elements = document.querySelectorAll(this_selector);
 			if (luma < 40) {
 				for (var i = 0; i < elements.length; i++) {
@@ -1779,8 +1794,9 @@ function load_javascript_thing() { ?>
 					elements[i].style.color = 'black';
 				}
 			}
-		}
-	</script>
-<?php }
+		}" . PHP_EOL;
 
-add_action('customize_preview_init', 'load_javascript_thing');
+		wp_add_inline_script( 'customify-previewer-scripts', $js );
+	}
+}
+add_action( 'customize_preview_init', 'patch_color_contrast_customizer_preview', 20 );
