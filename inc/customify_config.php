@@ -1191,9 +1191,7 @@ function patch_modify_customify_options( $options ) {
 					'type'              => 'textarea',
 					'label'             => esc_html__( 'Copyright Text', 'patch' ),
 					'desc'              => esc_html__( 'Set the text that will appear in the footer area. Use %year% to display the current year.', 'patch' ),
-					'default'           => sprintf( ' %1$s <span>'. __('by', 'patch') .'</span> %2$s',
-						'<a href="https://pixelgrade.com/themes/patch/" title="'. __( 'Patch - A Newspaper-Inspired WordPress Theme', 'patch' ) .'" rel="theme">'. __( 'Patch Theme', 'patch' ) .'</a>',
-						'<a href="https://pixelgrade.com" title="'. __( 'The PixelGrade Website', 'patch' ) .'" rel="designer">PixelGrade</a>' ),
+					'default'           => esc_html__( '&copy; %year% %site-title%.', 'patch' ),
 					'sanitize_callback' => 'wp_kses_post',
 					'live'              => array( '.site-info' ),
 				),
@@ -1246,6 +1244,11 @@ function patch_modify_customify_options( $options ) {
 							'callback_filter' => 'patch_hide_back_to_top'
 						)
 					)
+				),
+				'footer_hide_credits'            => array(
+					'type'    => 'checkbox',
+					'label'   => esc_html__( 'Hide Pixelgrade Credits', 'patch' ),
+					'default' => false,
 				),
 				// [Section] COLORS
 				'patch_footer_title_colors_section'    => array(

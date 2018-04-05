@@ -17,21 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-
-			<?php
-
-			$copyright_text = pixelgrade_option( 'patch_footer_copyright_text' );
-
-			if ( ! empty( $copyright_text ) ) {
-				// We need to parse some tags
-				// like %year%
-				$copyright_text = str_replace( '%year%', date( 'Y' ), $copyright_text );
-				echo do_shortcode( $copyright_text );
-			}
-            ?>
-
-		</div><!-- .site-info
+		<?php pixelgrade_footer_the_copyright(); ?><!-- .site-info
 		--><div class="back-to-top-wrapper">
 			<a href="#top" class="back-to-top-button"><?php get_template_part( 'assets/svg/back-to-top' ); ?></a>
 		</div><!--
