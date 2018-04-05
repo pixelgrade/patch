@@ -741,7 +741,7 @@ function patch_modify_customify_options( $options ) {
 							'property' => '--box-shadow-color',
 						),
 						array(
-							'selector' => '.nav--main li[class*="current-menu"] > a, .nav--main li:hover > a',
+							'selector' => '.not-really-a-selector',
 							'property' => 'box-shadow',
                             'callback_filter' => 'patch_links_box_shadow_cb'
 						),
@@ -1690,10 +1690,15 @@ if ( ! function_exists('patch_link_box_shadow') ) {
 
 if ( ! function_exists('patch_links_box_shadow_cb') ) {
 	function patch_links_box_shadow_cb( $value, $selector, $property, $unit ) {
-		$output = $selector . '{
-			box-shadow: ' . $value . " 0 24px inset;\n" .
-		          "}\n";
+        $output = '.nav--main li[class*="current-menu"] > a, .nav--main li:hover > a {
+            box-shadow: ' . $value . " 0 24px inset;\n" .
+        "}\n" .
 
+        "@media only screen and (min-width: 900px) {" .
+            '.nav--main ul li[class*="current-menu"] > a, .nav--main ul li:hover > a {
+                box-shadow: ' . $value . " 0 16px inset;\n" .
+            "}\n" .
+        "}\n";
 		return $output;
 	}
 }
@@ -1709,7 +1714,10 @@ function patch_links_box_shadow_cb(value, selector, property, unit) {
                     style = document.getElementById('patch_links_box_shadow_cb_style_tag'),
                     head = document.head || document.getElementsByTagName('head')[0];
 
-                css += selector + ' { box-shadow: ' + value + ' 0 24px inset; } ';
+                css += '.nav--main li[class*=\"current-menu\"] > a, .nav--main li:hover > a { box-shadow: ' + value + ' 0 24px inset; } ';
+                css += '@media only screen and (min-width: 900px) {';
+                css += '.nav--main ul li[class*=\"current-menu\"] > a, .nav--main ul li:hover > a { box-shadow: ' + value + ' 0 16px inset; } ';
+                css += '}';
 
                 if (style !== null) {
                     style.innerHTML = css;
