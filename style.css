@@ -3296,7 +3296,7 @@ button.mfp-arrow-right {
 	content: "";
 	height: 1px;
 	left: 0;
-	opacity: 0.5; 
+	opacity: 0.1; 
 	position: absolute;
 	right: 0;
 }
