@@ -1680,6 +1680,36 @@ if ( ! function_exists('patch_dropcap_text_shadow') ) {
 		          "}\n";
 		return $output;
 	}
+
+	function patch_dropcap_text_shadow_customizer_preview() { ?>
+        <script type="text/javascript">
+			function patch_dropcap_text_shadow( value, selector, property, unit ) {
+
+				var css = '',
+					style = document.getElementById('patch_dropcap_text_shadow_style_tag'),
+					head = document.head || document.getElementsByTagName('head')[0];
+
+				css += selector + ' { text-shadow: 2px 2px 0 var(--box-shadow-color), 4px 4px 0  ' + value + '; } ';
+
+				if ( style !== null ) {
+					style.innerHTML = css;
+				} else {
+					style = document.createElement('style');
+					style.setAttribute('id', 'patch_dropcap_text_shadow_style_tag');
+
+					style.type = 'text/css';
+					if ( style.styleSheet ) {
+						style.styleSheet.cssText = css;
+					} else {
+						style.appendChild(document.createTextNode(css));
+					}
+
+					head.appendChild(style);
+				}
+			}
+        </script>
+	<?php }
+	add_action( 'customize_preview_init', 'patch_dropcap_text_shadow_customizer_preview' );
 }
 
 if ( ! function_exists('patch_link_box_shadow') ) {
@@ -1693,6 +1723,11 @@ if ( ! function_exists('patch_link_box_shadow') ) {
 
 if ( ! function_exists('patch_links_box_shadow_cb') ) {
 	function patch_links_box_shadow_cb( $value, $selector, $property, $unit ) {
+
+        $output = '.single .entry-content a, .page:not(.entry-card) .entry-content a {
+            box-shadow: ' . $value . " 0 0.85em inset;\n" .
+        "}\n" .
+
         $output = '.nav--main li[class*="current-menu"] > a, .nav--main li:hover > a {
             box-shadow: ' . $value . " 0 24px inset;\n" .
         "}\n" .
@@ -1717,6 +1752,7 @@ function patch_links_box_shadow_cb(value, selector, property, unit) {
                     style = document.getElementById('patch_links_box_shadow_cb_style_tag'),
                     head = document.head || document.getElementsByTagName('head')[0];
 
+                css += '.single .entry-content a, .page:not(.entry-card) .entry-content a { box-shadow: ' + value + ' 0 0.85em inset; } ';
                 css += '.nav--main li[class*=\"current-menu\"] > a, .nav--main li:hover > a { box-shadow: ' + value + ' 0 24px inset; } ';
                 css += '@media only screen and (min-width: 900px) {';
                 css += '.nav--main ul li[class*=\"current-menu\"] > a, .nav--main ul li:hover > a { box-shadow: ' + value + ' 0 16px inset; } ';
@@ -1760,12 +1796,10 @@ if ( ! function_exists('patch_color_contrast') ) {
 		$is_dark = (( $r * 0.2126 + $g * 0.7152 + $b * 0.0722 ) < 40);
 
 		// Determine if the color is considered to be dark
-		if( $is_dark ){
-			$output = '.cat-links a, .highlight, .search-form .search-submit,
-				.smart-link:hover, .single .entry-content a:hover, .page .entry-content a:hover, .edit-link a:hover, .author-info__link:hover, .comments_add-comment:hover, .comment .comment-reply-title a:hover, .page-links a:hover, :first-child:not(input) ~ .form-submit #submit:hover, .nav--social a:hover, .site-footer a:hover {
+		if ( $is_dark ){
+			$output = $selector .' {
 			  color: white;
-			}
-			';
+			}';
 
 			return $output;
 		}
@@ -1773,20 +1807,18 @@ if ( ! function_exists('patch_color_contrast') ) {
 		// if it is not a dark color, just go for the default way
 		$output = $selector . ' {
 			  color: ' . $value .';
-			}
-			';
+        }';
 
 		return $output;
 	}
 }
 
-if ( ! function_exists('patch_color_contrast_customizer_preview') ) {
-	function patch_color_contrast_customizer_preview() {
-		$js = '';
+if ( ! function_exists('patch_color_contrast_customizer_preview') ) {function patch_color_contrast_customizer_preview() {
+	$js = '';
 
 		$js .= "
-function patch_color_contrast(value, selector, property, unit) {
-			var c = value.substring(1); // strip #
+		function patch_color_contrast(value, selector, property, unit) {
+			var c = value.substring(1);      // strip #
 			var rgb = parseInt(c, 16);   // convert rrggbb to decimal
 			var r = (rgb >> 16) & 0xff;  // extract red
 			var g = (rgb >>  8) & 0xff;  // extract green
@@ -1794,14 +1826,13 @@ function patch_color_contrast(value, selector, property, unit) {
 
 			var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
 			// pick a different colour
-			var this_selector = \".cat-links a, .highlight, .search-form .search-submit, .smart-link:hover, .single .entry-content a:hover, .page .entry-content a:hover, .edit-link a:hover, .author-info__link:hover, .comments_add-comment:hover, .comment .comment-reply-title a:hover, .page-links a:hover, :first-child:not(input) ~ .form-submit #submit:hover, .sidebar .widget a:hover, .nav--social a:hover\";
-			var elements = document.querySelectorAll(this_selector);
-			if (luma < 40) {
-				for (var i = 0; i < elements.length; i++) {
+			var elements = document.querySelectorAll( selector );
+			if ( luma < 40 ) {
+				for ( var i = 0; i < elements.length; i ++ ) {
 					elements[i].style.color = 'white';
 				}
 			} else {
-				for (var i = 0; i < elements.length; i++) {
+				for ( var i = 0; i < elements.length; i ++ ) {
 					elements[i].style.color = 'black';
 				}
 			}
