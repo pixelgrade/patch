@@ -1052,3 +1052,113 @@ function patch_audio_attachment() {
 function patch_video_attachment() {
 	return hybrid_media_grabber( array( 'type' => 'video', 'split_media' => true ) );
 }
+
+if ( ! function_exists( 'pixelgrade_footer_the_copyright' ) ) {
+	/**
+	 * Display the footer copyright.
+	 */
+	function pixelgrade_footer_the_copyright() {
+		$copyright_text = pixelgrade_footer_get_copyright_content();
+		$output         = '';
+		if ( ! empty( $copyright_text ) ) {
+			$output       .= '<div class="site-info c-footer__copyright-text">' . PHP_EOL;
+			$output       .= $copyright_text . PHP_EOL;
+			$hide_credits = pixelgrade_option( 'footer_hide_credits', false );
+			if ( empty( $hide_credits ) ) {
+				$output .= '<span class="c-footer__credits">' . sprintf( esc_html__( 'Made with love by %s', 'patch' ), '<a href="https://pixelgrade.com/" target="_blank">Pixelgrade</a>' ) . '</span>' . PHP_EOL;
+			}
+			$output .= '</div>';
+		}
+		echo apply_filters( 'pixelgrade_footer_the_copyright', $output );
+	}
+}
+
+if ( ! function_exists( 'pixelgrade_footer_get_copyright_content' ) ) {
+	/**
+	 * Get the footer copyright content (HTML or simple text).
+	 * It already has do_shortcode applied.
+	 *
+	 * @return bool|string
+	 */
+	function pixelgrade_footer_get_copyright_content() {
+		$copyright_text = pixelgrade_option( 'patch_footer_copyright_text', esc_html__( '&copy; %year% %site-title%.', 'patch' ) );
+		if ( ! empty( $copyright_text ) ) {
+			// We need to parse some tags
+			$copyright_text = pixelgrade_parse_content_tags( $copyright_text );
+
+			// Finally process any shortcodes that might be in there
+			return do_shortcode( $copyright_text );
+		}
+
+		return '';
+	}
+}
+
+if ( ! function_exists( 'pixelgrade_parse_content_tags' ) ) {
+	/**
+	 * Replace any content tags present in the content.
+	 *
+	 * @param string $content
+	 *
+	 * @return string
+	 */
+	function pixelgrade_parse_content_tags( $content ) {
+		$original_content = $content;
+
+		// Allow others to alter the content before we do our work
+		$content = apply_filters( 'pixelgrade_before_parse_content_tags', $content );
+
+		// Now we will replace all the supported tags with their value
+		// %year%
+		$content = str_replace( '%year%', date( 'Y' ), $content );
+
+		// %site-title% or %site_title%
+		$content = str_replace( '%site-title%', get_bloginfo( 'name' ), $content );
+		$content = str_replace( '%site_title%', get_bloginfo( 'name' ), $content );
+
+		// This is a little sketchy because who is the user?
+		// It is not necessarily the logged in user, nor the Administrator user...
+		// We will go with the author for cases where we are in a post/page context
+		// Since we need to dd some heavy lifting, we will only do it when necessary
+		if ( false !== strpos( $content, '%first_name%' ) ||
+		     false !== strpos( $content, '%last_name%' ) ||
+		     false !== strpos( $content, '%display_name%' ) ) {
+			$user_id = false;
+			// We need to get the current ID in more global manner
+			$current_object_id = get_queried_object_id();
+			$current_post      = get_post( $current_object_id );
+			if ( ! empty( $current_post->post_author ) ) {
+				$user_id = $current_post->post_author;
+			} else {
+				global $authordata;
+				$user_id = isset( $authordata->ID ) ? $authordata->ID : false;
+			}
+
+			// If we still haven't got a user ID, we will just use the first user on the site
+			if ( empty( $user_id ) ) {
+				$blogusers = get_users(
+					array(
+						'role'   => 'administrator',
+						'number' => 1,
+					)
+				);
+				if ( ! empty( $blogusers ) ) {
+					$blogusers = reset( $blogusers );
+					$user_id   = $blogusers->ID;
+				}
+			}
+
+			if ( ! empty( $user_id ) ) {
+				// %first_name%
+				$content = str_replace( '%first_name%', get_the_author_meta( 'first_name', $user_id ), $content );
+				// %last_name%
+				$content = str_replace( '%last_name%', get_the_author_meta( 'last_name', $user_id ), $content );
+				// %display_name%
+				$content = str_replace( '%display_name%', get_the_author_meta( 'display_name', $user_id ), $content );
+			}
+		}
+
+		// Allow others to alter the content after we did our work
+		return apply_filters( 'pixelgrade_after_parse_content_tags', $content, $original_content );
+	}
+}
