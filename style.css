@@ -3284,12 +3284,21 @@ button.mfp-arrow-right {
 
 .mobile-header-wrapper {
 	background: white; 
-	border-bottom: 1px solid #e2e3e3;
 	height: 100%;
 	left: 0;
 	position: absolute;
 	top: 0;
 	width: 100%;
+}
+.mobile-header-wrapper:after {
+	background: currentColor;
+	bottom: 0;
+	content: "";
+	height: 1px;
+	left: 0;
+	opacity: 0.5; 
+	position: absolute;
+	right: 0;
 }
 
 @media not screen and (min-width: 900px) {
@@ -3322,6 +3331,7 @@ button.mfp-arrow-right {
 
 @media only screen and (min-width: 900px) {
 	.main-navigation {
+		background: none !important; 
 		box-shadow: none !important;
 		-webkit-transform: none !important;
 		transform: none !important;

@@ -331,8 +331,18 @@
 	top: 0; left: 0;
 	width: 100%;
 	height: 100%;
-	border-bottom: 1px solid $lightest;
 	background: white;
+
+	&:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 1px;
+		background: currentColor;
+		opacity: 0.1;
+	}
 }
 
 
@@ -370,6 +380,7 @@
 		transform: none !important;
 		box-shadow: none !important;
 		transition: none !important;
+		background: none !important;
 	}
 }
 
