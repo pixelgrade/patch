@@ -90,7 +90,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 			),
 			'sm_light_secondary' => array(
 				'connected_fields' => array(
-					
+
 				),
 			),
 		),
@@ -492,6 +492,7 @@ function patch_modify_customify_options( $options ) {
 					),
 				),
 				// [Section] FONTS
+				// !!! Nu exista la Patch Site Title Font
 				'patch_header_title_fonts_section'    => array(
 					'type' => 'html',
 					'html' => '<span id="section-title-header-fonts" class="separator section label large">&#x1f4dd;  ' . esc_html__( 'Fonts', 'patch' ) . '</span>',
@@ -503,11 +504,12 @@ function patch_modify_customify_options( $options ) {
 					'selector'         => '.nav--main a',
 
 					// Set the defaults
-					'default'  => array(
-						'font-family'    => 'Oswald',
-						'font-weight'    => '300',
-						'letter-spacing' => 0.06,
-						'text-transform' => 'uppercase'
+					'default'  => array(				// Vasco are in plus line-height
+						'font-family'    => 'HK Grotesk',
+						'font-weight'    => '500',
+						'font-size'		 => 17,
+						'letter-spacing' => 0,
+						'text-transform' => 'none'
 					),
 
 					// List of recommended fonts defined by theme
@@ -516,6 +518,7 @@ function patch_modify_customify_options( $options ) {
 					'fields'   => array(
 						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
 						'text-align'      => false,                           // Disable sub-field (False by default)
+						'font-size'       => array( 10, 100, 1, 'px' ),
 						'text-transform'  => true,
 						'text-decoration' => false
 					)
@@ -560,12 +563,12 @@ function patch_modify_customify_options( $options ) {
 							'selector' =>
 								'.single .hentry,
 								.single .comments-area,
-								.single .nocomments, 
-								.single #respond.comment-respond, 
-								.page:not(.entry-card) .hentry, 
-								.page:not(.entry-card) .comments-area, 
-								.page:not(.entry-card) .nocomments, 
-								.page:not(.entry-card) #respond.comment-respond, 
+								.single .nocomments,
+								.single #respond.comment-respond,
+								.page:not(.entry-card) .hentry,
+								.page:not(.entry-card) .comments-area,
+								.page:not(.entry-card) .nocomments,
+								.page:not(.entry-card) #respond.comment-respond,
 								.attachment-navigation, .nav-links',
 							'unit' => 'px'
 						)
@@ -608,8 +611,8 @@ function patch_modify_customify_options( $options ) {
 							'media' => 'only screen and (min-width: 1260px)',
 							'property' => 'padding',
 							'selector' =>
-								'.single .site-content, 
-								.page:not(.entry-card) .site-content, 
+								'.single .site-content,
+								.page:not(.entry-card) .site-content,
 								.no-posts .site-content',
 							'unit' => 'px'
 						),
@@ -716,11 +719,11 @@ function patch_modify_customify_options( $options ) {
 							'property' => 'background-color',
 						),
 						array(
-							'selector' => '.entry-card--text .entry-title, 
-                                .site-footer a[rel="designer"], 
-                                .comments-area:after, 
-                                .comment-number.comment-number--dark, 
-                                .comment-reply-title:before, 
+							'selector' => '.entry-card--text .entry-title,
+                                .site-footer a[rel="designer"],
+                                .comments-area:after,
+                                .comment-number.comment-number--dark,
+                                .comment-reply-title:before,
                                 .add-comment .add-comment__button',
 							'property' => 'color',
 						),
@@ -934,10 +937,11 @@ function patch_modify_customify_options( $options ) {
 
 					// Set the defaults
 					'default'  => array(
-						'font-family'    => 'Oswald',
+						'font-family'    => 'YoungSerif', // Vasco are in plus line-height + font-size
+						'font-size'		 => 72,
 						'font-weight'    => 'regular',
-						'letter-spacing' => 0.04,
-						'text-transform' => 'uppercase'
+						'letter-spacing' => 0,
+						'text-transform' => 'none'
 					),
 
 					// List of recommended fonts defined by theme
@@ -948,6 +952,7 @@ function patch_modify_customify_options( $options ) {
 					'fields'   => array(
 						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
 						'text-align'      => false,                           // Disable sub-field (False by default)
+						'font-size'       => array( 10, 100, 1, 'px' ),
 						'text-transform'  => true,
 						'text-decoration' => false
 					)
@@ -961,8 +966,9 @@ function patch_modify_customify_options( $options ) {
 
 					// Set the defaults
 					'default'  => array(
-						'font-family'    => 'Roboto',
-						'font-weight'    => '300',
+						'font-family'    => 'Lora',
+						'font-weight'    => 'regular',
+						'font-size'		 => 17,
 						'letter-spacing' => 0,
 						'text-transform' => 'none'
 					),
@@ -974,6 +980,7 @@ function patch_modify_customify_options( $options ) {
 					'fields'   => array(
 						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
 						'text-align'      => false,                           // Disable sub-field (False by default)
+						'font-size'       => array( 10, 100, 1, 'px' ),
 						'text-transform'  => true,
 						'text-decoration' => false
 					)
@@ -987,10 +994,11 @@ function patch_modify_customify_options( $options ) {
 
 					// Set the defaults
 					'default'  => array(
-						'font-family'    => 'Oswald',
-						'font-weight'    => '500',
+						'font-family'    => 'YoungSerif',
+						'font-weight'    => 'regular',
+						'font-size'		 => 32,
 						'letter-spacing' => 0,
-						'text-transform' => 'uppercase'
+						'text-transform' => 'none'
 					),
 
 					// List of recommended fonts defined by theme
@@ -1000,6 +1008,7 @@ function patch_modify_customify_options( $options ) {
 					'fields'   => array(
 						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
 						'text-align'      => false,                           // Disable sub-field (False by default)
+						'font-size'       => array( 10, 100, 1, 'px' ),
 						'text-transform'  => true,
 						'text-decoration' => false
 					)
@@ -1019,10 +1028,11 @@ function patch_modify_customify_options( $options ) {
 
 					// Set the defaults
 					'default'  => array(
-						'font-family'    => 'Oswald',
-						'font-weight'    => '500',
-						'letter-spacing' => 0.04,
-						'text-transform' => 'uppercase'
+						'font-family'    => 'YoungSerif',
+						'font-weight'    => 'regular',
+						'font-size' => 48,
+						'letter-spacing' => 0,
+						'text-transform' => 'none'
 					),
 
 					// List of recommended fonts defined by theme
@@ -1030,7 +1040,8 @@ function patch_modify_customify_options( $options ) {
 					// Sub Fields Configuration (optional)
 					'fields'   => array(
 						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
-						'text-align'      => false,                           // Disable sub-field (False by default)
+						'text-align'      => false,
+						'font-size'       => array( 10, 100, 1, 'px' ),                    // Disable sub-field (False by default)
 						'text-transform'  => true,
 						'text-decoration' => false
 					)
@@ -1044,10 +1055,11 @@ function patch_modify_customify_options( $options ) {
 
 					// Set the defaults
 					'default'  => array(
-						'font-family'    => 'Oswald',
-						'font-weight'    => '500',
-						'letter-spacing' => 0.04,
-						'text-transform' => 'uppercase'
+						'font-family'    => 'YoungSerif',
+						'font-weight'    => 'regular',
+						'font-size' 	 => 40,
+						'letter-spacing' => 0,
+						'text-transform' => 'none'
 					),
 
 					// List of recommended fonts defined by theme
@@ -1056,7 +1068,8 @@ function patch_modify_customify_options( $options ) {
 					// Sub Fields Configuration (optional)
 					'fields'   => array(
 						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
-						'text-align'      => false,                           // Disable sub-field (False by default)
+						'text-align'      => false,
+						'font-size'       => array( 10, 100, 1, 'px' ), 	                         // Disable sub-field (False by default)
 						'text-transform'  => true,
 						'text-decoration' => false
 					)
@@ -1070,8 +1083,9 @@ function patch_modify_customify_options( $options ) {
 
 					// Set the defaults
 					'default'  => array(
-						'font-family'    => 'Oswald',
-						'font-weight'    => '200',
+						'font-family'    => 'YoungSerif',
+						'font-weight'    => 'regular',
+						'font-size'		 => 24,
 						'letter-spacing' => 0,
 						'text-transform' => 'none'
 					),
@@ -1083,6 +1097,7 @@ function patch_modify_customify_options( $options ) {
 					'fields'   => array(
 						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
 						'text-align'      => false,                           // Disable sub-field (False by default)
+						'font-size'       => array( 10, 100, 1, 'px' ),
 						'text-transform'  => true,
 						'text-decoration' => false
 					)
@@ -1096,10 +1111,11 @@ function patch_modify_customify_options( $options ) {
 
 					// Set the defaults
 					'default'  => array(
-						'font-family'    => 'Oswald',
+						'font-family'    => 'HK Grotesk',
 						'font-weight'    => '500',
-						'letter-spacing' => 0.1,
-						'text-transform' => 'uppercase'
+						'font-size'		 => 19,
+						'letter-spacing' => 0,
+						'text-transform' => 'none'
 					),
 
 					// List of recommended fonts defined by theme
@@ -1109,6 +1125,7 @@ function patch_modify_customify_options( $options ) {
 					'fields'   => array(
 						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
 						'text-align'      => false,                           // Disable sub-field (False by default)
+						'font-size'       => array( 10, 100, 1, 'px' ),
 						'text-transform'  => true,
 						'text-decoration' => false
 					)
@@ -1122,8 +1139,9 @@ function patch_modify_customify_options( $options ) {
 
 					// Set the defaults
 					'default'  => array(
-						'font-family'    => 'Roboto',
-						'font-weight'    => '500',
+						'font-family'    => 'HK Grotesk',
+						'font-weight'    => '700',
+						'font-size'		 => 14,
 						'letter-spacing' => 0.02,
 						'text-transform' => 'uppercase'
 					),
@@ -1135,6 +1153,7 @@ function patch_modify_customify_options( $options ) {
 					'fields'   => array(
 						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
 						'text-align'      => false,                           // Disable sub-field (False by default)
+						'font-size'       => array( 10, 100, 1, 'px' ),
 						'text-transform'  => true,
 						'text-decoration' => false
 					)
@@ -1149,10 +1168,11 @@ function patch_modify_customify_options( $options ) {
 
 					// Set the defaults
 					'default'  => array(
-						'font-family'    => 'Roboto',
-						'font-weight'    => '500',
-						'letter-spacing' => 0.03,
-						'text-transform' => 'none'
+						'font-family'    => 'HK Grotesk',
+						'font-weight'    => '700',
+						'font-size'		 => 12,
+						'letter-spacing' => 0.08,
+						'text-transform' => 'uppercase'
 					),
 
 					// List of recommended fonts defined by theme
@@ -1162,6 +1182,7 @@ function patch_modify_customify_options( $options ) {
 					'fields'   => array(
 						'letter-spacing'  => array( -1, 2, 0.01, 'em' ),
 						'text-align'      => false,                           // Disable sub-field (False by default)
+						'font-size'       => array( 10, 100, 1, 'px' ),
 						'text-transform'  => true,
 						'text-decoration' => false
 					)
@@ -1457,10 +1478,10 @@ function patch_modify_customify_options( $options ) {
 
 					// Set the defaults
 					'default'  => array(
-						'font-family'    => 'Oswald',
+						'font-family'    => 'YoungSerif',
 						'font-weight'    => 'regular',
-						'letter-spacing' => 0.04,
-						'text-transform' => 'uppercase'
+						'letter-spacing' => 0,
+						'text-transform' => 'none'
 					),
 
 					// List of recommended fonts defined by theme
@@ -1583,7 +1604,7 @@ function patch_content_sides_spacing( $value, $selector, $property, $unit ) {
 	$output .= '@media only screen and (min-width: 1260px) {';
 
 	$output .=
-		'.single .site-main, 
+		'.single .site-main,
 		.page:not(.entry-card) .site-main,
 		.no-posts .site-main { ' .
 			'padding-left: ' . $value . $unit . ';' .
@@ -1592,8 +1613,8 @@ function patch_content_sides_spacing( $value, $selector, $property, $unit ) {
 
 	$output .=
 		'.single .entry-image--portrait .entry-featured,
-		.single .entry-image--tall .entry-featured, 
-		.page:not(.entry-card) .entry-image--portrait .entry-featured, 
+		.single .entry-image--tall .entry-featured,
+		.page:not(.entry-card) .entry-image--portrait .entry-featured,
 		.page:not(.entry-card) .entry-image--tall .entry-featured { ' .
 			'margin-left: ' . (-1 * $value) . $unit . ';' .
         '}';
