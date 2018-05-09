@@ -135,6 +135,13 @@ if ( ! function_exists( 'patch_setup' ) ) :
 		 * Enable support for the Style Manager Customizer section (via Customify).
 		 */
 		add_theme_support( 'customizer_style_manager' );
+
+		/*
+		 * Enable support for Visible Edit Shortcuts in the Customizer Preview
+		 *
+		 * @link https://make.wordpress.org/core/2016/11/10/visible-edit-shortcuts-in-the-customizer-preview/
+		 */
+		add_theme_support( 'customize-selective-refresh-widgets' );
 	}
 endif;
 add_action( 'after_setup_theme', 'patch_setup' );
