@@ -798,7 +798,6 @@ function patch_modify_customify_options( $options ) {
 								.entry-card.format-quote .entry-content a:hover,
 								.bypostauthor .comment__author-name:before,
 								.site-footer a:hover, .test',
-							'callback_filter' => 'patch_color_contrast'
 						),
 
 						array(
@@ -824,7 +823,6 @@ function patch_modify_customify_options( $options ) {
 								.widget_blog_subscription input[type="submit"],
 								.search-form .search-submit,
 								div#infinite-handle span:after,
-								.cat-links,
 								.entry-format',
 						),
 						array(
@@ -834,6 +832,11 @@ function patch_modify_customify_options( $options ) {
 						array(
 							'property' => 'background-color',
 							'selector' => '::selection'
+						),
+						array(
+							'property' => 'background-color',
+							'selector' => '.cat-links',
+							'callback_filter' => 'patch_color_contrast',
 						),
 						array(
 							'property' => 'border-top-color',
@@ -1743,10 +1746,8 @@ if ( ! function_exists('patch_links_box_shadow_cb') ) {
 
 if ( ! function_exists('patch_links_box_shadow_cb_customizer_preview') ) {
 	function patch_links_box_shadow_cb_customizer_preview() {
-		$js = '';
-
-		$js .= "
-function patch_links_box_shadow_cb(value, selector, property, unit) {
+		$js = "
+            function patch_links_box_shadow_cb(value, selector, property, unit) {
 
                 var css = '',
                     style = document.getElementById('patch_links_box_shadow_cb_style_tag'),
@@ -1780,7 +1781,9 @@ function patch_links_box_shadow_cb(value, selector, property, unit) {
 }
 add_action( 'customize_preview_init', 'patch_links_box_shadow_cb_customizer_preview', 20 );
 
-if ( ! function_exists('patch_color_contrast') ) {
+
+// https://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color
+if ( ! function_exists( 'patch_color_contrast' ) ) {
 	function patch_color_contrast( $value, $selector, $property, $unit ) {
 
 		// Get our color
@@ -1790,53 +1793,79 @@ if ( ! function_exists('patch_color_contrast') ) {
 
 		$color = $value;
 		// Calculate straight from RGB
-		$r = hexdec($color[0].$color[1]);
-		$g = hexdec($color[2].$color[3]);
-		$b = hexdec($color[4].$color[5]);
-		$is_dark = (( $r * 0.2126 + $g * 0.7152 + $b * 0.0722 ) < 40);
+		$r = hexdec( $color[0].$color[1] );
+		$g = hexdec( $color[2].$color[3] );
+		$b = hexdec( $color[4].$color[5] );
 
-		// Determine if the color is considered to be dark
-		if ( $is_dark ){
-			$output = $selector .' {
-			  color: white;
-			}';
+		$uicolors = array( $r / 255, $g / 255, $b / 255 );
 
-			return $output;
-		}
+		$c = array_map( function( $col ) {
+		    if ( $col <= 0.03928 ) {
+		        return $col / 12.92;
+            }
+            return pow( ( $col + 0.055 ) / 1.055, 2.4 );
+        }, $uicolors );
+
+		$L = ( 0.2126 * $c[0] ) + ( 0.7152 * $c[1] ) + ( 0.0722 * $c[2] );
+        $color = ( $L > 0.179 ) ? '#000' : '#FFF';
 
 		// if it is not a dark color, just go for the default way
 		$output = $selector . ' {
-			  color: ' . $value .';
+			  color: ' . $color .';
+			  background-color: ' . $value . ';
         }';
 
 		return $output;
 	}
 }
 
-if ( ! function_exists('patch_color_contrast_customizer_preview') ) {function patch_color_contrast_customizer_preview() {
-	$js = '';
+if ( ! function_exists('patch_color_contrast_customizer_preview') ) {
+    function patch_color_contrast_customizer_preview() {
+		$js = "
+            function patch_color_contrast(value, selector, property, unit) {
+            
+                var css = '',
+                    style = document.getElementById( 'patch_color_contrast_style_tag' ),
+                    head = document.head || document.getElementsByTagName('head')[0];
+                    
+                var hex = value.substring( 1 );  // strip #
+                var rgb = parseInt( hex, 16 );   // convert rrggbb to decimal
+                var r = ( rgb >> 16 ) & 0xff;  // extract red
+                var g = ( rgb >>  8 ) & 0xff;  // extract green
+                var b = ( rgb >>  0 ) & 0xff;  // extract blue
+                var uicolors = [r / 255, g / 255, b / 255];
+                
+                var c = uicolors.map( function(col) {
+                    if ( col <= 0.03928 ) {
+                        return col / 12.92;
+                    }
+                    return Math.pow( ( col + 0.055 ) / 1.055, 2.4 );
+                } );
+                
+                var L = ( 0.2126 * c[0] ) + ( 0.7152 * c[1] ) + ( 0.0722 * c[2] );
+                var color = ( L > 0.179 ) ? '#000' : '#FFF';
+                
+                css = selector + ' { ' +
+                    'color: ' + color + '; ' +
+                    'background-color: ' + value + '; ' +
+                '}'; 
+                
+                if ( style !== null ) {
+                    style.innerHTML = css;
+                } else {
+                    style = document.createElement( 'style' );
+                    style.setAttribute( 'id', 'patch_color_contrast_style_tag' );
 
-		$js .= "
-		function patch_color_contrast(value, selector, property, unit) {
-			var c = value.substring(1);      // strip #
-			var rgb = parseInt(c, 16);   // convert rrggbb to decimal
-			var r = (rgb >> 16) & 0xff;  // extract red
-			var g = (rgb >>  8) & 0xff;  // extract green
-			var b = (rgb >>  0) & 0xff;  // extract blue
+                    style.type = 'text/css';
+                    if ( style.styleSheet ) {
+                        style.styleSheet.cssText = css;
+                    } else {
+                        style.appendChild( document.createTextNode( css ) );
+                    }
 
-			var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
-			// pick a different colour
-			var elements = document.querySelectorAll( selector );
-			if ( luma < 40 ) {
-				for ( var i = 0; i < elements.length; i ++ ) {
-					elements[i].style.color = 'white';
-				}
-			} else {
-				for ( var i = 0; i < elements.length; i ++ ) {
-					elements[i].style.color = 'black';
-				}
-			}
-		}" . PHP_EOL;
+                    head.appendChild( style );
+                }
+            }" . PHP_EOL;
 
 		wp_add_inline_script( 'customify-previewer-scripts', $js );
 	}

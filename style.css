@@ -5430,6 +5430,10 @@ div#jp-post-flair {
 	padding: 6px 14px;
 }
 
+.cat-links a {
+	color: inherit;
+}
+
 .byline {
 	color: #171617;
 	text-transform: capitalize;

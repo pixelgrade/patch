@@ -40,6 +40,10 @@
 	background-color: $accent;
 }
 
+.cat-links a {
+	color: inherit;
+}
+
 // Author
 .byline {
 	color: $dark;
