@@ -450,7 +450,10 @@ li.depth-2:before {
 		border-radius: 0;
 		border: 1px solid currentColor;
 		box-shadow: none;
-		-webkit-appearance: none;
+	}
+
+	input[type="checkbox"] {
+		margin-right: 1em;
 	}
 
 	// for jetpack comments

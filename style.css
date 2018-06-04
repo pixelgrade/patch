@@ -4078,10 +4078,12 @@ li.depth-2:before {
 .comment-form textarea {
 	border: 1px solid currentColor;
 	border-radius: 0;
-	box-shadow: none;
+	box-shadow: none; 
 	font-weight: 300;
+}
 
-	-webkit-appearance: none;
+.comment-form input[type="checkbox"] {
+	margin-right: 1em;
 }
 
 .comment-form iframe {
