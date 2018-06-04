@@ -767,7 +767,8 @@ function patch_modify_customify_options( $options ) {
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.single .entry-content a, .page .entry-content a',
+							'selector' => '.single .entry-content a:not([class]), 
+							    .page .entry-content a:not([class])',
 						),
 					),
 				),
@@ -784,7 +785,7 @@ function patch_modify_customify_options( $options ) {
 						),
 						array(
 							'property' => 'box-shadow',
-							'selector' => '.entry-card.format-quote .entry-content a',
+							'selector' => '.entry-card.format-quote .entry-content a:not([class])',
 							'callback_filter' => 'patch_link_box_shadow'
 						),
 
@@ -1727,7 +1728,9 @@ if ( ! function_exists('patch_link_box_shadow') ) {
 if ( ! function_exists('patch_links_box_shadow_cb') ) {
 	function patch_links_box_shadow_cb( $value, $selector, $property, $unit ) {
 
-        $output = '.single .entry-content a, .page:not(.entry-card) .entry-content a {
+        $output = '
+        .single .entry-content a:not([class]), 
+        .page:not(.entry-card) .entry-content a:not([class]) {
             box-shadow: ' . $value . " 0 0.85em inset;\n" .
         "}\n" .
 
@@ -1753,7 +1756,7 @@ if ( ! function_exists('patch_links_box_shadow_cb_customizer_preview') ) {
                     style = document.getElementById('patch_links_box_shadow_cb_style_tag'),
                     head = document.head || document.getElementsByTagName('head')[0];
 
-                css += '.single .entry-content a, .page:not(.entry-card) .entry-content a { box-shadow: ' + value + ' 0 0.85em inset; } ';
+                css += '.single .entry-content a:not([class]), .page:not(.entry-card) .entry-content a:not([class]) { box-shadow: ' + value + ' 0 0.85em inset; } ';
                 css += '.nav--main li[class*=\"current-menu\"] > a, .nav--main li:hover > a { box-shadow: ' + value + ' 0 24px inset; } ';
                 css += '@media only screen and (min-width: 900px) {';
                 css += '.nav--main ul li[class*=\"current-menu\"] > a, .nav--main ul li:hover > a { box-shadow: ' + value + ' 0 16px inset; } ';

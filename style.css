@@ -553,14 +553,14 @@ strong {
 
 /* Links */
 .edit-link a,
-.grid__item .entry-content a,
+.grid__item .entry-content a:not([class]),
 .author-info__link,
 .comments_add-comment,
 .comment .comment-reply-title a,
 :first-child:not(input) ~ .form-submit #submit,
 .page-links a,
-.single .entry-content a,
-.page .entry-content a,
+.single .entry-content a:not([class]),
+.page .entry-content a:not([class]),
 .nav--main li[class*="current-menu"] > a,
 .nav--main li:hover > a,
 .sidebar .widget a:hover {
@@ -571,20 +571,20 @@ strong {
 }
 
 .edit-link a:hover,
-.grid__item .entry-content a:hover,
+.grid__item .entry-content a:hover:not([class]),
 .author-info__link:hover,
 .comments_add-comment:hover,
 .comment .comment-reply-title a:hover,
 :first-child:not(input) ~ .form-submit #submit:hover,
 .page-links a:hover,
-.single .entry-content a:hover,
-.page:not(.entry-card) .entry-content a:hover {
+.single .entry-content a:not([class]):hover,
+.page:not(.entry-card) .entry-content a:not([class]):hover {
 	box-shadow: white 0 0 inset;
 	box-shadow: var(--box-shadow-color) 0 0 inset;
 }
 
 .edit-link a,
-.grid__item .entry-content a,
+.grid__item .entry-content a:not([class]),
 .author-info__link,
 .comments_add-comment,
 .comment .comment-reply-title a,
@@ -604,24 +604,24 @@ h2 a,
 h3 a {
 	color: #ffde00;
 }
-.single .entry-content a,
-.page .entry-content a {
+.single .entry-content a:not([class]),
+.page .entry-content a:not([class]) {
 	transition: box-shadow 0.15s ease-out, color 0.15s;
 }
-.single .entry-content a[href$=".jpg"],
-.single .entry-content a[href$=".jpeg"],
-.single .entry-content a[href$=".png"],
-.single .entry-content a[href$=".gif"],
-.single .entry-content a[href$=".bmp"],
-.single .entry-content a[href*="attachment"],
-.single .entry-content a[rel*="attachment"],
-.page .entry-content a[href$=".jpg"],
-.page .entry-content a[href$=".jpeg"],
-.page .entry-content a[href$=".png"],
-.page .entry-content a[href$=".gif"],
-.page .entry-content a[href$=".bmp"],
-.page .entry-content a[href*="attachment"],
-.page .entry-content a[rel*="attachment"] {
+.single .entry-content a:not([class])[href$=".jpg"],
+.single .entry-content a:not([class])[href$=".jpeg"],
+.single .entry-content a:not([class])[href$=".png"],
+.single .entry-content a:not([class])[href$=".gif"],
+.single .entry-content a:not([class])[href$=".bmp"],
+.single .entry-content a:not([class])[href*="attachment"],
+.single .entry-content a:not([class])[rel*="attachment"],
+.page .entry-content a:not([class])[href$=".jpg"],
+.page .entry-content a:not([class])[href$=".jpeg"],
+.page .entry-content a:not([class])[href$=".png"],
+.page .entry-content a:not([class])[href$=".gif"],
+.page .entry-content a:not([class])[href$=".bmp"],
+.page .entry-content a:not([class])[href*="attachment"],
+.page .entry-content a:not([class])[rel*="attachment"] {
 	background: none;
 	box-shadow: none;
 	padding-left: 0;
@@ -5160,15 +5160,15 @@ div#jp-post-flair {
 .page:not(.entry-card) .entry-content {
 	margin-bottom: 42px;
 }
-.single .entry-content a,
-.page:not(.entry-card) .entry-content a {
+.single .entry-content a:not([class]),
+.page:not(.entry-card) .entry-content a:not([class]) {
 	box-shadow: white 0 0.85em inset;
 	box-shadow: var(--box-shadow-color) 0 0.85em inset; 
 	padding-left: 2px;
 	padding-right: 2px;
 }
-.single .entry-content blockquote a,
-.page:not(.entry-card) .entry-content blockquote a {
+.single .entry-content blockquote a:not([class]),
+.page:not(.entry-card) .entry-content blockquote a:not([class]) {
 	box-shadow: white 0 19px inset;
 	box-shadow: var(--box-shadow-color) 0 19px inset;
 }
