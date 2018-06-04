@@ -755,12 +755,15 @@ img {
 .wp-caption {
 	margin-left: 0;
 	margin-right: 0;
-	opacity: 0.8; 
-	text-align: center;
+	text-align: center; 
 	width: auto;
 }
 .wp-caption img {
 	display: inline-block;
+}
+
+.wp-caption-text {
+	opacity: 0.8;
 }
 
 .wp-caption-text {
