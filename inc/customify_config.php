@@ -487,7 +487,10 @@ function patch_modify_customify_options( $options ) {
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.nav--main li:hover > a, .nav--social.nav--social a:hover:before',
+							'selector' => '
+							    .nav--main li:hover > a, 
+							    .nav--social.nav--social a:hover:before, 
+                                .nav--main li[class*="current-menu"] > a',
 						),
 					),
 				),
@@ -816,7 +819,6 @@ function patch_modify_customify_options( $options ) {
 								.page-links a,
 								:first-child:not(input) ~ .form-submit #submit,
 								.sidebar .widget a:hover,
-								.nav--main li[class*="current-menu"] > a,
 								.highlight,
 								.sticky .sticky-post,
 								.nav--social a:hover:before,
