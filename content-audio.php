@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 //get the media objects from the content and bring up only the first one
 $media   = patch_audio_attachment();
-$media = apply_filters('embed_oembed_html', $media ); ?>
+?>
 
 <div class="grid__item">
 
