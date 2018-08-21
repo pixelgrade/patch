@@ -95,12 +95,18 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'main_content_heading_5_color',
 					'main_content_heading_6_color',
 					'patch_header_navigation_links_color',
+
+					// always dark
+                    'pxg_nothing1',
+                    'pxg_nothing2',
+                    'pxg_nothing3',
+                    'pxg_nothing4',
 				),
                 'default' => SM_DARK_PRIMARY,
 			),
 			'sm_dark_secondary' => array(
 				'connected_fields' => array(
-                    // striking
+                    // always dark
 					'main_content_body_text_color',
 				),
                 'default' => SM_DARK_SECONDARY,
