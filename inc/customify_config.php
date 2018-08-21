@@ -80,15 +80,15 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 			'sm_dark_primary' => array(
 				'connected_fields' => array(
                     // medium
-					'blog_item_title_color',
+					'main_content_border_color',
 					'main_content_body_link_default_color',
 					'main_content_page_title_color',
 
 					// high
 					'main_content_heading_1_color',
+					'blog_item_title_color',
 					'main_content_heading_2_color',
 					'main_content_heading_3_color',
-					'main_content_border_color',
 
                     // striking
                     'main_content_heading_4_color',
