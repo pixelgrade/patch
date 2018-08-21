@@ -20,6 +20,20 @@ add_filter( 'customify_filter_fields', 'pixelgrade_add_customify_style_manager_s
 
 add_filter( 'customify_filter_fields', 'patch_modify_customify_options', 20 );
 
+// Color Constants
+define( 'SM_COLOR_PRIMARY', '#ffeb00' );
+define( 'SM_COLOR_SECONDARY', '#cae00f' );
+define( 'SM_COLOR_TERTIARY', '#bbd916' );
+
+define( 'SM_DARK_PRIMARY', '#161a03' );
+define( 'SM_DARK_SECONDARY', '#2a2c29' );
+define( 'SM_DARK_TERTIARY', '#7e8073' );
+
+define( 'SM_LIGHT_PRIMARY', '#ffffff' );
+define( 'SM_LIGHT_SECONDARY', '#fcfcf5' );
+define( 'SM_LIGHT_TERTIARY', '#f4f7e6' );
+
+
 function patch_add_customify_options( $options ) {
 	$options['opt-name'] = 'patch_options';
 
@@ -55,31 +69,45 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'patch_header_links_active_color',
 					'main_content_body_link_color',
 				),
+                'default' => SM_COLOR_PRIMARY
+			),
+			'sm_color_secondary' => array(
+                'default' => SM_COLOR_SECONDARY
+			),
+			'sm_color_tertiary' => array(
+                'default' => SM_COLOR_TERTIARY
 			),
 			'sm_dark_primary' => array(
 				'connected_fields' => array(
-					'main_content_body_link_default_color',
-					'patch_header_navigation_links_color',
+                    // medium
 					'blog_item_title_color',
+					'main_content_body_link_default_color',
 					'main_content_page_title_color',
+
+					// high
 					'main_content_heading_1_color',
 					'main_content_heading_2_color',
 					'main_content_heading_3_color',
-					'main_content_heading_4_color',
+					'main_content_border_color',
+
+                    // striking
+                    'main_content_heading_4_color',
 					'main_content_heading_5_color',
 					'main_content_heading_6_color',
-					'main_content_border_color',
+					'patch_header_navigation_links_color',
 				),
+                'default' => SM_DARK_PRIMARY,
 			),
 			'sm_dark_secondary' => array(
 				'connected_fields' => array(
+                    // striking
 					'main_content_body_text_color',
 				),
+                'default' => SM_DARK_SECONDARY,
 			),
 			'sm_dark_tertiary' => array(
-				'connected_fields' => array(
-
-				),
+				'connected_fields' => array(),
+                'default' => SM_DARK_TERTIARY,
 			),
 			'sm_light_primary' => array(
 				'connected_fields' => array(
@@ -87,11 +115,13 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'patch_footer_body_text_color',
 					'patch_footer_links_color'
 				),
+                'default' => SM_LIGHT_PRIMARY,
 			),
 			'sm_light_secondary' => array(
-				'connected_fields' => array(
-					
-				),
+                'default' => SM_LIGHT_SECONDARY,
+			),
+			'sm_light_tertiary' => array(
+                'default' => SM_LIGHT_TERTIARY,
 			),
 		),
 	) );
@@ -151,9 +181,9 @@ function patch_modify_customify_options( $options ) {
 								'font-alt' => 'Roboto',
 							),
 							'options' => array(
-								'accent_color'                    => '#ffeb00',
-                                'patch_header_links_active_color' => '#ffeb00',
-                                'main_content_body_link_color'    => '#ffeb00',
+								'accent_color'                    => SM_COLOR_PRIMARY,
+                                'patch_header_links_active_color' => SM_COLOR_PRIMARY,
+                                'main_content_body_link_color'    => SM_COLOR_PRIMARY,
 
 								'main_content_body_text_color'    => '#3d3e40',
 
@@ -471,7 +501,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Navigation Links Color', 'patch' ),
 					'live'    => true,
-					'default' => '#000000',
+					'default' => SM_DARK_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -483,7 +513,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Links Active Color', 'patch' ),
 					'live'    => true,
-					'default' => '#ffeb00',
+					'default' => SM_COLOR_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'background-color',
@@ -649,7 +679,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Site Border Color', 'patch' ),
 					'live'    => true,
-					'default' => '#000000',
+					'default' => SM_DARK_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'border-color',
@@ -669,7 +699,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Page Title Color', 'patch' ),
 					'live'    => true,
-					'default' => '#171617',
+					'default' => SM_DARK_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -687,7 +717,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Body Text Color', 'patch' ),
 					'live'    => true,
-					'default' => '#3d3e40',
+					'default' => SM_DARK_SECONDARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -703,7 +733,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Body Background Color', 'hive_txtd' ),
 					'live'    => true,
-					'default' => '#ffffff',
+					'default' => SM_LIGHT_PRIMARY,
 					'css'     => array(
 						array(
 							'selector' => 'body, .entry-card,
@@ -754,7 +784,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Body Link Color', 'patch' ),
 					'live'    => true,
-					'default' => '#000000',
+					'default' => SM_DARK_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -766,7 +796,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Body Link Active Color', 'patch' ),
 					'live'    => true,
-					'default' => '#ffeb00',
+					'default' => SM_COLOR_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'background-color',
@@ -779,7 +809,7 @@ function patch_modify_customify_options( $options ) {
 					'type'      => 'color',
 					'label'     => __( 'Accent Color', 'patch' ),
 					'live' => true,
-					'default'   => '#ffeb00',
+					'default'   => SM_COLOR_PRIMARY,
 					'css'  => array(
 						array(
 							'property' => 'text-shadow',
@@ -858,7 +888,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Heading 1', 'patch' ),
 					'live'    => true,
-					'default' => '#171617',
+					'default' => SM_DARK_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -870,7 +900,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Heading 2', 'patch' ),
 					'live'    => true,
-					'default' => '#171617',
+					'default' => SM_DARK_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -882,7 +912,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Heading 3', 'patch' ),
 					'live'    => true,
-					'default' => '#171617',
+					'default' => SM_DARK_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -894,7 +924,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Heading 4', 'patch' ),
 					'live'    => true,
-					'default' => '#171617',
+					'default' => SM_DARK_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -906,7 +936,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Heading 5', 'patch' ),
 					'live'    => true,
-					'default' => '#171617',
+					'default' => SM_DARK_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -918,7 +948,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Heading 6', 'patch' ),
 					'live'    => true,
-					'default' => '#171617',
+					'default' => SM_DARK_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -1265,7 +1295,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Text Color', 'patch' ),
 					'live'    => true,
-					'default' => '#b5b5b5',
+					'default' => SM_LIGHT_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -1277,7 +1307,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Links Color', 'patch' ),
 					'live'    => true,
-					'default' => '#b5b5b5',
+					'default' => SM_LIGHT_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -1437,7 +1467,7 @@ function patch_modify_customify_options( $options ) {
 					'type'    => 'color',
 					'label'   => esc_html__( 'Item Title Color', 'patch' ),
 					'live'    => true,
-					'default' => '#000000',
+					'default' => SM_DARK_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
