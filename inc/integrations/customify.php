@@ -65,21 +65,24 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 		'options' => array(
 
 			// Font Palettes Assignment.
+			'sm_font_palette'    => array(
+				'default' => 'patch',
+			),
 			'sm_font_primary'    => array(
 				'connected_fields' => array(
-					'patch_header_links_font' => array(
+					'patch_header_links_font'      => array(
 						'font_size' => '24px',
 					),
 					'main_content_page_title_font' => array(
 						'font_size' => '56px',
 					),
-					'main_content_heading_1_font' => array(
+					'main_content_heading_1_font'  => array(
 						'font_size' => '30px',
 					),
-					'main_content_heading_2_font' => array(
+					'main_content_heading_2_font'  => array(
 						'font_size' => '26px',
 					),
-					'blog_item_title_font' => array(
+					'blog_item_title_font'         => array(
 						'font_size' => '25.9px',
 					),
 				),
@@ -89,10 +92,10 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'main_content_quote_block_font' => array(
 						'font_size' => '22px',
 					),
-					'main_content_heading_3_font' => array(
+					'main_content_heading_3_font'   => array(
 						'font_size' => '24px',
 					),
-					'main_content_heading_4_font' => array(
+					'main_content_heading_4_font'   => array(
 						'font_size' => '14px',
 					),
 				),
@@ -118,51 +121,47 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'patch_header_links_active_color',
 					'main_content_body_link_color',
 				),
-                'default' => SM_COLOR_PRIMARY
+				'default'          => SM_COLOR_PRIMARY
 			),
 			'sm_color_secondary' => array(
-                'default' => SM_COLOR_SECONDARY
+				'default' => SM_COLOR_SECONDARY
 			),
-			'sm_color_tertiary' => array(
-                'default' => SM_COLOR_TERTIARY
+			'sm_color_tertiary'  => array(
+				'default' => SM_COLOR_TERTIARY
 			),
 			'sm_dark_primary'    => array(
 				'connected_fields' => array(
-                    // medium
+					// medium
 					'main_content_border_color',
 					'main_content_body_link_default_color',
-					'main_content_page_title_color',
 
 					// high
+					'main_content_page_title_color',
 					'main_content_heading_1_color',
 					'blog_item_title_color',
+
+					// striking
 					'main_content_heading_2_color',
 					'main_content_heading_3_color',
+					'main_content_heading_4_color',
 
-                    // striking
-                    'main_content_heading_4_color',
+					// always dark
 					'main_content_heading_5_color',
 					'main_content_heading_6_color',
 					'patch_header_navigation_links_color',
-
-					// always dark
-                    'pxg_nothing1',
-                    'pxg_nothing2',
-                    'pxg_nothing3',
-                    'pxg_nothing4',
 				),
-                'default' => SM_DARK_PRIMARY,
+				'default'          => SM_DARK_PRIMARY,
 			),
 			'sm_dark_secondary'  => array(
 				'connected_fields' => array(
-                    // always dark
+					// always dark
 					'main_content_body_text_color',
 				),
-                'default' => SM_DARK_SECONDARY,
+				'default'          => SM_DARK_SECONDARY,
 			),
-			'sm_dark_tertiary' => array(
+			'sm_dark_tertiary'   => array(
 				'connected_fields' => array(),
-                'default' => SM_DARK_TERTIARY,
+				'default'          => SM_DARK_TERTIARY,
 			),
 			'sm_light_primary'   => array(
 				'connected_fields' => array(
@@ -170,13 +169,13 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'patch_footer_body_text_color',
 					'patch_footer_links_color',
 				),
-                'default' => SM_LIGHT_PRIMARY,
+				'default'          => SM_LIGHT_PRIMARY,
 			),
 			'sm_light_secondary' => array(
-                'default' => SM_LIGHT_SECONDARY,
+				'default' => SM_LIGHT_SECONDARY,
 			),
-			'sm_light_tertiary' => array(
-                'default' => SM_LIGHT_TERTIARY,
+			'sm_light_tertiary'  => array(
+				'default' => SM_LIGHT_TERTIARY,
 			),
 		),
 	) );
