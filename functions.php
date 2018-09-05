@@ -131,17 +131,17 @@ if ( ! function_exists( 'patch_setup' ) ) :
 			)
 		);
 
-		/**
-		 * Enable support for the Style Manager Customizer section (via Customify).
-		 */
-		add_theme_support( 'customizer_style_manager' );
-
 		/*
 		 * Enable support for Visible Edit Shortcuts in the Customizer Preview
 		 *
 		 * @link https://make.wordpress.org/core/2016/11/10/visible-edit-shortcuts-in-the-customizer-preview/
 		 */
 		add_theme_support( 'customize-selective-refresh-widgets' );
+
+		/**
+		 * Enable support for the Style Manager Customizer section (via Customify).
+		 */
+		add_theme_support( 'customizer_style_manager' );
 	}
 endif;
 add_action( 'after_setup_theme', 'patch_setup' );
@@ -378,16 +378,6 @@ require get_template_directory() . '/inc/hybrid-media-grabber.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
-
-/**
- * Load Customify plugin configuration
- */
-require get_template_directory() . '/inc/customify_config.php';
 
 /**
  * Load various plugin integrations

@@ -63,7 +63,56 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 	// The section might be already defined, thus we merge, not replace the entire section config.
 	$options['sections']['style_manager_section'] = array_replace_recursive( $options['sections']['style_manager_section'], array(
 		'options' => array(
-			'sm_color_primary' => array(
+
+			// Font Palettes Assignment.
+			'sm_font_primary'    => array(
+				'connected_fields' => array(
+					'patch_header_links_font' => array(
+						'font_size' => '24px',
+					),
+					'main_content_page_title_font' => array(
+						'font_size' => '56px',
+					),
+					'main_content_heading_1_font' => array(
+						'font_size' => '30px',
+					),
+					'main_content_heading_2_font' => array(
+						'font_size' => '26px',
+					),
+					'blog_item_title_font' => array(
+						'font_size' => '25.9px',
+					),
+				),
+			),
+			'sm_font_secondary'  => array(
+				'connected_fields' => array(
+					'main_content_quote_block_font' => array(
+						'font_size' => '22px',
+					),
+					'main_content_heading_3_font' => array(
+						'font_size' => '24px',
+					),
+					'main_content_heading_4_font' => array(
+						'font_size' => '14px',
+					),
+				),
+			),
+			'sm_font_body'       => array(
+				'connected_fields' => array(
+					'main_content_heading_6_font' => array(
+						'font_size' => '10.72px',
+					),
+					'main_content_heading_5_font' => array(
+						'font_size' => '11px',
+					),
+					'main_content_body_text_font' => array(
+						'font_size' => '16px',
+					),
+				),
+			),
+
+			// Color Palettes Assignment.
+			'sm_color_primary'   => array(
 				'connected_fields' => array(
 					'accent_color',
 					'patch_header_links_active_color',
@@ -77,7 +126,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 			'sm_color_tertiary' => array(
                 'default' => SM_COLOR_TERTIARY
 			),
-			'sm_dark_primary' => array(
+			'sm_dark_primary'    => array(
 				'connected_fields' => array(
                     // medium
 					'main_content_border_color',
@@ -104,7 +153,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 				),
                 'default' => SM_DARK_PRIMARY,
 			),
-			'sm_dark_secondary' => array(
+			'sm_dark_secondary'  => array(
 				'connected_fields' => array(
                     // always dark
 					'main_content_body_text_color',
@@ -115,11 +164,11 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 				'connected_fields' => array(),
                 'default' => SM_DARK_TERTIARY,
 			),
-			'sm_light_primary' => array(
+			'sm_light_primary'   => array(
 				'connected_fields' => array(
 					'main_content_body_background_color',
 					'patch_footer_body_text_color',
-					'patch_footer_links_color'
+					'patch_footer_links_color',
 				),
                 'default' => SM_LIGHT_PRIMARY,
 			),
