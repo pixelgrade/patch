@@ -1960,3 +1960,30 @@ if ( ! function_exists('patch_color_contrast_customizer_preview') ) {
 	}
 }
 add_action( 'customize_preview_init', 'patch_color_contrast_customizer_preview', 20 );
+
+function patch_add_default_color_palette( $color_palettes ) {
+
+	$color_palettes = array_merge(array(
+		'default' => array(
+			'label' => 'Theme Default',
+			'preview' => array(
+				'background_image_url' => 'https://cloud.pixelgrade.com/wp-content/uploads/2018/05/patch-theme-palette.jpg',
+			),
+			'options' => array(
+				'sm_color_primary' => SM_COLOR_PRIMARY,
+				'sm_color_secondary' => SM_COLOR_SECONDARY,
+				'sm_color_tertiary' => SM_COLOR_TERTIARY,
+				'sm_dark_primary' => SM_DARK_PRIMARY,
+				'sm_dark_secondary' => SM_DARK_SECONDARY,
+				'sm_dark_tertiary' => SM_DARK_TERTIARY,
+				'sm_light_primary' => SM_LIGHT_PRIMARY,
+				'sm_light_secondary' => SM_LIGHT_SECONDARY,
+				'sm_light_tertiary' => SM_LIGHT_TERTIARY,
+			),
+		),
+	), $color_palettes);
+
+	return $color_palettes;
+}
+add_filter( 'customify_get_color_palettes', 'patch_add_default_color_palette' );
+
