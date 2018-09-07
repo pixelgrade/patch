@@ -142,6 +142,7 @@ if ( ! function_exists( 'patch_setup' ) ) :
 		 * Enable support for the Style Manager Customizer section (via Customify).
 		 */
 		add_theme_support( 'customizer_style_manager' );
+		add_theme_support( 'style_manager_font_palettes' );
 	}
 endif;
 add_action( 'after_setup_theme', 'patch_setup' );
