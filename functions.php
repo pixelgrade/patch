@@ -267,7 +267,7 @@ add_action( 'wp_enqueue_scripts', 'patch_scripts' );
 function patch_gutenberg_styles() {
 	wp_enqueue_style( 'patch-gutenberg', get_theme_file_uri( '/editor.css' ), false );
 
-	$width = pixelgrade_option( 'main_content_container_width' );
+	$width = pixelgrade_option( 'content_width' );
 
 	$style = '
 	    .edit-post-visual-editor[class] .editor-block-list__block,
