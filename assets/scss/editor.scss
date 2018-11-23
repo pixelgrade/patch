@@ -1,0 +1,52 @@
+
+// GUTENBERG EDITOR-ONLY STYLES
+// ----------------------------------
+
+@import "settings";
+
+@import "tools/functions";
+@import "tools/mixins";
+@import "tools/queries";
+@import "tools/baseline";
+@import "tools/aliases";
+
+.edit-post-visual-editor {
+    @import "trumps/bass";
+    @import "base/type";
+    @import "base/gutenberg";
+
+    .wp-block-preformatted pre,
+    .wp-block-verse pre,
+    pre.wp-block-verse {
+        color: inherit;
+    }
+
+    .wp-block-quote:not(.is-large):not(.is-style-large) {
+        border-left: 0;
+        padding-left: 0;
+    }
+
+    blockquote p {
+        font: inherit;
+    }
+
+    //blockquote {
+    //    margin-left: 0;
+    //    margin-right: 0;
+    //    margin-top: 0;
+    //}
+    //
+    //@import "base/images";
+    //
+    //@import "trumps/specific";
+    //@import "trumps/wp-align";
+    //
+    //.wp-caption {
+    //    text-align: left;
+    //
+    //    &.alignleft		{ @extend .alignleft; }
+    //    &.alignright	{ @extend .alignright; }
+    //    &.aligncenter	{ @extend .aligncenter; }
+    //    &.alignnone		{ @extend .alignnone; }
+    //}
+}

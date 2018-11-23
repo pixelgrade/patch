@@ -743,6 +743,114 @@ pre:before {
 	padding-bottom: 0.375em;
 }
 
+.wp-block-separator.is-style-dots:before {
+	color: inherit;
+}
+
+.wp-block-separator {
+	border-bottom-color: currentColor;
+	margin: 1.5em auto;
+}
+.wp-block-separator:not([class*="is-style"]) {
+	max-width: 100px;
+}
+
+.wp-block-audio[class] {
+	margin-left: 0;
+	margin-right: 0;
+}
+.wp-block-audio[class] audio {
+	width: 100%;
+}
+
+.wp-block-cover[class][class] {
+	display: -webkit-box;
+	display: flex;
+	margin-bottom: 1.125em; 
+	margin-top: 1.125em;
+}
+.wp-block-cover[class][class] p {
+	margin-bottom: 0; 
+	position: relative;
+	-webkit-transform: none;
+	transform: none;
+}
+
+p.wp-block-subhead {
+	color: inherit;
+}
+
+.wp-block-code,
+.wp-block-preformatted pre,
+.wp-block-verse pre,
+pre.wp-block-verse {
+	color: inherit;
+}
+
+.editor-block-list__layout .editor-block-list__block[data-align=left] .editor-block-list__block-edit {
+	margin-bottom: 0; 
+	margin-right: 0;
+}
+
+@media only screen and (min-width: 899px) {
+	.wp-block-image .alignleft,
+	.editor-block-list__layout .editor-block-list__block[data-align=left] .editor-block-list__block-edit > * {
+		margin-right: 3em;
+		width: auto;
+	}
+}
+
+@media only screen and (min-width: 1359px) {
+	.wp-block-image .alignleft,
+	.editor-block-list__layout .editor-block-list__block[data-align=left] .editor-block-list__block-edit > * {
+		margin-left: -3.75em;
+	}
+}
+
+.editor-block-list__layout .editor-block-list__block[data-align=right] .editor-block-list__block-edit {
+	margin-bottom: 0; 
+	margin-left: 0;
+}
+
+@media only screen and (min-width: 899px) {
+	.wp-block-image .alignright,
+	.editor-block-list__layout .editor-block-list__block[data-align=right] .editor-block-list__block-edit > * {
+		margin-left: 3em;
+		width: auto;
+	}
+}
+
+@media only screen and (min-width: 1359px) {
+	.wp-block-image .alignright,
+	.editor-block-list__layout .editor-block-list__block[data-align=right] .editor-block-list__block-edit > * {
+		margin-right: -3.75em;
+	}
+}
+
+.wp-block-image .aligncenter > figcaption {
+	display: block;
+}
+
+figure.wp-block-pullquote {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.wp-block-pullquote[class] p {
+	font: inherit;
+}
+
+.wp-block-pullquote.alignleft {
+	margin-left: -3.75em;
+	margin-right: 3em;
+}
+
+.wp-block-pullquote.alignright {
+	margin-left: 3em; 
+	margin-right: -3.75em;
+}
+
 /**
  *   3.2 - Images
  */

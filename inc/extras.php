@@ -693,3 +693,21 @@ function patch_blog_class( $class = '' ) {
 	// Separates classes with a single space, collates classes
 	echo 'class="' . join( ' ', patch_get_blog_class( $class ) ) . '"';
 }
+
+function patch_gutenberg_styles() {
+	wp_enqueue_style( 'patch-gutenberg', get_theme_file_uri( '/editor.css' ), false );
+
+	$width = pixelgrade_option( 'main_content_container_width' );
+
+	$style = '
+	    .edit-post-visual-editor[class] .editor-block-list__block,
+        .edit-post-visual-editor[class] .editor-post-title__block {
+            max-width: ' . $width . 'px;
+        }
+    }';
+	wp_add_inline_style( 'patch-gutenberg', $style );
+
+}
+
+add_action( 'enqueue_block_editor_assets', 'patch_gutenberg_styles' );
+
