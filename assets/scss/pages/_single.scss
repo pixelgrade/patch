@@ -180,9 +180,9 @@
 	.entry-header {
 		@include rhythm(margin-bottom, 2);
 
-		@include query-above($lap) {
-			overflow: hidden;
-		}
+		//@include query-above($lap) {
+		//	overflow: hidden;
+		//}
 	}
 
 	.entry-title {
