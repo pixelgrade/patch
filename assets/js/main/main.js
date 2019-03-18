@@ -22,6 +22,7 @@ $window.load(function() {
   magnificPopupInit();
   logoAnimation.init();
   logoAnimation.update();
+  unwrapBlockImages();
 });
 
 // /* ====== ON RESIZE ====== */
