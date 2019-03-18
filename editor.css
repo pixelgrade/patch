@@ -400,6 +400,9 @@ h3 .edit-post-visual-editor a {
 .edit-post-visual-editor .wp-block-audio[class] audio {
 	width: 100%;
 }
+.edit-post-visual-editor .wp-block-embed {
+	margin: 0;
+}
 .edit-post-visual-editor .wp-block-cover[class][class] {
 	display: -webkit-box;
 	display: flex;
