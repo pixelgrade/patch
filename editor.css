@@ -477,6 +477,24 @@ h3 .edit-post-visual-editor a {
 	margin-left: 3em; 
 	margin-right: -3.75em;
 }
+.edit-post-visual-editor .editor-block-list__block[data-align="center"] .wp-block-image img {
+	margin-left: -72px;
+	margin-right: -72px;
+	max-width: calc(144px + 100%); 
+	width: auto;
+}
+.edit-post-visual-editor .editor-block-list__block[data-align="right"] .editor-block-list__block-edit {
+	max-width: calc(50% + 72px - 20px);
+}
+.edit-post-visual-editor .editor-block-list__block[data-align="right"] .wp-block-image img {
+	margin-right: -72px;
+}
+.edit-post-visual-editor .editor-block-list__block[data-align="left"] .editor-block-list__block-edit {
+	max-width: calc(50% + 72px - 20px);
+}
+.edit-post-visual-editor .editor-block-list__block[data-align="left"] .wp-block-image img {
+	margin-left: -72px;
+}
 .edit-post-visual-editor .wp-block-preformatted pre,
 .edit-post-visual-editor .wp-block-verse pre,
 .edit-post-visual-editor pre.wp-block-verse {

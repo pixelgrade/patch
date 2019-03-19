@@ -855,6 +855,29 @@ figure.wp-block-pullquote {
 	margin-right: -3.75em;
 }
 
+.editor-block-list__block[data-align="center"] .wp-block-image img {
+	margin-left: -72px;
+	margin-right: -72px;
+	max-width: calc(144px + 100%); 
+	width: auto;
+}
+
+.editor-block-list__block[data-align="right"] .editor-block-list__block-edit {
+	max-width: calc(50% + 72px - 20px);
+}
+
+.editor-block-list__block[data-align="right"] .wp-block-image img {
+	margin-right: -72px;
+}
+
+.editor-block-list__block[data-align="left"] .editor-block-list__block-edit {
+	max-width: calc(50% + 72px - 20px);
+}
+
+.editor-block-list__block[data-align="left"] .wp-block-image img {
+	margin-left: -72px;
+}
+
 /**
  *   3.2 - Images
  */

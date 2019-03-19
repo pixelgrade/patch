@@ -106,3 +106,38 @@ figure.wp-block-pullquote {
     margin-right: -3.75em;
     margin-left: 3em;
 }
+
+.editor-block-list__block {
+    &[data-align="center"] {
+        .wp-block-image {
+            img {
+                margin-left: -3 * $gutter;
+                margin-right: -3 * $gutter;
+                width: auto;
+                max-width: calc(#{6 * $gutter} + 100%);
+            }
+        }
+    }
+
+    &[data-align="right"] {
+        .editor-block-list__block-edit {
+            max-width: calc(50% + #{3 * $gutter} - 20px);
+        }
+        .wp-block-image {
+            img {
+                margin-right: -3 * $gutter;
+            }
+        }
+    }
+
+    &[data-align="left"] {
+        .editor-block-list__block-edit {
+            max-width: calc(50% + #{3 * $gutter} - 20px);
+        }
+        .wp-block-image {
+            img {
+                margin-left: -3 * $gutter;
+            }
+        }
+    }
+}
