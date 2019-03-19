@@ -928,6 +928,10 @@ if (!Date.now)
         magnificPopupInit();
         logoAnimation.init();
         logoAnimation.update();
+
+        $('body').imagesLoaded(function() {
+            masonry.refresh();
+        });
     });
 
     // /* ====== ON RESIZE ====== */
@@ -956,6 +960,7 @@ if (!Date.now)
         latestKnownScrollY = window.scrollY;
         requestTick();
     });
+
     /* ====== HELPER FUNCTIONS ====== */
 
 
