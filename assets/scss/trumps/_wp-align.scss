@@ -35,7 +35,7 @@ img {
     }
 }
 
-.aligncenter, .alignnone, .entry-content .jetpack-video-wrapper {
+.aligncenter, .alignnone, .entry-content .jetpack-video-wrapper, .wp-block-image {
     @include query-above($lap) {
         margin-left: -3 * $gutter;
         margin-right: -3 * $gutter;
