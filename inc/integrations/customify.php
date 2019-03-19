@@ -785,7 +785,7 @@ function patch_modify_customify_options( $options ) {
 				),
 				'main_content_body_background_color'                                => array(
 					'type'    => 'color',
-					'label'   => esc_html__( 'Body Background Color', 'hive_txtd' ),
+					'label'   => esc_html__( 'Body Background Color', 'patch' ),
 					'live'    => true,
 					'default' => SM_LIGHT_PRIMARY,
 					'css'     => array(

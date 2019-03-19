@@ -270,9 +270,9 @@ function patch_card_meta ( $post_id = NULL ) {
 
 	if ( comments_open() ) {
 		if ( $comments_number == 0 ) {
-			$comments = esc_html__( 'No Comments', 'osteria' );
+			$comments = esc_html__( 'No Comments', 'patch' );
 		} else {
-			$comments = sprintf( _n( '%d Comment', '%d Comments', $comments_number, 'osteria' ), $comments_number );
+			$comments = sprintf( _n( '%d Comment', '%d Comments', $comments_number, 'patch' ), $comments_number );
 		}
 		$meta['comments'] = '<a href="' . esc_url( get_comments_link() ) .'">' . esc_html( $comments ) . '</a>';
 	} else {
