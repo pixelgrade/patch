@@ -127,7 +127,7 @@ function unwrapBlockImages() {
   var $content = $('.entry-content'),
       $imagesBlock = $content.find('.wp-block-image');
 
-  $imagesBlock.each(( i, block ) => {
+  $imagesBlock.each(function (i, block) {
     var $block = $(block),
         $figure = $block.children('figure');
 
