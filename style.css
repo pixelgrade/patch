@@ -5452,6 +5452,30 @@ div#jp-post-flair {
 	margin-bottom: 5px;
 }
 
+.single .responsive-container,
+.page:not(.entry-card) .responsive-container {
+	height: 0;
+	overflow: hidden; 
+	padding-bottom: 56.25%;
+	/* 16:9 */
+	padding-top: 0;
+	position: relative;
+}
+.single .responsive-container iframe,
+.single .responsive-container object,
+.single .responsive-container video,
+.single .responsive-container embed,
+.page:not(.entry-card) .responsive-container iframe,
+.page:not(.entry-card) .responsive-container object,
+.page:not(.entry-card) .responsive-container video,
+.page:not(.entry-card) .responsive-container embed {
+	height: 100%; 
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
 .page-links {
 	font-weight: 400; 
 	margin: 2.5rem 0;
@@ -5528,25 +5552,6 @@ div#jp-post-flair {
 
 .entry-footer {
 	clear: both;
-}
-
-.responsive-container {
-	height: 0;
-	overflow: hidden; 
-	padding-bottom: 56.25%;
-	/* 16:9 */
-	padding-top: 0;
-	position: relative;
-}
-.responsive-container iframe,
-.responsive-container object,
-.responsive-container video,
-.responsive-container embed {
-	height: 100%; 
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 100%;
 }
 
 /**
