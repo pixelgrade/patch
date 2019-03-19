@@ -763,6 +763,10 @@ pre:before {
 	width: 100%;
 }
 
+.wp-block-embed {
+	margin: 0;
+}
+
 .wp-block-cover[class][class] {
 	display: -webkit-box;
 	display: flex;
@@ -5496,6 +5500,25 @@ div#jp-post-flair {
 
 .entry-footer {
 	clear: both;
+}
+
+.responsive-container {
+	height: 0;
+	overflow: hidden; 
+	padding-bottom: 56.25%;
+	/* 16:9 */
+	padding-top: 0;
+	position: relative;
+}
+.responsive-container iframe,
+.responsive-container object,
+.responsive-container video,
+.responsive-container embed {
+	height: 100%; 
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
 }
 
 /**
