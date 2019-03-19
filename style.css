@@ -5407,12 +5407,6 @@ div#jp-post-flair {
 .page:not(.entry-card) .entry-header {
 	margin-bottom: 1.5em;
 }
-@media only screen and (min-width: 900px) {
-	.single .entry-header,
-	.page:not(.entry-card) .entry-header {
-		overflow: hidden;
-	}
-}
 
 .single .entry-title,
 .page:not(.entry-card) .entry-title {
