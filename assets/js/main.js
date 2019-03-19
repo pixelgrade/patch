@@ -929,6 +929,9 @@ if (!Date.now)
         logoAnimation.init();
         logoAnimation.update();
         unwrapBlockImages();
+        $('body').imagesLoaded(function() {
+            masonry.refresh();
+        });
     });
 
     // /* ====== ON RESIZE ====== */

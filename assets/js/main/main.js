@@ -23,6 +23,9 @@ $window.load(function() {
   logoAnimation.init();
   logoAnimation.update();
   unwrapBlockImages();
+  $( 'body' ).imagesLoaded( function() {
+    masonry.refresh();
+  } );
 });
 
 // /* ====== ON RESIZE ====== */
