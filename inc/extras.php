@@ -693,3 +693,27 @@ function patch_blog_class( $class = '' ) {
 	// Separates classes with a single space, collates classes
 	echo 'class="' . join( ' ', patch_get_blog_class( $class ) ) . '"';
 }
+
+
+/**
+ * Wrap embedded videos in a class, to fix responsive issues on issues
+ */
+
+function wrap_embed_with_div($html, $url, $attr) {
+	return '<div class="responsive-container">' . $html . '</div>';
+}
+
+add_filter('embed_oembed_html', 'wrap_embed_with_div', 10, 3);
+
+/**
+ * Modified embedded defaults to be equal with main_content_width
+ */
+
+function patch_modify_embed_defaults() {
+	$content_width = pixelgrade_option( 'main_content_content_width', 720 );
+	return array(
+		'width'  => $content_width,
+		'height' => $content_width * 3/4
+	);
+}
+add_filter( 'embed_defaults', 'patch_modify_embed_defaults' );
