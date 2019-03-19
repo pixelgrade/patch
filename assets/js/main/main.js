@@ -22,6 +22,10 @@ $window.load(function() {
   magnificPopupInit();
   logoAnimation.init();
   logoAnimation.update();
+
+  $( 'body' ).imagesLoaded( function() {
+    masonry.refresh();
+  } );
 });
 
 // /* ====== ON RESIZE ====== */
