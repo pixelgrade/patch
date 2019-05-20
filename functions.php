@@ -279,7 +279,7 @@ function patch_gutenberg_styles() {
 add_action( 'enqueue_block_editor_assets', 'patch_gutenberg_styles' );
 
 /* Automagical updates */
-function wupdates_check_JlplJ( $transient ) {
+function patch_wupdates_check_JlplJ( $transient ) {
 	// First get the theme directory name (the theme slug - unique)
 	$slug = basename( get_template_directory() );
 
@@ -355,9 +355,9 @@ function wupdates_check_JlplJ( $transient ) {
 
 	return $transient;
 }
-add_filter( 'pre_set_site_transient_update_themes', 'wupdates_check_JlplJ' );
+add_filter( 'pre_set_site_transient_update_themes', 'patch_wupdates_check_JlplJ' );
 
-function wupdates_add_id_JlplJ( $ids = array() ) {
+function patch_wupdates_add_id_JlplJ( $ids = array() ) {
 	// First get the theme directory name (unique)
 	$slug = basename( get_template_directory() );
 
@@ -367,7 +367,7 @@ function wupdates_add_id_JlplJ( $ids = array() ) {
 
     return $ids;
 }
-add_filter( 'wupdates_gather_ids', 'wupdates_add_id_JlplJ', 10, 1 );
+add_filter( 'wupdates_gather_ids', 'patch_wupdates_add_id_JlplJ', 10, 1 );
 
 /**
  * MB string functions for when the MB library is not available
