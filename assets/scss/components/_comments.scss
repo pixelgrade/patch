@@ -136,6 +136,13 @@
 	}
 }
 
+.comment {
+	ul:not(.wp-block-gallery):not(.children),
+	ol:not(.wp-block-gallery) {
+		margin-left: 1.5em;
+	}
+}
+
 .comments_add-comment {
 	@extend %beta;
 	

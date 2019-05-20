@@ -3905,6 +3905,11 @@ div#infinite-footer .blog-info a {
 	}
 }
 
+.comment ul:not(.wp-block-gallery):not(.children),
+.comment ol:not(.wp-block-gallery) {
+	margin-left: 1.5em;
+}
+
 .comments_add-comment {
 	font-size: 13px;
 	letter-spacing: 0.1em;
