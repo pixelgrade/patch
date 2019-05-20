@@ -717,3 +717,16 @@ function patch_modify_embed_defaults() {
 	);
 }
 add_filter( 'embed_defaults', 'patch_modify_embed_defaults' );
+
+/**
+ * @param $title
+ *
+ * @return string
+ */
+function patch_pixcare_install_page_title( $title ) {
+	if ( empty( $_GET['page'] ) || 'pixelgrade_care-install' !== $_GET['page'] ) {
+		return $title;
+	}
+	return esc_html__( 'Pixelgrade Care &rsaquo; Installer', 'patch' );
+}
+add_filter( 'wp_title', 'patch_pixcare_install_page_title', 10, 1 );
