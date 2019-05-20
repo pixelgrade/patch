@@ -1921,15 +1921,18 @@ button.mfp-arrow-right {
 	}
 }
 
-.grid,
-.pagination {
-	margin: 0 auto;
-	max-width: 400px;
-}
 @media only screen and (min-width: 900px) {
 	.grid,
 	.pagination {
 		margin-top: 0;
+	}
+}
+
+@media not screen and (min-width: 740px) {
+	.grid,
+	.pagination {
+		margin: 0 auto;
+		max-width: 400px;
 	}
 }
 
@@ -5029,6 +5032,12 @@ div#infinite-handle button {
 
 .infinite-scroll .grid {
 	margin-bottom: 60px;
+}
+
+@media not screen and (min-width: 740px) {
+	.page-numbers:not(.prev):not(.next) {
+		display: none;
+	}
 }
 
 /**
