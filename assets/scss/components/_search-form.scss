@@ -19,7 +19,9 @@
 
 	&, & + p {
 		max-width: 620px;
-		margin: 0 auto;
+		margin-top: 1rem;
+		margin-left: auto;
+		margin-right: auto
 	}
 
 	> label, .search-field {

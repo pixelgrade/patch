@@ -18,6 +18,7 @@
  * 3.0 - Base Styles
  *   3.1 - Typography
  *   3.2 - Images
+ *   3.3 - Forms
  * 4.0 - Helpers
  *   4.1 - Theme specific classes
  *   4.2 - Alignments
@@ -95,9 +96,12 @@
 /**
  *   3.2 - Images
  */
-@import "base/images"; 
+@import "base/images";
 
-
+/**
+ *   3.3 - Forms
+ */
+@import "base/forms";
 
 
 

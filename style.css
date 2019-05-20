@@ -34,6 +34,7 @@ and Blueprint http://www.blueprintcss.org/
  * 3.0 - Base Styles
  *   3.1 - Typography
  *   3.2 - Images
+ *   3.3 - Forms
  * 4.0 - Helpers
  *   4.1 - Theme specific classes
  *   4.2 - Alignments
@@ -4943,7 +4944,9 @@ div#respond p.comment-subscription-form label {
 }
 .search-form,
 .search-form + p {
-	margin: 0 auto; 
+	margin-left: auto;
+	margin-right: auto; 
+	margin-top: 1rem;
 	max-width: 620px;
 }
 .search-form > label,
