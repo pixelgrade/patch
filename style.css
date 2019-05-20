@@ -4661,6 +4661,85 @@ div#respond p.comment-subscription-form label {
 	padding-top: 12px !important;
 }
 
+.wordpress-default-widgets ul ul,
+.widget_archive ul ul,
+.widget_categories ul ul,
+.widget_meta ul ul,
+.widget_nav_menu ul ul,
+.widget_pages ul ul,
+.widget_recent_comments ul ul,
+.widget_recent_entries ul ul,
+.widget_rss ul ul,
+.widget_text ul ul,
+.widget_tag_cloud ul ul,
+.widget_search ul ul,
+.widget_calendar ul ul {
+	counter-reset: submenu;
+}
+.wordpress-default-widgets ul ul > li > a:before,
+.widget_archive ul ul > li > a:before,
+.widget_categories ul ul > li > a:before,
+.widget_meta ul ul > li > a:before,
+.widget_nav_menu ul ul > li > a:before,
+.widget_pages ul ul > li > a:before,
+.widget_recent_comments ul ul > li > a:before,
+.widget_recent_entries ul ul > li > a:before,
+.widget_rss ul ul > li > a:before,
+.widget_text ul ul > li > a:before,
+.widget_tag_cloud ul ul > li > a:before,
+.widget_search ul ul > li > a:before,
+.widget_calendar ul ul > li > a:before {
+	content: "- " counters(submenu, "- ", none);
+	counter-increment: submenu;
+}
+
+.wordpress-default-widgets ul,
+.widget_archive ul,
+.widget_categories ul,
+.widget_meta ul,
+.widget_nav_menu ul,
+.widget_pages ul,
+.widget_recent_comments ul,
+.widget_recent_entries ul,
+.widget_rss ul,
+.widget_text ul,
+.widget_tag_cloud ul,
+.widget_search ul,
+.widget_calendar ul,
+.wordpress-default-widgets ol,
+.widget_archive ol,
+.widget_categories ol,
+.widget_meta ol,
+.widget_nav_menu ol,
+.widget_pages ol,
+.widget_recent_comments ol,
+.widget_recent_entries ol,
+.widget_rss ol,
+.widget_text ol,
+.widget_tag_cloud ol,
+.widget_search ol,
+.widget_calendar ol {
+	list-style: none;
+	padding-left: 0;
+}
+
+.widget_nav_menu ul,
+.widget_pages ul {
+	margin-bottom: 0;
+	margin-top: 0;
+	padding-bottom: 0; 
+	padding-top: 0;
+}
+.widget_nav_menu ul ul,
+.widget_pages ul ul {
+	margin-top: 1.5em;
+}
+
+.widget_nav_menu li:not(:last-child),
+.widget_pages li:not(:last-child) {
+	margin-bottom: 1.5em;
+}
+
 /**
  *   7.8 - Search form
  */
