@@ -34,7 +34,7 @@ var navigation = (function() {
 			e.stopPropagation();
 
 			isOpen = !isOpen;
-			// $('body').toggleClass('nav--is-open');
+			$('body').toggleClass('nav--is-open');
 
 			var offset;
 
