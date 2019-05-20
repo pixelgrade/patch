@@ -178,12 +178,12 @@ if ( ! function_exists( 'patch_comment' ) ) :
 				<header class="comment__meta comment-author">
 					<?php printf( '<span class="comment__author-name">%s</span>', get_comment_author_link() ) ?>
 					<time class="comment__time" datetime="<?php comment_time( 'c' ); ?>">
-						<a href="<?php echo esc_url( get_comment_link( get_comment_ID() ) ) ?>" class="comment__timestamp"><?php printf( __( 'on %s at %s', 'patch' ), get_comment_date(), get_comment_time() ); ?> </a>
+						<a href="<?php echo esc_url( get_comment_link( get_comment_ID() ) ) ?>" class="comment__timestamp"><?php printf( esc_html__( 'on %s at %s', 'patch' ), get_comment_date(), get_comment_time() ); ?> </a>
 					</time>
 					<div class="comment__links">
 						<?php
 						//we need some space before Edit
-						edit_comment_link( __( 'Edit', 'patch' ) );
+						edit_comment_link( esc_html__( 'Edit', 'patch' ) );
 
 						comment_reply_link( array_merge( $args, array(
 							'depth'     => $depth,
@@ -195,7 +195,7 @@ if ( ! function_exists( 'patch_comment' ) ) :
 				<!-- .comment-meta -->
 				<?php if ( '0' == $comment->comment_approved ) : ?>
 					<div class="alert info">
-						<p><?php _e( 'Your comment is awaiting moderation.', 'patch' ) ?></p>
+						<p><?php esc_html_e( 'Your comment is awaiting moderation.', 'patch' ) ?></p>
 					</div>
 				<?php endif; ?>
 				<section class="comment__content comment">
@@ -300,12 +300,12 @@ add_filter( 'mce_buttons_2', 'patch_mce_editor_buttons' );
  */
 function patch_mce_before_init( $settings ) {
 	$style_formats = array(
-		array( 'title' => __( 'Intro Text', 'patch' ), 'selector' => 'p', 'classes' => 'intro' ),
-		array( 'title' => __( 'Dropcap', 'patch' ), 'inline' => 'span', 'classes' => 'dropcap' ),
-		array( 'title' => __( 'Highlight', 'patch' ), 'inline' => 'span', 'classes' => 'highlight' ),
-		array( 'title' => __( 'Pull Left', 'patch' ), 'selector' => 'p', 'classes' => 'pull-left', 'wrapper' => true ),
-		array( 'title' => __( 'Pull Right', 'patch' ), 'selector' => 'p', 'classes' => 'pull-right', 'wrapper' => true ),
-		array( 'title' => __( 'Two Columns', 'patch' ), 'selector' => 'p', 'classes' => 'twocolumn', 'wrapper' => true ),
+		array( 'title' => esc_html__( 'Intro Text', 'patch' ), 'selector' => 'p', 'classes' => 'intro' ),
+		array( 'title' => esc_html__( 'Dropcap', 'patch' ), 'inline' => 'span', 'classes' => 'dropcap' ),
+		array( 'title' => esc_html__( 'Highlight', 'patch' ), 'inline' => 'span', 'classes' => 'highlight' ),
+		array( 'title' => esc_html__( 'Pull Left', 'patch' ), 'selector' => 'p', 'classes' => 'pull-left', 'wrapper' => true ),
+		array( 'title' => esc_html__( 'Pull Right', 'patch' ), 'selector' => 'p', 'classes' => 'pull-right', 'wrapper' => true ),
+		array( 'title' => esc_html__( 'Two Columns', 'patch' ), 'selector' => 'p', 'classes' => 'twocolumn', 'wrapper' => true ),
 	);
 
 	$settings['style_formats'] = json_encode( $style_formats );
@@ -371,7 +371,7 @@ class PatchWrapImagesInFigureCallback {
  */
 function patch_add_search_to_nav( $items, $args ) {
 	if( $args->theme_location == 'social' && ( ! pixelgrade_option( 'patch_disable_search_in_social_menu', false ) ) ) {
-		$items .= '<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#search">' . __( 'Search', 'patch' ) . '</a></li>';
+		$items .= '<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#search">' . esc_html__( 'Search', 'patch' ) . '</a></li>';
 	}
 	return $items;
 }

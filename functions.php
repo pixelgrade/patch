@@ -51,9 +51,9 @@ if ( ! function_exists( 'patch_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'primary' 	=> __( 'Primary Menu', 'patch' ),
-			'social' 	=> __( 'Social Menu', 'patch' ),
-			'footer'    => __( 'Footer Menu', 'patch' ),
+			'primary' 	=> esc_html__( 'Primary Menu', 'patch' ),
+			'social' 	=> esc_html__( 'Social Menu', 'patch' ),
+			'footer'    => esc_html__( 'Footer Menu', 'patch' ),
 		) );
 
 		/*
@@ -212,7 +212,7 @@ add_filter( 'wp_get_attachment_image_attributes', 'patch_post_thumbnail_sizes_at
  */
 function patch_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'patch' ),
+		'name'          => esc_html__( 'Sidebar', 'patch' ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',

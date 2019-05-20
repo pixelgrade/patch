@@ -23,17 +23,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php
 			/* translators: %s: Name of current post */
 			the_content( sprintf(
-				__( 'Continue reading %s', 'patch' ),
+				esc_html__( 'Continue reading %s', 'patch' ),
 				the_title( '<span class="screen-reader-text">', '</span>', false )
 			) ); ?>
 
 			<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links"><span class="pagination-title">' . __( 'Pages:', 'patch' ),
+				'before' => '<div class="page-links"><span class="pagination-title">' . esc_html__( 'Pages:', 'patch' ),
 				'after'  => '</span></div>',
 				'link_before' => '<span>',
 				'link_after'  => '</span>',
-				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'patch' ) . ' </span>%',
+				'pagelink'    => '<span class="screen-reader-text">' . esc_html__( 'Page', 'patch' ) . ' </span>%',
 				'separator'   => '<span class="screen-reader-text">, </span>',
 			) ); ?>
 

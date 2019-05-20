@@ -16,17 +16,17 @@ function patch_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 
 	// Rename the label to "Display Site Title & Tagline" in order to make this option clearer.
-	$wp_customize->get_control( 'display_header_text' )->label = __( 'Display Site Title &amp; Tagline', 'patch' );
+	$wp_customize->get_control( 'display_header_text' )->label = esc_html__( 'Display Site Title &amp; Tagline', 'patch' );
 
 	$wp_customize->add_section( 'title_tagline' , array(
-		'title'		=> __( 'Site Title &amp; Logo', 'patch' ),
+		'title'		=> esc_html__( 'Site Title &amp; Logo', 'patch' ),
 		'priority'	=> 20,
 	));
 
 	$wp_customize->get_control( 'blogname' )->priority = 1;
 	$wp_customize->get_control( 'blogdescription' )->priority = 1;
 	$wp_customize->get_control( 'header_text' )->priority = 1;
-	$wp_customize->get_control( 'custom_logo' )->description = __('Upload a logo image to replace the Site Title and personalize it with your branding. Use the Header section to adjust its size.', 'patch');
+	$wp_customize->get_control( 'custom_logo' )->description = esc_html__('Upload a logo image to replace the Site Title and personalize it with your branding. Use the Header section to adjust its size.', 'patch');
 
 
 	/*
@@ -34,7 +34,7 @@ function patch_customize_register( $wp_customize ) {
 	 */
 
 	$wp_customize->add_section( 'patch_theme_options', array(
-		'title'             => __( 'Theme', 'patch' ),
+		'title'             => esc_html__( 'Theme', 'patch' ),
 		'priority'          => 30,
 	) );
 
@@ -44,13 +44,13 @@ function patch_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'patch_hide_author_bio', array(
-		'label'             => __( 'Hide the author bio on single posts.', 'patch' ),
+		'label'             => esc_html__( 'Hide the author bio on single posts.', 'patch' ),
 		'section'           => 'patch_theme_options',
 		'type'              => 'checkbox',
 	) );
 
 	$wp_customize->add_control( 'patch_footer_copyright', array(
-		'label'             => __( 'Additional Copyright Text', 'patch' ),
+		'label'             => esc_html__( 'Additional Copyright Text', 'patch' ),
 		'description' => '',
 		'section'           => 'patch_theme_options',
 		'type'              => 'text',

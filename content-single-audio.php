@@ -50,7 +50,7 @@ $media   = patch_audio_attachment(); ?>
 
 		<?php
 		wp_link_pages( array(
-			'before' => '<div class="page-links">' . __( 'Pages:', 'patch' ),
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'patch' ),
 			'after'  => '</div>',
 		) ); ?>
 
