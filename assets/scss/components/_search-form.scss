@@ -100,7 +100,6 @@
 
 	.search-field {
 		border: 0;
-		padding: 0;
 		color: $black;
 		font-size: 72px;
 		outline: 0;
@@ -113,7 +112,6 @@
 
 		@include query-below($lap) {
 			font-size: 48px;
-			margin-bottom: 24px;
 		}
 	}
 

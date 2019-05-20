@@ -4757,7 +4757,6 @@ div#respond p.comment-subscription-form label {
 	font-size: 72px;
 	height: auto;
 	outline: 0;
-	padding: 0;
 
 	-webkit-appearance: none;
 }
@@ -4776,7 +4775,6 @@ div#respond p.comment-subscription-form label {
 @media not screen and (min-width: 900px) {
 	.overlay--search .search-field {
 		font-size: 48px;
-		margin-bottom: 24px;
 	}
 }
 .overlay--search.is-visible {
