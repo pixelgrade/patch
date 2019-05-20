@@ -335,7 +335,7 @@ if ( ! function_exists( 'patch_single_entry_footer' ) ) :
 			}
 
 			// Author bio.
-			if ( ! get_theme_mod( 'patch_hide_author_bio', false ) ) {
+			if ( ! get_theme_mod( 'patch_hide_author_bio', false ) && ! empty( get_the_author_meta( 'description' ) ) ) {
 				get_template_part( 'author-bio' );
 			}
 		}
