@@ -1,3 +1,18 @@
+.widget_archive,
+.widget_categories,
+.widget_meta,
+.widget_nav_menu,
+.widget_pages,
+.widget_recent_comments,
+.widget_recent_entries,
+.widget_rss,
+.widget_text,
+.widget_tag_cloud,
+.widget_search,
+.widget_calendar {
+	@extend .wordpress-default-widgets;
+}
+
 .widget {
 	margin-bottom: 40px;
 	font-size: 13px;
@@ -254,5 +269,39 @@
 	td {
 		padding-top: 12px !important;
 		padding-bottom: 12px !important;
+	}
+}
+
+.wordpress-default-widgets {
+	ul ul {
+		counter-reset: submenu;
+		> li > a:before {
+			content: "- " counters(submenu, "- ", none);
+			counter-increment: submenu;
+		}
+	}
+
+	ul, ol {
+		list-style: none;
+		padding-left: 0;
+	}
+}
+
+.widget_nav_menu,
+.widget_pages {
+
+	ul {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+
+		ul {
+			@include rhythm(margin-top, 2);
+		}
+	}
+
+	li:not(:last-child) {
+		@include rhythm(margin-bottom, 2);
 	}
 }

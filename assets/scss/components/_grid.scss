@@ -75,11 +75,14 @@
 
 .grid,
 .pagination {
-    margin: 0 auto;
-    max-width: 400px;
 
     @include query-above($lap) {
         margin-top: 0; // ??
+    }
+
+    @include query-below($small) {
+        margin: 0 auto;
+        max-width: 400px;
     }
 }
 

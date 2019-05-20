@@ -219,3 +219,9 @@ div#infinite-handle {
 .infinite-scroll .grid {
 	margin-bottom: 60px;
 }
+
+.page-numbers:not(.prev):not(.next) {
+	@include query-below($small) {
+		display: none;
+	}
+}

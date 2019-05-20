@@ -537,7 +537,7 @@ if (!Date.now)
                     e.stopPropagation();
 
                     isOpen = !isOpen;
-                    // $('body').toggleClass('nav--is-open');
+                    $('body').toggleClass('nav--is-open');
 
                     var offset;
 
@@ -599,6 +599,7 @@ if (!Date.now)
         }
 
     })();
+
     // /* ====== Search Overlay Logic ====== */
     (function() {
 

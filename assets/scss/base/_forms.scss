@@ -1,5 +1,17 @@
 input[type="submit"]{
-	@extend .btn;
+	@extend %link--underline;
+	@extend %beta;
+	float: right;
+	padding: 0 .1em 0 .3em;
+	border: 0;
+	font-size: 18px;
+	line-height: 26px;
+	box-shadow: white 0 18px inset;
+	box-shadow: var(--box-shadow-color) 0 18px inset;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: $dark;
+	font-weight: 500;
 }
 
 // Common form controls
@@ -174,9 +186,4 @@ input, textarea {
 	box-shadow: none;
 	font-size: 16px;
 	padding: $u/2;
-
-	@include placeholder {
-		font-style: normal;
-		font-weight: 300;
-	}
 }
