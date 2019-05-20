@@ -172,7 +172,7 @@ if ( ! function_exists( 'patch_comment' ) ) :
 		$GLOBALS['comment'] = $comment; ?>
 	<li <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
 		<article id="comment-<?php comment_ID() ?>" class="comment-article  media">
-			<span class="comment-number"><?php echo $comment_number ?></span>
+			<span class="comment-number"><?php echo esc_html( $comment_number ); ?></span>
 
 			<div class="media__body">
 				<header class="comment__meta comment-author">
