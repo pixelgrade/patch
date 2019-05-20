@@ -730,3 +730,15 @@ function patch_pixcare_install_page_title( $title ) {
 	return esc_html__( 'Pixelgrade Care &rsaquo; Installer', 'patch' );
 }
 add_filter( 'wp_title', 'patch_pixcare_install_page_title', 10, 1 );
+
+function patch_body_attributes( $attributes ) {
+
+	// Some schema.org magic
+	if ( is_page() ) {
+		$attributes['itemscope'] = '';
+		$attributes['itemtype']  = 'http://schema.org/WebPage';
+	}
+
+	return $attributes;
+}
+add_filter( 'pixelgrade_body_attributes', 'patch_body_attributes', 10, 1 );
