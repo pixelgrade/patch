@@ -74,7 +74,7 @@ function patch_pixcare_install_page() {
 	<head>
 		<meta name="viewport" content="width=device-width"/>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title><?php _e( 'Pixelgrade Care &rsaquo; Installer', 'patch' ); ?></title>
+		<title><?php wp_title(); ?></title>
 		<script type="text/javascript">
             var ajaxurl = '<?php echo esc_url( admin_url( 'admin-ajax.php', 'relative' ) ); ?>',
                 pagenow = 'plugins';
