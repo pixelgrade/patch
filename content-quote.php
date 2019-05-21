@@ -35,10 +35,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<?php
 			/* translators: %s: Name of current post */
-			$content = get_the_content( sprintf(
-				__( 'Continue reading %s', 'patch' ),
-				the_title( '<span class="screen-reader-text">', '</span>', false )
-			) );
+			$content = get_the_content(
+			        sprintf(
+			                wp_kses(
+                                    __( 'Continue reading %s', 'patch' ),
+                                    array(
+                                        'span' => array(
+                                            'class' => array(),
+                                        ),
+                                    )
+                            ),
+				            the_title( '<span class="screen-reader-text">', '</span>', false )
+			        )
+            );
 
 			//now we need to test for the length of the quote so we can decide on a class
 			$quote_length = mb_strlen( strip_tags( $content ) );
