@@ -21,6 +21,24 @@
             padding-top: 2.5*$gutter + 46px;
         }
     }
+
+    &:after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        height: 100vh;
+        width: 100vw;
+        background-color: $dark;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease-in-out;
+
+        .nav--is-open & {
+            opacity: .3;
+        }
+    }
 }
 
 .site-main {
