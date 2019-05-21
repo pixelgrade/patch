@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$quote_class = 'entry-quote--short';
 			} ?>
 
-			<div class="content-quote <?php echo $quote_class; ?>">
+			<div class="content-quote <?php echo esc_attr( $quote_class ); ?>">
 				<div class="flexbox">
 					<div class="flexbox__item">
 
