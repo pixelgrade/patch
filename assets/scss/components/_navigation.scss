@@ -123,16 +123,16 @@
 
 		> a {
 
-			&:after {
-				content: "+";
-				// this caused the + icon to
-				// be misplaced on two-line
-				// menu items
-				// position: absolute;
-				// top: -0.1em;
-				// left: 100%;
-				margin-left: 0.25em;
-			}
+			//&:after {
+			//	content: "+";
+			//	// this caused the + icon to
+			//	// be misplaced on two-line
+			//	// menu items
+			//	// position: absolute;
+			//	// top: -0.1em;
+			//	// left: 100%;
+			//	margin-left: 0.25em;
+			//}
 		}
 
 	}
@@ -253,6 +253,16 @@
 		&.shadow {
 			box-shadow: rgba(0,0,0,0.25) 0 0 $gutter, rgba(0,0,0,0.5) 0 0 $gutter/2;
 		}
+	}
+
+	.sub-menu {
+		@include query-below($lap) {
+			display: none;
+		}
+	}
+
+	li:hover > ul {
+		display: block;
 	}
 }
 
