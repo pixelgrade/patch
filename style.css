@@ -2113,17 +2113,19 @@ button.mfp-arrow-right {
 	}
 }
 
+.grid,
+.pagination {
+	margin: 0 auto;
+}
 @media only screen and (min-width: 900px) {
 	.grid,
 	.pagination {
 		margin-top: 0;
 	}
 }
-
 @media not screen and (min-width: 740px) {
 	.grid,
 	.pagination {
-		margin: 0 auto;
 		max-width: 400px;
 	}
 }
@@ -4893,7 +4895,6 @@ div#respond p.comment-subscription-form label {
 .widget_search ul ul > li > a:before,
 .widget_calendar ul ul > li > a:before {
 	content: "- " counters(submenu, "- ", none);
-	counter-increment: submenu;
 }
 
 .wordpress-default-widgets ul,
