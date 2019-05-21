@@ -108,7 +108,7 @@ if ( ! function_exists( 'patch_get_cats_list' ) ) :
 
 		$cats = '';
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( __( ', ', 'patch' ), '', $post_ID );
+		$categories_list = get_the_category_list( esc_html__( ', ', 'patch' ), '', $post_ID );
 		if ( $categories_list && patch_categorized_blog() ) {
 			$cats = '<span class="cat-links">' . $categories_list . '</span>';
 		}
@@ -272,7 +272,7 @@ function patch_card_meta ( $post_id = NULL ) {
 		if ( $comments_number == 0 ) {
 			$comments = esc_html__( 'No Comments', 'patch' );
 		} else {
-			$comments = sprintf( _n( '%d Comment', '%d Comments', $comments_number, 'patch' ), $comments_number );
+			$comments = sprintf( esc_html( _n( '%d Comment', '%d Comments', $comments_number, 'patch' ) ), $comments_number );
 		}
 		$meta['comments'] = '<a href="' . esc_url( get_comments_link() ) .'">' . esc_html( $comments ) . '</a>';
 	} else {
@@ -314,7 +314,7 @@ if ( ! function_exists( 'patch_entry_footer' ) ) :
 	 * Prints HTML with meta information for posts on archives.
 	 */
 	function patch_entry_footer() {
-		edit_post_link( __( 'Edit', 'patch' ), '<span class="edit-link">', '</span>' );
+		edit_post_link( esc_html__( 'Edit', 'patch' ), '<span class="edit-link">', '</span>' );
 	}
 
 endif;
@@ -331,22 +331,22 @@ if ( ! function_exists( 'patch_single_entry_footer' ) ) :
 			$tags_list = get_the_tag_list( '', ' ' );
 			if ( $tags_list ) {
 				/* translators: There is a space at the end */
-				echo '<span class="screen-reader-text">' . __( 'Tagged with: ', 'patch' ) . '</span><span class="tags-links">' . $tags_list . '</span>';
+				echo '<span class="screen-reader-text">' . esc_html__( 'Tagged with: ', 'patch' ) . '</span><span class="tags-links">' . $tags_list . '</span>';
 			}
 
 			// Author bio.
-			if ( ! get_theme_mod( 'patch_hide_author_bio', false ) ) {
+			if ( ! get_theme_mod( 'patch_hide_author_bio', false ) && ! empty( get_the_author_meta( 'description' ) ) ) {
 				get_template_part( 'author-bio' );
 			}
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link">';
-			comments_popup_link( __( 'Leave a comment', 'patch' ), __( '1 Comment', 'patch' ), __( '% Comments', 'patch' ) );
+			comments_popup_link( esc_html__( 'Leave a comment', 'patch' ), esc_html__( '1 Comment', 'patch' ), esc_html__( '% Comments', 'patch' ) );
 			echo '</span>';
 		}
 
-		edit_post_link( __( 'Edit', 'patch' ), '<span class="edit-link">', '</span>' );
+		edit_post_link( esc_html__( 'Edit', 'patch' ), '<span class="edit-link">', '</span>' );
 	} #function
 
 endif;
@@ -705,7 +705,7 @@ if ( ! function_exists( 'patch_post_excerpt' ) ) :
 		if ( $has_more ) {
 			/* translators: %s: Name of current post */
 			the_content( sprintf(
-				__( 'Continue reading %s', 'patch' ),
+				esc_html__( 'Continue reading %s', 'patch' ),
 				the_title( '<span class="screen-reader-text">', '</span>', false )
 			) );
 		} elseif ( has_excerpt( $post ) ) {
@@ -739,7 +739,7 @@ function patch_get_post_excerpt( $post_id = null ) {
 	if ( $has_more ) {
 		/* translators: %s: Name of current post */
 		$excerpt = get_the_content( sprintf(
-			__( 'Continue reading %s', 'patch' ),
+			esc_html__( 'Continue reading %s', 'patch' ),
 			the_title( '<span class="screen-reader-text">', '</span>', false )
 		) );
 	} else {
@@ -824,7 +824,7 @@ if ( ! function_exists( 'patch_secondary_page_title' ) ) :
 				<?php elseif ( is_search() ) : ?>
 
 					<header class="page-header entry-card">
-						<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'patch' ), get_search_query() ); ?></h1>
+						<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'patch' ), get_search_query() ); ?></h1>
 					</header><!-- .page-header -->
 
 				<?php endif; ?>
@@ -851,7 +851,7 @@ if ( ! function_exists( 'patch_the_image_navigation' ) ) :
 		} ?>
 
 		<nav class="navigation post-navigation" role="navigation">
-			<h5 class="screen-reader-text"><?php _e( 'Image navigation', 'patch' ); ?></h5>
+			<h5 class="screen-reader-text"><?php esc_html_e( 'Image navigation', 'patch' ); ?></h5>
 			<div class="attachment-navigation">
 				<?php
 				if ( $prev_image ) {
@@ -861,7 +861,7 @@ if ( ! function_exists( 'patch_the_image_navigation' ) ) :
 						<a href="<?php echo get_attachment_link( $prev_image->ID ); ?>" rel="prev">
 		                    <span class="navigation-item__content">
                                 <span class="post-thumb"><?php echo $prev_thumbnail; ?></span>
-                                <span class="navigation-item__name"><?php _e( 'Previous image', 'patch' ); ?></span>
+                                <span class="navigation-item__name"><?php esc_html_e( 'Previous image', 'patch' ); ?></span>
                                 <h3 class="post-title"><?php echo get_the_title( $prev_image->ID ); ?></h3>
 		                    </span>
 						</a>
@@ -876,7 +876,7 @@ if ( ! function_exists( 'patch_the_image_navigation' ) ) :
 						<a href="<?php echo get_attachment_link( $next_image->ID ); ?>" rel="prev">
 		                    <span class="navigation-item__content">
 	                                <span class="post-thumb"><?php echo $next_thumbnail; ?></span>
-	                                <span class="navigation-item__name"><?php _e( 'Next image', 'patch' ); ?></span>
+	                                <span class="navigation-item__name"><?php esc_html_e( 'Next image', 'patch' ); ?></span>
 	                                <h3 class="post-title"><?php echo get_the_title( $next_image->ID ); ?></h3>
 	                        </span>
 						</a>
@@ -1001,14 +1001,14 @@ if ( ! function_exists( 'patch_paging_nav' ) ) :
 		$format .= $wp_rewrite->using_permalinks() ? user_trailingslashit( $wp_rewrite->pagination_base . '/%#%', 'paged' ) : '?paged=%#%'; ?>
 
 		<nav class="pagination" role="navigation">
-			<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'patch' ); ?></h1>
+			<h1 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'patch' ); ?></h1>
 
 			<div class="nav-links">
 
 				<?php
 				//output a disabled previous "link" if on the fist page
 				if ( 1 == $paged ) {
-					echo '<span class="prev page-numbers disabled">' . __( 'Previous', 'patch' ) . '</span>';
+					echo '<span class="prev page-numbers disabled">' . esc_html__( 'Previous', 'patch' ) . '</span>';
 				}
 
 				//output the numbered page links
@@ -1018,14 +1018,14 @@ if ( ! function_exists( 'patch_paging_nav' ) ) :
 					'total'     => $wp_query->max_num_pages,
 					'current'   => $paged,
 					'prev_next' => true,
-					'prev_text' => __( 'Previous', 'patch' ),
-					'next_text' => __( 'Next', 'patch' ),
+					'prev_text' => esc_html__( 'Previous', 'patch' ),
+					'next_text' => esc_html__( 'Next', 'patch' ),
 					'add_args'  => array_map( 'urlencode', $query_args ),
 				) );
 
 				//output a disabled next "link" if on the last page
 				if ( $paged == $wp_query->max_num_pages ) {
-					echo '<span class="next page-numbers disabled">' . __( 'Next', 'patch' ) . '</span>';
+					echo '<span class="next page-numbers disabled">' . esc_html__( 'Next', 'patch' ) . '</span>';
 				} ?>
 
 			</div><!-- .nav-links -->

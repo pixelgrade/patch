@@ -216,17 +216,17 @@ function patch_modify_customify_options( $options ) {
 	 */
 	$options['sections'] = array_replace_recursive( $options['sections'], array(
 		'presets_section' => array(
-			'title'    => __( 'Style Presets', 'patch' ),
+			'title'    => esc_html__( 'Style Presets', 'patch' ),
 			'options' => array(
 				'theme_style'   => array(
 					'type'      => 'preset',
-					'label'     => __( 'Select a style:', 'patch' ),
-					'desc' => __( 'Conveniently change the design of your site with built-in style presets. Easy as pie.', 'patch' ),
+					'label'     => esc_html__( 'Select a style:', 'patch' ),
+					'desc' => esc_html__( 'Conveniently change the design of your site with built-in style presets. Easy as pie.', 'patch' ),
 					'default'   => 'patch',
 					'choices_type' => 'awesome',
 					'choices'  => array(
 						'patch' => array(
-							'label' => __( 'Patch', 'patch' ),
+							'label' => esc_html__( 'Patch', 'patch' ),
 							'preview' => array(
 								'color-text' => '#ffffff',
 								'background-card' => '#121012',
@@ -267,7 +267,7 @@ function patch_modify_customify_options( $options ) {
 
 
 						'adler' => array(
-							'label' => __( 'Adler', 'patch' ),
+							'label' => esc_html__( 'Adler', 'patch' ),
 							'preview' => array(
 								'color-text' => '#fff',
 								'background-card' => '#0e364f',
@@ -309,7 +309,7 @@ function patch_modify_customify_options( $options ) {
 						),
 
 						'royal' => array(
-							'label' => __( 'Royal', 'patch' ),
+							'label' => esc_html__( 'Royal', 'patch' ),
 							'preview' => array(
 								'color-text' => '#ffffff',
 								'background-card' => '#615375',
@@ -351,7 +351,7 @@ function patch_modify_customify_options( $options ) {
 						),
 
 						'queen' => array(
-							'label' => __( 'Queen', 'patch' ),
+							'label' => esc_html__( 'Queen', 'patch' ),
 							'preview' => array(
 								'color-text' => '#fbedec',
 								'background-card' => '#a33b61',
@@ -392,7 +392,7 @@ function patch_modify_customify_options( $options ) {
 							)
 						),
 						'carrot' => array(
-							'label' => __( 'Carrot', 'patch' ),
+							'label' => esc_html__( 'Carrot', 'patch' ),
 							'preview' => array(
 								'color-text' => '#ffffff',
 								'background-card' => '#df421d',
@@ -433,7 +433,7 @@ function patch_modify_customify_options( $options ) {
 							)
 						),
 						'velvet' => array(
-							'label' => __( 'Velvet', 'patch' ),
+							'label' => esc_html__( 'Velvet', 'patch' ),
 							'preview' => array(
 								'color-text' => '#ffffff',
 								'background-card' => '#282828',
@@ -482,7 +482,7 @@ function patch_modify_customify_options( $options ) {
 
 		// Header
 		'header_section' => array(
-			'title'    => __( 'Header', 'patch' ),
+			'title'    => esc_html__( 'Header', 'patch' ),
 			'options' => array(
 				'patch_header_options_customizer_tabs'        => array(
 					'type' => 'html',
@@ -613,7 +613,7 @@ function patch_modify_customify_options( $options ) {
 
 		// Main Content
 		'main_content_section' => array(
-			'title'    => __( 'Main Content', 'patch' ),
+			'title'    => esc_html__( 'Main Content', 'patch' ),
 			'options' => array(
 				'main_content_options_customizer_tabs'              => array(
 					'type' => 'html',
@@ -861,7 +861,7 @@ function patch_modify_customify_options( $options ) {
 				),
 				'accent_color'   => array(
 					'type'      => 'color',
-					'label'     => __( 'Accent Color', 'patch' ),
+					'label'     => esc_html__( 'Accent Color', 'patch' ),
 					'live' => true,
 					'default'   => SM_COLOR_PRIMARY,
 					'css'  => array(
@@ -1263,7 +1263,7 @@ function patch_modify_customify_options( $options ) {
 
 		// Footer
 		'footer_section' => array(
-			'title'    => __( 'Footer', 'patch' ),
+			'title'    => esc_html__( 'Footer', 'patch' ),
 			'options' => array(
 				'patch_footer_options_customizer_tabs'    => array(
 					'type' => 'html',
