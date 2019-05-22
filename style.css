@@ -1525,12 +1525,6 @@ p + .alignleft,
 p + .alignright {
 	margin-top: 0;
 }
-p > .alignleft:first-child,
-p > :first-child > .alignleft:first-child,
-p > .alignright:first-child,
-p > :first-child > .alignright:first-child {
-	margin-top: 0;
-}
 
 .alignleft {
 	float: left;
@@ -5770,7 +5764,8 @@ div#jp-post-flair {
 }
 
 .page-links {
-	font-weight: 400; 
+	clear: both; 
+	font-weight: 400;
 	margin: 2.5rem 0;
 }
 .page-links .current {
@@ -6190,4 +6185,8 @@ div#jp-post-flair {
 .entry-featured .play-button + div {
 	position: absolute !important;
 	right: 0;
+}
+
+abbr[title] {
+	text-decoration: none;
 }
