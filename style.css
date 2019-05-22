@@ -4895,6 +4895,7 @@ div#respond p.comment-subscription-form label {
 .widget_search ul ul > li > a:before,
 .widget_calendar ul ul > li > a:before {
 	content: "- " counters(submenu, "- ", none);
+	counter-increment: submenu;
 }
 
 .wordpress-default-widgets ul,
@@ -5769,7 +5770,7 @@ div#jp-post-flair {
 }
 
 .page-links {
-	font-weight: 400; 
+	clear: both; 
 	margin: 2.5rem 0;
 }
 .page-links .current {
