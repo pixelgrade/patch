@@ -229,7 +229,7 @@ add_action( 'widgets_init', 'patch_widgets_init' );
  */
 function patch_scripts() {
 	//FontAwesome Stylesheet
-	wp_enqueue_style( 'font-awesome-style', get_template_directory_uri() . '/assets/css/font-awesome.css', array(), '4.3.0' );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.css', array(), '4.3.0' );
 
 	//Main Stylesheet
 	wp_enqueue_style( 'patch-style', get_template_directory_uri() . '/style.css', array( 'font-awesome-style' ) );
