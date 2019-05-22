@@ -95,15 +95,15 @@
 
 	}
 
-	> li {
-
-		@include query-above($lap) {
-			float: left;
-			width: 50%;
-			padding-right: 10px;
-		}
-
-	}
+	//> li {
+	//
+	//	@include query-above($lap) {
+	//		float: left;
+	//		width: 50%;
+	//		padding-right: 10px;
+	//	}
+	//
+	//}
 
 	a {
 		@extend .light;
@@ -460,7 +460,7 @@
 		.nav--main > li {
 			float: left;
 			width: 100%;
-			margin-bottom: 20px;
+			margin-bottom: 10px;
 		}
 	}
 }

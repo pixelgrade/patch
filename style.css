@@ -3418,13 +3418,6 @@ button.mfp-arrow-right {
 	box-shadow: white 0 24px inset;
 	box-shadow: var(--box-shadow-color) 0 24px inset;
 }
-@media only screen and (min-width: 900px) {
-	.nav--main > li {
-		float: left;
-		padding-right: 10px; 
-		width: 50%;
-	}
-}
 .nav--main a {
 	display: block;
 	letter-spacing: 0.06em;
@@ -3744,7 +3737,7 @@ button.mfp-arrow-right {
 	.page .nav--main > li,
 	.no-posts .nav--main > li {
 		float: left;
-		margin-bottom: 20px; 
+		margin-bottom: 10px; 
 		width: 100%;
 	}
 }
