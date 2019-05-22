@@ -4648,7 +4648,12 @@ div#respond p.comment-subscription-form label {
 	list-style-type: none;
 }
 .widget select {
+	border-radius: 0;
+	height: 34px;
 	max-width: 100%;
+	padding: 8px 12px;
+
+	-webkit-appearance: none;
 }
 
 .widget-title {
