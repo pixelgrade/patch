@@ -70,10 +70,10 @@ img {
         margin-top: 0;
     }
 
-    p > &:first-child,
-    p > :first-child > &:first-child {
-        margin-top: 0; 
-    }
+    //p > &:first-child,
+    //p > :first-child > &:first-child {
+    //    margin-top: 0;
+    //}
 }
 
 .alignleft {

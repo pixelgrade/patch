@@ -738,12 +738,6 @@ p + .alignright,
 p + .wp-caption.alignright {
 	margin-top: 0;
 }
-p > .alignleft:first-child,
-p > :first-child > .alignleft:first-child,
-p > .alignright:first-child,
-p > :first-child > .alignright:first-child {
-	margin-top: 0;
-}
 
 .alignleft,
 .wp-caption.alignleft {
