@@ -3548,6 +3548,12 @@ button.mfp-arrow-right {
 	}
 }
 
+@media not screen and (min-width: 900px) {
+	.main-navigation li:hover > ul {
+		display: block;
+	}
+}
+
 @media screen and (max-width: 600px) {
 	.grid.grid {
 		position: static;
