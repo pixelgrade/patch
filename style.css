@@ -4672,13 +4672,7 @@ div#respond p.comment-subscription-form label {
 .widget_pages > ul > li,
 .widget_meta > ul > li,
 .widget_archive > ul > li {
-	display: inline-block;
 	font-size: 13px;
-	overflow: hidden;
-	padding-right: 12px;
-	text-overflow: ellipsis; 
-	white-space: nowrap;
-	width: 50%;
 }
 .widget_categories > ul > li a,
 .widget_pages > ul > li a,
@@ -6042,7 +6036,8 @@ div#jp-post-flair {
 @media only screen and (min-width: 900px) {
 	.sidebar {
 		float: left;
-		padding-right: 0; 
+		margin-top: 24px; 
+		padding-right: 0;
 		width: 220px;
 		z-index: 5;
 	}

@@ -58,14 +58,7 @@
 		font-size: 0;
 
 		> li {
-			display: inline-block;
-			width: 50%;
-			overflow: hidden;
-			padding-right: $gutter/2;
-
 			font-size: 13px;
-			white-space: nowrap;
-			text-overflow: ellipsis;
 
 			a {
 				display: inline;
