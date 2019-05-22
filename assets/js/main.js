@@ -601,67 +601,6 @@ if (!Date.now)
             init: init
         }
 
-        var HandleParentMenuItems = (function() {
-            // Handle parent menu items on tablet in landscape mode;
-            // use case: normal, horizontal menu, touch events,
-            // sub menus are not visible.
-            function handleParentMenuItems() {
-                // Make sure there are no open menu items
-                $('[class*="has-children"]').removeClass('hover');
-
-                $('[class*="has-children"] > a').each(function() {
-                    // Add a class so we know the items to handle
-                    $(this).addClass('prevent-one').attr('hasbeenclicked', false);
-                });
-
-                $('a.prevent-one').on('click', function(e) {
-                    if ($(this).attr('hasbeenclicked') == "false") {
-                        e.preventDefault();
-                        e.stopPropagation();
-
-                        $(this).attr('hasbeenclicked', true);
-
-                        // Open the sub menu of this parent item
-                        $(this).parent().addClass('hover')
-                            // When a parent menu item is activated,
-                            // close other menu items on the same level
-                            .siblings().removeClass('hover').find('> a.prevent-one').attr('hasbeenclicked', false);
-                    }
-                });
-            }
-
-            // Restore the original behaviour when in portrait mode;
-            // use case: vertical menu, all menu items are visible.
-            function unHandleParentMenuItems() {
-                $('a.prevent-one').each(function() {
-                    // Unbind te click handler
-                    $(this).unbind();
-                });
-            }
-
-            // When a sub menu is open, close it by a touch on
-            // any other part of the viewport than navigation.
-            // use case: normal, horizontal menu, touch events,
-            // sub menus are not visible.
-            function bindOuterNavClick() {
-                $('body').on('touchstart', function(e) {
-                    var container = $('.nav--main');
-
-                    if (!container.is(e.target) // if the target of the click isn't the container...
-                        &&
-                        container.has(e.target).length === 0) // ... nor a descendant of the container
-                    {
-                        $('[class*="has-children"]').removeClass('hover');
-                        $('a.prevent-one').attr('hasbeenclicked', false);
-                    }
-                });
-            }
-
-            return {
-                handle: handleParentMenuItems,
-            }
-        }());
-
     })();
 
     // /* ====== Search Overlay Logic ====== */
