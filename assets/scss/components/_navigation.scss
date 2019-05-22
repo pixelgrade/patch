@@ -260,6 +260,12 @@
 			display: none;
 		}
 	}
+
+	li:hover > ul {
+		@include query-below($lap) {
+			display: block;
+		}
+	}
 }
 
 @media screen and (max-width: 600px) {
