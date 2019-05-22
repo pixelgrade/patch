@@ -4655,12 +4655,17 @@ div#respond p.comment-subscription-form label {
 	list-style-type: none;
 }
 .widget select {
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAh0lEQVQ4T93TMQrCUAzG8V9x8QziiYSuXdzFC7h4AcELOPQAdXYovZCHEATlgQV5GFTe1ozJlz/kS1IpjKqw3wQBVyy++JI0y1GTe7DCBbMAckeNIQKk/BanALBB+16LtnDELoMcsM/BESDlz2heDR3WePwKSLo5eoxz3z6NNcFD+vu3ij14Aqz/DxGbKB7CAAAAAElFTkSuQmCC");
+	background-position: right 0.7em top 50%; 
+	background-repeat: no-repeat, repeat;
 	border-radius: 0;
 	height: 34px;
+	line-height: 1;
 	max-width: 100%;
 	padding: 8px 12px;
 
 	-webkit-appearance: none;
+	-moz-appearance: none;
 }
 
 .widget-title {
