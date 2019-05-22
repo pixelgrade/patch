@@ -232,7 +232,7 @@ function patch_scripts() {
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.css', array(), '4.3.0' );
 
 	//Main Stylesheet
-	wp_enqueue_style( 'patch-style', get_template_directory_uri() . '/style.css', array( 'font-awesome-style' ) );
+	wp_enqueue_style( 'patch-style', get_template_directory_uri() . '/style.css', array( 'font-awesome' ) );
 
 	//Default Fonts
 	wp_enqueue_style( 'patch-fonts', patch_fonts_url(), array(), null );
