@@ -372,7 +372,9 @@ input[type="submit"],
 .comment .comment-reply-title a,
 :first-child:not(input) ~ .form-submit #submit,
 .jetpack_subscription_widget input[type="submit"],
+.jetpack_subscription_widget button[type="submit"],
 .widget_blog_subscription input[type="submit"],
+.widget_blog_subscription button[type="submit"],
 .search-form .search-submit,
 .overlay--search .search-form,
 .overlay--search .search-field,
@@ -4827,7 +4829,9 @@ div#respond p.comment-subscription-form label {
 }
 
 .jetpack_subscription_widget input[type="submit"],
-.widget_blog_subscription input[type="submit"] {
+.jetpack_subscription_widget button[type="submit"],
+.widget_blog_subscription input[type="submit"],
+.widget_blog_subscription button[type="submit"] {
 	background-color: #ffde00;
 	border: 1px solid white;
 	color: #171617;
