@@ -6065,6 +6065,10 @@ div#jp-post-flair {
 	box-shadow: var(--box-shadow-color) 0 0.8em inset;
 }
 
+.sidebar p {
+	margin-bottom: 1.25rem;
+}
+
 @media only screen and (min-width: 900px) {
 	.has--fixed-sidebar .site-header,
 	.has--fixed-sidebar .sidebar {
