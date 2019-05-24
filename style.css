@@ -4821,9 +4821,10 @@ div#respond p.comment-subscription-form label {
 .jetpack_subscription_widget #subscribe-email input,
 .widget_blog_subscription #subscribe-email input {
 	background: white;
-	border: 2px solid #d7d7d7;
+	border: 0;
 	color: #171617; 
-	height: 36px;
+	font-size: inherit;
+	height: 32px;
 	padding: 0 9px;
 	width: 100%;
 }
@@ -4833,7 +4834,7 @@ div#respond p.comment-subscription-form label {
 .widget_blog_subscription input[type="submit"],
 .widget_blog_subscription button[type="submit"] {
 	background-color: #ffde00;
-	border: 1px solid white;
+	border: 0;
 	color: #171617;
 	font-size: 14px;
 	font-weight: 400;
