@@ -216,7 +216,8 @@
 		color: $dark;
 	}
 
-	input[type='submit']{
+	input[type='submit'],
+	button[type='submit']{
 		@extend %beta;
 
 		height: 32px;
