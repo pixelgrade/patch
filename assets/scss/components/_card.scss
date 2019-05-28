@@ -819,9 +819,11 @@ $cards-gutter: $gutter;
 // TALL
 .entry-card--portrait,
 .entry-card--tall {
-	.entry-title {
-		@extend %ls-0-02;
-		font-weight: bold;
+	.entry-header {
+		.entry-title {
+			@extend %ls-0-02;
+			font-weight: bold;
+		}
 	}
 
 	.entry-header--short .entry-title {

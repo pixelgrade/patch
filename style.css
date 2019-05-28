@@ -425,8 +425,8 @@ h2,
 	letter-spacing: 0.04em;
 }
 
-.entry-card--portrait .entry-title,
-.entry-card--tall .entry-title {
+.entry-card--portrait .entry-header .entry-title,
+.entry-card--tall .entry-header .entry-title {
 	letter-spacing: 0.02em;
 }
 
@@ -3046,8 +3046,8 @@ button.mfp-arrow-right {
 	font-weight: normal;
 }
 
-.entry-card--portrait .entry-title,
-.entry-card--tall .entry-title {
+.entry-card--portrait .entry-header .entry-title,
+.entry-card--tall .entry-header .entry-title {
 	font-weight: bold;
 }
 
