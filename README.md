@@ -5,6 +5,9 @@
 
 ![GitHub closed issues](https://img.shields.io/github/issues-closed/pixelgrade/patch.svg?color=6cc644&label=Issues) ![GitHub issues](https://img.shields.io/github/issues/pixelgrade/patch.svg?color=4078c0&label=%20)
 
+<img width="834" alt="patch-github" src="https://user-images.githubusercontent.com/1632775/60960185-34acf600-a312-11e9-9841-c3962527640f.png">
+
+
 ## Contributing
 The essence of **open source** is that by freely sharing the code, you have the freedom to use it for any purpose, study how it works and adapt it to your needs, improve the program and share your improvements with the community so that we all benefit. 🙏
 
