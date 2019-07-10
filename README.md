@@ -1,5 +1,5 @@
-# PATCH - An Algorithmic Blog WordPress Theme
-### Patch is a newspaper-inspired theme that seamlessly generates the right layout for your posts, enhancing their unique character while keeping them in harmony with the rest of your homepage.
+# Patch: An Algorithmic Blog WordPress Theme
+### Patch is a newspaper-inspired WordPress theme that seamlessly generates the right layout for your posts, enhancing their unique character while keeping them in harmony with the rest of your homepage.
 
 [Presentation](https://pixelgrade.com/themes/patch/) · [Demo Preview](https://pixelgrade.com/themes/patch/preview/?market_ref=github) · [Documentation](http://pixelgrade.com/docs/patch) · [Changelog](http://wupdates.com/patch-changelog)
 
@@ -16,10 +16,9 @@ It's great if you're willing to use your skills, knowledge, and experience to he
 - **Need a feature?** Propose it [here](https://github.com/pixelgrade/patch/issues/new "here"). Please take a moment to find out whether your idea fit the wider scope of this theme and provide as much detail and context as possible.
 - **Have you made something great?** [Share](https://github.com/pixelgrade/patch/issues/new "Share") it with us.
 
-Please do not 
-
 ### Contributors
 A manually curated list that include all the valuable people that have contributed to this project with code, user testing, feedback, or mockups. Thank you!
+
 [![](https://github.com/georgeolaru.png?size=64)](https://github.com/georgeolaru) [![](https://github.com/vladolaru.png?size=64)](https://github.com/vladolaru) [![](https://github.com/razwan.png?size=64)](https://github.com/razwan)  [![](https://github.com/alinclamba.png?size=64)](https://github.com/alinclamba) [![](https://github.com/oanafilip.png?size=64)](https://github.com/oanafilip)  [![](https://github.com/andreilupu.png?size=64)](https://github.com/andreilupu)  [![](https://github.com/cristian-frumusanu.png?size=64)](https://github.com/cristian-frumusanu) [![](https://github.com/madalingorbanescu.png?size=64)](https://github.com/madalingorbanescu) [![](https://github.com/BurloiuCosmin.png?size=64)](https://github.com/BurloiuCosmin) [![](https://github.com/raduconst.png?size=64)](https://github.com/raduconst)  [![](https://github.com/Alexandru-Teodorescu.png?size=64)](https://github.com/Alexandru-Teodorescu) [![](https://github.com/Robertght.png?size=64)](https://github.com/Robertght)  [![](https://github.com/ilincaroman.png?size=64)](https://github.com/ilincaroman) [![](https://github.com/allexsava.png?size=64)](https://github.com/allexsava)
 
 ## Usage
