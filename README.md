@@ -1,7 +1,7 @@
 # Patch: An Algorithmic Blog WordPress Theme
 ### Patch is a newspaper-inspired WordPress theme that seamlessly generates the right layout for your posts, enhancing their unique character while keeping them in harmony with the rest of your homepage.
 
-[Presentation](https://pixelgrade.com/themes/patch/) &nbsp;·&nbsp; [Demo Preview](https://pixelgrade.com/themes/patch/preview/?market_ref=github) &nbsp;·&nbsp; [Documentation](http://pixelgrade.com/docs/patch) &nbsp;·&nbsp; [Changelog](http://wupdates.com/patch-changelog)
+[Theme Presentation](https://pixelgrade.com/themes/patch/) &nbsp;·&nbsp; [Demo Preview](https://pixelgrade.com/themes/patch/preview/?market_ref=github) &nbsp;·&nbsp; [Documentation](http://pixelgrade.com/docs/patch) &nbsp;·&nbsp; [Changelog](http://wupdates.com/patch-changelog)
 
 [![](https://img.shields.io/github/issues-closed/pixelgrade/patch.svg?color=6cc644&label=Issues)](https://github.com/pixelgrade/patch/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aclosed+) [![](https://img.shields.io/github/issues/pixelgrade/patch.svg?color=4078c0&label=%20)](https://github.com/pixelgrade/patch/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen)
 
@@ -13,10 +13,10 @@ The essence of **open source** is that by freely sharing the code, you have the 
 It's great if you're willing to use your skills, knowledge, and experience to help further refine this project with your own improvements. We really appreciate it and you're 💯 welcome to submit an issue or pull request on any topic.
 
 ### How can you help?
-- **Discovered an issue?** Please report it [here](https://github.com/pixelgrade/patch/issues/new "here") and help us fix it.
-- **Fixed a bug?** That’s fantastic! Send a [pull request](https://github.com/pixelgrade/patch/pulls "pull request") and we will look over it.
-- **Need a feature?** Propose it [here](https://github.com/pixelgrade/patch/issues/new "here"). Please take a moment to find out whether your idea fit the wider scope of this theme and provide as much detail and context as possible.
-- **Have you made something great?** [Share](https://github.com/pixelgrade/patch/issues/new "Share") it with us.
+-  🕵️‍♀️ **Discovered an issue?** Please report it [here](https://github.com/pixelgrade/patch/issues/new "here") and help us fix it.
+- 🛠 **Fixed a bug?** That’s fantastic! Send a [pull request](https://github.com/pixelgrade/patch/pulls "pull request") and we will look over it.
+- 🔮 **Need a feature?** Please take a moment to find out whether your idea fit the wider scope of this theme and provide as much detail and context as possible. Then propose it [here](https://github.com/pixelgrade/patch/issues/new).
+- 💎 **Have you made something great?** [Share](https://github.com/pixelgrade/patch/issues/new "Share") it with us.
 
 ### Contributors
 A manually curated list that include all the valuable people that have contributed to this project with code, user testing, feedback, or mockups. Thank you!
