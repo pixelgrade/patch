@@ -1,43 +1,30 @@
-PATCH
-======
+# PATCH - An Unconventional Newspaper-Like WordPress Theme
+### Patch is a newspaper-inspired theme that seamlessly generates the right layout for your posts, enhancing their unique character while keeping them in harmony with the rest of your homepage.
 
-This is the working repo for our WordPress.com theme Patch.
+[Presentation](https://pixelgrade.com/themes/patch/) · [Demo Preview](https://pixelgrade.com/themes/patch/preview/?market_ref=github) · [Documentation](http://pixelgrade.com/docs/patch) · [Changelog](http://wupdates.com/patch-changelog)
 
-Getting Started
---------
+## Contributing
+The essence of **open source** is that by freely sharing the code, you have the freedom to use it for any purpose, study how it works and adapt it to your needs, improve the program and share your improvements with the community so that we all benefit. 🙏
 
-First some prep work:
+It's great if you're willing to use your skills, knowledge, and experience to help further refine this project with your own improvements. We really appreciate it and you're 💯 welcome to submit an issue or pull request on any topic.
 
-1. Make local clones of both this Git repo and the SVN repo, into separate directories (if you haven't got them already - make sure they are up to date though):
-```
-git clone  https://github.com/pixelgrade/patch.git patch-git
-svn co https://ext-premium-themes.svn.automattic.com/patch patch-svn
-```
-2. Copy all the contents of the SVN directory (including the all important `.svn` hidden folder) **into** the Git directory:
-`cp -R patch-svn/ patch-git/`
-3. Make sure that you ignore the .svn directory on Git (add a new line into `patch-git/.gitignore` containing `.svn`)
-4. You can now delete the previously cloned SVN repo as we now have a 2-in-1 directory that is both a Git repo and SVN repo:
-`rm -Rf patch-svn`
-5. Test that everything is working accordingly (everything should be up-to-date):
-```
-cd patch-git
-git status
-svn status
-```
+### How can you help?
+- **Discovered an issue?** Please report it [here](https://github.com/pixelgrade/patch/issues/new "here").
+- **Fixed a bug?** Good pull requests (patches, improvements, new features) are a fantastic help.  Send a [pull request](https://github.com/pixelgrade/patch/pulls "pull request").
+- **Need a feature?** Propose it [here](https://github.com/pixelgrade/patch/issues/new "here"). Please take a moment to find out whether your idea fit the wider scope of this theme and provide as much detail and context as possible.
+- **Have you made something great?** [Share](https://github.com/pixelgrade/patch/issues/new "Share") it with us.
 
-Now that you have a working directory, **all work** will be done on Git/Github. The SVN side of things will **only** be used to make genuine commits to WordPress.com to be reviewed and hopefully accepted by the theme wranglers.
+Please do not 
 
-Workflow
--------
+### Contributors
+A manually curated list that include all the valuable people that have contributed to this project with code, user testing, feedback, or mockups. Thank you!
+[![](https://github.com/georgeolaru.png?size=64)](https://github.com/georgeolaru) [![](https://github.com/vladolaru.png?size=64)](https://github.com/vladolaru) [![](https://github.com/razwan.png?size=64)](https://github.com/razwan)  [![](https://github.com/alinclamba.png?size=64)](https://github.com/alinclamba) [![](https://github.com/oanafilip.png?size=64)](https://github.com/oanafilip)  [![](https://github.com/andreilupu.png?size=64)](https://github.com/andreilupu)  [![](https://github.com/cristian-frumusanu.png?size=64)](https://github.com/cristian-frumusanu) [![](https://github.com/madalingorbanescu.png?size=64)](https://github.com/madalingorbanescu) [![](https://github.com/BurloiuCosmin.png?size=64)](https://github.com/BurloiuCosmin) [![](https://github.com/raduconst.png?size=64)](https://github.com/raduconst)  [![](https://github.com/Alexandru-Teodorescu.png?size=64)](https://github.com/Alexandru-Teodorescu) [![](https://github.com/Robertght.png?size=64)](https://github.com/Robertght)  [![](https://github.com/ilincaroman.png?size=64)](https://github.com/ilincaroman) [![](https://github.com/allexsava.png?size=64)](https://github.com/allexsava)
 
-So let me walk you through the workflow we have envisioned for the hybrid Git - SVN:
-- All work will be done on branches (no code edits and/or commits to the master *patch* branch)
-- Each branch will represent a separate, independent feature and/or fix/improvement
-- More then one can work at once on a branch
-- Once all the people working on a branch agree that it is finished, a *pull request* will be made to be merged with the *master*
-- The pull request message will feature all the work that has been done (this message will be used as the SVN commit message)
-- Preferably only a few people will handle pull requests
-- The one that handles a pull request will do a code review and accept or reject it as further work is needed
-- The one that accepts a pull request will **do the commit to the SVN repo** and **delete the branch** (use `git pull --prune` locally to sync your local branches with the one deleted on GitHub)
+## Usage
+- For development and commercial evaluation usage, just download and use it.
+- If you use the theme in any other way, please make a purchase from [Pixelgrade](https://pixelgrade.com/ "Pixelgrade") site.
 
-That's it. Simple right?!
+## License
+Rosa source code is released under the [GNU GPL v3 license](https://www.gnu.org/licenses/gpl-3.0.html).
+
+2019 © Pixelgrade.
