@@ -18,6 +18,7 @@ Please do not
 
 ### Contributors
 A manually curated list that include all the valuable people that have contributed to this project with code, user testing, feedback, or mockups. Thank you!
+
 [![](https://github.com/georgeolaru.png?size=64)](https://github.com/georgeolaru) [![](https://github.com/vladolaru.png?size=64)](https://github.com/vladolaru) [![](https://github.com/razwan.png?size=64)](https://github.com/razwan)  [![](https://github.com/alinclamba.png?size=64)](https://github.com/alinclamba) [![](https://github.com/oanafilip.png?size=64)](https://github.com/oanafilip)  [![](https://github.com/andreilupu.png?size=64)](https://github.com/andreilupu)  [![](https://github.com/cristian-frumusanu.png?size=64)](https://github.com/cristian-frumusanu) [![](https://github.com/madalingorbanescu.png?size=64)](https://github.com/madalingorbanescu) [![](https://github.com/BurloiuCosmin.png?size=64)](https://github.com/BurloiuCosmin) [![](https://github.com/raduconst.png?size=64)](https://github.com/raduconst)  [![](https://github.com/Alexandru-Teodorescu.png?size=64)](https://github.com/Alexandru-Teodorescu) [![](https://github.com/Robertght.png?size=64)](https://github.com/Robertght)  [![](https://github.com/ilincaroman.png?size=64)](https://github.com/ilincaroman) [![](https://github.com/allexsava.png?size=64)](https://github.com/allexsava)
 
 ## Usage
