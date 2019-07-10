@@ -1,7 +1,7 @@
 # Patch: An Algorithmic Blog WordPress Theme
 ### Patch is a newspaper-inspired WordPress theme that seamlessly generates the right layout for your posts, enhancing their unique character while keeping them in harmony with the rest of your homepage.
 
-↬ [Presentation](https://pixelgrade.com/themes/patch/) · [Demo Preview](https://pixelgrade.com/themes/patch/preview/?market_ref=github) · [Documentation](http://pixelgrade.com/docs/patch) · [Changelog](http://wupdates.com/patch-changelog)
+[Presentation](https://pixelgrade.com/themes/patch/) &nbsp;·&nbsp; [Demo Preview](https://pixelgrade.com/themes/patch/preview/?market_ref=github) &nbsp;·&nbsp; [Documentation](http://pixelgrade.com/docs/patch) &nbsp;·&nbsp; [Changelog](http://wupdates.com/patch-changelog)
 
 [![](https://img.shields.io/github/issues-closed/pixelgrade/patch.svg?color=6cc644&label=Issues)](https://github.com/pixelgrade/patch/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aclosed+) [![](https://img.shields.io/github/issues/pixelgrade/patch.svg?color=4078c0&label=%20)](https://github.com/pixelgrade/patch/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen)
 
