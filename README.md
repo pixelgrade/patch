@@ -28,6 +28,6 @@ A manually curated list that include all the valuable people that have contribut
 - If you use the theme in any other way, please make a purchase from [Pixelgrade](https://pixelgrade.com/ "Pixelgrade") site.
 
 ## License
-Rosa source code is released under the [GNU GPL v3 license](https://www.gnu.org/licenses/gpl-3.0.html).
+Patch source code is released under the [GNU GPL v3 license](https://www.gnu.org/licenses/gpl-3.0.html).
 
 2019 © Pixelgrade.
