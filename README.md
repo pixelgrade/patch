@@ -3,10 +3,10 @@
 
 [Presentation](https://pixelgrade.com/themes/patch/) · [Demo Preview](https://pixelgrade.com/themes/patch/preview/?market_ref=github) · [Documentation](http://pixelgrade.com/docs/patch) · [Changelog](http://wupdates.com/patch-changelog)
 
----
-
 [![](https://img.shields.io/github/issues-closed/pixelgrade/patch.svg?color=6cc644&label=Issues)](https://github.com/pixelgrade/patch/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aclosed+) [![](https://img.shields.io/github/issues/pixelgrade/patch.svg?color=4078c0&label=%20)](https://github.com/pixelgrade/patch/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen)
-![Item](https://user-images.githubusercontent.com/1632775/60961825-a76ba080-a315-11e9-83b0-db23588c808b.png)
+
+[![](https://user-images.githubusercontent.com/1632775/60968500-e7d31a80-a325-11e9-978a-9220581f992f.jpg](https://pixelgrade.com/themes/patch/)
+
 ## Contributing
 The essence of **open source** is that by freely sharing the code, you have the freedom to use it for any purpose, study how it works and adapt it to your needs, improve the program and share your improvements with the community so that we all benefit. 🙏
 
