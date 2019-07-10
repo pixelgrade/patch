@@ -5,7 +5,7 @@
 
 ![GitHub closed issues](https://img.shields.io/github/issues-closed/pixelgrade/patch.svg?color=6cc644&label=Issues) ![GitHub issues](https://img.shields.io/github/issues/pixelgrade/patch.svg?color=4078c0&label=%20)
 
-<img width="834" alt="patch-github" src="https://user-images.githubusercontent.com/1632775/60960185-34acf600-a312-11e9-9841-c3962527640f.png">
+![patch-github2](https://user-images.githubusercontent.com/1632775/60961485-f6650600-a314-11e9-82e7-45dfdafbce4f.png)
 
 
 ## Contributing
