@@ -62,11 +62,16 @@
 
 
 .nav--main {
-	@extend .clearfix;
 	@extend %beta;
 	font-size: 24px;
 	line-height: 1.5;
 	margin-bottom: $gutter;
+
+	@include query-above($lap) {
+		display: grid;
+		grid-template-columns: repeat(2, auto);
+		grid-column-gap: 10px;
+	}
 
 	.single &, .page:not(.entry-card) & {
 		margin-bottom: 8px;
@@ -95,16 +100,6 @@
 
 	}
 
-	> li {
-
-		@include query-above($lap) {
-			float: left;
-			width: 50%;
-			padding-right: 10px;
-		}
-
-	}
-
 	a {
 		@extend .light;
 		position: relative;
@@ -116,25 +111,6 @@
 		@include query-above($lap) {
 			display: inline !important;
 		}
-	}
-
-	.menu-item-has-children {
-		padding-right: .5em;
-
-		> a {
-
-			//&:after {
-			//	content: "+";
-			//	// this caused the + icon to
-			//	// be misplaced on two-line
-			//	// menu items
-			//	// position: absolute;
-			//	// top: -0.1em;
-			//	// left: 100%;
-			//	margin-left: 0.25em;
-			//}
-		}
-
 	}
 
 	// Sub menus

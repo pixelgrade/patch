@@ -547,8 +547,10 @@ img {
 @media only screen and (min-width: 870px) {
 	.twocolumn {
 		-webkit-column-count: 2;
+		-moz-column-count: 2;
 		column-count: 2;
 		-webkit-column-gap: 40px;
+		-moz-column-gap: 40px;
 		column-gap: 40px;
 	}
 }
@@ -636,42 +638,27 @@ img {
 	}
 }
 .archive__grid .aligncenter,
-.archive__grid
-  .alignnone,
-.archive__grid
-  .alignleft,
-.archive__grid
-  .alignright {
+.archive__grid .alignnone,
+.archive__grid .alignleft,
+.archive__grid .alignright {
 	margin-bottom: 0;
 }
 .widget .aligncenter,
 .blog .aligncenter,
 .archive .aligncenter,
 .search .aligncenter,
-.widget
-  .alignnone,
-.blog
-  .alignnone,
-.archive
-  .alignnone,
-.search
-  .alignnone,
-.widget
-  .alignleft,
-.blog
-  .alignleft,
-.archive
-  .alignleft,
-.search
-  .alignleft,
-.widget
-  .alignright,
-.blog
-  .alignright,
-.archive
-  .alignright,
-.search
-  .alignright {
+.widget .alignnone,
+.blog .alignnone,
+.archive .alignnone,
+.search .alignnone,
+.widget .alignleft,
+.blog .alignleft,
+.archive .alignleft,
+.search .alignleft,
+.widget .alignright,
+.blog .alignright,
+.archive .alignright,
+.search .alignright {
 	margin: 0;
 }
 
@@ -718,6 +705,7 @@ img {
 	max-width: 100%;
 }
 
+
 .alignleft,
 .wp-caption.alignleft,
 .alignright,
@@ -739,6 +727,7 @@ p + .wp-caption.alignright {
 	margin-top: 0;
 }
 
+
 .alignleft,
 .wp-caption.alignleft {
 	float: left;
@@ -750,6 +739,7 @@ p + .wp-caption.alignright {
 		margin-left: -72px;
 	}
 }
+
 
 .alignright,
 .wp-caption.alignright {
@@ -768,6 +758,7 @@ p + .wp-caption.alignright {
 	.wp-caption.alignleft {
 		margin-right: 1.05rem;
 	}
+
 	.alignright,
 	.wp-caption.alignright {
 		margin-left: 1.05rem;
