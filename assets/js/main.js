@@ -1105,10 +1105,14 @@ if (!Date.now)
     }
 
     function resizeSiteTitle() {
-        var $siteTitle = $('.site-title');
+        var $siteTitle = $('.site-title'),
+            $siteTitleWidth = $siteTitle.find('a').outerWidth(),
+            $siteHeaderWidth = $('.site-header').width();
 
         if ($siteTitle.length) {
-            $siteTitle.fitText();
+            if ($siteTitleWidth > $siteHeaderWidth) {
+                $siteTitle.fitText();
+            }
         }
     }
 
