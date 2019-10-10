@@ -134,3 +134,11 @@ function unwrapBlockImages() {
     $figure.unwrap();
   });
 }
+
+function resizeSiteTitle() {
+  var $siteTitle = $('.site-title');
+
+  if($siteTitle.length) {
+      $siteTitle.fitText();
+  }
+}

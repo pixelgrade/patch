@@ -917,6 +917,7 @@ if (!Date.now)
     function init() {
         browserSize();
         platformDetect();
+        resizeSiteTitle();
         masonry.refresh();
         reorderSingleFooter();
     }
@@ -942,6 +943,7 @@ if (!Date.now)
 
     function onResize() {
         browserSize();
+        resizeSiteTitle();
         masonry.refresh();
         Sidebar.init();
     }
@@ -1100,6 +1102,14 @@ if (!Date.now)
 
             $figure.unwrap();
         });
+    }
+
+    function resizeSiteTitle() {
+        var $siteTitle = $('.site-title');
+
+        if ($siteTitle.length) {
+            $siteTitle.fitText();
+        }
     }
 
 })(jQuery);
