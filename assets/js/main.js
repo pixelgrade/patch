@@ -920,6 +920,7 @@ if (!Date.now)
         resizeSiteTitle();
         masonry.refresh();
         reorderSingleFooter();
+        resizeSiteTitleCustomizer();
     }
 
     // /* ====== ON WINDOW LOAD ====== */
@@ -1105,17 +1106,28 @@ if (!Date.now)
     }
 
     function resizeSiteTitle() {
-        var $siteTitle = $('.site-title'),
-            $siteTitleWidth = $('.site-title > a').outerWidth(),
-            $siteHeaderWidth = $('.site-header').width();
+        var $siteTitle = $('.site-title');
+
+        $siteTitle.css('fontSize', '');
+
+        var siteTitleWidth = $('.site-title > a').outerWidth(),
+            siteHeaderWidth = $('.site-branding').width(),
+            siteTitleFontSize = parseInt($siteTitle.css('fontSize'), 10);
 
         if ($siteTitle.length) {
-            if ($siteTitleWidth > $siteHeaderWidth) {
-                $siteTitle.fitText(1.2, {
-                    minFontSize: '60px',
-                    maxFontSize: '70px'
-                });
+            if (siteTitleWidth > siteHeaderWidth) {
+                var newFontSize = siteTitleFontSize * siteHeaderWidth / siteTitleWidth;
+                $siteTitle.css('fontSize', newFontSize);
             }
+        }
+    }
+
+    function resizeSiteTitleCustomizer() {
+        if (typeof wp !== "undefined" && typeof wp.customize !== "undefined") {
+            if (typeof wp.customize.selectiveRefresh !== "undefined") {
+                wp.customize.selectiveRefresh.bind('partial-content-rendered', resizeSiteTitle);
+            }
+            wp.customize.bind('change', resizeSiteTitle);
         }
     }
 

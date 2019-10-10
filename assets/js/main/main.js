@@ -10,6 +10,7 @@ function init() {
   resizeSiteTitle();
   masonry.refresh();
   reorderSingleFooter();
+  resizeSiteTitleCustomizer();
 }
 
 // /* ====== ON WINDOW LOAD ====== */
