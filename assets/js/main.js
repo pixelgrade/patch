@@ -1109,12 +1109,12 @@ if (!Date.now)
             $siteTitleWidth = $('.site-title > a').outerWidth(),
             $siteHeaderWidth = $('.site-header').width();
 
-        console.log($siteTitleWidth);
-        console.log($siteHeaderWidth);
-
         if ($siteTitle.length) {
             if ($siteTitleWidth > $siteHeaderWidth) {
-                $siteTitle.fitText();
+                $siteTitle.fitText(1.2, {
+                    minFontSize: '60px',
+                    maxFontSize: '70px'
+                });
             }
         }
     }

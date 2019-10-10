@@ -142,7 +142,7 @@ function resizeSiteTitle() {
 
   if($siteTitle.length) {
     if($siteTitleWidth > $siteHeaderWidth) {
-      $siteTitle.fitText();
+      $siteTitle.fitText(1.2, { minFontSize: '60px', maxFontSize: '70px' });
     }
   }
 }
