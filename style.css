@@ -3428,7 +3428,7 @@ button.mfp-arrow-right {
 }
 .nav--main li > a {
 	background-color: #ffeb00;
-	box-shadow: var(--box-shadow-color) 0 32px inset;
+	box-shadow: var(--box-shadow-color) 0 50px inset;
 	transition: box-shadow 0.2s ease;
 }
 .nav--main li > a:hover {
