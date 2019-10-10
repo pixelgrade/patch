@@ -89,10 +89,19 @@
 		&:hover > a {
 			@extend %link--underline--menu;
 
-			box-shadow: white 0 24px inset;
 			box-shadow: var(--box-shadow-color) 0 24px inset;
 		}
 
+		> a {
+			background-color: #ffeb00;
+			box-shadow: var(--box-shadow-color) 0 32px inset;
+
+			transition: box-shadow .2s ease;
+
+			&:hover {
+				box-shadow: var(--box-shadow-color) 0 24px inset;
+			}
+		}
 	}
 
 	> li {
