@@ -1106,8 +1106,11 @@ if (!Date.now)
 
     function resizeSiteTitle() {
         var $siteTitle = $('.site-title'),
-            $siteTitleWidth = $siteTitle.find('a').outerWidth(),
+            $siteTitleWidth = $('.site-title > a').outerWidth(),
             $siteHeaderWidth = $('.site-header').width();
+
+        console.log($siteTitleWidth);
+        console.log($siteHeaderWidth);
 
         if ($siteTitle.length) {
             if ($siteTitleWidth > $siteHeaderWidth) {

@@ -137,7 +137,7 @@ function unwrapBlockImages() {
 
 function resizeSiteTitle() {
   var $siteTitle = $('.site-title'),
-      $siteTitleWidth = $siteTitle.find('a').outerWidth(),
+      $siteTitleWidth = $('.site-title > a').outerWidth(),
       $siteHeaderWidth = $('.site-header').width();
 
   if($siteTitle.length) {
