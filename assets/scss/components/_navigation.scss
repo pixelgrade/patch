@@ -278,6 +278,10 @@
 	display: none;
 	overflow: hidden;
 
+	.site-title[class] {
+		margin-top: 0;
+	}
+
 	.admin-bar & {
 		top: 32px;
 
@@ -309,7 +313,8 @@
 	}
 
 	.site-logo-link,
-    .custom-logo-link {
+    .custom-logo-link,
+	.site-title  {
 		position: absolute;
 		top: 0;
 		left: 50%;

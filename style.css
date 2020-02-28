@@ -3604,6 +3604,9 @@ button.mfp-arrow-right {
 	width: 100%;
 	z-index: 50;
 }
+.mobile-header .site-title[class] {
+	margin-top: 0;
+}
 .admin-bar .mobile-header {
 	top: 32px;
 }
@@ -3630,7 +3633,8 @@ button.mfp-arrow-right {
 	}
 }
 .mobile-header .site-logo-link,
-.mobile-header .custom-logo-link {
+.mobile-header .custom-logo-link,
+.mobile-header .site-title {
 	left: 50%;
 	margin-top: 10px;
 	position: absolute;
@@ -3641,7 +3645,9 @@ button.mfp-arrow-right {
 .mobile-header .site-logo-link,
 .mobile-header .site-logo-link img,
 .mobile-header .custom-logo-link,
-.mobile-header .custom-logo-link img {
+.mobile-header .custom-logo-link img,
+.mobile-header .site-title,
+.mobile-header .site-title img {
 	height: 30px;
 	width: auto;
 }
