@@ -130,7 +130,7 @@ msgid "Patch Theme"
 msgstr ""
 
 #: footer.php:26
-msgid "The PixelGrade Website"
+msgid "The Pixelgrade Website"
 msgstr ""
 
 #: footer.php:37
@@ -805,7 +805,7 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "PixelGrade"
+msgid "Pixelgrade"
 msgstr ""
 
 #. Author URI of the plugin/theme

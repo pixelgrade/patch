@@ -130,7 +130,7 @@ msgid "Patch Theme"
 msgstr ""
 
 #: footer.php:26
-msgid "The PixelGrade Website"
+msgid "The Pixelgrade Website"
 msgstr ""
 
 #: footer.php:37
@@ -808,7 +808,7 @@ msgstr ""
 "deneyi. Patch, özenle oluşturduğunuz çeşitliliğinize birlik ve denge getirir."
 
 #. Author of the plugin/theme
-msgid "PixelGrade"
+msgid "Pixelgrade"
 msgstr ""
 
 #. Author URI of the plugin/theme
