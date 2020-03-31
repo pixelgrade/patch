@@ -6,14 +6,14 @@ Theme URI: https://demos.pixelgrade.com/patch/
 Author: Pixelgrade
 Author URI: https://pixelgrade.com/
 Description: An algorithmic design experiment that cleverly imagines the best layout for your content. Patch brings unity and balance to your beautiful crafted diversity.
-Version: 1.4.4
+Version: 1.5.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: patch
 Domain Path: /languages/
 Tags: adaptive, blog, bold, bright, clean, custom-menu, editor-style, featured-images, geometric, infinite-scroll, journal, left-sidebar, lifestream, light, magazine, microformats, minimal, modern, multiple-menus, news, one-column, post-formats, responsive-layout, rtl-language-support, scrapbooking, site-logo, smart, sticky-post, theme-options, threaded-comments, three-columns, translation-ready, two-columns, video, white
 Requires at least: 4.7
-Tested up to: 5.2
+Tested up to: 5.2.3
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -577,7 +577,7 @@ input[type="submit"],
 
 .edit-link a:hover,
 .grid__item .entry-content a:hover:not([class]),
-input[type="submit"]:hover,
+input:hover[type="submit"],
 .author-info__link:hover,
 .comments_add-comment:hover,
 .comment .comment-reply-title a:hover,
@@ -775,7 +775,6 @@ pre:before {
 }
 
 .wp-block-cover[class][class] {
-	display: -webkit-box;
 	display: flex;
 	margin-bottom: 1.125em; 
 	margin-top: 1.125em;
@@ -883,6 +882,25 @@ figure.wp-block-pullquote {
 
 .editor-block-list__block[data-align="left"] .wp-block-image img {
 	margin-left: -72px;
+}
+
+.wp-block-embed:not(.wp-block-embed-instagram) .responsive-container {
+	height: 0;
+	overflow: hidden; 
+	padding-bottom: 56.25%;
+	/* 16:9 */
+	padding-top: 0;
+	position: relative;
+}
+.wp-block-embed:not(.wp-block-embed-instagram) .responsive-container iframe,
+.wp-block-embed:not(.wp-block-embed-instagram) .responsive-container object,
+.wp-block-embed:not(.wp-block-embed-instagram) .responsive-container video,
+.wp-block-embed:not(.wp-block-embed-instagram) .responsive-container embed {
+	height: 100%; 
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
 }
 
 /**
@@ -1171,7 +1189,6 @@ textarea {
 .clearfix:after,
 .grid:after,
 .entry-card:after,
-.nav--main:after,
 :first-child:not(input) ~ .form-submit:after,
 .nav:after,
 .nav--main ul:after,
@@ -1357,8 +1374,10 @@ h5 {
 @media only screen and (min-width: 1000px) {
 	.twocolumn {
 		-webkit-column-count: 2;
+		-moz-column-count: 2;
 		column-count: 2;
 		-webkit-column-gap: 40px;
+		-moz-column-gap: 40px;
 		column-gap: 40px;
 	}
 }
@@ -2650,8 +2669,7 @@ button.mfp-arrow-right {
 
 @media (min-width: 480px) {
 	.rtl .entry-card.entry-card--portrait .entry-meta,
-	.rtl
-	.entry-card.entry-card--tall .entry-meta {
+	.rtl .entry-card.entry-card--tall .entry-meta {
 		padding-left: 12px;
 	}
 }
@@ -2686,8 +2704,7 @@ button.mfp-arrow-right {
 	.entry-card.entry-card--portrait,
 	.entry-card.entry-card--tall,
 	.rtl .entry-card.entry-card--portrait .entry-meta,
-	.rtl
-	.entry-card.entry-card--tall .entry-meta {
+	.rtl .entry-card.entry-card--tall .entry-meta {
 		margin-right: 0;
 	}
 }
@@ -2818,8 +2835,7 @@ button.mfp-arrow-right {
 
 @media (min-width: 1450px) {
 	.rtl .entry-card.entry-card--portrait .entry-meta,
-	.rtl
-	.entry-card.entry-card--tall .entry-meta {
+	.rtl .entry-card.entry-card--tall .entry-meta {
 		padding-left: 15px;
 	}
 }
@@ -2854,8 +2870,7 @@ button.mfp-arrow-right {
 	.entry-card.entry-card--portrait,
 	.entry-card.entry-card--tall,
 	.rtl .entry-card.entry-card--portrait .entry-meta,
-	.rtl
-	.entry-card.entry-card--tall .entry-meta {
+	.rtl .entry-card.entry-card--tall .entry-meta {
 		margin-right: 0;
 	}
 }
@@ -3399,6 +3414,14 @@ button.mfp-arrow-right {
 	margin-bottom: 24px;
 	/*.sub-menu*/
 }
+@media only screen and (min-width: 900px) {
+	.nav--main {
+		display: grid;
+
+		grid-column-gap: 10px; 
+		grid-template-columns: repeat(2, auto);
+	}
+}
 .single .nav--main,
 .page:not(.entry-card) .nav--main {
 	margin-bottom: 8px;
@@ -3417,15 +3440,15 @@ button.mfp-arrow-right {
 }
 .nav--main li[class*="current-menu"] > a,
 .nav--main li:hover > a {
-	box-shadow: white 0 24px inset;
 	box-shadow: var(--box-shadow-color) 0 24px inset;
 }
-@media only screen and (min-width: 900px) {
-	.nav--main > li {
-		float: left;
-		padding-right: 10px; 
-		width: 50%;
-	}
+.nav--main li > a {
+	background-color: #ffeb00;
+	box-shadow: var(--box-shadow-color) 0 50px inset;
+	transition: box-shadow 0.2s ease;
+}
+.nav--main li > a:hover {
+	box-shadow: var(--box-shadow-color) 0 24px inset;
 }
 .nav--main a {
 	display: block;
@@ -3438,9 +3461,6 @@ button.mfp-arrow-right {
 	.nav--main a {
 		display: inline !important;
 	}
-}
-.nav--main .menu-item-has-children {
-	padding-right: 0.5em;
 }
 .nav--main ul {
 	display: block;
@@ -3584,6 +3604,9 @@ button.mfp-arrow-right {
 	width: 100%;
 	z-index: 50;
 }
+.mobile-header .site-title[class] {
+	margin-top: 0;
+}
 .admin-bar .mobile-header {
 	top: 32px;
 }
@@ -3610,7 +3633,8 @@ button.mfp-arrow-right {
 	}
 }
 .mobile-header .site-logo-link,
-.mobile-header .custom-logo-link {
+.mobile-header .custom-logo-link,
+.mobile-header .site-title {
 	left: 50%;
 	margin-top: 10px;
 	position: absolute;
@@ -3621,7 +3645,9 @@ button.mfp-arrow-right {
 .mobile-header .site-logo-link,
 .mobile-header .site-logo-link img,
 .mobile-header .custom-logo-link,
-.mobile-header .custom-logo-link img {
+.mobile-header .custom-logo-link img,
+.mobile-header .site-title,
+.mobile-header .site-title img {
 	height: 30px;
 	width: auto;
 }
@@ -3664,7 +3690,7 @@ button.mfp-arrow-right {
 	top: 0;
 
 	-webkit-tap-highlight-color: transparent;
-	-webkit-tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	/* For some Androids */
 }
 
@@ -5753,30 +5779,6 @@ div#jp-post-flair {
 .page:not(.entry-card) .entry-meta > * {
 	display: inline-block;
 	margin-bottom: 5px;
-}
-
-.single .responsive-container,
-.page:not(.entry-card) .responsive-container {
-	height: 0;
-	overflow: hidden; 
-	padding-bottom: 56.25%;
-	/* 16:9 */
-	padding-top: 0;
-	position: relative;
-}
-.single .responsive-container iframe,
-.single .responsive-container object,
-.single .responsive-container video,
-.single .responsive-container embed,
-.page:not(.entry-card) .responsive-container iframe,
-.page:not(.entry-card) .responsive-container object,
-.page:not(.entry-card) .responsive-container video,
-.page:not(.entry-card) .responsive-container embed {
-	height: 100%; 
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 100%;
 }
 
 .page-links {

@@ -1,9 +1,9 @@
 === PATCH ===
 Authors: pixelgrade
 Tags: light, white, one-column, two-columns, three-columns, left-sidebar, responsive-layout, custom-menu, featured-images, editor-style, infinite-scroll, microformats, post-formats, rtl-language-support, site-logo, sticky-post, theme-options, threaded-comments, translation-ready, blog, journal, lifestream, magazine, news, scrapbooking, video, bright, clean, bold, geometric, minimal, modern, smart, adaptive
-Tested up to: 5.2
+Tested up to: 5.2.3
 Stable tag: 4.1
-Version: 1.4.4
+Version: 1.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

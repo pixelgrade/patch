@@ -6,9 +6,11 @@ $(document).ready(function() {
 
 function init() {
   browserSize();
-  platformDetect(); 
+  platformDetect();
+  resizeSiteTitle();
   masonry.refresh();
   reorderSingleFooter();
+  resizeSiteTitleCustomizer();
 }
 
 // /* ====== ON WINDOW LOAD ====== */
@@ -32,6 +34,7 @@ $window.load(function() {
 
 function onResize() {
   browserSize();
+  resizeSiteTitle();
   masonry.refresh();
   Sidebar.init();
 }

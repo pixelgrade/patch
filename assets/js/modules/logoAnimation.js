@@ -1,6 +1,8 @@
 var logoAnimation = (function() {
 
-	var $logo  = $('.site-logo-link, .custom-logo-link'),
+	var $logoImage =  $('.site-logo-link, .custom-logo-link'),
+		$logoTitle = $('.site-title'),
+		$logo  = $logoImage.length ? $logoImage : $logoTitle,
 		$clone,
 		distance,
 		initialized = false,

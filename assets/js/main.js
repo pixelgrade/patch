@@ -158,7 +158,9 @@ if (!Date.now)
     ;
     var logoAnimation = (function() {
 
-        var $logo = $('.site-logo-link, .custom-logo-link'),
+        var $logoImage = $('.site-logo-link, .custom-logo-link'),
+            $logoTitle = $('.site-title'),
+            $logo = $logoImage.length ? $logoImage : $logoTitle,
             $clone,
             distance,
             initialized = false,
@@ -226,6 +228,7 @@ if (!Date.now)
         }
 
     })();
+
     /* --- Magnific Popup Initialization --- */
 
     function magnificPopupInit() {
@@ -917,8 +920,10 @@ if (!Date.now)
     function init() {
         browserSize();
         platformDetect();
+        resizeSiteTitle();
         masonry.refresh();
         reorderSingleFooter();
+        resizeSiteTitleCustomizer();
     }
 
     // /* ====== ON WINDOW LOAD ====== */
@@ -942,6 +947,7 @@ if (!Date.now)
 
     function onResize() {
         browserSize();
+        resizeSiteTitle();
         masonry.refresh();
         Sidebar.init();
     }
@@ -1100,6 +1106,32 @@ if (!Date.now)
 
             $figure.unwrap();
         });
+    }
+
+    function resizeSiteTitle() {
+        var $siteTitle = $('.site-title');
+
+        $siteTitle.css('fontSize', '');
+
+        var siteTitleWidth = $('.site-title > a').outerWidth(),
+            siteHeaderWidth = $('.site-branding').width(),
+            siteTitleFontSize = parseInt($siteTitle.css('fontSize'), 10);
+
+        if ($siteTitle.length) {
+            if (siteTitleWidth > siteHeaderWidth) {
+                var newFontSize = siteTitleFontSize * siteHeaderWidth / siteTitleWidth;
+                $siteTitle.css('fontSize', newFontSize);
+            }
+        }
+    }
+
+    function resizeSiteTitleCustomizer() {
+        if (typeof wp !== "undefined" && typeof wp.customize !== "undefined") {
+            if (typeof wp.customize.selectiveRefresh !== "undefined") {
+                wp.customize.selectiveRefresh.bind('partial-content-rendered', resizeSiteTitle);
+            }
+            wp.customize.bind('change', resizeSiteTitle);
+        }
     }
 
 })(jQuery);
