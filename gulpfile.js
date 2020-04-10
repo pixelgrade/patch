@@ -1,4 +1,5 @@
 var theme = 'patch',
+  theme_txtdomain = theme,
 	gulp 		= require('gulp'),
 	sass 		= require('gulp-sass'),
 	prefix 		= require('gulp-autoprefixer'),
@@ -87,9 +88,18 @@ gulp.task('copy-folder', function () {
 });
 
 /**
+ * Replace strings in components to match the theme's - like textdomain, styles prefix, etc
+ */
+gulp.task( 'string-replace', ['copy-folder'], function() {
+  return gulp.src( '../build/' + theme + '/**/*.php' )
+    .pipe( replace( /['|"]__theme_txtd['|"]/g, '\'' + theme_txtdomain + '\'' ) ) // the text domain
+    .pipe( gulp.dest( '../build/' + theme ) );
+} );
+
+/**
  * Clean the folder of unneeded files and folders
  */
-gulp.task('build', ['copy-folder'], function () {
+gulp.task('build', ['string-replace'], function () {
 
 	// files that should not be present in build
 	files_to_remove = [

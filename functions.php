@@ -120,17 +120,6 @@ if ( ! function_exists( 'patch_setup' ) ) :
 		 */
 		add_editor_style( array( 'editor-style.css', patch_fonts_url() ) );
 
-		/**
-		 * Pixelgrade Care support
-		 */
-		add_theme_support( 'pixelgrade_care', array(
-				'support_url'   => 'https://pixelgrade.com/docs/patch/',
-				'changelog_url' => 'https://wupdates.com/patch-changelog',
-				'ock'           => 'Lm12n034gL19',
-				'ocs'           => '6AU8WKBK1yZRDerL57ObzDPM7SGWRp21Csi5Ti5LdVNG9MbP'
-			)
-		);
-
 		/*
 		 * Enable support for Visible Edit Shortcuts in the Customizer Preview
 		 *
