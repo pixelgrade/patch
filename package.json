@@ -7,8 +7,8 @@
         "gulp-beautify": "*",
         "gulp-combine-media-queries": "*",
         "gulp-concat": "*",
-        "gulp-csscomb": "*",
-        "gulp-exec": "*",
+        "gulp-csscomb": "^3.1.0",
+        "gulp-exec": "^5.0.0",
         "gulp-ignore": "*",
         "gulp-livereload": "*",
         "gulp-minify-css": "*",
@@ -16,6 +16,6 @@
         "gulp-prompt": "^0.2.0",
         "gulp-replace": "*",
         "gulp-ruby-sass": "*",
-        "gulp-sass": "*"
+        "gulp-sass": "^4.1.0"
     }
 }
