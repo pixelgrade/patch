@@ -360,6 +360,7 @@ h4,
 blockquote,
 input[type="submit"],
 .dropcap,
+.has-drop-cap[class]:first-letter,
 .mfp-container,
 .entry-card .entry-image .hover,
 .entry-card .entry-title,
@@ -1358,14 +1359,16 @@ h5 {
 /**
  *   4.1 - Theme specific classes
 */
-.intro {
+.intro,
+.is-style-lead {
 	font-size: 1.125rem;
 	font-weight: 500;
 	-webkit-font-smoothing: antialiased; 
 	line-height: 1.75;
 }
 @media not screen and (min-width: 900px) {
-	.intro {
+	.intro,
+	.is-style-lead {
 		color: #000000; 
 		font-size: 1.2em;
 	}
@@ -1383,6 +1386,19 @@ h5 {
 }
 
 .dropcap {
+	color: #171617;
+	float: left;
+	font-size: 4.625em;
+	font-weight: 200;
+	line-height: 1.13514;
+	line-height: 1;
+	margin-bottom: 0.03243em;
+	margin-right: 0.16216em;
+	text-shadow: 2px 2px 0px white, 4px 4px 0px #ffde00;
+	text-shadow: 2px 2px 0px var(--box-shadow-color), 4px 4px 0px #ffde00;
+}
+
+.has-drop-cap[class]:first-letter {
 	color: #171617;
 	float: left;
 	font-size: 4.625em;

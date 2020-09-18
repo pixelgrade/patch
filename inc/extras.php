@@ -742,3 +742,16 @@ function patch_body_attributes( $attributes ) {
 	return $attributes;
 }
 add_filter( 'pixelgrade_body_attributes', 'patch_body_attributes', 10, 1 );
+
+function patch_register_block_styles() {
+	register_block_style(
+		'core/paragraph',
+		array(
+			'name'  => 'lead',
+			'label' => 'Lead'
+		)
+	);
+}
+
+add_action('init', 'patch_register_block_styles' );
+

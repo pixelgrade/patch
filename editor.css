@@ -122,10 +122,89 @@ body {
 .edit-post-visual-editor .pointer-none {
 	pointer-events: none;
 }
+.edit-post-visual-editor .intro,
+.edit-post-visual-editor .is-style-lead {
+	font-size: 1.125rem;
+	font-weight: 500;
+	-webkit-font-smoothing: antialiased; 
+	line-height: 1.75;
+}
+@media not screen and (min-width: 900px) {
+	.edit-post-visual-editor .intro,
+	.edit-post-visual-editor .is-style-lead {
+		color: #000000; 
+		font-size: 1.2em;
+	}
+}
+@media only screen and (min-width: 1000px) {
+	.edit-post-visual-editor .twocolumn {
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+		-webkit-column-gap: 40px;
+		-moz-column-gap: 40px;
+		column-gap: 40px;
+	}
+}
+.edit-post-visual-editor .dropcap {
+	color: #171617;
+	float: left;
+	font-size: 4.625em;
+	font-weight: 200;
+	line-height: 1.13514;
+	line-height: 1;
+	margin-bottom: 0.03243em;
+	margin-right: 0.16216em;
+	text-shadow: 2px 2px 0px white, 4px 4px 0px #ffde00;
+	text-shadow: 2px 2px 0px var(--box-shadow-color), 4px 4px 0px #ffde00;
+}
+.edit-post-visual-editor .has-drop-cap[class]:first-letter {
+	color: #171617;
+	float: left;
+	font-size: 4.625em;
+	font-weight: 200;
+	line-height: 1.13514;
+	line-height: 1;
+	margin-bottom: 0.03243em;
+	margin-right: 0.16216em;
+	text-shadow: 2px 2px 0px white, 4px 4px 0px #ffde00;
+	text-shadow: 2px 2px 0px var(--box-shadow-color), 4px 4px 0px #ffde00;
+}
+.edit-post-visual-editor .highlight {
+	background: #ffde00;
+	padding: 3px 6px;
+}
+@media only screen and (min-width: 1200px) {
+	.edit-post-visual-editor .pull-left {
+		float: left;
+		margin-bottom: 1.5rem;
+		margin-left: -180px;
+		padding-left: 36px;
+		padding-right: 40px;
+		text-align: right; 
+		width: calc(200px + 50%);
+	}
+	.edit-post-visual-editor .pull-left + .pull-right {
+		margin-right: -180px;
+		padding-left: 0; 
+		width: calc(160px + 50%);
+	}
+	.edit-post-visual-editor .pull-right {
+		float: right;
+		margin-bottom: 1.5rem;
+		margin-right: -180px;
+		padding-left: 40px;
+		padding-right: 36px;
+		text-align: left; 
+		width: calc(200px + 50%);
+	}
+}
 .edit-post-visual-editor body,
 .edit-post-visual-editor h5 {
 	font-family: Roboto, sans-serif;
 }
+.edit-post-visual-editor .dropcap,
+.edit-post-visual-editor .has-drop-cap[class]:first-letter,
 .edit-post-visual-editor h1,
 .edit-post-visual-editor .site-title,
 .edit-post-visual-editor h2,
