@@ -533,7 +533,7 @@ img {
  *   -------------------------------------------------
 */
 .intro,
-.is-style-lead {
+.is-style-lead[class][class] {
 	font-size: 1.125rem;
 	font-weight: 500;
 	-webkit-font-smoothing: antialiased; 
@@ -541,7 +541,7 @@ img {
 }
 @media not screen and (min-width: 900px) {
 	.intro,
-	.is-style-lead {
+	.is-style-lead[class][class] {
 		color: #000000; 
 		font-size: 1.2em;
 	}
