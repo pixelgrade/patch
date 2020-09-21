@@ -167,3 +167,10 @@ figure.wp-block-pullquote {
         }
     }
 }
+
+.is-style-two-columns {
+    @include query-above($small) {
+        column-count: 2;
+        column-gap: 1em;
+    }
+}

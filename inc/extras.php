@@ -751,6 +751,14 @@ function patch_register_block_styles() {
 			'label' => 'Lead'
 		)
 	);
+
+	register_block_style(
+		'core/paragraph',
+		array(
+			'name'  => 'two-columns',
+			'label' => 'Two Columns'
+		)
+	);
 }
 
 add_action('init', 'patch_register_block_styles' );
