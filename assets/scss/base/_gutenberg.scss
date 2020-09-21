@@ -47,13 +47,15 @@ pre.wp-block-verse {
     color: inherit;
 }
 
-.editor-block-list__layout .editor-block-list__block[data-align=left] .editor-block-list__block-edit {
+.editor-block-list__layout .editor-block-list__block[data-align=left] .editor-block-list__block-edit,
+.editor-block-list__layout .block-editor-block-list__block[data-align=left] .editor-block-list__block-edit {
     margin-right: 0;
     margin-bottom: 0;
 }
 
 .wp-block-image .alignleft,
-.editor-block-list__layout .editor-block-list__block[data-align=left] .editor-block-list__block-edit > * {
+.editor-block-list__layout .editor-block-list__block[data-align=left] .editor-block-list__block-edit > *,
+.editor-block-list__layout .block-editor-block-list__block[data-align=left] .editor-block-list__block-edit > * {
 
     @media only screen and (min-width: 899px) {
         margin-right: 3em;
@@ -65,13 +67,15 @@ pre.wp-block-verse {
     }
 }
 
-.editor-block-list__layout .editor-block-list__block[data-align=right] .editor-block-list__block-edit {
+.editor-block-list__layout .editor-block-list__block[data-align=right] .editor-block-list__block-edit,
+.editor-block-list__layout .block-editor-block-list__block[data-align=right] .editor-block-list__block-edit {
     margin-left: 0;
     margin-bottom: 0;
 }
 
 .wp-block-image .alignright,
-.editor-block-list__layout .editor-block-list__block[data-align=right] .editor-block-list__block-edit > * {
+.editor-block-list__layout .editor-block-list__block[data-align=right] .editor-block-list__block-edit > *,
+.editor-block-list__layout .block-editor-block-list__block[data-align=right] .editor-block-list__block-edit > * {
 
     @media only screen and (min-width: 899px) {
         margin-left: 3em;
@@ -107,7 +111,8 @@ figure.wp-block-pullquote {
     margin-left: 3em;
 }
 
-.editor-block-list__block {
+.editor-block-list__block,
+.block-editor-block-list__block {
     &[data-align="center"] {
         .wp-block-image {
             img {
