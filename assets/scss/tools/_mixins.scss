@@ -197,3 +197,19 @@ $placeholders: ();
 @mixin _($name) {
       @extend %#{$name}-#{$cards-gutter}-#{$current-breakpoint} !optional;
 }
+
+@mixin dropcap {
+  @extend %beta;
+
+  float: left;
+  @include rhythm(margin-bottom, 0.2, 74px);
+  @include rhythm(margin-right, 1, 74px);
+
+  @include font-size(74px);
+  font-weight: 200;
+  line-height: 1;
+
+  color: $dark;
+  text-shadow: 2px 2px 0px white, 4px 4px 0px $accent;
+  text-shadow: 2px 2px 0px var(--box-shadow-color), 4px 4px 0px $accent;
+}

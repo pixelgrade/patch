@@ -257,6 +257,7 @@ function patch_gutenberg_styles() {
 
 	$style = '
 	    .edit-post-visual-editor[class] .editor-block-list__block,
+	    .edit-post-visual-editor[class] .block-editor-block-list__block,
         .edit-post-visual-editor[class] .editor-post-title__block {
             max-width: ' . $width . 'px;
         }

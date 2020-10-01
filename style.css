@@ -6,14 +6,14 @@ Theme URI: https://demos.pixelgrade.com/patch/
 Author: Pixelgrade
 Author URI: https://pixelgrade.com/
 Description: An algorithmic design experiment that cleverly imagines the best layout for your content. Patch brings unity and balance to your beautiful crafted diversity.
-Version: 1.5.0
+Version: 1.6.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: patch
 Domain Path: /languages/
 Tags: adaptive, blog, bold, bright, clean, custom-menu, editor-style, featured-images, geometric, infinite-scroll, journal, left-sidebar, lifestream, light, magazine, microformats, minimal, modern, multiple-menus, news, one-column, post-formats, responsive-layout, rtl-language-support, scrapbooking, site-logo, smart, sticky-post, theme-options, threaded-comments, three-columns, translation-ready, two-columns, video, white
 Requires at least: 4.7
-Tested up to: 5.2.3
+Tested up to: 5.5.1
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -360,6 +360,7 @@ h4,
 blockquote,
 input[type="submit"],
 .dropcap,
+.has-drop-cap[class]:first-letter,
 .mfp-container,
 .entry-card .entry-image .hover,
 .entry-card .entry-title,
@@ -797,14 +798,16 @@ pre.wp-block-verse {
 	color: inherit;
 }
 
-.editor-block-list__layout .editor-block-list__block[data-align=left] .editor-block-list__block-edit {
+.editor-block-list__layout .editor-block-list__block[data-align=left] .editor-block-list__block-edit,
+.editor-block-list__layout .block-editor-block-list__block[data-align=left] .editor-block-list__block-edit {
 	margin-bottom: 0; 
 	margin-right: 0;
 }
 
 @media only screen and (min-width: 899px) {
 	.wp-block-image .alignleft,
-	.editor-block-list__layout .editor-block-list__block[data-align=left] .editor-block-list__block-edit > * {
+	.editor-block-list__layout .editor-block-list__block[data-align=left] .editor-block-list__block-edit > *,
+	.editor-block-list__layout .block-editor-block-list__block[data-align=left] .editor-block-list__block-edit > * {
 		margin-right: 3em;
 		width: auto;
 	}
@@ -812,19 +815,22 @@ pre.wp-block-verse {
 
 @media only screen and (min-width: 1359px) {
 	.wp-block-image .alignleft,
-	.editor-block-list__layout .editor-block-list__block[data-align=left] .editor-block-list__block-edit > * {
+	.editor-block-list__layout .editor-block-list__block[data-align=left] .editor-block-list__block-edit > *,
+	.editor-block-list__layout .block-editor-block-list__block[data-align=left] .editor-block-list__block-edit > * {
 		margin-left: -3.75em;
 	}
 }
 
-.editor-block-list__layout .editor-block-list__block[data-align=right] .editor-block-list__block-edit {
+.editor-block-list__layout .editor-block-list__block[data-align=right] .editor-block-list__block-edit,
+.editor-block-list__layout .block-editor-block-list__block[data-align=right] .editor-block-list__block-edit {
 	margin-bottom: 0; 
 	margin-left: 0;
 }
 
 @media only screen and (min-width: 899px) {
 	.wp-block-image .alignright,
-	.editor-block-list__layout .editor-block-list__block[data-align=right] .editor-block-list__block-edit > * {
+	.editor-block-list__layout .editor-block-list__block[data-align=right] .editor-block-list__block-edit > *,
+	.editor-block-list__layout .block-editor-block-list__block[data-align=right] .editor-block-list__block-edit > * {
 		margin-left: 3em;
 		width: auto;
 	}
@@ -832,7 +838,8 @@ pre.wp-block-verse {
 
 @media only screen and (min-width: 1359px) {
 	.wp-block-image .alignright,
-	.editor-block-list__layout .editor-block-list__block[data-align=right] .editor-block-list__block-edit > * {
+	.editor-block-list__layout .editor-block-list__block[data-align=right] .editor-block-list__block-edit > *,
+	.editor-block-list__layout .block-editor-block-list__block[data-align=right] .editor-block-list__block-edit > * {
 		margin-right: -3.75em;
 	}
 }
@@ -861,26 +868,31 @@ figure.wp-block-pullquote {
 	margin-right: -3.75em;
 }
 
-.editor-block-list__block[data-align="center"] .wp-block-image img {
+.editor-block-list__block[data-align="center"] .wp-block-image img,
+.block-editor-block-list__block[data-align="center"] .wp-block-image img {
 	margin-left: -72px;
 	margin-right: -72px;
 	max-width: calc(144px + 100%); 
 	width: auto;
 }
 
-.editor-block-list__block[data-align="right"] .editor-block-list__block-edit {
+.editor-block-list__block[data-align="right"] .editor-block-list__block-edit,
+.block-editor-block-list__block[data-align="right"] .editor-block-list__block-edit {
 	max-width: calc(50% + 72px - 20px);
 }
 
-.editor-block-list__block[data-align="right"] .wp-block-image img {
+.editor-block-list__block[data-align="right"] .wp-block-image img,
+.block-editor-block-list__block[data-align="right"] .wp-block-image img {
 	margin-right: -72px;
 }
 
-.editor-block-list__block[data-align="left"] .editor-block-list__block-edit {
+.editor-block-list__block[data-align="left"] .editor-block-list__block-edit,
+.block-editor-block-list__block[data-align="left"] .editor-block-list__block-edit {
 	max-width: calc(50% + 72px - 20px);
 }
 
-.editor-block-list__block[data-align="left"] .wp-block-image img {
+.editor-block-list__block[data-align="left"] .wp-block-image img,
+.block-editor-block-list__block[data-align="left"] .wp-block-image img {
 	margin-left: -72px;
 }
 
@@ -901,6 +913,17 @@ figure.wp-block-pullquote {
 	position: absolute;
 	top: 0;
 	width: 100%;
+}
+
+@media only screen and (min-width: 740px) {
+	.is-style-two-columns {
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+		-webkit-column-gap: 1em;
+		-moz-column-gap: 1em;
+		column-gap: 1em;
+	}
 }
 
 /**
@@ -1358,14 +1381,16 @@ h5 {
 /**
  *   4.1 - Theme specific classes
 */
-.intro {
+.intro,
+.is-style-lead[class][class] {
 	font-size: 1.125rem;
 	font-weight: 500;
 	-webkit-font-smoothing: antialiased; 
 	line-height: 1.75;
 }
 @media not screen and (min-width: 900px) {
-	.intro {
+	.intro,
+	.is-style-lead[class][class] {
 		color: #000000; 
 		font-size: 1.2em;
 	}
@@ -1383,6 +1408,19 @@ h5 {
 }
 
 .dropcap {
+	color: #171617;
+	float: left;
+	font-size: 4.625em;
+	font-weight: 200;
+	line-height: 1.13514;
+	line-height: 1;
+	margin-bottom: 0.03243em;
+	margin-right: 0.16216em;
+	text-shadow: 2px 2px 0px white, 4px 4px 0px #ffde00;
+	text-shadow: 2px 2px 0px var(--box-shadow-color), 4px 4px 0px #ffde00;
+}
+
+.has-drop-cap[class]:first-letter {
 	color: #171617;
 	float: left;
 	font-size: 4.625em;
