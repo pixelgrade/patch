@@ -928,7 +928,7 @@ if (!Date.now)
 
     // /* ====== ON WINDOW LOAD ====== */
 
-    $window.load(function() {
+    $window.on('load', function() {
         browserSize();
         Sidebar.init();
         navigation.init();
